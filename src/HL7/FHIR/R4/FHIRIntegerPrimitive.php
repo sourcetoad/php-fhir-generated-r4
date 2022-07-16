@@ -6,7 +6,7 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 16th, 2022 19:38+0000
+ * Class creation date: July 16th, 2022 20:24+0000
  * 
  * PHPFHIR Copyright:
  * 
@@ -79,7 +79,7 @@ class FHIRIntegerPrimitive implements PHPFHIRTypeInterface
     private $_xmlns = '';
 
     /**
-     * @var null|integer
+     * @var null|int
      */
     protected $value = null;
 
@@ -95,7 +95,7 @@ class FHIRIntegerPrimitive implements PHPFHIRTypeInterface
 
     /**
      * FHIRIntegerPrimitive Constructor
-     * @param null|integer $value
+     * @param null|int $value
      */
     public function __construct($value = null)
     {
@@ -133,7 +133,7 @@ class FHIRIntegerPrimitive implements PHPFHIRTypeInterface
     }
 
     /**
-     * @return null|integer
+     * @return null|int
      */
     public function getValue()
     {
@@ -279,11 +279,7 @@ class FHIRIntegerPrimitive implements PHPFHIRTypeInterface
         return $element;
     }
 
-    /**
-     * @return null|integer
-     */
-    public function jsonSerialize()
-    {
+    public function jsonSerialize(): ?int    {
         return $this->getValue();
     }
 

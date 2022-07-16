@@ -6,7 +6,7 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 16th, 2022 19:38+0000
+ * Class creation date: July 16th, 2022 20:24+0000
  * 
  * PHPFHIR Copyright:
  * 
@@ -1239,10 +1239,7 @@ class FHIRExplanationOfBenefit extends FHIRDomainResource implements PHPFHIRCont
         }
         return "<ExplanationOfBenefit{$xmlns}></ExplanationOfBenefit>";
     }
-    /**
-     * @return string
-     */
-    public function _getResourceType()
+    public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
     }
@@ -4504,9 +4501,7 @@ class FHIRExplanationOfBenefit extends FHIRDomainResource implements PHPFHIRCont
         return $element;
     }
 
-    /**
-     * @return array
-     */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $a = parent::jsonSerialize();

@@ -6,7 +6,7 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 16th, 2022 19:38+0000
+ * Class creation date: July 16th, 2022 20:24+0000
  * 
  * PHPFHIR Copyright:
  * 
@@ -86,7 +86,7 @@ class PHPFHIRResponseParserConfig implements \JsonSerializable
      * PHPFHIRResponseParserConfig Constructor
      * @param array $config
      */
-    public function __construct(array $config = [])
+    public function __construct(array $config = []): void
     {
         foreach(self::$_keysWithDefaults as $k => $v) {
             if (isset($config[$k]) || array_key_exists($k, $config)) {
@@ -97,43 +97,27 @@ class PHPFHIRResponseParserConfig implements \JsonSerializable
         }
     }
 
-    /**
-     * @param bool $registerAutoloader
-     * @return void
-     */
-    public function setRegisterAutoloader($registerAutoloader)
+    public function setRegisterAutoloader(bool $registerAutoloader): void
     {
         $this->registerAutoloader = (bool)$registerAutoloader;
     }
 
-    /**
-     * @return bool
-     */
-    public function getRegisterAutoloader()
+    public function getRegisterAutoloader(): bool
     {
         return $this->registerAutoloader;
     }
 
-    /**
-     * @param int $libxmlOpts
-     */
-    public function setLibxmlOpts($libxmlOpts)
+    public function setLibxmlOpts(int $libxmlOpts): void
     {
         $this->libxmlOpts = (int)$libxmlOpts;
     }
 
-    /**
-     * @return int
-     */
-    public function getLibxmlOpts()
+    public function getLibxmlOpts(): int
     {
         return $this->libxmlOpts;
     }
 
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $a = [];
         foreach(self::$_keysWithDefaults as $k => $_) {

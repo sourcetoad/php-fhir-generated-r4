@@ -22,4 +22,7 @@
             <directory>src/HL7/FHIR/R4/PHPFHIRTests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <ini name="memory_limit" value="512M" />
+    </php>
 </phpunit>
