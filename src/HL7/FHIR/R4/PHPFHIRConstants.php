@@ -6,7 +6,7 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 16th, 2022 20:24+0000
+ * Class creation date: July 18th, 2022 14:35+0000
  * 
  * PHPFHIR Copyright:
  * 
@@ -73,7 +73,7 @@ abstract class PHPFHIRConstants
     public const SOURCE_GENERATION_DATE = 'Fri, Nov 1, 2019 09:29+1100';
 
     // PHPFHIR
-    public const CODE_GENERATION_DATE = 'July 16th, 2022 20:24+0000';
+    public const CODE_GENERATION_DATE = 'July 18th, 2022 14:35+0000';
 
     // Common
     public const JSON_FIELD_RESOURCE_TYPE = 'resourceType';
