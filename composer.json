@@ -2,7 +2,7 @@
     "name": "sourcetoad/php-fhir-generated-r4",
     "description": "Auto-generated FHIR F4 spec (4.0.1) from php-fhir.",
     "type": "library",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
             "HL7\\FHIR\\R4\\": "src/HL7/FHIR/R4"
