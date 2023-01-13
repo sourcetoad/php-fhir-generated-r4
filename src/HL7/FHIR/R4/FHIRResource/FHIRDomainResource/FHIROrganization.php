@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -124,7 +124,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Value of "true" or "false"
@@ -132,9 +132,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the organization's record is still in active use.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $active = null;
+    protected ?FHIRBoolean $active = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -146,7 +146,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $type = [];
+    protected ?array $type = [];
 
     /**
      * A sequence of Unicode characters
@@ -155,9 +155,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A name associated with the organization.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -167,9 +167,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A list of alternate names that the organization is known as, or was known as in
      * the past.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $alias = [];
+    protected ?array $alias = [];
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -181,7 +181,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $telecom = [];
+    protected ?array $telecom = [];
 
     /**
      * An address expressed using postal conventions (as opposed to GPS or other
@@ -196,7 +196,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAddress[]
      */
-    protected $address = [];
+    protected ?array $address = [];
 
     /**
      * A reference from one resource to another.
@@ -207,7 +207,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $partOf = null;
+    protected ?FHIRReference $partOf = null;
 
     /**
      * A formally or informally recognized grouping of people or organizations formed
@@ -219,7 +219,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROrganization\FHIROrganizationContact[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A reference from one resource to another.
@@ -230,13 +230,13 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $endpoint = [];
+    protected ?array $endpoint = [];
 
     /**
      * Validation map for fields in type Organization
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIROrganization Constructor
@@ -273,8 +273,8 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_ACTIVE]) || isset($data[self::FIELD_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_ACTIVE]) ? $data[self::FIELD_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $ext = $data[self::FIELD_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $data[self::FIELD_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setActive($value);
@@ -306,8 +306,8 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -321,8 +321,8 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_ALIAS]) || isset($data[self::FIELD_ALIAS_EXT])) {
-            $value = isset($data[self::FIELD_ALIAS]) ? $data[self::FIELD_ALIAS] : null;
-            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $ext = $data[self::FIELD_ALIAS_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALIAS] ?? null;
+            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $data[self::FIELD_ALIAS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addAlias($value);
@@ -431,11 +431,17 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -444,6 +450,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<Organization{$xmlns}></Organization>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -461,7 +470,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -478,7 +487,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -497,7 +506,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -522,9 +531,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the organization's record is still in active use.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getActive()
+    public function getActive(): ?FHIRBoolean
     {
         return $this->active;
     }
@@ -535,10 +544,10 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the organization's record is still in active use.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
      * @return static
      */
-    public function setActive($active = null)
+    public function setActive($active = null): object
     {
         if (null !== $active && !($active instanceof FHIRBoolean)) {
             $active = new FHIRBoolean($active);
@@ -558,7 +567,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getType()
+    public function getType(): ?array
     {
         return $this->type;
     }
@@ -574,7 +583,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function addType(FHIRCodeableConcept $type = null)
+    public function addType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueAdded();
         $this->type[] = $type;
@@ -592,7 +601,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $type
      * @return static
      */
-    public function setType(array $type = [])
+    public function setType(array $type = []): object
     {
         if ([] !== $this->type) {
             $this->_trackValuesRemoved(count($this->type));
@@ -618,9 +627,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A name associated with the organization.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -632,10 +641,10 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A name associated with the organization.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -653,9 +662,9 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A list of alternate names that the organization is known as, or was known as in
      * the past.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getAlias()
+    public function getAlias(): ?array
     {
         return $this->alias;
     }
@@ -668,10 +677,10 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A list of alternate names that the organization is known as, or was known as in
      * the past.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $alias
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function addAlias($alias = null)
+    public function addAlias($alias = null): object
     {
         if (null !== $alias && !($alias instanceof FHIRString)) {
             $alias = new FHIRString($alias);
@@ -692,7 +701,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function setAlias(array $alias = [])
+    public function setAlias(array $alias = []): object
     {
         if ([] !== $this->alias) {
             $this->_trackValuesRemoved(count($this->alias));
@@ -721,7 +730,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getTelecom()
+    public function getTelecom(): ?array
     {
         return $this->telecom;
     }
@@ -737,7 +746,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $telecom
      * @return static
      */
-    public function addTelecom(FHIRContactPoint $telecom = null)
+    public function addTelecom(?FHIRContactPoint $telecom = null): object
     {
         $this->_trackValueAdded();
         $this->telecom[] = $telecom;
@@ -755,7 +764,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $telecom
      * @return static
      */
-    public function setTelecom(array $telecom = [])
+    public function setTelecom(array $telecom = []): object
     {
         if ([] !== $this->telecom) {
             $this->_trackValuesRemoved(count($this->telecom));
@@ -787,7 +796,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAddress[]
      */
-    public function getAddress()
+    public function getAddress(): ?array
     {
         return $this->address;
     }
@@ -806,7 +815,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAddress $address
      * @return static
      */
-    public function addAddress(FHIRAddress $address = null)
+    public function addAddress(?FHIRAddress $address = null): object
     {
         $this->_trackValueAdded();
         $this->address[] = $address;
@@ -827,7 +836,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAddress[] $address
      * @return static
      */
-    public function setAddress(array $address = [])
+    public function setAddress(array $address = []): object
     {
         if ([] !== $this->address) {
             $this->_trackValuesRemoved(count($this->address));
@@ -855,7 +864,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPartOf()
+    public function getPartOf(): ?FHIRReference
     {
         return $this->partOf;
     }
@@ -870,7 +879,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $partOf
      * @return static
      */
-    public function setPartOf(FHIRReference $partOf = null)
+    public function setPartOf(?FHIRReference $partOf = null): object
     {
         $this->_trackValueSet($this->partOf, $partOf);
         $this->partOf = $partOf;
@@ -887,7 +896,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROrganization\FHIROrganizationContact[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -903,7 +912,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROrganization\FHIROrganizationContact $contact
      * @return static
      */
-    public function addContact(FHIROrganizationContact $contact = null)
+    public function addContact(?FHIROrganizationContact $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -921,7 +930,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROrganization\FHIROrganizationContact[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -949,7 +958,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?array
     {
         return $this->endpoint;
     }
@@ -964,7 +973,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $endpoint
      * @return static
      */
-    public function addEndpoint(FHIRReference $endpoint = null)
+    public function addEndpoint(?FHIRReference $endpoint = null): object
     {
         $this->_trackValueAdded();
         $this->endpoint[] = $endpoint;
@@ -981,7 +990,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $endpoint
      * @return static
      */
-    public function setEndpoint(array $endpoint = [])
+    public function setEndpoint(array $endpoint = []): object
     {
         if ([] !== $this->endpoint) {
             $this->_trackValuesRemoved(count($this->endpoint));
@@ -1310,15 +1319,15 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganization
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganization    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIROrganization::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1338,7 +1347,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1448,7 +1457,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1546,46 +1555,48 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTIVE] = $val;
+                $out->{self::FIELD_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTIVE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getType())) {
-            $a[self::FIELD_TYPE] = [];
+            $out->{self::FIELD_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TYPE][] = $v;
+                $out->{self::FIELD_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAlias())) {
@@ -1597,7 +1608,7 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1606,52 +1617,55 @@ class FHIROrganization extends FHIRDomainResource implements PHPFHIRContainedTyp
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_ALIAS] = $vals;
+                $out->{self::FIELD_ALIAS} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_ALIAS_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALIAS_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getTelecom())) {
-            $a[self::FIELD_TELECOM] = [];
+            $out->{self::FIELD_TELECOM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TELECOM][] = $v;
+                $out->{self::FIELD_TELECOM}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getAddress())) {
-            $a[self::FIELD_ADDRESS] = [];
+            $out->{self::FIELD_ADDRESS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDRESS][] = $v;
+                $out->{self::FIELD_ADDRESS}[] = $v;
             }
         }
         if (null !== ($v = $this->getPartOf())) {
-            $a[self::FIELD_PART_OF] = $v;
+            $out->{self::FIELD_PART_OF} = $v;
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEndpoint())) {
-            $a[self::FIELD_ENDPOINT] = [];
+            $out->{self::FIELD_ENDPOINT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENDPOINT][] = $v;
+                $out->{self::FIELD_ENDPOINT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

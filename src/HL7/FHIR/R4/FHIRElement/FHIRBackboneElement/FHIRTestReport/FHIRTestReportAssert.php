@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestReport;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestReport;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTestReportActionResult
      */
-    protected $result = null;
+    protected ?FHIRTestReportActionResult $result = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -112,9 +112,9 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * An explanatory message associated with the result.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $message = null;
+    protected ?FHIRMarkdown $message = null;
 
     /**
      * A sequence of Unicode characters
@@ -123,15 +123,15 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * A link to further details on the result.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $detail = null;
+    protected ?FHIRString $detail = null;
 
     /**
      * Validation map for fields in type TestReport.Assert
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTestReportAssert Constructor
@@ -150,8 +150,8 @@ class FHIRTestReportAssert extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_RESULT]) || isset($data[self::FIELD_RESULT_EXT])) {
-            $value = isset($data[self::FIELD_RESULT]) ? $data[self::FIELD_RESULT] : null;
-            $ext = (isset($data[self::FIELD_RESULT_EXT]) && is_array($data[self::FIELD_RESULT_EXT])) ? $ext = $data[self::FIELD_RESULT_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESULT] ?? null;
+            $ext = (isset($data[self::FIELD_RESULT_EXT]) && is_array($data[self::FIELD_RESULT_EXT])) ? $data[self::FIELD_RESULT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTestReportActionResult) {
                     $this->setResult($value);
@@ -165,8 +165,8 @@ class FHIRTestReportAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MESSAGE]) || isset($data[self::FIELD_MESSAGE_EXT])) {
-            $value = isset($data[self::FIELD_MESSAGE]) ? $data[self::FIELD_MESSAGE] : null;
-            $ext = (isset($data[self::FIELD_MESSAGE_EXT]) && is_array($data[self::FIELD_MESSAGE_EXT])) ? $ext = $data[self::FIELD_MESSAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MESSAGE] ?? null;
+            $ext = (isset($data[self::FIELD_MESSAGE_EXT]) && is_array($data[self::FIELD_MESSAGE_EXT])) ? $data[self::FIELD_MESSAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setMessage($value);
@@ -180,8 +180,8 @@ class FHIRTestReportAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DETAIL]) || isset($data[self::FIELD_DETAIL_EXT])) {
-            $value = isset($data[self::FIELD_DETAIL]) ? $data[self::FIELD_DETAIL] : null;
-            $ext = (isset($data[self::FIELD_DETAIL_EXT]) && is_array($data[self::FIELD_DETAIL_EXT])) ? $ext = $data[self::FIELD_DETAIL_EXT] : $ext = [];
+            $value = $data[self::FIELD_DETAIL] ?? null;
+            $ext = (isset($data[self::FIELD_DETAIL_EXT]) && is_array($data[self::FIELD_DETAIL_EXT])) ? $data[self::FIELD_DETAIL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDetail($value);
@@ -196,11 +196,17 @@ class FHIRTestReportAssert extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -218,7 +224,7 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTestReportActionResult
      */
-    public function getResult()
+    public function getResult(): ?FHIRTestReportActionResult
     {
         return $this->result;
     }
@@ -232,7 +238,7 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTestReportActionResult $result
      * @return static
      */
-    public function setResult(FHIRTestReportActionResult $result = null)
+    public function setResult(?FHIRTestReportActionResult $result = null): object
     {
         $this->_trackValueSet($this->result, $result);
         $this->result = $result;
@@ -250,9 +256,9 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * An explanatory message associated with the result.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getMessage()
+    public function getMessage(): ?FHIRMarkdown
     {
         return $this->message;
     }
@@ -268,10 +274,10 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * An explanatory message associated with the result.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $message
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $message
      * @return static
      */
-    public function setMessage($message = null)
+    public function setMessage($message = null): object
     {
         if (null !== $message && !($message instanceof FHIRMarkdown)) {
             $message = new FHIRMarkdown($message);
@@ -288,9 +294,9 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * A link to further details on the result.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDetail()
+    public function getDetail(): ?FHIRString
     {
         return $this->detail;
     }
@@ -302,10 +308,10 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      *
      * A link to further details on the result.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $detail
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $detail
      * @return static
      */
-    public function setDetail($detail = null)
+    public function setDetail($detail = null): object
     {
         if (null !== $detail && !($detail instanceof FHIRString)) {
             $detail = new FHIRString($detail);
@@ -432,15 +438,15 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestReport\FHIRTestReportAssert
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestReport\FHIRTestReportAssert    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTestReportAssert::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -460,7 +466,7 @@ class FHIRTestReportAssert extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -514,7 +520,7 @@ class FHIRTestReportAssert extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -542,41 +548,44 @@ class FHIRTestReportAssert extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getResult())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESULT] = $val;
+                $out->{self::FIELD_RESULT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTestReportActionResult::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESULT_EXT] = $ext;
+            unset($ext->{FHIRTestReportActionResult::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESULT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMessage())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MESSAGE] = $val;
+                $out->{self::FIELD_MESSAGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MESSAGE_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MESSAGE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDetail())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DETAIL] = $val;
+                $out->{self::FIELD_DETAIL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DETAIL_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DETAIL_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

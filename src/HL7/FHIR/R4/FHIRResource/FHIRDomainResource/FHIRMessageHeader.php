@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -125,7 +125,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $eventCoding = null;
+    protected ?FHIRCoding $eventCoding = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -137,9 +137,9 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * value "http://terminology.hl7.org/CodeSystem/message-events". Alternatively uri
      * to the EventDefinition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $eventUri = null;
+    protected ?FHIRUri $eventUri = null;
 
     /**
      * The header for a message exchange that is either requesting or responding to an
@@ -151,7 +151,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderDestination[]
      */
-    protected $destination = [];
+    protected ?array $destination = [];
 
     /**
      * A reference from one resource to another.
@@ -162,7 +162,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $sender = null;
+    protected ?FHIRReference $sender = null;
 
     /**
      * A reference from one resource to another.
@@ -175,7 +175,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $enterer = null;
+    protected ?FHIRReference $enterer = null;
 
     /**
      * A reference from one resource to another.
@@ -188,7 +188,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $author = null;
+    protected ?FHIRReference $author = null;
 
     /**
      * The header for a message exchange that is either requesting or responding to an
@@ -200,7 +200,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderSource
      */
-    protected $source = null;
+    protected ?FHIRMessageHeaderSource $source = null;
 
     /**
      * A reference from one resource to another.
@@ -213,7 +213,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $responsible = null;
+    protected ?FHIRReference $responsible = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -226,7 +226,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $reason = null;
+    protected ?FHIRCodeableConcept $reason = null;
 
     /**
      * The header for a message exchange that is either requesting or responding to an
@@ -239,7 +239,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderResponse
      */
-    protected $response = null;
+    protected ?FHIRMessageHeaderResponse $response = null;
 
     /**
      * A reference from one resource to another.
@@ -251,7 +251,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $focus = [];
+    protected ?array $focus = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -261,15 +261,15 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Permanent link to the MessageDefinition for this message.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $definition = null;
+    protected ?FHIRCanonical $definition = null;
 
     /**
      * Validation map for fields in type MessageHeader
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMessageHeader Constructor
@@ -295,8 +295,8 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_EVENT_URI]) || isset($data[self::FIELD_EVENT_URI_EXT])) {
-            $value = isset($data[self::FIELD_EVENT_URI]) ? $data[self::FIELD_EVENT_URI] : null;
-            $ext = (isset($data[self::FIELD_EVENT_URI_EXT]) && is_array($data[self::FIELD_EVENT_URI_EXT])) ? $ext = $data[self::FIELD_EVENT_URI_EXT] : $ext = [];
+            $value = $data[self::FIELD_EVENT_URI] ?? null;
+            $ext = (isset($data[self::FIELD_EVENT_URI_EXT]) && is_array($data[self::FIELD_EVENT_URI_EXT])) ? $data[self::FIELD_EVENT_URI_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setEventUri($value);
@@ -395,8 +395,8 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_DEFINITION]) || isset($data[self::FIELD_DEFINITION_EXT])) {
-            $value = isset($data[self::FIELD_DEFINITION]) ? $data[self::FIELD_DEFINITION] : null;
-            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $ext = $data[self::FIELD_DEFINITION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DEFINITION] ?? null;
+            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $data[self::FIELD_DEFINITION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setDefinition($value);
@@ -411,11 +411,17 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -424,6 +430,9 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
         }
         return "<MessageHeader{$xmlns}></MessageHeader>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -442,7 +451,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getEventCoding()
+    public function getEventCoding(): ?FHIRCoding
     {
         return $this->eventCoding;
     }
@@ -460,7 +469,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $eventCoding
      * @return static
      */
-    public function setEventCoding(FHIRCoding $eventCoding = null)
+    public function setEventCoding(?FHIRCoding $eventCoding = null): object
     {
         $this->_trackValueSet($this->eventCoding, $eventCoding);
         $this->eventCoding = $eventCoding;
@@ -477,9 +486,9 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * value "http://terminology.hl7.org/CodeSystem/message-events". Alternatively uri
      * to the EventDefinition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getEventUri()
+    public function getEventUri(): ?FHIRUri
     {
         return $this->eventUri;
     }
@@ -494,10 +503,10 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * value "http://terminology.hl7.org/CodeSystem/message-events". Alternatively uri
      * to the EventDefinition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $eventUri
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $eventUri
      * @return static
      */
-    public function setEventUri($eventUri = null)
+    public function setEventUri($eventUri = null): object
     {
         if (null !== $eventUri && !($eventUri instanceof FHIRUri)) {
             $eventUri = new FHIRUri($eventUri);
@@ -517,7 +526,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderDestination[]
      */
-    public function getDestination()
+    public function getDestination(): ?array
     {
         return $this->destination;
     }
@@ -533,7 +542,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderDestination $destination
      * @return static
      */
-    public function addDestination(FHIRMessageHeaderDestination $destination = null)
+    public function addDestination(?FHIRMessageHeaderDestination $destination = null): object
     {
         $this->_trackValueAdded();
         $this->destination[] = $destination;
@@ -551,7 +560,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderDestination[] $destination
      * @return static
      */
-    public function setDestination(array $destination = [])
+    public function setDestination(array $destination = []): object
     {
         if ([] !== $this->destination) {
             $this->_trackValuesRemoved(count($this->destination));
@@ -579,7 +588,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSender()
+    public function getSender(): ?FHIRReference
     {
         return $this->sender;
     }
@@ -594,7 +603,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $sender
      * @return static
      */
-    public function setSender(FHIRReference $sender = null)
+    public function setSender(?FHIRReference $sender = null): object
     {
         $this->_trackValueSet($this->sender, $sender);
         $this->sender = $sender;
@@ -612,7 +621,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEnterer()
+    public function getEnterer(): ?FHIRReference
     {
         return $this->enterer;
     }
@@ -629,7 +638,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $enterer
      * @return static
      */
-    public function setEnterer(FHIRReference $enterer = null)
+    public function setEnterer(?FHIRReference $enterer = null): object
     {
         $this->_trackValueSet($this->enterer, $enterer);
         $this->enterer = $enterer;
@@ -647,7 +656,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthor()
+    public function getAuthor(): ?FHIRReference
     {
         return $this->author;
     }
@@ -664,7 +673,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function setAuthor(FHIRReference $author = null)
+    public function setAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueSet($this->author, $author);
         $this->author = $author;
@@ -681,7 +690,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderSource
      */
-    public function getSource()
+    public function getSource(): ?FHIRMessageHeaderSource
     {
         return $this->source;
     }
@@ -697,7 +706,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderSource $source
      * @return static
      */
-    public function setSource(FHIRMessageHeaderSource $source = null)
+    public function setSource(?FHIRMessageHeaderSource $source = null): object
     {
         $this->_trackValueSet($this->source, $source);
         $this->source = $source;
@@ -715,7 +724,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getResponsible()
+    public function getResponsible(): ?FHIRReference
     {
         return $this->responsible;
     }
@@ -732,7 +741,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $responsible
      * @return static
      */
-    public function setResponsible(FHIRReference $responsible = null)
+    public function setResponsible(?FHIRReference $responsible = null): object
     {
         $this->_trackValueSet($this->responsible, $responsible);
         $this->responsible = $responsible;
@@ -750,7 +759,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getReason()
+    public function getReason(): ?FHIRCodeableConcept
     {
         return $this->reason;
     }
@@ -767,7 +776,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reason
      * @return static
      */
-    public function setReason(FHIRCodeableConcept $reason = null)
+    public function setReason(?FHIRCodeableConcept $reason = null): object
     {
         $this->_trackValueSet($this->reason, $reason);
         $this->reason = $reason;
@@ -785,7 +794,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderResponse
      */
-    public function getResponse()
+    public function getResponse(): ?FHIRMessageHeaderResponse
     {
         return $this->response;
     }
@@ -802,7 +811,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderResponse $response
      * @return static
      */
-    public function setResponse(FHIRMessageHeaderResponse $response = null)
+    public function setResponse(?FHIRMessageHeaderResponse $response = null): object
     {
         $this->_trackValueSet($this->response, $response);
         $this->response = $response;
@@ -819,7 +828,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getFocus()
+    public function getFocus(): ?array
     {
         return $this->focus;
     }
@@ -835,7 +844,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $focus
      * @return static
      */
-    public function addFocus(FHIRReference $focus = null)
+    public function addFocus(?FHIRReference $focus = null): object
     {
         $this->_trackValueAdded();
         $this->focus[] = $focus;
@@ -853,7 +862,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $focus
      * @return static
      */
-    public function setFocus(array $focus = [])
+    public function setFocus(array $focus = []): object
     {
         if ([] !== $this->focus) {
             $this->_trackValuesRemoved(count($this->focus));
@@ -880,9 +889,9 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Permanent link to the MessageDefinition for this message.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getDefinition()
+    public function getDefinition(): ?FHIRCanonical
     {
         return $this->definition;
     }
@@ -895,10 +904,10 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Permanent link to the MessageDefinition for this message.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definition
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definition
      * @return static
      */
-    public function setDefinition($definition = null)
+    public function setDefinition($definition = null): object
     {
         if (null !== $definition && !($definition instanceof FHIRCanonical)) {
             $definition = new FHIRCanonical($definition);
@@ -1242,15 +1251,15 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageHeader
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageHeader    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMessageHeader::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1270,7 +1279,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1375,7 +1384,7 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1458,73 +1467,78 @@ class FHIRMessageHeader extends FHIRDomainResource implements PHPFHIRContainedTy
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getEventCoding())) {
-            $a[self::FIELD_EVENT_CODING] = $v;
+            $out->{self::FIELD_EVENT_CODING} = $v;
         }
         if (null !== ($v = $this->getEventUri())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EVENT_URI] = $val;
+                $out->{self::FIELD_EVENT_URI} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EVENT_URI_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EVENT_URI_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDestination())) {
-            $a[self::FIELD_DESTINATION] = [];
+            $out->{self::FIELD_DESTINATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DESTINATION][] = $v;
+                $out->{self::FIELD_DESTINATION}[] = $v;
             }
         }
         if (null !== ($v = $this->getSender())) {
-            $a[self::FIELD_SENDER] = $v;
+            $out->{self::FIELD_SENDER} = $v;
         }
         if (null !== ($v = $this->getEnterer())) {
-            $a[self::FIELD_ENTERER] = $v;
+            $out->{self::FIELD_ENTERER} = $v;
         }
         if (null !== ($v = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = $v;
+            $out->{self::FIELD_AUTHOR} = $v;
         }
         if (null !== ($v = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = $v;
+            $out->{self::FIELD_SOURCE} = $v;
         }
         if (null !== ($v = $this->getResponsible())) {
-            $a[self::FIELD_RESPONSIBLE] = $v;
+            $out->{self::FIELD_RESPONSIBLE} = $v;
         }
         if (null !== ($v = $this->getReason())) {
-            $a[self::FIELD_REASON] = $v;
+            $out->{self::FIELD_REASON} = $v;
         }
         if (null !== ($v = $this->getResponse())) {
-            $a[self::FIELD_RESPONSE] = $v;
+            $out->{self::FIELD_RESPONSE} = $v;
         }
         if ([] !== ($vs = $this->getFocus())) {
-            $a[self::FIELD_FOCUS] = [];
+            $out->{self::FIELD_FOCUS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_FOCUS][] = $v;
+                $out->{self::FIELD_FOCUS}[] = $v;
             }
         }
         if (null !== ($v = $this->getDefinition())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DEFINITION] = $val;
+                $out->{self::FIELD_DEFINITION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DEFINITION_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DEFINITION_EXT} = $ext;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $what = null;
+    protected ?FHIRReference $what = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -121,7 +121,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $type = null;
+    protected ?FHIRCoding $type = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -132,7 +132,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $role = null;
+    protected ?FHIRCoding $role = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -143,7 +143,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $lifecycle = null;
+    protected ?FHIRCoding $lifecycle = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -154,7 +154,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $securityLabel = [];
+    protected ?array $securityLabel = [];
 
     /**
      * A sequence of Unicode characters
@@ -163,9 +163,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * A name of the entity in the audit event.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -174,9 +174,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * Text that describes the entity in more detail.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A stream of bytes
@@ -185,9 +185,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * The query parameters for a query-type entities.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @var null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    protected $query = null;
+    protected ?FHIRBase64Binary $query = null;
 
     /**
      * A record of an event made for purposes of maintaining a security log. Typical
@@ -198,13 +198,13 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventDetail[]
      */
-    protected $detail = [];
+    protected ?array $detail = [];
 
     /**
      * Validation map for fields in type AuditEvent.Entity
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRAuditEventEntity Constructor
@@ -269,8 +269,8 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -284,8 +284,8 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -299,8 +299,8 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_QUERY]) || isset($data[self::FIELD_QUERY_EXT])) {
-            $value = isset($data[self::FIELD_QUERY]) ? $data[self::FIELD_QUERY] : null;
-            $ext = (isset($data[self::FIELD_QUERY_EXT]) && is_array($data[self::FIELD_QUERY_EXT])) ? $ext = $data[self::FIELD_QUERY_EXT] : $ext = [];
+            $value = $data[self::FIELD_QUERY] ?? null;
+            $ext = (isset($data[self::FIELD_QUERY_EXT]) && is_array($data[self::FIELD_QUERY_EXT])) ? $data[self::FIELD_QUERY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBase64Binary) {
                     $this->setQuery($value);
@@ -333,11 +333,17 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -357,7 +363,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getWhat()
+    public function getWhat(): ?FHIRReference
     {
         return $this->what;
     }
@@ -373,7 +379,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $what
      * @return static
      */
-    public function setWhat(FHIRReference $what = null)
+    public function setWhat(?FHIRReference $what = null): object
     {
         $this->_trackValueSet($this->what, $what);
         $this->what = $what;
@@ -389,7 +395,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getType()
+    public function getType(): ?FHIRCoding
     {
         return $this->type;
     }
@@ -404,7 +410,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $type
      * @return static
      */
-    public function setType(FHIRCoding $type = null)
+    public function setType(?FHIRCoding $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -420,7 +426,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getRole()
+    public function getRole(): ?FHIRCoding
     {
         return $this->role;
     }
@@ -435,7 +441,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $role
      * @return static
      */
-    public function setRole(FHIRCoding $role = null)
+    public function setRole(?FHIRCoding $role = null): object
     {
         $this->_trackValueSet($this->role, $role);
         $this->role = $role;
@@ -451,7 +457,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getLifecycle()
+    public function getLifecycle(): ?FHIRCoding
     {
         return $this->lifecycle;
     }
@@ -466,7 +472,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $lifecycle
      * @return static
      */
-    public function setLifecycle(FHIRCoding $lifecycle = null)
+    public function setLifecycle(?FHIRCoding $lifecycle = null): object
     {
         $this->_trackValueSet($this->lifecycle, $lifecycle);
         $this->lifecycle = $lifecycle;
@@ -482,7 +488,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getSecurityLabel()
+    public function getSecurityLabel(): ?array
     {
         return $this->securityLabel;
     }
@@ -497,7 +503,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $securityLabel
      * @return static
      */
-    public function addSecurityLabel(FHIRCoding $securityLabel = null)
+    public function addSecurityLabel(?FHIRCoding $securityLabel = null): object
     {
         $this->_trackValueAdded();
         $this->securityLabel[] = $securityLabel;
@@ -514,7 +520,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $securityLabel
      * @return static
      */
-    public function setSecurityLabel(array $securityLabel = [])
+    public function setSecurityLabel(array $securityLabel = []): object
     {
         if ([] !== $this->securityLabel) {
             $this->_trackValuesRemoved(count($this->securityLabel));
@@ -540,9 +546,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * A name of the entity in the audit event.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -554,10 +560,10 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * A name of the entity in the audit event.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -574,9 +580,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * Text that describes the entity in more detail.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -588,10 +594,10 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * Text that describes the entity in more detail.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -608,9 +614,9 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * The query parameters for a query-type entities.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @return null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    public function getQuery()
+    public function getQuery(): ?FHIRBase64Binary
     {
         return $this->query;
     }
@@ -622,10 +628,10 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * The query parameters for a query-type entities.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $query
+     * @param null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $query
      * @return static
      */
-    public function setQuery($query = null)
+    public function setQuery($query = null): object
     {
         if (null !== $query && !($query instanceof FHIRBase64Binary)) {
             $query = new FHIRBase64Binary($query);
@@ -644,7 +650,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventDetail[]
      */
-    public function getDetail()
+    public function getDetail(): ?array
     {
         return $this->detail;
     }
@@ -659,7 +665,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventDetail $detail
      * @return static
      */
-    public function addDetail(FHIRAuditEventDetail $detail = null)
+    public function addDetail(?FHIRAuditEventDetail $detail = null): object
     {
         $this->_trackValueAdded();
         $this->detail[] = $detail;
@@ -676,7 +682,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventDetail[] $detail
      * @return static
      */
-    public function setDetail(array $detail = [])
+    public function setDetail(array $detail = []): object
     {
         if ([] !== $this->detail) {
             $this->_trackValuesRemoved(count($this->detail));
@@ -918,15 +924,15 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAuditEventEntity::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -946,7 +952,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1021,7 +1027,7 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1089,71 +1095,74 @@ class FHIRAuditEventEntity extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getWhat())) {
-            $a[self::FIELD_WHAT] = $v;
+            $out->{self::FIELD_WHAT} = $v;
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getRole())) {
-            $a[self::FIELD_ROLE] = $v;
+            $out->{self::FIELD_ROLE} = $v;
         }
         if (null !== ($v = $this->getLifecycle())) {
-            $a[self::FIELD_LIFECYCLE] = $v;
+            $out->{self::FIELD_LIFECYCLE} = $v;
         }
         if ([] !== ($vs = $this->getSecurityLabel())) {
-            $a[self::FIELD_SECURITY_LABEL] = [];
+            $out->{self::FIELD_SECURITY_LABEL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SECURITY_LABEL][] = $v;
+                $out->{self::FIELD_SECURITY_LABEL}[] = $v;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getQuery())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_QUERY] = $val;
+                $out->{self::FIELD_QUERY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBase64Binary::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_QUERY_EXT] = $ext;
+            unset($ext->{FHIRBase64Binary::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_QUERY_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDetail())) {
-            $a[self::FIELD_DETAIL] = [];
+            $out->{self::FIELD_DETAIL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DETAIL][] = $v;
+                $out->{self::FIELD_DETAIL}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

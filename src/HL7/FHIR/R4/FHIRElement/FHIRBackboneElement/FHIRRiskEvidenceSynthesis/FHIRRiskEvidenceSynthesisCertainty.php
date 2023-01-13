@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $rating = [];
+    protected ?array $rating = [];
 
     /**
      * A text note which also contains information about who made the statement and
@@ -111,7 +111,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a
@@ -122,13 +122,13 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertaintySubcomponent[]
      */
-    protected $certaintySubcomponent = [];
+    protected ?array $certaintySubcomponent = [];
 
     /**
      * Validation map for fields in type RiskEvidenceSynthesis.Certainty
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRRiskEvidenceSynthesisCertainty Constructor
@@ -202,11 +202,17 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -226,7 +232,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getRating()
+    public function getRating(): ?array
     {
         return $this->rating;
     }
@@ -242,7 +248,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $rating
      * @return static
      */
-    public function addRating(FHIRCodeableConcept $rating = null)
+    public function addRating(?FHIRCodeableConcept $rating = null): object
     {
         $this->_trackValueAdded();
         $this->rating[] = $rating;
@@ -260,7 +266,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $rating
      * @return static
      */
-    public function setRating(array $rating = [])
+    public function setRating(array $rating = []): object
     {
         if ([] !== $this->rating) {
             $this->_trackValuesRemoved(count($this->rating));
@@ -289,7 +295,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -305,7 +311,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -323,7 +329,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -351,7 +357,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertaintySubcomponent[]
      */
-    public function getCertaintySubcomponent()
+    public function getCertaintySubcomponent(): ?array
     {
         return $this->certaintySubcomponent;
     }
@@ -366,7 +372,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertaintySubcomponent $certaintySubcomponent
      * @return static
      */
-    public function addCertaintySubcomponent(FHIRRiskEvidenceSynthesisCertaintySubcomponent $certaintySubcomponent = null)
+    public function addCertaintySubcomponent(?FHIRRiskEvidenceSynthesisCertaintySubcomponent $certaintySubcomponent = null): object
     {
         $this->_trackValueAdded();
         $this->certaintySubcomponent[] = $certaintySubcomponent;
@@ -383,7 +389,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertaintySubcomponent[] $certaintySubcomponent
      * @return static
      */
-    public function setCertaintySubcomponent(array $certaintySubcomponent = [])
+    public function setCertaintySubcomponent(array $certaintySubcomponent = []): object
     {
         if ([] !== $this->certaintySubcomponent) {
             $this->_trackValuesRemoved(count($this->certaintySubcomponent));
@@ -525,15 +531,15 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertainty
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskEvidenceSynthesis\FHIRRiskEvidenceSynthesisCertainty    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRRiskEvidenceSynthesisCertainty::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -553,7 +559,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -589,7 +595,7 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -632,38 +638,41 @@ class FHIRRiskEvidenceSynthesisCertainty extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getRating())) {
-            $a[self::FIELD_RATING] = [];
+            $out->{self::FIELD_RATING} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RATING][] = $v;
+                $out->{self::FIELD_RATING}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCertaintySubcomponent())) {
-            $a[self::FIELD_CERTAINTY_SUBCOMPONENT] = [];
+            $out->{self::FIELD_CERTAINTY_SUBCOMPONENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CERTAINTY_SUBCOMPONENT][] = $v;
+                $out->{self::FIELD_CERTAINTY_SUBCOMPONENT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

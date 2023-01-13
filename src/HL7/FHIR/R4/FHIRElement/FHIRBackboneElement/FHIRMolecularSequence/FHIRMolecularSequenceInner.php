@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,9 +95,9 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * Structural variant inner start. If the coordinate system is either 0-based or
      * 1-based, then start position is inclusive.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $start = null;
+    protected ?FHIRInteger $start = null;
 
     /**
      * A whole number
@@ -108,15 +108,15 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * exclusive and does not include the last position. If the coordinate system is
      * 1-base, then end is inclusive and includes the last position.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $end = null;
+    protected ?FHIRInteger $end = null;
 
     /**
      * Validation map for fields in type MolecularSequence.Inner
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMolecularSequenceInner Constructor
@@ -135,8 +135,8 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_START]) || isset($data[self::FIELD_START_EXT])) {
-            $value = isset($data[self::FIELD_START]) ? $data[self::FIELD_START] : null;
-            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $ext = $data[self::FIELD_START_EXT] : $ext = [];
+            $value = $data[self::FIELD_START] ?? null;
+            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $data[self::FIELD_START_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setStart($value);
@@ -150,8 +150,8 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_END]) || isset($data[self::FIELD_END_EXT])) {
-            $value = isset($data[self::FIELD_END]) ? $data[self::FIELD_END] : null;
-            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $ext = $data[self::FIELD_END_EXT] : $ext = [];
+            $value = $data[self::FIELD_END] ?? null;
+            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $data[self::FIELD_END_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setEnd($value);
@@ -166,11 +166,17 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -188,9 +194,9 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * Structural variant inner start. If the coordinate system is either 0-based or
      * 1-based, then start position is inclusive.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getStart()
+    public function getStart(): ?FHIRInteger
     {
         return $this->start;
     }
@@ -203,10 +209,10 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * Structural variant inner start. If the coordinate system is either 0-based or
      * 1-based, then start position is inclusive.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $start
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $start
      * @return static
      */
-    public function setStart($start = null)
+    public function setStart($start = null): object
     {
         if (null !== $start && !($start instanceof FHIRInteger)) {
             $start = new FHIRInteger($start);
@@ -225,9 +231,9 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * exclusive and does not include the last position. If the coordinate system is
      * 1-base, then end is inclusive and includes the last position.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getEnd()
+    public function getEnd(): ?FHIRInteger
     {
         return $this->end;
     }
@@ -241,10 +247,10 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * exclusive and does not include the last position. If the coordinate system is
      * 1-base, then end is inclusive and includes the last position.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $end
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $end
      * @return static
      */
-    public function setEnd($end = null)
+    public function setEnd($end = null): object
     {
         if (null !== $end && !($end instanceof FHIRInteger)) {
             $end = new FHIRInteger($end);
@@ -354,15 +360,15 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceInner
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceInner    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMolecularSequenceInner::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -382,7 +388,7 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -434,7 +440,7 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -457,31 +463,34 @@ class FHIRMolecularSequenceInner extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getStart())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_START] = $val;
+                $out->{self::FIELD_START} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_START_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_START_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getEnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_END] = $val;
+                $out->{self::FIELD_END} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_END_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_END_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

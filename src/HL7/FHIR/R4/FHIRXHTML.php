@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,33 +63,32 @@ namespace HL7\FHIR\R4;
  */
 
 /**
- * Raw type used in special cases
+ * XHTML type used in special cases
  *
- * Class FHIRRaw
+ * Class FHIRXHTML
  * @package \HL7\FHIR\R4
  */
-class FHIRRaw implements PHPFHIRTypeInterface
+class FHIRXHTML implements PHPFHIRTypeInterface
 {
     use PHPFHIRValidationAssertionsTrait;
     use PHPFHIRChangeTrackingTrait;
 
     // name of FHIR type this class describes
-    const FHIR_TYPE_NAME = PHPFHIRConstants::TYPE_NAME_RAW;
-    const TO_STRING_FUNC = '__toString';
+    const FHIR_TYPE_NAME = PHPFHIRConstants::TYPE_NAME_XHTML;
 
+    /** @var null|\DOMNode */
+    private ?\DOMNode $_data = null;
+    /** @var null|string */
+    private ?string $_elementName = null;
     /** @var string */
-    private $_data = null;
-    /** @var string */
-    private $_elementName = null;
-    /** @var string */
-    private $_xmlns = '';
+    private string $_xmlns = '';
 
     /** @var array */
-    private static $_validationRules = [];
+    private static array $_validationRules = [];
 
     /**
-     * raw Constructor
-     * @param null|string|int|float|bool|object $data
+     * XHTML Constructor
+     * @param null|string|\SimpleXMLElement|\DOMNode $data
      */
     public function __construct($data = null)
     {
@@ -100,19 +99,25 @@ class FHIRRaw implements PHPFHIRTypeInterface
      * The name of the FHIR element this raw type represents
      *
      * @param string $elementName
-     * @return \HL7\FHIR\R4\FHIRRaw
+     * @return \HL7\FHIR\R4\FHIRXHTML
      */
-    public function _setElementName($elementName)
+    public function _setElementName(string $elementName): FHIRXHTML
     {
         $this->_elementName = $elementName;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -122,46 +127,69 @@ class FHIRRaw implements PHPFHIRTypeInterface
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
         if ('' !==  $xmlns) {
             $xmlns = " xmlns=\"{$xmlns}\"";
         }
-        return "<raw{$xmlns}></raw>";
+        return "<XHTML{$xmlns}></XHTML>";
     }
 
     /**
-     * @return null|string|integer|float|boolean|object
+     * @return null|\DOMNode
      */
-    public function _getData()
+    public function _getData(): ?\DOMNode
     {
         return $this->_data;
     }
 
     /**
-     * @param mixed $data
-     * @return \HL7\FHIR\R4\FHIRRaw
+     * @param null|string|\SimpleXMLElement|\DOMNode $data
+     * @return \HL7\FHIR\R4\FHIRXHTML
      */
-    public function _setData($data)
+    public function _setData($data): FHIRXHTML
     {
         if (null === $data) {
             $this->_data = null;
             return $this;
         }
-        if (is_scalar($data) || (is_object($data) && (method_exists($data, self::TO_STRING_FUNC) || $data instanceof \DOMNode || $data instanceof \DOMText))) {
-            $this->_data = $data;
+        if (is_string($data)) {
+            $dom = new \DOMDocument();
+            $dom->loadHTML($data);
+            $this->_data = $dom->documentElement;
+            return $this;
+        }
+        if ($data instanceof \SimpleXMLElement) {
+            $dom = new \DOMDocument();
+            $dom->appendChild($dom->importNode(dom_import_simplexml($data), true));
+            $this->_data = $dom->documentElement;
+            return $this;
+        }
+        if ($data instanceof \DOMDocument) {
+            $dom = new \DOMDocument();
+            $dom->appendChild($dom->importNode($data->documentElement, true));
+            $this->_data = $dom->documentElement;
+            return $this;
+        }
+        if ($data instanceof \DOMNode) {
+            $dom = new \DOMDocument();
+            $dom->appendChild($dom->importNode($data, true));
+            $this->_data = $dom->documentElement;
             return $this;
         }
         throw new \InvalidArgumentException(sprintf(
-            '$data must be one of: null, string, integer, double, boolean, or object implementing "__toString", saw "%s"',
+            '$data must be one of: null, valid XHTML string, or instance of \\SimpleXMLElement or \\DOMNode, saw "%s"',
             gettype($data)
         ));
     }
@@ -193,50 +221,48 @@ class FHIRRaw implements PHPFHIRTypeInterface
 
     /**
      * @param null|string|\DOMElement $element
-     * @param null|\HL7\FHIR\R4\FHIRRaw $type
+     * @param null|\HL7\FHIR\R4\FHIRXHTML $type
      * @param null|int $libxmlOpts
-     * @return null|\HL7\FHIR\R4\FHIRRaw
+     * @return null|\HL7\FHIR\R4\FHIRXHTML
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRRaw    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
-                throw new \DomainException(sprintf('FHIRRaw::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
+                throw new \DomainException(sprintf('FHIRXHTML::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
             $element = $dom->documentElement;
         }
         if (!($element instanceof \DOMElement)) {
-            throw new \InvalidArgumentException(sprintf('FHIRRaw::xmlUnserialize - $node value must be null, \\DOMElement, or valid XML string, %s seen', is_object($element) ? get_class($element) : gettype($element)));
+            throw new \InvalidArgumentException(sprintf('FHIRXHTML::xmlUnserialize - $node value must be null, \\DOMElement, or valid XML string, %s seen', is_object($element) ? get_class($element) : gettype($element)));
         }
         if (null === $type) {
-            $type = new FHIRRaw(null);
-        } elseif (!is_object($type) || !($type instanceof FHIRRaw)) {
+            $type = new FHIRXHTML(null);
+        } elseif (!is_object($type) || !($type instanceof FHIRXHTML)) {
             throw new \RuntimeException(sprintf(
-                'FHIRRaw::xmlUnserialize - $type must be instance of \HL7\FHIR\R4\FHIRRaw or null, %s seen.',
+                'FHIRXHTML::xmlUnserialize - $type must be instance of \HL7\FHIR\R4\FHIRXHTML or null, %s seen.',
                 is_object($type) ? get_class($type) : gettype($type)
             ));
         }
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        $dom = new \DOMDocument();
-        $dom->loadXML($element->ownerDocument->saveXML($element), $libxmlOpts | LIBXML_NOXMLDECL);
-        $type->_setData($dom->documentElement);
+        $type->_setData($element);
         return $type;
     }
 
      /**
-     * @param \DOMElement|string|null $element
+     * @param \DOMElement|null $element
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         $data = $this->_getData();
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -246,51 +272,32 @@ class FHIRRaw implements PHPFHIRTypeInterface
                 $xmlns = " xmlns=\"{$xmlns}\"";
             }
             if (null === $data) {
-                $dom->loadXML("<raw{$xmlns}></raw", $libxmlOpts);
+                $dom->loadXML("<XHTML{$xmlns}></XHTML>", $libxmlOpts);
                 return $dom->documentElement;
             }
-            if (is_scalar($data) || (is_object($data) && !($data instanceof \DOMNode) && !($data instanceof \DOMText))) {
-                if (is_bool($data)) {
-                    $strval = $data ? 'true' : 'false';
-                } else {
-                    $strval = (string)$data;
-                }
-                $dom->loadXML("<raw{$xmlns}>{$strval}</raw", $libxmlOpts);
-                return $dom->documentElement;
-            }
+            $dom->appendChild($dom->importNode($data, true));
             return $dom->documentElement;
         }
-
+        if (null === $data) {
+            return $element;
+        }
         if (!empty($xmlns)) {
             $element->setAttribute('xmlns', $xmlns);
         }
-
-        if ($data instanceof \DOMElement) {
-            if ($data->hasAttributes()) {
-                for ($i = 0; $i < $data->attributes->length; $i++) {
-                    $attr = $data->attributes->item($i);
-                    $element->setAttribute($attr->nodeName, $attr->nodeValue);
-                }
-            }
-            if ($data->hasChildNodes()) {
-                for ($i = 0; $i < $data->childNodes->length; $i++) {
-                    $n = $data->childNodes->item($i);
-                    $n = $element->ownerDocument->importNode($n, true);
-                    $element->appendChild($n);
-                }
-            }
-        }
-
+        $element->appendChild($element->ownerDocument->importNode($data, true));
         return $element;
     }
 
     /**
-     * @return null|string|integer|float|boolean|object
+     * @return mixed
      */
-    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return $this->_getData();
+        $data = $this->_getData();
+        if (null === $data) {
+            return null;
+        }
+        return $data->ownerDocument->saveXML($data);
     }
 
     /**
@@ -298,7 +305,10 @@ class FHIRRaw implements PHPFHIRTypeInterface
      */
     public function __toString(): string
     {
-        return strval($this->_getData());
+        $data = $this->_getData();
+        if (null === $data) {
+            return '';
+        }
+        return $data->ownerDocument->saveXML($data);
     }
-
 }

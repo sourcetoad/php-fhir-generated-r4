@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,7 +126,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -135,7 +135,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -147,7 +147,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $type = [];
+    protected ?array $type = [];
 
     /**
      * A sequence of Unicode characters
@@ -156,9 +156,9 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Official name of the health insurance product as designated by the owner.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -168,9 +168,9 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * A list of alternate names that the product is known as, or was known as in the
      * past.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $alias = [];
+    protected ?array $alias = [];
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -181,7 +181,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A reference from one resource to another.
@@ -194,7 +194,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $ownedBy = null;
+    protected ?FHIRReference $ownedBy = null;
 
     /**
      * A reference from one resource to another.
@@ -207,7 +207,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $administeredBy = null;
+    protected ?FHIRReference $administeredBy = null;
 
     /**
      * A reference from one resource to another.
@@ -218,7 +218,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $coverageArea = [];
+    protected ?array $coverageArea = [];
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -227,7 +227,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanContact[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A reference from one resource to another.
@@ -239,7 +239,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $endpoint = [];
+    protected ?array $endpoint = [];
 
     /**
      * A reference from one resource to another.
@@ -250,7 +250,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $network = [];
+    protected ?array $network = [];
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -259,7 +259,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanCoverage[]
      */
-    protected $coverage = [];
+    protected ?array $coverage = [];
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -268,13 +268,13 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan[]
      */
-    protected $plan = [];
+    protected ?array $plan = [];
 
     /**
      * Validation map for fields in type InsurancePlan
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRInsurancePlan Constructor
@@ -311,8 +311,8 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -344,8 +344,8 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -359,8 +359,8 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_ALIAS]) || isset($data[self::FIELD_ALIAS_EXT])) {
-            $value = isset($data[self::FIELD_ALIAS]) ? $data[self::FIELD_ALIAS] : null;
-            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $ext = $data[self::FIELD_ALIAS_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALIAS] ?? null;
+            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $data[self::FIELD_ALIAS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addAlias($value);
@@ -519,11 +519,17 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -532,6 +538,9 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
         }
         return "<InsurancePlan{$xmlns}></InsurancePlan>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -549,7 +558,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -566,7 +575,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -585,7 +594,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -611,7 +620,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -624,7 +633,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -641,7 +650,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getType()
+    public function getType(): ?array
     {
         return $this->type;
     }
@@ -657,7 +666,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function addType(FHIRCodeableConcept $type = null)
+    public function addType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueAdded();
         $this->type[] = $type;
@@ -675,7 +684,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $type
      * @return static
      */
-    public function setType(array $type = [])
+    public function setType(array $type = []): object
     {
         if ([] !== $this->type) {
             $this->_trackValuesRemoved(count($this->type));
@@ -701,9 +710,9 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Official name of the health insurance product as designated by the owner.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -715,10 +724,10 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Official name of the health insurance product as designated by the owner.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -736,9 +745,9 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * A list of alternate names that the product is known as, or was known as in the
      * past.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getAlias()
+    public function getAlias(): ?array
     {
         return $this->alias;
     }
@@ -751,10 +760,10 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * A list of alternate names that the product is known as, or was known as in the
      * past.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $alias
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function addAlias($alias = null)
+    public function addAlias($alias = null): object
     {
         if (null !== $alias && !($alias instanceof FHIRString)) {
             $alias = new FHIRString($alias);
@@ -775,7 +784,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function setAlias(array $alias = [])
+    public function setAlias(array $alias = []): object
     {
         if ([] !== $this->alias) {
             $this->_trackValuesRemoved(count($this->alias));
@@ -803,7 +812,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -818,7 +827,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -836,7 +845,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOwnedBy()
+    public function getOwnedBy(): ?FHIRReference
     {
         return $this->ownedBy;
     }
@@ -853,7 +862,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $ownedBy
      * @return static
      */
-    public function setOwnedBy(FHIRReference $ownedBy = null)
+    public function setOwnedBy(?FHIRReference $ownedBy = null): object
     {
         $this->_trackValueSet($this->ownedBy, $ownedBy);
         $this->ownedBy = $ownedBy;
@@ -871,7 +880,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAdministeredBy()
+    public function getAdministeredBy(): ?FHIRReference
     {
         return $this->administeredBy;
     }
@@ -888,7 +897,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $administeredBy
      * @return static
      */
-    public function setAdministeredBy(FHIRReference $administeredBy = null)
+    public function setAdministeredBy(?FHIRReference $administeredBy = null): object
     {
         $this->_trackValueSet($this->administeredBy, $administeredBy);
         $this->administeredBy = $administeredBy;
@@ -904,7 +913,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getCoverageArea()
+    public function getCoverageArea(): ?array
     {
         return $this->coverageArea;
     }
@@ -919,7 +928,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $coverageArea
      * @return static
      */
-    public function addCoverageArea(FHIRReference $coverageArea = null)
+    public function addCoverageArea(?FHIRReference $coverageArea = null): object
     {
         $this->_trackValueAdded();
         $this->coverageArea[] = $coverageArea;
@@ -936,7 +945,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $coverageArea
      * @return static
      */
-    public function setCoverageArea(array $coverageArea = [])
+    public function setCoverageArea(array $coverageArea = []): object
     {
         if ([] !== $this->coverageArea) {
             $this->_trackValuesRemoved(count($this->coverageArea));
@@ -962,7 +971,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanContact[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -975,7 +984,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanContact $contact
      * @return static
      */
-    public function addContact(FHIRInsurancePlanContact $contact = null)
+    public function addContact(?FHIRInsurancePlanContact $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -990,7 +999,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanContact[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1019,7 +1028,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?array
     {
         return $this->endpoint;
     }
@@ -1035,7 +1044,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $endpoint
      * @return static
      */
-    public function addEndpoint(FHIRReference $endpoint = null)
+    public function addEndpoint(?FHIRReference $endpoint = null): object
     {
         $this->_trackValueAdded();
         $this->endpoint[] = $endpoint;
@@ -1053,7 +1062,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $endpoint
      * @return static
      */
-    public function setEndpoint(array $endpoint = [])
+    public function setEndpoint(array $endpoint = []): object
     {
         if ([] !== $this->endpoint) {
             $this->_trackValuesRemoved(count($this->endpoint));
@@ -1081,7 +1090,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getNetwork()
+    public function getNetwork(): ?array
     {
         return $this->network;
     }
@@ -1096,7 +1105,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $network
      * @return static
      */
-    public function addNetwork(FHIRReference $network = null)
+    public function addNetwork(?FHIRReference $network = null): object
     {
         $this->_trackValueAdded();
         $this->network[] = $network;
@@ -1113,7 +1122,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $network
      * @return static
      */
-    public function setNetwork(array $network = [])
+    public function setNetwork(array $network = []): object
     {
         if ([] !== $this->network) {
             $this->_trackValuesRemoved(count($this->network));
@@ -1139,7 +1148,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanCoverage[]
      */
-    public function getCoverage()
+    public function getCoverage(): ?array
     {
         return $this->coverage;
     }
@@ -1152,7 +1161,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanCoverage $coverage
      * @return static
      */
-    public function addCoverage(FHIRInsurancePlanCoverage $coverage = null)
+    public function addCoverage(?FHIRInsurancePlanCoverage $coverage = null): object
     {
         $this->_trackValueAdded();
         $this->coverage[] = $coverage;
@@ -1167,7 +1176,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanCoverage[] $coverage
      * @return static
      */
-    public function setCoverage(array $coverage = [])
+    public function setCoverage(array $coverage = []): object
     {
         if ([] !== $this->coverage) {
             $this->_trackValuesRemoved(count($this->coverage));
@@ -1193,7 +1202,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan[]
      */
-    public function getPlan()
+    public function getPlan(): ?array
     {
         return $this->plan;
     }
@@ -1206,7 +1215,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan $plan
      * @return static
      */
-    public function addPlan(FHIRInsurancePlanPlan $plan = null)
+    public function addPlan(?FHIRInsurancePlanPlan $plan = null): object
     {
         $this->_trackValueAdded();
         $this->plan[] = $plan;
@@ -1221,7 +1230,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan[] $plan
      * @return static
      */
-    public function setPlan(array $plan = [])
+    public function setPlan(array $plan = []): object
     {
         if ([] !== $this->plan) {
             $this->_trackValuesRemoved(count($this->plan));
@@ -1622,15 +1631,15 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInsurancePlan
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInsurancePlan    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRInsurancePlan::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1650,7 +1659,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1759,7 +1768,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1887,46 +1896,48 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getType())) {
-            $a[self::FIELD_TYPE] = [];
+            $out->{self::FIELD_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TYPE][] = $v;
+                $out->{self::FIELD_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAlias())) {
@@ -1938,7 +1949,7 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1947,76 +1958,79 @@ class FHIRInsurancePlan extends FHIRDomainResource implements PHPFHIRContainedTy
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_ALIAS] = $vals;
+                $out->{self::FIELD_ALIAS} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_ALIAS_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALIAS_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getOwnedBy())) {
-            $a[self::FIELD_OWNED_BY] = $v;
+            $out->{self::FIELD_OWNED_BY} = $v;
         }
         if (null !== ($v = $this->getAdministeredBy())) {
-            $a[self::FIELD_ADMINISTERED_BY] = $v;
+            $out->{self::FIELD_ADMINISTERED_BY} = $v;
         }
         if ([] !== ($vs = $this->getCoverageArea())) {
-            $a[self::FIELD_COVERAGE_AREA] = [];
+            $out->{self::FIELD_COVERAGE_AREA} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COVERAGE_AREA][] = $v;
+                $out->{self::FIELD_COVERAGE_AREA}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEndpoint())) {
-            $a[self::FIELD_ENDPOINT] = [];
+            $out->{self::FIELD_ENDPOINT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENDPOINT][] = $v;
+                $out->{self::FIELD_ENDPOINT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNetwork())) {
-            $a[self::FIELD_NETWORK] = [];
+            $out->{self::FIELD_NETWORK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NETWORK][] = $v;
+                $out->{self::FIELD_NETWORK}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCoverage())) {
-            $a[self::FIELD_COVERAGE] = [];
+            $out->{self::FIELD_COVERAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COVERAGE][] = $v;
+                $out->{self::FIELD_COVERAGE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPlan())) {
-            $a[self::FIELD_PLAN] = [];
+            $out->{self::FIELD_PLAN} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PLAN][] = $v;
+                $out->{self::FIELD_PLAN}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

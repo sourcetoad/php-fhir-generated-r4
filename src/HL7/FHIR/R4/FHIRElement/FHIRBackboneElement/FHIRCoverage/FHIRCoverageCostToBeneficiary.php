@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -113,7 +113,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $valueQuantity = null;
+    protected ?FHIRQuantity $valueQuantity = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -124,7 +124,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $valueMoney = null;
+    protected ?FHIRMoney $valueMoney = null;
 
     /**
      * Financial instrument which may be used to reimburse or pay for health care
@@ -135,13 +135,13 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageException[]
      */
-    protected $exception = [];
+    protected ?array $exception = [];
 
     /**
      * Validation map for fields in type Coverage.CostToBeneficiary
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCoverageCostToBeneficiary Constructor
@@ -200,11 +200,17 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -224,7 +230,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -240,7 +246,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -258,7 +264,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getValueQuantity()
+    public function getValueQuantity(): ?FHIRQuantity
     {
         return $this->valueQuantity;
     }
@@ -275,7 +281,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $valueQuantity
      * @return static
      */
-    public function setValueQuantity(FHIRQuantity $valueQuantity = null)
+    public function setValueQuantity(?FHIRQuantity $valueQuantity = null): object
     {
         $this->_trackValueSet($this->valueQuantity, $valueQuantity);
         $this->valueQuantity = $valueQuantity;
@@ -291,7 +297,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getValueMoney()
+    public function getValueMoney(): ?FHIRMoney
     {
         return $this->valueMoney;
     }
@@ -306,7 +312,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $valueMoney
      * @return static
      */
-    public function setValueMoney(FHIRMoney $valueMoney = null)
+    public function setValueMoney(?FHIRMoney $valueMoney = null): object
     {
         $this->_trackValueSet($this->valueMoney, $valueMoney);
         $this->valueMoney = $valueMoney;
@@ -322,7 +328,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageException[]
      */
-    public function getException()
+    public function getException(): ?array
     {
         return $this->exception;
     }
@@ -337,7 +343,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageException $exception
      * @return static
      */
-    public function addException(FHIRCoverageException $exception = null)
+    public function addException(?FHIRCoverageException $exception = null): object
     {
         $this->_trackValueAdded();
         $this->exception[] = $exception;
@@ -354,7 +360,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageException[] $exception
      * @return static
      */
-    public function setException(array $exception = [])
+    public function setException(array $exception = []): object
     {
         if ([] !== $this->exception) {
             $this->_trackValuesRemoved(count($this->exception));
@@ -509,15 +515,15 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageCostToBeneficiary
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverage\FHIRCoverageCostToBeneficiary    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCoverageCostToBeneficiary::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -537,7 +543,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -575,7 +581,7 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -613,29 +619,32 @@ class FHIRCoverageCostToBeneficiary extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getValueQuantity())) {
-            $a[self::FIELD_VALUE_QUANTITY] = $v;
+            $out->{self::FIELD_VALUE_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getValueMoney())) {
-            $a[self::FIELD_VALUE_MONEY] = $v;
+            $out->{self::FIELD_VALUE_MONEY} = $v;
         }
         if ([] !== ($vs = $this->getException())) {
-            $a[self::FIELD_EXCEPTION] = [];
+            $out->{self::FIELD_EXCEPTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_EXCEPTION][] = $v;
+                $out->{self::FIELD_EXCEPTION}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

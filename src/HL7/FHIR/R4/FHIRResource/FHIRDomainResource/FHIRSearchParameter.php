@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -164,9 +164,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the search parameter is stored on different servers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A sequence of Unicode characters
@@ -180,9 +180,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A sequence of Unicode characters
@@ -193,9 +193,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -209,9 +209,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (usually) the functionality should be a proper subset of the underlying search
      * parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $derivedFrom = null;
+    protected ?FHIRCanonical $derivedFrom = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -221,7 +221,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * Value of "true" or "false"
@@ -231,9 +231,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $experimental = null;
+    protected ?FHIRBoolean $experimental = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -248,9 +248,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * search parameter changes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -259,9 +259,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the search parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $publisher = null;
+    protected ?FHIRString $publisher = null;
 
     /**
      * Specifies contact information for a person or organization.
@@ -273,7 +273,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -286,9 +286,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * And how it used.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $description = null;
+    protected ?FHIRMarkdown $description = null;
 
     /**
      * Specifies clinical/business/etc. metadata that can be used to retrieve, index
@@ -306,7 +306,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    protected $useContext = [];
+    protected ?array $useContext = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -319,7 +319,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -333,9 +333,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Explanation of why this search parameter is needed and why it has been designed
      * as it has.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $purpose = null;
+    protected ?FHIRMarkdown $purpose = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -346,9 +346,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * The code used in the URL or the parameter name in a parameters resource for this
      * search parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -358,9 +358,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The base resource type(s) that this search parameter can be used against.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    protected $base = [];
+    protected ?array $base = [];
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -370,7 +370,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSearchParamType
      */
-    protected $type = null;
+    protected ?FHIRSearchParamType $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -379,9 +379,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * A FHIRPath expression that returns a set of elements for the search parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $expression = null;
+    protected ?FHIRString $expression = null;
 
     /**
      * A sequence of Unicode characters
@@ -390,9 +390,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * An XPath expression that returns a set of elements for the search parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $xpath = null;
+    protected ?FHIRString $xpath = null;
 
     /**
      * How a search parameter relates to the set of elements returned by evaluating its
@@ -404,7 +404,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRXPathUsageType
      */
-    protected $xpathUsage = null;
+    protected ?FHIRXPathUsageType $xpathUsage = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -414,9 +414,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * Types of resource (if a resource is referenced).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    protected $target = [];
+    protected ?array $target = [];
 
     /**
      * Value of "true" or "false"
@@ -425,9 +425,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple values are allowed for each time the parameter exists. Values
      * are separated by commas, and the parameter matches if any of the values match.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $multipleOr = null;
+    protected ?FHIRBoolean $multipleOr = null;
 
     /**
      * Value of "true" or "false"
@@ -436,9 +436,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple parameters are allowed - e.g. more than one parameter with the
      * same name. The search matches if all the parameters match.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $multipleAnd = null;
+    protected ?FHIRBoolean $multipleAnd = null;
 
     /**
      * What Search Comparator Codes are supported in search.
@@ -448,7 +448,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSearchComparator[]
      */
-    protected $comparator = [];
+    protected ?array $comparator = [];
 
     /**
      * A supported modifier for a search parameter.
@@ -458,7 +458,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSearchModifierCode[]
      */
-    protected $modifier = [];
+    protected ?array $modifier = [];
 
     /**
      * A sequence of Unicode characters
@@ -472,9 +472,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * value. Values for this field should be drawn from SearchParameter.code for a
      * parameter on the target resource type.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $chain = [];
+    protected ?array $chain = [];
 
     /**
      * A search parameter that defines a named search item that can be used to
@@ -484,13 +484,13 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSearchParameter\FHIRSearchParameterComponent[]
      */
-    protected $component = [];
+    protected ?array $component = [];
 
     /**
      * Validation map for fields in type SearchParameter
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_BASE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -513,8 +513,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -528,8 +528,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -543,8 +543,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -558,8 +558,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_DERIVED_FROM]) || isset($data[self::FIELD_DERIVED_FROM_EXT])) {
-            $value = isset($data[self::FIELD_DERIVED_FROM]) ? $data[self::FIELD_DERIVED_FROM] : null;
-            $ext = (isset($data[self::FIELD_DERIVED_FROM_EXT]) && is_array($data[self::FIELD_DERIVED_FROM_EXT])) ? $ext = $data[self::FIELD_DERIVED_FROM_EXT] : $ext = [];
+            $value = $data[self::FIELD_DERIVED_FROM] ?? null;
+            $ext = (isset($data[self::FIELD_DERIVED_FROM_EXT]) && is_array($data[self::FIELD_DERIVED_FROM_EXT])) ? $data[self::FIELD_DERIVED_FROM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setDerivedFrom($value);
@@ -573,8 +573,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -588,8 +588,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_EXPERIMENTAL]) || isset($data[self::FIELD_EXPERIMENTAL_EXT])) {
-            $value = isset($data[self::FIELD_EXPERIMENTAL]) ? $data[self::FIELD_EXPERIMENTAL] : null;
-            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $ext = $data[self::FIELD_EXPERIMENTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPERIMENTAL] ?? null;
+            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $data[self::FIELD_EXPERIMENTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExperimental($value);
@@ -603,8 +603,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -618,8 +618,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_PUBLISHER]) || isset($data[self::FIELD_PUBLISHER_EXT])) {
-            $value = isset($data[self::FIELD_PUBLISHER]) ? $data[self::FIELD_PUBLISHER] : null;
-            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $ext = $data[self::FIELD_PUBLISHER_EXT] : $ext = [];
+            $value = $data[self::FIELD_PUBLISHER] ?? null;
+            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $data[self::FIELD_PUBLISHER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPublisher($value);
@@ -651,8 +651,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setDescription($value);
@@ -702,8 +702,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_PURPOSE]) || isset($data[self::FIELD_PURPOSE_EXT])) {
-            $value = isset($data[self::FIELD_PURPOSE]) ? $data[self::FIELD_PURPOSE] : null;
-            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $ext = $data[self::FIELD_PURPOSE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PURPOSE] ?? null;
+            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $data[self::FIELD_PURPOSE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setPurpose($value);
@@ -717,8 +717,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -732,8 +732,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_BASE]) || isset($data[self::FIELD_BASE_EXT])) {
-            $value = isset($data[self::FIELD_BASE]) ? $data[self::FIELD_BASE] : null;
-            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $ext = $data[self::FIELD_BASE_EXT] : $ext = [];
+            $value = $data[self::FIELD_BASE] ?? null;
+            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $data[self::FIELD_BASE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->addBase($value);
@@ -762,8 +762,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSearchParamType) {
                     $this->setType($value);
@@ -777,8 +777,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_EXPRESSION]) || isset($data[self::FIELD_EXPRESSION_EXT])) {
-            $value = isset($data[self::FIELD_EXPRESSION]) ? $data[self::FIELD_EXPRESSION] : null;
-            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $ext = $data[self::FIELD_EXPRESSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPRESSION] ?? null;
+            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $data[self::FIELD_EXPRESSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setExpression($value);
@@ -792,8 +792,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_XPATH]) || isset($data[self::FIELD_XPATH_EXT])) {
-            $value = isset($data[self::FIELD_XPATH]) ? $data[self::FIELD_XPATH] : null;
-            $ext = (isset($data[self::FIELD_XPATH_EXT]) && is_array($data[self::FIELD_XPATH_EXT])) ? $ext = $data[self::FIELD_XPATH_EXT] : $ext = [];
+            $value = $data[self::FIELD_XPATH] ?? null;
+            $ext = (isset($data[self::FIELD_XPATH_EXT]) && is_array($data[self::FIELD_XPATH_EXT])) ? $data[self::FIELD_XPATH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setXpath($value);
@@ -807,8 +807,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_XPATH_USAGE]) || isset($data[self::FIELD_XPATH_USAGE_EXT])) {
-            $value = isset($data[self::FIELD_XPATH_USAGE]) ? $data[self::FIELD_XPATH_USAGE] : null;
-            $ext = (isset($data[self::FIELD_XPATH_USAGE_EXT]) && is_array($data[self::FIELD_XPATH_USAGE_EXT])) ? $ext = $data[self::FIELD_XPATH_USAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_XPATH_USAGE] ?? null;
+            $ext = (isset($data[self::FIELD_XPATH_USAGE_EXT]) && is_array($data[self::FIELD_XPATH_USAGE_EXT])) ? $data[self::FIELD_XPATH_USAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRXPathUsageType) {
                     $this->setXpathUsage($value);
@@ -822,8 +822,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_TARGET]) || isset($data[self::FIELD_TARGET_EXT])) {
-            $value = isset($data[self::FIELD_TARGET]) ? $data[self::FIELD_TARGET] : null;
-            $ext = (isset($data[self::FIELD_TARGET_EXT]) && is_array($data[self::FIELD_TARGET_EXT])) ? $ext = $data[self::FIELD_TARGET_EXT] : $ext = [];
+            $value = $data[self::FIELD_TARGET] ?? null;
+            $ext = (isset($data[self::FIELD_TARGET_EXT]) && is_array($data[self::FIELD_TARGET_EXT])) ? $data[self::FIELD_TARGET_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->addTarget($value);
@@ -852,8 +852,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_MULTIPLE_OR]) || isset($data[self::FIELD_MULTIPLE_OR_EXT])) {
-            $value = isset($data[self::FIELD_MULTIPLE_OR]) ? $data[self::FIELD_MULTIPLE_OR] : null;
-            $ext = (isset($data[self::FIELD_MULTIPLE_OR_EXT]) && is_array($data[self::FIELD_MULTIPLE_OR_EXT])) ? $ext = $data[self::FIELD_MULTIPLE_OR_EXT] : $ext = [];
+            $value = $data[self::FIELD_MULTIPLE_OR] ?? null;
+            $ext = (isset($data[self::FIELD_MULTIPLE_OR_EXT]) && is_array($data[self::FIELD_MULTIPLE_OR_EXT])) ? $data[self::FIELD_MULTIPLE_OR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setMultipleOr($value);
@@ -867,8 +867,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_MULTIPLE_AND]) || isset($data[self::FIELD_MULTIPLE_AND_EXT])) {
-            $value = isset($data[self::FIELD_MULTIPLE_AND]) ? $data[self::FIELD_MULTIPLE_AND] : null;
-            $ext = (isset($data[self::FIELD_MULTIPLE_AND_EXT]) && is_array($data[self::FIELD_MULTIPLE_AND_EXT])) ? $ext = $data[self::FIELD_MULTIPLE_AND_EXT] : $ext = [];
+            $value = $data[self::FIELD_MULTIPLE_AND] ?? null;
+            $ext = (isset($data[self::FIELD_MULTIPLE_AND_EXT]) && is_array($data[self::FIELD_MULTIPLE_AND_EXT])) ? $data[self::FIELD_MULTIPLE_AND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setMultipleAnd($value);
@@ -882,8 +882,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_COMPARATOR]) || isset($data[self::FIELD_COMPARATOR_EXT])) {
-            $value = isset($data[self::FIELD_COMPARATOR]) ? $data[self::FIELD_COMPARATOR] : null;
-            $ext = (isset($data[self::FIELD_COMPARATOR_EXT]) && is_array($data[self::FIELD_COMPARATOR_EXT])) ? $ext = $data[self::FIELD_COMPARATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMPARATOR] ?? null;
+            $ext = (isset($data[self::FIELD_COMPARATOR_EXT]) && is_array($data[self::FIELD_COMPARATOR_EXT])) ? $data[self::FIELD_COMPARATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSearchComparator) {
                     $this->addComparator($value);
@@ -912,8 +912,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_MODIFIER]) || isset($data[self::FIELD_MODIFIER_EXT])) {
-            $value = isset($data[self::FIELD_MODIFIER]) ? $data[self::FIELD_MODIFIER] : null;
-            $ext = (isset($data[self::FIELD_MODIFIER_EXT]) && is_array($data[self::FIELD_MODIFIER_EXT])) ? $ext = $data[self::FIELD_MODIFIER_EXT] : $ext = [];
+            $value = $data[self::FIELD_MODIFIER] ?? null;
+            $ext = (isset($data[self::FIELD_MODIFIER_EXT]) && is_array($data[self::FIELD_MODIFIER_EXT])) ? $data[self::FIELD_MODIFIER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSearchModifierCode) {
                     $this->addModifier($value);
@@ -942,8 +942,8 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_CHAIN]) || isset($data[self::FIELD_CHAIN_EXT])) {
-            $value = isset($data[self::FIELD_CHAIN]) ? $data[self::FIELD_CHAIN] : null;
-            $ext = (isset($data[self::FIELD_CHAIN_EXT]) && is_array($data[self::FIELD_CHAIN_EXT])) ? $ext = $data[self::FIELD_CHAIN_EXT] : $ext = [];
+            $value = $data[self::FIELD_CHAIN] ?? null;
+            $ext = (isset($data[self::FIELD_CHAIN_EXT]) && is_array($data[self::FIELD_CHAIN_EXT])) ? $data[self::FIELD_CHAIN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addChain($value);
@@ -991,11 +991,17 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -1004,6 +1010,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
         }
         return "<SearchParameter{$xmlns}></SearchParameter>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -1022,9 +1031,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the search parameter is stored on different servers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -1041,10 +1050,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the search parameter is stored on different servers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -1066,9 +1075,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -1085,10 +1094,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -1107,9 +1116,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -1123,10 +1132,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -1148,9 +1157,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (usually) the functionality should be a proper subset of the underlying search
      * parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getDerivedFrom()
+    public function getDerivedFrom(): ?FHIRCanonical
     {
         return $this->derivedFrom;
     }
@@ -1167,10 +1176,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * (usually) the functionality should be a proper subset of the underlying search
      * parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $derivedFrom
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $derivedFrom
      * @return static
      */
-    public function setDerivedFrom($derivedFrom = null)
+    public function setDerivedFrom($derivedFrom = null): object
     {
         if (null !== $derivedFrom && !($derivedFrom instanceof FHIRCanonical)) {
             $derivedFrom = new FHIRCanonical($derivedFrom);
@@ -1188,7 +1197,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -1202,7 +1211,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1217,9 +1226,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExperimental()
+    public function getExperimental(): ?FHIRBoolean
     {
         return $this->experimental;
     }
@@ -1232,10 +1241,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
      * @return static
      */
-    public function setExperimental($experimental = null)
+    public function setExperimental($experimental = null): object
     {
         if (null !== $experimental && !($experimental instanceof FHIRBoolean)) {
             $experimental = new FHIRBoolean($experimental);
@@ -1258,9 +1267,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * search parameter changes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -1278,10 +1287,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * search parameter changes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -1298,9 +1307,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the search parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPublisher()
+    public function getPublisher(): ?FHIRString
     {
         return $this->publisher;
     }
@@ -1312,10 +1321,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the search parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
      * @return static
      */
-    public function setPublisher($publisher = null)
+    public function setPublisher($publisher = null): object
     {
         if (null !== $publisher && !($publisher instanceof FHIRString)) {
             $publisher = new FHIRString($publisher);
@@ -1335,7 +1344,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1351,7 +1360,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail $contact
      * @return static
      */
-    public function addContact(FHIRContactDetail $contact = null)
+    public function addContact(?FHIRContactDetail $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1369,7 +1378,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactDetail[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1399,9 +1408,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * And how it used.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRMarkdown
     {
         return $this->description;
     }
@@ -1417,10 +1426,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * And how it used.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRMarkdown)) {
             $description = new FHIRMarkdown($description);
@@ -1446,7 +1455,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    public function getUseContext()
+    public function getUseContext(): ?array
     {
         return $this->useContext;
     }
@@ -1468,7 +1477,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext $useContext
      * @return static
      */
-    public function addUseContext(FHIRUsageContext $useContext = null)
+    public function addUseContext(?FHIRUsageContext $useContext = null): object
     {
         $this->_trackValueAdded();
         $this->useContext[] = $useContext;
@@ -1492,7 +1501,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUsageContext[] $useContext
      * @return static
      */
-    public function setUseContext(array $useContext = [])
+    public function setUseContext(array $useContext = []): object
     {
         if ([] !== $this->useContext) {
             $this->_trackValuesRemoved(count($this->useContext));
@@ -1522,7 +1531,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -1539,7 +1548,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -1558,7 +1567,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -1589,9 +1598,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Explanation of why this search parameter is needed and why it has been designed
      * as it has.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getPurpose()
+    public function getPurpose(): ?FHIRMarkdown
     {
         return $this->purpose;
     }
@@ -1608,10 +1617,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Explanation of why this search parameter is needed and why it has been designed
      * as it has.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
      * @return static
      */
-    public function setPurpose($purpose = null)
+    public function setPurpose($purpose = null): object
     {
         if (null !== $purpose && !($purpose instanceof FHIRMarkdown)) {
             $purpose = new FHIRMarkdown($purpose);
@@ -1630,9 +1639,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * The code used in the URL or the parameter name in a parameters resource for this
      * search parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -1646,10 +1655,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * The code used in the URL or the parameter name in a parameters resource for this
      * search parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -1667,9 +1676,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The base resource type(s) that this search parameter can be used against.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    public function getBase()
+    public function getBase(): ?array
     {
         return $this->base;
     }
@@ -1682,10 +1691,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * The base resource type(s) that this search parameter can be used against.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $base
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[] $base
      * @return static
      */
-    public function addBase($base = null)
+    public function addBase($base = null): object
     {
         if (null !== $base && !($base instanceof FHIRCode)) {
             $base = new FHIRCode($base);
@@ -1706,7 +1715,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCode[] $base
      * @return static
      */
-    public function setBase(array $base = [])
+    public function setBase(array $base = []): object
     {
         if ([] !== $this->base) {
             $this->_trackValuesRemoved(count($this->base));
@@ -1733,7 +1742,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSearchParamType
      */
-    public function getType()
+    public function getType(): ?FHIRSearchParamType
     {
         return $this->type;
     }
@@ -1747,7 +1756,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSearchParamType $type
      * @return static
      */
-    public function setType(FHIRSearchParamType $type = null)
+    public function setType(?FHIRSearchParamType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -1761,9 +1770,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * A FHIRPath expression that returns a set of elements for the search parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getExpression()
+    public function getExpression(): ?FHIRString
     {
         return $this->expression;
     }
@@ -1775,10 +1784,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * A FHIRPath expression that returns a set of elements for the search parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $expression
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $expression
      * @return static
      */
-    public function setExpression($expression = null)
+    public function setExpression($expression = null): object
     {
         if (null !== $expression && !($expression instanceof FHIRString)) {
             $expression = new FHIRString($expression);
@@ -1795,9 +1804,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * An XPath expression that returns a set of elements for the search parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getXpath()
+    public function getXpath(): ?FHIRString
     {
         return $this->xpath;
     }
@@ -1809,10 +1818,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * An XPath expression that returns a set of elements for the search parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $xpath
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $xpath
      * @return static
      */
-    public function setXpath($xpath = null)
+    public function setXpath($xpath = null): object
     {
         if (null !== $xpath && !($xpath instanceof FHIRString)) {
             $xpath = new FHIRString($xpath);
@@ -1832,7 +1841,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRXPathUsageType
      */
-    public function getXpathUsage()
+    public function getXpathUsage(): ?FHIRXPathUsageType
     {
         return $this->xpathUsage;
     }
@@ -1848,7 +1857,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRXPathUsageType $xpathUsage
      * @return static
      */
-    public function setXpathUsage(FHIRXPathUsageType $xpathUsage = null)
+    public function setXpathUsage(?FHIRXPathUsageType $xpathUsage = null): object
     {
         $this->_trackValueSet($this->xpathUsage, $xpathUsage);
         $this->xpathUsage = $xpathUsage;
@@ -1863,9 +1872,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * Types of resource (if a resource is referenced).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    public function getTarget()
+    public function getTarget(): ?array
     {
         return $this->target;
     }
@@ -1878,10 +1887,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * Types of resource (if a resource is referenced).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $target
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[] $target
      * @return static
      */
-    public function addTarget($target = null)
+    public function addTarget($target = null): object
     {
         if (null !== $target && !($target instanceof FHIRCode)) {
             $target = new FHIRCode($target);
@@ -1902,7 +1911,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCode[] $target
      * @return static
      */
-    public function setTarget(array $target = [])
+    public function setTarget(array $target = []): object
     {
         if ([] !== $this->target) {
             $this->_trackValuesRemoved(count($this->target));
@@ -1928,9 +1937,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple values are allowed for each time the parameter exists. Values
      * are separated by commas, and the parameter matches if any of the values match.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getMultipleOr()
+    public function getMultipleOr(): ?FHIRBoolean
     {
         return $this->multipleOr;
     }
@@ -1942,10 +1951,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple values are allowed for each time the parameter exists. Values
      * are separated by commas, and the parameter matches if any of the values match.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleOr
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleOr
      * @return static
      */
-    public function setMultipleOr($multipleOr = null)
+    public function setMultipleOr($multipleOr = null): object
     {
         if (null !== $multipleOr && !($multipleOr instanceof FHIRBoolean)) {
             $multipleOr = new FHIRBoolean($multipleOr);
@@ -1962,9 +1971,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple parameters are allowed - e.g. more than one parameter with the
      * same name. The search matches if all the parameters match.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getMultipleAnd()
+    public function getMultipleAnd(): ?FHIRBoolean
     {
         return $this->multipleAnd;
     }
@@ -1976,10 +1985,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * Whether multiple parameters are allowed - e.g. more than one parameter with the
      * same name. The search matches if all the parameters match.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleAnd
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleAnd
      * @return static
      */
-    public function setMultipleAnd($multipleAnd = null)
+    public function setMultipleAnd($multipleAnd = null): object
     {
         if (null !== $multipleAnd && !($multipleAnd instanceof FHIRBoolean)) {
             $multipleAnd = new FHIRBoolean($multipleAnd);
@@ -1997,7 +2006,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSearchComparator[]
      */
-    public function getComparator()
+    public function getComparator(): ?array
     {
         return $this->comparator;
     }
@@ -2011,7 +2020,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSearchComparator $comparator
      * @return static
      */
-    public function addComparator(FHIRSearchComparator $comparator = null)
+    public function addComparator(?FHIRSearchComparator $comparator = null): object
     {
         $this->_trackValueAdded();
         $this->comparator[] = $comparator;
@@ -2027,7 +2036,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRSearchComparator[] $comparator
      * @return static
      */
-    public function setComparator(array $comparator = [])
+    public function setComparator(array $comparator = []): object
     {
         if ([] !== $this->comparator) {
             $this->_trackValuesRemoved(count($this->comparator));
@@ -2054,7 +2063,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSearchModifierCode[]
      */
-    public function getModifier()
+    public function getModifier(): ?array
     {
         return $this->modifier;
     }
@@ -2068,7 +2077,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSearchModifierCode $modifier
      * @return static
      */
-    public function addModifier(FHIRSearchModifierCode $modifier = null)
+    public function addModifier(?FHIRSearchModifierCode $modifier = null): object
     {
         $this->_trackValueAdded();
         $this->modifier[] = $modifier;
@@ -2084,7 +2093,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRSearchModifierCode[] $modifier
      * @return static
      */
-    public function setModifier(array $modifier = [])
+    public function setModifier(array $modifier = []): object
     {
         if ([] !== $this->modifier) {
             $this->_trackValuesRemoved(count($this->modifier));
@@ -2115,9 +2124,9 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * value. Values for this field should be drawn from SearchParameter.code for a
      * parameter on the target resource type.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getChain()
+    public function getChain(): ?array
     {
         return $this->chain;
     }
@@ -2134,10 +2143,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * value. Values for this field should be drawn from SearchParameter.code for a
      * parameter on the target resource type.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $chain
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $chain
      * @return static
      */
-    public function addChain($chain = null)
+    public function addChain($chain = null): object
     {
         if (null !== $chain && !($chain instanceof FHIRString)) {
             $chain = new FHIRString($chain);
@@ -2162,7 +2171,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $chain
      * @return static
      */
-    public function setChain(array $chain = [])
+    public function setChain(array $chain = []): object
     {
         if ([] !== $this->chain) {
             $this->_trackValuesRemoved(count($this->chain));
@@ -2189,7 +2198,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSearchParameter\FHIRSearchParameterComponent[]
      */
-    public function getComponent()
+    public function getComponent(): ?array
     {
         return $this->component;
     }
@@ -2203,7 +2212,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSearchParameter\FHIRSearchParameterComponent $component
      * @return static
      */
-    public function addComponent(FHIRSearchParameterComponent $component = null)
+    public function addComponent(?FHIRSearchParameterComponent $component = null): object
     {
         $this->_trackValueAdded();
         $this->component[] = $component;
@@ -2219,7 +2228,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSearchParameter\FHIRSearchParameterComponent[] $component
      * @return static
      */
-    public function setComponent(array $component = [])
+    public function setComponent(array $component = []): object
     {
         if ([] !== $this->component) {
             $this->_trackValuesRemoved(count($this->component));
@@ -2824,15 +2833,15 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSearchParameter
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSearchParameter    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSearchParameter::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2852,7 +2861,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -3120,7 +3129,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -3308,145 +3317,147 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDerivedFrom())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DERIVED_FROM] = $val;
+                $out->{self::FIELD_DERIVED_FROM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DERIVED_FROM_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DERIVED_FROM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExperimental())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPERIMENTAL] = $val;
+                $out->{self::FIELD_EXPERIMENTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPERIMENTAL_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPERIMENTAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPublisher())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PUBLISHER] = $val;
+                $out->{self::FIELD_PUBLISHER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PUBLISHER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PUBLISHER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getUseContext())) {
-            $a[self::FIELD_USE_CONTEXT] = [];
+            $out->{self::FIELD_USE_CONTEXT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_USE_CONTEXT][] = $v;
+                $out->{self::FIELD_USE_CONTEXT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getPurpose())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PURPOSE] = $val;
+                $out->{self::FIELD_PURPOSE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PURPOSE_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PURPOSE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getBase())) {
@@ -3458,7 +3469,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCode::FIELD_VALUE]);
+                unset($ext->{FHIRCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3467,50 +3478,50 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_BASE] = $vals;
+                $out->{self::FIELD_BASE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_BASE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BASE_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRSearchParamType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRSearchParamType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExpression())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPRESSION] = $val;
+                $out->{self::FIELD_EXPRESSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPRESSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPRESSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getXpath())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_XPATH] = $val;
+                $out->{self::FIELD_XPATH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_XPATH_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_XPATH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getXpathUsage())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_XPATH_USAGE] = $val;
+                $out->{self::FIELD_XPATH_USAGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRXPathUsageType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_XPATH_USAGE_EXT] = $ext;
+            unset($ext->{FHIRXPathUsageType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_XPATH_USAGE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getTarget())) {
@@ -3522,7 +3533,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCode::FIELD_VALUE]);
+                unset($ext->{FHIRCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3531,30 +3542,30 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_TARGET] = $vals;
+                $out->{self::FIELD_TARGET} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_TARGET_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TARGET_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getMultipleOr())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MULTIPLE_OR] = $val;
+                $out->{self::FIELD_MULTIPLE_OR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MULTIPLE_OR_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MULTIPLE_OR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMultipleAnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MULTIPLE_AND] = $val;
+                $out->{self::FIELD_MULTIPLE_AND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MULTIPLE_AND_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MULTIPLE_AND_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getComparator())) {
@@ -3566,7 +3577,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRSearchComparator::FIELD_VALUE]);
+                unset($ext->{FHIRSearchComparator::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3575,10 +3586,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_COMPARATOR] = $vals;
+                $out->{self::FIELD_COMPARATOR} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_COMPARATOR_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMPARATOR_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getModifier())) {
@@ -3590,7 +3601,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRSearchModifierCode::FIELD_VALUE]);
+                unset($ext->{FHIRSearchModifierCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3599,10 +3610,10 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_MODIFIER] = $vals;
+                $out->{self::FIELD_MODIFIER} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_MODIFIER_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MODIFIER_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getChain())) {
@@ -3614,7 +3625,7 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3623,22 +3634,25 @@ class FHIRSearchParameter extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_CHAIN] = $vals;
+                $out->{self::FIELD_CHAIN} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_CHAIN_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CHAIN_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getComponent())) {
-            $a[self::FIELD_COMPONENT] = [];
+            $out->{self::FIELD_COMPONENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COMPONENT][] = $v;
+                $out->{self::FIELD_COMPONENT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -111,9 +111,9 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * The human readable description of this stratifier criteria.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A expression that is evaluated in a specified context and returns a value. The
@@ -128,7 +128,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    protected $criteria = null;
+    protected ?FHIRExpression $criteria = null;
 
     /**
      * The Measure resource provides the definition of a quality measure.
@@ -139,13 +139,13 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureComponent[]
      */
-    protected $component = [];
+    protected ?array $component = [];
 
     /**
      * Validation map for fields in type Measure.Stratifier
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMeasureStratifier Constructor
@@ -171,8 +171,8 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -212,11 +212,17 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -238,7 +244,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -256,7 +262,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -270,9 +276,9 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * The human readable description of this stratifier criteria.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -284,10 +290,10 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * The human readable description of this stratifier criteria.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -310,7 +316,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    public function getCriteria()
+    public function getCriteria(): ?FHIRExpression
     {
         return $this->criteria;
     }
@@ -329,7 +335,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExpression $criteria
      * @return static
      */
-    public function setCriteria(FHIRExpression $criteria = null)
+    public function setCriteria(?FHIRExpression $criteria = null): object
     {
         $this->_trackValueSet($this->criteria, $criteria);
         $this->criteria = $criteria;
@@ -345,7 +351,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureComponent[]
      */
-    public function getComponent()
+    public function getComponent(): ?array
     {
         return $this->component;
     }
@@ -360,7 +366,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureComponent $component
      * @return static
      */
-    public function addComponent(FHIRMeasureComponent $component = null)
+    public function addComponent(?FHIRMeasureComponent $component = null): object
     {
         $this->_trackValueAdded();
         $this->component[] = $component;
@@ -377,7 +383,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureComponent[] $component
      * @return static
      */
-    public function setComponent(array $component = [])
+    public function setComponent(array $component = []): object
     {
         if ([] !== $this->component) {
             $this->_trackValuesRemoved(count($this->component));
@@ -532,15 +538,15 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureStratifier
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMeasure\FHIRMeasureStratifier    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMeasureStratifier::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -560,7 +566,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -607,7 +613,7 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -645,36 +651,39 @@ class FHIRMeasureStratifier extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCriteria())) {
-            $a[self::FIELD_CRITERIA] = $v;
+            $out->{self::FIELD_CRITERIA} = $v;
         }
         if ([] !== ($vs = $this->getComponent())) {
-            $a[self::FIELD_COMPONENT] = [];
+            $out->{self::FIELD_COMPONENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COMPONENT][] = $v;
+                $out->{self::FIELD_COMPONENT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRAnnotation extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $authorReference = null;
+    protected ?FHIRReference $authorReference = null;
 
     /**
      * A sequence of Unicode characters
@@ -109,9 +109,9 @@ class FHIRAnnotation extends FHIRElement
      *
      * The individual responsible for making the annotation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $authorString = null;
+    protected ?FHIRString $authorString = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -123,9 +123,9 @@ class FHIRAnnotation extends FHIRElement
      *
      * Indicates when this particular annotation was made.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $time = null;
+    protected ?FHIRDateTime $time = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -138,15 +138,15 @@ class FHIRAnnotation extends FHIRElement
      *
      * The text of the annotation in markdown format.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $text = null;
+    protected ?FHIRMarkdown $text = null;
 
     /**
      * Validation map for fields in type Annotation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRAnnotation Constructor
@@ -172,8 +172,8 @@ class FHIRAnnotation extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_AUTHOR_STRING]) || isset($data[self::FIELD_AUTHOR_STRING_EXT])) {
-            $value = isset($data[self::FIELD_AUTHOR_STRING]) ? $data[self::FIELD_AUTHOR_STRING] : null;
-            $ext = (isset($data[self::FIELD_AUTHOR_STRING_EXT]) && is_array($data[self::FIELD_AUTHOR_STRING_EXT])) ? $ext = $data[self::FIELD_AUTHOR_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_AUTHOR_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_AUTHOR_STRING_EXT]) && is_array($data[self::FIELD_AUTHOR_STRING_EXT])) ? $data[self::FIELD_AUTHOR_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setAuthorString($value);
@@ -187,8 +187,8 @@ class FHIRAnnotation extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TIME]) || isset($data[self::FIELD_TIME_EXT])) {
-            $value = isset($data[self::FIELD_TIME]) ? $data[self::FIELD_TIME] : null;
-            $ext = (isset($data[self::FIELD_TIME_EXT]) && is_array($data[self::FIELD_TIME_EXT])) ? $ext = $data[self::FIELD_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_TIME_EXT]) && is_array($data[self::FIELD_TIME_EXT])) ? $data[self::FIELD_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTime($value);
@@ -202,8 +202,8 @@ class FHIRAnnotation extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TEXT]) || isset($data[self::FIELD_TEXT_EXT])) {
-            $value = isset($data[self::FIELD_TEXT]) ? $data[self::FIELD_TEXT] : null;
-            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $ext = $data[self::FIELD_TEXT_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEXT] ?? null;
+            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $data[self::FIELD_TEXT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setText($value);
@@ -218,11 +218,17 @@ class FHIRAnnotation extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -241,7 +247,7 @@ class FHIRAnnotation extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthorReference()
+    public function getAuthorReference(): ?FHIRReference
     {
         return $this->authorReference;
     }
@@ -256,7 +262,7 @@ class FHIRAnnotation extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $authorReference
      * @return static
      */
-    public function setAuthorReference(FHIRReference $authorReference = null)
+    public function setAuthorReference(?FHIRReference $authorReference = null): object
     {
         $this->_trackValueSet($this->authorReference, $authorReference);
         $this->authorReference = $authorReference;
@@ -270,9 +276,9 @@ class FHIRAnnotation extends FHIRElement
      *
      * The individual responsible for making the annotation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getAuthorString()
+    public function getAuthorString(): ?FHIRString
     {
         return $this->authorString;
     }
@@ -284,10 +290,10 @@ class FHIRAnnotation extends FHIRElement
      *
      * The individual responsible for making the annotation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $authorString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $authorString
      * @return static
      */
-    public function setAuthorString($authorString = null)
+    public function setAuthorString($authorString = null): object
     {
         if (null !== $authorString && !($authorString instanceof FHIRString)) {
             $authorString = new FHIRString($authorString);
@@ -307,9 +313,9 @@ class FHIRAnnotation extends FHIRElement
      *
      * Indicates when this particular annotation was made.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTime()
+    public function getTime(): ?FHIRDateTime
     {
         return $this->time;
     }
@@ -324,10 +330,10 @@ class FHIRAnnotation extends FHIRElement
      *
      * Indicates when this particular annotation was made.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $time
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $time
      * @return static
      */
-    public function setTime($time = null)
+    public function setTime($time = null): object
     {
         if (null !== $time && !($time instanceof FHIRDateTime)) {
             $time = new FHIRDateTime($time);
@@ -348,9 +354,9 @@ class FHIRAnnotation extends FHIRElement
      *
      * The text of the annotation in markdown format.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getText()
+    public function getText(): ?FHIRMarkdown
     {
         return $this->text;
     }
@@ -366,10 +372,10 @@ class FHIRAnnotation extends FHIRElement
      *
      * The text of the annotation in markdown format.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $text
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $text
      * @return static
      */
-    public function setText($text = null)
+    public function setText($text = null): object
     {
         if (null !== $text && !($text instanceof FHIRMarkdown)) {
             $text = new FHIRMarkdown($text);
@@ -501,15 +507,15 @@ class FHIRAnnotation extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRAnnotation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAnnotation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -529,7 +535,7 @@ class FHIRAnnotation extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -592,7 +598,7 @@ class FHIRAnnotation extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -625,44 +631,47 @@ class FHIRAnnotation extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getAuthorReference())) {
-            $a[self::FIELD_AUTHOR_REFERENCE] = $v;
+            $out->{self::FIELD_AUTHOR_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getAuthorString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AUTHOR_STRING] = $val;
+                $out->{self::FIELD_AUTHOR_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AUTHOR_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AUTHOR_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIME] = $val;
+                $out->{self::FIELD_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getText())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEXT] = $val;
+                $out->{self::FIELD_TEXT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEXT_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEXT_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

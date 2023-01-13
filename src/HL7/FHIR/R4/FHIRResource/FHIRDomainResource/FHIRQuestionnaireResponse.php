@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -122,7 +122,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $identifier = null;
+    protected ?FHIRIdentifier $identifier = null;
 
     /**
      * A reference from one resource to another.
@@ -136,7 +136,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A reference from one resource to another.
@@ -148,7 +148,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $partOf = [];
+    protected ?array $partOf = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -159,9 +159,9 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * The Questionnaire that defines and organizes the questions for which answers are
      * being provided.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $questionnaire = null;
+    protected ?FHIRCanonical $questionnaire = null;
 
     /**
      * Lifecycle status of the questionnaire response.
@@ -171,7 +171,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireResponseStatus
      */
-    protected $status = null;
+    protected ?FHIRQuestionnaireResponseStatus $status = null;
 
     /**
      * A reference from one resource to another.
@@ -184,7 +184,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -196,7 +196,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $encounter = null;
+    protected ?FHIRReference $encounter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -208,9 +208,9 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date and/or time that this set of answers were last changed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $authored = null;
+    protected ?FHIRDateTime $authored = null;
 
     /**
      * A reference from one resource to another.
@@ -222,7 +222,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $author = null;
+    protected ?FHIRReference $author = null;
 
     /**
      * A reference from one resource to another.
@@ -233,7 +233,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $source = null;
+    protected ?FHIRReference $source = null;
 
     /**
      * A structured set of questions and their answers. The questions are ordered and
@@ -245,13 +245,13 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaireResponse\FHIRQuestionnaireResponseItem[]
      */
-    protected $item = [];
+    protected ?array $item = [];
 
     /**
      * Validation map for fields in type QuestionnaireResponse
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRQuestionnaireResponse Constructor
@@ -313,8 +313,8 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_QUESTIONNAIRE]) || isset($data[self::FIELD_QUESTIONNAIRE_EXT])) {
-            $value = isset($data[self::FIELD_QUESTIONNAIRE]) ? $data[self::FIELD_QUESTIONNAIRE] : null;
-            $ext = (isset($data[self::FIELD_QUESTIONNAIRE_EXT]) && is_array($data[self::FIELD_QUESTIONNAIRE_EXT])) ? $ext = $data[self::FIELD_QUESTIONNAIRE_EXT] : $ext = [];
+            $value = $data[self::FIELD_QUESTIONNAIRE] ?? null;
+            $ext = (isset($data[self::FIELD_QUESTIONNAIRE_EXT]) && is_array($data[self::FIELD_QUESTIONNAIRE_EXT])) ? $data[self::FIELD_QUESTIONNAIRE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setQuestionnaire($value);
@@ -328,8 +328,8 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRQuestionnaireResponseStatus) {
                     $this->setStatus($value);
@@ -357,8 +357,8 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_AUTHORED]) || isset($data[self::FIELD_AUTHORED_EXT])) {
-            $value = isset($data[self::FIELD_AUTHORED]) ? $data[self::FIELD_AUTHORED] : null;
-            $ext = (isset($data[self::FIELD_AUTHORED_EXT]) && is_array($data[self::FIELD_AUTHORED_EXT])) ? $ext = $data[self::FIELD_AUTHORED_EXT] : $ext = [];
+            $value = $data[self::FIELD_AUTHORED] ?? null;
+            $ext = (isset($data[self::FIELD_AUTHORED_EXT]) && is_array($data[self::FIELD_AUTHORED_EXT])) ? $data[self::FIELD_AUTHORED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setAuthored($value);
@@ -405,11 +405,17 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -418,6 +424,9 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
         }
         return "<QuestionnaireResponse{$xmlns}></QuestionnaireResponse>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -435,7 +444,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRIdentifier
     {
         return $this->identifier;
     }
@@ -452,7 +461,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function setIdentifier(FHIRIdentifier $identifier = null)
+    public function setIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueSet($this->identifier, $identifier);
         $this->identifier = $identifier;
@@ -471,7 +480,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -489,7 +498,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -509,7 +518,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -538,7 +547,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getPartOf()
+    public function getPartOf(): ?array
     {
         return $this->partOf;
     }
@@ -554,7 +563,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $partOf
      * @return static
      */
-    public function addPartOf(FHIRReference $partOf = null)
+    public function addPartOf(?FHIRReference $partOf = null): object
     {
         $this->_trackValueAdded();
         $this->partOf[] = $partOf;
@@ -572,7 +581,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $partOf
      * @return static
      */
-    public function setPartOf(array $partOf = [])
+    public function setPartOf(array $partOf = []): object
     {
         if ([] !== $this->partOf) {
             $this->_trackValuesRemoved(count($this->partOf));
@@ -600,9 +609,9 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * The Questionnaire that defines and organizes the questions for which answers are
      * being provided.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getQuestionnaire()
+    public function getQuestionnaire(): ?FHIRCanonical
     {
         return $this->questionnaire;
     }
@@ -616,10 +625,10 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * The Questionnaire that defines and organizes the questions for which answers are
      * being provided.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $questionnaire
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $questionnaire
      * @return static
      */
-    public function setQuestionnaire($questionnaire = null)
+    public function setQuestionnaire($questionnaire = null): object
     {
         if (null !== $questionnaire && !($questionnaire instanceof FHIRCanonical)) {
             $questionnaire = new FHIRCanonical($questionnaire);
@@ -637,7 +646,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireResponseStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRQuestionnaireResponseStatus
     {
         return $this->status;
     }
@@ -651,7 +660,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireResponseStatus $status
      * @return static
      */
-    public function setStatus(FHIRQuestionnaireResponseStatus $status = null)
+    public function setStatus(?FHIRQuestionnaireResponseStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -669,7 +678,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -686,7 +695,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -703,7 +712,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIRReference
     {
         return $this->encounter;
     }
@@ -719,7 +728,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function setEncounter(FHIRReference $encounter = null)
+    public function setEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueSet($this->encounter, $encounter);
         $this->encounter = $encounter;
@@ -736,9 +745,9 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date and/or time that this set of answers were last changed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getAuthored()
+    public function getAuthored(): ?FHIRDateTime
     {
         return $this->authored;
     }
@@ -753,10 +762,10 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date and/or time that this set of answers were last changed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $authored
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $authored
      * @return static
      */
-    public function setAuthored($authored = null)
+    public function setAuthored($authored = null): object
     {
         if (null !== $authored && !($authored instanceof FHIRDateTime)) {
             $authored = new FHIRDateTime($authored);
@@ -776,7 +785,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthor()
+    public function getAuthor(): ?FHIRReference
     {
         return $this->author;
     }
@@ -792,7 +801,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function setAuthor(FHIRReference $author = null)
+    public function setAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueSet($this->author, $author);
         $this->author = $author;
@@ -808,7 +817,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSource()
+    public function getSource(): ?FHIRReference
     {
         return $this->source;
     }
@@ -823,7 +832,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $source
      * @return static
      */
-    public function setSource(FHIRReference $source = null)
+    public function setSource(?FHIRReference $source = null): object
     {
         $this->_trackValueSet($this->source, $source);
         $this->source = $source;
@@ -840,7 +849,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaireResponse\FHIRQuestionnaireResponseItem[]
      */
-    public function getItem()
+    public function getItem(): ?array
     {
         return $this->item;
     }
@@ -856,7 +865,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaireResponse\FHIRQuestionnaireResponseItem $item
      * @return static
      */
-    public function addItem(FHIRQuestionnaireResponseItem $item = null)
+    public function addItem(?FHIRQuestionnaireResponseItem $item = null): object
     {
         $this->_trackValueAdded();
         $this->item[] = $item;
@@ -874,7 +883,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaireResponse\FHIRQuestionnaireResponseItem[] $item
      * @return static
      */
-    public function setItem(array $item = [])
+    public function setItem(array $item = []): object
     {
         if ([] !== $this->item) {
             $this->_trackValuesRemoved(count($this->item));
@@ -1212,15 +1221,15 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaireResponse
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaireResponse    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRQuestionnaireResponse::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1240,7 +1249,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1343,7 +1352,7 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1426,83 +1435,88 @@ class FHIRQuestionnaireResponse extends FHIRDomainResource implements PHPFHIRCon
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = $v;
+            $out->{self::FIELD_IDENTIFIER} = $v;
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPartOf())) {
-            $a[self::FIELD_PART_OF] = [];
+            $out->{self::FIELD_PART_OF} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PART_OF][] = $v;
+                $out->{self::FIELD_PART_OF}[] = $v;
             }
         }
         if (null !== ($v = $this->getQuestionnaire())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_QUESTIONNAIRE] = $val;
+                $out->{self::FIELD_QUESTIONNAIRE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_QUESTIONNAIRE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_QUESTIONNAIRE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRQuestionnaireResponseStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRQuestionnaireResponseStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = $v;
+            $out->{self::FIELD_ENCOUNTER} = $v;
         }
         if (null !== ($v = $this->getAuthored())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AUTHORED] = $val;
+                $out->{self::FIELD_AUTHORED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AUTHORED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AUTHORED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = $v;
+            $out->{self::FIELD_AUTHOR} = $v;
         }
         if (null !== ($v = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = $v;
+            $out->{self::FIELD_SOURCE} = $v;
         }
         if ([] !== ($vs = $this->getItem())) {
-            $a[self::FIELD_ITEM] = [];
+            $out->{self::FIELD_ITEM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ITEM][] = $v;
+                $out->{self::FIELD_ITEM}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

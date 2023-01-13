@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -113,7 +113,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A code specifying the state of the resource instance.
@@ -123,7 +123,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes
      */
-    protected $status = null;
+    protected ?FHIRFinancialResourceStatusCodes $status = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -135,9 +135,9 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * The date when this resource was created.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $created = null;
+    protected ?FHIRDateTime $created = null;
 
     /**
      * A reference from one resource to another.
@@ -148,7 +148,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $insurer = null;
+    protected ?FHIRReference $insurer = null;
 
     /**
      * A reference from one resource to another.
@@ -159,7 +159,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $provider = null;
+    protected ?FHIRReference $provider = null;
 
     /**
      * A reference from one resource to another.
@@ -170,7 +170,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $candidate = null;
+    protected ?FHIRReference $candidate = null;
 
     /**
      * A reference from one resource to another.
@@ -181,13 +181,13 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $coverage = null;
+    protected ?FHIRReference $coverage = null;
 
     /**
      * Validation map for fields in type EnrollmentRequest
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIREnrollmentRequest Constructor
@@ -224,8 +224,8 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFinancialResourceStatusCodes) {
                     $this->setStatus($value);
@@ -239,8 +239,8 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
             }
         }
         if (isset($data[self::FIELD_CREATED]) || isset($data[self::FIELD_CREATED_EXT])) {
-            $value = isset($data[self::FIELD_CREATED]) ? $data[self::FIELD_CREATED] : null;
-            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $ext = $data[self::FIELD_CREATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATED] ?? null;
+            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $data[self::FIELD_CREATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreated($value);
@@ -283,11 +283,17 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -296,6 +302,9 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
         }
         return "<EnrollmentRequest{$xmlns}></EnrollmentRequest>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -312,7 +321,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -328,7 +337,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -346,7 +355,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -373,7 +382,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRFinancialResourceStatusCodes
     {
         return $this->status;
     }
@@ -387,7 +396,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes $status
      * @return static
      */
-    public function setStatus(FHIRFinancialResourceStatusCodes $status = null)
+    public function setStatus(?FHIRFinancialResourceStatusCodes $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -404,9 +413,9 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * The date when this resource was created.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreated()
+    public function getCreated(): ?FHIRDateTime
     {
         return $this->created;
     }
@@ -421,10 +430,10 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * The date when this resource was created.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
      * @return static
      */
-    public function setCreated($created = null)
+    public function setCreated($created = null): object
     {
         if (null !== $created && !($created instanceof FHIRDateTime)) {
             $created = new FHIRDateTime($created);
@@ -443,7 +452,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getInsurer()
+    public function getInsurer(): ?FHIRReference
     {
         return $this->insurer;
     }
@@ -458,7 +467,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $insurer
      * @return static
      */
-    public function setInsurer(FHIRReference $insurer = null)
+    public function setInsurer(?FHIRReference $insurer = null): object
     {
         $this->_trackValueSet($this->insurer, $insurer);
         $this->insurer = $insurer;
@@ -474,7 +483,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProvider()
+    public function getProvider(): ?FHIRReference
     {
         return $this->provider;
     }
@@ -489,7 +498,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $provider
      * @return static
      */
-    public function setProvider(FHIRReference $provider = null)
+    public function setProvider(?FHIRReference $provider = null): object
     {
         $this->_trackValueSet($this->provider, $provider);
         $this->provider = $provider;
@@ -505,7 +514,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getCandidate()
+    public function getCandidate(): ?FHIRReference
     {
         return $this->candidate;
     }
@@ -520,7 +529,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $candidate
      * @return static
      */
-    public function setCandidate(FHIRReference $candidate = null)
+    public function setCandidate(?FHIRReference $candidate = null): object
     {
         $this->_trackValueSet($this->candidate, $candidate);
         $this->candidate = $candidate;
@@ -536,7 +545,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getCoverage()
+    public function getCoverage(): ?FHIRReference
     {
         return $this->coverage;
     }
@@ -551,7 +560,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $coverage
      * @return static
      */
-    public function setCoverage(FHIRReference $coverage = null)
+    public function setCoverage(?FHIRReference $coverage = null): object
     {
         $this->_trackValueSet($this->coverage, $coverage);
         $this->coverage = $coverage;
@@ -805,15 +814,15 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentRequest
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentRequest    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIREnrollmentRequest::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -833,7 +842,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -919,7 +928,7 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -972,52 +981,57 @@ class FHIREnrollmentRequest extends FHIRDomainResource implements PHPFHIRContain
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRFinancialResourceStatusCodes::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRFinancialResourceStatusCodes::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCreated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATED] = $val;
+                $out->{self::FIELD_CREATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInsurer())) {
-            $a[self::FIELD_INSURER] = $v;
+            $out->{self::FIELD_INSURER} = $v;
         }
         if (null !== ($v = $this->getProvider())) {
-            $a[self::FIELD_PROVIDER] = $v;
+            $out->{self::FIELD_PROVIDER} = $v;
         }
         if (null !== ($v = $this->getCandidate())) {
-            $a[self::FIELD_CANDIDATE] = $v;
+            $out->{self::FIELD_CANDIDATE} = $v;
         }
         if (null !== ($v = $this->getCoverage())) {
-            $a[self::FIELD_COVERAGE] = $v;
+            $out->{self::FIELD_COVERAGE} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

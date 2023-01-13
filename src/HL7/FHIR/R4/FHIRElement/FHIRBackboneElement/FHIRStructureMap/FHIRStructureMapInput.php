@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,9 +103,9 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Name for this instance of data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $name = null;
+    protected ?FHIRId $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -114,9 +114,9 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Type for this instance of data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $type = null;
+    protected ?FHIRString $type = null;
 
     /**
      * Mode for this instance of data.
@@ -126,7 +126,7 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapInputMode
      */
-    protected $mode = null;
+    protected ?FHIRStructureMapInputMode $mode = null;
 
     /**
      * A sequence of Unicode characters
@@ -135,15 +135,15 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $documentation = null;
+    protected ?FHIRString $documentation = null;
 
     /**
      * Validation map for fields in type StructureMap.Input
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRStructureMapInput Constructor
@@ -162,8 +162,8 @@ class FHIRStructureMapInput extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setName($value);
@@ -177,8 +177,8 @@ class FHIRStructureMapInput extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setType($value);
@@ -192,8 +192,8 @@ class FHIRStructureMapInput extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MODE]) || isset($data[self::FIELD_MODE_EXT])) {
-            $value = isset($data[self::FIELD_MODE]) ? $data[self::FIELD_MODE] : null;
-            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $ext = $data[self::FIELD_MODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MODE] ?? null;
+            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $data[self::FIELD_MODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRStructureMapInputMode) {
                     $this->setMode($value);
@@ -207,8 +207,8 @@ class FHIRStructureMapInput extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DOCUMENTATION]) || isset($data[self::FIELD_DOCUMENTATION_EXT])) {
-            $value = isset($data[self::FIELD_DOCUMENTATION]) ? $data[self::FIELD_DOCUMENTATION] : null;
-            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $ext = $data[self::FIELD_DOCUMENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DOCUMENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $data[self::FIELD_DOCUMENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDocumentation($value);
@@ -223,11 +223,17 @@ class FHIRStructureMapInput extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -247,9 +253,9 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Name for this instance of data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getName()
+    public function getName(): ?FHIRId
     {
         return $this->name;
     }
@@ -264,10 +270,10 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Name for this instance of data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $name
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRId)) {
             $name = new FHIRId($name);
@@ -284,9 +290,9 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Type for this instance of data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getType()
+    public function getType(): ?FHIRString
     {
         return $this->type;
     }
@@ -298,10 +304,10 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Type for this instance of data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $type
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $type
      * @return static
      */
-    public function setType($type = null)
+    public function setType($type = null): object
     {
         if (null !== $type && !($type instanceof FHIRString)) {
             $type = new FHIRString($type);
@@ -319,7 +325,7 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapInputMode
      */
-    public function getMode()
+    public function getMode(): ?FHIRStructureMapInputMode
     {
         return $this->mode;
     }
@@ -333,7 +339,7 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapInputMode $mode
      * @return static
      */
-    public function setMode(FHIRStructureMapInputMode $mode = null)
+    public function setMode(?FHIRStructureMapInputMode $mode = null): object
     {
         $this->_trackValueSet($this->mode, $mode);
         $this->mode = $mode;
@@ -347,9 +353,9 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?FHIRString
     {
         return $this->documentation;
     }
@@ -361,10 +367,10 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
      * @return static
      */
-    public function setDocumentation($documentation = null)
+    public function setDocumentation($documentation = null): object
     {
         if (null !== $documentation && !($documentation instanceof FHIRString)) {
             $documentation = new FHIRString($documentation);
@@ -508,15 +514,15 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRStructureMapInput::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -536,7 +542,7 @@ class FHIRStructureMapInput extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -601,7 +607,7 @@ class FHIRStructureMapInput extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -634,51 +640,54 @@ class FHIRStructureMapInput extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MODE] = $val;
+                $out->{self::FIELD_MODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRStructureMapInputMode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MODE_EXT] = $ext;
+            unset($ext->{FHIRStructureMapInputMode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDocumentation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DOCUMENTATION] = $val;
+                $out->{self::FIELD_DOCUMENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DOCUMENTATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DOCUMENTATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

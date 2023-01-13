@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstance;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstance;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $identifier = null;
+    protected ?FHIRIdentifier $identifier = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -113,9 +113,9 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * When the substance is no longer valid to use. For some substances, a single
      * arbitrary date is used for expiry.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $expiry = null;
+    protected ?FHIRDateTime $expiry = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -128,13 +128,13 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * Validation map for fields in type Substance.Instance
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceInstance Constructor
@@ -160,8 +160,8 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXPIRY]) || isset($data[self::FIELD_EXPIRY_EXT])) {
-            $value = isset($data[self::FIELD_EXPIRY]) ? $data[self::FIELD_EXPIRY] : null;
-            $ext = (isset($data[self::FIELD_EXPIRY_EXT]) && is_array($data[self::FIELD_EXPIRY_EXT])) ? $ext = $data[self::FIELD_EXPIRY_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPIRY] ?? null;
+            $ext = (isset($data[self::FIELD_EXPIRY_EXT]) && is_array($data[self::FIELD_EXPIRY_EXT])) ? $data[self::FIELD_EXPIRY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setExpiry($value);
@@ -183,11 +183,17 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -208,7 +214,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRIdentifier
     {
         return $this->identifier;
     }
@@ -225,7 +231,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function setIdentifier(FHIRIdentifier $identifier = null)
+    public function setIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueSet($this->identifier, $identifier);
         $this->identifier = $identifier;
@@ -243,9 +249,9 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * When the substance is no longer valid to use. For some substances, a single
      * arbitrary date is used for expiry.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getExpiry()
+    public function getExpiry(): ?FHIRDateTime
     {
         return $this->expiry;
     }
@@ -261,10 +267,10 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * When the substance is no longer valid to use. For some substances, a single
      * arbitrary date is used for expiry.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $expiry
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $expiry
      * @return static
      */
-    public function setExpiry($expiry = null)
+    public function setExpiry($expiry = null): object
     {
         if (null !== $expiry && !($expiry instanceof FHIRDateTime)) {
             $expiry = new FHIRDateTime($expiry);
@@ -285,7 +291,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -302,7 +308,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -426,15 +432,15 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstance\FHIRSubstanceInstance
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstance\FHIRSubstanceInstance    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceInstance::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -454,7 +460,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -499,7 +505,7 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -527,27 +533,30 @@ class FHIRSubstanceInstance extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = $v;
+            $out->{self::FIELD_IDENTIFIER} = $v;
         }
         if (null !== ($v = $this->getExpiry())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPIRY] = $val;
+                $out->{self::FIELD_EXPIRY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPIRY_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPIRY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

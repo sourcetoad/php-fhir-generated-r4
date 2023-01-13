@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -124,7 +124,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $masterIdentifier = null;
+    protected ?FHIRIdentifier $masterIdentifier = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -137,7 +137,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -146,7 +146,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDocumentReferenceStatus
      */
-    protected $status = null;
+    protected ?FHIRDocumentReferenceStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -159,7 +159,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A reference from one resource to another.
@@ -174,7 +174,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -188,9 +188,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * necessarily the same thing as the actual resource last modified time, since it
      * may be modified, replicated, etc.).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $created = null;
+    protected ?FHIRDateTime $created = null;
 
     /**
      * A reference from one resource to another.
@@ -202,7 +202,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $author = [];
+    protected ?array $author = [];
 
     /**
      * A reference from one resource to another.
@@ -214,7 +214,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $recipient = [];
+    protected ?array $recipient = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -224,9 +224,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Identifies the source system, application, or software that produced the
      * document manifest.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $source = null;
+    protected ?FHIRUri $source = null;
 
     /**
      * A sequence of Unicode characters
@@ -236,9 +236,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Human-readable description of the source document. This is sometimes known as
      * the "title".
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A reference from one resource to another.
@@ -249,7 +249,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $content = [];
+    protected ?array $content = [];
 
     /**
      * A collection of documents compiled for a purpose together with metadata that
@@ -259,13 +259,13 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentManifest\FHIRDocumentManifestRelated[]
      */
-    protected $related = [];
+    protected ?array $related = [];
 
     /**
      * Validation map for fields in type DocumentManifest
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_CONTENT => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -313,8 +313,8 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDocumentReferenceStatus) {
                     $this->setStatus($value);
@@ -342,8 +342,8 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_CREATED]) || isset($data[self::FIELD_CREATED_EXT])) {
-            $value = isset($data[self::FIELD_CREATED]) ? $data[self::FIELD_CREATED] : null;
-            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $ext = $data[self::FIELD_CREATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATED] ?? null;
+            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $data[self::FIELD_CREATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreated($value);
@@ -393,8 +393,8 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_SOURCE]) || isset($data[self::FIELD_SOURCE_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE]) ? $data[self::FIELD_SOURCE] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $ext = $data[self::FIELD_SOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $data[self::FIELD_SOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSource($value);
@@ -408,8 +408,8 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -460,11 +460,17 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -473,6 +479,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
         }
         return "<DocumentManifest{$xmlns}></DocumentManifest>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -490,7 +499,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getMasterIdentifier()
+    public function getMasterIdentifier(): ?FHIRIdentifier
     {
         return $this->masterIdentifier;
     }
@@ -507,7 +516,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $masterIdentifier
      * @return static
      */
-    public function setMasterIdentifier(FHIRIdentifier $masterIdentifier = null)
+    public function setMasterIdentifier(?FHIRIdentifier $masterIdentifier = null): object
     {
         $this->_trackValueSet($this->masterIdentifier, $masterIdentifier);
         $this->masterIdentifier = $masterIdentifier;
@@ -525,7 +534,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -542,7 +551,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -561,7 +570,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -587,7 +596,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDocumentReferenceStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRDocumentReferenceStatus
     {
         return $this->status;
     }
@@ -600,7 +609,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDocumentReferenceStatus $status
      * @return static
      */
-    public function setStatus(FHIRDocumentReferenceStatus $status = null)
+    public function setStatus(?FHIRDocumentReferenceStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -618,7 +627,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -635,7 +644,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -655,7 +664,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -674,7 +683,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -693,9 +702,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * necessarily the same thing as the actual resource last modified time, since it
      * may be modified, replicated, etc.).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreated()
+    public function getCreated(): ?FHIRDateTime
     {
         return $this->created;
     }
@@ -712,10 +721,10 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * necessarily the same thing as the actual resource last modified time, since it
      * may be modified, replicated, etc.).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
      * @return static
      */
-    public function setCreated($created = null)
+    public function setCreated($created = null): object
     {
         if (null !== $created && !($created instanceof FHIRDateTime)) {
             $created = new FHIRDateTime($created);
@@ -735,7 +744,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getAuthor()
+    public function getAuthor(): ?array
     {
         return $this->author;
     }
@@ -751,7 +760,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function addAuthor(FHIRReference $author = null)
+    public function addAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueAdded();
         $this->author[] = $author;
@@ -769,7 +778,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $author
      * @return static
      */
-    public function setAuthor(array $author = [])
+    public function setAuthor(array $author = []): object
     {
         if ([] !== $this->author) {
             $this->_trackValuesRemoved(count($this->author));
@@ -798,7 +807,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getRecipient()
+    public function getRecipient(): ?array
     {
         return $this->recipient;
     }
@@ -814,7 +823,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $recipient
      * @return static
      */
-    public function addRecipient(FHIRReference $recipient = null)
+    public function addRecipient(?FHIRReference $recipient = null): object
     {
         $this->_trackValueAdded();
         $this->recipient[] = $recipient;
@@ -832,7 +841,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $recipient
      * @return static
      */
-    public function setRecipient(array $recipient = [])
+    public function setRecipient(array $recipient = []): object
     {
         if ([] !== $this->recipient) {
             $this->_trackValuesRemoved(count($this->recipient));
@@ -859,9 +868,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Identifies the source system, application, or software that produced the
      * document manifest.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSource()
+    public function getSource(): ?FHIRUri
     {
         return $this->source;
     }
@@ -874,10 +883,10 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Identifies the source system, application, or software that produced the
      * document manifest.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $source
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $source
      * @return static
      */
-    public function setSource($source = null)
+    public function setSource($source = null): object
     {
         if (null !== $source && !($source instanceof FHIRUri)) {
             $source = new FHIRUri($source);
@@ -895,9 +904,9 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Human-readable description of the source document. This is sometimes known as
      * the "title".
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -910,10 +919,10 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * Human-readable description of the source document. This is sometimes known as
      * the "title".
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -932,7 +941,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getContent()
+    public function getContent(): ?array
     {
         return $this->content;
     }
@@ -947,7 +956,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $content
      * @return static
      */
-    public function addContent(FHIRReference $content = null)
+    public function addContent(?FHIRReference $content = null): object
     {
         $this->_trackValueAdded();
         $this->content[] = $content;
@@ -964,7 +973,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $content
      * @return static
      */
-    public function setContent(array $content = [])
+    public function setContent(array $content = []): object
     {
         if ([] !== $this->content) {
             $this->_trackValuesRemoved(count($this->content));
@@ -991,7 +1000,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentManifest\FHIRDocumentManifestRelated[]
      */
-    public function getRelated()
+    public function getRelated(): ?array
     {
         return $this->related;
     }
@@ -1005,7 +1014,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentManifest\FHIRDocumentManifestRelated $related
      * @return static
      */
-    public function addRelated(FHIRDocumentManifestRelated $related = null)
+    public function addRelated(?FHIRDocumentManifestRelated $related = null): object
     {
         $this->_trackValueAdded();
         $this->related[] = $related;
@@ -1021,7 +1030,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentManifest\FHIRDocumentManifestRelated[] $related
      * @return static
      */
-    public function setRelated(array $related = [])
+    public function setRelated(array $related = []): object
     {
         if ([] !== $this->related) {
             $this->_trackValuesRemoved(count($this->related));
@@ -1380,15 +1389,15 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentManifest
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentManifest    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDocumentManifest::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1408,7 +1417,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1522,7 +1531,7 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1620,105 +1629,110 @@ class FHIRDocumentManifest extends FHIRDomainResource implements PHPFHIRContaine
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getMasterIdentifier())) {
-            $a[self::FIELD_MASTER_IDENTIFIER] = $v;
+            $out->{self::FIELD_MASTER_IDENTIFIER} = $v;
         }
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDocumentReferenceStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRDocumentReferenceStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getCreated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATED] = $val;
+                $out->{self::FIELD_CREATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = [];
+            $out->{self::FIELD_AUTHOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AUTHOR][] = $v;
+                $out->{self::FIELD_AUTHOR}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRecipient())) {
-            $a[self::FIELD_RECIPIENT] = [];
+            $out->{self::FIELD_RECIPIENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RECIPIENT][] = $v;
+                $out->{self::FIELD_RECIPIENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getSource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE] = $val;
+                $out->{self::FIELD_SOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContent())) {
-            $a[self::FIELD_CONTENT] = [];
+            $out->{self::FIELD_CONTENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTENT][] = $v;
+                $out->{self::FIELD_CONTENT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRelated())) {
-            $a[self::FIELD_RELATED] = [];
+            $out->{self::FIELD_RELATED} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELATED][] = $v;
+                $out->{self::FIELD_RELATED}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

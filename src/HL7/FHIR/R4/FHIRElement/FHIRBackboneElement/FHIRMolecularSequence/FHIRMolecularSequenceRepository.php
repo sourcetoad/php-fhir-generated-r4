@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRepositoryType
      */
-    protected $type = null;
+    protected ?FHIRRepositoryType $type = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -116,9 +116,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A sequence of Unicode characters
@@ -128,9 +128,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -140,9 +140,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variant in this external repository. The server will understand how to
      * use this id to call for more info about datasets in external repository.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $datasetId = null;
+    protected ?FHIRString $datasetId = null;
 
     /**
      * A sequence of Unicode characters
@@ -152,9 +152,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variantset in this external repository. The server will understand how
      * to use this id to call for more info about variantsets in external repository.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $variantsetId = null;
+    protected ?FHIRString $variantsetId = null;
 
     /**
      * A sequence of Unicode characters
@@ -163,15 +163,15 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      *
      * Id of the read in this external repository.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $readsetId = null;
+    protected ?FHIRString $readsetId = null;
 
     /**
      * Validation map for fields in type MolecularSequence.Repository
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMolecularSequenceRepository Constructor
@@ -190,8 +190,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRRepositoryType) {
                     $this->setType($value);
@@ -205,8 +205,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -220,8 +220,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -235,8 +235,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DATASET_ID]) || isset($data[self::FIELD_DATASET_ID_EXT])) {
-            $value = isset($data[self::FIELD_DATASET_ID]) ? $data[self::FIELD_DATASET_ID] : null;
-            $ext = (isset($data[self::FIELD_DATASET_ID_EXT]) && is_array($data[self::FIELD_DATASET_ID_EXT])) ? $ext = $data[self::FIELD_DATASET_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATASET_ID] ?? null;
+            $ext = (isset($data[self::FIELD_DATASET_ID_EXT]) && is_array($data[self::FIELD_DATASET_ID_EXT])) ? $data[self::FIELD_DATASET_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDatasetId($value);
@@ -250,8 +250,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VARIANTSET_ID]) || isset($data[self::FIELD_VARIANTSET_ID_EXT])) {
-            $value = isset($data[self::FIELD_VARIANTSET_ID]) ? $data[self::FIELD_VARIANTSET_ID] : null;
-            $ext = (isset($data[self::FIELD_VARIANTSET_ID_EXT]) && is_array($data[self::FIELD_VARIANTSET_ID_EXT])) ? $ext = $data[self::FIELD_VARIANTSET_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_VARIANTSET_ID] ?? null;
+            $ext = (isset($data[self::FIELD_VARIANTSET_ID_EXT]) && is_array($data[self::FIELD_VARIANTSET_ID_EXT])) ? $data[self::FIELD_VARIANTSET_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVariantsetId($value);
@@ -265,8 +265,8 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_READSET_ID]) || isset($data[self::FIELD_READSET_ID_EXT])) {
-            $value = isset($data[self::FIELD_READSET_ID]) ? $data[self::FIELD_READSET_ID] : null;
-            $ext = (isset($data[self::FIELD_READSET_ID_EXT]) && is_array($data[self::FIELD_READSET_ID_EXT])) ? $ext = $data[self::FIELD_READSET_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_READSET_ID] ?? null;
+            $ext = (isset($data[self::FIELD_READSET_ID_EXT]) && is_array($data[self::FIELD_READSET_ID_EXT])) ? $data[self::FIELD_READSET_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setReadsetId($value);
@@ -281,11 +281,17 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -304,7 +310,7 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRepositoryType
      */
-    public function getType()
+    public function getType(): ?FHIRRepositoryType
     {
         return $this->type;
     }
@@ -319,7 +325,7 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRepositoryType $type
      * @return static
      */
-    public function setType(FHIRRepositoryType $type = null)
+    public function setType(?FHIRRepositoryType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -334,9 +340,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -349,10 +355,10 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -370,9 +376,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -385,10 +391,10 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * URI of an external repository which contains further details about the genetics
      * data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -406,9 +412,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variant in this external repository. The server will understand how to
      * use this id to call for more info about datasets in external repository.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDatasetId()
+    public function getDatasetId(): ?FHIRString
     {
         return $this->datasetId;
     }
@@ -421,10 +427,10 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variant in this external repository. The server will understand how to
      * use this id to call for more info about datasets in external repository.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $datasetId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $datasetId
      * @return static
      */
-    public function setDatasetId($datasetId = null)
+    public function setDatasetId($datasetId = null): object
     {
         if (null !== $datasetId && !($datasetId instanceof FHIRString)) {
             $datasetId = new FHIRString($datasetId);
@@ -442,9 +448,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variantset in this external repository. The server will understand how
      * to use this id to call for more info about variantsets in external repository.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVariantsetId()
+    public function getVariantsetId(): ?FHIRString
     {
         return $this->variantsetId;
     }
@@ -457,10 +463,10 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * Id of the variantset in this external repository. The server will understand how
      * to use this id to call for more info about variantsets in external repository.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $variantsetId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $variantsetId
      * @return static
      */
-    public function setVariantsetId($variantsetId = null)
+    public function setVariantsetId($variantsetId = null): object
     {
         if (null !== $variantsetId && !($variantsetId instanceof FHIRString)) {
             $variantsetId = new FHIRString($variantsetId);
@@ -477,9 +483,9 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      *
      * Id of the read in this external repository.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getReadsetId()
+    public function getReadsetId(): ?FHIRString
     {
         return $this->readsetId;
     }
@@ -491,10 +497,10 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      *
      * Id of the read in this external repository.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $readsetId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $readsetId
      * @return static
      */
-    public function setReadsetId($readsetId = null)
+    public function setReadsetId($readsetId = null): object
     {
         if (null !== $readsetId && !($readsetId instanceof FHIRString)) {
             $readsetId = new FHIRString($readsetId);
@@ -672,15 +678,15 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceRepository
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceRepository    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMolecularSequenceRepository::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -700,7 +706,7 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -787,7 +793,7 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -830,71 +836,74 @@ class FHIRMolecularSequenceRepository extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRRepositoryType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRRepositoryType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDatasetId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATASET_ID] = $val;
+                $out->{self::FIELD_DATASET_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATASET_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATASET_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVariantsetId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VARIANTSET_ID] = $val;
+                $out->{self::FIELD_VARIANTSET_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VARIANTSET_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VARIANTSET_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReadsetId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_READSET_ID] = $val;
+                $out->{self::FIELD_READSET_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_READSET_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_READSET_ID_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

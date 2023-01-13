@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -93,7 +93,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptOperation
      */
-    protected $operation = null;
+    protected ?FHIRTestScriptOperation $operation = null;
 
     /**
      * A structured set of tests against a FHIR server or client implementation to
@@ -104,13 +104,13 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAssert
      */
-    protected $assert = null;
+    protected ?FHIRTestScriptAssert $assert = null;
 
     /**
      * Validation map for fields in type TestScript.Action1
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTestScriptAction1 Constructor
@@ -144,11 +144,17 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -166,7 +172,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptOperation
      */
-    public function getOperation()
+    public function getOperation(): ?FHIRTestScriptOperation
     {
         return $this->operation;
     }
@@ -180,7 +186,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptOperation $operation
      * @return static
      */
-    public function setOperation(FHIRTestScriptOperation $operation = null)
+    public function setOperation(?FHIRTestScriptOperation $operation = null): object
     {
         $this->_trackValueSet($this->operation, $operation);
         $this->operation = $operation;
@@ -196,7 +202,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAssert
      */
-    public function getAssert()
+    public function getAssert(): ?FHIRTestScriptAssert
     {
         return $this->assert;
     }
@@ -211,7 +217,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAssert $assert
      * @return static
      */
-    public function setAssert(FHIRTestScriptAssert $assert = null)
+    public function setAssert(?FHIRTestScriptAssert $assert = null): object
     {
         $this->_trackValueSet($this->assert, $assert);
         $this->assert = $assert;
@@ -318,15 +324,15 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAction1
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAction1    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTestScriptAction1::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -346,7 +352,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -380,7 +386,7 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -403,17 +409,20 @@ class FHIRTestScriptAction1 extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getOperation())) {
-            $a[self::FIELD_OPERATION] = $v;
+            $out->{self::FIELD_OPERATION} = $v;
         }
         if (null !== ($v = $this->getAssert())) {
-            $a[self::FIELD_ASSERT] = $v;
+            $out->{self::FIELD_ASSERT} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

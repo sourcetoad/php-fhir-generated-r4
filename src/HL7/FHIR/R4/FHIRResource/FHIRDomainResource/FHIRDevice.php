@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A reference from one resource to another.
@@ -162,7 +162,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $definition = null;
+    protected ?FHIRReference $definition = null;
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -176,7 +176,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceUdiCarrier[]
      */
-    protected $udiCarrier = [];
+    protected ?array $udiCarrier = [];
 
     /**
      * The availability status of the device.
@@ -186,7 +186,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRDeviceStatus
      */
-    protected $status = null;
+    protected ?FHIRFHIRDeviceStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -198,7 +198,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $statusReason = [];
+    protected ?array $statusReason = [];
 
     /**
      * A sequence of Unicode characters
@@ -208,9 +208,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The distinct identification string as required by regulation for a human cell,
      * tissue, or cellular and tissue-based product.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $distinctIdentifier = null;
+    protected ?FHIRString $distinctIdentifier = null;
 
     /**
      * A sequence of Unicode characters
@@ -219,9 +219,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A name of the manufacturer.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $manufacturer = null;
+    protected ?FHIRString $manufacturer = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -233,9 +233,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The date and time when the device was manufactured.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $manufactureDate = null;
+    protected ?FHIRDateTime $manufactureDate = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -248,9 +248,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The date and time beyond which this device is no longer valid or should not be
      * used (if applicable).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $expirationDate = null;
+    protected ?FHIRDateTime $expirationDate = null;
 
     /**
      * A sequence of Unicode characters
@@ -259,9 +259,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * Lot number assigned by the manufacturer.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $lotNumber = null;
+    protected ?FHIRString $lotNumber = null;
 
     /**
      * A sequence of Unicode characters
@@ -270,9 +270,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The serial number assigned by the organization when the device was manufactured.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $serialNumber = null;
+    protected ?FHIRString $serialNumber = null;
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -286,7 +286,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceDeviceName[]
      */
-    protected $deviceName = [];
+    protected ?array $deviceName = [];
 
     /**
      * A sequence of Unicode characters
@@ -295,9 +295,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The model number for the device.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $modelNumber = null;
+    protected ?FHIRString $modelNumber = null;
 
     /**
      * A sequence of Unicode characters
@@ -306,9 +306,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The part number of the device.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $partNumber = null;
+    protected ?FHIRString $partNumber = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -320,7 +320,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -332,7 +332,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceSpecialization[]
      */
-    protected $specialization = [];
+    protected ?array $specialization = [];
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -343,7 +343,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceVersion[]
      */
-    protected $version = [];
+    protected ?array $version = [];
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -355,7 +355,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty[]
      */
-    protected $property = [];
+    protected ?array $property = [];
 
     /**
      * A reference from one resource to another.
@@ -366,7 +366,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A reference from one resource to another.
@@ -378,7 +378,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $owner = null;
+    protected ?FHIRReference $owner = null;
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -391,7 +391,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A reference from one resource to another.
@@ -402,7 +402,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $location = null;
+    protected ?FHIRReference $location = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -411,9 +411,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A network address on which the device may be contacted directly.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A text note which also contains information about who made the statement and
@@ -426,7 +426,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -439,7 +439,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $safety = [];
+    protected ?array $safety = [];
 
     /**
      * A reference from one resource to another.
@@ -450,13 +450,13 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $parent = null;
+    protected ?FHIRReference $parent = null;
 
     /**
      * Validation map for fields in type Device
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDevice Constructor
@@ -518,8 +518,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFHIRDeviceStatus) {
                     $this->setStatus($value);
@@ -551,8 +551,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_DISTINCT_IDENTIFIER]) || isset($data[self::FIELD_DISTINCT_IDENTIFIER_EXT])) {
-            $value = isset($data[self::FIELD_DISTINCT_IDENTIFIER]) ? $data[self::FIELD_DISTINCT_IDENTIFIER] : null;
-            $ext = (isset($data[self::FIELD_DISTINCT_IDENTIFIER_EXT]) && is_array($data[self::FIELD_DISTINCT_IDENTIFIER_EXT])) ? $ext = $data[self::FIELD_DISTINCT_IDENTIFIER_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISTINCT_IDENTIFIER] ?? null;
+            $ext = (isset($data[self::FIELD_DISTINCT_IDENTIFIER_EXT]) && is_array($data[self::FIELD_DISTINCT_IDENTIFIER_EXT])) ? $data[self::FIELD_DISTINCT_IDENTIFIER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDistinctIdentifier($value);
@@ -566,8 +566,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_MANUFACTURER]) || isset($data[self::FIELD_MANUFACTURER_EXT])) {
-            $value = isset($data[self::FIELD_MANUFACTURER]) ? $data[self::FIELD_MANUFACTURER] : null;
-            $ext = (isset($data[self::FIELD_MANUFACTURER_EXT]) && is_array($data[self::FIELD_MANUFACTURER_EXT])) ? $ext = $data[self::FIELD_MANUFACTURER_EXT] : $ext = [];
+            $value = $data[self::FIELD_MANUFACTURER] ?? null;
+            $ext = (isset($data[self::FIELD_MANUFACTURER_EXT]) && is_array($data[self::FIELD_MANUFACTURER_EXT])) ? $data[self::FIELD_MANUFACTURER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setManufacturer($value);
@@ -581,8 +581,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_MANUFACTURE_DATE]) || isset($data[self::FIELD_MANUFACTURE_DATE_EXT])) {
-            $value = isset($data[self::FIELD_MANUFACTURE_DATE]) ? $data[self::FIELD_MANUFACTURE_DATE] : null;
-            $ext = (isset($data[self::FIELD_MANUFACTURE_DATE_EXT]) && is_array($data[self::FIELD_MANUFACTURE_DATE_EXT])) ? $ext = $data[self::FIELD_MANUFACTURE_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MANUFACTURE_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_MANUFACTURE_DATE_EXT]) && is_array($data[self::FIELD_MANUFACTURE_DATE_EXT])) ? $data[self::FIELD_MANUFACTURE_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setManufactureDate($value);
@@ -596,8 +596,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_EXPIRATION_DATE]) || isset($data[self::FIELD_EXPIRATION_DATE_EXT])) {
-            $value = isset($data[self::FIELD_EXPIRATION_DATE]) ? $data[self::FIELD_EXPIRATION_DATE] : null;
-            $ext = (isset($data[self::FIELD_EXPIRATION_DATE_EXT]) && is_array($data[self::FIELD_EXPIRATION_DATE_EXT])) ? $ext = $data[self::FIELD_EXPIRATION_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPIRATION_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_EXPIRATION_DATE_EXT]) && is_array($data[self::FIELD_EXPIRATION_DATE_EXT])) ? $data[self::FIELD_EXPIRATION_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setExpirationDate($value);
@@ -611,8 +611,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_LOT_NUMBER]) || isset($data[self::FIELD_LOT_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_LOT_NUMBER]) ? $data[self::FIELD_LOT_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_LOT_NUMBER_EXT]) && is_array($data[self::FIELD_LOT_NUMBER_EXT])) ? $ext = $data[self::FIELD_LOT_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_LOT_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_LOT_NUMBER_EXT]) && is_array($data[self::FIELD_LOT_NUMBER_EXT])) ? $data[self::FIELD_LOT_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setLotNumber($value);
@@ -626,8 +626,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_SERIAL_NUMBER]) || isset($data[self::FIELD_SERIAL_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_SERIAL_NUMBER]) ? $data[self::FIELD_SERIAL_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_SERIAL_NUMBER_EXT]) && is_array($data[self::FIELD_SERIAL_NUMBER_EXT])) ? $ext = $data[self::FIELD_SERIAL_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_SERIAL_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_SERIAL_NUMBER_EXT]) && is_array($data[self::FIELD_SERIAL_NUMBER_EXT])) ? $data[self::FIELD_SERIAL_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSerialNumber($value);
@@ -659,8 +659,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_MODEL_NUMBER]) || isset($data[self::FIELD_MODEL_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_MODEL_NUMBER]) ? $data[self::FIELD_MODEL_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_MODEL_NUMBER_EXT]) && is_array($data[self::FIELD_MODEL_NUMBER_EXT])) ? $ext = $data[self::FIELD_MODEL_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_MODEL_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_MODEL_NUMBER_EXT]) && is_array($data[self::FIELD_MODEL_NUMBER_EXT])) ? $data[self::FIELD_MODEL_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setModelNumber($value);
@@ -674,8 +674,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_PART_NUMBER]) || isset($data[self::FIELD_PART_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_PART_NUMBER]) ? $data[self::FIELD_PART_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_PART_NUMBER_EXT]) && is_array($data[self::FIELD_PART_NUMBER_EXT])) ? $ext = $data[self::FIELD_PART_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_PART_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_PART_NUMBER_EXT]) && is_array($data[self::FIELD_PART_NUMBER_EXT])) ? $data[self::FIELD_PART_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPartNumber($value);
@@ -789,8 +789,8 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
             }
         }
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -848,11 +848,17 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -861,6 +867,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
         }
         return "<Device{$xmlns}></Device>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -878,7 +887,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -895,7 +904,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -914,7 +923,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -942,7 +951,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDefinition()
+    public function getDefinition(): ?FHIRReference
     {
         return $this->definition;
     }
@@ -957,7 +966,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $definition
      * @return static
      */
-    public function setDefinition(FHIRReference $definition = null)
+    public function setDefinition(?FHIRReference $definition = null): object
     {
         $this->_trackValueSet($this->definition, $definition);
         $this->definition = $definition;
@@ -976,7 +985,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceUdiCarrier[]
      */
-    public function getUdiCarrier()
+    public function getUdiCarrier(): ?array
     {
         return $this->udiCarrier;
     }
@@ -994,7 +1003,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceUdiCarrier $udiCarrier
      * @return static
      */
-    public function addUdiCarrier(FHIRDeviceUdiCarrier $udiCarrier = null)
+    public function addUdiCarrier(?FHIRDeviceUdiCarrier $udiCarrier = null): object
     {
         $this->_trackValueAdded();
         $this->udiCarrier[] = $udiCarrier;
@@ -1014,7 +1023,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceUdiCarrier[] $udiCarrier
      * @return static
      */
-    public function setUdiCarrier(array $udiCarrier = [])
+    public function setUdiCarrier(array $udiCarrier = []): object
     {
         if ([] !== $this->udiCarrier) {
             $this->_trackValuesRemoved(count($this->udiCarrier));
@@ -1041,7 +1050,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRDeviceStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRFHIRDeviceStatus
     {
         return $this->status;
     }
@@ -1055,7 +1064,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRDeviceStatus $status
      * @return static
      */
-    public function setStatus(FHIRFHIRDeviceStatus $status = null)
+    public function setStatus(?FHIRFHIRDeviceStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1072,7 +1081,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getStatusReason()
+    public function getStatusReason(): ?array
     {
         return $this->statusReason;
     }
@@ -1088,7 +1097,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $statusReason
      * @return static
      */
-    public function addStatusReason(FHIRCodeableConcept $statusReason = null)
+    public function addStatusReason(?FHIRCodeableConcept $statusReason = null): object
     {
         $this->_trackValueAdded();
         $this->statusReason[] = $statusReason;
@@ -1106,7 +1115,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $statusReason
      * @return static
      */
-    public function setStatusReason(array $statusReason = [])
+    public function setStatusReason(array $statusReason = []): object
     {
         if ([] !== $this->statusReason) {
             $this->_trackValuesRemoved(count($this->statusReason));
@@ -1133,9 +1142,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The distinct identification string as required by regulation for a human cell,
      * tissue, or cellular and tissue-based product.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDistinctIdentifier()
+    public function getDistinctIdentifier(): ?FHIRString
     {
         return $this->distinctIdentifier;
     }
@@ -1148,10 +1157,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The distinct identification string as required by regulation for a human cell,
      * tissue, or cellular and tissue-based product.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $distinctIdentifier
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $distinctIdentifier
      * @return static
      */
-    public function setDistinctIdentifier($distinctIdentifier = null)
+    public function setDistinctIdentifier($distinctIdentifier = null): object
     {
         if (null !== $distinctIdentifier && !($distinctIdentifier instanceof FHIRString)) {
             $distinctIdentifier = new FHIRString($distinctIdentifier);
@@ -1168,9 +1177,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A name of the manufacturer.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getManufacturer()
+    public function getManufacturer(): ?FHIRString
     {
         return $this->manufacturer;
     }
@@ -1182,10 +1191,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A name of the manufacturer.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $manufacturer
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $manufacturer
      * @return static
      */
-    public function setManufacturer($manufacturer = null)
+    public function setManufacturer($manufacturer = null): object
     {
         if (null !== $manufacturer && !($manufacturer instanceof FHIRString)) {
             $manufacturer = new FHIRString($manufacturer);
@@ -1205,9 +1214,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The date and time when the device was manufactured.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getManufactureDate()
+    public function getManufactureDate(): ?FHIRDateTime
     {
         return $this->manufactureDate;
     }
@@ -1222,10 +1231,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The date and time when the device was manufactured.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $manufactureDate
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $manufactureDate
      * @return static
      */
-    public function setManufactureDate($manufactureDate = null)
+    public function setManufactureDate($manufactureDate = null): object
     {
         if (null !== $manufactureDate && !($manufactureDate instanceof FHIRDateTime)) {
             $manufactureDate = new FHIRDateTime($manufactureDate);
@@ -1246,9 +1255,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The date and time beyond which this device is no longer valid or should not be
      * used (if applicable).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): ?FHIRDateTime
     {
         return $this->expirationDate;
     }
@@ -1264,10 +1273,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * The date and time beyond which this device is no longer valid or should not be
      * used (if applicable).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $expirationDate
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $expirationDate
      * @return static
      */
-    public function setExpirationDate($expirationDate = null)
+    public function setExpirationDate($expirationDate = null): object
     {
         if (null !== $expirationDate && !($expirationDate instanceof FHIRDateTime)) {
             $expirationDate = new FHIRDateTime($expirationDate);
@@ -1284,9 +1293,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * Lot number assigned by the manufacturer.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getLotNumber()
+    public function getLotNumber(): ?FHIRString
     {
         return $this->lotNumber;
     }
@@ -1298,10 +1307,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * Lot number assigned by the manufacturer.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $lotNumber
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $lotNumber
      * @return static
      */
-    public function setLotNumber($lotNumber = null)
+    public function setLotNumber($lotNumber = null): object
     {
         if (null !== $lotNumber && !($lotNumber instanceof FHIRString)) {
             $lotNumber = new FHIRString($lotNumber);
@@ -1318,9 +1327,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The serial number assigned by the organization when the device was manufactured.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSerialNumber()
+    public function getSerialNumber(): ?FHIRString
     {
         return $this->serialNumber;
     }
@@ -1332,10 +1341,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The serial number assigned by the organization when the device was manufactured.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $serialNumber
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $serialNumber
      * @return static
      */
-    public function setSerialNumber($serialNumber = null)
+    public function setSerialNumber($serialNumber = null): object
     {
         if (null !== $serialNumber && !($serialNumber instanceof FHIRString)) {
             $serialNumber = new FHIRString($serialNumber);
@@ -1357,7 +1366,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceDeviceName[]
      */
-    public function getDeviceName()
+    public function getDeviceName(): ?array
     {
         return $this->deviceName;
     }
@@ -1375,7 +1384,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceDeviceName $deviceName
      * @return static
      */
-    public function addDeviceName(FHIRDeviceDeviceName $deviceName = null)
+    public function addDeviceName(?FHIRDeviceDeviceName $deviceName = null): object
     {
         $this->_trackValueAdded();
         $this->deviceName[] = $deviceName;
@@ -1395,7 +1404,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceDeviceName[] $deviceName
      * @return static
      */
-    public function setDeviceName(array $deviceName = [])
+    public function setDeviceName(array $deviceName = []): object
     {
         if ([] !== $this->deviceName) {
             $this->_trackValuesRemoved(count($this->deviceName));
@@ -1421,9 +1430,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The model number for the device.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getModelNumber()
+    public function getModelNumber(): ?FHIRString
     {
         return $this->modelNumber;
     }
@@ -1435,10 +1444,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The model number for the device.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $modelNumber
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $modelNumber
      * @return static
      */
-    public function setModelNumber($modelNumber = null)
+    public function setModelNumber($modelNumber = null): object
     {
         if (null !== $modelNumber && !($modelNumber instanceof FHIRString)) {
             $modelNumber = new FHIRString($modelNumber);
@@ -1455,9 +1464,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The part number of the device.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPartNumber()
+    public function getPartNumber(): ?FHIRString
     {
         return $this->partNumber;
     }
@@ -1469,10 +1478,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * The part number of the device.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $partNumber
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $partNumber
      * @return static
      */
-    public function setPartNumber($partNumber = null)
+    public function setPartNumber($partNumber = null): object
     {
         if (null !== $partNumber && !($partNumber instanceof FHIRString)) {
             $partNumber = new FHIRString($partNumber);
@@ -1492,7 +1501,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -1508,7 +1517,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -1525,7 +1534,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceSpecialization[]
      */
-    public function getSpecialization()
+    public function getSpecialization(): ?array
     {
         return $this->specialization;
     }
@@ -1541,7 +1550,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceSpecialization $specialization
      * @return static
      */
-    public function addSpecialization(FHIRDeviceSpecialization $specialization = null)
+    public function addSpecialization(?FHIRDeviceSpecialization $specialization = null): object
     {
         $this->_trackValueAdded();
         $this->specialization[] = $specialization;
@@ -1559,7 +1568,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceSpecialization[] $specialization
      * @return static
      */
-    public function setSpecialization(array $specialization = [])
+    public function setSpecialization(array $specialization = []): object
     {
         if ([] !== $this->specialization) {
             $this->_trackValuesRemoved(count($this->specialization));
@@ -1587,7 +1596,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceVersion[]
      */
-    public function getVersion()
+    public function getVersion(): ?array
     {
         return $this->version;
     }
@@ -1602,7 +1611,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceVersion $version
      * @return static
      */
-    public function addVersion(FHIRDeviceVersion $version = null)
+    public function addVersion(?FHIRDeviceVersion $version = null): object
     {
         $this->_trackValueAdded();
         $this->version[] = $version;
@@ -1619,7 +1628,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceVersion[] $version
      * @return static
      */
-    public function setVersion(array $version = [])
+    public function setVersion(array $version = []): object
     {
         if ([] !== $this->version) {
             $this->_trackValuesRemoved(count($this->version));
@@ -1648,7 +1657,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty[]
      */
-    public function getProperty()
+    public function getProperty(): ?array
     {
         return $this->property;
     }
@@ -1664,7 +1673,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty $property
      * @return static
      */
-    public function addProperty(FHIRDeviceProperty $property = null)
+    public function addProperty(?FHIRDeviceProperty $property = null): object
     {
         $this->_trackValueAdded();
         $this->property[] = $property;
@@ -1682,7 +1691,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty[] $property
      * @return static
      */
-    public function setProperty(array $property = [])
+    public function setProperty(array $property = []): object
     {
         if ([] !== $this->property) {
             $this->_trackValuesRemoved(count($this->property));
@@ -1710,7 +1719,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -1725,7 +1734,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -1742,7 +1751,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOwner()
+    public function getOwner(): ?FHIRReference
     {
         return $this->owner;
     }
@@ -1758,7 +1767,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $owner
      * @return static
      */
-    public function setOwner(FHIRReference $owner = null)
+    public function setOwner(?FHIRReference $owner = null): object
     {
         $this->_trackValueSet($this->owner, $owner);
         $this->owner = $owner;
@@ -1776,7 +1785,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1793,7 +1802,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $contact
      * @return static
      */
-    public function addContact(FHIRContactPoint $contact = null)
+    public function addContact(?FHIRContactPoint $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1812,7 +1821,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1840,7 +1849,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRReference
     {
         return $this->location;
     }
@@ -1855,7 +1864,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $location
      * @return static
      */
-    public function setLocation(FHIRReference $location = null)
+    public function setLocation(?FHIRReference $location = null): object
     {
         $this->_trackValueSet($this->location, $location);
         $this->location = $location;
@@ -1869,9 +1878,9 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A network address on which the device may be contacted directly.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -1883,10 +1892,10 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * A network address on which the device may be contacted directly.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -1907,7 +1916,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1924,7 +1933,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1943,7 +1952,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1973,7 +1982,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getSafety()
+    public function getSafety(): ?array
     {
         return $this->safety;
     }
@@ -1990,7 +1999,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $safety
      * @return static
      */
-    public function addSafety(FHIRCodeableConcept $safety = null)
+    public function addSafety(?FHIRCodeableConcept $safety = null): object
     {
         $this->_trackValueAdded();
         $this->safety[] = $safety;
@@ -2009,7 +2018,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $safety
      * @return static
      */
-    public function setSafety(array $safety = [])
+    public function setSafety(array $safety = []): object
     {
         if ([] !== $this->safety) {
             $this->_trackValuesRemoved(count($this->safety));
@@ -2037,7 +2046,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getParent()
+    public function getParent(): ?FHIRReference
     {
         return $this->parent;
     }
@@ -2052,7 +2061,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $parent
      * @return static
      */
-    public function setParent(FHIRReference $parent = null)
+    public function setParent(?FHIRReference $parent = null): object
     {
         $this->_trackValueSet($this->parent, $parent);
         $this->parent = $parent;
@@ -2647,15 +2656,15 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDevice
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDevice    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDevice::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2675,7 +2684,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2871,7 +2880,7 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -3064,219 +3073,224 @@ class FHIRDevice extends FHIRDomainResource implements PHPFHIRContainedTypeInter
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getDefinition())) {
-            $a[self::FIELD_DEFINITION] = $v;
+            $out->{self::FIELD_DEFINITION} = $v;
         }
         if ([] !== ($vs = $this->getUdiCarrier())) {
-            $a[self::FIELD_UDI_CARRIER] = [];
+            $out->{self::FIELD_UDI_CARRIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_UDI_CARRIER][] = $v;
+                $out->{self::FIELD_UDI_CARRIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRFHIRDeviceStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRFHIRDeviceStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getStatusReason())) {
-            $a[self::FIELD_STATUS_REASON] = [];
+            $out->{self::FIELD_STATUS_REASON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_STATUS_REASON][] = $v;
+                $out->{self::FIELD_STATUS_REASON}[] = $v;
             }
         }
         if (null !== ($v = $this->getDistinctIdentifier())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISTINCT_IDENTIFIER] = $val;
+                $out->{self::FIELD_DISTINCT_IDENTIFIER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISTINCT_IDENTIFIER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISTINCT_IDENTIFIER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getManufacturer())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MANUFACTURER] = $val;
+                $out->{self::FIELD_MANUFACTURER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MANUFACTURER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MANUFACTURER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getManufactureDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MANUFACTURE_DATE] = $val;
+                $out->{self::FIELD_MANUFACTURE_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MANUFACTURE_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MANUFACTURE_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExpirationDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPIRATION_DATE] = $val;
+                $out->{self::FIELD_EXPIRATION_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPIRATION_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPIRATION_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLotNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LOT_NUMBER] = $val;
+                $out->{self::FIELD_LOT_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LOT_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LOT_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSerialNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SERIAL_NUMBER] = $val;
+                $out->{self::FIELD_SERIAL_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SERIAL_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SERIAL_NUMBER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDeviceName())) {
-            $a[self::FIELD_DEVICE_NAME] = [];
+            $out->{self::FIELD_DEVICE_NAME} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DEVICE_NAME][] = $v;
+                $out->{self::FIELD_DEVICE_NAME}[] = $v;
             }
         }
         if (null !== ($v = $this->getModelNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MODEL_NUMBER] = $val;
+                $out->{self::FIELD_MODEL_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MODEL_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MODEL_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPartNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PART_NUMBER] = $val;
+                $out->{self::FIELD_PART_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PART_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PART_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getSpecialization())) {
-            $a[self::FIELD_SPECIALIZATION] = [];
+            $out->{self::FIELD_SPECIALIZATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIALIZATION][] = $v;
+                $out->{self::FIELD_SPECIALIZATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getVersion())) {
-            $a[self::FIELD_VERSION] = [];
+            $out->{self::FIELD_VERSION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_VERSION][] = $v;
+                $out->{self::FIELD_VERSION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProperty())) {
-            $a[self::FIELD_PROPERTY] = [];
+            $out->{self::FIELD_PROPERTY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROPERTY][] = $v;
+                $out->{self::FIELD_PROPERTY}[] = $v;
             }
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getOwner())) {
-            $a[self::FIELD_OWNER] = $v;
+            $out->{self::FIELD_OWNER} = $v;
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if (null !== ($v = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = $v;
+            $out->{self::FIELD_LOCATION} = $v;
         }
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSafety())) {
-            $a[self::FIELD_SAFETY] = [];
+            $out->{self::FIELD_SAFETY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SAFETY][] = $v;
+                $out->{self::FIELD_SAFETY}[] = $v;
             }
         }
         if (null !== ($v = $this->getParent())) {
-            $a[self::FIELD_PARENT] = $v;
+            $out->{self::FIELD_PARENT} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

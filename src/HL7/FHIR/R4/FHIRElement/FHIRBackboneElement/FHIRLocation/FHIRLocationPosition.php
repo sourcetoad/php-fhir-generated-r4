@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,9 +100,9 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Longitude. The value domain and the interpretation are the same as for the text
      * of the longitude element in KML (see notes below).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $longitude = null;
+    protected ?FHIRDecimal $longitude = null;
 
     /**
      * A rational number with implicit precision
@@ -113,9 +113,9 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Latitude. The value domain and the interpretation are the same as for the text
      * of the latitude element in KML (see notes below).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $latitude = null;
+    protected ?FHIRDecimal $latitude = null;
 
     /**
      * A rational number with implicit precision
@@ -126,15 +126,15 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Altitude. The value domain and the interpretation are the same as for the text
      * of the altitude element in KML (see notes below).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $altitude = null;
+    protected ?FHIRDecimal $altitude = null;
 
     /**
      * Validation map for fields in type Location.Position
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRLocationPosition Constructor
@@ -153,8 +153,8 @@ class FHIRLocationPosition extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_LONGITUDE]) || isset($data[self::FIELD_LONGITUDE_EXT])) {
-            $value = isset($data[self::FIELD_LONGITUDE]) ? $data[self::FIELD_LONGITUDE] : null;
-            $ext = (isset($data[self::FIELD_LONGITUDE_EXT]) && is_array($data[self::FIELD_LONGITUDE_EXT])) ? $ext = $data[self::FIELD_LONGITUDE_EXT] : $ext = [];
+            $value = $data[self::FIELD_LONGITUDE] ?? null;
+            $ext = (isset($data[self::FIELD_LONGITUDE_EXT]) && is_array($data[self::FIELD_LONGITUDE_EXT])) ? $data[self::FIELD_LONGITUDE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setLongitude($value);
@@ -168,8 +168,8 @@ class FHIRLocationPosition extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_LATITUDE]) || isset($data[self::FIELD_LATITUDE_EXT])) {
-            $value = isset($data[self::FIELD_LATITUDE]) ? $data[self::FIELD_LATITUDE] : null;
-            $ext = (isset($data[self::FIELD_LATITUDE_EXT]) && is_array($data[self::FIELD_LATITUDE_EXT])) ? $ext = $data[self::FIELD_LATITUDE_EXT] : $ext = [];
+            $value = $data[self::FIELD_LATITUDE] ?? null;
+            $ext = (isset($data[self::FIELD_LATITUDE_EXT]) && is_array($data[self::FIELD_LATITUDE_EXT])) ? $data[self::FIELD_LATITUDE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setLatitude($value);
@@ -183,8 +183,8 @@ class FHIRLocationPosition extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ALTITUDE]) || isset($data[self::FIELD_ALTITUDE_EXT])) {
-            $value = isset($data[self::FIELD_ALTITUDE]) ? $data[self::FIELD_ALTITUDE] : null;
-            $ext = (isset($data[self::FIELD_ALTITUDE_EXT]) && is_array($data[self::FIELD_ALTITUDE_EXT])) ? $ext = $data[self::FIELD_ALTITUDE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALTITUDE] ?? null;
+            $ext = (isset($data[self::FIELD_ALTITUDE_EXT]) && is_array($data[self::FIELD_ALTITUDE_EXT])) ? $data[self::FIELD_ALTITUDE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setAltitude($value);
@@ -199,11 +199,17 @@ class FHIRLocationPosition extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -222,9 +228,9 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Longitude. The value domain and the interpretation are the same as for the text
      * of the longitude element in KML (see notes below).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getLongitude()
+    public function getLongitude(): ?FHIRDecimal
     {
         return $this->longitude;
     }
@@ -238,10 +244,10 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Longitude. The value domain and the interpretation are the same as for the text
      * of the longitude element in KML (see notes below).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $longitude
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $longitude
      * @return static
      */
-    public function setLongitude($longitude = null)
+    public function setLongitude($longitude = null): object
     {
         if (null !== $longitude && !($longitude instanceof FHIRDecimal)) {
             $longitude = new FHIRDecimal($longitude);
@@ -260,9 +266,9 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Latitude. The value domain and the interpretation are the same as for the text
      * of the latitude element in KML (see notes below).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getLatitude()
+    public function getLatitude(): ?FHIRDecimal
     {
         return $this->latitude;
     }
@@ -276,10 +282,10 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Latitude. The value domain and the interpretation are the same as for the text
      * of the latitude element in KML (see notes below).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $latitude
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $latitude
      * @return static
      */
-    public function setLatitude($latitude = null)
+    public function setLatitude($latitude = null): object
     {
         if (null !== $latitude && !($latitude instanceof FHIRDecimal)) {
             $latitude = new FHIRDecimal($latitude);
@@ -298,9 +304,9 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Altitude. The value domain and the interpretation are the same as for the text
      * of the altitude element in KML (see notes below).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getAltitude()
+    public function getAltitude(): ?FHIRDecimal
     {
         return $this->altitude;
     }
@@ -314,10 +320,10 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * Altitude. The value domain and the interpretation are the same as for the text
      * of the altitude element in KML (see notes below).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $altitude
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $altitude
      * @return static
      */
-    public function setAltitude($altitude = null)
+    public function setAltitude($altitude = null): object
     {
         if (null !== $altitude && !($altitude instanceof FHIRDecimal)) {
             $altitude = new FHIRDecimal($altitude);
@@ -444,15 +450,15 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation\FHIRLocationPosition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation\FHIRLocationPosition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRLocationPosition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -472,7 +478,7 @@ class FHIRLocationPosition extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -535,7 +541,7 @@ class FHIRLocationPosition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -563,41 +569,44 @@ class FHIRLocationPosition extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getLongitude())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LONGITUDE] = $val;
+                $out->{self::FIELD_LONGITUDE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LONGITUDE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LONGITUDE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLatitude())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LATITUDE] = $val;
+                $out->{self::FIELD_LATITUDE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LATITUDE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LATITUDE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAltitude())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ALTITUDE] = $val;
+                $out->{self::FIELD_ALTITUDE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ALTITUDE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALTITUDE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

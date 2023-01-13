@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,7 +126,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A reference from one resource to another.
@@ -138,7 +138,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A coded concept indicating the current status of the Device Usage.
@@ -150,7 +150,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceUseStatementStatus
      */
-    protected $status = null;
+    protected ?FHIRDeviceUseStatementStatus $status = null;
 
     /**
      * A reference from one resource to another.
@@ -161,7 +161,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -173,7 +173,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $derivedFrom = [];
+    protected ?array $derivedFrom = [];
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -188,7 +188,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $timingTiming = null;
+    protected ?FHIRTiming $timingTiming = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -199,7 +199,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $timingPeriod = null;
+    protected ?FHIRPeriod $timingPeriod = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -211,9 +211,9 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * How often the device was used.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $timingDateTime = null;
+    protected ?FHIRDateTime $timingDateTime = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -225,9 +225,9 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * The time at which the statement was made/recorded.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $recordedOn = null;
+    protected ?FHIRDateTime $recordedOn = null;
 
     /**
      * A reference from one resource to another.
@@ -238,7 +238,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $source = null;
+    protected ?FHIRReference $source = null;
 
     /**
      * A reference from one resource to another.
@@ -249,7 +249,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $device = null;
+    protected ?FHIRReference $device = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -261,7 +261,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -272,7 +272,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -285,7 +285,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $bodySite = null;
+    protected ?FHIRCodeableConcept $bodySite = null;
 
     /**
      * A text note which also contains information about who made the statement and
@@ -299,13 +299,13 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Validation map for fields in type DeviceUseStatement
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDeviceUseStatement Constructor
@@ -360,8 +360,8 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDeviceUseStatementStatus) {
                     $this->setStatus($value);
@@ -414,8 +414,8 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_TIMING_DATE_TIME]) || isset($data[self::FIELD_TIMING_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_TIMING_DATE_TIME]) ? $data[self::FIELD_TIMING_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_TIMING_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMING_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $data[self::FIELD_TIMING_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTimingDateTime($value);
@@ -429,8 +429,8 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_RECORDED_ON]) || isset($data[self::FIELD_RECORDED_ON_EXT])) {
-            $value = isset($data[self::FIELD_RECORDED_ON]) ? $data[self::FIELD_RECORDED_ON] : null;
-            $ext = (isset($data[self::FIELD_RECORDED_ON_EXT]) && is_array($data[self::FIELD_RECORDED_ON_EXT])) ? $ext = $data[self::FIELD_RECORDED_ON_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECORDED_ON] ?? null;
+            $ext = (isset($data[self::FIELD_RECORDED_ON_EXT]) && is_array($data[self::FIELD_RECORDED_ON_EXT])) ? $data[self::FIELD_RECORDED_ON_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setRecordedOn($value);
@@ -520,11 +520,17 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -533,6 +539,9 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
         }
         return "<DeviceUseStatement{$xmlns}></DeviceUseStatement>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -549,7 +558,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -565,7 +574,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -583,7 +592,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -612,7 +621,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -628,7 +637,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -646,7 +655,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -675,7 +684,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceUseStatementStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRDeviceUseStatementStatus
     {
         return $this->status;
     }
@@ -691,7 +700,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceUseStatementStatus $status
      * @return static
      */
-    public function setStatus(FHIRDeviceUseStatementStatus $status = null)
+    public function setStatus(?FHIRDeviceUseStatementStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -707,7 +716,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -722,7 +731,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -739,7 +748,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getDerivedFrom()
+    public function getDerivedFrom(): ?array
     {
         return $this->derivedFrom;
     }
@@ -755,7 +764,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $derivedFrom
      * @return static
      */
-    public function addDerivedFrom(FHIRReference $derivedFrom = null)
+    public function addDerivedFrom(?FHIRReference $derivedFrom = null): object
     {
         $this->_trackValueAdded();
         $this->derivedFrom[] = $derivedFrom;
@@ -773,7 +782,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $derivedFrom
      * @return static
      */
-    public function setDerivedFrom(array $derivedFrom = [])
+    public function setDerivedFrom(array $derivedFrom = []): object
     {
         if ([] !== $this->derivedFrom) {
             $this->_trackValuesRemoved(count($this->derivedFrom));
@@ -805,7 +814,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getTimingTiming()
+    public function getTimingTiming(): ?FHIRTiming
     {
         return $this->timingTiming;
     }
@@ -824,7 +833,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $timingTiming
      * @return static
      */
-    public function setTimingTiming(FHIRTiming $timingTiming = null)
+    public function setTimingTiming(?FHIRTiming $timingTiming = null): object
     {
         $this->_trackValueSet($this->timingTiming, $timingTiming);
         $this->timingTiming = $timingTiming;
@@ -840,7 +849,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getTimingPeriod()
+    public function getTimingPeriod(): ?FHIRPeriod
     {
         return $this->timingPeriod;
     }
@@ -855,7 +864,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $timingPeriod
      * @return static
      */
-    public function setTimingPeriod(FHIRPeriod $timingPeriod = null)
+    public function setTimingPeriod(?FHIRPeriod $timingPeriod = null): object
     {
         $this->_trackValueSet($this->timingPeriod, $timingPeriod);
         $this->timingPeriod = $timingPeriod;
@@ -872,9 +881,9 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * How often the device was used.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTimingDateTime()
+    public function getTimingDateTime(): ?FHIRDateTime
     {
         return $this->timingDateTime;
     }
@@ -889,10 +898,10 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * How often the device was used.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
      * @return static
      */
-    public function setTimingDateTime($timingDateTime = null)
+    public function setTimingDateTime($timingDateTime = null): object
     {
         if (null !== $timingDateTime && !($timingDateTime instanceof FHIRDateTime)) {
             $timingDateTime = new FHIRDateTime($timingDateTime);
@@ -912,9 +921,9 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * The time at which the statement was made/recorded.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getRecordedOn()
+    public function getRecordedOn(): ?FHIRDateTime
     {
         return $this->recordedOn;
     }
@@ -929,10 +938,10 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * The time at which the statement was made/recorded.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recordedOn
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recordedOn
      * @return static
      */
-    public function setRecordedOn($recordedOn = null)
+    public function setRecordedOn($recordedOn = null): object
     {
         if (null !== $recordedOn && !($recordedOn instanceof FHIRDateTime)) {
             $recordedOn = new FHIRDateTime($recordedOn);
@@ -951,7 +960,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSource()
+    public function getSource(): ?FHIRReference
     {
         return $this->source;
     }
@@ -966,7 +975,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $source
      * @return static
      */
-    public function setSource(FHIRReference $source = null)
+    public function setSource(?FHIRReference $source = null): object
     {
         $this->_trackValueSet($this->source, $source);
         $this->source = $source;
@@ -982,7 +991,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDevice()
+    public function getDevice(): ?FHIRReference
     {
         return $this->device;
     }
@@ -997,7 +1006,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $device
      * @return static
      */
-    public function setDevice(FHIRReference $device = null)
+    public function setDevice(?FHIRReference $device = null): object
     {
         $this->_trackValueSet($this->device, $device);
         $this->device = $device;
@@ -1014,7 +1023,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1030,7 +1039,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1048,7 +1057,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1076,7 +1085,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1091,7 +1100,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1108,7 +1117,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1138,7 +1147,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getBodySite()
+    public function getBodySite(): ?FHIRCodeableConcept
     {
         return $this->bodySite;
     }
@@ -1155,7 +1164,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $bodySite
      * @return static
      */
-    public function setBodySite(FHIRCodeableConcept $bodySite = null)
+    public function setBodySite(?FHIRCodeableConcept $bodySite = null): object
     {
         $this->_trackValueSet($this->bodySite, $bodySite);
         $this->bodySite = $bodySite;
@@ -1174,7 +1183,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1192,7 +1201,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1212,7 +1221,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1624,15 +1633,15 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceUseStatement
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceUseStatement    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDeviceUseStatement::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1652,7 +1661,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1763,7 +1772,7 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1881,113 +1890,118 @@ class FHIRDeviceUseStatement extends FHIRDomainResource implements PHPFHIRContai
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDeviceUseStatementStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRDeviceUseStatementStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if ([] !== ($vs = $this->getDerivedFrom())) {
-            $a[self::FIELD_DERIVED_FROM] = [];
+            $out->{self::FIELD_DERIVED_FROM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DERIVED_FROM][] = $v;
+                $out->{self::FIELD_DERIVED_FROM}[] = $v;
             }
         }
         if (null !== ($v = $this->getTimingTiming())) {
-            $a[self::FIELD_TIMING_TIMING] = $v;
+            $out->{self::FIELD_TIMING_TIMING} = $v;
         }
         if (null !== ($v = $this->getTimingPeriod())) {
-            $a[self::FIELD_TIMING_PERIOD] = $v;
+            $out->{self::FIELD_TIMING_PERIOD} = $v;
         }
         if (null !== ($v = $this->getTimingDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMING_DATE_TIME] = $val;
+                $out->{self::FIELD_TIMING_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMING_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMING_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRecordedOn())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECORDED_ON] = $val;
+                $out->{self::FIELD_RECORDED_ON} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECORDED_ON_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECORDED_ON_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = $v;
+            $out->{self::FIELD_SOURCE} = $v;
         }
         if (null !== ($v = $this->getDevice())) {
-            $a[self::FIELD_DEVICE] = $v;
+            $out->{self::FIELD_DEVICE} = $v;
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getBodySite())) {
-            $a[self::FIELD_BODY_SITE] = $v;
+            $out->{self::FIELD_BODY_SITE} = $v;
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

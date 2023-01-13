@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,13 +81,13 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
     /**
      * @var null|string
      */
-    protected $value = null;
+    protected ?string $value = null;
 
     /**
      * Validation map for fields in type date-primitive
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_VALUE => [
             PHPFHIRConstants::VALIDATE_PATTERN => '/^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?$/',
         ],
@@ -102,11 +102,17 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
         $this->setValue($value);
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -116,13 +122,16 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -135,16 +144,16 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
     /**
      * @return null|string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
     /**
-     * @param null|string $value
+     * @param null|\DateTimeInterface|string $value
      * @return static
      */
-    public function setValue($value)
+    public function setValue($value): object
     {
         if (null === $value) {
             $this->value = null;
@@ -154,13 +163,17 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
             $this->value = $value;
             return $this;
         }
-        throw new \InvalidArgumentException(sprintf('Value must be null or string, %s seen.', gettype($value)));
+        if ($value instanceof \DateTimeInterface) {
+            $this->value = $value->format(PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH_DAY);
+            return $this;
+        }
+        throw new \InvalidArgumentException(sprintf('Value must be null, string, or instance of \\DateTimeInterface, %s seen.', gettype($value)));
     }
 
     /**
-     * @return null|\DateTime|false
+     * @return null|\DateTimeInterface
      */
-    public function _getDateTime()
+    public function _getDateTime(): ?\DateTimeInterface
     {
         $value = $this->getValue();
         if (null === $value) {
@@ -170,18 +183,31 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
             throw new \DomainException(sprintf(
                 'Cannot convert "%s" to \\DateTime as it does not conform to "%s"',
                 $value,
-                self::$_fieldValidation[self::FIELD_VALUE][PHPFHIRConstants::VALIDATE_PATTERN]
+                self::$_validationRules[self::FIELD_VALUE][PHPFHIRConstants::VALIDATE_PATTERN]
             ));
         }
         switch(strlen($value)) {
             case 4:
-                return \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR, $value);
+                $dt = \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR, $value);
+                if (!($dt instanceof \DateTime)) {
+                    throw new \UnexpectedValueException(sprintf('Unable to parse value "%s" into \DateTime instance with expected format "%s"', $value, PHPFHIRConstants::DATE_FORMAT_YEAR));
+                }
+                return $dt;
             case 7:
-                return \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH, $value);
+                $dt = \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH, $value);
+                if (!($dt instanceof \DateTime)) {
+                    throw new \UnexpectedValueException(sprintf('Unable to parse value "%s" into \DateTime instance with expected format "%s"', $value, PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH));
+                }
+                return $dt;
             case 10:
-                return \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH_DAY, $value);
+                $dt = \DateTime::createFromFormat(PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH_DAY, $value);
+                if (!($dt instanceof \DateTime)) {
+                    throw new \UnexpectedValueException(sprintf('Unable to parse value "%s" into \DateTime instance with expected format "%s"', $value, PHPFHIRConstants::DATE_FORMAT_YEAR_MONTH_DAY));
+                }
+                return $dt;
+
             default:
-                return false;
+                throw new \UnexpectedValueException(sprintf('Unable to parse value "%s" into \DateTime as it is not a value expected by the Date type', $value));
         }
     }
 
@@ -226,15 +252,15 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRDatePrimitive
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRDatePrimitive    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDatePrimitive::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -254,7 +280,7 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -282,7 +308,7 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -295,7 +321,11 @@ class FHIRDatePrimitive implements PHPFHIRTypeInterface
         return $element;
     }
 
-    public function jsonSerialize(): ?string    {
+    /**
+     * @return null|string
+     */
+    public function jsonSerialize()
+    {
         return $this->getValue();
     }
 

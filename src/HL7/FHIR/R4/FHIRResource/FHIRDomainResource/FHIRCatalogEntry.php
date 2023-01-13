@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -125,7 +125,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -137,7 +137,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * Value of "true" or "false"
@@ -145,9 +145,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the entry represents an orderable item.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $orderable = null;
+    protected ?FHIRBoolean $orderable = null;
 
     /**
      * A reference from one resource to another.
@@ -158,7 +158,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $referencedItem = null;
+    protected ?FHIRReference $referencedItem = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -170,7 +170,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $additionalIdentifier = [];
+    protected ?array $additionalIdentifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -182,7 +182,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $classification = [];
+    protected ?array $classification = [];
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -192,7 +192,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -203,7 +203,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $validityPeriod = null;
+    protected ?FHIRPeriod $validityPeriod = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -215,9 +215,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The date until which this catalog entry is expected to be active.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $validTo = null;
+    protected ?FHIRDateTime $validTo = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -230,9 +230,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Typically date of issue is different from the beginning of the validity. This
      * can be used to see when an item was last updated.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $lastUpdated = null;
+    protected ?FHIRDateTime $lastUpdated = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -244,7 +244,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $additionalCharacteristic = [];
+    protected ?array $additionalCharacteristic = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -256,7 +256,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $additionalClassification = [];
+    protected ?array $additionalClassification = [];
 
     /**
      * Catalog entries are wrappers that contextualize items included in a catalog.
@@ -266,13 +266,13 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCatalogEntry\FHIRCatalogEntryRelatedEntry[]
      */
-    protected $relatedEntry = [];
+    protected ?array $relatedEntry = [];
 
     /**
      * Validation map for fields in type CatalogEntry
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCatalogEntry Constructor
@@ -316,8 +316,8 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_ORDERABLE]) || isset($data[self::FIELD_ORDERABLE_EXT])) {
-            $value = isset($data[self::FIELD_ORDERABLE]) ? $data[self::FIELD_ORDERABLE] : null;
-            $ext = (isset($data[self::FIELD_ORDERABLE_EXT]) && is_array($data[self::FIELD_ORDERABLE_EXT])) ? $ext = $data[self::FIELD_ORDERABLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ORDERABLE] ?? null;
+            $ext = (isset($data[self::FIELD_ORDERABLE_EXT]) && is_array($data[self::FIELD_ORDERABLE_EXT])) ? $data[self::FIELD_ORDERABLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setOrderable($value);
@@ -374,8 +374,8 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -396,8 +396,8 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_VALID_TO]) || isset($data[self::FIELD_VALID_TO_EXT])) {
-            $value = isset($data[self::FIELD_VALID_TO]) ? $data[self::FIELD_VALID_TO] : null;
-            $ext = (isset($data[self::FIELD_VALID_TO_EXT]) && is_array($data[self::FIELD_VALID_TO_EXT])) ? $ext = $data[self::FIELD_VALID_TO_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALID_TO] ?? null;
+            $ext = (isset($data[self::FIELD_VALID_TO_EXT]) && is_array($data[self::FIELD_VALID_TO_EXT])) ? $data[self::FIELD_VALID_TO_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setValidTo($value);
@@ -411,8 +411,8 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_LAST_UPDATED]) || isset($data[self::FIELD_LAST_UPDATED_EXT])) {
-            $value = isset($data[self::FIELD_LAST_UPDATED]) ? $data[self::FIELD_LAST_UPDATED] : null;
-            $ext = (isset($data[self::FIELD_LAST_UPDATED_EXT]) && is_array($data[self::FIELD_LAST_UPDATED_EXT])) ? $ext = $data[self::FIELD_LAST_UPDATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_LAST_UPDATED] ?? null;
+            $ext = (isset($data[self::FIELD_LAST_UPDATED_EXT]) && is_array($data[self::FIELD_LAST_UPDATED_EXT])) ? $data[self::FIELD_LAST_UPDATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setLastUpdated($value);
@@ -481,11 +481,17 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -494,6 +500,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<CatalogEntry{$xmlns}></CatalogEntry>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -511,7 +520,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -528,7 +537,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -547,7 +556,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -576,7 +585,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -592,7 +601,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -605,9 +614,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the entry represents an orderable item.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getOrderable()
+    public function getOrderable(): ?FHIRBoolean
     {
         return $this->orderable;
     }
@@ -618,10 +627,10 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Whether the entry represents an orderable item.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $orderable
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $orderable
      * @return static
      */
-    public function setOrderable($orderable = null)
+    public function setOrderable($orderable = null): object
     {
         if (null !== $orderable && !($orderable instanceof FHIRBoolean)) {
             $orderable = new FHIRBoolean($orderable);
@@ -640,7 +649,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getReferencedItem()
+    public function getReferencedItem(): ?FHIRReference
     {
         return $this->referencedItem;
     }
@@ -655,7 +664,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $referencedItem
      * @return static
      */
-    public function setReferencedItem(FHIRReference $referencedItem = null)
+    public function setReferencedItem(?FHIRReference $referencedItem = null): object
     {
         $this->_trackValueSet($this->referencedItem, $referencedItem);
         $this->referencedItem = $referencedItem;
@@ -672,7 +681,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getAdditionalIdentifier()
+    public function getAdditionalIdentifier(): ?array
     {
         return $this->additionalIdentifier;
     }
@@ -688,7 +697,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $additionalIdentifier
      * @return static
      */
-    public function addAdditionalIdentifier(FHIRIdentifier $additionalIdentifier = null)
+    public function addAdditionalIdentifier(?FHIRIdentifier $additionalIdentifier = null): object
     {
         $this->_trackValueAdded();
         $this->additionalIdentifier[] = $additionalIdentifier;
@@ -706,7 +715,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $additionalIdentifier
      * @return static
      */
-    public function setAdditionalIdentifier(array $additionalIdentifier = [])
+    public function setAdditionalIdentifier(array $additionalIdentifier = []): object
     {
         if ([] !== $this->additionalIdentifier) {
             $this->_trackValuesRemoved(count($this->additionalIdentifier));
@@ -735,7 +744,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getClassification()
+    public function getClassification(): ?array
     {
         return $this->classification;
     }
@@ -751,7 +760,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $classification
      * @return static
      */
-    public function addClassification(FHIRCodeableConcept $classification = null)
+    public function addClassification(?FHIRCodeableConcept $classification = null): object
     {
         $this->_trackValueAdded();
         $this->classification[] = $classification;
@@ -769,7 +778,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $classification
      * @return static
      */
-    public function setClassification(array $classification = [])
+    public function setClassification(array $classification = []): object
     {
         if ([] !== $this->classification) {
             $this->_trackValuesRemoved(count($this->classification));
@@ -796,7 +805,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -810,7 +819,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -826,7 +835,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getValidityPeriod()
+    public function getValidityPeriod(): ?FHIRPeriod
     {
         return $this->validityPeriod;
     }
@@ -841,7 +850,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $validityPeriod
      * @return static
      */
-    public function setValidityPeriod(FHIRPeriod $validityPeriod = null)
+    public function setValidityPeriod(?FHIRPeriod $validityPeriod = null): object
     {
         $this->_trackValueSet($this->validityPeriod, $validityPeriod);
         $this->validityPeriod = $validityPeriod;
@@ -858,9 +867,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The date until which this catalog entry is expected to be active.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getValidTo()
+    public function getValidTo(): ?FHIRDateTime
     {
         return $this->validTo;
     }
@@ -875,10 +884,10 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The date until which this catalog entry is expected to be active.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $validTo
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $validTo
      * @return static
      */
-    public function setValidTo($validTo = null)
+    public function setValidTo($validTo = null): object
     {
         if (null !== $validTo && !($validTo instanceof FHIRDateTime)) {
             $validTo = new FHIRDateTime($validTo);
@@ -899,9 +908,9 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Typically date of issue is different from the beginning of the validity. This
      * can be used to see when an item was last updated.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getLastUpdated()
+    public function getLastUpdated(): ?FHIRDateTime
     {
         return $this->lastUpdated;
     }
@@ -917,10 +926,10 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Typically date of issue is different from the beginning of the validity. This
      * can be used to see when an item was last updated.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $lastUpdated
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $lastUpdated
      * @return static
      */
-    public function setLastUpdated($lastUpdated = null)
+    public function setLastUpdated($lastUpdated = null): object
     {
         if (null !== $lastUpdated && !($lastUpdated instanceof FHIRDateTime)) {
             $lastUpdated = new FHIRDateTime($lastUpdated);
@@ -940,7 +949,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAdditionalCharacteristic()
+    public function getAdditionalCharacteristic(): ?array
     {
         return $this->additionalCharacteristic;
     }
@@ -956,7 +965,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $additionalCharacteristic
      * @return static
      */
-    public function addAdditionalCharacteristic(FHIRCodeableConcept $additionalCharacteristic = null)
+    public function addAdditionalCharacteristic(?FHIRCodeableConcept $additionalCharacteristic = null): object
     {
         $this->_trackValueAdded();
         $this->additionalCharacteristic[] = $additionalCharacteristic;
@@ -974,7 +983,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $additionalCharacteristic
      * @return static
      */
-    public function setAdditionalCharacteristic(array $additionalCharacteristic = [])
+    public function setAdditionalCharacteristic(array $additionalCharacteristic = []): object
     {
         if ([] !== $this->additionalCharacteristic) {
             $this->_trackValuesRemoved(count($this->additionalCharacteristic));
@@ -1003,7 +1012,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAdditionalClassification()
+    public function getAdditionalClassification(): ?array
     {
         return $this->additionalClassification;
     }
@@ -1019,7 +1028,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $additionalClassification
      * @return static
      */
-    public function addAdditionalClassification(FHIRCodeableConcept $additionalClassification = null)
+    public function addAdditionalClassification(?FHIRCodeableConcept $additionalClassification = null): object
     {
         $this->_trackValueAdded();
         $this->additionalClassification[] = $additionalClassification;
@@ -1037,7 +1046,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $additionalClassification
      * @return static
      */
-    public function setAdditionalClassification(array $additionalClassification = [])
+    public function setAdditionalClassification(array $additionalClassification = []): object
     {
         if ([] !== $this->additionalClassification) {
             $this->_trackValuesRemoved(count($this->additionalClassification));
@@ -1064,7 +1073,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCatalogEntry\FHIRCatalogEntryRelatedEntry[]
      */
-    public function getRelatedEntry()
+    public function getRelatedEntry(): ?array
     {
         return $this->relatedEntry;
     }
@@ -1078,7 +1087,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCatalogEntry\FHIRCatalogEntryRelatedEntry $relatedEntry
      * @return static
      */
-    public function addRelatedEntry(FHIRCatalogEntryRelatedEntry $relatedEntry = null)
+    public function addRelatedEntry(?FHIRCatalogEntryRelatedEntry $relatedEntry = null): object
     {
         $this->_trackValueAdded();
         $this->relatedEntry[] = $relatedEntry;
@@ -1094,7 +1103,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCatalogEntry\FHIRCatalogEntryRelatedEntry[] $relatedEntry
      * @return static
      */
-    public function setRelatedEntry(array $relatedEntry = [])
+    public function setRelatedEntry(array $relatedEntry = []): object
     {
         if ([] !== $this->relatedEntry) {
             $this->_trackValuesRemoved(count($this->relatedEntry));
@@ -1472,15 +1481,15 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCatalogEntry
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCatalogEntry    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCatalogEntry::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1500,7 +1509,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1616,7 +1625,7 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1724,114 +1733,119 @@ class FHIRCatalogEntry extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getOrderable())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ORDERABLE] = $val;
+                $out->{self::FIELD_ORDERABLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ORDERABLE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ORDERABLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReferencedItem())) {
-            $a[self::FIELD_REFERENCED_ITEM] = $v;
+            $out->{self::FIELD_REFERENCED_ITEM} = $v;
         }
         if ([] !== ($vs = $this->getAdditionalIdentifier())) {
-            $a[self::FIELD_ADDITIONAL_IDENTIFIER] = [];
+            $out->{self::FIELD_ADDITIONAL_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDITIONAL_IDENTIFIER][] = $v;
+                $out->{self::FIELD_ADDITIONAL_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getClassification())) {
-            $a[self::FIELD_CLASSIFICATION] = [];
+            $out->{self::FIELD_CLASSIFICATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CLASSIFICATION][] = $v;
+                $out->{self::FIELD_CLASSIFICATION}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValidityPeriod())) {
-            $a[self::FIELD_VALIDITY_PERIOD] = $v;
+            $out->{self::FIELD_VALIDITY_PERIOD} = $v;
         }
         if (null !== ($v = $this->getValidTo())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALID_TO] = $val;
+                $out->{self::FIELD_VALID_TO} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALID_TO_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALID_TO_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLastUpdated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LAST_UPDATED] = $val;
+                $out->{self::FIELD_LAST_UPDATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LAST_UPDATED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LAST_UPDATED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAdditionalCharacteristic())) {
-            $a[self::FIELD_ADDITIONAL_CHARACTERISTIC] = [];
+            $out->{self::FIELD_ADDITIONAL_CHARACTERISTIC} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDITIONAL_CHARACTERISTIC][] = $v;
+                $out->{self::FIELD_ADDITIONAL_CHARACTERISTIC}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getAdditionalClassification())) {
-            $a[self::FIELD_ADDITIONAL_CLASSIFICATION] = [];
+            $out->{self::FIELD_ADDITIONAL_CLASSIFICATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDITIONAL_CLASSIFICATION][] = $v;
+                $out->{self::FIELD_ADDITIONAL_CLASSIFICATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRelatedEntry())) {
-            $a[self::FIELD_RELATED_ENTRY] = [];
+            $out->{self::FIELD_RELATED_ENTRY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELATED_ENTRY][] = $v;
+                $out->{self::FIELD_RELATED_ENTRY}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

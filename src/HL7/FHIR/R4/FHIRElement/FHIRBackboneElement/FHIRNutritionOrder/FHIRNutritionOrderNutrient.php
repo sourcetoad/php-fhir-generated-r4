@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $modifier = null;
+    protected ?FHIRCodeableConcept $modifier = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -110,13 +110,13 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $amount = null;
+    protected ?FHIRQuantity $amount = null;
 
     /**
      * Validation map for fields in type NutritionOrder.Nutrient
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRNutritionOrderNutrient Constructor
@@ -150,11 +150,17 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -174,7 +180,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getModifier()
+    public function getModifier(): ?FHIRCodeableConcept
     {
         return $this->modifier;
     }
@@ -190,7 +196,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $modifier
      * @return static
      */
-    public function setModifier(FHIRCodeableConcept $modifier = null)
+    public function setModifier(?FHIRCodeableConcept $modifier = null): object
     {
         $this->_trackValueSet($this->modifier, $modifier);
         $this->modifier = $modifier;
@@ -208,7 +214,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getAmount()
+    public function getAmount(): ?FHIRQuantity
     {
         return $this->amount;
     }
@@ -225,7 +231,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $amount
      * @return static
      */
-    public function setAmount(FHIRQuantity $amount = null)
+    public function setAmount(?FHIRQuantity $amount = null): object
     {
         $this->_trackValueSet($this->amount, $amount);
         $this->amount = $amount;
@@ -332,15 +338,15 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRNutritionOrderNutrient::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -360,7 +366,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -394,7 +400,7 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -417,17 +423,20 @@ class FHIRNutritionOrderNutrient extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getModifier())) {
-            $a[self::FIELD_MODIFIER] = $v;
+            $out->{self::FIELD_MODIFIER} = $v;
         }
         if (null !== ($v = $this->getAmount())) {
-            $a[self::FIELD_AMOUNT] = $v;
+            $out->{self::FIELD_AMOUNT} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

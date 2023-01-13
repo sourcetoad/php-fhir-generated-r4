@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,15 +72,15 @@ class PHPFHIRResponseParserConfig implements \JsonSerializable
     const KEY_LIBXML_OPTS         = 'libxmlOpts';
 
     /** @var array */
-    private static $_keysWithDefaults = [
+    private static array $_keysWithDefaults = [
         self::KEY_REGISTER_AUTOLOADER => false,
         self::KEY_LIBXML_OPTS => 591872,
     ];
 
     /** @var bool */
-    private $registerAutoloader;
+    private bool $registerAutoloader;
     /** @var int */
-    private $libxmlOpts;
+    private int $libxmlOpts;
 
     /**
      * PHPFHIRResponseParserConfig Constructor
@@ -97,32 +97,48 @@ class PHPFHIRResponseParserConfig implements \JsonSerializable
         }
     }
 
-    public function setRegisterAutoloader(bool $registerAutoloader): void
+    /**
+     * @param bool $registerAutoloader
+     * @return void
+     */
+    public function setRegisterAutoloader($registerAutoloader): void
     {
         $this->registerAutoloader = (bool)$registerAutoloader;
     }
 
+    /**
+     * @return bool
+     */
     public function getRegisterAutoloader(): bool
     {
         return $this->registerAutoloader;
     }
 
+    /**
+     * @param int $libxmlOpts
+     */
     public function setLibxmlOpts(int $libxmlOpts): void
     {
-        $this->libxmlOpts = (int)$libxmlOpts;
+        $this->libxmlOpts = $libxmlOpts;
     }
 
+    /**
+     * @return int
+     */
     public function getLibxmlOpts(): int
     {
         return $this->libxmlOpts;
     }
 
-    public function jsonSerialize(): array
+    /**
+     * @return \stdClass
+     */
+    public function jsonSerialize()
     {
-        $a = [];
+        $out= new \stdClass();
         foreach(self::$_keysWithDefaults as $k => $_) {
-            $a[$k] = $this->{'get'.$k}();
+            $out->{$k} = $this->{'get'.$k}();
         }
-        return $a;
+        return $out;
     }
 }

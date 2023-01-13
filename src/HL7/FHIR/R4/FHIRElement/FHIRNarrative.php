@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,8 +63,8 @@ namespace HL7\FHIR\R4\FHIRElement;
  */
 
 use HL7\FHIR\R4\FHIRElement;
-use HL7\FHIR\R4\FHIRRaw;
 use HL7\FHIR\R4\FHIRStringPrimitive;
+use HL7\FHIR\R4\FHIRXHTML;
 use HL7\FHIR\R4\PHPFHIRConstants;
 use HL7\FHIR\R4\PHPFHIRTypeInterface;
 
@@ -98,22 +98,22 @@ class FHIRNarrative extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRNarrativeStatus
      */
-    protected $status = null;
+    protected ?FHIRNarrativeStatus $status = null;
 
     /**
-     * Raw type used in special cases
+     * XHTML type used in special cases
      *
      * The actual narrative content, a stripped down version of XHTML.
      *
-     * @var null|\HL7\FHIR\R4\FHIRRaw
+     * @var null|\HL7\FHIR\R4\FHIRXHTML
      */
-    protected $div = null;
+    protected ?FHIRXHTML $div = null;
 
     /**
      * Validation map for fields in type Narrative
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRNarrative Constructor
@@ -132,8 +132,8 @@ class FHIRNarrative extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRNarrativeStatus) {
                     $this->setStatus($value);
@@ -147,19 +147,25 @@ class FHIRNarrative extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_DIV])) {
-            if ($data[self::FIELD_DIV] instanceof FHIRRaw) {
+            if ($data[self::FIELD_DIV] instanceof FHIRXHTML) {
                 $this->setDiv($data[self::FIELD_DIV]);
             } else {
-                $this->setDiv(new FHIRRaw($data[self::FIELD_DIV]));
+                $this->setDiv(new FHIRXHTML($data[self::FIELD_DIV]));
             }
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -179,7 +185,7 @@ class FHIRNarrative extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRNarrativeStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRNarrativeStatus
     {
         return $this->status;
     }
@@ -195,7 +201,7 @@ class FHIRNarrative extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRNarrativeStatus $status
      * @return static
      */
-    public function setStatus(FHIRNarrativeStatus $status = null)
+    public function setStatus(?FHIRNarrativeStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -203,26 +209,26 @@ class FHIRNarrative extends FHIRElement
     }
 
     /**
-     * Raw type used in special cases
+     * XHTML type used in special cases
      *
      * The actual narrative content, a stripped down version of XHTML.
      *
-     * @return null|\HL7\FHIR\R4\FHIRRaw
+     * @return null|\HL7\FHIR\R4\FHIRXHTML
      */
-    public function getDiv()
+    public function getDiv(): ?FHIRXHTML
     {
         return $this->div;
     }
 
     /**
-     * Raw type used in special cases
+     * XHTML type used in special cases
      *
      * The actual narrative content, a stripped down version of XHTML.
      *
-     * @param null|\HL7\FHIR\R4\FHIRRaw $div
+     * @param null|\HL7\FHIR\R4\FHIRXHTML $div
      * @return static
      */
-    public function setDiv(FHIRRaw $div = null)
+    public function setDiv(?FHIRXHTML $div = null): object
     {
         $this->_trackValueSet($this->div, $div);
         $this->div = $div;
@@ -317,15 +323,15 @@ class FHIRNarrative extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRNarrative
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRNarrative    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRNarrative::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -345,7 +351,7 @@ class FHIRNarrative extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -353,7 +359,7 @@ class FHIRNarrative extends FHIRElement
             if (self::FIELD_STATUS === $n->nodeName) {
                 $type->setStatus(FHIRNarrativeStatus::xmlUnserialize($n));
             } elseif (self::FIELD_DIV === $n->nodeName) {
-                $type->setDiv(FHIRRaw::xmlUnserialize($n));
+                $type->setDiv(FHIRXHTML::xmlUnserialize($n));
             } elseif (self::FIELD_EXTENSION === $n->nodeName) {
                 $type->addExtension(FHIRExtension::xmlUnserialize($n));
             } elseif (self::FIELD_ID === $n->nodeName) {
@@ -377,7 +383,7 @@ class FHIRNarrative extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -400,24 +406,27 @@ class FHIRNarrative extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRNarrativeStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRNarrativeStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDiv())) {
-            $a[self::FIELD_DIV] = $v;
+            $out->{self::FIELD_DIV} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

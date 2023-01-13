@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,9 +103,9 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * A number to uniquely identify procedure entries.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $sequence = null;
+    protected ?FHIRPositiveInt $sequence = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -117,7 +117,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $type = [];
+    protected ?array $type = [];
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -129,9 +129,9 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * Date and optionally time the procedure was performed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -144,7 +144,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $procedureCodeableConcept = null;
+    protected ?FHIRCodeableConcept $procedureCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -156,7 +156,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $procedureReference = null;
+    protected ?FHIRReference $procedureReference = null;
 
     /**
      * A reference from one resource to another.
@@ -167,13 +167,13 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $udi = [];
+    protected ?array $udi = [];
 
     /**
      * Validation map for fields in type ExplanationOfBenefit.Procedure
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRExplanationOfBenefitProcedure Constructor
@@ -192,8 +192,8 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SEQUENCE]) || isset($data[self::FIELD_SEQUENCE_EXT])) {
-            $value = isset($data[self::FIELD_SEQUENCE]) ? $data[self::FIELD_SEQUENCE] : null;
-            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $ext = $data[self::FIELD_SEQUENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEQUENCE] ?? null;
+            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $data[self::FIELD_SEQUENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setSequence($value);
@@ -225,8 +225,8 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -273,11 +273,17 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -294,9 +300,9 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * A number to uniquely identify procedure entries.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getSequence()
+    public function getSequence(): ?FHIRPositiveInt
     {
         return $this->sequence;
     }
@@ -308,10 +314,10 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * A number to uniquely identify procedure entries.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
      * @return static
      */
-    public function setSequence($sequence = null)
+    public function setSequence($sequence = null): object
     {
         if (null !== $sequence && !($sequence instanceof FHIRPositiveInt)) {
             $sequence = new FHIRPositiveInt($sequence);
@@ -331,7 +337,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getType()
+    public function getType(): ?array
     {
         return $this->type;
     }
@@ -347,7 +353,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function addType(FHIRCodeableConcept $type = null)
+    public function addType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueAdded();
         $this->type[] = $type;
@@ -365,7 +371,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $type
      * @return static
      */
-    public function setType(array $type = [])
+    public function setType(array $type = []): object
     {
         if ([] !== $this->type) {
             $this->_trackValuesRemoved(count($this->type));
@@ -394,9 +400,9 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * Date and optionally time the procedure was performed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -411,10 +417,10 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * Date and optionally time the procedure was performed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -435,7 +441,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getProcedureCodeableConcept()
+    public function getProcedureCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->procedureCodeableConcept;
     }
@@ -452,7 +458,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $procedureCodeableConcept
      * @return static
      */
-    public function setProcedureCodeableConcept(FHIRCodeableConcept $procedureCodeableConcept = null)
+    public function setProcedureCodeableConcept(?FHIRCodeableConcept $procedureCodeableConcept = null): object
     {
         $this->_trackValueSet($this->procedureCodeableConcept, $procedureCodeableConcept);
         $this->procedureCodeableConcept = $procedureCodeableConcept;
@@ -469,7 +475,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProcedureReference()
+    public function getProcedureReference(): ?FHIRReference
     {
         return $this->procedureReference;
     }
@@ -485,7 +491,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $procedureReference
      * @return static
      */
-    public function setProcedureReference(FHIRReference $procedureReference = null)
+    public function setProcedureReference(?FHIRReference $procedureReference = null): object
     {
         $this->_trackValueSet($this->procedureReference, $procedureReference);
         $this->procedureReference = $procedureReference;
@@ -501,7 +507,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getUdi()
+    public function getUdi(): ?array
     {
         return $this->udi;
     }
@@ -516,7 +522,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $udi
      * @return static
      */
-    public function addUdi(FHIRReference $udi = null)
+    public function addUdi(?FHIRReference $udi = null): object
     {
         $this->_trackValueAdded();
         $this->udi[] = $udi;
@@ -533,7 +539,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $udi
      * @return static
      */
-    public function setUdi(array $udi = [])
+    public function setUdi(array $udi = []): object
     {
         if ([] !== $this->udi) {
             $this->_trackValuesRemoved(count($this->udi));
@@ -724,15 +730,15 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitProcedure
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitProcedure    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRExplanationOfBenefitProcedure::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -752,7 +758,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -812,7 +818,7 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -865,55 +871,58 @@ class FHIRExplanationOfBenefitProcedure extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEQUENCE] = $val;
+                $out->{self::FIELD_SEQUENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEQUENCE_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEQUENCE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getType())) {
-            $a[self::FIELD_TYPE] = [];
+            $out->{self::FIELD_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TYPE][] = $v;
+                $out->{self::FIELD_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProcedureCodeableConcept())) {
-            $a[self::FIELD_PROCEDURE_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_PROCEDURE_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getProcedureReference())) {
-            $a[self::FIELD_PROCEDURE_REFERENCE] = $v;
+            $out->{self::FIELD_PROCEDURE_REFERENCE} = $v;
         }
         if ([] !== ($vs = $this->getUdi())) {
-            $a[self::FIELD_UDI] = [];
+            $out->{self::FIELD_UDI} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_UDI][] = $v;
+                $out->{self::FIELD_UDI}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

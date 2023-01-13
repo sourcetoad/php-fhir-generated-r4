@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyRequest;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyRequest;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -115,7 +115,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $valueCodeableConcept = null;
+    protected ?FHIRCodeableConcept $valueCodeableConcept = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -128,7 +128,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $valueQuantity = null;
+    protected ?FHIRQuantity $valueQuantity = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -139,7 +139,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $valueRange = null;
+    protected ?FHIRRange $valueRange = null;
 
     /**
      * Value of "true" or "false"
@@ -147,15 +147,15 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * The value of the device detail.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $valueBoolean = null;
+    protected ?FHIRBoolean $valueBoolean = null;
 
     /**
      * Validation map for fields in type SupplyRequest.Parameter
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSupplyRequestParameter Constructor
@@ -202,8 +202,8 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VALUE_BOOLEAN]) || isset($data[self::FIELD_VALUE_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_VALUE_BOOLEAN]) ? $data[self::FIELD_VALUE_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_VALUE_BOOLEAN_EXT]) && is_array($data[self::FIELD_VALUE_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_VALUE_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_BOOLEAN_EXT]) && is_array($data[self::FIELD_VALUE_BOOLEAN_EXT])) ? $data[self::FIELD_VALUE_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setValueBoolean($value);
@@ -218,11 +218,17 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -242,7 +248,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -258,7 +264,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -275,7 +281,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getValueCodeableConcept()
+    public function getValueCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->valueCodeableConcept;
     }
@@ -291,7 +297,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $valueCodeableConcept
      * @return static
      */
-    public function setValueCodeableConcept(FHIRCodeableConcept $valueCodeableConcept = null)
+    public function setValueCodeableConcept(?FHIRCodeableConcept $valueCodeableConcept = null): object
     {
         $this->_trackValueSet($this->valueCodeableConcept, $valueCodeableConcept);
         $this->valueCodeableConcept = $valueCodeableConcept;
@@ -309,7 +315,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getValueQuantity()
+    public function getValueQuantity(): ?FHIRQuantity
     {
         return $this->valueQuantity;
     }
@@ -326,7 +332,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $valueQuantity
      * @return static
      */
-    public function setValueQuantity(FHIRQuantity $valueQuantity = null)
+    public function setValueQuantity(?FHIRQuantity $valueQuantity = null): object
     {
         $this->_trackValueSet($this->valueQuantity, $valueQuantity);
         $this->valueQuantity = $valueQuantity;
@@ -342,7 +348,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getValueRange()
+    public function getValueRange(): ?FHIRRange
     {
         return $this->valueRange;
     }
@@ -357,7 +363,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $valueRange
      * @return static
      */
-    public function setValueRange(FHIRRange $valueRange = null)
+    public function setValueRange(?FHIRRange $valueRange = null): object
     {
         $this->_trackValueSet($this->valueRange, $valueRange);
         $this->valueRange = $valueRange;
@@ -370,9 +376,9 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * The value of the device detail.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getValueBoolean()
+    public function getValueBoolean(): ?FHIRBoolean
     {
         return $this->valueBoolean;
     }
@@ -383,10 +389,10 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      *
      * The value of the device detail.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $valueBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $valueBoolean
      * @return static
      */
-    public function setValueBoolean($valueBoolean = null)
+    public function setValueBoolean($valueBoolean = null): object
     {
         if (null !== $valueBoolean && !($valueBoolean instanceof FHIRBoolean)) {
             $valueBoolean = new FHIRBoolean($valueBoolean);
@@ -547,15 +553,15 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyRequest\FHIRSupplyRequestParameter
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyRequest\FHIRSupplyRequestParameter    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSupplyRequestParameter::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -575,7 +581,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -624,7 +630,7 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -662,33 +668,36 @@ class FHIRSupplyRequestParameter extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getValueCodeableConcept())) {
-            $a[self::FIELD_VALUE_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_VALUE_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getValueQuantity())) {
-            $a[self::FIELD_VALUE_QUANTITY] = $v;
+            $out->{self::FIELD_VALUE_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getValueRange())) {
-            $a[self::FIELD_VALUE_RANGE] = $v;
+            $out->{self::FIELD_VALUE_RANGE} = $v;
         }
         if (null !== ($v = $this->getValueBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE_BOOLEAN] = $val;
+                $out->{self::FIELD_VALUE_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_BOOLEAN_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

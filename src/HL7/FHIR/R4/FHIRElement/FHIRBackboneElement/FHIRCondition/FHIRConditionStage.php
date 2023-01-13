@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCondition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCondition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $summary = null;
+    protected ?FHIRCodeableConcept $summary = null;
 
     /**
      * A reference from one resource to another.
@@ -111,7 +111,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $assessment = [];
+    protected ?array $assessment = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -123,13 +123,13 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * Validation map for fields in type Condition.Stage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRConditionStage Constructor
@@ -181,11 +181,17 @@ class FHIRConditionStage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -206,7 +212,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSummary()
+    public function getSummary(): ?FHIRCodeableConcept
     {
         return $this->summary;
     }
@@ -223,7 +229,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $summary
      * @return static
      */
-    public function setSummary(FHIRCodeableConcept $summary = null)
+    public function setSummary(?FHIRCodeableConcept $summary = null): object
     {
         $this->_trackValueSet($this->summary, $summary);
         $this->summary = $summary;
@@ -240,7 +246,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getAssessment()
+    public function getAssessment(): ?array
     {
         return $this->assessment;
     }
@@ -256,7 +262,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $assessment
      * @return static
      */
-    public function addAssessment(FHIRReference $assessment = null)
+    public function addAssessment(?FHIRReference $assessment = null): object
     {
         $this->_trackValueAdded();
         $this->assessment[] = $assessment;
@@ -274,7 +280,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $assessment
      * @return static
      */
-    public function setAssessment(array $assessment = [])
+    public function setAssessment(array $assessment = []): object
     {
         if ([] !== $this->assessment) {
             $this->_trackValuesRemoved(count($this->assessment));
@@ -303,7 +309,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -319,7 +325,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -445,15 +451,15 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCondition\FHIRConditionStage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCondition\FHIRConditionStage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRConditionStage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -473,7 +479,7 @@ class FHIRConditionStage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -509,7 +515,7 @@ class FHIRConditionStage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -542,26 +548,29 @@ class FHIRConditionStage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSummary())) {
-            $a[self::FIELD_SUMMARY] = $v;
+            $out->{self::FIELD_SUMMARY} = $v;
         }
         if ([] !== ($vs = $this->getAssessment())) {
-            $a[self::FIELD_ASSESSMENT] = [];
+            $out->{self::FIELD_ASSESSMENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ASSESSMENT][] = $v;
+                $out->{self::FIELD_ASSESSMENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

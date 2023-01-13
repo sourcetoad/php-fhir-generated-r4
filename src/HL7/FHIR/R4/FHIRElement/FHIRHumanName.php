@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ class FHIRHumanName extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRNameUse
      */
-    protected $use = null;
+    protected ?FHIRNameUse $use = null;
 
     /**
      * A sequence of Unicode characters
@@ -114,9 +114,9 @@ class FHIRHumanName extends FHIRElement
      * Specifies the entire name as it should be displayed e.g. on an application UI.
      * This may be provided instead of or as well as the specific parts.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $text = null;
+    protected ?FHIRString $text = null;
 
     /**
      * A sequence of Unicode characters
@@ -126,9 +126,9 @@ class FHIRHumanName extends FHIRElement
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea)
      * the family name of a son is the first name of his father.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $family = null;
+    protected ?FHIRString $family = null;
 
     /**
      * A sequence of Unicode characters
@@ -137,9 +137,9 @@ class FHIRHumanName extends FHIRElement
      *
      * Given name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $given = [];
+    protected ?array $given = [];
 
     /**
      * A sequence of Unicode characters
@@ -149,9 +149,9 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the start of the name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $prefix = [];
+    protected ?array $prefix = [];
 
     /**
      * A sequence of Unicode characters
@@ -161,9 +161,9 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the end of the name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $suffix = [];
+    protected ?array $suffix = [];
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -174,13 +174,13 @@ class FHIRHumanName extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * Validation map for fields in type HumanName
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRHumanName Constructor
@@ -199,8 +199,8 @@ class FHIRHumanName extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_USE]) || isset($data[self::FIELD_USE_EXT])) {
-            $value = isset($data[self::FIELD_USE]) ? $data[self::FIELD_USE] : null;
-            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $ext = $data[self::FIELD_USE_EXT] : $ext = [];
+            $value = $data[self::FIELD_USE] ?? null;
+            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $data[self::FIELD_USE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRNameUse) {
                     $this->setUse($value);
@@ -214,8 +214,8 @@ class FHIRHumanName extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TEXT]) || isset($data[self::FIELD_TEXT_EXT])) {
-            $value = isset($data[self::FIELD_TEXT]) ? $data[self::FIELD_TEXT] : null;
-            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $ext = $data[self::FIELD_TEXT_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEXT] ?? null;
+            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $data[self::FIELD_TEXT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setText($value);
@@ -229,8 +229,8 @@ class FHIRHumanName extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_FAMILY]) || isset($data[self::FIELD_FAMILY_EXT])) {
-            $value = isset($data[self::FIELD_FAMILY]) ? $data[self::FIELD_FAMILY] : null;
-            $ext = (isset($data[self::FIELD_FAMILY_EXT]) && is_array($data[self::FIELD_FAMILY_EXT])) ? $ext = $data[self::FIELD_FAMILY_EXT] : $ext = [];
+            $value = $data[self::FIELD_FAMILY] ?? null;
+            $ext = (isset($data[self::FIELD_FAMILY_EXT]) && is_array($data[self::FIELD_FAMILY_EXT])) ? $data[self::FIELD_FAMILY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setFamily($value);
@@ -244,8 +244,8 @@ class FHIRHumanName extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_GIVEN]) || isset($data[self::FIELD_GIVEN_EXT])) {
-            $value = isset($data[self::FIELD_GIVEN]) ? $data[self::FIELD_GIVEN] : null;
-            $ext = (isset($data[self::FIELD_GIVEN_EXT]) && is_array($data[self::FIELD_GIVEN_EXT])) ? $ext = $data[self::FIELD_GIVEN_EXT] : $ext = [];
+            $value = $data[self::FIELD_GIVEN] ?? null;
+            $ext = (isset($data[self::FIELD_GIVEN_EXT]) && is_array($data[self::FIELD_GIVEN_EXT])) ? $data[self::FIELD_GIVEN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addGiven($value);
@@ -274,8 +274,8 @@ class FHIRHumanName extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_PREFIX]) || isset($data[self::FIELD_PREFIX_EXT])) {
-            $value = isset($data[self::FIELD_PREFIX]) ? $data[self::FIELD_PREFIX] : null;
-            $ext = (isset($data[self::FIELD_PREFIX_EXT]) && is_array($data[self::FIELD_PREFIX_EXT])) ? $ext = $data[self::FIELD_PREFIX_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREFIX] ?? null;
+            $ext = (isset($data[self::FIELD_PREFIX_EXT]) && is_array($data[self::FIELD_PREFIX_EXT])) ? $data[self::FIELD_PREFIX_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addPrefix($value);
@@ -304,8 +304,8 @@ class FHIRHumanName extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SUFFIX]) || isset($data[self::FIELD_SUFFIX_EXT])) {
-            $value = isset($data[self::FIELD_SUFFIX]) ? $data[self::FIELD_SUFFIX] : null;
-            $ext = (isset($data[self::FIELD_SUFFIX_EXT]) && is_array($data[self::FIELD_SUFFIX_EXT])) ? $ext = $data[self::FIELD_SUFFIX_EXT] : $ext = [];
+            $value = $data[self::FIELD_SUFFIX] ?? null;
+            $ext = (isset($data[self::FIELD_SUFFIX_EXT]) && is_array($data[self::FIELD_SUFFIX_EXT])) ? $data[self::FIELD_SUFFIX_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addSuffix($value);
@@ -342,11 +342,17 @@ class FHIRHumanName extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -364,7 +370,7 @@ class FHIRHumanName extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRNameUse
      */
-    public function getUse()
+    public function getUse(): ?FHIRNameUse
     {
         return $this->use;
     }
@@ -378,7 +384,7 @@ class FHIRHumanName extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRNameUse $use
      * @return static
      */
-    public function setUse(FHIRNameUse $use = null)
+    public function setUse(?FHIRNameUse $use = null): object
     {
         $this->_trackValueSet($this->use, $use);
         $this->use = $use;
@@ -393,9 +399,9 @@ class FHIRHumanName extends FHIRElement
      * Specifies the entire name as it should be displayed e.g. on an application UI.
      * This may be provided instead of or as well as the specific parts.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getText()
+    public function getText(): ?FHIRString
     {
         return $this->text;
     }
@@ -408,10 +414,10 @@ class FHIRHumanName extends FHIRElement
      * Specifies the entire name as it should be displayed e.g. on an application UI.
      * This may be provided instead of or as well as the specific parts.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $text
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $text
      * @return static
      */
-    public function setText($text = null)
+    public function setText($text = null): object
     {
         if (null !== $text && !($text instanceof FHIRString)) {
             $text = new FHIRString($text);
@@ -429,9 +435,9 @@ class FHIRHumanName extends FHIRElement
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea)
      * the family name of a son is the first name of his father.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getFamily()
+    public function getFamily(): ?FHIRString
     {
         return $this->family;
     }
@@ -444,10 +450,10 @@ class FHIRHumanName extends FHIRElement
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea)
      * the family name of a son is the first name of his father.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $family
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $family
      * @return static
      */
-    public function setFamily($family = null)
+    public function setFamily($family = null): object
     {
         if (null !== $family && !($family instanceof FHIRString)) {
             $family = new FHIRString($family);
@@ -464,9 +470,9 @@ class FHIRHumanName extends FHIRElement
      *
      * Given name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getGiven()
+    public function getGiven(): ?array
     {
         return $this->given;
     }
@@ -478,10 +484,10 @@ class FHIRHumanName extends FHIRElement
      *
      * Given name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $given
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $given
      * @return static
      */
-    public function addGiven($given = null)
+    public function addGiven($given = null): object
     {
         if (null !== $given && !($given instanceof FHIRString)) {
             $given = new FHIRString($given);
@@ -501,7 +507,7 @@ class FHIRHumanName extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $given
      * @return static
      */
-    public function setGiven(array $given = [])
+    public function setGiven(array $given = []): object
     {
         if ([] !== $this->given) {
             $this->_trackValuesRemoved(count($this->given));
@@ -528,9 +534,9 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the start of the name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getPrefix()
+    public function getPrefix(): ?array
     {
         return $this->prefix;
     }
@@ -543,10 +549,10 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the start of the name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $prefix
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $prefix
      * @return static
      */
-    public function addPrefix($prefix = null)
+    public function addPrefix($prefix = null): object
     {
         if (null !== $prefix && !($prefix instanceof FHIRString)) {
             $prefix = new FHIRString($prefix);
@@ -567,7 +573,7 @@ class FHIRHumanName extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $prefix
      * @return static
      */
-    public function setPrefix(array $prefix = [])
+    public function setPrefix(array $prefix = []): object
     {
         if ([] !== $this->prefix) {
             $this->_trackValuesRemoved(count($this->prefix));
@@ -594,9 +600,9 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the end of the name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getSuffix()
+    public function getSuffix(): ?array
     {
         return $this->suffix;
     }
@@ -609,10 +615,10 @@ class FHIRHumanName extends FHIRElement
      * Part of the name that is acquired as a title due to academic, legal, employment
      * or nobility status, etc. and that appears at the end of the name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $suffix
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $suffix
      * @return static
      */
-    public function addSuffix($suffix = null)
+    public function addSuffix($suffix = null): object
     {
         if (null !== $suffix && !($suffix instanceof FHIRString)) {
             $suffix = new FHIRString($suffix);
@@ -633,7 +639,7 @@ class FHIRHumanName extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $suffix
      * @return static
      */
-    public function setSuffix(array $suffix = [])
+    public function setSuffix(array $suffix = []): object
     {
         if ([] !== $this->suffix) {
             $this->_trackValuesRemoved(count($this->suffix));
@@ -661,7 +667,7 @@ class FHIRHumanName extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -676,7 +682,7 @@ class FHIRHumanName extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -862,15 +868,15 @@ class FHIRHumanName extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRHumanName    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRHumanName::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -890,7 +896,7 @@ class FHIRHumanName extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -977,7 +983,7 @@ class FHIRHumanName extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1040,38 +1046,40 @@ class FHIRHumanName extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUse())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_USE] = $val;
+                $out->{self::FIELD_USE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRNameUse::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_USE_EXT] = $ext;
+            unset($ext->{FHIRNameUse::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_USE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getText())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEXT] = $val;
+                $out->{self::FIELD_TEXT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEXT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEXT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getFamily())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_FAMILY] = $val;
+                $out->{self::FIELD_FAMILY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_FAMILY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FAMILY_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getGiven())) {
@@ -1083,7 +1091,7 @@ class FHIRHumanName extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1092,10 +1100,10 @@ class FHIRHumanName extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_GIVEN] = $vals;
+                $out->{self::FIELD_GIVEN} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_GIVEN_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GIVEN_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getPrefix())) {
@@ -1107,7 +1115,7 @@ class FHIRHumanName extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1116,10 +1124,10 @@ class FHIRHumanName extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PREFIX] = $vals;
+                $out->{self::FIELD_PREFIX} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PREFIX_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREFIX_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getSuffix())) {
@@ -1131,7 +1139,7 @@ class FHIRHumanName extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1140,16 +1148,17 @@ class FHIRHumanName extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_SUFFIX] = $vals;
+                $out->{self::FIELD_SUFFIX} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_SUFFIX_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SUFFIX_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

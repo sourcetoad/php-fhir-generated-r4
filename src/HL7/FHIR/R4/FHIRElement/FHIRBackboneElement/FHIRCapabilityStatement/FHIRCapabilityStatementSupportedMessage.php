@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIREventCapabilityMode
      */
-    protected $mode = null;
+    protected ?FHIREventCapabilityMode $mode = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -110,15 +110,15 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * Points to a message definition that identifies the messaging event, message
      * structure, allowed responses, etc.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $definition = null;
+    protected ?FHIRCanonical $definition = null;
 
     /**
      * Validation map for fields in type CapabilityStatement.SupportedMessage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCapabilityStatementSupportedMessage Constructor
@@ -137,8 +137,8 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_MODE]) || isset($data[self::FIELD_MODE_EXT])) {
-            $value = isset($data[self::FIELD_MODE]) ? $data[self::FIELD_MODE] : null;
-            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $ext = $data[self::FIELD_MODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MODE] ?? null;
+            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $data[self::FIELD_MODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIREventCapabilityMode) {
                     $this->setMode($value);
@@ -152,8 +152,8 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DEFINITION]) || isset($data[self::FIELD_DEFINITION_EXT])) {
-            $value = isset($data[self::FIELD_DEFINITION]) ? $data[self::FIELD_DEFINITION] : null;
-            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $ext = $data[self::FIELD_DEFINITION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DEFINITION] ?? null;
+            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $data[self::FIELD_DEFINITION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setDefinition($value);
@@ -168,11 +168,17 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -190,7 +196,7 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIREventCapabilityMode
      */
-    public function getMode()
+    public function getMode(): ?FHIREventCapabilityMode
     {
         return $this->mode;
     }
@@ -204,7 +210,7 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIREventCapabilityMode $mode
      * @return static
      */
-    public function setMode(FHIREventCapabilityMode $mode = null)
+    public function setMode(?FHIREventCapabilityMode $mode = null): object
     {
         $this->_trackValueSet($this->mode, $mode);
         $this->mode = $mode;
@@ -220,9 +226,9 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * Points to a message definition that identifies the messaging event, message
      * structure, allowed responses, etc.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getDefinition()
+    public function getDefinition(): ?FHIRCanonical
     {
         return $this->definition;
     }
@@ -236,10 +242,10 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * Points to a message definition that identifies the messaging event, message
      * structure, allowed responses, etc.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definition
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definition
      * @return static
      */
-    public function setDefinition($definition = null)
+    public function setDefinition($definition = null): object
     {
         if (null !== $definition && !($definition instanceof FHIRCanonical)) {
             $definition = new FHIRCanonical($definition);
@@ -349,15 +355,15 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementSupportedMessage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementSupportedMessage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCapabilityStatementSupportedMessage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -377,7 +383,7 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -420,7 +426,7 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -443,31 +449,34 @@ class FHIRCapabilityStatementSupportedMessage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getMode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MODE] = $val;
+                $out->{self::FIELD_MODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIREventCapabilityMode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MODE_EXT] = $ext;
+            unset($ext->{FHIREventCapabilityMode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDefinition())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DEFINITION] = $val;
+                $out->{self::FIELD_DEFINITION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DEFINITION_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DEFINITION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

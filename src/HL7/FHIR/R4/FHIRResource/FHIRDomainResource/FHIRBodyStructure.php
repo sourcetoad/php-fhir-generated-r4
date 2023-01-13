@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Value of "true" or "false"
@@ -124,9 +124,9 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Whether this body site is in active use.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $active = null;
+    protected ?FHIRBoolean $active = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -139,7 +139,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $morphology = null;
+    protected ?FHIRCodeableConcept $morphology = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -151,7 +151,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $location = null;
+    protected ?FHIRCodeableConcept $location = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -164,7 +164,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $locationQualifier = [];
+    protected ?array $locationQualifier = [];
 
     /**
      * A sequence of Unicode characters
@@ -173,9 +173,9 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * A summary, characterization or explanation of the body structure.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * For referring to data content defined in other formats.
@@ -186,7 +186,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    protected $image = [];
+    protected ?array $image = [];
 
     /**
      * A reference from one resource to another.
@@ -197,13 +197,13 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * Validation map for fields in type BodyStructure
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRBodyStructure Constructor
@@ -240,8 +240,8 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_ACTIVE]) || isset($data[self::FIELD_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_ACTIVE]) ? $data[self::FIELD_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $ext = $data[self::FIELD_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $data[self::FIELD_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setActive($value);
@@ -287,8 +287,8 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -328,11 +328,17 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -341,6 +347,9 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
         }
         return "<BodyStructure{$xmlns}></BodyStructure>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -357,7 +366,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -373,7 +382,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -391,7 +400,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -416,9 +425,9 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Whether this body site is in active use.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getActive()
+    public function getActive(): ?FHIRBoolean
     {
         return $this->active;
     }
@@ -429,10 +438,10 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * Whether this body site is in active use.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
      * @return static
      */
-    public function setActive($active = null)
+    public function setActive($active = null): object
     {
         if (null !== $active && !($active instanceof FHIRBoolean)) {
             $active = new FHIRBoolean($active);
@@ -453,7 +462,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMorphology()
+    public function getMorphology(): ?FHIRCodeableConcept
     {
         return $this->morphology;
     }
@@ -470,7 +479,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $morphology
      * @return static
      */
-    public function setMorphology(FHIRCodeableConcept $morphology = null)
+    public function setMorphology(?FHIRCodeableConcept $morphology = null): object
     {
         $this->_trackValueSet($this->morphology, $morphology);
         $this->morphology = $morphology;
@@ -487,7 +496,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRCodeableConcept
     {
         return $this->location;
     }
@@ -503,7 +512,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $location
      * @return static
      */
-    public function setLocation(FHIRCodeableConcept $location = null)
+    public function setLocation(?FHIRCodeableConcept $location = null): object
     {
         $this->_trackValueSet($this->location, $location);
         $this->location = $location;
@@ -521,7 +530,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getLocationQualifier()
+    public function getLocationQualifier(): ?array
     {
         return $this->locationQualifier;
     }
@@ -538,7 +547,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $locationQualifier
      * @return static
      */
-    public function addLocationQualifier(FHIRCodeableConcept $locationQualifier = null)
+    public function addLocationQualifier(?FHIRCodeableConcept $locationQualifier = null): object
     {
         $this->_trackValueAdded();
         $this->locationQualifier[] = $locationQualifier;
@@ -557,7 +566,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $locationQualifier
      * @return static
      */
-    public function setLocationQualifier(array $locationQualifier = [])
+    public function setLocationQualifier(array $locationQualifier = []): object
     {
         if ([] !== $this->locationQualifier) {
             $this->_trackValuesRemoved(count($this->locationQualifier));
@@ -583,9 +592,9 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * A summary, characterization or explanation of the body structure.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -597,10 +606,10 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * A summary, characterization or explanation of the body structure.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -619,7 +628,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    public function getImage()
+    public function getImage(): ?array
     {
         return $this->image;
     }
@@ -634,7 +643,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $image
      * @return static
      */
-    public function addImage(FHIRAttachment $image = null)
+    public function addImage(?FHIRAttachment $image = null): object
     {
         $this->_trackValueAdded();
         $this->image[] = $image;
@@ -651,7 +660,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAttachment[] $image
      * @return static
      */
-    public function setImage(array $image = [])
+    public function setImage(array $image = []): object
     {
         if ([] !== $this->image) {
             $this->_trackValuesRemoved(count($this->image));
@@ -679,7 +688,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -694,7 +703,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -969,15 +978,15 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBodyStructure
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBodyStructure    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBodyStructure::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -997,7 +1006,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1094,7 +1103,7 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1162,67 +1171,72 @@ class FHIRBodyStructure extends FHIRDomainResource implements PHPFHIRContainedTy
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTIVE] = $val;
+                $out->{self::FIELD_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMorphology())) {
-            $a[self::FIELD_MORPHOLOGY] = $v;
+            $out->{self::FIELD_MORPHOLOGY} = $v;
         }
         if (null !== ($v = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = $v;
+            $out->{self::FIELD_LOCATION} = $v;
         }
         if ([] !== ($vs = $this->getLocationQualifier())) {
-            $a[self::FIELD_LOCATION_QUALIFIER] = [];
+            $out->{self::FIELD_LOCATION_QUALIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LOCATION_QUALIFIER][] = $v;
+                $out->{self::FIELD_LOCATION_QUALIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getImage())) {
-            $a[self::FIELD_IMAGE] = [];
+            $out->{self::FIELD_IMAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IMAGE][] = $v;
+                $out->{self::FIELD_IMAGE}[] = $v;
             }
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

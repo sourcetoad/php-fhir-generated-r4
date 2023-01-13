@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -139,7 +139,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -149,9 +149,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * A protocol, guideline, orderset, or other definition that was adhered to in
      * whole or in part by this event.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    protected $instantiates = [];
+    protected ?array $instantiates = [];
 
     /**
      * A reference from one resource to another.
@@ -162,7 +162,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $partOf = [];
+    protected ?array $partOf = [];
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -175,9 +175,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administration to be started but not completed or it may be paused while some
      * other process is under way.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $status = null;
+    protected ?FHIRCode $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -189,7 +189,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $statusReason = [];
+    protected ?array $statusReason = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -201,7 +201,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -215,7 +215,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $medicationCodeableConcept = null;
+    protected ?FHIRCodeableConcept $medicationCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -228,7 +228,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $medicationReference = null;
+    protected ?FHIRReference $medicationReference = null;
 
     /**
      * A reference from one resource to another.
@@ -239,7 +239,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -251,7 +251,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $context = null;
+    protected ?FHIRReference $context = null;
 
     /**
      * A reference from one resource to another.
@@ -263,7 +263,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $supportingInformation = [];
+    protected ?array $supportingInformation = [];
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -278,9 +278,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administrations, such as swallowing a tablet the use of dateTime is more
      * appropriate.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $effectiveDateTime = null;
+    protected ?FHIRDateTime $effectiveDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -294,7 +294,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $effectivePeriod = null;
+    protected ?FHIRPeriod $effectivePeriod = null;
 
     /**
      * Describes the event of a patient consuming or otherwise being administered a
@@ -308,7 +308,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationPerformer[]
      */
-    protected $performer = [];
+    protected ?array $performer = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -320,7 +320,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -331,7 +331,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * A reference from one resource to another.
@@ -342,7 +342,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $request = null;
+    protected ?FHIRReference $request = null;
 
     /**
      * A reference from one resource to another.
@@ -354,7 +354,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $device = [];
+    protected ?array $device = [];
 
     /**
      * A text note which also contains information about who made the statement and
@@ -367,7 +367,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Describes the event of a patient consuming or otherwise being administered a
@@ -381,7 +381,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationDosage
      */
-    protected $dosage = null;
+    protected ?FHIRMedicationAdministrationDosage $dosage = null;
 
     /**
      * A reference from one resource to another.
@@ -393,13 +393,13 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $eventHistory = [];
+    protected ?array $eventHistory = [];
 
     /**
      * Validation map for fields in type MedicationAdministration
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationAdministration Constructor
@@ -436,8 +436,8 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES]) || isset($data[self::FIELD_INSTANTIATES_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES]) ? $data[self::FIELD_INSTANTIATES] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_EXT]) && is_array($data[self::FIELD_INSTANTIATES_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_EXT]) && is_array($data[self::FIELD_INSTANTIATES_EXT])) ? $data[self::FIELD_INSTANTIATES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->addInstantiates($value);
@@ -484,8 +484,8 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setStatus($value);
@@ -570,8 +570,8 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
             }
         }
         if (isset($data[self::FIELD_EFFECTIVE_DATE_TIME]) || isset($data[self::FIELD_EFFECTIVE_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_EFFECTIVE_DATE_TIME]) ? $data[self::FIELD_EFFECTIVE_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_EFFECTIVE_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_EFFECTIVE_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_EFFECTIVE_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_EFFECTIVE_DATE_TIME_EXT])) ? $data[self::FIELD_EFFECTIVE_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setEffectiveDateTime($value);
@@ -715,11 +715,17 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -728,6 +734,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
         }
         return "<MedicationAdministration{$xmlns}></MedicationAdministration>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -748,7 +757,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -768,7 +777,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -790,7 +799,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -817,9 +826,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * A protocol, guideline, orderset, or other definition that was adhered to in
      * whole or in part by this event.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    public function getInstantiates()
+    public function getInstantiates(): ?array
     {
         return $this->instantiates;
     }
@@ -832,10 +841,10 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * A protocol, guideline, orderset, or other definition that was adhered to in
      * whole or in part by this event.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $instantiates
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiates
      * @return static
      */
-    public function addInstantiates($instantiates = null)
+    public function addInstantiates($instantiates = null): object
     {
         if (null !== $instantiates && !($instantiates instanceof FHIRUri)) {
             $instantiates = new FHIRUri($instantiates);
@@ -856,7 +865,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiates
      * @return static
      */
-    public function setInstantiates(array $instantiates = [])
+    public function setInstantiates(array $instantiates = []): object
     {
         if ([] !== $this->instantiates) {
             $this->_trackValuesRemoved(count($this->instantiates));
@@ -884,7 +893,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getPartOf()
+    public function getPartOf(): ?array
     {
         return $this->partOf;
     }
@@ -899,7 +908,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $partOf
      * @return static
      */
-    public function addPartOf(FHIRReference $partOf = null)
+    public function addPartOf(?FHIRReference $partOf = null): object
     {
         $this->_trackValueAdded();
         $this->partOf[] = $partOf;
@@ -916,7 +925,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $partOf
      * @return static
      */
-    public function setPartOf(array $partOf = [])
+    public function setPartOf(array $partOf = []): object
     {
         if ([] !== $this->partOf) {
             $this->_trackValuesRemoved(count($this->partOf));
@@ -946,9 +955,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administration to be started but not completed or it may be paused while some
      * other process is under way.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRCode
     {
         return $this->status;
     }
@@ -964,10 +973,10 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administration to be started but not completed or it may be paused while some
      * other process is under way.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $status
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $status
      * @return static
      */
-    public function setStatus($status = null)
+    public function setStatus($status = null): object
     {
         if (null !== $status && !($status instanceof FHIRCode)) {
             $status = new FHIRCode($status);
@@ -987,7 +996,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getStatusReason()
+    public function getStatusReason(): ?array
     {
         return $this->statusReason;
     }
@@ -1003,7 +1012,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $statusReason
      * @return static
      */
-    public function addStatusReason(FHIRCodeableConcept $statusReason = null)
+    public function addStatusReason(?FHIRCodeableConcept $statusReason = null): object
     {
         $this->_trackValueAdded();
         $this->statusReason[] = $statusReason;
@@ -1021,7 +1030,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $statusReason
      * @return static
      */
-    public function setStatusReason(array $statusReason = [])
+    public function setStatusReason(array $statusReason = []): object
     {
         if ([] !== $this->statusReason) {
             $this->_trackValuesRemoved(count($this->statusReason));
@@ -1050,7 +1059,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -1066,7 +1075,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -1085,7 +1094,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMedicationCodeableConcept()
+    public function getMedicationCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->medicationCodeableConcept;
     }
@@ -1103,7 +1112,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $medicationCodeableConcept
      * @return static
      */
-    public function setMedicationCodeableConcept(FHIRCodeableConcept $medicationCodeableConcept = null)
+    public function setMedicationCodeableConcept(?FHIRCodeableConcept $medicationCodeableConcept = null): object
     {
         $this->_trackValueSet($this->medicationCodeableConcept, $medicationCodeableConcept);
         $this->medicationCodeableConcept = $medicationCodeableConcept;
@@ -1121,7 +1130,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getMedicationReference()
+    public function getMedicationReference(): ?FHIRReference
     {
         return $this->medicationReference;
     }
@@ -1138,7 +1147,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $medicationReference
      * @return static
      */
-    public function setMedicationReference(FHIRReference $medicationReference = null)
+    public function setMedicationReference(?FHIRReference $medicationReference = null): object
     {
         $this->_trackValueSet($this->medicationReference, $medicationReference);
         $this->medicationReference = $medicationReference;
@@ -1154,7 +1163,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -1169,7 +1178,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -1186,7 +1195,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getContext()
+    public function getContext(): ?FHIRReference
     {
         return $this->context;
     }
@@ -1202,7 +1211,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $context
      * @return static
      */
-    public function setContext(FHIRReference $context = null)
+    public function setContext(?FHIRReference $context = null): object
     {
         $this->_trackValueSet($this->context, $context);
         $this->context = $context;
@@ -1219,7 +1228,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSupportingInformation()
+    public function getSupportingInformation(): ?array
     {
         return $this->supportingInformation;
     }
@@ -1235,7 +1244,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $supportingInformation
      * @return static
      */
-    public function addSupportingInformation(FHIRReference $supportingInformation = null)
+    public function addSupportingInformation(?FHIRReference $supportingInformation = null): object
     {
         $this->_trackValueAdded();
         $this->supportingInformation[] = $supportingInformation;
@@ -1253,7 +1262,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $supportingInformation
      * @return static
      */
-    public function setSupportingInformation(array $supportingInformation = [])
+    public function setSupportingInformation(array $supportingInformation = []): object
     {
         if ([] !== $this->supportingInformation) {
             $this->_trackValuesRemoved(count($this->supportingInformation));
@@ -1285,9 +1294,9 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administrations, such as swallowing a tablet the use of dateTime is more
      * appropriate.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getEffectiveDateTime()
+    public function getEffectiveDateTime(): ?FHIRDateTime
     {
         return $this->effectiveDateTime;
     }
@@ -1305,10 +1314,10 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * administrations, such as swallowing a tablet the use of dateTime is more
      * appropriate.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $effectiveDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $effectiveDateTime
      * @return static
      */
-    public function setEffectiveDateTime($effectiveDateTime = null)
+    public function setEffectiveDateTime($effectiveDateTime = null): object
     {
         if (null !== $effectiveDateTime && !($effectiveDateTime instanceof FHIRDateTime)) {
             $effectiveDateTime = new FHIRDateTime($effectiveDateTime);
@@ -1330,7 +1339,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getEffectivePeriod()
+    public function getEffectivePeriod(): ?FHIRPeriod
     {
         return $this->effectivePeriod;
     }
@@ -1348,7 +1357,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $effectivePeriod
      * @return static
      */
-    public function setEffectivePeriod(FHIRPeriod $effectivePeriod = null)
+    public function setEffectivePeriod(?FHIRPeriod $effectivePeriod = null): object
     {
         $this->_trackValueSet($this->effectivePeriod, $effectivePeriod);
         $this->effectivePeriod = $effectivePeriod;
@@ -1367,7 +1376,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationPerformer[]
      */
-    public function getPerformer()
+    public function getPerformer(): ?array
     {
         return $this->performer;
     }
@@ -1385,7 +1394,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationPerformer $performer
      * @return static
      */
-    public function addPerformer(FHIRMedicationAdministrationPerformer $performer = null)
+    public function addPerformer(?FHIRMedicationAdministrationPerformer $performer = null): object
     {
         $this->_trackValueAdded();
         $this->performer[] = $performer;
@@ -1405,7 +1414,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationPerformer[] $performer
      * @return static
      */
-    public function setPerformer(array $performer = [])
+    public function setPerformer(array $performer = []): object
     {
         if ([] !== $this->performer) {
             $this->_trackValuesRemoved(count($this->performer));
@@ -1434,7 +1443,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1450,7 +1459,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1468,7 +1477,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1496,7 +1505,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1511,7 +1520,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1528,7 +1537,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1556,7 +1565,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRequest()
+    public function getRequest(): ?FHIRReference
     {
         return $this->request;
     }
@@ -1571,7 +1580,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $request
      * @return static
      */
-    public function setRequest(FHIRReference $request = null)
+    public function setRequest(?FHIRReference $request = null): object
     {
         $this->_trackValueSet($this->request, $request);
         $this->request = $request;
@@ -1588,7 +1597,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getDevice()
+    public function getDevice(): ?array
     {
         return $this->device;
     }
@@ -1604,7 +1613,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $device
      * @return static
      */
-    public function addDevice(FHIRReference $device = null)
+    public function addDevice(?FHIRReference $device = null): object
     {
         $this->_trackValueAdded();
         $this->device[] = $device;
@@ -1622,7 +1631,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $device
      * @return static
      */
-    public function setDevice(array $device = [])
+    public function setDevice(array $device = []): object
     {
         if ([] !== $this->device) {
             $this->_trackValuesRemoved(count($this->device));
@@ -1652,7 +1661,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1669,7 +1678,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1688,7 +1697,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1719,7 +1728,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationDosage
      */
-    public function getDosage()
+    public function getDosage(): ?FHIRMedicationAdministrationDosage
     {
         return $this->dosage;
     }
@@ -1737,7 +1746,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationAdministration\FHIRMedicationAdministrationDosage $dosage
      * @return static
      */
-    public function setDosage(FHIRMedicationAdministrationDosage $dosage = null)
+    public function setDosage(?FHIRMedicationAdministrationDosage $dosage = null): object
     {
         $this->_trackValueSet($this->dosage, $dosage);
         $this->dosage = $dosage;
@@ -1754,7 +1763,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEventHistory()
+    public function getEventHistory(): ?array
     {
         return $this->eventHistory;
     }
@@ -1770,7 +1779,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $eventHistory
      * @return static
      */
-    public function addEventHistory(FHIRReference $eventHistory = null)
+    public function addEventHistory(?FHIRReference $eventHistory = null): object
     {
         $this->_trackValueAdded();
         $this->eventHistory[] = $eventHistory;
@@ -1788,7 +1797,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $eventHistory
      * @return static
      */
-    public function setEventHistory(array $eventHistory = [])
+    public function setEventHistory(array $eventHistory = []): object
     {
         if ([] !== $this->eventHistory) {
             $this->_trackValuesRemoved(count($this->eventHistory));
@@ -2312,15 +2321,15 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationAdministration
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationAdministration    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationAdministration::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2340,7 +2349,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2472,7 +2481,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2645,17 +2654,19 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getInstantiates())) {
@@ -2667,7 +2678,7 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRUri::FIELD_VALUE]);
+                unset($ext->{FHIRUri::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -2676,138 +2687,141 @@ class FHIRMedicationAdministration extends FHIRDomainResource implements PHPFHIR
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES] = $vals;
+                $out->{self::FIELD_INSTANTIATES} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getPartOf())) {
-            $a[self::FIELD_PART_OF] = [];
+            $out->{self::FIELD_PART_OF} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PART_OF][] = $v;
+                $out->{self::FIELD_PART_OF}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getStatusReason())) {
-            $a[self::FIELD_STATUS_REASON] = [];
+            $out->{self::FIELD_STATUS_REASON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_STATUS_REASON][] = $v;
+                $out->{self::FIELD_STATUS_REASON}[] = $v;
             }
         }
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getMedicationCodeableConcept())) {
-            $a[self::FIELD_MEDICATION_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_MEDICATION_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getMedicationReference())) {
-            $a[self::FIELD_MEDICATION_REFERENCE] = $v;
+            $out->{self::FIELD_MEDICATION_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getContext())) {
-            $a[self::FIELD_CONTEXT] = $v;
+            $out->{self::FIELD_CONTEXT} = $v;
         }
         if ([] !== ($vs = $this->getSupportingInformation())) {
-            $a[self::FIELD_SUPPORTING_INFORMATION] = [];
+            $out->{self::FIELD_SUPPORTING_INFORMATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUPPORTING_INFORMATION][] = $v;
+                $out->{self::FIELD_SUPPORTING_INFORMATION}[] = $v;
             }
         }
         if (null !== ($v = $this->getEffectiveDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EFFECTIVE_DATE_TIME] = $val;
+                $out->{self::FIELD_EFFECTIVE_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EFFECTIVE_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EFFECTIVE_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getEffectivePeriod())) {
-            $a[self::FIELD_EFFECTIVE_PERIOD] = $v;
+            $out->{self::FIELD_EFFECTIVE_PERIOD} = $v;
         }
         if ([] !== ($vs = $this->getPerformer())) {
-            $a[self::FIELD_PERFORMER] = [];
+            $out->{self::FIELD_PERFORMER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PERFORMER][] = $v;
+                $out->{self::FIELD_PERFORMER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getRequest())) {
-            $a[self::FIELD_REQUEST] = $v;
+            $out->{self::FIELD_REQUEST} = $v;
         }
         if ([] !== ($vs = $this->getDevice())) {
-            $a[self::FIELD_DEVICE] = [];
+            $out->{self::FIELD_DEVICE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DEVICE][] = $v;
+                $out->{self::FIELD_DEVICE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if (null !== ($v = $this->getDosage())) {
-            $a[self::FIELD_DOSAGE] = $v;
+            $out->{self::FIELD_DOSAGE} = $v;
         }
         if ([] !== ($vs = $this->getEventHistory())) {
-            $a[self::FIELD_EVENT_HISTORY] = [];
+            $out->{self::FIELD_EVENT_HISTORY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_EVENT_HISTORY][] = $v;
+                $out->{self::FIELD_EVENT_HISTORY}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

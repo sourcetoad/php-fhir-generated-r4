@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -115,9 +115,9 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * The label for this particular section. This will be part of the rendered content
      * for the document, and is often used to build a table of contents.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -130,7 +130,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A reference from one resource to another.
@@ -142,7 +142,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $author = [];
+    protected ?array $author = [];
 
     /**
      * A reference from one resource to another.
@@ -160,7 +160,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $focus = null;
+    protected ?FHIRReference $focus = null;
 
     /**
      * A human-readable summary of the resource conveying the essential clinical and
@@ -175,7 +175,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRNarrative
      */
-    protected $text = null;
+    protected ?FHIRNarrative $text = null;
 
     /**
      * The processing mode that applies to this section.
@@ -188,7 +188,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRListMode
      */
-    protected $mode = null;
+    protected ?FHIRListMode $mode = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -200,7 +200,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $orderedBy = null;
+    protected ?FHIRCodeableConcept $orderedBy = null;
 
     /**
      * A reference from one resource to another.
@@ -212,7 +212,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $entry = [];
+    protected ?array $entry = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -225,7 +225,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $emptyReason = null;
+    protected ?FHIRCodeableConcept $emptyReason = null;
 
     /**
      * A set of healthcare-related information that is assembled together into a single
@@ -242,13 +242,13 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection[]
      */
-    protected $section = [];
+    protected ?array $section = [];
 
     /**
      * Validation map for fields in type Composition.Section
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCompositionSection Constructor
@@ -267,8 +267,8 @@ class FHIRCompositionSection extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -321,8 +321,8 @@ class FHIRCompositionSection extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MODE]) || isset($data[self::FIELD_MODE_EXT])) {
-            $value = isset($data[self::FIELD_MODE]) ? $data[self::FIELD_MODE] : null;
-            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $ext = $data[self::FIELD_MODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MODE] ?? null;
+            $ext = (isset($data[self::FIELD_MODE_EXT]) && is_array($data[self::FIELD_MODE_EXT])) ? $data[self::FIELD_MODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRListMode) {
                     $this->setMode($value);
@@ -387,11 +387,17 @@ class FHIRCompositionSection extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -409,9 +415,9 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * The label for this particular section. This will be part of the rendered content
      * for the document, and is often used to build a table of contents.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -424,10 +430,10 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * The label for this particular section. This will be part of the rendered content
      * for the document, and is often used to build a table of contents.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -448,7 +454,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -465,7 +471,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -482,7 +488,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getAuthor()
+    public function getAuthor(): ?array
     {
         return $this->author;
     }
@@ -498,7 +504,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function addAuthor(FHIRReference $author = null)
+    public function addAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueAdded();
         $this->author[] = $author;
@@ -516,7 +522,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $author
      * @return static
      */
-    public function setAuthor(array $author = [])
+    public function setAuthor(array $author = []): object
     {
         if ([] !== $this->author) {
             $this->_trackValuesRemoved(count($this->author));
@@ -551,7 +557,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getFocus()
+    public function getFocus(): ?FHIRReference
     {
         return $this->focus;
     }
@@ -573,7 +579,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $focus
      * @return static
      */
-    public function setFocus(FHIRReference $focus = null)
+    public function setFocus(?FHIRReference $focus = null): object
     {
         $this->_trackValueSet($this->focus, $focus);
         $this->focus = $focus;
@@ -593,7 +599,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRNarrative
      */
-    public function getText()
+    public function getText(): ?FHIRNarrative
     {
         return $this->text;
     }
@@ -612,7 +618,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRNarrative $text
      * @return static
      */
-    public function setText(FHIRNarrative $text = null)
+    public function setText(?FHIRNarrative $text = null): object
     {
         $this->_trackValueSet($this->text, $text);
         $this->text = $text;
@@ -630,7 +636,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRListMode
      */
-    public function getMode()
+    public function getMode(): ?FHIRListMode
     {
         return $this->mode;
     }
@@ -647,7 +653,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRListMode $mode
      * @return static
      */
-    public function setMode(FHIRListMode $mode = null)
+    public function setMode(?FHIRListMode $mode = null): object
     {
         $this->_trackValueSet($this->mode, $mode);
         $this->mode = $mode;
@@ -664,7 +670,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getOrderedBy()
+    public function getOrderedBy(): ?FHIRCodeableConcept
     {
         return $this->orderedBy;
     }
@@ -680,7 +686,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $orderedBy
      * @return static
      */
-    public function setOrderedBy(FHIRCodeableConcept $orderedBy = null)
+    public function setOrderedBy(?FHIRCodeableConcept $orderedBy = null): object
     {
         $this->_trackValueSet($this->orderedBy, $orderedBy);
         $this->orderedBy = $orderedBy;
@@ -697,7 +703,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEntry()
+    public function getEntry(): ?array
     {
         return $this->entry;
     }
@@ -713,7 +719,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $entry
      * @return static
      */
-    public function addEntry(FHIRReference $entry = null)
+    public function addEntry(?FHIRReference $entry = null): object
     {
         $this->_trackValueAdded();
         $this->entry[] = $entry;
@@ -731,7 +737,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $entry
      * @return static
      */
-    public function setEntry(array $entry = [])
+    public function setEntry(array $entry = []): object
     {
         if ([] !== $this->entry) {
             $this->_trackValuesRemoved(count($this->entry));
@@ -761,7 +767,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getEmptyReason()
+    public function getEmptyReason(): ?FHIRCodeableConcept
     {
         return $this->emptyReason;
     }
@@ -778,7 +784,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $emptyReason
      * @return static
      */
-    public function setEmptyReason(FHIRCodeableConcept $emptyReason = null)
+    public function setEmptyReason(?FHIRCodeableConcept $emptyReason = null): object
     {
         $this->_trackValueSet($this->emptyReason, $emptyReason);
         $this->emptyReason = $emptyReason;
@@ -800,7 +806,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection[]
      */
-    public function getSection()
+    public function getSection(): ?array
     {
         return $this->section;
     }
@@ -821,7 +827,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection $section
      * @return static
      */
-    public function addSection(FHIRCompositionSection $section = null)
+    public function addSection(?FHIRCompositionSection $section = null): object
     {
         $this->_trackValueAdded();
         $this->section[] = $section;
@@ -844,7 +850,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection[] $section
      * @return static
      */
-    public function setSection(array $section = [])
+    public function setSection(array $section = []): object
     {
         if ([] !== $this->section) {
             $this->_trackValuesRemoved(count($this->section));
@@ -1105,15 +1111,15 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRComposition\FHIRCompositionSection    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCompositionSection::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1133,7 +1139,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1192,7 +1198,7 @@ class FHIRCompositionSection extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1270,73 +1276,76 @@ class FHIRCompositionSection extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if ([] !== ($vs = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = [];
+            $out->{self::FIELD_AUTHOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AUTHOR][] = $v;
+                $out->{self::FIELD_AUTHOR}[] = $v;
             }
         }
         if (null !== ($v = $this->getFocus())) {
-            $a[self::FIELD_FOCUS] = $v;
+            $out->{self::FIELD_FOCUS} = $v;
         }
         if (null !== ($v = $this->getText())) {
-            $a[self::FIELD_TEXT] = $v;
+            $out->{self::FIELD_TEXT} = $v;
         }
         if (null !== ($v = $this->getMode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MODE] = $val;
+                $out->{self::FIELD_MODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRListMode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MODE_EXT] = $ext;
+            unset($ext->{FHIRListMode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOrderedBy())) {
-            $a[self::FIELD_ORDERED_BY] = $v;
+            $out->{self::FIELD_ORDERED_BY} = $v;
         }
         if ([] !== ($vs = $this->getEntry())) {
-            $a[self::FIELD_ENTRY] = [];
+            $out->{self::FIELD_ENTRY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENTRY][] = $v;
+                $out->{self::FIELD_ENTRY}[] = $v;
             }
         }
         if (null !== ($v = $this->getEmptyReason())) {
-            $a[self::FIELD_EMPTY_REASON] = $v;
+            $out->{self::FIELD_EMPTY_REASON} = $v;
         }
         if ([] !== ($vs = $this->getSection())) {
-            $a[self::FIELD_SECTION] = [];
+            $out->{self::FIELD_SECTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SECTION][] = $v;
+                $out->{self::FIELD_SECTION}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,9 +103,9 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates whether the asserted set of linkages are considered to be "in effect".
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $active = null;
+    protected ?FHIRBoolean $active = null;
 
     /**
      * A reference from one resource to another.
@@ -118,7 +118,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $author = null;
+    protected ?FHIRReference $author = null;
 
     /**
      * Identifies two or more records (resource instances) that refer to the same
@@ -130,13 +130,13 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLinkage\FHIRLinkageItem[]
      */
-    protected $item = [];
+    protected ?array $item = [];
 
     /**
      * Validation map for fields in type Linkage
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_ITEM => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -159,8 +159,8 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_ACTIVE]) || isset($data[self::FIELD_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_ACTIVE]) ? $data[self::FIELD_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $ext = $data[self::FIELD_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $data[self::FIELD_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setActive($value);
@@ -200,11 +200,17 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -213,6 +219,9 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
         return "<Linkage{$xmlns}></Linkage>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -225,9 +234,9 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates whether the asserted set of linkages are considered to be "in effect".
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getActive()
+    public function getActive(): ?FHIRBoolean
     {
         return $this->active;
     }
@@ -238,10 +247,10 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates whether the asserted set of linkages are considered to be "in effect".
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
      * @return static
      */
-    public function setActive($active = null)
+    public function setActive($active = null): object
     {
         if (null !== $active && !($active instanceof FHIRBoolean)) {
             $active = new FHIRBoolean($active);
@@ -262,7 +271,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthor()
+    public function getAuthor(): ?FHIRReference
     {
         return $this->author;
     }
@@ -279,7 +288,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function setAuthor(FHIRReference $author = null)
+    public function setAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueSet($this->author, $author);
         $this->author = $author;
@@ -296,7 +305,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLinkage\FHIRLinkageItem[]
      */
-    public function getItem()
+    public function getItem(): ?array
     {
         return $this->item;
     }
@@ -312,7 +321,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLinkage\FHIRLinkageItem $item
      * @return static
      */
-    public function addItem(FHIRLinkageItem $item = null)
+    public function addItem(?FHIRLinkageItem $item = null): object
     {
         $this->_trackValueAdded();
         $this->item[] = $item;
@@ -330,7 +339,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLinkage\FHIRLinkageItem[] $item
      * @return static
      */
-    public function setItem(array $item = [])
+    public function setItem(array $item = []): object
     {
         if ([] !== $this->item) {
             $this->_trackValuesRemoved(count($this->item));
@@ -528,15 +537,15 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLinkage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLinkage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRLinkage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -556,7 +565,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -634,7 +643,7 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -667,33 +676,38 @@ class FHIRLinkage extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTIVE] = $val;
+                $out->{self::FIELD_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = $v;
+            $out->{self::FIELD_AUTHOR} = $v;
         }
         if ([] !== ($vs = $this->getItem())) {
-            $a[self::FIELD_ITEM] = [];
+            $out->{self::FIELD_ITEM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ITEM][] = $v;
+                $out->{self::FIELD_ITEM}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

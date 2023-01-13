@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,9 +95,9 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * The full product name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $productName = null;
+    protected ?FHIRString $productName = null;
 
     /**
      * Detailed definition of a medicinal product, typically for uses other than direct
@@ -107,7 +107,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductNamePart[]
      */
-    protected $namePart = [];
+    protected ?array $namePart = [];
 
     /**
      * Detailed definition of a medicinal product, typically for uses other than direct
@@ -117,13 +117,13 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage[]
      */
-    protected $countryLanguage = [];
+    protected ?array $countryLanguage = [];
 
     /**
      * Validation map for fields in type MedicinalProduct.Name
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductName Constructor
@@ -142,8 +142,8 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_PRODUCT_NAME]) || isset($data[self::FIELD_PRODUCT_NAME_EXT])) {
-            $value = isset($data[self::FIELD_PRODUCT_NAME]) ? $data[self::FIELD_PRODUCT_NAME] : null;
-            $ext = (isset($data[self::FIELD_PRODUCT_NAME_EXT]) && is_array($data[self::FIELD_PRODUCT_NAME_EXT])) ? $ext = $data[self::FIELD_PRODUCT_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRODUCT_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_PRODUCT_NAME_EXT]) && is_array($data[self::FIELD_PRODUCT_NAME_EXT])) ? $data[self::FIELD_PRODUCT_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setProductName($value);
@@ -194,11 +194,17 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -215,9 +221,9 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * The full product name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getProductName()
+    public function getProductName(): ?FHIRString
     {
         return $this->productName;
     }
@@ -229,10 +235,10 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * The full product name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $productName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $productName
      * @return static
      */
-    public function setProductName($productName = null)
+    public function setProductName($productName = null): object
     {
         if (null !== $productName && !($productName instanceof FHIRString)) {
             $productName = new FHIRString($productName);
@@ -250,7 +256,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductNamePart[]
      */
-    public function getNamePart()
+    public function getNamePart(): ?array
     {
         return $this->namePart;
     }
@@ -264,7 +270,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductNamePart $namePart
      * @return static
      */
-    public function addNamePart(FHIRMedicinalProductNamePart $namePart = null)
+    public function addNamePart(?FHIRMedicinalProductNamePart $namePart = null): object
     {
         $this->_trackValueAdded();
         $this->namePart[] = $namePart;
@@ -280,7 +286,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductNamePart[] $namePart
      * @return static
      */
-    public function setNamePart(array $namePart = [])
+    public function setNamePart(array $namePart = []): object
     {
         if ([] !== $this->namePart) {
             $this->_trackValuesRemoved(count($this->namePart));
@@ -307,7 +313,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage[]
      */
-    public function getCountryLanguage()
+    public function getCountryLanguage(): ?array
     {
         return $this->countryLanguage;
     }
@@ -321,7 +327,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage $countryLanguage
      * @return static
      */
-    public function addCountryLanguage(FHIRMedicinalProductCountryLanguage $countryLanguage = null)
+    public function addCountryLanguage(?FHIRMedicinalProductCountryLanguage $countryLanguage = null): object
     {
         $this->_trackValueAdded();
         $this->countryLanguage[] = $countryLanguage;
@@ -337,7 +343,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage[] $countryLanguage
      * @return static
      */
-    public function setCountryLanguage(array $countryLanguage = [])
+    public function setCountryLanguage(array $countryLanguage = []): object
     {
         if ([] !== $this->countryLanguage) {
             $this->_trackValuesRemoved(count($this->countryLanguage));
@@ -477,15 +483,15 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductName
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductName    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductName::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -505,7 +511,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -550,7 +556,7 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -588,39 +594,42 @@ class FHIRMedicinalProductName extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getProductName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRODUCT_NAME] = $val;
+                $out->{self::FIELD_PRODUCT_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRODUCT_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRODUCT_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getNamePart())) {
-            $a[self::FIELD_NAME_PART] = [];
+            $out->{self::FIELD_NAME_PART} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NAME_PART][] = $v;
+                $out->{self::FIELD_NAME_PART}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCountryLanguage())) {
-            $a[self::FIELD_COUNTRY_LANGUAGE] = [];
+            $out->{self::FIELD_COUNTRY_LANGUAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COUNTRY_LANGUAGE][] = $v;
+                $out->{self::FIELD_COUNTRY_LANGUAGE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

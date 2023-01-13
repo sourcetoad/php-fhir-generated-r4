@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * Start position of the variant on the reference sequence. If the coordinate
      * system is either 0-based or 1-based, then start position is inclusive.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $start = null;
+    protected ?FHIRInteger $start = null;
 
     /**
      * A whole number
@@ -118,9 +118,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $end = null;
+    protected ?FHIRInteger $end = null;
 
     /**
      * A sequence of Unicode characters
@@ -134,9 +134,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $observedAllele = null;
+    protected ?FHIRString $observedAllele = null;
 
     /**
      * A sequence of Unicode characters
@@ -150,9 +150,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $referenceAllele = null;
+    protected ?FHIRString $referenceAllele = null;
 
     /**
      * A sequence of Unicode characters
@@ -163,9 +163,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * detailed documentation
      * [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $cigar = null;
+    protected ?FHIRString $cigar = null;
 
     /**
      * A reference from one resource to another.
@@ -176,13 +176,13 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $variantPointer = null;
+    protected ?FHIRReference $variantPointer = null;
 
     /**
      * Validation map for fields in type MolecularSequence.Variant
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMolecularSequenceVariant Constructor
@@ -201,8 +201,8 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_START]) || isset($data[self::FIELD_START_EXT])) {
-            $value = isset($data[self::FIELD_START]) ? $data[self::FIELD_START] : null;
-            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $ext = $data[self::FIELD_START_EXT] : $ext = [];
+            $value = $data[self::FIELD_START] ?? null;
+            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $data[self::FIELD_START_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setStart($value);
@@ -216,8 +216,8 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_END]) || isset($data[self::FIELD_END_EXT])) {
-            $value = isset($data[self::FIELD_END]) ? $data[self::FIELD_END] : null;
-            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $ext = $data[self::FIELD_END_EXT] : $ext = [];
+            $value = $data[self::FIELD_END] ?? null;
+            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $data[self::FIELD_END_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setEnd($value);
@@ -231,8 +231,8 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OBSERVED_ALLELE]) || isset($data[self::FIELD_OBSERVED_ALLELE_EXT])) {
-            $value = isset($data[self::FIELD_OBSERVED_ALLELE]) ? $data[self::FIELD_OBSERVED_ALLELE] : null;
-            $ext = (isset($data[self::FIELD_OBSERVED_ALLELE_EXT]) && is_array($data[self::FIELD_OBSERVED_ALLELE_EXT])) ? $ext = $data[self::FIELD_OBSERVED_ALLELE_EXT] : $ext = [];
+            $value = $data[self::FIELD_OBSERVED_ALLELE] ?? null;
+            $ext = (isset($data[self::FIELD_OBSERVED_ALLELE_EXT]) && is_array($data[self::FIELD_OBSERVED_ALLELE_EXT])) ? $data[self::FIELD_OBSERVED_ALLELE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setObservedAllele($value);
@@ -246,8 +246,8 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REFERENCE_ALLELE]) || isset($data[self::FIELD_REFERENCE_ALLELE_EXT])) {
-            $value = isset($data[self::FIELD_REFERENCE_ALLELE]) ? $data[self::FIELD_REFERENCE_ALLELE] : null;
-            $ext = (isset($data[self::FIELD_REFERENCE_ALLELE_EXT]) && is_array($data[self::FIELD_REFERENCE_ALLELE_EXT])) ? $ext = $data[self::FIELD_REFERENCE_ALLELE_EXT] : $ext = [];
+            $value = $data[self::FIELD_REFERENCE_ALLELE] ?? null;
+            $ext = (isset($data[self::FIELD_REFERENCE_ALLELE_EXT]) && is_array($data[self::FIELD_REFERENCE_ALLELE_EXT])) ? $data[self::FIELD_REFERENCE_ALLELE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setReferenceAllele($value);
@@ -261,8 +261,8 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CIGAR]) || isset($data[self::FIELD_CIGAR_EXT])) {
-            $value = isset($data[self::FIELD_CIGAR]) ? $data[self::FIELD_CIGAR] : null;
-            $ext = (isset($data[self::FIELD_CIGAR_EXT]) && is_array($data[self::FIELD_CIGAR_EXT])) ? $ext = $data[self::FIELD_CIGAR_EXT] : $ext = [];
+            $value = $data[self::FIELD_CIGAR] ?? null;
+            $ext = (isset($data[self::FIELD_CIGAR_EXT]) && is_array($data[self::FIELD_CIGAR_EXT])) ? $data[self::FIELD_CIGAR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCigar($value);
@@ -284,11 +284,17 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -306,9 +312,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * Start position of the variant on the reference sequence. If the coordinate
      * system is either 0-based or 1-based, then start position is inclusive.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getStart()
+    public function getStart(): ?FHIRInteger
     {
         return $this->start;
     }
@@ -321,10 +327,10 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * Start position of the variant on the reference sequence. If the coordinate
      * system is either 0-based or 1-based, then start position is inclusive.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $start
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $start
      * @return static
      */
-    public function setStart($start = null)
+    public function setStart($start = null): object
     {
         if (null !== $start && !($start instanceof FHIRInteger)) {
             $start = new FHIRInteger($start);
@@ -344,9 +350,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getEnd()
+    public function getEnd(): ?FHIRInteger
     {
         return $this->end;
     }
@@ -361,10 +367,10 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $end
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $end
      * @return static
      */
-    public function setEnd($end = null)
+    public function setEnd($end = null): object
     {
         if (null !== $end && !($end instanceof FHIRInteger)) {
             $end = new FHIRInteger($end);
@@ -386,9 +392,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getObservedAllele()
+    public function getObservedAllele(): ?FHIRString
     {
         return $this->observedAllele;
     }
@@ -405,10 +411,10 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $observedAllele
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $observedAllele
      * @return static
      */
-    public function setObservedAllele($observedAllele = null)
+    public function setObservedAllele($observedAllele = null): object
     {
         if (null !== $observedAllele && !($observedAllele instanceof FHIRString)) {
             $observedAllele = new FHIRString($observedAllele);
@@ -430,9 +436,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getReferenceAllele()
+    public function getReferenceAllele(): ?FHIRString
     {
         return $this->referenceAllele;
     }
@@ -449,10 +455,10 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * type is DNA, it should be the sequence on the positive (+) strand. This will lay
      * in the range between variant.start and variant.end.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $referenceAllele
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $referenceAllele
      * @return static
      */
-    public function setReferenceAllele($referenceAllele = null)
+    public function setReferenceAllele($referenceAllele = null): object
     {
         if (null !== $referenceAllele && !($referenceAllele instanceof FHIRString)) {
             $referenceAllele = new FHIRString($referenceAllele);
@@ -471,9 +477,9 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * detailed documentation
      * [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCigar()
+    public function getCigar(): ?FHIRString
     {
         return $this->cigar;
     }
@@ -487,10 +493,10 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * detailed documentation
      * [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $cigar
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $cigar
      * @return static
      */
-    public function setCigar($cigar = null)
+    public function setCigar($cigar = null): object
     {
         if (null !== $cigar && !($cigar instanceof FHIRString)) {
             $cigar = new FHIRString($cigar);
@@ -509,7 +515,7 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getVariantPointer()
+    public function getVariantPointer(): ?FHIRReference
     {
         return $this->variantPointer;
     }
@@ -524,7 +530,7 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $variantPointer
      * @return static
      */
-    public function setVariantPointer(FHIRReference $variantPointer = null)
+    public function setVariantPointer(?FHIRReference $variantPointer = null): object
     {
         $this->_trackValueSet($this->variantPointer, $variantPointer);
         $this->variantPointer = $variantPointer;
@@ -699,15 +705,15 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceVariant
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceVariant    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMolecularSequenceVariant::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -727,7 +733,7 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -814,7 +820,7 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -857,64 +863,67 @@ class FHIRMolecularSequenceVariant extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getStart())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_START] = $val;
+                $out->{self::FIELD_START} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_START_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_START_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getEnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_END] = $val;
+                $out->{self::FIELD_END} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_END_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_END_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getObservedAllele())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OBSERVED_ALLELE] = $val;
+                $out->{self::FIELD_OBSERVED_ALLELE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OBSERVED_ALLELE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OBSERVED_ALLELE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReferenceAllele())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REFERENCE_ALLELE] = $val;
+                $out->{self::FIELD_REFERENCE_ALLELE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REFERENCE_ALLELE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REFERENCE_ALLELE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCigar())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CIGAR] = $val;
+                $out->{self::FIELD_CIGAR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CIGAR_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CIGAR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVariantPointer())) {
-            $a[self::FIELD_VARIANT_POINTER] = $v;
+            $out->{self::FIELD_VARIANT_POINTER} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

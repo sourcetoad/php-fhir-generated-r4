@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAdverseEvent;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAdverseEvent;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $assessment = null;
+    protected ?FHIRCodeableConcept $assessment = null;
 
     /**
      * A sequence of Unicode characters
@@ -112,9 +112,9 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * AdverseEvent.suspectEntity.causalityProductRelatedness.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $productRelatedness = null;
+    protected ?FHIRString $productRelatedness = null;
 
     /**
      * A reference from one resource to another.
@@ -125,7 +125,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $author = null;
+    protected ?FHIRReference $author = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -137,13 +137,13 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $method = null;
+    protected ?FHIRCodeableConcept $method = null;
 
     /**
      * Validation map for fields in type AdverseEvent.Causality
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRAdverseEventCausality Constructor
@@ -169,8 +169,8 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PRODUCT_RELATEDNESS]) || isset($data[self::FIELD_PRODUCT_RELATEDNESS_EXT])) {
-            $value = isset($data[self::FIELD_PRODUCT_RELATEDNESS]) ? $data[self::FIELD_PRODUCT_RELATEDNESS] : null;
-            $ext = (isset($data[self::FIELD_PRODUCT_RELATEDNESS_EXT]) && is_array($data[self::FIELD_PRODUCT_RELATEDNESS_EXT])) ? $ext = $data[self::FIELD_PRODUCT_RELATEDNESS_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRODUCT_RELATEDNESS] ?? null;
+            $ext = (isset($data[self::FIELD_PRODUCT_RELATEDNESS_EXT]) && is_array($data[self::FIELD_PRODUCT_RELATEDNESS_EXT])) ? $data[self::FIELD_PRODUCT_RELATEDNESS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setProductRelatedness($value);
@@ -199,11 +199,17 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -223,7 +229,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getAssessment()
+    public function getAssessment(): ?FHIRCodeableConcept
     {
         return $this->assessment;
     }
@@ -239,7 +245,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $assessment
      * @return static
      */
-    public function setAssessment(FHIRCodeableConcept $assessment = null)
+    public function setAssessment(?FHIRCodeableConcept $assessment = null): object
     {
         $this->_trackValueSet($this->assessment, $assessment);
         $this->assessment = $assessment;
@@ -253,9 +259,9 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * AdverseEvent.suspectEntity.causalityProductRelatedness.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getProductRelatedness()
+    public function getProductRelatedness(): ?FHIRString
     {
         return $this->productRelatedness;
     }
@@ -267,10 +273,10 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * AdverseEvent.suspectEntity.causalityProductRelatedness.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $productRelatedness
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $productRelatedness
      * @return static
      */
-    public function setProductRelatedness($productRelatedness = null)
+    public function setProductRelatedness($productRelatedness = null): object
     {
         if (null !== $productRelatedness && !($productRelatedness instanceof FHIRString)) {
             $productRelatedness = new FHIRString($productRelatedness);
@@ -289,7 +295,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthor()
+    public function getAuthor(): ?FHIRReference
     {
         return $this->author;
     }
@@ -304,7 +310,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function setAuthor(FHIRReference $author = null)
+    public function setAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueSet($this->author, $author);
         $this->author = $author;
@@ -321,7 +327,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMethod()
+    public function getMethod(): ?FHIRCodeableConcept
     {
         return $this->method;
     }
@@ -337,7 +343,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $method
      * @return static
      */
-    public function setMethod(FHIRCodeableConcept $method = null)
+    public function setMethod(?FHIRCodeableConcept $method = null): object
     {
         $this->_trackValueSet($this->method, $method);
         $this->method = $method;
@@ -478,15 +484,15 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAdverseEvent\FHIRAdverseEventCausality
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAdverseEvent\FHIRAdverseEventCausality    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAdverseEventCausality::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -506,7 +512,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -553,7 +559,7 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -586,30 +592,33 @@ class FHIRAdverseEventCausality extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getAssessment())) {
-            $a[self::FIELD_ASSESSMENT] = $v;
+            $out->{self::FIELD_ASSESSMENT} = $v;
         }
         if (null !== ($v = $this->getProductRelatedness())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRODUCT_RELATEDNESS] = $val;
+                $out->{self::FIELD_PRODUCT_RELATEDNESS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRODUCT_RELATEDNESS_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRODUCT_RELATEDNESS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = $v;
+            $out->{self::FIELD_AUTHOR} = $v;
         }
         if (null !== ($v = $this->getMethod())) {
-            $a[self::FIELD_METHOD] = $v;
+            $out->{self::FIELD_METHOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

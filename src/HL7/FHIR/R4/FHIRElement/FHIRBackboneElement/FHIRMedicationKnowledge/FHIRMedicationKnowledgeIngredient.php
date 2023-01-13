@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $itemCodeableConcept = null;
+    protected ?FHIRCodeableConcept $itemCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -114,7 +114,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $itemReference = null;
+    protected ?FHIRReference $itemReference = null;
 
     /**
      * Value of "true" or "false"
@@ -123,9 +123,9 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * Indication of whether this ingredient affects the therapeutic action of the
      * drug.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $isActive = null;
+    protected ?FHIRBoolean $isActive = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -139,13 +139,13 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $strength = null;
+    protected ?FHIRRatio $strength = null;
 
     /**
      * Validation map for fields in type MedicationKnowledge.Ingredient
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationKnowledgeIngredient Constructor
@@ -178,8 +178,8 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_IS_ACTIVE]) || isset($data[self::FIELD_IS_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_IS_ACTIVE]) ? $data[self::FIELD_IS_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_IS_ACTIVE_EXT]) && is_array($data[self::FIELD_IS_ACTIVE_EXT])) ? $ext = $data[self::FIELD_IS_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_IS_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_IS_ACTIVE_EXT]) && is_array($data[self::FIELD_IS_ACTIVE_EXT])) ? $data[self::FIELD_IS_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setIsActive($value);
@@ -201,11 +201,17 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -226,7 +232,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getItemCodeableConcept()
+    public function getItemCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->itemCodeableConcept;
     }
@@ -243,7 +249,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $itemCodeableConcept
      * @return static
      */
-    public function setItemCodeableConcept(FHIRCodeableConcept $itemCodeableConcept = null)
+    public function setItemCodeableConcept(?FHIRCodeableConcept $itemCodeableConcept = null): object
     {
         $this->_trackValueSet($this->itemCodeableConcept, $itemCodeableConcept);
         $this->itemCodeableConcept = $itemCodeableConcept;
@@ -260,7 +266,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getItemReference()
+    public function getItemReference(): ?FHIRReference
     {
         return $this->itemReference;
     }
@@ -276,7 +282,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $itemReference
      * @return static
      */
-    public function setItemReference(FHIRReference $itemReference = null)
+    public function setItemReference(?FHIRReference $itemReference = null): object
     {
         $this->_trackValueSet($this->itemReference, $itemReference);
         $this->itemReference = $itemReference;
@@ -290,9 +296,9 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * Indication of whether this ingredient affects the therapeutic action of the
      * drug.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getIsActive()
+    public function getIsActive(): ?FHIRBoolean
     {
         return $this->isActive;
     }
@@ -304,10 +310,10 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * Indication of whether this ingredient affects the therapeutic action of the
      * drug.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isActive
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isActive
      * @return static
      */
-    public function setIsActive($isActive = null)
+    public function setIsActive($isActive = null): object
     {
         if (null !== $isActive && !($isActive instanceof FHIRBoolean)) {
             $isActive = new FHIRBoolean($isActive);
@@ -329,7 +335,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getStrength()
+    public function getStrength(): ?FHIRRatio
     {
         return $this->strength;
     }
@@ -347,7 +353,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $strength
      * @return static
      */
-    public function setStrength(FHIRRatio $strength = null)
+    public function setStrength(?FHIRRatio $strength = null): object
     {
         $this->_trackValueSet($this->strength, $strength);
         $this->strength = $strength;
@@ -488,15 +494,15 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeIngredient
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeIngredient    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationKnowledgeIngredient::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -516,7 +522,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -563,7 +569,7 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -596,30 +602,33 @@ class FHIRMedicationKnowledgeIngredient extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getItemCodeableConcept())) {
-            $a[self::FIELD_ITEM_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_ITEM_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getItemReference())) {
-            $a[self::FIELD_ITEM_REFERENCE] = $v;
+            $out->{self::FIELD_ITEM_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getIsActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IS_ACTIVE] = $val;
+                $out->{self::FIELD_IS_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IS_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IS_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStrength())) {
-            $a[self::FIELD_STRENGTH] = $v;
+            $out->{self::FIELD_STRENGTH} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

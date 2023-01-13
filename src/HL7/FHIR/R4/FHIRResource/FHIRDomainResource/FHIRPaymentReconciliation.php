@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,7 +132,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A code specifying the state of the resource instance.
@@ -142,7 +142,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes
      */
-    protected $status = null;
+    protected ?FHIRFinancialResourceStatusCodes $status = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -154,7 +154,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -166,9 +166,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date when the resource was created.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $created = null;
+    protected ?FHIRDateTime $created = null;
 
     /**
      * A reference from one resource to another.
@@ -179,7 +179,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $paymentIssuer = null;
+    protected ?FHIRReference $paymentIssuer = null;
 
     /**
      * A reference from one resource to another.
@@ -190,7 +190,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $request = null;
+    protected ?FHIRReference $request = null;
 
     /**
      * A reference from one resource to another.
@@ -201,7 +201,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $requestor = null;
+    protected ?FHIRReference $requestor = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -210,7 +210,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRemittanceOutcome
      */
-    protected $outcome = null;
+    protected ?FHIRRemittanceOutcome $outcome = null;
 
     /**
      * A sequence of Unicode characters
@@ -220,9 +220,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * A human readable description of the status of the request for the
      * reconciliation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $disposition = null;
+    protected ?FHIRString $disposition = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -232,9 +232,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date of payment as indicated on the financial instrument.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $paymentDate = null;
+    protected ?FHIRDate $paymentDate = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -245,7 +245,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $paymentAmount = null;
+    protected ?FHIRMoney $paymentAmount = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -257,7 +257,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $paymentIdentifier = null;
+    protected ?FHIRIdentifier $paymentIdentifier = null;
 
     /**
      * This resource provides the details including amount of a payment and allocates
@@ -267,7 +267,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationDetail[]
      */
-    protected $detail = [];
+    protected ?array $detail = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -279,7 +279,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $formCode = null;
+    protected ?FHIRCodeableConcept $formCode = null;
 
     /**
      * This resource provides the details including amount of a payment and allocates
@@ -289,13 +289,13 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationProcessNote[]
      */
-    protected $processNote = [];
+    protected ?array $processNote = [];
 
     /**
      * Validation map for fields in type PaymentReconciliation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPaymentReconciliation Constructor
@@ -332,8 +332,8 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFinancialResourceStatusCodes) {
                     $this->setStatus($value);
@@ -354,8 +354,8 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_CREATED]) || isset($data[self::FIELD_CREATED_EXT])) {
-            $value = isset($data[self::FIELD_CREATED]) ? $data[self::FIELD_CREATED] : null;
-            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $ext = $data[self::FIELD_CREATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATED] ?? null;
+            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $data[self::FIELD_CREATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreated($value);
@@ -390,8 +390,8 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_OUTCOME]) || isset($data[self::FIELD_OUTCOME_EXT])) {
-            $value = isset($data[self::FIELD_OUTCOME]) ? $data[self::FIELD_OUTCOME] : null;
-            $ext = (isset($data[self::FIELD_OUTCOME_EXT]) && is_array($data[self::FIELD_OUTCOME_EXT])) ? $ext = $data[self::FIELD_OUTCOME_EXT] : $ext = [];
+            $value = $data[self::FIELD_OUTCOME] ?? null;
+            $ext = (isset($data[self::FIELD_OUTCOME_EXT]) && is_array($data[self::FIELD_OUTCOME_EXT])) ? $data[self::FIELD_OUTCOME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRRemittanceOutcome) {
                     $this->setOutcome($value);
@@ -405,8 +405,8 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_DISPOSITION]) || isset($data[self::FIELD_DISPOSITION_EXT])) {
-            $value = isset($data[self::FIELD_DISPOSITION]) ? $data[self::FIELD_DISPOSITION] : null;
-            $ext = (isset($data[self::FIELD_DISPOSITION_EXT]) && is_array($data[self::FIELD_DISPOSITION_EXT])) ? $ext = $data[self::FIELD_DISPOSITION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISPOSITION] ?? null;
+            $ext = (isset($data[self::FIELD_DISPOSITION_EXT]) && is_array($data[self::FIELD_DISPOSITION_EXT])) ? $data[self::FIELD_DISPOSITION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDisposition($value);
@@ -420,8 +420,8 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_PAYMENT_DATE]) || isset($data[self::FIELD_PAYMENT_DATE_EXT])) {
-            $value = isset($data[self::FIELD_PAYMENT_DATE]) ? $data[self::FIELD_PAYMENT_DATE] : null;
-            $ext = (isset($data[self::FIELD_PAYMENT_DATE_EXT]) && is_array($data[self::FIELD_PAYMENT_DATE_EXT])) ? $ext = $data[self::FIELD_PAYMENT_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PAYMENT_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_PAYMENT_DATE_EXT]) && is_array($data[self::FIELD_PAYMENT_DATE_EXT])) ? $data[self::FIELD_PAYMENT_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setPaymentDate($value);
@@ -493,11 +493,17 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -506,6 +512,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
         }
         return "<PaymentReconciliation{$xmlns}></PaymentReconciliation>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -522,7 +531,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -538,7 +547,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -556,7 +565,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -583,7 +592,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRFinancialResourceStatusCodes
     {
         return $this->status;
     }
@@ -597,7 +606,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFinancialResourceStatusCodes $status
      * @return static
      */
-    public function setStatus(FHIRFinancialResourceStatusCodes $status = null)
+    public function setStatus(?FHIRFinancialResourceStatusCodes $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -614,7 +623,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -630,7 +639,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -647,9 +656,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date when the resource was created.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreated()
+    public function getCreated(): ?FHIRDateTime
     {
         return $this->created;
     }
@@ -664,10 +673,10 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date when the resource was created.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
      * @return static
      */
-    public function setCreated($created = null)
+    public function setCreated($created = null): object
     {
         if (null !== $created && !($created instanceof FHIRDateTime)) {
             $created = new FHIRDateTime($created);
@@ -686,7 +695,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPaymentIssuer()
+    public function getPaymentIssuer(): ?FHIRReference
     {
         return $this->paymentIssuer;
     }
@@ -701,7 +710,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $paymentIssuer
      * @return static
      */
-    public function setPaymentIssuer(FHIRReference $paymentIssuer = null)
+    public function setPaymentIssuer(?FHIRReference $paymentIssuer = null): object
     {
         $this->_trackValueSet($this->paymentIssuer, $paymentIssuer);
         $this->paymentIssuer = $paymentIssuer;
@@ -717,7 +726,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRequest()
+    public function getRequest(): ?FHIRReference
     {
         return $this->request;
     }
@@ -732,7 +741,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $request
      * @return static
      */
-    public function setRequest(FHIRReference $request = null)
+    public function setRequest(?FHIRReference $request = null): object
     {
         $this->_trackValueSet($this->request, $request);
         $this->request = $request;
@@ -748,7 +757,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRequestor()
+    public function getRequestor(): ?FHIRReference
     {
         return $this->requestor;
     }
@@ -763,7 +772,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $requestor
      * @return static
      */
-    public function setRequestor(FHIRReference $requestor = null)
+    public function setRequestor(?FHIRReference $requestor = null): object
     {
         $this->_trackValueSet($this->requestor, $requestor);
         $this->requestor = $requestor;
@@ -777,7 +786,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRemittanceOutcome
      */
-    public function getOutcome()
+    public function getOutcome(): ?FHIRRemittanceOutcome
     {
         return $this->outcome;
     }
@@ -790,7 +799,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRemittanceOutcome $outcome
      * @return static
      */
-    public function setOutcome(FHIRRemittanceOutcome $outcome = null)
+    public function setOutcome(?FHIRRemittanceOutcome $outcome = null): object
     {
         $this->_trackValueSet($this->outcome, $outcome);
         $this->outcome = $outcome;
@@ -805,9 +814,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * A human readable description of the status of the request for the
      * reconciliation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDisposition()
+    public function getDisposition(): ?FHIRString
     {
         return $this->disposition;
     }
@@ -820,10 +829,10 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * A human readable description of the status of the request for the
      * reconciliation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $disposition
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $disposition
      * @return static
      */
-    public function setDisposition($disposition = null)
+    public function setDisposition($disposition = null): object
     {
         if (null !== $disposition && !($disposition instanceof FHIRString)) {
             $disposition = new FHIRString($disposition);
@@ -841,9 +850,9 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date of payment as indicated on the financial instrument.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getPaymentDate()
+    public function getPaymentDate(): ?FHIRDate
     {
         return $this->paymentDate;
     }
@@ -856,10 +865,10 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * The date of payment as indicated on the financial instrument.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $paymentDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $paymentDate
      * @return static
      */
-    public function setPaymentDate($paymentDate = null)
+    public function setPaymentDate($paymentDate = null): object
     {
         if (null !== $paymentDate && !($paymentDate instanceof FHIRDate)) {
             $paymentDate = new FHIRDate($paymentDate);
@@ -878,7 +887,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getPaymentAmount()
+    public function getPaymentAmount(): ?FHIRMoney
     {
         return $this->paymentAmount;
     }
@@ -893,7 +902,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $paymentAmount
      * @return static
      */
-    public function setPaymentAmount(FHIRMoney $paymentAmount = null)
+    public function setPaymentAmount(?FHIRMoney $paymentAmount = null): object
     {
         $this->_trackValueSet($this->paymentAmount, $paymentAmount);
         $this->paymentAmount = $paymentAmount;
@@ -910,7 +919,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getPaymentIdentifier()
+    public function getPaymentIdentifier(): ?FHIRIdentifier
     {
         return $this->paymentIdentifier;
     }
@@ -926,7 +935,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $paymentIdentifier
      * @return static
      */
-    public function setPaymentIdentifier(FHIRIdentifier $paymentIdentifier = null)
+    public function setPaymentIdentifier(?FHIRIdentifier $paymentIdentifier = null): object
     {
         $this->_trackValueSet($this->paymentIdentifier, $paymentIdentifier);
         $this->paymentIdentifier = $paymentIdentifier;
@@ -941,7 +950,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationDetail[]
      */
-    public function getDetail()
+    public function getDetail(): ?array
     {
         return $this->detail;
     }
@@ -955,7 +964,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationDetail $detail
      * @return static
      */
-    public function addDetail(FHIRPaymentReconciliationDetail $detail = null)
+    public function addDetail(?FHIRPaymentReconciliationDetail $detail = null): object
     {
         $this->_trackValueAdded();
         $this->detail[] = $detail;
@@ -971,7 +980,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationDetail[] $detail
      * @return static
      */
-    public function setDetail(array $detail = [])
+    public function setDetail(array $detail = []): object
     {
         if ([] !== $this->detail) {
             $this->_trackValuesRemoved(count($this->detail));
@@ -1000,7 +1009,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getFormCode()
+    public function getFormCode(): ?FHIRCodeableConcept
     {
         return $this->formCode;
     }
@@ -1016,7 +1025,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $formCode
      * @return static
      */
-    public function setFormCode(FHIRCodeableConcept $formCode = null)
+    public function setFormCode(?FHIRCodeableConcept $formCode = null): object
     {
         $this->_trackValueSet($this->formCode, $formCode);
         $this->formCode = $formCode;
@@ -1031,7 +1040,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationProcessNote[]
      */
-    public function getProcessNote()
+    public function getProcessNote(): ?array
     {
         return $this->processNote;
     }
@@ -1045,7 +1054,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationProcessNote $processNote
      * @return static
      */
-    public function addProcessNote(FHIRPaymentReconciliationProcessNote $processNote = null)
+    public function addProcessNote(?FHIRPaymentReconciliationProcessNote $processNote = null): object
     {
         $this->_trackValueAdded();
         $this->processNote[] = $processNote;
@@ -1061,7 +1070,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPaymentReconciliation\FHIRPaymentReconciliationProcessNote[] $processNote
      * @return static
      */
-    public function setProcessNote(array $processNote = [])
+    public function setProcessNote(array $processNote = []): object
     {
         if ([] !== $this->processNote) {
             $this->_trackValuesRemoved(count($this->processNote));
@@ -1467,15 +1476,15 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentReconciliation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentReconciliation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPaymentReconciliation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1495,7 +1504,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1615,7 +1624,7 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1718,109 +1727,114 @@ class FHIRPaymentReconciliation extends FHIRDomainResource implements PHPFHIRCon
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRFinancialResourceStatusCodes::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRFinancialResourceStatusCodes::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getCreated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATED] = $val;
+                $out->{self::FIELD_CREATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPaymentIssuer())) {
-            $a[self::FIELD_PAYMENT_ISSUER] = $v;
+            $out->{self::FIELD_PAYMENT_ISSUER} = $v;
         }
         if (null !== ($v = $this->getRequest())) {
-            $a[self::FIELD_REQUEST] = $v;
+            $out->{self::FIELD_REQUEST} = $v;
         }
         if (null !== ($v = $this->getRequestor())) {
-            $a[self::FIELD_REQUESTOR] = $v;
+            $out->{self::FIELD_REQUESTOR} = $v;
         }
         if (null !== ($v = $this->getOutcome())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OUTCOME] = $val;
+                $out->{self::FIELD_OUTCOME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRRemittanceOutcome::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OUTCOME_EXT] = $ext;
+            unset($ext->{FHIRRemittanceOutcome::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OUTCOME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDisposition())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISPOSITION] = $val;
+                $out->{self::FIELD_DISPOSITION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISPOSITION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISPOSITION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPaymentDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PAYMENT_DATE] = $val;
+                $out->{self::FIELD_PAYMENT_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PAYMENT_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PAYMENT_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPaymentAmount())) {
-            $a[self::FIELD_PAYMENT_AMOUNT] = $v;
+            $out->{self::FIELD_PAYMENT_AMOUNT} = $v;
         }
         if (null !== ($v = $this->getPaymentIdentifier())) {
-            $a[self::FIELD_PAYMENT_IDENTIFIER] = $v;
+            $out->{self::FIELD_PAYMENT_IDENTIFIER} = $v;
         }
         if ([] !== ($vs = $this->getDetail())) {
-            $a[self::FIELD_DETAIL] = [];
+            $out->{self::FIELD_DETAIL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DETAIL][] = $v;
+                $out->{self::FIELD_DETAIL}[] = $v;
             }
         }
         if (null !== ($v = $this->getFormCode())) {
-            $a[self::FIELD_FORM_CODE] = $v;
+            $out->{self::FIELD_FORM_CODE} = $v;
         }
         if ([] !== ($vs = $this->getProcessNote())) {
-            $a[self::FIELD_PROCESS_NOTE] = [];
+            $out->{self::FIELD_PROCESS_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROCESS_NOTE][] = $v;
+                $out->{self::FIELD_PROCESS_NOTE}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

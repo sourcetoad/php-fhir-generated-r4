@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -118,7 +118,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -128,9 +128,9 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * Parameters that were used in the measurement of a property (e.g. for viscosity:
      * measured at 20C with a pH of 7.1).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $parameters = null;
+    protected ?FHIRString $parameters = null;
 
     /**
      * A reference from one resource to another.
@@ -142,7 +142,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $definingSubstanceReference = null;
+    protected ?FHIRReference $definingSubstanceReference = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -155,7 +155,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $definingSubstanceCodeableConcept = null;
+    protected ?FHIRCodeableConcept $definingSubstanceCodeableConcept = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -168,7 +168,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $amountQuantity = null;
+    protected ?FHIRQuantity $amountQuantity = null;
 
     /**
      * A sequence of Unicode characters
@@ -177,15 +177,15 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * Quantitative value for this property.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $amountString = null;
+    protected ?FHIRString $amountString = null;
 
     /**
      * Validation map for fields in type SubstanceSpecification.Property
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceSpecificationProperty Constructor
@@ -218,8 +218,8 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PARAMETERS]) || isset($data[self::FIELD_PARAMETERS_EXT])) {
-            $value = isset($data[self::FIELD_PARAMETERS]) ? $data[self::FIELD_PARAMETERS] : null;
-            $ext = (isset($data[self::FIELD_PARAMETERS_EXT]) && is_array($data[self::FIELD_PARAMETERS_EXT])) ? $ext = $data[self::FIELD_PARAMETERS_EXT] : $ext = [];
+            $value = $data[self::FIELD_PARAMETERS] ?? null;
+            $ext = (isset($data[self::FIELD_PARAMETERS_EXT]) && is_array($data[self::FIELD_PARAMETERS_EXT])) ? $data[self::FIELD_PARAMETERS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setParameters($value);
@@ -254,8 +254,8 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_AMOUNT_STRING]) || isset($data[self::FIELD_AMOUNT_STRING_EXT])) {
-            $value = isset($data[self::FIELD_AMOUNT_STRING]) ? $data[self::FIELD_AMOUNT_STRING] : null;
-            $ext = (isset($data[self::FIELD_AMOUNT_STRING_EXT]) && is_array($data[self::FIELD_AMOUNT_STRING_EXT])) ? $ext = $data[self::FIELD_AMOUNT_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_AMOUNT_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_AMOUNT_STRING_EXT]) && is_array($data[self::FIELD_AMOUNT_STRING_EXT])) ? $data[self::FIELD_AMOUNT_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setAmountString($value);
@@ -270,11 +270,17 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -294,7 +300,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -310,7 +316,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -327,7 +333,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -343,7 +349,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -358,9 +364,9 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * Parameters that were used in the measurement of a property (e.g. for viscosity:
      * measured at 20C with a pH of 7.1).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getParameters()
+    public function getParameters(): ?FHIRString
     {
         return $this->parameters;
     }
@@ -373,10 +379,10 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * Parameters that were used in the measurement of a property (e.g. for viscosity:
      * measured at 20C with a pH of 7.1).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $parameters
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $parameters
      * @return static
      */
-    public function setParameters($parameters = null)
+    public function setParameters($parameters = null): object
     {
         if (null !== $parameters && !($parameters instanceof FHIRString)) {
             $parameters = new FHIRString($parameters);
@@ -396,7 +402,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDefiningSubstanceReference()
+    public function getDefiningSubstanceReference(): ?FHIRReference
     {
         return $this->definingSubstanceReference;
     }
@@ -412,7 +418,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $definingSubstanceReference
      * @return static
      */
-    public function setDefiningSubstanceReference(FHIRReference $definingSubstanceReference = null)
+    public function setDefiningSubstanceReference(?FHIRReference $definingSubstanceReference = null): object
     {
         $this->_trackValueSet($this->definingSubstanceReference, $definingSubstanceReference);
         $this->definingSubstanceReference = $definingSubstanceReference;
@@ -430,7 +436,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDefiningSubstanceCodeableConcept()
+    public function getDefiningSubstanceCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->definingSubstanceCodeableConcept;
     }
@@ -447,7 +453,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $definingSubstanceCodeableConcept
      * @return static
      */
-    public function setDefiningSubstanceCodeableConcept(FHIRCodeableConcept $definingSubstanceCodeableConcept = null)
+    public function setDefiningSubstanceCodeableConcept(?FHIRCodeableConcept $definingSubstanceCodeableConcept = null): object
     {
         $this->_trackValueSet($this->definingSubstanceCodeableConcept, $definingSubstanceCodeableConcept);
         $this->definingSubstanceCodeableConcept = $definingSubstanceCodeableConcept;
@@ -465,7 +471,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getAmountQuantity()
+    public function getAmountQuantity(): ?FHIRQuantity
     {
         return $this->amountQuantity;
     }
@@ -482,7 +488,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $amountQuantity
      * @return static
      */
-    public function setAmountQuantity(FHIRQuantity $amountQuantity = null)
+    public function setAmountQuantity(?FHIRQuantity $amountQuantity = null): object
     {
         $this->_trackValueSet($this->amountQuantity, $amountQuantity);
         $this->amountQuantity = $amountQuantity;
@@ -496,9 +502,9 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * Quantitative value for this property.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getAmountString()
+    public function getAmountString(): ?FHIRString
     {
         return $this->amountString;
     }
@@ -510,10 +516,10 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      *
      * Quantitative value for this property.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $amountString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $amountString
      * @return static
      */
-    public function setAmountString($amountString = null)
+    public function setAmountString($amountString = null): object
     {
         if (null !== $amountString && !($amountString instanceof FHIRString)) {
             $amountString = new FHIRString($amountString);
@@ -708,15 +714,15 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationProperty
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationProperty    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceSpecificationProperty::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -736,7 +742,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -798,7 +804,7 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -846,46 +852,49 @@ class FHIRSubstanceSpecificationProperty extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getParameters())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PARAMETERS] = $val;
+                $out->{self::FIELD_PARAMETERS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PARAMETERS_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PARAMETERS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDefiningSubstanceReference())) {
-            $a[self::FIELD_DEFINING_SUBSTANCE_REFERENCE] = $v;
+            $out->{self::FIELD_DEFINING_SUBSTANCE_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getDefiningSubstanceCodeableConcept())) {
-            $a[self::FIELD_DEFINING_SUBSTANCE_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_DEFINING_SUBSTANCE_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getAmountQuantity())) {
-            $a[self::FIELD_AMOUNT_QUANTITY] = $v;
+            $out->{self::FIELD_AMOUNT_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getAmountString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AMOUNT_STRING] = $val;
+                $out->{self::FIELD_AMOUNT_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AMOUNT_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AMOUNT_STRING_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

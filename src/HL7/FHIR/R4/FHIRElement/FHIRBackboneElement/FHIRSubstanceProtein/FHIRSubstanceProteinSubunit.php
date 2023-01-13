@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,9 +116,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * weight. Subunits that have identical sequences will be repeated and have
      * sequential subscripts.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $subunit = null;
+    protected ?FHIRInteger $subunit = null;
 
     /**
      * A sequence of Unicode characters
@@ -133,9 +133,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * letter code an X should be used within the sequence. The modified amino acids
      * will be distinguished by their position in the sequence.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $sequence = null;
+    protected ?FHIRString $sequence = null;
 
     /**
      * A whole number
@@ -144,9 +144,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * Length of linear sequences of amino acids contained in the subunit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $length = null;
+    protected ?FHIRInteger $length = null;
 
     /**
      * For referring to data content defined in other formats.
@@ -163,7 +163,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    protected $sequenceAttachment = null;
+    protected ?FHIRAttachment $sequenceAttachment = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -176,7 +176,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $nTerminalModificationId = null;
+    protected ?FHIRIdentifier $nTerminalModificationId = null;
 
     /**
      * A sequence of Unicode characters
@@ -186,9 +186,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * The name of the fragment modified at the N-terminal of the SubstanceProtein
      * shall be specified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $nTerminalModification = null;
+    protected ?FHIRString $nTerminalModification = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -201,7 +201,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $cTerminalModificationId = null;
+    protected ?FHIRIdentifier $cTerminalModificationId = null;
 
     /**
      * A sequence of Unicode characters
@@ -210,15 +210,15 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * The modification at the C-terminal shall be specified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $cTerminalModification = null;
+    protected ?FHIRString $cTerminalModification = null;
 
     /**
      * Validation map for fields in type SubstanceProtein.Subunit
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceProteinSubunit Constructor
@@ -237,8 +237,8 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SUBUNIT]) || isset($data[self::FIELD_SUBUNIT_EXT])) {
-            $value = isset($data[self::FIELD_SUBUNIT]) ? $data[self::FIELD_SUBUNIT] : null;
-            $ext = (isset($data[self::FIELD_SUBUNIT_EXT]) && is_array($data[self::FIELD_SUBUNIT_EXT])) ? $ext = $data[self::FIELD_SUBUNIT_EXT] : $ext = [];
+            $value = $data[self::FIELD_SUBUNIT] ?? null;
+            $ext = (isset($data[self::FIELD_SUBUNIT_EXT]) && is_array($data[self::FIELD_SUBUNIT_EXT])) ? $data[self::FIELD_SUBUNIT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setSubunit($value);
@@ -252,8 +252,8 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SEQUENCE]) || isset($data[self::FIELD_SEQUENCE_EXT])) {
-            $value = isset($data[self::FIELD_SEQUENCE]) ? $data[self::FIELD_SEQUENCE] : null;
-            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $ext = $data[self::FIELD_SEQUENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEQUENCE] ?? null;
+            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $data[self::FIELD_SEQUENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSequence($value);
@@ -267,8 +267,8 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_LENGTH]) || isset($data[self::FIELD_LENGTH_EXT])) {
-            $value = isset($data[self::FIELD_LENGTH]) ? $data[self::FIELD_LENGTH] : null;
-            $ext = (isset($data[self::FIELD_LENGTH_EXT]) && is_array($data[self::FIELD_LENGTH_EXT])) ? $ext = $data[self::FIELD_LENGTH_EXT] : $ext = [];
+            $value = $data[self::FIELD_LENGTH] ?? null;
+            $ext = (isset($data[self::FIELD_LENGTH_EXT]) && is_array($data[self::FIELD_LENGTH_EXT])) ? $data[self::FIELD_LENGTH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setLength($value);
@@ -296,8 +296,8 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_N_TERMINAL_MODIFICATION]) || isset($data[self::FIELD_N_TERMINAL_MODIFICATION_EXT])) {
-            $value = isset($data[self::FIELD_N_TERMINAL_MODIFICATION]) ? $data[self::FIELD_N_TERMINAL_MODIFICATION] : null;
-            $ext = (isset($data[self::FIELD_N_TERMINAL_MODIFICATION_EXT]) && is_array($data[self::FIELD_N_TERMINAL_MODIFICATION_EXT])) ? $ext = $data[self::FIELD_N_TERMINAL_MODIFICATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_N_TERMINAL_MODIFICATION] ?? null;
+            $ext = (isset($data[self::FIELD_N_TERMINAL_MODIFICATION_EXT]) && is_array($data[self::FIELD_N_TERMINAL_MODIFICATION_EXT])) ? $data[self::FIELD_N_TERMINAL_MODIFICATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setNTerminalModification($value);
@@ -318,8 +318,8 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_C_TERMINAL_MODIFICATION]) || isset($data[self::FIELD_C_TERMINAL_MODIFICATION_EXT])) {
-            $value = isset($data[self::FIELD_C_TERMINAL_MODIFICATION]) ? $data[self::FIELD_C_TERMINAL_MODIFICATION] : null;
-            $ext = (isset($data[self::FIELD_C_TERMINAL_MODIFICATION_EXT]) && is_array($data[self::FIELD_C_TERMINAL_MODIFICATION_EXT])) ? $ext = $data[self::FIELD_C_TERMINAL_MODIFICATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_C_TERMINAL_MODIFICATION] ?? null;
+            $ext = (isset($data[self::FIELD_C_TERMINAL_MODIFICATION_EXT]) && is_array($data[self::FIELD_C_TERMINAL_MODIFICATION_EXT])) ? $data[self::FIELD_C_TERMINAL_MODIFICATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCTerminalModification($value);
@@ -334,11 +334,17 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -358,9 +364,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * weight. Subunits that have identical sequences will be repeated and have
      * sequential subscripts.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getSubunit()
+    public function getSubunit(): ?FHIRInteger
     {
         return $this->subunit;
     }
@@ -375,10 +381,10 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * weight. Subunits that have identical sequences will be repeated and have
      * sequential subscripts.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $subunit
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $subunit
      * @return static
      */
-    public function setSubunit($subunit = null)
+    public function setSubunit($subunit = null): object
     {
         if (null !== $subunit && !($subunit instanceof FHIRInteger)) {
             $subunit = new FHIRInteger($subunit);
@@ -401,9 +407,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * letter code an X should be used within the sequence. The modified amino acids
      * will be distinguished by their position in the sequence.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSequence()
+    public function getSequence(): ?FHIRString
     {
         return $this->sequence;
     }
@@ -421,10 +427,10 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * letter code an X should be used within the sequence. The modified amino acids
      * will be distinguished by their position in the sequence.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $sequence
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $sequence
      * @return static
      */
-    public function setSequence($sequence = null)
+    public function setSequence($sequence = null): object
     {
         if (null !== $sequence && !($sequence instanceof FHIRString)) {
             $sequence = new FHIRString($sequence);
@@ -441,9 +447,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * Length of linear sequences of amino acids contained in the subunit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getLength()
+    public function getLength(): ?FHIRInteger
     {
         return $this->length;
     }
@@ -455,10 +461,10 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * Length of linear sequences of amino acids contained in the subunit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $length
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $length
      * @return static
      */
-    public function setLength($length = null)
+    public function setLength($length = null): object
     {
         if (null !== $length && !($length instanceof FHIRInteger)) {
             $length = new FHIRInteger($length);
@@ -483,7 +489,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    public function getSequenceAttachment()
+    public function getSequenceAttachment(): ?FHIRAttachment
     {
         return $this->sequenceAttachment;
     }
@@ -504,7 +510,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $sequenceAttachment
      * @return static
      */
-    public function setSequenceAttachment(FHIRAttachment $sequenceAttachment = null)
+    public function setSequenceAttachment(?FHIRAttachment $sequenceAttachment = null): object
     {
         $this->_trackValueSet($this->sequenceAttachment, $sequenceAttachment);
         $this->sequenceAttachment = $sequenceAttachment;
@@ -522,7 +528,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getNTerminalModificationId()
+    public function getNTerminalModificationId(): ?FHIRIdentifier
     {
         return $this->nTerminalModificationId;
     }
@@ -539,7 +545,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $nTerminalModificationId
      * @return static
      */
-    public function setNTerminalModificationId(FHIRIdentifier $nTerminalModificationId = null)
+    public function setNTerminalModificationId(?FHIRIdentifier $nTerminalModificationId = null): object
     {
         $this->_trackValueSet($this->nTerminalModificationId, $nTerminalModificationId);
         $this->nTerminalModificationId = $nTerminalModificationId;
@@ -554,9 +560,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * The name of the fragment modified at the N-terminal of the SubstanceProtein
      * shall be specified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getNTerminalModification()
+    public function getNTerminalModification(): ?FHIRString
     {
         return $this->nTerminalModification;
     }
@@ -569,10 +575,10 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * The name of the fragment modified at the N-terminal of the SubstanceProtein
      * shall be specified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $nTerminalModification
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $nTerminalModification
      * @return static
      */
-    public function setNTerminalModification($nTerminalModification = null)
+    public function setNTerminalModification($nTerminalModification = null): object
     {
         if (null !== $nTerminalModification && !($nTerminalModification instanceof FHIRString)) {
             $nTerminalModification = new FHIRString($nTerminalModification);
@@ -593,7 +599,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getCTerminalModificationId()
+    public function getCTerminalModificationId(): ?FHIRIdentifier
     {
         return $this->cTerminalModificationId;
     }
@@ -610,7 +616,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $cTerminalModificationId
      * @return static
      */
-    public function setCTerminalModificationId(FHIRIdentifier $cTerminalModificationId = null)
+    public function setCTerminalModificationId(?FHIRIdentifier $cTerminalModificationId = null): object
     {
         $this->_trackValueSet($this->cTerminalModificationId, $cTerminalModificationId);
         $this->cTerminalModificationId = $cTerminalModificationId;
@@ -624,9 +630,9 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * The modification at the C-terminal shall be specified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCTerminalModification()
+    public function getCTerminalModification(): ?FHIRString
     {
         return $this->cTerminalModification;
     }
@@ -638,10 +644,10 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      *
      * The modification at the C-terminal shall be specified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $cTerminalModification
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $cTerminalModification
      * @return static
      */
-    public function setCTerminalModification($cTerminalModification = null)
+    public function setCTerminalModification($cTerminalModification = null): object
     {
         if (null !== $cTerminalModification && !($cTerminalModification instanceof FHIRString)) {
             $cTerminalModification = new FHIRString($cTerminalModification);
@@ -853,15 +859,15 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceProteinSubunit::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -881,7 +887,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -972,7 +978,7 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1025,70 +1031,73 @@ class FHIRSubstanceProteinSubunit extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSubunit())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SUBUNIT] = $val;
+                $out->{self::FIELD_SUBUNIT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SUBUNIT_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SUBUNIT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSequence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEQUENCE] = $val;
+                $out->{self::FIELD_SEQUENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEQUENCE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEQUENCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLength())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LENGTH] = $val;
+                $out->{self::FIELD_LENGTH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LENGTH_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LENGTH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSequenceAttachment())) {
-            $a[self::FIELD_SEQUENCE_ATTACHMENT] = $v;
+            $out->{self::FIELD_SEQUENCE_ATTACHMENT} = $v;
         }
         if (null !== ($v = $this->getNTerminalModificationId())) {
-            $a[self::FIELD_N_TERMINAL_MODIFICATION_ID] = $v;
+            $out->{self::FIELD_N_TERMINAL_MODIFICATION_ID} = $v;
         }
         if (null !== ($v = $this->getNTerminalModification())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_N_TERMINAL_MODIFICATION] = $val;
+                $out->{self::FIELD_N_TERMINAL_MODIFICATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_N_TERMINAL_MODIFICATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_N_TERMINAL_MODIFICATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCTerminalModificationId())) {
-            $a[self::FIELD_C_TERMINAL_MODIFICATION_ID] = $v;
+            $out->{self::FIELD_C_TERMINAL_MODIFICATION_ID} = $v;
         }
         if (null !== ($v = $this->getCTerminalModification())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_C_TERMINAL_MODIFICATION] = $val;
+                $out->{self::FIELD_C_TERMINAL_MODIFICATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_C_TERMINAL_MODIFICATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_C_TERMINAL_MODIFICATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $lowLimit = null;
+    protected ?FHIRQuantity $lowLimit = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -116,13 +116,13 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $highLimit = null;
+    protected ?FHIRQuantity $highLimit = null;
 
     /**
      * Validation map for fields in type SubstanceAmount.ReferenceRange
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceAmountReferenceRange Constructor
@@ -156,11 +156,17 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -181,7 +187,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getLowLimit()
+    public function getLowLimit(): ?FHIRQuantity
     {
         return $this->lowLimit;
     }
@@ -198,7 +204,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $lowLimit
      * @return static
      */
-    public function setLowLimit(FHIRQuantity $lowLimit = null)
+    public function setLowLimit(?FHIRQuantity $lowLimit = null): object
     {
         $this->_trackValueSet($this->lowLimit, $lowLimit);
         $this->lowLimit = $lowLimit;
@@ -216,7 +222,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getHighLimit()
+    public function getHighLimit(): ?FHIRQuantity
     {
         return $this->highLimit;
     }
@@ -233,7 +239,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $highLimit
      * @return static
      */
-    public function setHighLimit(FHIRQuantity $highLimit = null)
+    public function setHighLimit(?FHIRQuantity $highLimit = null): object
     {
         $this->_trackValueSet($this->highLimit, $highLimit);
         $this->highLimit = $highLimit;
@@ -340,15 +346,15 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount\FHIRSubstanceAmountReferenceRange
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount\FHIRSubstanceAmountReferenceRange    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceAmountReferenceRange::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -368,7 +374,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -402,7 +408,7 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -425,17 +431,20 @@ class FHIRSubstanceAmountReferenceRange extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getLowLimit())) {
-            $a[self::FIELD_LOW_LIMIT] = $v;
+            $out->{self::FIELD_LOW_LIMIT} = $v;
         }
         if (null !== ($v = $this->getHighLimit())) {
-            $a[self::FIELD_HIGH_LIMIT] = $v;
+            $out->{self::FIELD_HIGH_LIMIT} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

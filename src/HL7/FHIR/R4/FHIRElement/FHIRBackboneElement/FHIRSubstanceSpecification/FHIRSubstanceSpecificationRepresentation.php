@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -110,9 +110,9 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * The structural representation as text string in a format e.g. InChI, SMILES,
      * MOLFILE, CDX.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $representation = null;
+    protected ?FHIRString $representation = null;
 
     /**
      * For referring to data content defined in other formats.
@@ -123,13 +123,13 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    protected $attachment = null;
+    protected ?FHIRAttachment $attachment = null;
 
     /**
      * Validation map for fields in type SubstanceSpecification.Representation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceSpecificationRepresentation Constructor
@@ -155,8 +155,8 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REPRESENTATION]) || isset($data[self::FIELD_REPRESENTATION_EXT])) {
-            $value = isset($data[self::FIELD_REPRESENTATION]) ? $data[self::FIELD_REPRESENTATION] : null;
-            $ext = (isset($data[self::FIELD_REPRESENTATION_EXT]) && is_array($data[self::FIELD_REPRESENTATION_EXT])) ? $ext = $data[self::FIELD_REPRESENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_REPRESENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_REPRESENTATION_EXT]) && is_array($data[self::FIELD_REPRESENTATION_EXT])) ? $data[self::FIELD_REPRESENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setRepresentation($value);
@@ -178,11 +178,17 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -202,7 +208,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -218,7 +224,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -233,9 +239,9 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * The structural representation as text string in a format e.g. InChI, SMILES,
      * MOLFILE, CDX.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getRepresentation()
+    public function getRepresentation(): ?FHIRString
     {
         return $this->representation;
     }
@@ -248,10 +254,10 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * The structural representation as text string in a format e.g. InChI, SMILES,
      * MOLFILE, CDX.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $representation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $representation
      * @return static
      */
-    public function setRepresentation($representation = null)
+    public function setRepresentation($representation = null): object
     {
         if (null !== $representation && !($representation instanceof FHIRString)) {
             $representation = new FHIRString($representation);
@@ -270,7 +276,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    public function getAttachment()
+    public function getAttachment(): ?FHIRAttachment
     {
         return $this->attachment;
     }
@@ -285,7 +291,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $attachment
      * @return static
      */
-    public function setAttachment(FHIRAttachment $attachment = null)
+    public function setAttachment(?FHIRAttachment $attachment = null): object
     {
         $this->_trackValueSet($this->attachment, $attachment);
         $this->attachment = $attachment;
@@ -409,15 +415,15 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationRepresentation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationRepresentation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceSpecificationRepresentation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -437,7 +443,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -482,7 +488,7 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -510,27 +516,30 @@ class FHIRSubstanceSpecificationRepresentation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getRepresentation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REPRESENTATION] = $val;
+                $out->{self::FIELD_REPRESENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REPRESENTATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REPRESENTATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAttachment())) {
-            $a[self::FIELD_ATTACHMENT] = $v;
+            $out->{self::FIELD_ATTACHMENT} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

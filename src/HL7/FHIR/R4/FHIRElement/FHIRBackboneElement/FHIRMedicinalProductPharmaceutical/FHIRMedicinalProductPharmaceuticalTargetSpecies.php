@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharma
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,7 +95,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A pharmaceutical product described in terms of its composition and dose form.
@@ -105,13 +105,13 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalWithdrawalPeriod[]
      */
-    protected $withdrawalPeriod = [];
+    protected ?array $withdrawalPeriod = [];
 
     /**
      * Validation map for fields in type MedicinalProductPharmaceutical.TargetSpecies
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductPharmaceuticalTargetSpecies Constructor
@@ -156,11 +156,17 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -180,7 +186,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -196,7 +202,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -211,7 +217,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalWithdrawalPeriod[]
      */
-    public function getWithdrawalPeriod()
+    public function getWithdrawalPeriod(): ?array
     {
         return $this->withdrawalPeriod;
     }
@@ -225,7 +231,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalWithdrawalPeriod $withdrawalPeriod
      * @return static
      */
-    public function addWithdrawalPeriod(FHIRMedicinalProductPharmaceuticalWithdrawalPeriod $withdrawalPeriod = null)
+    public function addWithdrawalPeriod(?FHIRMedicinalProductPharmaceuticalWithdrawalPeriod $withdrawalPeriod = null): object
     {
         $this->_trackValueAdded();
         $this->withdrawalPeriod[] = $withdrawalPeriod;
@@ -241,7 +247,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalWithdrawalPeriod[] $withdrawalPeriod
      * @return static
      */
-    public function setWithdrawalPeriod(array $withdrawalPeriod = [])
+    public function setWithdrawalPeriod(array $withdrawalPeriod = []): object
     {
         if ([] !== $this->withdrawalPeriod) {
             $this->_trackValuesRemoved(count($this->withdrawalPeriod));
@@ -362,15 +368,15 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductPharmaceuticalTargetSpecies::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -390,7 +396,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -424,7 +430,7 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -452,23 +458,26 @@ class FHIRMedicinalProductPharmaceuticalTargetSpecies extends FHIRBackboneElemen
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if ([] !== ($vs = $this->getWithdrawalPeriod())) {
-            $a[self::FIELD_WITHDRAWAL_PERIOD] = [];
+            $out->{self::FIELD_WITHDRAWAL_PERIOD} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_WITHDRAWAL_PERIOD][] = $v;
+                $out->{self::FIELD_WITHDRAWAL_PERIOD}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

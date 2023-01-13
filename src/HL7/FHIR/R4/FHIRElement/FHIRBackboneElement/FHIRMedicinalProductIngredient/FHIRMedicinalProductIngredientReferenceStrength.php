@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngred
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $substance = null;
+    protected ?FHIRCodeableConcept $substance = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -113,7 +113,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $strength = null;
+    protected ?FHIRRatio $strength = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -125,7 +125,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $strengthLowLimit = null;
+    protected ?FHIRRatio $strengthLowLimit = null;
 
     /**
      * A sequence of Unicode characters
@@ -134,9 +134,9 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * For when strength is measured at a particular point or distance.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $measurementPoint = null;
+    protected ?FHIRString $measurementPoint = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -148,13 +148,13 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $country = [];
+    protected ?array $country = [];
 
     /**
      * Validation map for fields in type MedicinalProductIngredient.ReferenceStrength
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductIngredientReferenceStrength Constructor
@@ -194,8 +194,8 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
             }
         }
         if (isset($data[self::FIELD_MEASUREMENT_POINT]) || isset($data[self::FIELD_MEASUREMENT_POINT_EXT])) {
-            $value = isset($data[self::FIELD_MEASUREMENT_POINT]) ? $data[self::FIELD_MEASUREMENT_POINT] : null;
-            $ext = (isset($data[self::FIELD_MEASUREMENT_POINT_EXT]) && is_array($data[self::FIELD_MEASUREMENT_POINT_EXT])) ? $ext = $data[self::FIELD_MEASUREMENT_POINT_EXT] : $ext = [];
+            $value = $data[self::FIELD_MEASUREMENT_POINT] ?? null;
+            $ext = (isset($data[self::FIELD_MEASUREMENT_POINT_EXT]) && is_array($data[self::FIELD_MEASUREMENT_POINT_EXT])) ? $data[self::FIELD_MEASUREMENT_POINT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setMeasurementPoint($value);
@@ -228,11 +228,17 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -252,7 +258,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSubstance()
+    public function getSubstance(): ?FHIRCodeableConcept
     {
         return $this->substance;
     }
@@ -268,7 +274,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $substance
      * @return static
      */
-    public function setSubstance(FHIRCodeableConcept $substance = null)
+    public function setSubstance(?FHIRCodeableConcept $substance = null): object
     {
         $this->_trackValueSet($this->substance, $substance);
         $this->substance = $substance;
@@ -285,7 +291,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getStrength()
+    public function getStrength(): ?FHIRRatio
     {
         return $this->strength;
     }
@@ -301,7 +307,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $strength
      * @return static
      */
-    public function setStrength(FHIRRatio $strength = null)
+    public function setStrength(?FHIRRatio $strength = null): object
     {
         $this->_trackValueSet($this->strength, $strength);
         $this->strength = $strength;
@@ -318,7 +324,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getStrengthLowLimit()
+    public function getStrengthLowLimit(): ?FHIRRatio
     {
         return $this->strengthLowLimit;
     }
@@ -334,7 +340,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $strengthLowLimit
      * @return static
      */
-    public function setStrengthLowLimit(FHIRRatio $strengthLowLimit = null)
+    public function setStrengthLowLimit(?FHIRRatio $strengthLowLimit = null): object
     {
         $this->_trackValueSet($this->strengthLowLimit, $strengthLowLimit);
         $this->strengthLowLimit = $strengthLowLimit;
@@ -348,9 +354,9 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * For when strength is measured at a particular point or distance.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getMeasurementPoint()
+    public function getMeasurementPoint(): ?FHIRString
     {
         return $this->measurementPoint;
     }
@@ -362,10 +368,10 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * For when strength is measured at a particular point or distance.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $measurementPoint
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $measurementPoint
      * @return static
      */
-    public function setMeasurementPoint($measurementPoint = null)
+    public function setMeasurementPoint($measurementPoint = null): object
     {
         if (null !== $measurementPoint && !($measurementPoint instanceof FHIRString)) {
             $measurementPoint = new FHIRString($measurementPoint);
@@ -385,7 +391,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCountry()
+    public function getCountry(): ?array
     {
         return $this->country;
     }
@@ -401,7 +407,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $country
      * @return static
      */
-    public function addCountry(FHIRCodeableConcept $country = null)
+    public function addCountry(?FHIRCodeableConcept $country = null): object
     {
         $this->_trackValueAdded();
         $this->country[] = $country;
@@ -419,7 +425,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $country
      * @return static
      */
-    public function setCountry(array $country = [])
+    public function setCountry(array $country = []): object
     {
         if ([] !== $this->country) {
             $this->_trackValuesRemoved(count($this->country));
@@ -591,15 +597,15 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientReferenceStrength
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientReferenceStrength    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductIngredientReferenceStrength::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -619,7 +625,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -668,7 +674,7 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -711,39 +717,42 @@ class FHIRMedicinalProductIngredientReferenceStrength extends FHIRBackboneElemen
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSubstance())) {
-            $a[self::FIELD_SUBSTANCE] = $v;
+            $out->{self::FIELD_SUBSTANCE} = $v;
         }
         if (null !== ($v = $this->getStrength())) {
-            $a[self::FIELD_STRENGTH] = $v;
+            $out->{self::FIELD_STRENGTH} = $v;
         }
         if (null !== ($v = $this->getStrengthLowLimit())) {
-            $a[self::FIELD_STRENGTH_LOW_LIMIT] = $v;
+            $out->{self::FIELD_STRENGTH_LOW_LIMIT} = $v;
         }
         if (null !== ($v = $this->getMeasurementPoint())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MEASUREMENT_POINT] = $val;
+                $out->{self::FIELD_MEASUREMENT_POINT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MEASUREMENT_POINT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MEASUREMENT_POINT_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getCountry())) {
-            $a[self::FIELD_COUNTRY] = [];
+            $out->{self::FIELD_COUNTRY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COUNTRY][] = $v;
+                $out->{self::FIELD_COUNTRY}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

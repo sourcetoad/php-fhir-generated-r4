@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityRes
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -118,7 +118,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -130,7 +130,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $productOrService = null;
+    protected ?FHIRCodeableConcept $productOrService = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -143,7 +143,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $modifier = [];
+    protected ?array $modifier = [];
 
     /**
      * A reference from one resource to another.
@@ -154,7 +154,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $provider = null;
+    protected ?FHIRReference $provider = null;
 
     /**
      * Value of "true" or "false"
@@ -163,9 +163,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * True if the indicated class of service is excluded from the plan, missing or
      * False indicates the product or service is included in the coverage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $excluded = null;
+    protected ?FHIRBoolean $excluded = null;
 
     /**
      * A sequence of Unicode characters
@@ -174,9 +174,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A short name or tag for the benefit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -185,9 +185,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A richer description of the benefit or services covered.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -200,7 +200,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $network = null;
+    protected ?FHIRCodeableConcept $network = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -212,7 +212,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $unit = null;
+    protected ?FHIRCodeableConcept $unit = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -225,7 +225,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $term = null;
+    protected ?FHIRCodeableConcept $term = null;
 
     /**
      * This resource provides eligibility and plan details from the processing of an
@@ -235,7 +235,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseBenefit[]
      */
-    protected $benefit = [];
+    protected ?array $benefit = [];
 
     /**
      * Value of "true" or "false"
@@ -244,9 +244,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A boolean flag indicating whether a preauthorization is required prior to actual
      * service delivery.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $authorizationRequired = null;
+    protected ?FHIRBoolean $authorizationRequired = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -259,7 +259,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $authorizationSupporting = [];
+    protected ?array $authorizationSupporting = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -269,15 +269,15 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A web location for obtaining requirements or descriptive information regarding
      * the preauthorization.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $authorizationUrl = null;
+    protected ?FHIRUri $authorizationUrl = null;
 
     /**
      * Validation map for fields in type CoverageEligibilityResponse.Item
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCoverageEligibilityResponseItem Constructor
@@ -335,8 +335,8 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXCLUDED]) || isset($data[self::FIELD_EXCLUDED_EXT])) {
-            $value = isset($data[self::FIELD_EXCLUDED]) ? $data[self::FIELD_EXCLUDED] : null;
-            $ext = (isset($data[self::FIELD_EXCLUDED_EXT]) && is_array($data[self::FIELD_EXCLUDED_EXT])) ? $ext = $data[self::FIELD_EXCLUDED_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXCLUDED] ?? null;
+            $ext = (isset($data[self::FIELD_EXCLUDED_EXT]) && is_array($data[self::FIELD_EXCLUDED_EXT])) ? $data[self::FIELD_EXCLUDED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExcluded($value);
@@ -350,8 +350,8 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -365,8 +365,8 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -419,8 +419,8 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_AUTHORIZATION_REQUIRED]) || isset($data[self::FIELD_AUTHORIZATION_REQUIRED_EXT])) {
-            $value = isset($data[self::FIELD_AUTHORIZATION_REQUIRED]) ? $data[self::FIELD_AUTHORIZATION_REQUIRED] : null;
-            $ext = (isset($data[self::FIELD_AUTHORIZATION_REQUIRED_EXT]) && is_array($data[self::FIELD_AUTHORIZATION_REQUIRED_EXT])) ? $ext = $data[self::FIELD_AUTHORIZATION_REQUIRED_EXT] : $ext = [];
+            $value = $data[self::FIELD_AUTHORIZATION_REQUIRED] ?? null;
+            $ext = (isset($data[self::FIELD_AUTHORIZATION_REQUIRED_EXT]) && is_array($data[self::FIELD_AUTHORIZATION_REQUIRED_EXT])) ? $data[self::FIELD_AUTHORIZATION_REQUIRED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAuthorizationRequired($value);
@@ -452,8 +452,8 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_AUTHORIZATION_URL]) || isset($data[self::FIELD_AUTHORIZATION_URL_EXT])) {
-            $value = isset($data[self::FIELD_AUTHORIZATION_URL]) ? $data[self::FIELD_AUTHORIZATION_URL] : null;
-            $ext = (isset($data[self::FIELD_AUTHORIZATION_URL_EXT]) && is_array($data[self::FIELD_AUTHORIZATION_URL_EXT])) ? $ext = $data[self::FIELD_AUTHORIZATION_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_AUTHORIZATION_URL] ?? null;
+            $ext = (isset($data[self::FIELD_AUTHORIZATION_URL_EXT]) && is_array($data[self::FIELD_AUTHORIZATION_URL_EXT])) ? $data[self::FIELD_AUTHORIZATION_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setAuthorizationUrl($value);
@@ -468,11 +468,17 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -493,7 +499,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -510,7 +516,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -527,7 +533,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getProductOrService()
+    public function getProductOrService(): ?FHIRCodeableConcept
     {
         return $this->productOrService;
     }
@@ -543,7 +549,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $productOrService
      * @return static
      */
-    public function setProductOrService(FHIRCodeableConcept $productOrService = null)
+    public function setProductOrService(?FHIRCodeableConcept $productOrService = null): object
     {
         $this->_trackValueSet($this->productOrService, $productOrService);
         $this->productOrService = $productOrService;
@@ -561,7 +567,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getModifier()
+    public function getModifier(): ?array
     {
         return $this->modifier;
     }
@@ -578,7 +584,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $modifier
      * @return static
      */
-    public function addModifier(FHIRCodeableConcept $modifier = null)
+    public function addModifier(?FHIRCodeableConcept $modifier = null): object
     {
         $this->_trackValueAdded();
         $this->modifier[] = $modifier;
@@ -597,7 +603,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $modifier
      * @return static
      */
-    public function setModifier(array $modifier = [])
+    public function setModifier(array $modifier = []): object
     {
         if ([] !== $this->modifier) {
             $this->_trackValuesRemoved(count($this->modifier));
@@ -625,7 +631,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProvider()
+    public function getProvider(): ?FHIRReference
     {
         return $this->provider;
     }
@@ -640,7 +646,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $provider
      * @return static
      */
-    public function setProvider(FHIRReference $provider = null)
+    public function setProvider(?FHIRReference $provider = null): object
     {
         $this->_trackValueSet($this->provider, $provider);
         $this->provider = $provider;
@@ -654,9 +660,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * True if the indicated class of service is excluded from the plan, missing or
      * False indicates the product or service is included in the coverage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExcluded()
+    public function getExcluded(): ?FHIRBoolean
     {
         return $this->excluded;
     }
@@ -668,10 +674,10 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * True if the indicated class of service is excluded from the plan, missing or
      * False indicates the product or service is included in the coverage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $excluded
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $excluded
      * @return static
      */
-    public function setExcluded($excluded = null)
+    public function setExcluded($excluded = null): object
     {
         if (null !== $excluded && !($excluded instanceof FHIRBoolean)) {
             $excluded = new FHIRBoolean($excluded);
@@ -688,9 +694,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A short name or tag for the benefit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -702,10 +708,10 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A short name or tag for the benefit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -722,9 +728,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A richer description of the benefit or services covered.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -736,10 +742,10 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * A richer description of the benefit or services covered.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -760,7 +766,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getNetwork()
+    public function getNetwork(): ?FHIRCodeableConcept
     {
         return $this->network;
     }
@@ -777,7 +783,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $network
      * @return static
      */
-    public function setNetwork(FHIRCodeableConcept $network = null)
+    public function setNetwork(?FHIRCodeableConcept $network = null): object
     {
         $this->_trackValueSet($this->network, $network);
         $this->network = $network;
@@ -794,7 +800,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getUnit()
+    public function getUnit(): ?FHIRCodeableConcept
     {
         return $this->unit;
     }
@@ -810,7 +816,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $unit
      * @return static
      */
-    public function setUnit(FHIRCodeableConcept $unit = null)
+    public function setUnit(?FHIRCodeableConcept $unit = null): object
     {
         $this->_trackValueSet($this->unit, $unit);
         $this->unit = $unit;
@@ -828,7 +834,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getTerm()
+    public function getTerm(): ?FHIRCodeableConcept
     {
         return $this->term;
     }
@@ -845,7 +851,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $term
      * @return static
      */
-    public function setTerm(FHIRCodeableConcept $term = null)
+    public function setTerm(?FHIRCodeableConcept $term = null): object
     {
         $this->_trackValueSet($this->term, $term);
         $this->term = $term;
@@ -860,7 +866,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseBenefit[]
      */
-    public function getBenefit()
+    public function getBenefit(): ?array
     {
         return $this->benefit;
     }
@@ -874,7 +880,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseBenefit $benefit
      * @return static
      */
-    public function addBenefit(FHIRCoverageEligibilityResponseBenefit $benefit = null)
+    public function addBenefit(?FHIRCoverageEligibilityResponseBenefit $benefit = null): object
     {
         $this->_trackValueAdded();
         $this->benefit[] = $benefit;
@@ -890,7 +896,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseBenefit[] $benefit
      * @return static
      */
-    public function setBenefit(array $benefit = [])
+    public function setBenefit(array $benefit = []): object
     {
         if ([] !== $this->benefit) {
             $this->_trackValuesRemoved(count($this->benefit));
@@ -916,9 +922,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A boolean flag indicating whether a preauthorization is required prior to actual
      * service delivery.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAuthorizationRequired()
+    public function getAuthorizationRequired(): ?FHIRBoolean
     {
         return $this->authorizationRequired;
     }
@@ -930,10 +936,10 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A boolean flag indicating whether a preauthorization is required prior to actual
      * service delivery.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $authorizationRequired
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $authorizationRequired
      * @return static
      */
-    public function setAuthorizationRequired($authorizationRequired = null)
+    public function setAuthorizationRequired($authorizationRequired = null): object
     {
         if (null !== $authorizationRequired && !($authorizationRequired instanceof FHIRBoolean)) {
             $authorizationRequired = new FHIRBoolean($authorizationRequired);
@@ -954,7 +960,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAuthorizationSupporting()
+    public function getAuthorizationSupporting(): ?array
     {
         return $this->authorizationSupporting;
     }
@@ -971,7 +977,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $authorizationSupporting
      * @return static
      */
-    public function addAuthorizationSupporting(FHIRCodeableConcept $authorizationSupporting = null)
+    public function addAuthorizationSupporting(?FHIRCodeableConcept $authorizationSupporting = null): object
     {
         $this->_trackValueAdded();
         $this->authorizationSupporting[] = $authorizationSupporting;
@@ -990,7 +996,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $authorizationSupporting
      * @return static
      */
-    public function setAuthorizationSupporting(array $authorizationSupporting = [])
+    public function setAuthorizationSupporting(array $authorizationSupporting = []): object
     {
         if ([] !== $this->authorizationSupporting) {
             $this->_trackValuesRemoved(count($this->authorizationSupporting));
@@ -1017,9 +1023,9 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A web location for obtaining requirements or descriptive information regarding
      * the preauthorization.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getAuthorizationUrl()
+    public function getAuthorizationUrl(): ?FHIRUri
     {
         return $this->authorizationUrl;
     }
@@ -1032,10 +1038,10 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * A web location for obtaining requirements or descriptive information regarding
      * the preauthorization.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $authorizationUrl
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $authorizationUrl
      * @return static
      */
-    public function setAuthorizationUrl($authorizationUrl = null)
+    public function setAuthorizationUrl($authorizationUrl = null): object
     {
         if (null !== $authorizationUrl && !($authorizationUrl instanceof FHIRUri)) {
             $authorizationUrl = new FHIRUri($authorizationUrl);
@@ -1355,15 +1361,15 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseItem
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCoverageEligibilityResponse\FHIRCoverageEligibilityResponseItem    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCoverageEligibilityResponseItem::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1383,7 +1389,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1486,7 +1492,7 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1584,106 +1590,109 @@ class FHIRCoverageEligibilityResponseItem extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getProductOrService())) {
-            $a[self::FIELD_PRODUCT_OR_SERVICE] = $v;
+            $out->{self::FIELD_PRODUCT_OR_SERVICE} = $v;
         }
         if ([] !== ($vs = $this->getModifier())) {
-            $a[self::FIELD_MODIFIER] = [];
+            $out->{self::FIELD_MODIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_MODIFIER][] = $v;
+                $out->{self::FIELD_MODIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getProvider())) {
-            $a[self::FIELD_PROVIDER] = $v;
+            $out->{self::FIELD_PROVIDER} = $v;
         }
         if (null !== ($v = $this->getExcluded())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXCLUDED] = $val;
+                $out->{self::FIELD_EXCLUDED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXCLUDED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXCLUDED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNetwork())) {
-            $a[self::FIELD_NETWORK] = $v;
+            $out->{self::FIELD_NETWORK} = $v;
         }
         if (null !== ($v = $this->getUnit())) {
-            $a[self::FIELD_UNIT] = $v;
+            $out->{self::FIELD_UNIT} = $v;
         }
         if (null !== ($v = $this->getTerm())) {
-            $a[self::FIELD_TERM] = $v;
+            $out->{self::FIELD_TERM} = $v;
         }
         if ([] !== ($vs = $this->getBenefit())) {
-            $a[self::FIELD_BENEFIT] = [];
+            $out->{self::FIELD_BENEFIT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BENEFIT][] = $v;
+                $out->{self::FIELD_BENEFIT}[] = $v;
             }
         }
         if (null !== ($v = $this->getAuthorizationRequired())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AUTHORIZATION_REQUIRED] = $val;
+                $out->{self::FIELD_AUTHORIZATION_REQUIRED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AUTHORIZATION_REQUIRED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AUTHORIZATION_REQUIRED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAuthorizationSupporting())) {
-            $a[self::FIELD_AUTHORIZATION_SUPPORTING] = [];
+            $out->{self::FIELD_AUTHORIZATION_SUPPORTING} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AUTHORIZATION_SUPPORTING][] = $v;
+                $out->{self::FIELD_AUTHORIZATION_SUPPORTING}[] = $v;
             }
         }
         if (null !== ($v = $this->getAuthorizationUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AUTHORIZATION_URL] = $val;
+                $out->{self::FIELD_AUTHORIZATION_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AUTHORIZATION_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AUTHORIZATION_URL_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

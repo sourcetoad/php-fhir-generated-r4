@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,9 +102,9 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * A number to uniquely identify care team entries.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $sequence = null;
+    protected ?FHIRPositiveInt $sequence = null;
 
     /**
      * A reference from one resource to another.
@@ -115,7 +115,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $provider = null;
+    protected ?FHIRReference $provider = null;
 
     /**
      * Value of "true" or "false"
@@ -124,9 +124,9 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * The party who is billing and/or responsible for the claimed products or
      * services.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $responsible = null;
+    protected ?FHIRBoolean $responsible = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -139,7 +139,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $role = null;
+    protected ?FHIRCodeableConcept $role = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -151,13 +151,13 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $qualification = null;
+    protected ?FHIRCodeableConcept $qualification = null;
 
     /**
      * Validation map for fields in type Claim.CareTeam
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRClaimCareTeam Constructor
@@ -176,8 +176,8 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SEQUENCE]) || isset($data[self::FIELD_SEQUENCE_EXT])) {
-            $value = isset($data[self::FIELD_SEQUENCE]) ? $data[self::FIELD_SEQUENCE] : null;
-            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $ext = $data[self::FIELD_SEQUENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEQUENCE] ?? null;
+            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $data[self::FIELD_SEQUENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setSequence($value);
@@ -198,8 +198,8 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESPONSIBLE]) || isset($data[self::FIELD_RESPONSIBLE_EXT])) {
-            $value = isset($data[self::FIELD_RESPONSIBLE]) ? $data[self::FIELD_RESPONSIBLE] : null;
-            $ext = (isset($data[self::FIELD_RESPONSIBLE_EXT]) && is_array($data[self::FIELD_RESPONSIBLE_EXT])) ? $ext = $data[self::FIELD_RESPONSIBLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESPONSIBLE] ?? null;
+            $ext = (isset($data[self::FIELD_RESPONSIBLE_EXT]) && is_array($data[self::FIELD_RESPONSIBLE_EXT])) ? $data[self::FIELD_RESPONSIBLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setResponsible($value);
@@ -228,11 +228,17 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -249,9 +255,9 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * A number to uniquely identify care team entries.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getSequence()
+    public function getSequence(): ?FHIRPositiveInt
     {
         return $this->sequence;
     }
@@ -263,10 +269,10 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * A number to uniquely identify care team entries.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
      * @return static
      */
-    public function setSequence($sequence = null)
+    public function setSequence($sequence = null): object
     {
         if (null !== $sequence && !($sequence instanceof FHIRPositiveInt)) {
             $sequence = new FHIRPositiveInt($sequence);
@@ -285,7 +291,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProvider()
+    public function getProvider(): ?FHIRReference
     {
         return $this->provider;
     }
@@ -300,7 +306,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $provider
      * @return static
      */
-    public function setProvider(FHIRReference $provider = null)
+    public function setProvider(?FHIRReference $provider = null): object
     {
         $this->_trackValueSet($this->provider, $provider);
         $this->provider = $provider;
@@ -314,9 +320,9 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * The party who is billing and/or responsible for the claimed products or
      * services.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getResponsible()
+    public function getResponsible(): ?FHIRBoolean
     {
         return $this->responsible;
     }
@@ -328,10 +334,10 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * The party who is billing and/or responsible for the claimed products or
      * services.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $responsible
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $responsible
      * @return static
      */
-    public function setResponsible($responsible = null)
+    public function setResponsible($responsible = null): object
     {
         if (null !== $responsible && !($responsible instanceof FHIRBoolean)) {
             $responsible = new FHIRBoolean($responsible);
@@ -352,7 +358,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRole()
+    public function getRole(): ?FHIRCodeableConcept
     {
         return $this->role;
     }
@@ -369,7 +375,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $role
      * @return static
      */
-    public function setRole(FHIRCodeableConcept $role = null)
+    public function setRole(?FHIRCodeableConcept $role = null): object
     {
         $this->_trackValueSet($this->role, $role);
         $this->role = $role;
@@ -386,7 +392,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getQualification()
+    public function getQualification(): ?FHIRCodeableConcept
     {
         return $this->qualification;
     }
@@ -402,7 +408,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $qualification
      * @return static
      */
-    public function setQualification(FHIRCodeableConcept $qualification = null)
+    public function setQualification(?FHIRCodeableConcept $qualification = null): object
     {
         $this->_trackValueSet($this->qualification, $qualification);
         $this->qualification = $qualification;
@@ -560,15 +566,15 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim\FHIRClaimCareTeam
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim\FHIRClaimCareTeam    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRClaimCareTeam::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -588,7 +594,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -646,7 +652,7 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -684,40 +690,43 @@ class FHIRClaimCareTeam extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEQUENCE] = $val;
+                $out->{self::FIELD_SEQUENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEQUENCE_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEQUENCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProvider())) {
-            $a[self::FIELD_PROVIDER] = $v;
+            $out->{self::FIELD_PROVIDER} = $v;
         }
         if (null !== ($v = $this->getResponsible())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESPONSIBLE] = $val;
+                $out->{self::FIELD_RESPONSIBLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESPONSIBLE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESPONSIBLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRole())) {
-            $a[self::FIELD_ROLE] = $v;
+            $out->{self::FIELD_ROLE} = $v;
         }
         if (null !== ($v = $this->getQualification())) {
-            $a[self::FIELD_QUALIFICATION] = $v;
+            $out->{self::FIELD_QUALIFICATION} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

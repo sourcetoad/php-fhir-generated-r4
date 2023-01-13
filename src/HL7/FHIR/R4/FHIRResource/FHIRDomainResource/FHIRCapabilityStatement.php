@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -165,9 +165,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the capability statement is stored on different
      * servers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A sequence of Unicode characters
@@ -181,9 +181,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A sequence of Unicode characters
@@ -194,9 +194,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -205,9 +205,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the capability statement.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -217,7 +217,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * Value of "true" or "false"
@@ -227,9 +227,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $experimental = null;
+    protected ?FHIRBoolean $experimental = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -244,9 +244,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the capability statement changes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -256,9 +256,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the capability
      * statement.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $publisher = null;
+    protected ?FHIRString $publisher = null;
 
     /**
      * Specifies contact information for a person or organization.
@@ -270,7 +270,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -286,9 +286,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * describes a desired rather than an actual solution, for example as a formal
      * expression of requirements as part of an RFP.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $description = null;
+    protected ?FHIRMarkdown $description = null;
 
     /**
      * Specifies clinical/business/etc. metadata that can be used to retrieve, index
@@ -306,7 +306,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    protected $useContext = [];
+    protected ?array $useContext = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -319,7 +319,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -333,9 +333,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this capability statement is needed and why it has been
      * designed as it has.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $purpose = null;
+    protected ?FHIRMarkdown $purpose = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -350,9 +350,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the capability statement.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $copyright = null;
+    protected ?FHIRMarkdown $copyright = null;
 
     /**
      * How a capability statement is intended to be used.
@@ -364,7 +364,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCapabilityStatementKind
      */
-    protected $kind = null;
+    protected ?FHIRCapabilityStatementKind $kind = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -378,9 +378,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * the capability statement it claims to implement, so the capability statement
      * must specify the full capability details.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $instantiates = [];
+    protected ?array $instantiates = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -393,9 +393,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * statement, and it is not duplicated, though the server may repeat the same
      * resources, interactions and operations to add additional details to them.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $imports = [];
+    protected ?array $imports = [];
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -409,7 +409,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementSoftware
      */
-    protected $software = null;
+    protected ?FHIRCapabilityStatementSoftware $software = null;
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -423,7 +423,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementImplementation
      */
-    protected $implementation = null;
+    protected ?FHIRCapabilityStatementImplementation $implementation = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -434,7 +434,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion
      */
-    protected $fhirVersion = null;
+    protected ?FHIRFHIRVersion $fhirVersion = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -445,9 +445,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the formats supported by this implementation using their content
      * types.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    protected $format = [];
+    protected ?array $format = [];
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -458,9 +458,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the patch formats supported by this implementation using their content
      * types.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    protected $patchFormat = [];
+    protected ?array $patchFormat = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -471,9 +471,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of implementation guides that the server does (or should) support in
      * their entirety.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $implementationGuide = [];
+    protected ?array $implementationGuide = [];
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -485,7 +485,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementRest[]
      */
-    protected $rest = [];
+    protected ?array $rest = [];
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -497,7 +497,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementMessaging[]
      */
-    protected $messaging = [];
+    protected ?array $messaging = [];
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -509,13 +509,13 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementDocument[]
      */
-    protected $document = [];
+    protected ?array $document = [];
 
     /**
      * Validation map for fields in type CapabilityStatement
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_FORMAT => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -538,8 +538,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -553,8 +553,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -568,8 +568,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -583,8 +583,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -598,8 +598,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -613,8 +613,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_EXPERIMENTAL]) || isset($data[self::FIELD_EXPERIMENTAL_EXT])) {
-            $value = isset($data[self::FIELD_EXPERIMENTAL]) ? $data[self::FIELD_EXPERIMENTAL] : null;
-            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $ext = $data[self::FIELD_EXPERIMENTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPERIMENTAL] ?? null;
+            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $data[self::FIELD_EXPERIMENTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExperimental($value);
@@ -628,8 +628,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -643,8 +643,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_PUBLISHER]) || isset($data[self::FIELD_PUBLISHER_EXT])) {
-            $value = isset($data[self::FIELD_PUBLISHER]) ? $data[self::FIELD_PUBLISHER] : null;
-            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $ext = $data[self::FIELD_PUBLISHER_EXT] : $ext = [];
+            $value = $data[self::FIELD_PUBLISHER] ?? null;
+            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $data[self::FIELD_PUBLISHER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPublisher($value);
@@ -676,8 +676,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setDescription($value);
@@ -727,8 +727,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_PURPOSE]) || isset($data[self::FIELD_PURPOSE_EXT])) {
-            $value = isset($data[self::FIELD_PURPOSE]) ? $data[self::FIELD_PURPOSE] : null;
-            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $ext = $data[self::FIELD_PURPOSE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PURPOSE] ?? null;
+            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $data[self::FIELD_PURPOSE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setPurpose($value);
@@ -742,8 +742,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_COPYRIGHT]) || isset($data[self::FIELD_COPYRIGHT_EXT])) {
-            $value = isset($data[self::FIELD_COPYRIGHT]) ? $data[self::FIELD_COPYRIGHT] : null;
-            $ext = (isset($data[self::FIELD_COPYRIGHT_EXT]) && is_array($data[self::FIELD_COPYRIGHT_EXT])) ? $ext = $data[self::FIELD_COPYRIGHT_EXT] : $ext = [];
+            $value = $data[self::FIELD_COPYRIGHT] ?? null;
+            $ext = (isset($data[self::FIELD_COPYRIGHT_EXT]) && is_array($data[self::FIELD_COPYRIGHT_EXT])) ? $data[self::FIELD_COPYRIGHT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setCopyright($value);
@@ -757,8 +757,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_KIND]) || isset($data[self::FIELD_KIND_EXT])) {
-            $value = isset($data[self::FIELD_KIND]) ? $data[self::FIELD_KIND] : null;
-            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $ext = $data[self::FIELD_KIND_EXT] : $ext = [];
+            $value = $data[self::FIELD_KIND] ?? null;
+            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $data[self::FIELD_KIND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCapabilityStatementKind) {
                     $this->setKind($value);
@@ -772,8 +772,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES]) || isset($data[self::FIELD_INSTANTIATES_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES]) ? $data[self::FIELD_INSTANTIATES] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_EXT]) && is_array($data[self::FIELD_INSTANTIATES_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_EXT]) && is_array($data[self::FIELD_INSTANTIATES_EXT])) ? $data[self::FIELD_INSTANTIATES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addInstantiates($value);
@@ -802,8 +802,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_IMPORTS]) || isset($data[self::FIELD_IMPORTS_EXT])) {
-            $value = isset($data[self::FIELD_IMPORTS]) ? $data[self::FIELD_IMPORTS] : null;
-            $ext = (isset($data[self::FIELD_IMPORTS_EXT]) && is_array($data[self::FIELD_IMPORTS_EXT])) ? $ext = $data[self::FIELD_IMPORTS_EXT] : $ext = [];
+            $value = $data[self::FIELD_IMPORTS] ?? null;
+            $ext = (isset($data[self::FIELD_IMPORTS_EXT]) && is_array($data[self::FIELD_IMPORTS_EXT])) ? $data[self::FIELD_IMPORTS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addImports($value);
@@ -846,8 +846,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_FHIR_VERSION]) || isset($data[self::FIELD_FHIR_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_FHIR_VERSION]) ? $data[self::FIELD_FHIR_VERSION] : null;
-            $ext = (isset($data[self::FIELD_FHIR_VERSION_EXT]) && is_array($data[self::FIELD_FHIR_VERSION_EXT])) ? $ext = $data[self::FIELD_FHIR_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_FHIR_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_FHIR_VERSION_EXT]) && is_array($data[self::FIELD_FHIR_VERSION_EXT])) ? $data[self::FIELD_FHIR_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFHIRVersion) {
                     $this->setFhirVersion($value);
@@ -861,8 +861,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_FORMAT]) || isset($data[self::FIELD_FORMAT_EXT])) {
-            $value = isset($data[self::FIELD_FORMAT]) ? $data[self::FIELD_FORMAT] : null;
-            $ext = (isset($data[self::FIELD_FORMAT_EXT]) && is_array($data[self::FIELD_FORMAT_EXT])) ? $ext = $data[self::FIELD_FORMAT_EXT] : $ext = [];
+            $value = $data[self::FIELD_FORMAT] ?? null;
+            $ext = (isset($data[self::FIELD_FORMAT_EXT]) && is_array($data[self::FIELD_FORMAT_EXT])) ? $data[self::FIELD_FORMAT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->addFormat($value);
@@ -891,8 +891,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_PATCH_FORMAT]) || isset($data[self::FIELD_PATCH_FORMAT_EXT])) {
-            $value = isset($data[self::FIELD_PATCH_FORMAT]) ? $data[self::FIELD_PATCH_FORMAT] : null;
-            $ext = (isset($data[self::FIELD_PATCH_FORMAT_EXT]) && is_array($data[self::FIELD_PATCH_FORMAT_EXT])) ? $ext = $data[self::FIELD_PATCH_FORMAT_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATCH_FORMAT] ?? null;
+            $ext = (isset($data[self::FIELD_PATCH_FORMAT_EXT]) && is_array($data[self::FIELD_PATCH_FORMAT_EXT])) ? $data[self::FIELD_PATCH_FORMAT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->addPatchFormat($value);
@@ -921,8 +921,8 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_IMPLEMENTATION_GUIDE]) || isset($data[self::FIELD_IMPLEMENTATION_GUIDE_EXT])) {
-            $value = isset($data[self::FIELD_IMPLEMENTATION_GUIDE]) ? $data[self::FIELD_IMPLEMENTATION_GUIDE] : null;
-            $ext = (isset($data[self::FIELD_IMPLEMENTATION_GUIDE_EXT]) && is_array($data[self::FIELD_IMPLEMENTATION_GUIDE_EXT])) ? $ext = $data[self::FIELD_IMPLEMENTATION_GUIDE_EXT] : $ext = [];
+            $value = $data[self::FIELD_IMPLEMENTATION_GUIDE] ?? null;
+            $ext = (isset($data[self::FIELD_IMPLEMENTATION_GUIDE_EXT]) && is_array($data[self::FIELD_IMPLEMENTATION_GUIDE_EXT])) ? $data[self::FIELD_IMPLEMENTATION_GUIDE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addImplementationGuide($value);
@@ -1006,11 +1006,17 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -1019,6 +1025,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
         }
         return "<CapabilityStatement{$xmlns}></CapabilityStatement>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -1038,9 +1047,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the capability statement is stored on different
      * servers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -1058,10 +1067,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the capability statement is stored on different
      * servers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -1083,9 +1092,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -1102,10 +1111,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -1124,9 +1133,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -1140,10 +1149,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -1160,9 +1169,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the capability statement.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -1174,10 +1183,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the capability statement.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -1195,7 +1204,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -1209,7 +1218,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1224,9 +1233,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExperimental()
+    public function getExperimental(): ?FHIRBoolean
     {
         return $this->experimental;
     }
@@ -1239,10 +1248,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
      * @return static
      */
-    public function setExperimental($experimental = null)
+    public function setExperimental($experimental = null): object
     {
         if (null !== $experimental && !($experimental instanceof FHIRBoolean)) {
             $experimental = new FHIRBoolean($experimental);
@@ -1265,9 +1274,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the capability statement changes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -1285,10 +1294,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the capability statement changes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -1306,9 +1315,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the capability
      * statement.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPublisher()
+    public function getPublisher(): ?FHIRString
     {
         return $this->publisher;
     }
@@ -1321,10 +1330,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the capability
      * statement.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
      * @return static
      */
-    public function setPublisher($publisher = null)
+    public function setPublisher($publisher = null): object
     {
         if (null !== $publisher && !($publisher instanceof FHIRString)) {
             $publisher = new FHIRString($publisher);
@@ -1344,7 +1353,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1360,7 +1369,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail $contact
      * @return static
      */
-    public function addContact(FHIRContactDetail $contact = null)
+    public function addContact(?FHIRContactDetail $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1378,7 +1387,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactDetail[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1411,9 +1420,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * describes a desired rather than an actual solution, for example as a formal
      * expression of requirements as part of an RFP.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRMarkdown
     {
         return $this->description;
     }
@@ -1432,10 +1441,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * describes a desired rather than an actual solution, for example as a formal
      * expression of requirements as part of an RFP.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRMarkdown)) {
             $description = new FHIRMarkdown($description);
@@ -1461,7 +1470,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    public function getUseContext()
+    public function getUseContext(): ?array
     {
         return $this->useContext;
     }
@@ -1483,7 +1492,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext $useContext
      * @return static
      */
-    public function addUseContext(FHIRUsageContext $useContext = null)
+    public function addUseContext(?FHIRUsageContext $useContext = null): object
     {
         $this->_trackValueAdded();
         $this->useContext[] = $useContext;
@@ -1507,7 +1516,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUsageContext[] $useContext
      * @return static
      */
-    public function setUseContext(array $useContext = [])
+    public function setUseContext(array $useContext = []): object
     {
         if ([] !== $this->useContext) {
             $this->_trackValuesRemoved(count($this->useContext));
@@ -1537,7 +1546,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -1554,7 +1563,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -1573,7 +1582,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -1604,9 +1613,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this capability statement is needed and why it has been
      * designed as it has.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getPurpose()
+    public function getPurpose(): ?FHIRMarkdown
     {
         return $this->purpose;
     }
@@ -1623,10 +1632,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this capability statement is needed and why it has been
      * designed as it has.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
      * @return static
      */
-    public function setPurpose($purpose = null)
+    public function setPurpose($purpose = null): object
     {
         if (null !== $purpose && !($purpose instanceof FHIRMarkdown)) {
             $purpose = new FHIRMarkdown($purpose);
@@ -1649,9 +1658,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the capability statement.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getCopyright()
+    public function getCopyright(): ?FHIRMarkdown
     {
         return $this->copyright;
     }
@@ -1669,10 +1678,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the capability statement.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $copyright
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $copyright
      * @return static
      */
-    public function setCopyright($copyright = null)
+    public function setCopyright($copyright = null): object
     {
         if (null !== $copyright && !($copyright instanceof FHIRMarkdown)) {
             $copyright = new FHIRMarkdown($copyright);
@@ -1692,7 +1701,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCapabilityStatementKind
      */
-    public function getKind()
+    public function getKind(): ?FHIRCapabilityStatementKind
     {
         return $this->kind;
     }
@@ -1708,7 +1717,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCapabilityStatementKind $kind
      * @return static
      */
-    public function setKind(FHIRCapabilityStatementKind $kind = null)
+    public function setKind(?FHIRCapabilityStatementKind $kind = null): object
     {
         $this->_trackValueSet($this->kind, $kind);
         $this->kind = $kind;
@@ -1727,9 +1736,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * the capability statement it claims to implement, so the capability statement
      * must specify the full capability details.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getInstantiates()
+    public function getInstantiates(): ?array
     {
         return $this->instantiates;
     }
@@ -1746,10 +1755,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * the capability statement it claims to implement, so the capability statement
      * must specify the full capability details.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $instantiates
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiates
      * @return static
      */
-    public function addInstantiates($instantiates = null)
+    public function addInstantiates($instantiates = null): object
     {
         if (null !== $instantiates && !($instantiates instanceof FHIRCanonical)) {
             $instantiates = new FHIRCanonical($instantiates);
@@ -1774,7 +1783,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiates
      * @return static
      */
-    public function setInstantiates(array $instantiates = [])
+    public function setInstantiates(array $instantiates = []): object
     {
         if ([] !== $this->instantiates) {
             $this->_trackValuesRemoved(count($this->instantiates));
@@ -1804,9 +1813,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * statement, and it is not duplicated, though the server may repeat the same
      * resources, interactions and operations to add additional details to them.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getImports()
+    public function getImports(): ?array
     {
         return $this->imports;
     }
@@ -1822,10 +1831,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * statement, and it is not duplicated, though the server may repeat the same
      * resources, interactions and operations to add additional details to them.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $imports
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $imports
      * @return static
      */
-    public function addImports($imports = null)
+    public function addImports($imports = null): object
     {
         if (null !== $imports && !($imports instanceof FHIRCanonical)) {
             $imports = new FHIRCanonical($imports);
@@ -1849,7 +1858,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $imports
      * @return static
      */
-    public function setImports(array $imports = [])
+    public function setImports(array $imports = []): object
     {
         if ([] !== $this->imports) {
             $this->_trackValuesRemoved(count($this->imports));
@@ -1880,7 +1889,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementSoftware
      */
-    public function getSoftware()
+    public function getSoftware(): ?FHIRCapabilityStatementSoftware
     {
         return $this->software;
     }
@@ -1898,7 +1907,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementSoftware $software
      * @return static
      */
-    public function setSoftware(FHIRCapabilityStatementSoftware $software = null)
+    public function setSoftware(?FHIRCapabilityStatementSoftware $software = null): object
     {
         $this->_trackValueSet($this->software, $software);
         $this->software = $software;
@@ -1917,7 +1926,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementImplementation
      */
-    public function getImplementation()
+    public function getImplementation(): ?FHIRCapabilityStatementImplementation
     {
         return $this->implementation;
     }
@@ -1935,7 +1944,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementImplementation $implementation
      * @return static
      */
-    public function setImplementation(FHIRCapabilityStatementImplementation $implementation = null)
+    public function setImplementation(?FHIRCapabilityStatementImplementation $implementation = null): object
     {
         $this->_trackValueSet($this->implementation, $implementation);
         $this->implementation = $implementation;
@@ -1951,7 +1960,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion
      */
-    public function getFhirVersion()
+    public function getFhirVersion(): ?FHIRFHIRVersion
     {
         return $this->fhirVersion;
     }
@@ -1966,7 +1975,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion $fhirVersion
      * @return static
      */
-    public function setFhirVersion(FHIRFHIRVersion $fhirVersion = null)
+    public function setFhirVersion(?FHIRFHIRVersion $fhirVersion = null): object
     {
         $this->_trackValueSet($this->fhirVersion, $fhirVersion);
         $this->fhirVersion = $fhirVersion;
@@ -1982,9 +1991,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the formats supported by this implementation using their content
      * types.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    public function getFormat()
+    public function getFormat(): ?array
     {
         return $this->format;
     }
@@ -1998,10 +2007,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the formats supported by this implementation using their content
      * types.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $format
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[] $format
      * @return static
      */
-    public function addFormat($format = null)
+    public function addFormat($format = null): object
     {
         if (null !== $format && !($format instanceof FHIRCode)) {
             $format = new FHIRCode($format);
@@ -2023,7 +2032,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCode[] $format
      * @return static
      */
-    public function setFormat(array $format = [])
+    public function setFormat(array $format = []): object
     {
         if ([] !== $this->format) {
             $this->_trackValuesRemoved(count($this->format));
@@ -2051,9 +2060,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the patch formats supported by this implementation using their content
      * types.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    public function getPatchFormat()
+    public function getPatchFormat(): ?array
     {
         return $this->patchFormat;
     }
@@ -2067,10 +2076,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of the patch formats supported by this implementation using their content
      * types.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $patchFormat
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[] $patchFormat
      * @return static
      */
-    public function addPatchFormat($patchFormat = null)
+    public function addPatchFormat($patchFormat = null): object
     {
         if (null !== $patchFormat && !($patchFormat instanceof FHIRCode)) {
             $patchFormat = new FHIRCode($patchFormat);
@@ -2092,7 +2101,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCode[] $patchFormat
      * @return static
      */
-    public function setPatchFormat(array $patchFormat = [])
+    public function setPatchFormat(array $patchFormat = []): object
     {
         if ([] !== $this->patchFormat) {
             $this->_trackValuesRemoved(count($this->patchFormat));
@@ -2120,9 +2129,9 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of implementation guides that the server does (or should) support in
      * their entirety.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getImplementationGuide()
+    public function getImplementationGuide(): ?array
     {
         return $this->implementationGuide;
     }
@@ -2136,10 +2145,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * A list of implementation guides that the server does (or should) support in
      * their entirety.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $implementationGuide
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $implementationGuide
      * @return static
      */
-    public function addImplementationGuide($implementationGuide = null)
+    public function addImplementationGuide($implementationGuide = null): object
     {
         if (null !== $implementationGuide && !($implementationGuide instanceof FHIRCanonical)) {
             $implementationGuide = new FHIRCanonical($implementationGuide);
@@ -2161,7 +2170,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $implementationGuide
      * @return static
      */
-    public function setImplementationGuide(array $implementationGuide = [])
+    public function setImplementationGuide(array $implementationGuide = []): object
     {
         if ([] !== $this->implementationGuide) {
             $this->_trackValuesRemoved(count($this->implementationGuide));
@@ -2190,7 +2199,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementRest[]
      */
-    public function getRest()
+    public function getRest(): ?array
     {
         return $this->rest;
     }
@@ -2206,7 +2215,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementRest $rest
      * @return static
      */
-    public function addRest(FHIRCapabilityStatementRest $rest = null)
+    public function addRest(?FHIRCapabilityStatementRest $rest = null): object
     {
         $this->_trackValueAdded();
         $this->rest[] = $rest;
@@ -2224,7 +2233,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementRest[] $rest
      * @return static
      */
-    public function setRest(array $rest = [])
+    public function setRest(array $rest = []): object
     {
         if ([] !== $this->rest) {
             $this->_trackValuesRemoved(count($this->rest));
@@ -2253,7 +2262,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementMessaging[]
      */
-    public function getMessaging()
+    public function getMessaging(): ?array
     {
         return $this->messaging;
     }
@@ -2269,7 +2278,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementMessaging $messaging
      * @return static
      */
-    public function addMessaging(FHIRCapabilityStatementMessaging $messaging = null)
+    public function addMessaging(?FHIRCapabilityStatementMessaging $messaging = null): object
     {
         $this->_trackValueAdded();
         $this->messaging[] = $messaging;
@@ -2287,7 +2296,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementMessaging[] $messaging
      * @return static
      */
-    public function setMessaging(array $messaging = [])
+    public function setMessaging(array $messaging = []): object
     {
         if ([] !== $this->messaging) {
             $this->_trackValuesRemoved(count($this->messaging));
@@ -2316,7 +2325,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementDocument[]
      */
-    public function getDocument()
+    public function getDocument(): ?array
     {
         return $this->document;
     }
@@ -2332,7 +2341,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementDocument $document
      * @return static
      */
-    public function addDocument(FHIRCapabilityStatementDocument $document = null)
+    public function addDocument(?FHIRCapabilityStatementDocument $document = null): object
     {
         $this->_trackValueAdded();
         $this->document[] = $document;
@@ -2350,7 +2359,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementDocument[] $document
      * @return static
      */
-    public function setDocument(array $document = [])
+    public function setDocument(array $document = []): object
     {
         if ([] !== $this->document) {
             $this->_trackValuesRemoved(count($this->document));
@@ -2959,15 +2968,15 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCapabilityStatement::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2987,7 +2996,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -3237,7 +3246,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -3435,155 +3444,157 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExperimental())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPERIMENTAL] = $val;
+                $out->{self::FIELD_EXPERIMENTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPERIMENTAL_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPERIMENTAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPublisher())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PUBLISHER] = $val;
+                $out->{self::FIELD_PUBLISHER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PUBLISHER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PUBLISHER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getUseContext())) {
-            $a[self::FIELD_USE_CONTEXT] = [];
+            $out->{self::FIELD_USE_CONTEXT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_USE_CONTEXT][] = $v;
+                $out->{self::FIELD_USE_CONTEXT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getPurpose())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PURPOSE] = $val;
+                $out->{self::FIELD_PURPOSE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PURPOSE_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PURPOSE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCopyright())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COPYRIGHT] = $val;
+                $out->{self::FIELD_COPYRIGHT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COPYRIGHT_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COPYRIGHT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getKind())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_KIND] = $val;
+                $out->{self::FIELD_KIND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCapabilityStatementKind::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_KIND_EXT] = $ext;
+            unset($ext->{FHIRCapabilityStatementKind::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_KIND_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getInstantiates())) {
@@ -3595,7 +3606,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3604,10 +3615,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES] = $vals;
+                $out->{self::FIELD_INSTANTIATES} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getImports())) {
@@ -3619,7 +3630,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3628,26 +3639,26 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_IMPORTS] = $vals;
+                $out->{self::FIELD_IMPORTS} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_IMPORTS_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IMPORTS_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getSoftware())) {
-            $a[self::FIELD_SOFTWARE] = $v;
+            $out->{self::FIELD_SOFTWARE} = $v;
         }
         if (null !== ($v = $this->getImplementation())) {
-            $a[self::FIELD_IMPLEMENTATION] = $v;
+            $out->{self::FIELD_IMPLEMENTATION} = $v;
         }
         if (null !== ($v = $this->getFhirVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_FHIR_VERSION] = $val;
+                $out->{self::FIELD_FHIR_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRFHIRVersion::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_FHIR_VERSION_EXT] = $ext;
+            unset($ext->{FHIRFHIRVersion::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FHIR_VERSION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getFormat())) {
@@ -3659,7 +3670,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCode::FIELD_VALUE]);
+                unset($ext->{FHIRCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3668,10 +3679,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_FORMAT] = $vals;
+                $out->{self::FIELD_FORMAT} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_FORMAT_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FORMAT_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getPatchFormat())) {
@@ -3683,7 +3694,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCode::FIELD_VALUE]);
+                unset($ext->{FHIRCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3692,10 +3703,10 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PATCH_FORMAT] = $vals;
+                $out->{self::FIELD_PATCH_FORMAT} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PATCH_FORMAT_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATCH_FORMAT_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getImplementationGuide())) {
@@ -3707,7 +3718,7 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3716,40 +3727,43 @@ class FHIRCapabilityStatement extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_IMPLEMENTATION_GUIDE] = $vals;
+                $out->{self::FIELD_IMPLEMENTATION_GUIDE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_IMPLEMENTATION_GUIDE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IMPLEMENTATION_GUIDE_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getRest())) {
-            $a[self::FIELD_REST] = [];
+            $out->{self::FIELD_REST} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REST][] = $v;
+                $out->{self::FIELD_REST}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getMessaging())) {
-            $a[self::FIELD_MESSAGING] = [];
+            $out->{self::FIELD_MESSAGING} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_MESSAGING][] = $v;
+                $out->{self::FIELD_MESSAGING}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDocument())) {
-            $a[self::FIELD_DOCUMENT] = [];
+            $out->{self::FIELD_DOCUMENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOCUMENT][] = $v;
+                $out->{self::FIELD_DOCUMENT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

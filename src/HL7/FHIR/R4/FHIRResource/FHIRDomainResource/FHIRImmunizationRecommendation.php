@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A reference from one resource to another.
@@ -121,7 +121,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -133,9 +133,9 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * The date the immunization recommendation(s) were created.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A reference from one resource to another.
@@ -146,7 +146,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $authority = null;
+    protected ?FHIRReference $authority = null;
 
     /**
      * A patient's point-in-time set of recommendations (i.e. forecasting) according to
@@ -156,13 +156,13 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunizationRecommendation\FHIRImmunizationRecommendationRecommendation[]
      */
-    protected $recommendation = [];
+    protected ?array $recommendation = [];
 
     /**
      * Validation map for fields in type ImmunizationRecommendation
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_RECOMMENDATION => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -210,8 +210,8 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -251,11 +251,17 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -264,6 +270,9 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
         }
         return "<ImmunizationRecommendation{$xmlns}></ImmunizationRecommendation>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -280,7 +289,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -296,7 +305,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -314,7 +323,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -342,7 +351,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -357,7 +366,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -374,9 +383,9 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * The date the immunization recommendation(s) were created.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -391,10 +400,10 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * The date the immunization recommendation(s) were created.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -413,7 +422,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthority()
+    public function getAuthority(): ?FHIRReference
     {
         return $this->authority;
     }
@@ -428,7 +437,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $authority
      * @return static
      */
-    public function setAuthority(FHIRReference $authority = null)
+    public function setAuthority(?FHIRReference $authority = null): object
     {
         $this->_trackValueSet($this->authority, $authority);
         $this->authority = $authority;
@@ -443,7 +452,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunizationRecommendation\FHIRImmunizationRecommendationRecommendation[]
      */
-    public function getRecommendation()
+    public function getRecommendation(): ?array
     {
         return $this->recommendation;
     }
@@ -457,7 +466,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunizationRecommendation\FHIRImmunizationRecommendationRecommendation $recommendation
      * @return static
      */
-    public function addRecommendation(FHIRImmunizationRecommendationRecommendation $recommendation = null)
+    public function addRecommendation(?FHIRImmunizationRecommendationRecommendation $recommendation = null): object
     {
         $this->_trackValueAdded();
         $this->recommendation[] = $recommendation;
@@ -473,7 +482,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunizationRecommendation\FHIRImmunizationRecommendationRecommendation[] $recommendation
      * @return static
      */
-    public function setRecommendation(array $recommendation = [])
+    public function setRecommendation(array $recommendation = []): object
     {
         if ([] !== $this->recommendation) {
             $this->_trackValuesRemoved(count($this->recommendation));
@@ -707,15 +716,15 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationRecommendation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationRecommendation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImmunizationRecommendation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -735,7 +744,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -817,7 +826,7 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -865,45 +874,50 @@ class FHIRImmunizationRecommendation extends FHIRDomainResource implements PHPFH
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAuthority())) {
-            $a[self::FIELD_AUTHORITY] = $v;
+            $out->{self::FIELD_AUTHORITY} = $v;
         }
         if ([] !== ($vs = $this->getRecommendation())) {
-            $a[self::FIELD_RECOMMENDATION] = [];
+            $out->{self::FIELD_RECOMMENDATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RECOMMENDATION][] = $v;
+                $out->{self::FIELD_RECOMMENDATION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

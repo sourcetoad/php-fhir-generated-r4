@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -113,7 +113,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $reference = null;
+    protected ?FHIRReference $reference = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -124,7 +124,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion[]
      */
-    protected $fhirVersion = [];
+    protected ?array $fhirVersion = [];
 
     /**
      * A sequence of Unicode characters
@@ -134,9 +134,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A human assigned name for the resource. All resources SHOULD have a name, but
      * the name may be extracted from the resource (e.g. ValueSet.name).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -146,9 +146,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A description of the reason that a resource has been included in the
      * implementation guide.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * Value of "true" or "false"
@@ -158,9 +158,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $exampleBoolean = null;
+    protected ?FHIRBoolean $exampleBoolean = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -172,9 +172,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $exampleCanonical = null;
+    protected ?FHIRCanonical $exampleCanonical = null;
 
     /**
      * Any combination of letters, numerals, "-" and ".", with a length limit of 64
@@ -186,15 +186,15 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * Reference to the id of the grouping this resource appears in.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $groupingId = null;
+    protected ?FHIRId $groupingId = null;
 
     /**
      * Validation map for fields in type ImplementationGuide.Resource
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRImplementationGuideResource Constructor
@@ -220,8 +220,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_FHIR_VERSION]) || isset($data[self::FIELD_FHIR_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_FHIR_VERSION]) ? $data[self::FIELD_FHIR_VERSION] : null;
-            $ext = (isset($data[self::FIELD_FHIR_VERSION_EXT]) && is_array($data[self::FIELD_FHIR_VERSION_EXT])) ? $ext = $data[self::FIELD_FHIR_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_FHIR_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_FHIR_VERSION_EXT]) && is_array($data[self::FIELD_FHIR_VERSION_EXT])) ? $data[self::FIELD_FHIR_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFHIRVersion) {
                     $this->addFhirVersion($value);
@@ -250,8 +250,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -265,8 +265,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -280,8 +280,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXAMPLE_BOOLEAN]) || isset($data[self::FIELD_EXAMPLE_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_EXAMPLE_BOOLEAN]) ? $data[self::FIELD_EXAMPLE_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_EXAMPLE_BOOLEAN_EXT]) && is_array($data[self::FIELD_EXAMPLE_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_EXAMPLE_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXAMPLE_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_EXAMPLE_BOOLEAN_EXT]) && is_array($data[self::FIELD_EXAMPLE_BOOLEAN_EXT])) ? $data[self::FIELD_EXAMPLE_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExampleBoolean($value);
@@ -295,8 +295,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXAMPLE_CANONICAL]) || isset($data[self::FIELD_EXAMPLE_CANONICAL_EXT])) {
-            $value = isset($data[self::FIELD_EXAMPLE_CANONICAL]) ? $data[self::FIELD_EXAMPLE_CANONICAL] : null;
-            $ext = (isset($data[self::FIELD_EXAMPLE_CANONICAL_EXT]) && is_array($data[self::FIELD_EXAMPLE_CANONICAL_EXT])) ? $ext = $data[self::FIELD_EXAMPLE_CANONICAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXAMPLE_CANONICAL] ?? null;
+            $ext = (isset($data[self::FIELD_EXAMPLE_CANONICAL_EXT]) && is_array($data[self::FIELD_EXAMPLE_CANONICAL_EXT])) ? $data[self::FIELD_EXAMPLE_CANONICAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setExampleCanonical($value);
@@ -310,8 +310,8 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_GROUPING_ID]) || isset($data[self::FIELD_GROUPING_ID_EXT])) {
-            $value = isset($data[self::FIELD_GROUPING_ID]) ? $data[self::FIELD_GROUPING_ID] : null;
-            $ext = (isset($data[self::FIELD_GROUPING_ID_EXT]) && is_array($data[self::FIELD_GROUPING_ID_EXT])) ? $ext = $data[self::FIELD_GROUPING_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_GROUPING_ID] ?? null;
+            $ext = (isset($data[self::FIELD_GROUPING_ID_EXT]) && is_array($data[self::FIELD_GROUPING_ID_EXT])) ? $data[self::FIELD_GROUPING_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setGroupingId($value);
@@ -326,11 +326,17 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -349,7 +355,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getReference()
+    public function getReference(): ?FHIRReference
     {
         return $this->reference;
     }
@@ -364,7 +370,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reference
      * @return static
      */
-    public function setReference(FHIRReference $reference = null)
+    public function setReference(?FHIRReference $reference = null): object
     {
         $this->_trackValueSet($this->reference, $reference);
         $this->reference = $reference;
@@ -380,7 +386,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion[]
      */
-    public function getFhirVersion()
+    public function getFhirVersion(): ?array
     {
         return $this->fhirVersion;
     }
@@ -395,7 +401,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion $fhirVersion
      * @return static
      */
-    public function addFhirVersion(FHIRFHIRVersion $fhirVersion = null)
+    public function addFhirVersion(?FHIRFHIRVersion $fhirVersion = null): object
     {
         $this->_trackValueAdded();
         $this->fhirVersion[] = $fhirVersion;
@@ -412,7 +418,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRFHIRVersion[] $fhirVersion
      * @return static
      */
-    public function setFhirVersion(array $fhirVersion = [])
+    public function setFhirVersion(array $fhirVersion = []): object
     {
         if ([] !== $this->fhirVersion) {
             $this->_trackValuesRemoved(count($this->fhirVersion));
@@ -439,9 +445,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A human assigned name for the resource. All resources SHOULD have a name, but
      * the name may be extracted from the resource (e.g. ValueSet.name).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -454,10 +460,10 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A human assigned name for the resource. All resources SHOULD have a name, but
      * the name may be extracted from the resource (e.g. ValueSet.name).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -475,9 +481,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A description of the reason that a resource has been included in the
      * implementation guide.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -490,10 +496,10 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * A description of the reason that a resource has been included in the
      * implementation guide.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -511,9 +517,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExampleBoolean()
+    public function getExampleBoolean(): ?FHIRBoolean
     {
         return $this->exampleBoolean;
     }
@@ -526,10 +532,10 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $exampleBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $exampleBoolean
      * @return static
      */
-    public function setExampleBoolean($exampleBoolean = null)
+    public function setExampleBoolean($exampleBoolean = null): object
     {
         if (null !== $exampleBoolean && !($exampleBoolean instanceof FHIRBoolean)) {
             $exampleBoolean = new FHIRBoolean($exampleBoolean);
@@ -549,9 +555,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getExampleCanonical()
+    public function getExampleCanonical(): ?FHIRCanonical
     {
         return $this->exampleCanonical;
     }
@@ -566,10 +572,10 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * reference is present, indicates that the example is an example of the specified
      * profile.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $exampleCanonical
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $exampleCanonical
      * @return static
      */
-    public function setExampleCanonical($exampleCanonical = null)
+    public function setExampleCanonical($exampleCanonical = null): object
     {
         if (null !== $exampleCanonical && !($exampleCanonical instanceof FHIRCanonical)) {
             $exampleCanonical = new FHIRCanonical($exampleCanonical);
@@ -589,9 +595,9 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * Reference to the id of the grouping this resource appears in.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getGroupingId()
+    public function getGroupingId(): ?FHIRId
     {
         return $this->groupingId;
     }
@@ -606,10 +612,10 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      *
      * Reference to the id of the grouping this resource appears in.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $groupingId
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $groupingId
      * @return static
      */
-    public function setGroupingId($groupingId = null)
+    public function setGroupingId($groupingId = null): object
     {
         if (null !== $groupingId && !($groupingId instanceof FHIRId)) {
             $groupingId = new FHIRId($groupingId);
@@ -806,15 +812,15 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImplementationGuideResource::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -834,7 +840,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -923,7 +929,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -976,12 +982,14 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getReference())) {
-            $a[self::FIELD_REFERENCE] = $v;
+            $out->{self::FIELD_REFERENCE} = $v;
         }
         if ([] !== ($vs = $this->getFhirVersion())) {
             $vals = [];
@@ -992,7 +1000,7 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRFHIRVersion::FIELD_VALUE]);
+                unset($ext->{FHIRFHIRVersion::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1001,63 +1009,64 @@ class FHIRImplementationGuideResource extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_FHIR_VERSION] = $vals;
+                $out->{self::FIELD_FHIR_VERSION} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_FHIR_VERSION_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FHIR_VERSION_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExampleBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXAMPLE_BOOLEAN] = $val;
+                $out->{self::FIELD_EXAMPLE_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXAMPLE_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXAMPLE_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExampleCanonical())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXAMPLE_CANONICAL] = $val;
+                $out->{self::FIELD_EXAMPLE_CANONICAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXAMPLE_CANONICAL_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXAMPLE_CANONICAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getGroupingId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GROUPING_ID] = $val;
+                $out->{self::FIELD_GROUPING_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GROUPING_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GROUPING_ID_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

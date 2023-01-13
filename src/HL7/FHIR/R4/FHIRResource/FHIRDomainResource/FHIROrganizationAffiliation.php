@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,7 +119,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Value of "true" or "false"
@@ -127,9 +127,9 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * Whether this organization affiliation record is in active use.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $active = null;
+    protected ?FHIRBoolean $active = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -141,7 +141,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A reference from one resource to another.
@@ -152,7 +152,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $organization = null;
+    protected ?FHIRReference $organization = null;
 
     /**
      * A reference from one resource to another.
@@ -164,7 +164,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $participatingOrganization = null;
+    protected ?FHIRReference $participatingOrganization = null;
 
     /**
      * A reference from one resource to another.
@@ -177,7 +177,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $network = [];
+    protected ?array $network = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -189,7 +189,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $code = [];
+    protected ?array $code = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -201,7 +201,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $specialty = [];
+    protected ?array $specialty = [];
 
     /**
      * A reference from one resource to another.
@@ -212,7 +212,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $location = [];
+    protected ?array $location = [];
 
     /**
      * A reference from one resource to another.
@@ -223,7 +223,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $healthcareService = [];
+    protected ?array $healthcareService = [];
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -235,7 +235,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $telecom = [];
+    protected ?array $telecom = [];
 
     /**
      * A reference from one resource to another.
@@ -246,13 +246,13 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $endpoint = [];
+    protected ?array $endpoint = [];
 
     /**
      * Validation map for fields in type OrganizationAffiliation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIROrganizationAffiliation Constructor
@@ -289,8 +289,8 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
             }
         }
         if (isset($data[self::FIELD_ACTIVE]) || isset($data[self::FIELD_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_ACTIVE]) ? $data[self::FIELD_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $ext = $data[self::FIELD_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $data[self::FIELD_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setActive($value);
@@ -452,11 +452,17 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -465,6 +471,9 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
         }
         return "<OrganizationAffiliation{$xmlns}></OrganizationAffiliation>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -481,7 +490,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -497,7 +506,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -515,7 +524,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -540,9 +549,9 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * Whether this organization affiliation record is in active use.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getActive()
+    public function getActive(): ?FHIRBoolean
     {
         return $this->active;
     }
@@ -553,10 +562,10 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * Whether this organization affiliation record is in active use.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
      * @return static
      */
-    public function setActive($active = null)
+    public function setActive($active = null): object
     {
         if (null !== $active && !($active instanceof FHIRBoolean)) {
             $active = new FHIRBoolean($active);
@@ -576,7 +585,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -592,7 +601,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -608,7 +617,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOrganization()
+    public function getOrganization(): ?FHIRReference
     {
         return $this->organization;
     }
@@ -623,7 +632,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $organization
      * @return static
      */
-    public function setOrganization(FHIRReference $organization = null)
+    public function setOrganization(?FHIRReference $organization = null): object
     {
         $this->_trackValueSet($this->organization, $organization);
         $this->organization = $organization;
@@ -640,7 +649,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getParticipatingOrganization()
+    public function getParticipatingOrganization(): ?FHIRReference
     {
         return $this->participatingOrganization;
     }
@@ -656,7 +665,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $participatingOrganization
      * @return static
      */
-    public function setParticipatingOrganization(FHIRReference $participatingOrganization = null)
+    public function setParticipatingOrganization(?FHIRReference $participatingOrganization = null): object
     {
         $this->_trackValueSet($this->participatingOrganization, $participatingOrganization);
         $this->participatingOrganization = $participatingOrganization;
@@ -674,7 +683,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getNetwork()
+    public function getNetwork(): ?array
     {
         return $this->network;
     }
@@ -691,7 +700,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $network
      * @return static
      */
-    public function addNetwork(FHIRReference $network = null)
+    public function addNetwork(?FHIRReference $network = null): object
     {
         $this->_trackValueAdded();
         $this->network[] = $network;
@@ -710,7 +719,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $network
      * @return static
      */
-    public function setNetwork(array $network = [])
+    public function setNetwork(array $network = []): object
     {
         if ([] !== $this->network) {
             $this->_trackValuesRemoved(count($this->network));
@@ -739,7 +748,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCode()
+    public function getCode(): ?array
     {
         return $this->code;
     }
@@ -755,7 +764,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function addCode(FHIRCodeableConcept $code = null)
+    public function addCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueAdded();
         $this->code[] = $code;
@@ -773,7 +782,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $code
      * @return static
      */
-    public function setCode(array $code = [])
+    public function setCode(array $code = []): object
     {
         if ([] !== $this->code) {
             $this->_trackValuesRemoved(count($this->code));
@@ -802,7 +811,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getSpecialty()
+    public function getSpecialty(): ?array
     {
         return $this->specialty;
     }
@@ -818,7 +827,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $specialty
      * @return static
      */
-    public function addSpecialty(FHIRCodeableConcept $specialty = null)
+    public function addSpecialty(?FHIRCodeableConcept $specialty = null): object
     {
         $this->_trackValueAdded();
         $this->specialty[] = $specialty;
@@ -836,7 +845,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $specialty
      * @return static
      */
-    public function setSpecialty(array $specialty = [])
+    public function setSpecialty(array $specialty = []): object
     {
         if ([] !== $this->specialty) {
             $this->_trackValuesRemoved(count($this->specialty));
@@ -864,7 +873,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getLocation()
+    public function getLocation(): ?array
     {
         return $this->location;
     }
@@ -879,7 +888,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $location
      * @return static
      */
-    public function addLocation(FHIRReference $location = null)
+    public function addLocation(?FHIRReference $location = null): object
     {
         $this->_trackValueAdded();
         $this->location[] = $location;
@@ -896,7 +905,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $location
      * @return static
      */
-    public function setLocation(array $location = [])
+    public function setLocation(array $location = []): object
     {
         if ([] !== $this->location) {
             $this->_trackValuesRemoved(count($this->location));
@@ -924,7 +933,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getHealthcareService()
+    public function getHealthcareService(): ?array
     {
         return $this->healthcareService;
     }
@@ -939,7 +948,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $healthcareService
      * @return static
      */
-    public function addHealthcareService(FHIRReference $healthcareService = null)
+    public function addHealthcareService(?FHIRReference $healthcareService = null): object
     {
         $this->_trackValueAdded();
         $this->healthcareService[] = $healthcareService;
@@ -956,7 +965,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $healthcareService
      * @return static
      */
-    public function setHealthcareService(array $healthcareService = [])
+    public function setHealthcareService(array $healthcareService = []): object
     {
         if ([] !== $this->healthcareService) {
             $this->_trackValuesRemoved(count($this->healthcareService));
@@ -985,7 +994,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getTelecom()
+    public function getTelecom(): ?array
     {
         return $this->telecom;
     }
@@ -1001,7 +1010,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $telecom
      * @return static
      */
-    public function addTelecom(FHIRContactPoint $telecom = null)
+    public function addTelecom(?FHIRContactPoint $telecom = null): object
     {
         $this->_trackValueAdded();
         $this->telecom[] = $telecom;
@@ -1019,7 +1028,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $telecom
      * @return static
      */
-    public function setTelecom(array $telecom = [])
+    public function setTelecom(array $telecom = []): object
     {
         if ([] !== $this->telecom) {
             $this->_trackValuesRemoved(count($this->telecom));
@@ -1047,7 +1056,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?array
     {
         return $this->endpoint;
     }
@@ -1062,7 +1071,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $endpoint
      * @return static
      */
-    public function addEndpoint(FHIRReference $endpoint = null)
+    public function addEndpoint(?FHIRReference $endpoint = null): object
     {
         $this->_trackValueAdded();
         $this->endpoint[] = $endpoint;
@@ -1079,7 +1088,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $endpoint
      * @return static
      */
-    public function setEndpoint(array $endpoint = [])
+    public function setEndpoint(array $endpoint = []): object
     {
         if ([] !== $this->endpoint) {
             $this->_trackValuesRemoved(count($this->endpoint));
@@ -1444,15 +1453,15 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganizationAffiliation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganizationAffiliation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIROrganizationAffiliation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1472,7 +1481,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1568,7 +1577,7 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1681,102 +1690,107 @@ class FHIROrganizationAffiliation extends FHIRDomainResource implements PHPFHIRC
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTIVE] = $val;
+                $out->{self::FIELD_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getOrganization())) {
-            $a[self::FIELD_ORGANIZATION] = $v;
+            $out->{self::FIELD_ORGANIZATION} = $v;
         }
         if (null !== ($v = $this->getParticipatingOrganization())) {
-            $a[self::FIELD_PARTICIPATING_ORGANIZATION] = $v;
+            $out->{self::FIELD_PARTICIPATING_ORGANIZATION} = $v;
         }
         if ([] !== ($vs = $this->getNetwork())) {
-            $a[self::FIELD_NETWORK] = [];
+            $out->{self::FIELD_NETWORK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NETWORK][] = $v;
+                $out->{self::FIELD_NETWORK}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCode())) {
-            $a[self::FIELD_CODE] = [];
+            $out->{self::FIELD_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CODE][] = $v;
+                $out->{self::FIELD_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSpecialty())) {
-            $a[self::FIELD_SPECIALTY] = [];
+            $out->{self::FIELD_SPECIALTY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIALTY][] = $v;
+                $out->{self::FIELD_SPECIALTY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = [];
+            $out->{self::FIELD_LOCATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LOCATION][] = $v;
+                $out->{self::FIELD_LOCATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getHealthcareService())) {
-            $a[self::FIELD_HEALTHCARE_SERVICE] = [];
+            $out->{self::FIELD_HEALTHCARE_SERVICE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_HEALTHCARE_SERVICE][] = $v;
+                $out->{self::FIELD_HEALTHCARE_SERVICE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTelecom())) {
-            $a[self::FIELD_TELECOM] = [];
+            $out->{self::FIELD_TELECOM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TELECOM][] = $v;
+                $out->{self::FIELD_TELECOM}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEndpoint())) {
-            $a[self::FIELD_ENDPOINT] = [];
+            $out->{self::FIELD_ENDPOINT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENDPOINT][] = $v;
+                $out->{self::FIELD_ENDPOINT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

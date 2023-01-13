@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRelatedPerson;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRelatedPerson;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $language = null;
+    protected ?FHIRCodeableConcept $language = null;
 
     /**
      * Value of "true" or "false"
@@ -111,15 +111,15 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * Indicates whether or not the patient prefers this language (over other languages
      * he masters up a certain level).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $preferred = null;
+    protected ?FHIRBoolean $preferred = null;
 
     /**
      * Validation map for fields in type RelatedPerson.Communication
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRRelatedPersonCommunication Constructor
@@ -145,8 +145,8 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PREFERRED]) || isset($data[self::FIELD_PREFERRED_EXT])) {
-            $value = isset($data[self::FIELD_PREFERRED]) ? $data[self::FIELD_PREFERRED] : null;
-            $ext = (isset($data[self::FIELD_PREFERRED_EXT]) && is_array($data[self::FIELD_PREFERRED_EXT])) ? $ext = $data[self::FIELD_PREFERRED_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREFERRED] ?? null;
+            $ext = (isset($data[self::FIELD_PREFERRED_EXT]) && is_array($data[self::FIELD_PREFERRED_EXT])) ? $data[self::FIELD_PREFERRED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setPreferred($value);
@@ -161,11 +161,17 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -188,7 +194,7 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getLanguage()
+    public function getLanguage(): ?FHIRCodeableConcept
     {
         return $this->language;
     }
@@ -207,7 +213,7 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $language
      * @return static
      */
-    public function setLanguage(FHIRCodeableConcept $language = null)
+    public function setLanguage(?FHIRCodeableConcept $language = null): object
     {
         $this->_trackValueSet($this->language, $language);
         $this->language = $language;
@@ -221,9 +227,9 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * Indicates whether or not the patient prefers this language (over other languages
      * he masters up a certain level).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getPreferred()
+    public function getPreferred(): ?FHIRBoolean
     {
         return $this->preferred;
     }
@@ -235,10 +241,10 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * Indicates whether or not the patient prefers this language (over other languages
      * he masters up a certain level).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $preferred
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $preferred
      * @return static
      */
-    public function setPreferred($preferred = null)
+    public function setPreferred($preferred = null): object
     {
         if (null !== $preferred && !($preferred instanceof FHIRBoolean)) {
             $preferred = new FHIRBoolean($preferred);
@@ -348,15 +354,15 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRelatedPerson\FHIRRelatedPersonCommunication
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRelatedPerson\FHIRRelatedPersonCommunication    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRRelatedPersonCommunication::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -376,7 +382,7 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -419,7 +425,7 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -442,24 +448,27 @@ class FHIRRelatedPersonCommunication extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getLanguage())) {
-            $a[self::FIELD_LANGUAGE] = $v;
+            $out->{self::FIELD_LANGUAGE} = $v;
         }
         if (null !== ($v = $this->getPreferred())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PREFERRED] = $val;
+                $out->{self::FIELD_PREFERRED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PREFERRED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREFERRED_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

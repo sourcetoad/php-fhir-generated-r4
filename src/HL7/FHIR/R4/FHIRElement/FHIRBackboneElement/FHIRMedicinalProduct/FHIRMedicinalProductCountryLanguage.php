@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $country = null;
+    protected ?FHIRCodeableConcept $country = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -109,7 +109,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $jurisdiction = null;
+    protected ?FHIRCodeableConcept $jurisdiction = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -121,13 +121,13 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $language = null;
+    protected ?FHIRCodeableConcept $language = null;
 
     /**
      * Validation map for fields in type MedicinalProduct.CountryLanguage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductCountryLanguage Constructor
@@ -168,11 +168,17 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -192,7 +198,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCountry()
+    public function getCountry(): ?FHIRCodeableConcept
     {
         return $this->country;
     }
@@ -208,7 +214,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $country
      * @return static
      */
-    public function setCountry(FHIRCodeableConcept $country = null)
+    public function setCountry(?FHIRCodeableConcept $country = null): object
     {
         $this->_trackValueSet($this->country, $country);
         $this->country = $country;
@@ -225,7 +231,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?FHIRCodeableConcept
     {
         return $this->jurisdiction;
     }
@@ -241,7 +247,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function setJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function setJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueSet($this->jurisdiction, $jurisdiction);
         $this->jurisdiction = $jurisdiction;
@@ -258,7 +264,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getLanguage()
+    public function getLanguage(): ?FHIRCodeableConcept
     {
         return $this->language;
     }
@@ -274,7 +280,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $language
      * @return static
      */
-    public function setLanguage(FHIRCodeableConcept $language = null)
+    public function setLanguage(?FHIRCodeableConcept $language = null): object
     {
         $this->_trackValueSet($this->language, $language);
         $this->language = $language;
@@ -398,15 +404,15 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductCountryLanguage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductCountryLanguage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -426,7 +432,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -462,7 +468,7 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -490,20 +496,23 @@ class FHIRMedicinalProductCountryLanguage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCountry())) {
-            $a[self::FIELD_COUNTRY] = $v;
+            $out->{self::FIELD_COUNTRY} = $v;
         }
         if (null !== ($v = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = $v;
+            $out->{self::FIELD_JURISDICTION} = $v;
         }
         if (null !== ($v = $this->getLanguage())) {
-            $a[self::FIELD_LANGUAGE] = $v;
+            $out->{self::FIELD_LANGUAGE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -119,7 +119,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $reason = null;
+    protected ?FHIRCodeableConcept $reason = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -130,7 +130,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $amount = null;
+    protected ?FHIRMoney $amount = null;
 
     /**
      * A rational number with implicit precision
@@ -141,15 +141,15 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * A non-monetary value associated with the category. Mutually exclusive to the
      * amount element above.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $value = null;
+    protected ?FHIRDecimal $value = null;
 
     /**
      * Validation map for fields in type ExplanationOfBenefit.Adjudication
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRExplanationOfBenefitAdjudication Constructor
@@ -189,8 +189,8 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setValue($value);
@@ -205,11 +205,17 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -233,7 +239,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -253,7 +259,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -271,7 +277,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getReason()
+    public function getReason(): ?FHIRCodeableConcept
     {
         return $this->reason;
     }
@@ -288,7 +294,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reason
      * @return static
      */
-    public function setReason(FHIRCodeableConcept $reason = null)
+    public function setReason(?FHIRCodeableConcept $reason = null): object
     {
         $this->_trackValueSet($this->reason, $reason);
         $this->reason = $reason;
@@ -304,7 +310,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getAmount()
+    public function getAmount(): ?FHIRMoney
     {
         return $this->amount;
     }
@@ -319,7 +325,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $amount
      * @return static
      */
-    public function setAmount(FHIRMoney $amount = null)
+    public function setAmount(?FHIRMoney $amount = null): object
     {
         $this->_trackValueSet($this->amount, $amount);
         $this->amount = $amount;
@@ -335,9 +341,9 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * A non-monetary value associated with the category. Mutually exclusive to the
      * amount element above.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getValue()
+    public function getValue(): ?FHIRDecimal
     {
         return $this->value;
     }
@@ -351,10 +357,10 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * A non-monetary value associated with the category. Mutually exclusive to the
      * amount element above.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $value
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRDecimal)) {
             $value = new FHIRDecimal($value);
@@ -498,15 +504,15 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRExplanationOfBenefitAdjudication::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -526,7 +532,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -573,7 +579,7 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -606,30 +612,33 @@ class FHIRExplanationOfBenefitAdjudication extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getReason())) {
-            $a[self::FIELD_REASON] = $v;
+            $out->{self::FIELD_REASON} = $v;
         }
         if (null !== ($v = $this->getAmount())) {
-            $a[self::FIELD_AMOUNT] = $v;
+            $out->{self::FIELD_AMOUNT} = $v;
         }
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

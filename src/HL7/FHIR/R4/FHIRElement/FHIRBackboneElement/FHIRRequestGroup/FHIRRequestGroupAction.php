@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -141,9 +141,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * A user-visible prefix for the action.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $prefix = null;
+    protected ?FHIRString $prefix = null;
 
     /**
      * A sequence of Unicode characters
@@ -152,9 +152,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * The title of the action displayed to a user.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * A sequence of Unicode characters
@@ -164,9 +164,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * A short description of the action used to provide a summary to display to the
      * user.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A sequence of Unicode characters
@@ -177,9 +177,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * human-interpretable description of the action when the definition is consumed by
      * a system that might not be capable of interpreting it dynamically.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $textEquivalent = null;
+    protected ?FHIRString $textEquivalent = null;
 
     /**
      * Identifies the level of importance to be assigned to actioning the request.
@@ -190,7 +190,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRequestPriority
      */
-    protected $priority = null;
+    protected ?FHIRRequestPriority $priority = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -203,7 +203,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $code = [];
+    protected ?array $code = [];
 
     /**
      * Related artifacts such as additional documentation, justification, or
@@ -217,7 +217,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[]
      */
-    protected $documentation = [];
+    protected ?array $documentation = [];
 
     /**
      * A group of related requests that can be used to capture intended activities that
@@ -228,7 +228,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition[]
      */
-    protected $condition = [];
+    protected ?array $condition = [];
 
     /**
      * A group of related requests that can be used to capture intended activities that
@@ -239,7 +239,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupRelatedAction[]
      */
-    protected $relatedAction = [];
+    protected ?array $relatedAction = [];
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -251,9 +251,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * An optional value describing when the action should be performed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $timingDateTime = null;
+    protected ?FHIRDateTime $timingDateTime = null;
 
     /**
      * A duration of time during which an organism (or a process) has existed.
@@ -264,7 +264,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    protected $timingAge = null;
+    protected ?FHIRAge $timingAge = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -275,7 +275,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $timingPeriod = null;
+    protected ?FHIRPeriod $timingPeriod = null;
 
     /**
      * A length of time.
@@ -286,7 +286,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $timingDuration = null;
+    protected ?FHIRDuration $timingDuration = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -297,7 +297,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $timingRange = null;
+    protected ?FHIRRange $timingRange = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -312,7 +312,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $timingTiming = null;
+    protected ?FHIRTiming $timingTiming = null;
 
     /**
      * A reference from one resource to another.
@@ -323,7 +323,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $participant = [];
+    protected ?array $participant = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -335,7 +335,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * Defines organization behavior of a group.
@@ -345,7 +345,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionGroupingBehavior
      */
-    protected $groupingBehavior = null;
+    protected ?FHIRActionGroupingBehavior $groupingBehavior = null;
 
     /**
      * Defines selection behavior of a group.
@@ -355,7 +355,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionSelectionBehavior
      */
-    protected $selectionBehavior = null;
+    protected ?FHIRActionSelectionBehavior $selectionBehavior = null;
 
     /**
      * Defines expectations around whether an action or action group is required.
@@ -365,7 +365,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionRequiredBehavior
      */
-    protected $requiredBehavior = null;
+    protected ?FHIRActionRequiredBehavior $requiredBehavior = null;
 
     /**
      * Defines selection frequency behavior for an action or group.
@@ -375,7 +375,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionPrecheckBehavior
      */
-    protected $precheckBehavior = null;
+    protected ?FHIRActionPrecheckBehavior $precheckBehavior = null;
 
     /**
      * Defines behavior for an action or a group for how many times that item may be
@@ -386,7 +386,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionCardinalityBehavior
      */
-    protected $cardinalityBehavior = null;
+    protected ?FHIRActionCardinalityBehavior $cardinalityBehavior = null;
 
     /**
      * A reference from one resource to another.
@@ -397,7 +397,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $resource = null;
+    protected ?FHIRReference $resource = null;
 
     /**
      * A group of related requests that can be used to capture intended activities that
@@ -407,13 +407,13 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction[]
      */
-    protected $action = [];
+    protected ?array $action = [];
 
     /**
      * Validation map for fields in type RequestGroup.Action
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRRequestGroupAction Constructor
@@ -432,8 +432,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_PREFIX]) || isset($data[self::FIELD_PREFIX_EXT])) {
-            $value = isset($data[self::FIELD_PREFIX]) ? $data[self::FIELD_PREFIX] : null;
-            $ext = (isset($data[self::FIELD_PREFIX_EXT]) && is_array($data[self::FIELD_PREFIX_EXT])) ? $ext = $data[self::FIELD_PREFIX_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREFIX] ?? null;
+            $ext = (isset($data[self::FIELD_PREFIX_EXT]) && is_array($data[self::FIELD_PREFIX_EXT])) ? $data[self::FIELD_PREFIX_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPrefix($value);
@@ -447,8 +447,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -462,8 +462,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -477,8 +477,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TEXT_EQUIVALENT]) || isset($data[self::FIELD_TEXT_EQUIVALENT_EXT])) {
-            $value = isset($data[self::FIELD_TEXT_EQUIVALENT]) ? $data[self::FIELD_TEXT_EQUIVALENT] : null;
-            $ext = (isset($data[self::FIELD_TEXT_EQUIVALENT_EXT]) && is_array($data[self::FIELD_TEXT_EQUIVALENT_EXT])) ? $ext = $data[self::FIELD_TEXT_EQUIVALENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEXT_EQUIVALENT] ?? null;
+            $ext = (isset($data[self::FIELD_TEXT_EQUIVALENT_EXT]) && is_array($data[self::FIELD_TEXT_EQUIVALENT_EXT])) ? $data[self::FIELD_TEXT_EQUIVALENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTextEquivalent($value);
@@ -492,8 +492,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PRIORITY]) || isset($data[self::FIELD_PRIORITY_EXT])) {
-            $value = isset($data[self::FIELD_PRIORITY]) ? $data[self::FIELD_PRIORITY] : null;
-            $ext = (isset($data[self::FIELD_PRIORITY_EXT]) && is_array($data[self::FIELD_PRIORITY_EXT])) ? $ext = $data[self::FIELD_PRIORITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRIORITY] ?? null;
+            $ext = (isset($data[self::FIELD_PRIORITY_EXT]) && is_array($data[self::FIELD_PRIORITY_EXT])) ? $data[self::FIELD_PRIORITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRRequestPriority) {
                     $this->setPriority($value);
@@ -579,8 +579,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TIMING_DATE_TIME]) || isset($data[self::FIELD_TIMING_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_TIMING_DATE_TIME]) ? $data[self::FIELD_TIMING_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_TIMING_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMING_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $data[self::FIELD_TIMING_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTimingDateTime($value);
@@ -654,8 +654,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_GROUPING_BEHAVIOR]) || isset($data[self::FIELD_GROUPING_BEHAVIOR_EXT])) {
-            $value = isset($data[self::FIELD_GROUPING_BEHAVIOR]) ? $data[self::FIELD_GROUPING_BEHAVIOR] : null;
-            $ext = (isset($data[self::FIELD_GROUPING_BEHAVIOR_EXT]) && is_array($data[self::FIELD_GROUPING_BEHAVIOR_EXT])) ? $ext = $data[self::FIELD_GROUPING_BEHAVIOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_GROUPING_BEHAVIOR] ?? null;
+            $ext = (isset($data[self::FIELD_GROUPING_BEHAVIOR_EXT]) && is_array($data[self::FIELD_GROUPING_BEHAVIOR_EXT])) ? $data[self::FIELD_GROUPING_BEHAVIOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionGroupingBehavior) {
                     $this->setGroupingBehavior($value);
@@ -669,8 +669,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SELECTION_BEHAVIOR]) || isset($data[self::FIELD_SELECTION_BEHAVIOR_EXT])) {
-            $value = isset($data[self::FIELD_SELECTION_BEHAVIOR]) ? $data[self::FIELD_SELECTION_BEHAVIOR] : null;
-            $ext = (isset($data[self::FIELD_SELECTION_BEHAVIOR_EXT]) && is_array($data[self::FIELD_SELECTION_BEHAVIOR_EXT])) ? $ext = $data[self::FIELD_SELECTION_BEHAVIOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_SELECTION_BEHAVIOR] ?? null;
+            $ext = (isset($data[self::FIELD_SELECTION_BEHAVIOR_EXT]) && is_array($data[self::FIELD_SELECTION_BEHAVIOR_EXT])) ? $data[self::FIELD_SELECTION_BEHAVIOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionSelectionBehavior) {
                     $this->setSelectionBehavior($value);
@@ -684,8 +684,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REQUIRED_BEHAVIOR]) || isset($data[self::FIELD_REQUIRED_BEHAVIOR_EXT])) {
-            $value = isset($data[self::FIELD_REQUIRED_BEHAVIOR]) ? $data[self::FIELD_REQUIRED_BEHAVIOR] : null;
-            $ext = (isset($data[self::FIELD_REQUIRED_BEHAVIOR_EXT]) && is_array($data[self::FIELD_REQUIRED_BEHAVIOR_EXT])) ? $ext = $data[self::FIELD_REQUIRED_BEHAVIOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_REQUIRED_BEHAVIOR] ?? null;
+            $ext = (isset($data[self::FIELD_REQUIRED_BEHAVIOR_EXT]) && is_array($data[self::FIELD_REQUIRED_BEHAVIOR_EXT])) ? $data[self::FIELD_REQUIRED_BEHAVIOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionRequiredBehavior) {
                     $this->setRequiredBehavior($value);
@@ -699,8 +699,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PRECHECK_BEHAVIOR]) || isset($data[self::FIELD_PRECHECK_BEHAVIOR_EXT])) {
-            $value = isset($data[self::FIELD_PRECHECK_BEHAVIOR]) ? $data[self::FIELD_PRECHECK_BEHAVIOR] : null;
-            $ext = (isset($data[self::FIELD_PRECHECK_BEHAVIOR_EXT]) && is_array($data[self::FIELD_PRECHECK_BEHAVIOR_EXT])) ? $ext = $data[self::FIELD_PRECHECK_BEHAVIOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRECHECK_BEHAVIOR] ?? null;
+            $ext = (isset($data[self::FIELD_PRECHECK_BEHAVIOR_EXT]) && is_array($data[self::FIELD_PRECHECK_BEHAVIOR_EXT])) ? $data[self::FIELD_PRECHECK_BEHAVIOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionPrecheckBehavior) {
                     $this->setPrecheckBehavior($value);
@@ -714,8 +714,8 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CARDINALITY_BEHAVIOR]) || isset($data[self::FIELD_CARDINALITY_BEHAVIOR_EXT])) {
-            $value = isset($data[self::FIELD_CARDINALITY_BEHAVIOR]) ? $data[self::FIELD_CARDINALITY_BEHAVIOR] : null;
-            $ext = (isset($data[self::FIELD_CARDINALITY_BEHAVIOR_EXT]) && is_array($data[self::FIELD_CARDINALITY_BEHAVIOR_EXT])) ? $ext = $data[self::FIELD_CARDINALITY_BEHAVIOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_CARDINALITY_BEHAVIOR] ?? null;
+            $ext = (isset($data[self::FIELD_CARDINALITY_BEHAVIOR_EXT]) && is_array($data[self::FIELD_CARDINALITY_BEHAVIOR_EXT])) ? $data[self::FIELD_CARDINALITY_BEHAVIOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionCardinalityBehavior) {
                     $this->setCardinalityBehavior($value);
@@ -755,11 +755,17 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -776,9 +782,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * A user-visible prefix for the action.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPrefix()
+    public function getPrefix(): ?FHIRString
     {
         return $this->prefix;
     }
@@ -790,10 +796,10 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * A user-visible prefix for the action.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $prefix
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $prefix
      * @return static
      */
-    public function setPrefix($prefix = null)
+    public function setPrefix($prefix = null): object
     {
         if (null !== $prefix && !($prefix instanceof FHIRString)) {
             $prefix = new FHIRString($prefix);
@@ -810,9 +816,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * The title of the action displayed to a user.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -824,10 +830,10 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * The title of the action displayed to a user.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -845,9 +851,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * A short description of the action used to provide a summary to display to the
      * user.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -860,10 +866,10 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * A short description of the action used to provide a summary to display to the
      * user.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -882,9 +888,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * human-interpretable description of the action when the definition is consumed by
      * a system that might not be capable of interpreting it dynamically.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTextEquivalent()
+    public function getTextEquivalent(): ?FHIRString
     {
         return $this->textEquivalent;
     }
@@ -898,10 +904,10 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * human-interpretable description of the action when the definition is consumed by
      * a system that might not be capable of interpreting it dynamically.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $textEquivalent
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $textEquivalent
      * @return static
      */
-    public function setTextEquivalent($textEquivalent = null)
+    public function setTextEquivalent($textEquivalent = null): object
     {
         if (null !== $textEquivalent && !($textEquivalent instanceof FHIRString)) {
             $textEquivalent = new FHIRString($textEquivalent);
@@ -920,7 +926,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRequestPriority
      */
-    public function getPriority()
+    public function getPriority(): ?FHIRRequestPriority
     {
         return $this->priority;
     }
@@ -935,7 +941,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRequestPriority $priority
      * @return static
      */
-    public function setPriority(FHIRRequestPriority $priority = null)
+    public function setPriority(?FHIRRequestPriority $priority = null): object
     {
         $this->_trackValueSet($this->priority, $priority);
         $this->priority = $priority;
@@ -953,7 +959,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCode()
+    public function getCode(): ?array
     {
         return $this->code;
     }
@@ -970,7 +976,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function addCode(FHIRCodeableConcept $code = null)
+    public function addCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueAdded();
         $this->code[] = $code;
@@ -989,7 +995,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $code
      * @return static
      */
-    public function setCode(array $code = [])
+    public function setCode(array $code = []): object
     {
         if ([] !== $this->code) {
             $this->_trackValuesRemoved(count($this->code));
@@ -1020,7 +1026,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[]
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?array
     {
         return $this->documentation;
     }
@@ -1038,7 +1044,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact $documentation
      * @return static
      */
-    public function addDocumentation(FHIRRelatedArtifact $documentation = null)
+    public function addDocumentation(?FHIRRelatedArtifact $documentation = null): object
     {
         $this->_trackValueAdded();
         $this->documentation[] = $documentation;
@@ -1058,7 +1064,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[] $documentation
      * @return static
      */
-    public function setDocumentation(array $documentation = [])
+    public function setDocumentation(array $documentation = []): object
     {
         if ([] !== $this->documentation) {
             $this->_trackValuesRemoved(count($this->documentation));
@@ -1086,7 +1092,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition[]
      */
-    public function getCondition()
+    public function getCondition(): ?array
     {
         return $this->condition;
     }
@@ -1101,7 +1107,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition $condition
      * @return static
      */
-    public function addCondition(FHIRRequestGroupCondition $condition = null)
+    public function addCondition(?FHIRRequestGroupCondition $condition = null): object
     {
         $this->_trackValueAdded();
         $this->condition[] = $condition;
@@ -1118,7 +1124,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition[] $condition
      * @return static
      */
-    public function setCondition(array $condition = [])
+    public function setCondition(array $condition = []): object
     {
         if ([] !== $this->condition) {
             $this->_trackValuesRemoved(count($this->condition));
@@ -1146,7 +1152,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupRelatedAction[]
      */
-    public function getRelatedAction()
+    public function getRelatedAction(): ?array
     {
         return $this->relatedAction;
     }
@@ -1161,7 +1167,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupRelatedAction $relatedAction
      * @return static
      */
-    public function addRelatedAction(FHIRRequestGroupRelatedAction $relatedAction = null)
+    public function addRelatedAction(?FHIRRequestGroupRelatedAction $relatedAction = null): object
     {
         $this->_trackValueAdded();
         $this->relatedAction[] = $relatedAction;
@@ -1178,7 +1184,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupRelatedAction[] $relatedAction
      * @return static
      */
-    public function setRelatedAction(array $relatedAction = [])
+    public function setRelatedAction(array $relatedAction = []): object
     {
         if ([] !== $this->relatedAction) {
             $this->_trackValuesRemoved(count($this->relatedAction));
@@ -1207,9 +1213,9 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * An optional value describing when the action should be performed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTimingDateTime()
+    public function getTimingDateTime(): ?FHIRDateTime
     {
         return $this->timingDateTime;
     }
@@ -1224,10 +1230,10 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * An optional value describing when the action should be performed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
      * @return static
      */
-    public function setTimingDateTime($timingDateTime = null)
+    public function setTimingDateTime($timingDateTime = null): object
     {
         if (null !== $timingDateTime && !($timingDateTime instanceof FHIRDateTime)) {
             $timingDateTime = new FHIRDateTime($timingDateTime);
@@ -1246,7 +1252,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    public function getTimingAge()
+    public function getTimingAge(): ?FHIRAge
     {
         return $this->timingAge;
     }
@@ -1261,7 +1267,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge $timingAge
      * @return static
      */
-    public function setTimingAge(FHIRAge $timingAge = null)
+    public function setTimingAge(?FHIRAge $timingAge = null): object
     {
         $this->_trackValueSet($this->timingAge, $timingAge);
         $this->timingAge = $timingAge;
@@ -1277,7 +1283,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getTimingPeriod()
+    public function getTimingPeriod(): ?FHIRPeriod
     {
         return $this->timingPeriod;
     }
@@ -1292,7 +1298,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $timingPeriod
      * @return static
      */
-    public function setTimingPeriod(FHIRPeriod $timingPeriod = null)
+    public function setTimingPeriod(?FHIRPeriod $timingPeriod = null): object
     {
         $this->_trackValueSet($this->timingPeriod, $timingPeriod);
         $this->timingPeriod = $timingPeriod;
@@ -1308,7 +1314,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getTimingDuration()
+    public function getTimingDuration(): ?FHIRDuration
     {
         return $this->timingDuration;
     }
@@ -1323,7 +1329,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $timingDuration
      * @return static
      */
-    public function setTimingDuration(FHIRDuration $timingDuration = null)
+    public function setTimingDuration(?FHIRDuration $timingDuration = null): object
     {
         $this->_trackValueSet($this->timingDuration, $timingDuration);
         $this->timingDuration = $timingDuration;
@@ -1339,7 +1345,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getTimingRange()
+    public function getTimingRange(): ?FHIRRange
     {
         return $this->timingRange;
     }
@@ -1354,7 +1360,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $timingRange
      * @return static
      */
-    public function setTimingRange(FHIRRange $timingRange = null)
+    public function setTimingRange(?FHIRRange $timingRange = null): object
     {
         $this->_trackValueSet($this->timingRange, $timingRange);
         $this->timingRange = $timingRange;
@@ -1374,7 +1380,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getTimingTiming()
+    public function getTimingTiming(): ?FHIRTiming
     {
         return $this->timingTiming;
     }
@@ -1393,7 +1399,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $timingTiming
      * @return static
      */
-    public function setTimingTiming(FHIRTiming $timingTiming = null)
+    public function setTimingTiming(?FHIRTiming $timingTiming = null): object
     {
         $this->_trackValueSet($this->timingTiming, $timingTiming);
         $this->timingTiming = $timingTiming;
@@ -1409,7 +1415,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getParticipant()
+    public function getParticipant(): ?array
     {
         return $this->participant;
     }
@@ -1424,7 +1430,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $participant
      * @return static
      */
-    public function addParticipant(FHIRReference $participant = null)
+    public function addParticipant(?FHIRReference $participant = null): object
     {
         $this->_trackValueAdded();
         $this->participant[] = $participant;
@@ -1441,7 +1447,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $participant
      * @return static
      */
-    public function setParticipant(array $participant = [])
+    public function setParticipant(array $participant = []): object
     {
         if ([] !== $this->participant) {
             $this->_trackValuesRemoved(count($this->participant));
@@ -1470,7 +1476,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -1486,7 +1492,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -1501,7 +1507,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionGroupingBehavior
      */
-    public function getGroupingBehavior()
+    public function getGroupingBehavior(): ?FHIRActionGroupingBehavior
     {
         return $this->groupingBehavior;
     }
@@ -1515,7 +1521,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionGroupingBehavior $groupingBehavior
      * @return static
      */
-    public function setGroupingBehavior(FHIRActionGroupingBehavior $groupingBehavior = null)
+    public function setGroupingBehavior(?FHIRActionGroupingBehavior $groupingBehavior = null): object
     {
         $this->_trackValueSet($this->groupingBehavior, $groupingBehavior);
         $this->groupingBehavior = $groupingBehavior;
@@ -1530,7 +1536,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionSelectionBehavior
      */
-    public function getSelectionBehavior()
+    public function getSelectionBehavior(): ?FHIRActionSelectionBehavior
     {
         return $this->selectionBehavior;
     }
@@ -1544,7 +1550,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionSelectionBehavior $selectionBehavior
      * @return static
      */
-    public function setSelectionBehavior(FHIRActionSelectionBehavior $selectionBehavior = null)
+    public function setSelectionBehavior(?FHIRActionSelectionBehavior $selectionBehavior = null): object
     {
         $this->_trackValueSet($this->selectionBehavior, $selectionBehavior);
         $this->selectionBehavior = $selectionBehavior;
@@ -1559,7 +1565,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionRequiredBehavior
      */
-    public function getRequiredBehavior()
+    public function getRequiredBehavior(): ?FHIRActionRequiredBehavior
     {
         return $this->requiredBehavior;
     }
@@ -1573,7 +1579,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionRequiredBehavior $requiredBehavior
      * @return static
      */
-    public function setRequiredBehavior(FHIRActionRequiredBehavior $requiredBehavior = null)
+    public function setRequiredBehavior(?FHIRActionRequiredBehavior $requiredBehavior = null): object
     {
         $this->_trackValueSet($this->requiredBehavior, $requiredBehavior);
         $this->requiredBehavior = $requiredBehavior;
@@ -1588,7 +1594,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionPrecheckBehavior
      */
-    public function getPrecheckBehavior()
+    public function getPrecheckBehavior(): ?FHIRActionPrecheckBehavior
     {
         return $this->precheckBehavior;
     }
@@ -1602,7 +1608,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionPrecheckBehavior $precheckBehavior
      * @return static
      */
-    public function setPrecheckBehavior(FHIRActionPrecheckBehavior $precheckBehavior = null)
+    public function setPrecheckBehavior(?FHIRActionPrecheckBehavior $precheckBehavior = null): object
     {
         $this->_trackValueSet($this->precheckBehavior, $precheckBehavior);
         $this->precheckBehavior = $precheckBehavior;
@@ -1618,7 +1624,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionCardinalityBehavior
      */
-    public function getCardinalityBehavior()
+    public function getCardinalityBehavior(): ?FHIRActionCardinalityBehavior
     {
         return $this->cardinalityBehavior;
     }
@@ -1633,7 +1639,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionCardinalityBehavior $cardinalityBehavior
      * @return static
      */
-    public function setCardinalityBehavior(FHIRActionCardinalityBehavior $cardinalityBehavior = null)
+    public function setCardinalityBehavior(?FHIRActionCardinalityBehavior $cardinalityBehavior = null): object
     {
         $this->_trackValueSet($this->cardinalityBehavior, $cardinalityBehavior);
         $this->cardinalityBehavior = $cardinalityBehavior;
@@ -1649,7 +1655,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getResource()
+    public function getResource(): ?FHIRReference
     {
         return $this->resource;
     }
@@ -1664,7 +1670,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $resource
      * @return static
      */
-    public function setResource(FHIRReference $resource = null)
+    public function setResource(?FHIRReference $resource = null): object
     {
         $this->_trackValueSet($this->resource, $resource);
         $this->resource = $resource;
@@ -1679,7 +1685,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction[]
      */
-    public function getAction()
+    public function getAction(): ?array
     {
         return $this->action;
     }
@@ -1693,7 +1699,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction $action
      * @return static
      */
-    public function addAction(FHIRRequestGroupAction $action = null)
+    public function addAction(?FHIRRequestGroupAction $action = null): object
     {
         $this->_trackValueAdded();
         $this->action[] = $action;
@@ -1709,7 +1715,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction[] $action
      * @return static
      */
-    public function setAction(array $action = [])
+    public function setAction(array $action = []): object
     {
         if ([] !== $this->action) {
             $this->_trackValuesRemoved(count($this->action));
@@ -2214,15 +2220,15 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupAction    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRRequestGroupAction::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2242,7 +2248,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2365,7 +2371,7 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2528,196 +2534,199 @@ class FHIRRequestGroupAction extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getPrefix())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PREFIX] = $val;
+                $out->{self::FIELD_PREFIX} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PREFIX_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREFIX_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTextEquivalent())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEXT_EQUIVALENT] = $val;
+                $out->{self::FIELD_TEXT_EQUIVALENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEXT_EQUIVALENT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEXT_EQUIVALENT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPriority())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRIORITY] = $val;
+                $out->{self::FIELD_PRIORITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRRequestPriority::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRIORITY_EXT] = $ext;
+            unset($ext->{FHIRRequestPriority::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRIORITY_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getCode())) {
-            $a[self::FIELD_CODE] = [];
+            $out->{self::FIELD_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CODE][] = $v;
+                $out->{self::FIELD_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDocumentation())) {
-            $a[self::FIELD_DOCUMENTATION] = [];
+            $out->{self::FIELD_DOCUMENTATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOCUMENTATION][] = $v;
+                $out->{self::FIELD_DOCUMENTATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCondition())) {
-            $a[self::FIELD_CONDITION] = [];
+            $out->{self::FIELD_CONDITION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONDITION][] = $v;
+                $out->{self::FIELD_CONDITION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRelatedAction())) {
-            $a[self::FIELD_RELATED_ACTION] = [];
+            $out->{self::FIELD_RELATED_ACTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELATED_ACTION][] = $v;
+                $out->{self::FIELD_RELATED_ACTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getTimingDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMING_DATE_TIME] = $val;
+                $out->{self::FIELD_TIMING_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMING_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMING_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimingAge())) {
-            $a[self::FIELD_TIMING_AGE] = $v;
+            $out->{self::FIELD_TIMING_AGE} = $v;
         }
         if (null !== ($v = $this->getTimingPeriod())) {
-            $a[self::FIELD_TIMING_PERIOD] = $v;
+            $out->{self::FIELD_TIMING_PERIOD} = $v;
         }
         if (null !== ($v = $this->getTimingDuration())) {
-            $a[self::FIELD_TIMING_DURATION] = $v;
+            $out->{self::FIELD_TIMING_DURATION} = $v;
         }
         if (null !== ($v = $this->getTimingRange())) {
-            $a[self::FIELD_TIMING_RANGE] = $v;
+            $out->{self::FIELD_TIMING_RANGE} = $v;
         }
         if (null !== ($v = $this->getTimingTiming())) {
-            $a[self::FIELD_TIMING_TIMING] = $v;
+            $out->{self::FIELD_TIMING_TIMING} = $v;
         }
         if ([] !== ($vs = $this->getParticipant())) {
-            $a[self::FIELD_PARTICIPANT] = [];
+            $out->{self::FIELD_PARTICIPANT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARTICIPANT][] = $v;
+                $out->{self::FIELD_PARTICIPANT}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getGroupingBehavior())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GROUPING_BEHAVIOR] = $val;
+                $out->{self::FIELD_GROUPING_BEHAVIOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionGroupingBehavior::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GROUPING_BEHAVIOR_EXT] = $ext;
+            unset($ext->{FHIRActionGroupingBehavior::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GROUPING_BEHAVIOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSelectionBehavior())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SELECTION_BEHAVIOR] = $val;
+                $out->{self::FIELD_SELECTION_BEHAVIOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionSelectionBehavior::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SELECTION_BEHAVIOR_EXT] = $ext;
+            unset($ext->{FHIRActionSelectionBehavior::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SELECTION_BEHAVIOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRequiredBehavior())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REQUIRED_BEHAVIOR] = $val;
+                $out->{self::FIELD_REQUIRED_BEHAVIOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionRequiredBehavior::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REQUIRED_BEHAVIOR_EXT] = $ext;
+            unset($ext->{FHIRActionRequiredBehavior::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REQUIRED_BEHAVIOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPrecheckBehavior())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRECHECK_BEHAVIOR] = $val;
+                $out->{self::FIELD_PRECHECK_BEHAVIOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionPrecheckBehavior::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRECHECK_BEHAVIOR_EXT] = $ext;
+            unset($ext->{FHIRActionPrecheckBehavior::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRECHECK_BEHAVIOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCardinalityBehavior())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CARDINALITY_BEHAVIOR] = $val;
+                $out->{self::FIELD_CARDINALITY_BEHAVIOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionCardinalityBehavior::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CARDINALITY_BEHAVIOR_EXT] = $ext;
+            unset($ext->{FHIRActionCardinalityBehavior::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CARDINALITY_BEHAVIOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResource())) {
-            $a[self::FIELD_RESOURCE] = $v;
+            $out->{self::FIELD_RESOURCE} = $v;
         }
         if ([] !== ($vs = $this->getAction())) {
-            $a[self::FIELD_ACTION] = [];
+            $out->{self::FIELD_ACTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ACTION][] = $v;
+                $out->{self::FIELD_ACTION}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

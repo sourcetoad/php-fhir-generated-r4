@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,9 +103,9 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * The MessageHeader.id of the message to which this message is a response.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $identifier = null;
+    protected ?FHIRId $identifier = null;
 
     /**
      * The kind of response to a message.
@@ -116,7 +116,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRResponseType
      */
-    protected $code = null;
+    protected ?FHIRResponseType $code = null;
 
     /**
      * A reference from one resource to another.
@@ -127,13 +127,13 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $details = null;
+    protected ?FHIRReference $details = null;
 
     /**
      * Validation map for fields in type MessageHeader.Response
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMessageHeaderResponse Constructor
@@ -152,8 +152,8 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_IDENTIFIER]) || isset($data[self::FIELD_IDENTIFIER_EXT])) {
-            $value = isset($data[self::FIELD_IDENTIFIER]) ? $data[self::FIELD_IDENTIFIER] : null;
-            $ext = (isset($data[self::FIELD_IDENTIFIER_EXT]) && is_array($data[self::FIELD_IDENTIFIER_EXT])) ? $ext = $data[self::FIELD_IDENTIFIER_EXT] : $ext = [];
+            $value = $data[self::FIELD_IDENTIFIER] ?? null;
+            $ext = (isset($data[self::FIELD_IDENTIFIER_EXT]) && is_array($data[self::FIELD_IDENTIFIER_EXT])) ? $data[self::FIELD_IDENTIFIER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setIdentifier($value);
@@ -167,8 +167,8 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRResponseType) {
                     $this->setCode($value);
@@ -190,11 +190,17 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -214,9 +220,9 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * The MessageHeader.id of the message to which this message is a response.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRId
     {
         return $this->identifier;
     }
@@ -231,10 +237,10 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * The MessageHeader.id of the message to which this message is a response.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $identifier
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $identifier
      * @return static
      */
-    public function setIdentifier($identifier = null)
+    public function setIdentifier($identifier = null): object
     {
         if (null !== $identifier && !($identifier instanceof FHIRId)) {
             $identifier = new FHIRId($identifier);
@@ -253,7 +259,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRResponseType
      */
-    public function getCode()
+    public function getCode(): ?FHIRResponseType
     {
         return $this->code;
     }
@@ -268,7 +274,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRResponseType $code
      * @return static
      */
-    public function setCode(FHIRResponseType $code = null)
+    public function setCode(?FHIRResponseType $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -284,7 +290,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDetails()
+    public function getDetails(): ?FHIRReference
     {
         return $this->details;
     }
@@ -299,7 +305,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $details
      * @return static
      */
-    public function setDetails(FHIRReference $details = null)
+    public function setDetails(?FHIRReference $details = null): object
     {
         $this->_trackValueSet($this->details, $details);
         $this->details = $details;
@@ -423,15 +429,15 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderResponse
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageHeader\FHIRMessageHeaderResponse    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMessageHeaderResponse::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -451,7 +457,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -496,7 +502,7 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -524,34 +530,37 @@ class FHIRMessageHeaderResponse extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IDENTIFIER] = $val;
+                $out->{self::FIELD_IDENTIFIER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IDENTIFIER_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IDENTIFIER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRResponseType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRResponseType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDetails())) {
-            $a[self::FIELD_DETAILS] = $v;
+            $out->{self::FIELD_DETAILS} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

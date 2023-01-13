@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $schedule = null;
+    protected ?FHIRTiming $schedule = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -118,7 +118,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -132,7 +132,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $rateQuantity = null;
+    protected ?FHIRQuantity $rateQuantity = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -145,13 +145,13 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $rateRatio = null;
+    protected ?FHIRRatio $rateRatio = null;
 
     /**
      * Validation map for fields in type NutritionOrder.Administration
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRNutritionOrderAdministration Constructor
@@ -199,11 +199,17 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -227,7 +233,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getSchedule()
+    public function getSchedule(): ?FHIRTiming
     {
         return $this->schedule;
     }
@@ -247,7 +253,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $schedule
      * @return static
      */
-    public function setSchedule(FHIRTiming $schedule = null)
+    public function setSchedule(?FHIRTiming $schedule = null): object
     {
         $this->_trackValueSet($this->schedule, $schedule);
         $this->schedule = $schedule;
@@ -266,7 +272,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -284,7 +290,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -303,7 +309,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getRateQuantity()
+    public function getRateQuantity(): ?FHIRQuantity
     {
         return $this->rateQuantity;
     }
@@ -321,7 +327,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $rateQuantity
      * @return static
      */
-    public function setRateQuantity(FHIRQuantity $rateQuantity = null)
+    public function setRateQuantity(?FHIRQuantity $rateQuantity = null): object
     {
         $this->_trackValueSet($this->rateQuantity, $rateQuantity);
         $this->rateQuantity = $rateQuantity;
@@ -339,7 +345,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getRateRatio()
+    public function getRateRatio(): ?FHIRRatio
     {
         return $this->rateRatio;
     }
@@ -356,7 +362,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $rateRatio
      * @return static
      */
-    public function setRateRatio(FHIRRatio $rateRatio = null)
+    public function setRateRatio(?FHIRRatio $rateRatio = null): object
     {
         $this->_trackValueSet($this->rateRatio, $rateRatio);
         $this->rateRatio = $rateRatio;
@@ -497,15 +503,15 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderAdministration
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderAdministration    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRNutritionOrderAdministration::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -525,7 +531,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -563,7 +569,7 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -596,23 +602,26 @@ class FHIRNutritionOrderAdministration extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSchedule())) {
-            $a[self::FIELD_SCHEDULE] = $v;
+            $out->{self::FIELD_SCHEDULE} = $v;
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getRateQuantity())) {
-            $a[self::FIELD_RATE_QUANTITY] = $v;
+            $out->{self::FIELD_RATE_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getRateRatio())) {
-            $a[self::FIELD_RATE_RATIO] = $v;
+            $out->{self::FIELD_RATE_RATIO} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

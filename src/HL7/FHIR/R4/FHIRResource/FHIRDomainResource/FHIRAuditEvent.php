@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,7 +127,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $type = null;
+    protected ?FHIRCoding $type = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -138,7 +138,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $subtype = [];
+    protected ?array $subtype = [];
 
     /**
      * Indicator for type of action performed during the event that generated the
@@ -150,7 +150,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventAction
      */
-    protected $action = null;
+    protected ?FHIRAuditEventAction $action = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -161,7 +161,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * An instant in time - known at least to the second
@@ -173,9 +173,9 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * The time when the event was recorded.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $recorded = null;
+    protected ?FHIRInstant $recorded = null;
 
     /**
      * Indicates whether the event succeeded or failed.
@@ -185,7 +185,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventOutcome
      */
-    protected $outcome = null;
+    protected ?FHIRAuditEventOutcome $outcome = null;
 
     /**
      * A sequence of Unicode characters
@@ -194,9 +194,9 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * A free text description of the outcome of the event.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $outcomeDesc = null;
+    protected ?FHIRString $outcomeDesc = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -208,7 +208,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $purposeOfEvent = [];
+    protected ?array $purposeOfEvent = [];
 
     /**
      * A record of an event made for purposes of maintaining a security log. Typical
@@ -219,7 +219,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventAgent[]
      */
-    protected $agent = [];
+    protected ?array $agent = [];
 
     /**
      * A record of an event made for purposes of maintaining a security log. Typical
@@ -230,7 +230,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventSource
      */
-    protected $source = null;
+    protected ?FHIRAuditEventSource $source = null;
 
     /**
      * A record of an event made for purposes of maintaining a security log. Typical
@@ -241,13 +241,13 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity[]
      */
-    protected $entity = [];
+    protected ?array $entity = [];
 
     /**
      * Validation map for fields in type AuditEvent
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_AGENT => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -295,8 +295,8 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
             }
         }
         if (isset($data[self::FIELD_ACTION]) || isset($data[self::FIELD_ACTION_EXT])) {
-            $value = isset($data[self::FIELD_ACTION]) ? $data[self::FIELD_ACTION] : null;
-            $ext = (isset($data[self::FIELD_ACTION_EXT]) && is_array($data[self::FIELD_ACTION_EXT])) ? $ext = $data[self::FIELD_ACTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTION] ?? null;
+            $ext = (isset($data[self::FIELD_ACTION_EXT]) && is_array($data[self::FIELD_ACTION_EXT])) ? $data[self::FIELD_ACTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAuditEventAction) {
                     $this->setAction($value);
@@ -317,8 +317,8 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
             }
         }
         if (isset($data[self::FIELD_RECORDED]) || isset($data[self::FIELD_RECORDED_EXT])) {
-            $value = isset($data[self::FIELD_RECORDED]) ? $data[self::FIELD_RECORDED] : null;
-            $ext = (isset($data[self::FIELD_RECORDED_EXT]) && is_array($data[self::FIELD_RECORDED_EXT])) ? $ext = $data[self::FIELD_RECORDED_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECORDED] ?? null;
+            $ext = (isset($data[self::FIELD_RECORDED_EXT]) && is_array($data[self::FIELD_RECORDED_EXT])) ? $data[self::FIELD_RECORDED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setRecorded($value);
@@ -332,8 +332,8 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
             }
         }
         if (isset($data[self::FIELD_OUTCOME]) || isset($data[self::FIELD_OUTCOME_EXT])) {
-            $value = isset($data[self::FIELD_OUTCOME]) ? $data[self::FIELD_OUTCOME] : null;
-            $ext = (isset($data[self::FIELD_OUTCOME_EXT]) && is_array($data[self::FIELD_OUTCOME_EXT])) ? $ext = $data[self::FIELD_OUTCOME_EXT] : $ext = [];
+            $value = $data[self::FIELD_OUTCOME] ?? null;
+            $ext = (isset($data[self::FIELD_OUTCOME_EXT]) && is_array($data[self::FIELD_OUTCOME_EXT])) ? $data[self::FIELD_OUTCOME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAuditEventOutcome) {
                     $this->setOutcome($value);
@@ -347,8 +347,8 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
             }
         }
         if (isset($data[self::FIELD_OUTCOME_DESC]) || isset($data[self::FIELD_OUTCOME_DESC_EXT])) {
-            $value = isset($data[self::FIELD_OUTCOME_DESC]) ? $data[self::FIELD_OUTCOME_DESC] : null;
-            $ext = (isset($data[self::FIELD_OUTCOME_DESC_EXT]) && is_array($data[self::FIELD_OUTCOME_DESC_EXT])) ? $ext = $data[self::FIELD_OUTCOME_DESC_EXT] : $ext = [];
+            $value = $data[self::FIELD_OUTCOME_DESC] ?? null;
+            $ext = (isset($data[self::FIELD_OUTCOME_DESC_EXT]) && is_array($data[self::FIELD_OUTCOME_DESC_EXT])) ? $data[self::FIELD_OUTCOME_DESC_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setOutcomeDesc($value);
@@ -424,11 +424,17 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -437,6 +443,9 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
         }
         return "<AuditEvent{$xmlns}></AuditEvent>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -454,7 +463,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getType()
+    public function getType(): ?FHIRCoding
     {
         return $this->type;
     }
@@ -471,7 +480,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $type
      * @return static
      */
-    public function setType(FHIRCoding $type = null)
+    public function setType(?FHIRCoding $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -487,7 +496,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getSubtype()
+    public function getSubtype(): ?array
     {
         return $this->subtype;
     }
@@ -502,7 +511,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $subtype
      * @return static
      */
-    public function addSubtype(FHIRCoding $subtype = null)
+    public function addSubtype(?FHIRCoding $subtype = null): object
     {
         $this->_trackValueAdded();
         $this->subtype[] = $subtype;
@@ -519,7 +528,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $subtype
      * @return static
      */
-    public function setSubtype(array $subtype = [])
+    public function setSubtype(array $subtype = []): object
     {
         if ([] !== $this->subtype) {
             $this->_trackValuesRemoved(count($this->subtype));
@@ -548,7 +557,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventAction
      */
-    public function getAction()
+    public function getAction(): ?FHIRAuditEventAction
     {
         return $this->action;
     }
@@ -564,7 +573,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventAction $action
      * @return static
      */
-    public function setAction(FHIRAuditEventAction $action = null)
+    public function setAction(?FHIRAuditEventAction $action = null): object
     {
         $this->_trackValueSet($this->action, $action);
         $this->action = $action;
@@ -580,7 +589,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -595,7 +604,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -612,9 +621,9 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * The time when the event was recorded.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getRecorded()
+    public function getRecorded(): ?FHIRInstant
     {
         return $this->recorded;
     }
@@ -629,10 +638,10 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * The time when the event was recorded.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $recorded
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $recorded
      * @return static
      */
-    public function setRecorded($recorded = null)
+    public function setRecorded($recorded = null): object
     {
         if (null !== $recorded && !($recorded instanceof FHIRInstant)) {
             $recorded = new FHIRInstant($recorded);
@@ -650,7 +659,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventOutcome
      */
-    public function getOutcome()
+    public function getOutcome(): ?FHIRAuditEventOutcome
     {
         return $this->outcome;
     }
@@ -664,7 +673,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAuditEventOutcome $outcome
      * @return static
      */
-    public function setOutcome(FHIRAuditEventOutcome $outcome = null)
+    public function setOutcome(?FHIRAuditEventOutcome $outcome = null): object
     {
         $this->_trackValueSet($this->outcome, $outcome);
         $this->outcome = $outcome;
@@ -678,9 +687,9 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * A free text description of the outcome of the event.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getOutcomeDesc()
+    public function getOutcomeDesc(): ?FHIRString
     {
         return $this->outcomeDesc;
     }
@@ -692,10 +701,10 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * A free text description of the outcome of the event.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $outcomeDesc
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $outcomeDesc
      * @return static
      */
-    public function setOutcomeDesc($outcomeDesc = null)
+    public function setOutcomeDesc($outcomeDesc = null): object
     {
         if (null !== $outcomeDesc && !($outcomeDesc instanceof FHIRString)) {
             $outcomeDesc = new FHIRString($outcomeDesc);
@@ -715,7 +724,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getPurposeOfEvent()
+    public function getPurposeOfEvent(): ?array
     {
         return $this->purposeOfEvent;
     }
@@ -731,7 +740,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $purposeOfEvent
      * @return static
      */
-    public function addPurposeOfEvent(FHIRCodeableConcept $purposeOfEvent = null)
+    public function addPurposeOfEvent(?FHIRCodeableConcept $purposeOfEvent = null): object
     {
         $this->_trackValueAdded();
         $this->purposeOfEvent[] = $purposeOfEvent;
@@ -749,7 +758,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $purposeOfEvent
      * @return static
      */
-    public function setPurposeOfEvent(array $purposeOfEvent = [])
+    public function setPurposeOfEvent(array $purposeOfEvent = []): object
     {
         if ([] !== $this->purposeOfEvent) {
             $this->_trackValuesRemoved(count($this->purposeOfEvent));
@@ -777,7 +786,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventAgent[]
      */
-    public function getAgent()
+    public function getAgent(): ?array
     {
         return $this->agent;
     }
@@ -792,7 +801,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventAgent $agent
      * @return static
      */
-    public function addAgent(FHIRAuditEventAgent $agent = null)
+    public function addAgent(?FHIRAuditEventAgent $agent = null): object
     {
         $this->_trackValueAdded();
         $this->agent[] = $agent;
@@ -809,7 +818,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventAgent[] $agent
      * @return static
      */
-    public function setAgent(array $agent = [])
+    public function setAgent(array $agent = []): object
     {
         if ([] !== $this->agent) {
             $this->_trackValuesRemoved(count($this->agent));
@@ -837,7 +846,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventSource
      */
-    public function getSource()
+    public function getSource(): ?FHIRAuditEventSource
     {
         return $this->source;
     }
@@ -852,7 +861,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventSource $source
      * @return static
      */
-    public function setSource(FHIRAuditEventSource $source = null)
+    public function setSource(?FHIRAuditEventSource $source = null): object
     {
         $this->_trackValueSet($this->source, $source);
         $this->source = $source;
@@ -868,7 +877,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity[]
      */
-    public function getEntity()
+    public function getEntity(): ?array
     {
         return $this->entity;
     }
@@ -883,7 +892,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity $entity
      * @return static
      */
-    public function addEntity(FHIRAuditEventEntity $entity = null)
+    public function addEntity(?FHIRAuditEventEntity $entity = null): object
     {
         $this->_trackValueAdded();
         $this->entity[] = $entity;
@@ -900,7 +909,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAuditEvent\FHIRAuditEventEntity[] $entity
      * @return static
      */
-    public function setEntity(array $entity = [])
+    public function setEntity(array $entity = []): object
     {
         if ([] !== $this->entity) {
             $this->_trackValuesRemoved(count($this->entity));
@@ -1240,15 +1249,15 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAuditEvent
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAuditEvent    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAuditEvent::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1268,7 +1277,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1371,7 +1380,7 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1459,96 +1468,101 @@ class FHIRAuditEvent extends FHIRDomainResource implements PHPFHIRContainedTypeI
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getSubtype())) {
-            $a[self::FIELD_SUBTYPE] = [];
+            $out->{self::FIELD_SUBTYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBTYPE][] = $v;
+                $out->{self::FIELD_SUBTYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getAction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTION] = $val;
+                $out->{self::FIELD_ACTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAuditEventAction::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTION_EXT] = $ext;
+            unset($ext->{FHIRAuditEventAction::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getRecorded())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECORDED] = $val;
+                $out->{self::FIELD_RECORDED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECORDED_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECORDED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOutcome())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OUTCOME] = $val;
+                $out->{self::FIELD_OUTCOME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAuditEventOutcome::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OUTCOME_EXT] = $ext;
+            unset($ext->{FHIRAuditEventOutcome::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OUTCOME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOutcomeDesc())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OUTCOME_DESC] = $val;
+                $out->{self::FIELD_OUTCOME_DESC} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OUTCOME_DESC_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OUTCOME_DESC_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getPurposeOfEvent())) {
-            $a[self::FIELD_PURPOSE_OF_EVENT] = [];
+            $out->{self::FIELD_PURPOSE_OF_EVENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PURPOSE_OF_EVENT][] = $v;
+                $out->{self::FIELD_PURPOSE_OF_EVENT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getAgent())) {
-            $a[self::FIELD_AGENT] = [];
+            $out->{self::FIELD_AGENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AGENT][] = $v;
+                $out->{self::FIELD_AGENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = $v;
+            $out->{self::FIELD_SOURCE} = $v;
         }
         if ([] !== ($vs = $this->getEntity())) {
-            $a[self::FIELD_ENTITY] = [];
+            $out->{self::FIELD_ENTITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENTITY][] = $v;
+                $out->{self::FIELD_ENTITY}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

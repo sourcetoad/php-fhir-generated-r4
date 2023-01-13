@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -140,7 +140,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Value of "true" or "false"
@@ -152,9 +152,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * patient lists to exclude inactive patients Deceased patients may also be marked
      * as inactive for the same reasons, but may be active for some time after death.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $active = null;
+    protected ?FHIRBoolean $active = null;
 
     /**
      * A human's name with the ability to identify parts and usage.
@@ -165,7 +165,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName[]
      */
-    protected $name = [];
+    protected ?array $name = [];
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -178,7 +178,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $telecom = [];
+    protected ?array $telecom = [];
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -188,7 +188,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender
      */
-    protected $gender = null;
+    protected ?FHIRAdministrativeGender $gender = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -198,9 +198,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * The date of birth for the individual.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $birthDate = null;
+    protected ?FHIRDate $birthDate = null;
 
     /**
      * Value of "true" or "false"
@@ -208,9 +208,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $deceasedBoolean = null;
+    protected ?FHIRBoolean $deceasedBoolean = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -222,9 +222,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $deceasedDateTime = null;
+    protected ?FHIRDateTime $deceasedDateTime = null;
 
     /**
      * An address expressed using postal conventions (as opposed to GPS or other
@@ -239,7 +239,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAddress[]
      */
-    protected $address = [];
+    protected ?array $address = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -251,7 +251,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $maritalStatus = null;
+    protected ?FHIRCodeableConcept $maritalStatus = null;
 
     /**
      * Value of "true" or "false"
@@ -260,9 +260,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $multipleBirthBoolean = null;
+    protected ?FHIRBoolean $multipleBirthBoolean = null;
 
     /**
      * A whole number
@@ -272,9 +272,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $multipleBirthInteger = null;
+    protected ?FHIRInteger $multipleBirthInteger = null;
 
     /**
      * For referring to data content defined in other formats.
@@ -285,7 +285,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    protected $photo = [];
+    protected ?array $photo = [];
 
     /**
      * Demographics and other administrative information about an individual or animal
@@ -295,7 +295,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * Demographics and other administrative information about an individual or animal
@@ -306,7 +306,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientCommunication[]
      */
-    protected $communication = [];
+    protected ?array $communication = [];
 
     /**
      * A reference from one resource to another.
@@ -317,7 +317,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $generalPractitioner = [];
+    protected ?array $generalPractitioner = [];
 
     /**
      * A reference from one resource to another.
@@ -328,7 +328,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $managingOrganization = null;
+    protected ?FHIRReference $managingOrganization = null;
 
     /**
      * Demographics and other administrative information about an individual or animal
@@ -338,13 +338,13 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientLink[]
      */
-    protected $link = [];
+    protected ?array $link = [];
 
     /**
      * Validation map for fields in type Patient
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPatient Constructor
@@ -381,8 +381,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_ACTIVE]) || isset($data[self::FIELD_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_ACTIVE]) ? $data[self::FIELD_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $ext = $data[self::FIELD_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_ACTIVE_EXT]) && is_array($data[self::FIELD_ACTIVE_EXT])) ? $data[self::FIELD_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setActive($value);
@@ -432,8 +432,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_GENDER]) || isset($data[self::FIELD_GENDER_EXT])) {
-            $value = isset($data[self::FIELD_GENDER]) ? $data[self::FIELD_GENDER] : null;
-            $ext = (isset($data[self::FIELD_GENDER_EXT]) && is_array($data[self::FIELD_GENDER_EXT])) ? $ext = $data[self::FIELD_GENDER_EXT] : $ext = [];
+            $value = $data[self::FIELD_GENDER] ?? null;
+            $ext = (isset($data[self::FIELD_GENDER_EXT]) && is_array($data[self::FIELD_GENDER_EXT])) ? $data[self::FIELD_GENDER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAdministrativeGender) {
                     $this->setGender($value);
@@ -447,8 +447,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_BIRTH_DATE]) || isset($data[self::FIELD_BIRTH_DATE_EXT])) {
-            $value = isset($data[self::FIELD_BIRTH_DATE]) ? $data[self::FIELD_BIRTH_DATE] : null;
-            $ext = (isset($data[self::FIELD_BIRTH_DATE_EXT]) && is_array($data[self::FIELD_BIRTH_DATE_EXT])) ? $ext = $data[self::FIELD_BIRTH_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_BIRTH_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_BIRTH_DATE_EXT]) && is_array($data[self::FIELD_BIRTH_DATE_EXT])) ? $data[self::FIELD_BIRTH_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setBirthDate($value);
@@ -462,8 +462,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_DECEASED_BOOLEAN]) || isset($data[self::FIELD_DECEASED_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_DECEASED_BOOLEAN]) ? $data[self::FIELD_DECEASED_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_DECEASED_BOOLEAN_EXT]) && is_array($data[self::FIELD_DECEASED_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_DECEASED_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_DECEASED_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_DECEASED_BOOLEAN_EXT]) && is_array($data[self::FIELD_DECEASED_BOOLEAN_EXT])) ? $data[self::FIELD_DECEASED_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setDeceasedBoolean($value);
@@ -477,8 +477,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_DECEASED_DATE_TIME]) || isset($data[self::FIELD_DECEASED_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_DECEASED_DATE_TIME]) ? $data[self::FIELD_DECEASED_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_DECEASED_DATE_TIME_EXT]) && is_array($data[self::FIELD_DECEASED_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_DECEASED_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_DECEASED_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_DECEASED_DATE_TIME_EXT]) && is_array($data[self::FIELD_DECEASED_DATE_TIME_EXT])) ? $data[self::FIELD_DECEASED_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDeceasedDateTime($value);
@@ -517,8 +517,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN]) || isset($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN]) ? $data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT]) && is_array($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT]) && is_array($data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT])) ? $data[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setMultipleBirthBoolean($value);
@@ -532,8 +532,8 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_MULTIPLE_BIRTH_INTEGER]) || isset($data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT])) {
-            $value = isset($data[self::FIELD_MULTIPLE_BIRTH_INTEGER]) ? $data[self::FIELD_MULTIPLE_BIRTH_INTEGER] : null;
-            $ext = (isset($data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT]) && is_array($data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT])) ? $ext = $data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT] : $ext = [];
+            $value = $data[self::FIELD_MULTIPLE_BIRTH_INTEGER] ?? null;
+            $ext = (isset($data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT]) && is_array($data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT])) ? $data[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setMultipleBirthInteger($value);
@@ -645,11 +645,17 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -658,6 +664,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
         return "<Patient{$xmlns}></Patient>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -674,7 +683,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -690,7 +699,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -708,7 +717,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -737,9 +746,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * patient lists to exclude inactive patients Deceased patients may also be marked
      * as inactive for the same reasons, but may be active for some time after death.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getActive()
+    public function getActive(): ?FHIRBoolean
     {
         return $this->active;
     }
@@ -754,10 +763,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * patient lists to exclude inactive patients Deceased patients may also be marked
      * as inactive for the same reasons, but may be active for some time after death.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $active
      * @return static
      */
-    public function setActive($active = null)
+    public function setActive($active = null): object
     {
         if (null !== $active && !($active instanceof FHIRBoolean)) {
             $active = new FHIRBoolean($active);
@@ -776,7 +785,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName[]
      */
-    public function getName()
+    public function getName(): ?array
     {
         return $this->name;
     }
@@ -791,7 +800,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName $name
      * @return static
      */
-    public function addName(FHIRHumanName $name = null)
+    public function addName(?FHIRHumanName $name = null): object
     {
         $this->_trackValueAdded();
         $this->name[] = $name;
@@ -808,7 +817,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRHumanName[] $name
      * @return static
      */
-    public function setName(array $name = [])
+    public function setName(array $name = []): object
     {
         if ([] !== $this->name) {
             $this->_trackValuesRemoved(count($this->name));
@@ -838,7 +847,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getTelecom()
+    public function getTelecom(): ?array
     {
         return $this->telecom;
     }
@@ -855,7 +864,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $telecom
      * @return static
      */
-    public function addTelecom(FHIRContactPoint $telecom = null)
+    public function addTelecom(?FHIRContactPoint $telecom = null): object
     {
         $this->_trackValueAdded();
         $this->telecom[] = $telecom;
@@ -874,7 +883,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $telecom
      * @return static
      */
-    public function setTelecom(array $telecom = [])
+    public function setTelecom(array $telecom = []): object
     {
         if ([] !== $this->telecom) {
             $this->_trackValuesRemoved(count($this->telecom));
@@ -901,7 +910,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender
      */
-    public function getGender()
+    public function getGender(): ?FHIRAdministrativeGender
     {
         return $this->gender;
     }
@@ -915,7 +924,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender $gender
      * @return static
      */
-    public function setGender(FHIRAdministrativeGender $gender = null)
+    public function setGender(?FHIRAdministrativeGender $gender = null): object
     {
         $this->_trackValueSet($this->gender, $gender);
         $this->gender = $gender;
@@ -930,9 +939,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * The date of birth for the individual.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getBirthDate()
+    public function getBirthDate(): ?FHIRDate
     {
         return $this->birthDate;
     }
@@ -945,10 +954,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * The date of birth for the individual.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $birthDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $birthDate
      * @return static
      */
-    public function setBirthDate($birthDate = null)
+    public function setBirthDate($birthDate = null): object
     {
         if (null !== $birthDate && !($birthDate instanceof FHIRDate)) {
             $birthDate = new FHIRDate($birthDate);
@@ -964,9 +973,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getDeceasedBoolean()
+    public function getDeceasedBoolean(): ?FHIRBoolean
     {
         return $this->deceasedBoolean;
     }
@@ -977,10 +986,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deceasedBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deceasedBoolean
      * @return static
      */
-    public function setDeceasedBoolean($deceasedBoolean = null)
+    public function setDeceasedBoolean($deceasedBoolean = null): object
     {
         if (null !== $deceasedBoolean && !($deceasedBoolean instanceof FHIRBoolean)) {
             $deceasedBoolean = new FHIRBoolean($deceasedBoolean);
@@ -1000,9 +1009,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDeceasedDateTime()
+    public function getDeceasedDateTime(): ?FHIRDateTime
     {
         return $this->deceasedDateTime;
     }
@@ -1017,10 +1026,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Indicates if the individual is deceased or not.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $deceasedDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $deceasedDateTime
      * @return static
      */
-    public function setDeceasedDateTime($deceasedDateTime = null)
+    public function setDeceasedDateTime($deceasedDateTime = null): object
     {
         if (null !== $deceasedDateTime && !($deceasedDateTime instanceof FHIRDateTime)) {
             $deceasedDateTime = new FHIRDateTime($deceasedDateTime);
@@ -1043,7 +1052,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAddress[]
      */
-    public function getAddress()
+    public function getAddress(): ?array
     {
         return $this->address;
     }
@@ -1062,7 +1071,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAddress $address
      * @return static
      */
-    public function addAddress(FHIRAddress $address = null)
+    public function addAddress(?FHIRAddress $address = null): object
     {
         $this->_trackValueAdded();
         $this->address[] = $address;
@@ -1083,7 +1092,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAddress[] $address
      * @return static
      */
-    public function setAddress(array $address = [])
+    public function setAddress(array $address = []): object
     {
         if ([] !== $this->address) {
             $this->_trackValuesRemoved(count($this->address));
@@ -1112,7 +1121,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMaritalStatus()
+    public function getMaritalStatus(): ?FHIRCodeableConcept
     {
         return $this->maritalStatus;
     }
@@ -1128,7 +1137,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $maritalStatus
      * @return static
      */
-    public function setMaritalStatus(FHIRCodeableConcept $maritalStatus = null)
+    public function setMaritalStatus(?FHIRCodeableConcept $maritalStatus = null): object
     {
         $this->_trackValueSet($this->maritalStatus, $maritalStatus);
         $this->maritalStatus = $maritalStatus;
@@ -1142,9 +1151,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getMultipleBirthBoolean()
+    public function getMultipleBirthBoolean(): ?FHIRBoolean
     {
         return $this->multipleBirthBoolean;
     }
@@ -1156,10 +1165,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleBirthBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleBirthBoolean
      * @return static
      */
-    public function setMultipleBirthBoolean($multipleBirthBoolean = null)
+    public function setMultipleBirthBoolean($multipleBirthBoolean = null): object
     {
         if (null !== $multipleBirthBoolean && !($multipleBirthBoolean instanceof FHIRBoolean)) {
             $multipleBirthBoolean = new FHIRBoolean($multipleBirthBoolean);
@@ -1177,9 +1186,9 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getMultipleBirthInteger()
+    public function getMultipleBirthInteger(): ?FHIRInteger
     {
         return $this->multipleBirthInteger;
     }
@@ -1192,10 +1201,10 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Indicates whether the patient is part of a multiple (boolean) or indicates the
      * actual birth order (integer).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $multipleBirthInteger
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $multipleBirthInteger
      * @return static
      */
-    public function setMultipleBirthInteger($multipleBirthInteger = null)
+    public function setMultipleBirthInteger($multipleBirthInteger = null): object
     {
         if (null !== $multipleBirthInteger && !($multipleBirthInteger instanceof FHIRInteger)) {
             $multipleBirthInteger = new FHIRInteger($multipleBirthInteger);
@@ -1214,7 +1223,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    public function getPhoto()
+    public function getPhoto(): ?array
     {
         return $this->photo;
     }
@@ -1229,7 +1238,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $photo
      * @return static
      */
-    public function addPhoto(FHIRAttachment $photo = null)
+    public function addPhoto(?FHIRAttachment $photo = null): object
     {
         $this->_trackValueAdded();
         $this->photo[] = $photo;
@@ -1246,7 +1255,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAttachment[] $photo
      * @return static
      */
-    public function setPhoto(array $photo = [])
+    public function setPhoto(array $photo = []): object
     {
         if ([] !== $this->photo) {
             $this->_trackValuesRemoved(count($this->photo));
@@ -1273,7 +1282,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1287,7 +1296,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact $contact
      * @return static
      */
-    public function addContact(FHIRPatientContact $contact = null)
+    public function addContact(?FHIRPatientContact $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1303,7 +1312,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1331,7 +1340,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientCommunication[]
      */
-    public function getCommunication()
+    public function getCommunication(): ?array
     {
         return $this->communication;
     }
@@ -1346,7 +1355,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientCommunication $communication
      * @return static
      */
-    public function addCommunication(FHIRPatientCommunication $communication = null)
+    public function addCommunication(?FHIRPatientCommunication $communication = null): object
     {
         $this->_trackValueAdded();
         $this->communication[] = $communication;
@@ -1363,7 +1372,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientCommunication[] $communication
      * @return static
      */
-    public function setCommunication(array $communication = [])
+    public function setCommunication(array $communication = []): object
     {
         if ([] !== $this->communication) {
             $this->_trackValuesRemoved(count($this->communication));
@@ -1391,7 +1400,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getGeneralPractitioner()
+    public function getGeneralPractitioner(): ?array
     {
         return $this->generalPractitioner;
     }
@@ -1406,7 +1415,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $generalPractitioner
      * @return static
      */
-    public function addGeneralPractitioner(FHIRReference $generalPractitioner = null)
+    public function addGeneralPractitioner(?FHIRReference $generalPractitioner = null): object
     {
         $this->_trackValueAdded();
         $this->generalPractitioner[] = $generalPractitioner;
@@ -1423,7 +1432,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $generalPractitioner
      * @return static
      */
-    public function setGeneralPractitioner(array $generalPractitioner = [])
+    public function setGeneralPractitioner(array $generalPractitioner = []): object
     {
         if ([] !== $this->generalPractitioner) {
             $this->_trackValuesRemoved(count($this->generalPractitioner));
@@ -1451,7 +1460,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getManagingOrganization()
+    public function getManagingOrganization(): ?FHIRReference
     {
         return $this->managingOrganization;
     }
@@ -1466,7 +1475,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $managingOrganization
      * @return static
      */
-    public function setManagingOrganization(FHIRReference $managingOrganization = null)
+    public function setManagingOrganization(?FHIRReference $managingOrganization = null): object
     {
         $this->_trackValueSet($this->managingOrganization, $managingOrganization);
         $this->managingOrganization = $managingOrganization;
@@ -1481,7 +1490,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientLink[]
      */
-    public function getLink()
+    public function getLink(): ?array
     {
         return $this->link;
     }
@@ -1495,7 +1504,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientLink $link
      * @return static
      */
-    public function addLink(FHIRPatientLink $link = null)
+    public function addLink(?FHIRPatientLink $link = null): object
     {
         $this->_trackValueAdded();
         $this->link[] = $link;
@@ -1511,7 +1520,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientLink[] $link
      * @return static
      */
-    public function setLink(array $link = [])
+    public function setLink(array $link = []): object
     {
         if ([] !== $this->link) {
             $this->_trackValuesRemoved(count($this->link));
@@ -1980,15 +1989,15 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPatient
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPatient    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPatient::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2008,7 +2017,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2161,7 +2170,7 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2309,168 +2318,173 @@ class FHIRPatient extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTIVE] = $val;
+                $out->{self::FIELD_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTIVE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getName())) {
-            $a[self::FIELD_NAME] = [];
+            $out->{self::FIELD_NAME} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NAME][] = $v;
+                $out->{self::FIELD_NAME}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTelecom())) {
-            $a[self::FIELD_TELECOM] = [];
+            $out->{self::FIELD_TELECOM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TELECOM][] = $v;
+                $out->{self::FIELD_TELECOM}[] = $v;
             }
         }
         if (null !== ($v = $this->getGender())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GENDER] = $val;
+                $out->{self::FIELD_GENDER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAdministrativeGender::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GENDER_EXT] = $ext;
+            unset($ext->{FHIRAdministrativeGender::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GENDER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getBirthDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_BIRTH_DATE] = $val;
+                $out->{self::FIELD_BIRTH_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_BIRTH_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BIRTH_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDeceasedBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DECEASED_BOOLEAN] = $val;
+                $out->{self::FIELD_DECEASED_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DECEASED_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DECEASED_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDeceasedDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DECEASED_DATE_TIME] = $val;
+                $out->{self::FIELD_DECEASED_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DECEASED_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DECEASED_DATE_TIME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAddress())) {
-            $a[self::FIELD_ADDRESS] = [];
+            $out->{self::FIELD_ADDRESS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDRESS][] = $v;
+                $out->{self::FIELD_ADDRESS}[] = $v;
             }
         }
         if (null !== ($v = $this->getMaritalStatus())) {
-            $a[self::FIELD_MARITAL_STATUS] = $v;
+            $out->{self::FIELD_MARITAL_STATUS} = $v;
         }
         if (null !== ($v = $this->getMultipleBirthBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MULTIPLE_BIRTH_BOOLEAN] = $val;
+                $out->{self::FIELD_MULTIPLE_BIRTH_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MULTIPLE_BIRTH_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMultipleBirthInteger())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MULTIPLE_BIRTH_INTEGER] = $val;
+                $out->{self::FIELD_MULTIPLE_BIRTH_INTEGER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MULTIPLE_BIRTH_INTEGER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getPhoto())) {
-            $a[self::FIELD_PHOTO] = [];
+            $out->{self::FIELD_PHOTO} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PHOTO][] = $v;
+                $out->{self::FIELD_PHOTO}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCommunication())) {
-            $a[self::FIELD_COMMUNICATION] = [];
+            $out->{self::FIELD_COMMUNICATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COMMUNICATION][] = $v;
+                $out->{self::FIELD_COMMUNICATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getGeneralPractitioner())) {
-            $a[self::FIELD_GENERAL_PRACTITIONER] = [];
+            $out->{self::FIELD_GENERAL_PRACTITIONER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_GENERAL_PRACTITIONER][] = $v;
+                $out->{self::FIELD_GENERAL_PRACTITIONER}[] = $v;
             }
         }
         if (null !== ($v = $this->getManagingOrganization())) {
-            $a[self::FIELD_MANAGING_ORGANIZATION] = $v;
+            $out->{self::FIELD_MANAGING_ORGANIZATION} = $v;
         }
         if ([] !== ($vs = $this->getLink())) {
-            $a[self::FIELD_LINK] = [];
+            $out->{self::FIELD_LINK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LINK][] = $v;
+                $out->{self::FIELD_LINK}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

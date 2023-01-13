@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREpisodeOfCare;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREpisodeOfCare;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $condition = null;
+    protected ?FHIRReference $condition = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -114,7 +114,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $role = null;
+    protected ?FHIRCodeableConcept $role = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -123,15 +123,15 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * Ranking of the diagnosis (for each role type).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $rank = null;
+    protected ?FHIRPositiveInt $rank = null;
 
     /**
      * Validation map for fields in type EpisodeOfCare.Diagnosis
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIREpisodeOfCareDiagnosis Constructor
@@ -164,8 +164,8 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RANK]) || isset($data[self::FIELD_RANK_EXT])) {
-            $value = isset($data[self::FIELD_RANK]) ? $data[self::FIELD_RANK] : null;
-            $ext = (isset($data[self::FIELD_RANK_EXT]) && is_array($data[self::FIELD_RANK_EXT])) ? $ext = $data[self::FIELD_RANK_EXT] : $ext = [];
+            $value = $data[self::FIELD_RANK] ?? null;
+            $ext = (isset($data[self::FIELD_RANK_EXT]) && is_array($data[self::FIELD_RANK_EXT])) ? $data[self::FIELD_RANK_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setRank($value);
@@ -180,11 +180,17 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -204,7 +210,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getCondition()
+    public function getCondition(): ?FHIRReference
     {
         return $this->condition;
     }
@@ -220,7 +226,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $condition
      * @return static
      */
-    public function setCondition(FHIRReference $condition = null)
+    public function setCondition(?FHIRReference $condition = null): object
     {
         $this->_trackValueSet($this->condition, $condition);
         $this->condition = $condition;
@@ -238,7 +244,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRole()
+    public function getRole(): ?FHIRCodeableConcept
     {
         return $this->role;
     }
@@ -255,7 +261,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $role
      * @return static
      */
-    public function setRole(FHIRCodeableConcept $role = null)
+    public function setRole(?FHIRCodeableConcept $role = null): object
     {
         $this->_trackValueSet($this->role, $role);
         $this->role = $role;
@@ -269,9 +275,9 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * Ranking of the diagnosis (for each role type).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getRank()
+    public function getRank(): ?FHIRPositiveInt
     {
         return $this->rank;
     }
@@ -283,10 +289,10 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      *
      * Ranking of the diagnosis (for each role type).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $rank
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $rank
      * @return static
      */
-    public function setRank($rank = null)
+    public function setRank($rank = null): object
     {
         if (null !== $rank && !($rank instanceof FHIRPositiveInt)) {
             $rank = new FHIRPositiveInt($rank);
@@ -413,15 +419,15 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREpisodeOfCare\FHIREpisodeOfCareDiagnosis
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREpisodeOfCare\FHIREpisodeOfCareDiagnosis    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIREpisodeOfCareDiagnosis::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -441,7 +447,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -486,7 +492,7 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -514,27 +520,30 @@ class FHIREpisodeOfCareDiagnosis extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCondition())) {
-            $a[self::FIELD_CONDITION] = $v;
+            $out->{self::FIELD_CONDITION} = $v;
         }
         if (null !== ($v = $this->getRole())) {
-            $a[self::FIELD_ROLE] = $v;
+            $out->{self::FIELD_ROLE} = $v;
         }
         if (null !== ($v = $this->getRank())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RANK] = $val;
+                $out->{self::FIELD_RANK} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RANK_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RANK_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRContactPoint extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointSystem
      */
-    protected $system = null;
+    protected ?FHIRContactPointSystem $system = null;
 
     /**
      * A sequence of Unicode characters
@@ -112,9 +112,9 @@ class FHIRContactPoint extends FHIRElement
      * The actual contact point details, in a form that is meaningful to the designated
      * communication system (i.e. phone number or email address).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $value = null;
+    protected ?FHIRString $value = null;
 
     /**
      * Use of contact point.
@@ -124,7 +124,7 @@ class FHIRContactPoint extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointUse
      */
-    protected $use = null;
+    protected ?FHIRContactPointUse $use = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -134,9 +134,9 @@ class FHIRContactPoint extends FHIRElement
      * Specifies a preferred order in which to use a set of contacts. ContactPoints
      * with lower rank values are more preferred than those with higher rank values.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $rank = null;
+    protected ?FHIRPositiveInt $rank = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -147,13 +147,13 @@ class FHIRContactPoint extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * Validation map for fields in type ContactPoint
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRContactPoint Constructor
@@ -172,8 +172,8 @@ class FHIRContactPoint extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRContactPointSystem) {
                     $this->setSystem($value);
@@ -187,8 +187,8 @@ class FHIRContactPoint extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setValue($value);
@@ -202,8 +202,8 @@ class FHIRContactPoint extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_USE]) || isset($data[self::FIELD_USE_EXT])) {
-            $value = isset($data[self::FIELD_USE]) ? $data[self::FIELD_USE] : null;
-            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $ext = $data[self::FIELD_USE_EXT] : $ext = [];
+            $value = $data[self::FIELD_USE] ?? null;
+            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $data[self::FIELD_USE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRContactPointUse) {
                     $this->setUse($value);
@@ -217,8 +217,8 @@ class FHIRContactPoint extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_RANK]) || isset($data[self::FIELD_RANK_EXT])) {
-            $value = isset($data[self::FIELD_RANK]) ? $data[self::FIELD_RANK] : null;
-            $ext = (isset($data[self::FIELD_RANK_EXT]) && is_array($data[self::FIELD_RANK_EXT])) ? $ext = $data[self::FIELD_RANK_EXT] : $ext = [];
+            $value = $data[self::FIELD_RANK] ?? null;
+            $ext = (isset($data[self::FIELD_RANK_EXT]) && is_array($data[self::FIELD_RANK_EXT])) ? $data[self::FIELD_RANK_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setRank($value);
@@ -240,11 +240,17 @@ class FHIRContactPoint extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -263,7 +269,7 @@ class FHIRContactPoint extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointSystem
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRContactPointSystem
     {
         return $this->system;
     }
@@ -278,7 +284,7 @@ class FHIRContactPoint extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointSystem $system
      * @return static
      */
-    public function setSystem(FHIRContactPointSystem $system = null)
+    public function setSystem(?FHIRContactPointSystem $system = null): object
     {
         $this->_trackValueSet($this->system, $system);
         $this->system = $system;
@@ -293,9 +299,9 @@ class FHIRContactPoint extends FHIRElement
      * The actual contact point details, in a form that is meaningful to the designated
      * communication system (i.e. phone number or email address).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getValue()
+    public function getValue(): ?FHIRString
     {
         return $this->value;
     }
@@ -308,10 +314,10 @@ class FHIRContactPoint extends FHIRElement
      * The actual contact point details, in a form that is meaningful to the designated
      * communication system (i.e. phone number or email address).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $value
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRString)) {
             $value = new FHIRString($value);
@@ -329,7 +335,7 @@ class FHIRContactPoint extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointUse
      */
-    public function getUse()
+    public function getUse(): ?FHIRContactPointUse
     {
         return $this->use;
     }
@@ -343,7 +349,7 @@ class FHIRContactPoint extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPointUse $use
      * @return static
      */
-    public function setUse(FHIRContactPointUse $use = null)
+    public function setUse(?FHIRContactPointUse $use = null): object
     {
         $this->_trackValueSet($this->use, $use);
         $this->use = $use;
@@ -358,9 +364,9 @@ class FHIRContactPoint extends FHIRElement
      * Specifies a preferred order in which to use a set of contacts. ContactPoints
      * with lower rank values are more preferred than those with higher rank values.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getRank()
+    public function getRank(): ?FHIRPositiveInt
     {
         return $this->rank;
     }
@@ -373,10 +379,10 @@ class FHIRContactPoint extends FHIRElement
      * Specifies a preferred order in which to use a set of contacts. ContactPoints
      * with lower rank values are more preferred than those with higher rank values.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $rank
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $rank
      * @return static
      */
-    public function setRank($rank = null)
+    public function setRank($rank = null): object
     {
         if (null !== $rank && !($rank instanceof FHIRPositiveInt)) {
             $rank = new FHIRPositiveInt($rank);
@@ -395,7 +401,7 @@ class FHIRContactPoint extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -410,7 +416,7 @@ class FHIRContactPoint extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -556,15 +562,15 @@ class FHIRContactPoint extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRContactPoint    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRContactPoint::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -584,7 +590,7 @@ class FHIRContactPoint extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -640,7 +646,7 @@ class FHIRContactPoint extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -678,54 +684,57 @@ class FHIRContactPoint extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRContactPointSystem::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRContactPointSystem::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUse())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_USE] = $val;
+                $out->{self::FIELD_USE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRContactPointUse::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_USE_EXT] = $ext;
+            unset($ext->{FHIRContactPointUse::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_USE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRank())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RANK] = $val;
+                $out->{self::FIELD_RANK} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RANK_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RANK_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

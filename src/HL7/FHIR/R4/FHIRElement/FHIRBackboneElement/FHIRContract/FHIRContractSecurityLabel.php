@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,9 +97,9 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * Number used to link this term or term element to the applicable Security Label.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[]
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[]
      */
-    protected $number = [];
+    protected ?array $number = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -111,7 +111,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $classification = null;
+    protected ?FHIRCoding $classification = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -123,7 +123,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $category = [];
+    protected ?array $category = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -135,13 +135,13 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $control = [];
+    protected ?array $control = [];
 
     /**
      * Validation map for fields in type Contract.SecurityLabel
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRContractSecurityLabel Constructor
@@ -160,8 +160,8 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NUMBER]) || isset($data[self::FIELD_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER]) ? $data[self::FIELD_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $ext = $data[self::FIELD_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $data[self::FIELD_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->addNumber($value);
@@ -234,11 +234,17 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -255,9 +261,9 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * Number used to link this term or term element to the applicable Security Label.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[]
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[]
      */
-    public function getNumber()
+    public function getNumber(): ?array
     {
         return $this->number;
     }
@@ -269,10 +275,10 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * Number used to link this term or term element to the applicable Security Label.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $number
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[] $number
      * @return static
      */
-    public function addNumber($number = null)
+    public function addNumber($number = null): object
     {
         if (null !== $number && !($number instanceof FHIRUnsignedInt)) {
             $number = new FHIRUnsignedInt($number);
@@ -292,7 +298,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt[] $number
      * @return static
      */
-    public function setNumber(array $number = [])
+    public function setNumber(array $number = []): object
     {
         if ([] !== $this->number) {
             $this->_trackValuesRemoved(count($this->number));
@@ -321,7 +327,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getClassification()
+    public function getClassification(): ?FHIRCoding
     {
         return $this->classification;
     }
@@ -337,7 +343,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $classification
      * @return static
      */
-    public function setClassification(FHIRCoding $classification = null)
+    public function setClassification(?FHIRCoding $classification = null): object
     {
         $this->_trackValueSet($this->classification, $classification);
         $this->classification = $classification;
@@ -354,7 +360,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getCategory()
+    public function getCategory(): ?array
     {
         return $this->category;
     }
@@ -370,7 +376,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $category
      * @return static
      */
-    public function addCategory(FHIRCoding $category = null)
+    public function addCategory(?FHIRCoding $category = null): object
     {
         $this->_trackValueAdded();
         $this->category[] = $category;
@@ -388,7 +394,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $category
      * @return static
      */
-    public function setCategory(array $category = [])
+    public function setCategory(array $category = []): object
     {
         if ([] !== $this->category) {
             $this->_trackValuesRemoved(count($this->category));
@@ -417,7 +423,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getControl()
+    public function getControl(): ?array
     {
         return $this->control;
     }
@@ -433,7 +439,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $control
      * @return static
      */
-    public function addControl(FHIRCoding $control = null)
+    public function addControl(?FHIRCoding $control = null): object
     {
         $this->_trackValueAdded();
         $this->control[] = $control;
@@ -451,7 +457,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $control
      * @return static
      */
-    public function setControl(array $control = [])
+    public function setControl(array $control = []): object
     {
         if ([] !== $this->control) {
             $this->_trackValuesRemoved(count($this->control));
@@ -610,15 +616,15 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSecurityLabel
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSecurityLabel    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRContractSecurityLabel::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -638,7 +644,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -685,7 +691,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -733,10 +739,12 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getNumber())) {
             $vals = [];
             $exts = [];
@@ -746,7 +754,7 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
+                unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -755,34 +763,35 @@ class FHIRContractSecurityLabel extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_NUMBER] = $vals;
+                $out->{self::FIELD_NUMBER} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_NUMBER_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getClassification())) {
-            $a[self::FIELD_CLASSIFICATION] = $v;
+            $out->{self::FIELD_CLASSIFICATION} = $v;
         }
         if ([] !== ($vs = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = [];
+            $out->{self::FIELD_CATEGORY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CATEGORY][] = $v;
+                $out->{self::FIELD_CATEGORY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getControl())) {
-            $a[self::FIELD_CONTROL] = [];
+            $out->{self::FIELD_CONTROL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTROL][] = $v;
+                $out->{self::FIELD_CONTROL}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

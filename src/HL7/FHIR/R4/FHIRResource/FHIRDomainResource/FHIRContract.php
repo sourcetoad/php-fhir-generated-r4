@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -159,7 +159,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -168,9 +168,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * Canonical identifier for this contract, represented as a URI (globally unique).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A sequence of Unicode characters
@@ -180,9 +180,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * An edition identifier used for business purposes to label business significant
      * variants.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A code specifying the state of the resource instance.
@@ -192,7 +192,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContractResourceStatusCodes
      */
-    protected $status = null;
+    protected ?FHIRContractResourceStatusCodes $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -207,7 +207,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $legalState = null;
+    protected ?FHIRCodeableConcept $legalState = null;
 
     /**
      * A reference from one resource to another.
@@ -219,7 +219,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $instantiatesCanonical = null;
+    protected ?FHIRReference $instantiatesCanonical = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -229,9 +229,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * The URL pointing to an externally maintained definition that is adhered to in
      * whole or in part by this Contract.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $instantiatesUri = null;
+    protected ?FHIRUri $instantiatesUri = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -244,7 +244,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $contentDerivative = null;
+    protected ?FHIRCodeableConcept $contentDerivative = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -256,9 +256,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * When this Contract was issued.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $issued = null;
+    protected ?FHIRDateTime $issued = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -269,7 +269,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $applies = null;
+    protected ?FHIRPeriod $applies = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -282,7 +282,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $expirationType = null;
+    protected ?FHIRCodeableConcept $expirationType = null;
 
     /**
      * A reference from one resource to another.
@@ -293,7 +293,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $subject = [];
+    protected ?array $subject = [];
 
     /**
      * A reference from one resource to another.
@@ -307,7 +307,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $authority = [];
+    protected ?array $authority = [];
 
     /**
      * A reference from one resource to another.
@@ -321,7 +321,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $domain = [];
+    protected ?array $domain = [];
 
     /**
      * A reference from one resource to another.
@@ -332,7 +332,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $site = [];
+    protected ?array $site = [];
 
     /**
      * A sequence of Unicode characters
@@ -344,9 +344,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * This name should be usable as an identifier for the module by machine processing
      * applications such as code generation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -357,9 +357,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * A sequence of Unicode characters
@@ -370,9 +370,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $subtitle = null;
+    protected ?FHIRString $subtitle = null;
 
     /**
      * A sequence of Unicode characters
@@ -383,9 +383,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state., e.g., a domain specific contract
      * number related to legislation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $alias = [];
+    protected ?array $alias = [];
 
     /**
      * A reference from one resource to another.
@@ -397,7 +397,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $author = null;
+    protected ?FHIRReference $author = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -410,7 +410,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $scope = null;
+    protected ?FHIRCodeableConcept $scope = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -423,7 +423,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $topicCodeableConcept = null;
+    protected ?FHIRCodeableConcept $topicCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -435,7 +435,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $topicReference = null;
+    protected ?FHIRReference $topicReference = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -451,7 +451,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -464,7 +464,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $subType = [];
+    protected ?array $subType = [];
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -476,7 +476,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractContentDefinition
      */
-    protected $contentDefinition = null;
+    protected ?FHIRContractContentDefinition $contentDefinition = null;
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -487,7 +487,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractTerm[]
      */
-    protected $term = [];
+    protected ?array $term = [];
 
     /**
      * A reference from one resource to another.
@@ -499,7 +499,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $supportingInfo = [];
+    protected ?array $supportingInfo = [];
 
     /**
      * A reference from one resource to another.
@@ -514,7 +514,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $relevantHistory = [];
+    protected ?array $relevantHistory = [];
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -527,7 +527,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSigner[]
      */
-    protected $signer = [];
+    protected ?array $signer = [];
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -542,7 +542,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractFriendly[]
      */
-    protected $friendly = [];
+    protected ?array $friendly = [];
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -552,7 +552,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractLegal[]
      */
-    protected $legal = [];
+    protected ?array $legal = [];
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -562,7 +562,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractRule[]
      */
-    protected $rule = [];
+    protected ?array $rule = [];
 
     /**
      * For referring to data content defined in other formats.
@@ -576,7 +576,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    protected $legallyBindingAttachment = null;
+    protected ?FHIRAttachment $legallyBindingAttachment = null;
 
     /**
      * A reference from one resource to another.
@@ -590,13 +590,13 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $legallyBindingReference = null;
+    protected ?FHIRReference $legallyBindingReference = null;
 
     /**
      * Validation map for fields in type Contract
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRContract Constructor
@@ -633,8 +633,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -648,8 +648,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -663,8 +663,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRContractResourceStatusCodes) {
                     $this->setStatus($value);
@@ -692,8 +692,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES_URI]) || isset($data[self::FIELD_INSTANTIATES_URI_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES_URI]) ? $data[self::FIELD_INSTANTIATES_URI] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_URI_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES_URI] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $data[self::FIELD_INSTANTIATES_URI_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setInstantiatesUri($value);
@@ -714,8 +714,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_ISSUED]) || isset($data[self::FIELD_ISSUED_EXT])) {
-            $value = isset($data[self::FIELD_ISSUED]) ? $data[self::FIELD_ISSUED] : null;
-            $ext = (isset($data[self::FIELD_ISSUED_EXT]) && is_array($data[self::FIELD_ISSUED_EXT])) ? $ext = $data[self::FIELD_ISSUED_EXT] : $ext = [];
+            $value = $data[self::FIELD_ISSUED] ?? null;
+            $ext = (isset($data[self::FIELD_ISSUED_EXT]) && is_array($data[self::FIELD_ISSUED_EXT])) ? $data[self::FIELD_ISSUED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setIssued($value);
@@ -815,8 +815,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -830,8 +830,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -845,8 +845,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_SUBTITLE]) || isset($data[self::FIELD_SUBTITLE_EXT])) {
-            $value = isset($data[self::FIELD_SUBTITLE]) ? $data[self::FIELD_SUBTITLE] : null;
-            $ext = (isset($data[self::FIELD_SUBTITLE_EXT]) && is_array($data[self::FIELD_SUBTITLE_EXT])) ? $ext = $data[self::FIELD_SUBTITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SUBTITLE] ?? null;
+            $ext = (isset($data[self::FIELD_SUBTITLE_EXT]) && is_array($data[self::FIELD_SUBTITLE_EXT])) ? $data[self::FIELD_SUBTITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSubtitle($value);
@@ -860,8 +860,8 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
             }
         }
         if (isset($data[self::FIELD_ALIAS]) || isset($data[self::FIELD_ALIAS_EXT])) {
-            $value = isset($data[self::FIELD_ALIAS]) ? $data[self::FIELD_ALIAS] : null;
-            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $ext = $data[self::FIELD_ALIAS_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALIAS] ?? null;
+            $ext = (isset($data[self::FIELD_ALIAS_EXT]) && is_array($data[self::FIELD_ALIAS_EXT])) ? $data[self::FIELD_ALIAS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addAlias($value);
@@ -1091,11 +1091,17 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -1104,6 +1110,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
         }
         return "<Contract{$xmlns}></Contract>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -1121,7 +1130,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -1138,7 +1147,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -1157,7 +1166,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -1183,9 +1192,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * Canonical identifier for this contract, represented as a URI (globally unique).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -1197,10 +1206,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * Canonical identifier for this contract, represented as a URI (globally unique).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -1218,9 +1227,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * An edition identifier used for business purposes to label business significant
      * variants.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -1233,10 +1242,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * An edition identifier used for business purposes to label business significant
      * variants.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -1254,7 +1263,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContractResourceStatusCodes
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRContractResourceStatusCodes
     {
         return $this->status;
     }
@@ -1268,7 +1277,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContractResourceStatusCodes $status
      * @return static
      */
-    public function setStatus(FHIRContractResourceStatusCodes $status = null)
+    public function setStatus(?FHIRContractResourceStatusCodes $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1288,7 +1297,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getLegalState()
+    public function getLegalState(): ?FHIRCodeableConcept
     {
         return $this->legalState;
     }
@@ -1307,7 +1316,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $legalState
      * @return static
      */
-    public function setLegalState(FHIRCodeableConcept $legalState = null)
+    public function setLegalState(?FHIRCodeableConcept $legalState = null): object
     {
         $this->_trackValueSet($this->legalState, $legalState);
         $this->legalState = $legalState;
@@ -1324,7 +1333,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getInstantiatesCanonical()
+    public function getInstantiatesCanonical(): ?FHIRReference
     {
         return $this->instantiatesCanonical;
     }
@@ -1340,7 +1349,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $instantiatesCanonical
      * @return static
      */
-    public function setInstantiatesCanonical(FHIRReference $instantiatesCanonical = null)
+    public function setInstantiatesCanonical(?FHIRReference $instantiatesCanonical = null): object
     {
         $this->_trackValueSet($this->instantiatesCanonical, $instantiatesCanonical);
         $this->instantiatesCanonical = $instantiatesCanonical;
@@ -1355,9 +1364,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * The URL pointing to an externally maintained definition that is adhered to in
      * whole or in part by this Contract.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getInstantiatesUri()
+    public function getInstantiatesUri(): ?FHIRUri
     {
         return $this->instantiatesUri;
     }
@@ -1370,10 +1379,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * The URL pointing to an externally maintained definition that is adhered to in
      * whole or in part by this Contract.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $instantiatesUri
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $instantiatesUri
      * @return static
      */
-    public function setInstantiatesUri($instantiatesUri = null)
+    public function setInstantiatesUri($instantiatesUri = null): object
     {
         if (null !== $instantiatesUri && !($instantiatesUri instanceof FHIRUri)) {
             $instantiatesUri = new FHIRUri($instantiatesUri);
@@ -1394,7 +1403,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getContentDerivative()
+    public function getContentDerivative(): ?FHIRCodeableConcept
     {
         return $this->contentDerivative;
     }
@@ -1411,7 +1420,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $contentDerivative
      * @return static
      */
-    public function setContentDerivative(FHIRCodeableConcept $contentDerivative = null)
+    public function setContentDerivative(?FHIRCodeableConcept $contentDerivative = null): object
     {
         $this->_trackValueSet($this->contentDerivative, $contentDerivative);
         $this->contentDerivative = $contentDerivative;
@@ -1428,9 +1437,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * When this Contract was issued.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getIssued()
+    public function getIssued(): ?FHIRDateTime
     {
         return $this->issued;
     }
@@ -1445,10 +1454,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * When this Contract was issued.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $issued
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $issued
      * @return static
      */
-    public function setIssued($issued = null)
+    public function setIssued($issued = null): object
     {
         if (null !== $issued && !($issued instanceof FHIRDateTime)) {
             $issued = new FHIRDateTime($issued);
@@ -1467,7 +1476,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getApplies()
+    public function getApplies(): ?FHIRPeriod
     {
         return $this->applies;
     }
@@ -1482,7 +1491,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $applies
      * @return static
      */
-    public function setApplies(FHIRPeriod $applies = null)
+    public function setApplies(?FHIRPeriod $applies = null): object
     {
         $this->_trackValueSet($this->applies, $applies);
         $this->applies = $applies;
@@ -1500,7 +1509,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getExpirationType()
+    public function getExpirationType(): ?FHIRCodeableConcept
     {
         return $this->expirationType;
     }
@@ -1517,7 +1526,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $expirationType
      * @return static
      */
-    public function setExpirationType(FHIRCodeableConcept $expirationType = null)
+    public function setExpirationType(?FHIRCodeableConcept $expirationType = null): object
     {
         $this->_trackValueSet($this->expirationType, $expirationType);
         $this->expirationType = $expirationType;
@@ -1533,7 +1542,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSubject()
+    public function getSubject(): ?array
     {
         return $this->subject;
     }
@@ -1548,7 +1557,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function addSubject(FHIRReference $subject = null)
+    public function addSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueAdded();
         $this->subject[] = $subject;
@@ -1565,7 +1574,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $subject
      * @return static
      */
-    public function setSubject(array $subject = [])
+    public function setSubject(array $subject = []): object
     {
         if ([] !== $this->subject) {
             $this->_trackValuesRemoved(count($this->subject));
@@ -1596,7 +1605,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getAuthority()
+    public function getAuthority(): ?array
     {
         return $this->authority;
     }
@@ -1614,7 +1623,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $authority
      * @return static
      */
-    public function addAuthority(FHIRReference $authority = null)
+    public function addAuthority(?FHIRReference $authority = null): object
     {
         $this->_trackValueAdded();
         $this->authority[] = $authority;
@@ -1634,7 +1643,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $authority
      * @return static
      */
-    public function setAuthority(array $authority = [])
+    public function setAuthority(array $authority = []): object
     {
         if ([] !== $this->authority) {
             $this->_trackValuesRemoved(count($this->authority));
@@ -1665,7 +1674,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getDomain()
+    public function getDomain(): ?array
     {
         return $this->domain;
     }
@@ -1683,7 +1692,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $domain
      * @return static
      */
-    public function addDomain(FHIRReference $domain = null)
+    public function addDomain(?FHIRReference $domain = null): object
     {
         $this->_trackValueAdded();
         $this->domain[] = $domain;
@@ -1703,7 +1712,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $domain
      * @return static
      */
-    public function setDomain(array $domain = [])
+    public function setDomain(array $domain = []): object
     {
         if ([] !== $this->domain) {
             $this->_trackValuesRemoved(count($this->domain));
@@ -1731,7 +1740,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSite()
+    public function getSite(): ?array
     {
         return $this->site;
     }
@@ -1746,7 +1755,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $site
      * @return static
      */
-    public function addSite(FHIRReference $site = null)
+    public function addSite(?FHIRReference $site = null): object
     {
         $this->_trackValueAdded();
         $this->site[] = $site;
@@ -1763,7 +1772,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $site
      * @return static
      */
-    public function setSite(array $site = [])
+    public function setSite(array $site = []): object
     {
         if ([] !== $this->site) {
             $this->_trackValuesRemoved(count($this->site));
@@ -1792,9 +1801,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * This name should be usable as an identifier for the module by machine processing
      * applications such as code generation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -1809,10 +1818,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * This name should be usable as an identifier for the module by machine processing
      * applications such as code generation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -1831,9 +1840,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -1847,10 +1856,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -1869,9 +1878,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSubtitle()
+    public function getSubtitle(): ?FHIRString
     {
         return $this->subtitle;
     }
@@ -1885,10 +1894,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state.t giving additional information about
      * its content.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $subtitle
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $subtitle
      * @return static
      */
-    public function setSubtitle($subtitle = null)
+    public function setSubtitle($subtitle = null): object
     {
         if (null !== $subtitle && !($subtitle instanceof FHIRString)) {
             $subtitle = new FHIRString($subtitle);
@@ -1907,9 +1916,9 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state., e.g., a domain specific contract
      * number related to legislation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getAlias()
+    public function getAlias(): ?array
     {
         return $this->alias;
     }
@@ -1923,10 +1932,10 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * derivative, or instance in any legal state., e.g., a domain specific contract
      * number related to legislation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $alias
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function addAlias($alias = null)
+    public function addAlias($alias = null): object
     {
         if (null !== $alias && !($alias instanceof FHIRString)) {
             $alias = new FHIRString($alias);
@@ -1948,7 +1957,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $alias
      * @return static
      */
-    public function setAlias(array $alias = [])
+    public function setAlias(array $alias = []): object
     {
         if ([] !== $this->alias) {
             $this->_trackValuesRemoved(count($this->alias));
@@ -1977,7 +1986,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAuthor()
+    public function getAuthor(): ?FHIRReference
     {
         return $this->author;
     }
@@ -1993,7 +2002,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $author
      * @return static
      */
-    public function setAuthor(FHIRReference $author = null)
+    public function setAuthor(?FHIRReference $author = null): object
     {
         $this->_trackValueSet($this->author, $author);
         $this->author = $author;
@@ -2011,7 +2020,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getScope()
+    public function getScope(): ?FHIRCodeableConcept
     {
         return $this->scope;
     }
@@ -2028,7 +2037,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $scope
      * @return static
      */
-    public function setScope(FHIRCodeableConcept $scope = null)
+    public function setScope(?FHIRCodeableConcept $scope = null): object
     {
         $this->_trackValueSet($this->scope, $scope);
         $this->scope = $scope;
@@ -2046,7 +2055,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getTopicCodeableConcept()
+    public function getTopicCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->topicCodeableConcept;
     }
@@ -2063,7 +2072,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $topicCodeableConcept
      * @return static
      */
-    public function setTopicCodeableConcept(FHIRCodeableConcept $topicCodeableConcept = null)
+    public function setTopicCodeableConcept(?FHIRCodeableConcept $topicCodeableConcept = null): object
     {
         $this->_trackValueSet($this->topicCodeableConcept, $topicCodeableConcept);
         $this->topicCodeableConcept = $topicCodeableConcept;
@@ -2080,7 +2089,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getTopicReference()
+    public function getTopicReference(): ?FHIRReference
     {
         return $this->topicReference;
     }
@@ -2096,7 +2105,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $topicReference
      * @return static
      */
-    public function setTopicReference(FHIRReference $topicReference = null)
+    public function setTopicReference(?FHIRReference $topicReference = null): object
     {
         $this->_trackValueSet($this->topicReference, $topicReference);
         $this->topicReference = $topicReference;
@@ -2117,7 +2126,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -2137,7 +2146,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -2155,7 +2164,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getSubType()
+    public function getSubType(): ?array
     {
         return $this->subType;
     }
@@ -2172,7 +2181,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $subType
      * @return static
      */
-    public function addSubType(FHIRCodeableConcept $subType = null)
+    public function addSubType(?FHIRCodeableConcept $subType = null): object
     {
         $this->_trackValueAdded();
         $this->subType[] = $subType;
@@ -2191,7 +2200,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $subType
      * @return static
      */
-    public function setSubType(array $subType = [])
+    public function setSubType(array $subType = []): object
     {
         if ([] !== $this->subType) {
             $this->_trackValuesRemoved(count($this->subType));
@@ -2220,7 +2229,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractContentDefinition
      */
-    public function getContentDefinition()
+    public function getContentDefinition(): ?FHIRContractContentDefinition
     {
         return $this->contentDefinition;
     }
@@ -2236,7 +2245,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractContentDefinition $contentDefinition
      * @return static
      */
-    public function setContentDefinition(FHIRContractContentDefinition $contentDefinition = null)
+    public function setContentDefinition(?FHIRContractContentDefinition $contentDefinition = null): object
     {
         $this->_trackValueSet($this->contentDefinition, $contentDefinition);
         $this->contentDefinition = $contentDefinition;
@@ -2252,7 +2261,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractTerm[]
      */
-    public function getTerm()
+    public function getTerm(): ?array
     {
         return $this->term;
     }
@@ -2267,7 +2276,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractTerm $term
      * @return static
      */
-    public function addTerm(FHIRContractTerm $term = null)
+    public function addTerm(?FHIRContractTerm $term = null): object
     {
         $this->_trackValueAdded();
         $this->term[] = $term;
@@ -2284,7 +2293,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractTerm[] $term
      * @return static
      */
-    public function setTerm(array $term = [])
+    public function setTerm(array $term = []): object
     {
         if ([] !== $this->term) {
             $this->_trackValuesRemoved(count($this->term));
@@ -2313,7 +2322,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSupportingInfo()
+    public function getSupportingInfo(): ?array
     {
         return $this->supportingInfo;
     }
@@ -2329,7 +2338,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $supportingInfo
      * @return static
      */
-    public function addSupportingInfo(FHIRReference $supportingInfo = null)
+    public function addSupportingInfo(?FHIRReference $supportingInfo = null): object
     {
         $this->_trackValueAdded();
         $this->supportingInfo[] = $supportingInfo;
@@ -2347,7 +2356,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $supportingInfo
      * @return static
      */
-    public function setSupportingInfo(array $supportingInfo = [])
+    public function setSupportingInfo(array $supportingInfo = []): object
     {
         if ([] !== $this->supportingInfo) {
             $this->_trackValuesRemoved(count($this->supportingInfo));
@@ -2379,7 +2388,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getRelevantHistory()
+    public function getRelevantHistory(): ?array
     {
         return $this->relevantHistory;
     }
@@ -2398,7 +2407,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $relevantHistory
      * @return static
      */
-    public function addRelevantHistory(FHIRReference $relevantHistory = null)
+    public function addRelevantHistory(?FHIRReference $relevantHistory = null): object
     {
         $this->_trackValueAdded();
         $this->relevantHistory[] = $relevantHistory;
@@ -2419,7 +2428,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $relevantHistory
      * @return static
      */
-    public function setRelevantHistory(array $relevantHistory = [])
+    public function setRelevantHistory(array $relevantHistory = []): object
     {
         if ([] !== $this->relevantHistory) {
             $this->_trackValuesRemoved(count($this->relevantHistory));
@@ -2449,7 +2458,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSigner[]
      */
-    public function getSigner()
+    public function getSigner(): ?array
     {
         return $this->signer;
     }
@@ -2466,7 +2475,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSigner $signer
      * @return static
      */
-    public function addSigner(FHIRContractSigner $signer = null)
+    public function addSigner(?FHIRContractSigner $signer = null): object
     {
         $this->_trackValueAdded();
         $this->signer[] = $signer;
@@ -2485,7 +2494,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractSigner[] $signer
      * @return static
      */
-    public function setSigner(array $signer = [])
+    public function setSigner(array $signer = []): object
     {
         if ([] !== $this->signer) {
             $this->_trackValuesRemoved(count($this->signer));
@@ -2517,7 +2526,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractFriendly[]
      */
-    public function getFriendly()
+    public function getFriendly(): ?array
     {
         return $this->friendly;
     }
@@ -2536,7 +2545,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractFriendly $friendly
      * @return static
      */
-    public function addFriendly(FHIRContractFriendly $friendly = null)
+    public function addFriendly(?FHIRContractFriendly $friendly = null): object
     {
         $this->_trackValueAdded();
         $this->friendly[] = $friendly;
@@ -2557,7 +2566,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractFriendly[] $friendly
      * @return static
      */
-    public function setFriendly(array $friendly = [])
+    public function setFriendly(array $friendly = []): object
     {
         if ([] !== $this->friendly) {
             $this->_trackValuesRemoved(count($this->friendly));
@@ -2584,7 +2593,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractLegal[]
      */
-    public function getLegal()
+    public function getLegal(): ?array
     {
         return $this->legal;
     }
@@ -2598,7 +2607,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractLegal $legal
      * @return static
      */
-    public function addLegal(FHIRContractLegal $legal = null)
+    public function addLegal(?FHIRContractLegal $legal = null): object
     {
         $this->_trackValueAdded();
         $this->legal[] = $legal;
@@ -2614,7 +2623,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractLegal[] $legal
      * @return static
      */
-    public function setLegal(array $legal = [])
+    public function setLegal(array $legal = []): object
     {
         if ([] !== $this->legal) {
             $this->_trackValuesRemoved(count($this->legal));
@@ -2641,7 +2650,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractRule[]
      */
-    public function getRule()
+    public function getRule(): ?array
     {
         return $this->rule;
     }
@@ -2655,7 +2664,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractRule $rule
      * @return static
      */
-    public function addRule(FHIRContractRule $rule = null)
+    public function addRule(?FHIRContractRule $rule = null): object
     {
         $this->_trackValueAdded();
         $this->rule[] = $rule;
@@ -2671,7 +2680,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRContract\FHIRContractRule[] $rule
      * @return static
      */
-    public function setRule(array $rule = [])
+    public function setRule(array $rule = []): object
     {
         if ([] !== $this->rule) {
             $this->_trackValuesRemoved(count($this->rule));
@@ -2702,7 +2711,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    public function getLegallyBindingAttachment()
+    public function getLegallyBindingAttachment(): ?FHIRAttachment
     {
         return $this->legallyBindingAttachment;
     }
@@ -2720,7 +2729,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $legallyBindingAttachment
      * @return static
      */
-    public function setLegallyBindingAttachment(FHIRAttachment $legallyBindingAttachment = null)
+    public function setLegallyBindingAttachment(?FHIRAttachment $legallyBindingAttachment = null): object
     {
         $this->_trackValueSet($this->legallyBindingAttachment, $legallyBindingAttachment);
         $this->legallyBindingAttachment = $legallyBindingAttachment;
@@ -2739,7 +2748,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLegallyBindingReference()
+    public function getLegallyBindingReference(): ?FHIRReference
     {
         return $this->legallyBindingReference;
     }
@@ -2757,7 +2766,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $legallyBindingReference
      * @return static
      */
-    public function setLegallyBindingReference(FHIRReference $legallyBindingReference = null)
+    public function setLegallyBindingReference(?FHIRReference $legallyBindingReference = null): object
     {
         $this->_trackValueSet($this->legallyBindingReference, $legallyBindingReference);
         $this->legallyBindingReference = $legallyBindingReference;
@@ -3513,15 +3522,15 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRContract
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRContract    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRContract::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -3541,7 +3550,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -3746,7 +3755,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -4004,148 +4013,150 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRContractResourceStatusCodes::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRContractResourceStatusCodes::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLegalState())) {
-            $a[self::FIELD_LEGAL_STATE] = $v;
+            $out->{self::FIELD_LEGAL_STATE} = $v;
         }
         if (null !== ($v = $this->getInstantiatesCanonical())) {
-            $a[self::FIELD_INSTANTIATES_CANONICAL] = $v;
+            $out->{self::FIELD_INSTANTIATES_CANONICAL} = $v;
         }
         if (null !== ($v = $this->getInstantiatesUri())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INSTANTIATES_URI] = $val;
+                $out->{self::FIELD_INSTANTIATES_URI} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INSTANTIATES_URI_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_URI_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getContentDerivative())) {
-            $a[self::FIELD_CONTENT_DERIVATIVE] = $v;
+            $out->{self::FIELD_CONTENT_DERIVATIVE} = $v;
         }
         if (null !== ($v = $this->getIssued())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ISSUED] = $val;
+                $out->{self::FIELD_ISSUED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ISSUED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ISSUED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getApplies())) {
-            $a[self::FIELD_APPLIES] = $v;
+            $out->{self::FIELD_APPLIES} = $v;
         }
         if (null !== ($v = $this->getExpirationType())) {
-            $a[self::FIELD_EXPIRATION_TYPE] = $v;
+            $out->{self::FIELD_EXPIRATION_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = [];
+            $out->{self::FIELD_SUBJECT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBJECT][] = $v;
+                $out->{self::FIELD_SUBJECT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getAuthority())) {
-            $a[self::FIELD_AUTHORITY] = [];
+            $out->{self::FIELD_AUTHORITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AUTHORITY][] = $v;
+                $out->{self::FIELD_AUTHORITY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDomain())) {
-            $a[self::FIELD_DOMAIN] = [];
+            $out->{self::FIELD_DOMAIN} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOMAIN][] = $v;
+                $out->{self::FIELD_DOMAIN}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSite())) {
-            $a[self::FIELD_SITE] = [];
+            $out->{self::FIELD_SITE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SITE][] = $v;
+                $out->{self::FIELD_SITE}[] = $v;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSubtitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SUBTITLE] = $val;
+                $out->{self::FIELD_SUBTITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SUBTITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SUBTITLE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAlias())) {
@@ -4157,7 +4168,7 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -4166,109 +4177,112 @@ class FHIRContract extends FHIRDomainResource implements PHPFHIRContainedTypeInt
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_ALIAS] = $vals;
+                $out->{self::FIELD_ALIAS} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_ALIAS_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALIAS_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = $v;
+            $out->{self::FIELD_AUTHOR} = $v;
         }
         if (null !== ($v = $this->getScope())) {
-            $a[self::FIELD_SCOPE] = $v;
+            $out->{self::FIELD_SCOPE} = $v;
         }
         if (null !== ($v = $this->getTopicCodeableConcept())) {
-            $a[self::FIELD_TOPIC_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_TOPIC_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getTopicReference())) {
-            $a[self::FIELD_TOPIC_REFERENCE] = $v;
+            $out->{self::FIELD_TOPIC_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getSubType())) {
-            $a[self::FIELD_SUB_TYPE] = [];
+            $out->{self::FIELD_SUB_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUB_TYPE][] = $v;
+                $out->{self::FIELD_SUB_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getContentDefinition())) {
-            $a[self::FIELD_CONTENT_DEFINITION] = $v;
+            $out->{self::FIELD_CONTENT_DEFINITION} = $v;
         }
         if ([] !== ($vs = $this->getTerm())) {
-            $a[self::FIELD_TERM] = [];
+            $out->{self::FIELD_TERM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TERM][] = $v;
+                $out->{self::FIELD_TERM}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSupportingInfo())) {
-            $a[self::FIELD_SUPPORTING_INFO] = [];
+            $out->{self::FIELD_SUPPORTING_INFO} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUPPORTING_INFO][] = $v;
+                $out->{self::FIELD_SUPPORTING_INFO}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRelevantHistory())) {
-            $a[self::FIELD_RELEVANT_HISTORY] = [];
+            $out->{self::FIELD_RELEVANT_HISTORY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELEVANT_HISTORY][] = $v;
+                $out->{self::FIELD_RELEVANT_HISTORY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSigner())) {
-            $a[self::FIELD_SIGNER] = [];
+            $out->{self::FIELD_SIGNER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SIGNER][] = $v;
+                $out->{self::FIELD_SIGNER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getFriendly())) {
-            $a[self::FIELD_FRIENDLY] = [];
+            $out->{self::FIELD_FRIENDLY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_FRIENDLY][] = $v;
+                $out->{self::FIELD_FRIENDLY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getLegal())) {
-            $a[self::FIELD_LEGAL] = [];
+            $out->{self::FIELD_LEGAL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LEGAL][] = $v;
+                $out->{self::FIELD_LEGAL}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRule())) {
-            $a[self::FIELD_RULE] = [];
+            $out->{self::FIELD_RULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RULE][] = $v;
+                $out->{self::FIELD_RULE}[] = $v;
             }
         }
         if (null !== ($v = $this->getLegallyBindingAttachment())) {
-            $a[self::FIELD_LEGALLY_BINDING_ATTACHMENT] = $v;
+            $out->{self::FIELD_LEGALLY_BINDING_ATTACHMENT} = $v;
         }
         if (null !== ($v = $this->getLegallyBindingReference())) {
-            $a[self::FIELD_LEGALLY_BINDING_REFERENCE] = $v;
+            $out->{self::FIELD_LEGALLY_BINDING_REFERENCE} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

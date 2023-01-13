@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRQuantity extends FHIRElement
      * The value of the measured amount. The value includes an implicit precision in
      * the presentation of the value.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $value = null;
+    protected ?FHIRDecimal $value = null;
 
     /**
      * How the Quantity should be understood and represented.
@@ -118,7 +118,7 @@ class FHIRQuantity extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantityComparator
      */
-    protected $comparator = null;
+    protected ?FHIRQuantityComparator $comparator = null;
 
     /**
      * A sequence of Unicode characters
@@ -127,9 +127,9 @@ class FHIRQuantity extends FHIRElement
      *
      * A human-readable form of the unit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $unit = null;
+    protected ?FHIRString $unit = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -138,9 +138,9 @@ class FHIRQuantity extends FHIRElement
      *
      * The identification of the system that provides the coded form of the unit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $system = null;
+    protected ?FHIRUri $system = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -150,15 +150,15 @@ class FHIRQuantity extends FHIRElement
      *
      * A computer processable form of the unit in some unit representation system.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * Validation map for fields in type Quantity
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRQuantity Constructor
@@ -177,8 +177,8 @@ class FHIRQuantity extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setValue($value);
@@ -192,8 +192,8 @@ class FHIRQuantity extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_COMPARATOR]) || isset($data[self::FIELD_COMPARATOR_EXT])) {
-            $value = isset($data[self::FIELD_COMPARATOR]) ? $data[self::FIELD_COMPARATOR] : null;
-            $ext = (isset($data[self::FIELD_COMPARATOR_EXT]) && is_array($data[self::FIELD_COMPARATOR_EXT])) ? $ext = $data[self::FIELD_COMPARATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMPARATOR] ?? null;
+            $ext = (isset($data[self::FIELD_COMPARATOR_EXT]) && is_array($data[self::FIELD_COMPARATOR_EXT])) ? $data[self::FIELD_COMPARATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRQuantityComparator) {
                     $this->setComparator($value);
@@ -207,8 +207,8 @@ class FHIRQuantity extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_UNIT]) || isset($data[self::FIELD_UNIT_EXT])) {
-            $value = isset($data[self::FIELD_UNIT]) ? $data[self::FIELD_UNIT] : null;
-            $ext = (isset($data[self::FIELD_UNIT_EXT]) && is_array($data[self::FIELD_UNIT_EXT])) ? $ext = $data[self::FIELD_UNIT_EXT] : $ext = [];
+            $value = $data[self::FIELD_UNIT] ?? null;
+            $ext = (isset($data[self::FIELD_UNIT_EXT]) && is_array($data[self::FIELD_UNIT_EXT])) ? $data[self::FIELD_UNIT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setUnit($value);
@@ -222,8 +222,8 @@ class FHIRQuantity extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSystem($value);
@@ -237,8 +237,8 @@ class FHIRQuantity extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -253,11 +253,17 @@ class FHIRQuantity extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -276,9 +282,9 @@ class FHIRQuantity extends FHIRElement
      * The value of the measured amount. The value includes an implicit precision in
      * the presentation of the value.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getValue()
+    public function getValue(): ?FHIRDecimal
     {
         return $this->value;
     }
@@ -292,10 +298,10 @@ class FHIRQuantity extends FHIRElement
      * The value of the measured amount. The value includes an implicit precision in
      * the presentation of the value.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $value
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRDecimal)) {
             $value = new FHIRDecimal($value);
@@ -315,7 +321,7 @@ class FHIRQuantity extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantityComparator
      */
-    public function getComparator()
+    public function getComparator(): ?FHIRQuantityComparator
     {
         return $this->comparator;
     }
@@ -331,7 +337,7 @@ class FHIRQuantity extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantityComparator $comparator
      * @return static
      */
-    public function setComparator(FHIRQuantityComparator $comparator = null)
+    public function setComparator(?FHIRQuantityComparator $comparator = null): object
     {
         $this->_trackValueSet($this->comparator, $comparator);
         $this->comparator = $comparator;
@@ -345,9 +351,9 @@ class FHIRQuantity extends FHIRElement
      *
      * A human-readable form of the unit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getUnit()
+    public function getUnit(): ?FHIRString
     {
         return $this->unit;
     }
@@ -359,10 +365,10 @@ class FHIRQuantity extends FHIRElement
      *
      * A human-readable form of the unit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $unit
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $unit
      * @return static
      */
-    public function setUnit($unit = null)
+    public function setUnit($unit = null): object
     {
         if (null !== $unit && !($unit instanceof FHIRString)) {
             $unit = new FHIRString($unit);
@@ -379,9 +385,9 @@ class FHIRQuantity extends FHIRElement
      *
      * The identification of the system that provides the coded form of the unit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRUri
     {
         return $this->system;
     }
@@ -393,10 +399,10 @@ class FHIRQuantity extends FHIRElement
      *
      * The identification of the system that provides the coded form of the unit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRUri)) {
             $system = new FHIRUri($system);
@@ -414,9 +420,9 @@ class FHIRQuantity extends FHIRElement
      *
      * A computer processable form of the unit in some unit representation system.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -429,10 +435,10 @@ class FHIRQuantity extends FHIRElement
      *
      * A computer processable form of the unit in some unit representation system.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -581,15 +587,15 @@ class FHIRQuantity extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRQuantity    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRQuantity::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -609,7 +615,7 @@ class FHIRQuantity extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -683,7 +689,7 @@ class FHIRQuantity extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -721,61 +727,64 @@ class FHIRQuantity extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getComparator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMPARATOR] = $val;
+                $out->{self::FIELD_COMPARATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRQuantityComparator::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMPARATOR_EXT] = $ext;
+            unset($ext->{FHIRQuantityComparator::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMPARATOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUnit())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_UNIT] = $val;
+                $out->{self::FIELD_UNIT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_UNIT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_UNIT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

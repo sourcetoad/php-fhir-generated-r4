@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -139,7 +139,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * The status of the ImagingStudy.
@@ -149,7 +149,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRImagingStudyStatus
      */
-    protected $status = null;
+    protected ?FHIRImagingStudyStatus $status = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -161,7 +161,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $modality = [];
+    protected ?array $modality = [];
 
     /**
      * A reference from one resource to another.
@@ -172,7 +172,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -184,7 +184,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $encounter = null;
+    protected ?FHIRReference $encounter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -196,9 +196,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date and time the study started.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $started = null;
+    protected ?FHIRDateTime $started = null;
 
     /**
      * A reference from one resource to another.
@@ -210,7 +210,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A reference from one resource to another.
@@ -221,7 +221,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $referrer = null;
+    protected ?FHIRReference $referrer = null;
 
     /**
      * A reference from one resource to another.
@@ -232,7 +232,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $interpreter = [];
+    protected ?array $interpreter = [];
 
     /**
      * A reference from one resource to another.
@@ -246,7 +246,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $endpoint = [];
+    protected ?array $endpoint = [];
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -258,9 +258,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * or other factors. This element should be present if any series elements are
      * present.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $numberOfSeries = null;
+    protected ?FHIRUnsignedInt $numberOfSeries = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -272,9 +272,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $numberOfInstances = null;
+    protected ?FHIRUnsignedInt $numberOfInstances = null;
 
     /**
      * A reference from one resource to another.
@@ -285,7 +285,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $procedureReference = null;
+    protected ?FHIRReference $procedureReference = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -297,7 +297,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $procedureCode = [];
+    protected ?array $procedureCode = [];
 
     /**
      * A reference from one resource to another.
@@ -308,7 +308,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $location = null;
+    protected ?FHIRReference $location = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -320,7 +320,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -331,7 +331,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * A text note which also contains information about who made the statement and
@@ -346,7 +346,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * A sequence of Unicode characters
@@ -356,9 +356,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The Imaging Manager description of the study. Institution-generated description
      * or classification of the Study (component) performed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * Representation of the content produced in a DICOM imaging study. A study
@@ -371,13 +371,13 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries[]
      */
-    protected $series = [];
+    protected ?array $series = [];
 
     /**
      * Validation map for fields in type ImagingStudy
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRImagingStudy Constructor
@@ -414,8 +414,8 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRImagingStudyStatus) {
                     $this->setStatus($value);
@@ -461,8 +461,8 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_STARTED]) || isset($data[self::FIELD_STARTED_EXT])) {
-            $value = isset($data[self::FIELD_STARTED]) ? $data[self::FIELD_STARTED] : null;
-            $ext = (isset($data[self::FIELD_STARTED_EXT]) && is_array($data[self::FIELD_STARTED_EXT])) ? $ext = $data[self::FIELD_STARTED_EXT] : $ext = [];
+            $value = $data[self::FIELD_STARTED] ?? null;
+            $ext = (isset($data[self::FIELD_STARTED_EXT]) && is_array($data[self::FIELD_STARTED_EXT])) ? $data[self::FIELD_STARTED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setStarted($value);
@@ -537,8 +537,8 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_SERIES]) || isset($data[self::FIELD_NUMBER_OF_SERIES_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_SERIES]) ? $data[self::FIELD_NUMBER_OF_SERIES] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_SERIES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SERIES_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_SERIES_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_SERIES] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_SERIES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SERIES_EXT])) ? $data[self::FIELD_NUMBER_OF_SERIES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setNumberOfSeries($value);
@@ -552,8 +552,8 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_INSTANCES]) || isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_INSTANCES]) ? $data[self::FIELD_NUMBER_OF_INSTANCES] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_INSTANCES_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_INSTANCES] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) ? $data[self::FIELD_NUMBER_OF_INSTANCES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setNumberOfInstances($value);
@@ -653,8 +653,8 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -687,11 +687,17 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -700,6 +706,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<ImagingStudy{$xmlns}></ImagingStudy>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -717,7 +726,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -734,7 +743,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -753,7 +762,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -780,7 +789,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRImagingStudyStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRImagingStudyStatus
     {
         return $this->status;
     }
@@ -794,7 +803,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRImagingStudyStatus $status
      * @return static
      */
-    public function setStatus(FHIRImagingStudyStatus $status = null)
+    public function setStatus(?FHIRImagingStudyStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -811,7 +820,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getModality()
+    public function getModality(): ?array
     {
         return $this->modality;
     }
@@ -827,7 +836,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $modality
      * @return static
      */
-    public function addModality(FHIRCoding $modality = null)
+    public function addModality(?FHIRCoding $modality = null): object
     {
         $this->_trackValueAdded();
         $this->modality[] = $modality;
@@ -845,7 +854,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $modality
      * @return static
      */
-    public function setModality(array $modality = [])
+    public function setModality(array $modality = []): object
     {
         if ([] !== $this->modality) {
             $this->_trackValuesRemoved(count($this->modality));
@@ -873,7 +882,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -888,7 +897,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -905,7 +914,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIRReference
     {
         return $this->encounter;
     }
@@ -921,7 +930,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function setEncounter(FHIRReference $encounter = null)
+    public function setEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueSet($this->encounter, $encounter);
         $this->encounter = $encounter;
@@ -938,9 +947,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date and time the study started.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getStarted()
+    public function getStarted(): ?FHIRDateTime
     {
         return $this->started;
     }
@@ -955,10 +964,10 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date and time the study started.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $started
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $started
      * @return static
      */
-    public function setStarted($started = null)
+    public function setStarted($started = null): object
     {
         if (null !== $started && !($started instanceof FHIRDateTime)) {
             $started = new FHIRDateTime($started);
@@ -978,7 +987,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -994,7 +1003,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -1012,7 +1021,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -1040,7 +1049,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getReferrer()
+    public function getReferrer(): ?FHIRReference
     {
         return $this->referrer;
     }
@@ -1055,7 +1064,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $referrer
      * @return static
      */
-    public function setReferrer(FHIRReference $referrer = null)
+    public function setReferrer(?FHIRReference $referrer = null): object
     {
         $this->_trackValueSet($this->referrer, $referrer);
         $this->referrer = $referrer;
@@ -1071,7 +1080,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getInterpreter()
+    public function getInterpreter(): ?array
     {
         return $this->interpreter;
     }
@@ -1086,7 +1095,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $interpreter
      * @return static
      */
-    public function addInterpreter(FHIRReference $interpreter = null)
+    public function addInterpreter(?FHIRReference $interpreter = null): object
     {
         $this->_trackValueAdded();
         $this->interpreter[] = $interpreter;
@@ -1103,7 +1112,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $interpreter
      * @return static
      */
-    public function setInterpreter(array $interpreter = [])
+    public function setInterpreter(array $interpreter = []): object
     {
         if ([] !== $this->interpreter) {
             $this->_trackValuesRemoved(count($this->interpreter));
@@ -1134,7 +1143,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?array
     {
         return $this->endpoint;
     }
@@ -1152,7 +1161,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $endpoint
      * @return static
      */
-    public function addEndpoint(FHIRReference $endpoint = null)
+    public function addEndpoint(?FHIRReference $endpoint = null): object
     {
         $this->_trackValueAdded();
         $this->endpoint[] = $endpoint;
@@ -1172,7 +1181,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $endpoint
      * @return static
      */
-    public function setEndpoint(array $endpoint = [])
+    public function setEndpoint(array $endpoint = []): object
     {
         if ([] !== $this->endpoint) {
             $this->_trackValuesRemoved(count($this->endpoint));
@@ -1201,9 +1210,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * or other factors. This element should be present if any series elements are
      * present.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getNumberOfSeries()
+    public function getNumberOfSeries(): ?FHIRUnsignedInt
     {
         return $this->numberOfSeries;
     }
@@ -1218,10 +1227,10 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * or other factors. This element should be present if any series elements are
      * present.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfSeries
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfSeries
      * @return static
      */
-    public function setNumberOfSeries($numberOfSeries = null)
+    public function setNumberOfSeries($numberOfSeries = null): object
     {
         if (null !== $numberOfSeries && !($numberOfSeries instanceof FHIRUnsignedInt)) {
             $numberOfSeries = new FHIRUnsignedInt($numberOfSeries);
@@ -1241,9 +1250,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getNumberOfInstances()
+    public function getNumberOfInstances(): ?FHIRUnsignedInt
     {
         return $this->numberOfInstances;
     }
@@ -1258,10 +1267,10 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfInstances
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfInstances
      * @return static
      */
-    public function setNumberOfInstances($numberOfInstances = null)
+    public function setNumberOfInstances($numberOfInstances = null): object
     {
         if (null !== $numberOfInstances && !($numberOfInstances instanceof FHIRUnsignedInt)) {
             $numberOfInstances = new FHIRUnsignedInt($numberOfInstances);
@@ -1280,7 +1289,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProcedureReference()
+    public function getProcedureReference(): ?FHIRReference
     {
         return $this->procedureReference;
     }
@@ -1295,7 +1304,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $procedureReference
      * @return static
      */
-    public function setProcedureReference(FHIRReference $procedureReference = null)
+    public function setProcedureReference(?FHIRReference $procedureReference = null): object
     {
         $this->_trackValueSet($this->procedureReference, $procedureReference);
         $this->procedureReference = $procedureReference;
@@ -1312,7 +1321,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getProcedureCode()
+    public function getProcedureCode(): ?array
     {
         return $this->procedureCode;
     }
@@ -1328,7 +1337,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $procedureCode
      * @return static
      */
-    public function addProcedureCode(FHIRCodeableConcept $procedureCode = null)
+    public function addProcedureCode(?FHIRCodeableConcept $procedureCode = null): object
     {
         $this->_trackValueAdded();
         $this->procedureCode[] = $procedureCode;
@@ -1346,7 +1355,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $procedureCode
      * @return static
      */
-    public function setProcedureCode(array $procedureCode = [])
+    public function setProcedureCode(array $procedureCode = []): object
     {
         if ([] !== $this->procedureCode) {
             $this->_trackValuesRemoved(count($this->procedureCode));
@@ -1374,7 +1383,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRReference
     {
         return $this->location;
     }
@@ -1389,7 +1398,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $location
      * @return static
      */
-    public function setLocation(FHIRReference $location = null)
+    public function setLocation(?FHIRReference $location = null): object
     {
         $this->_trackValueSet($this->location, $location);
         $this->location = $location;
@@ -1406,7 +1415,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1422,7 +1431,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1440,7 +1449,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1468,7 +1477,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1483,7 +1492,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1500,7 +1509,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1532,7 +1541,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1551,7 +1560,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1572,7 +1581,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1599,9 +1608,9 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The Imaging Manager description of the study. Institution-generated description
      * or classification of the Study (component) performed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -1614,10 +1623,10 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The Imaging Manager description of the study. Institution-generated description
      * or classification of the Study (component) performed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -1638,7 +1647,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries[]
      */
-    public function getSeries()
+    public function getSeries(): ?array
     {
         return $this->series;
     }
@@ -1655,7 +1664,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries $series
      * @return static
      */
-    public function addSeries(FHIRImagingStudySeries $series = null)
+    public function addSeries(?FHIRImagingStudySeries $series = null): object
     {
         $this->_trackValueAdded();
         $this->series[] = $series;
@@ -1674,7 +1683,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries[] $series
      * @return static
      */
-    public function setSeries(array $series = [])
+    public function setSeries(array $series = []): object
     {
         if ([] !== $this->series) {
             $this->_trackValuesRemoved(count($this->series));
@@ -2179,15 +2188,15 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImagingStudy
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImagingStudy    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImagingStudy::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2207,7 +2216,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2346,7 +2355,7 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2509,166 +2518,171 @@ class FHIRImagingStudy extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRImagingStudyStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRImagingStudyStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getModality())) {
-            $a[self::FIELD_MODALITY] = [];
+            $out->{self::FIELD_MODALITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_MODALITY][] = $v;
+                $out->{self::FIELD_MODALITY}[] = $v;
             }
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = $v;
+            $out->{self::FIELD_ENCOUNTER} = $v;
         }
         if (null !== ($v = $this->getStarted())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STARTED] = $val;
+                $out->{self::FIELD_STARTED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STARTED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STARTED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if (null !== ($v = $this->getReferrer())) {
-            $a[self::FIELD_REFERRER] = $v;
+            $out->{self::FIELD_REFERRER} = $v;
         }
         if ([] !== ($vs = $this->getInterpreter())) {
-            $a[self::FIELD_INTERPRETER] = [];
+            $out->{self::FIELD_INTERPRETER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_INTERPRETER][] = $v;
+                $out->{self::FIELD_INTERPRETER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEndpoint())) {
-            $a[self::FIELD_ENDPOINT] = [];
+            $out->{self::FIELD_ENDPOINT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENDPOINT][] = $v;
+                $out->{self::FIELD_ENDPOINT}[] = $v;
             }
         }
         if (null !== ($v = $this->getNumberOfSeries())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_SERIES] = $val;
+                $out->{self::FIELD_NUMBER_OF_SERIES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_SERIES_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_SERIES_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNumberOfInstances())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_INSTANCES] = $val;
+                $out->{self::FIELD_NUMBER_OF_INSTANCES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_INSTANCES_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_INSTANCES_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProcedureReference())) {
-            $a[self::FIELD_PROCEDURE_REFERENCE] = $v;
+            $out->{self::FIELD_PROCEDURE_REFERENCE} = $v;
         }
         if ([] !== ($vs = $this->getProcedureCode())) {
-            $a[self::FIELD_PROCEDURE_CODE] = [];
+            $out->{self::FIELD_PROCEDURE_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROCEDURE_CODE][] = $v;
+                $out->{self::FIELD_PROCEDURE_CODE}[] = $v;
             }
         }
         if (null !== ($v = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = $v;
+            $out->{self::FIELD_LOCATION} = $v;
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSeries())) {
-            $a[self::FIELD_SERIES] = [];
+            $out->{self::FIELD_SERIES} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SERIES][] = $v;
+                $out->{self::FIELD_SERIES}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

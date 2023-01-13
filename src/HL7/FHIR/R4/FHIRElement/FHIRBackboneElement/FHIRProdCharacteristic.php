@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -117,7 +117,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $height = null;
+    protected ?FHIRQuantity $height = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -133,7 +133,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $width = null;
+    protected ?FHIRQuantity $width = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -149,7 +149,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $depth = null;
+    protected ?FHIRQuantity $depth = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -165,7 +165,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $weight = null;
+    protected ?FHIRQuantity $weight = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -181,7 +181,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $nominalVolume = null;
+    protected ?FHIRQuantity $nominalVolume = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -197,7 +197,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $externalDiameter = null;
+    protected ?FHIRQuantity $externalDiameter = null;
 
     /**
      * A sequence of Unicode characters
@@ -207,9 +207,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the shape can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $shape = null;
+    protected ?FHIRString $shape = null;
 
     /**
      * A sequence of Unicode characters
@@ -219,9 +219,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the color can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $color = [];
+    protected ?array $color = [];
 
     /**
      * A sequence of Unicode characters
@@ -230,9 +230,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * Where applicable, the imprint can be specified as text.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $imprint = [];
+    protected ?array $imprint = [];
 
     /**
      * For referring to data content defined in other formats.
@@ -244,7 +244,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    protected $image = [];
+    protected ?array $image = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -257,13 +257,13 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $scoring = null;
+    protected ?FHIRCodeableConcept $scoring = null;
 
     /**
      * Validation map for fields in type ProdCharacteristic
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRProdCharacteristic Constructor
@@ -324,8 +324,8 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SHAPE]) || isset($data[self::FIELD_SHAPE_EXT])) {
-            $value = isset($data[self::FIELD_SHAPE]) ? $data[self::FIELD_SHAPE] : null;
-            $ext = (isset($data[self::FIELD_SHAPE_EXT]) && is_array($data[self::FIELD_SHAPE_EXT])) ? $ext = $data[self::FIELD_SHAPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SHAPE] ?? null;
+            $ext = (isset($data[self::FIELD_SHAPE_EXT]) && is_array($data[self::FIELD_SHAPE_EXT])) ? $data[self::FIELD_SHAPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setShape($value);
@@ -339,8 +339,8 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_COLOR]) || isset($data[self::FIELD_COLOR_EXT])) {
-            $value = isset($data[self::FIELD_COLOR]) ? $data[self::FIELD_COLOR] : null;
-            $ext = (isset($data[self::FIELD_COLOR_EXT]) && is_array($data[self::FIELD_COLOR_EXT])) ? $ext = $data[self::FIELD_COLOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_COLOR] ?? null;
+            $ext = (isset($data[self::FIELD_COLOR_EXT]) && is_array($data[self::FIELD_COLOR_EXT])) ? $data[self::FIELD_COLOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addColor($value);
@@ -369,8 +369,8 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_IMPRINT]) || isset($data[self::FIELD_IMPRINT_EXT])) {
-            $value = isset($data[self::FIELD_IMPRINT]) ? $data[self::FIELD_IMPRINT] : null;
-            $ext = (isset($data[self::FIELD_IMPRINT_EXT]) && is_array($data[self::FIELD_IMPRINT_EXT])) ? $ext = $data[self::FIELD_IMPRINT_EXT] : $ext = [];
+            $value = $data[self::FIELD_IMPRINT] ?? null;
+            $ext = (isset($data[self::FIELD_IMPRINT_EXT]) && is_array($data[self::FIELD_IMPRINT_EXT])) ? $data[self::FIELD_IMPRINT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addImprint($value);
@@ -425,11 +425,17 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -453,7 +459,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getHeight()
+    public function getHeight(): ?FHIRQuantity
     {
         return $this->height;
     }
@@ -473,7 +479,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $height
      * @return static
      */
-    public function setHeight(FHIRQuantity $height = null)
+    public function setHeight(?FHIRQuantity $height = null): object
     {
         $this->_trackValueSet($this->height, $height);
         $this->height = $height;
@@ -494,7 +500,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getWidth()
+    public function getWidth(): ?FHIRQuantity
     {
         return $this->width;
     }
@@ -514,7 +520,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $width
      * @return static
      */
-    public function setWidth(FHIRQuantity $width = null)
+    public function setWidth(?FHIRQuantity $width = null): object
     {
         $this->_trackValueSet($this->width, $width);
         $this->width = $width;
@@ -535,7 +541,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getDepth()
+    public function getDepth(): ?FHIRQuantity
     {
         return $this->depth;
     }
@@ -555,7 +561,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $depth
      * @return static
      */
-    public function setDepth(FHIRQuantity $depth = null)
+    public function setDepth(?FHIRQuantity $depth = null): object
     {
         $this->_trackValueSet($this->depth, $depth);
         $this->depth = $depth;
@@ -576,7 +582,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getWeight()
+    public function getWeight(): ?FHIRQuantity
     {
         return $this->weight;
     }
@@ -596,7 +602,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $weight
      * @return static
      */
-    public function setWeight(FHIRQuantity $weight = null)
+    public function setWeight(?FHIRQuantity $weight = null): object
     {
         $this->_trackValueSet($this->weight, $weight);
         $this->weight = $weight;
@@ -617,7 +623,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getNominalVolume()
+    public function getNominalVolume(): ?FHIRQuantity
     {
         return $this->nominalVolume;
     }
@@ -637,7 +643,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $nominalVolume
      * @return static
      */
-    public function setNominalVolume(FHIRQuantity $nominalVolume = null)
+    public function setNominalVolume(?FHIRQuantity $nominalVolume = null): object
     {
         $this->_trackValueSet($this->nominalVolume, $nominalVolume);
         $this->nominalVolume = $nominalVolume;
@@ -658,7 +664,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getExternalDiameter()
+    public function getExternalDiameter(): ?FHIRQuantity
     {
         return $this->externalDiameter;
     }
@@ -678,7 +684,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $externalDiameter
      * @return static
      */
-    public function setExternalDiameter(FHIRQuantity $externalDiameter = null)
+    public function setExternalDiameter(?FHIRQuantity $externalDiameter = null): object
     {
         $this->_trackValueSet($this->externalDiameter, $externalDiameter);
         $this->externalDiameter = $externalDiameter;
@@ -693,9 +699,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the shape can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getShape()
+    public function getShape(): ?FHIRString
     {
         return $this->shape;
     }
@@ -708,10 +714,10 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the shape can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $shape
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $shape
      * @return static
      */
-    public function setShape($shape = null)
+    public function setShape($shape = null): object
     {
         if (null !== $shape && !($shape instanceof FHIRString)) {
             $shape = new FHIRString($shape);
@@ -729,9 +735,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the color can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getColor()
+    public function getColor(): ?array
     {
         return $this->color;
     }
@@ -744,10 +750,10 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * Where applicable, the color can be specified An appropriate controlled
      * vocabulary shall be used The term and the term identifier shall be used.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $color
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $color
      * @return static
      */
-    public function addColor($color = null)
+    public function addColor($color = null): object
     {
         if (null !== $color && !($color instanceof FHIRString)) {
             $color = new FHIRString($color);
@@ -768,7 +774,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $color
      * @return static
      */
-    public function setColor(array $color = [])
+    public function setColor(array $color = []): object
     {
         if ([] !== $this->color) {
             $this->_trackValuesRemoved(count($this->color));
@@ -794,9 +800,9 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * Where applicable, the imprint can be specified as text.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getImprint()
+    public function getImprint(): ?array
     {
         return $this->imprint;
     }
@@ -808,10 +814,10 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * Where applicable, the imprint can be specified as text.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $imprint
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $imprint
      * @return static
      */
-    public function addImprint($imprint = null)
+    public function addImprint($imprint = null): object
     {
         if (null !== $imprint && !($imprint instanceof FHIRString)) {
             $imprint = new FHIRString($imprint);
@@ -831,7 +837,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $imprint
      * @return static
      */
-    public function setImprint(array $imprint = [])
+    public function setImprint(array $imprint = []): object
     {
         if ([] !== $this->imprint) {
             $this->_trackValuesRemoved(count($this->imprint));
@@ -860,7 +866,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment[]
      */
-    public function getImage()
+    public function getImage(): ?array
     {
         return $this->image;
     }
@@ -876,7 +882,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $image
      * @return static
      */
-    public function addImage(FHIRAttachment $image = null)
+    public function addImage(?FHIRAttachment $image = null): object
     {
         $this->_trackValueAdded();
         $this->image[] = $image;
@@ -894,7 +900,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAttachment[] $image
      * @return static
      */
-    public function setImage(array $image = [])
+    public function setImage(array $image = []): object
     {
         if ([] !== $this->image) {
             $this->_trackValuesRemoved(count($this->image));
@@ -924,7 +930,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getScoring()
+    public function getScoring(): ?FHIRCodeableConcept
     {
         return $this->scoring;
     }
@@ -941,7 +947,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $scoring
      * @return static
      */
-    public function setScoring(FHIRCodeableConcept $scoring = null)
+    public function setScoring(?FHIRCodeableConcept $scoring = null): object
     {
         $this->_trackValueSet($this->scoring, $scoring);
         $this->scoring = $scoring;
@@ -1207,15 +1213,15 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProdCharacteristic
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProdCharacteristic    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRProdCharacteristic::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1235,7 +1241,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1314,7 +1320,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1397,36 +1403,38 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getHeight())) {
-            $a[self::FIELD_HEIGHT] = $v;
+            $out->{self::FIELD_HEIGHT} = $v;
         }
         if (null !== ($v = $this->getWidth())) {
-            $a[self::FIELD_WIDTH] = $v;
+            $out->{self::FIELD_WIDTH} = $v;
         }
         if (null !== ($v = $this->getDepth())) {
-            $a[self::FIELD_DEPTH] = $v;
+            $out->{self::FIELD_DEPTH} = $v;
         }
         if (null !== ($v = $this->getWeight())) {
-            $a[self::FIELD_WEIGHT] = $v;
+            $out->{self::FIELD_WEIGHT} = $v;
         }
         if (null !== ($v = $this->getNominalVolume())) {
-            $a[self::FIELD_NOMINAL_VOLUME] = $v;
+            $out->{self::FIELD_NOMINAL_VOLUME} = $v;
         }
         if (null !== ($v = $this->getExternalDiameter())) {
-            $a[self::FIELD_EXTERNAL_DIAMETER] = $v;
+            $out->{self::FIELD_EXTERNAL_DIAMETER} = $v;
         }
         if (null !== ($v = $this->getShape())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SHAPE] = $val;
+                $out->{self::FIELD_SHAPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SHAPE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SHAPE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getColor())) {
@@ -1438,7 +1446,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1447,10 +1455,10 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_COLOR] = $vals;
+                $out->{self::FIELD_COLOR} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_COLOR_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COLOR_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getImprint())) {
@@ -1462,7 +1470,7 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1471,25 +1479,26 @@ class FHIRProdCharacteristic extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_IMPRINT] = $vals;
+                $out->{self::FIELD_IMPRINT} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_IMPRINT_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IMPRINT_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getImage())) {
-            $a[self::FIELD_IMAGE] = [];
+            $out->{self::FIELD_IMAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IMAGE][] = $v;
+                $out->{self::FIELD_IMAGE}[] = $v;
             }
         }
         if (null !== ($v = $this->getScoring())) {
-            $a[self::FIELD_SCORING] = $v;
+            $out->{self::FIELD_SCORING} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

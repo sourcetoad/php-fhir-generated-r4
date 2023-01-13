@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,9 +105,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * A unique name for the group for the convenience of human readers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $name = null;
+    protected ?FHIRId $name = null;
 
     /**
      * Any combination of letters, numerals, "-" and ".", with a length limit of 64
@@ -119,9 +119,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * Another group that this group adds rules to.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $extends = null;
+    protected ?FHIRId $extends = null;
 
     /**
      * If this is the default rule set to apply for the source type, or this
@@ -133,7 +133,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapGroupTypeMode
      */
-    protected $typeMode = null;
+    protected ?FHIRStructureMapGroupTypeMode $typeMode = null;
 
     /**
      * A sequence of Unicode characters
@@ -143,9 +143,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * Additional supporting documentation that explains the purpose of the group and
      * the types of mappings within it.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $documentation = null;
+    protected ?FHIRString $documentation = null;
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -155,7 +155,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput[]
      */
-    protected $input = [];
+    protected ?array $input = [];
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -164,13 +164,13 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[]
      */
-    protected $rule = [];
+    protected ?array $rule = [];
 
     /**
      * Validation map for fields in type StructureMap.Group
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_INPUT => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -197,8 +197,8 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setName($value);
@@ -212,8 +212,8 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXTENDS]) || isset($data[self::FIELD_EXTENDS_EXT])) {
-            $value = isset($data[self::FIELD_EXTENDS]) ? $data[self::FIELD_EXTENDS] : null;
-            $ext = (isset($data[self::FIELD_EXTENDS_EXT]) && is_array($data[self::FIELD_EXTENDS_EXT])) ? $ext = $data[self::FIELD_EXTENDS_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXTENDS] ?? null;
+            $ext = (isset($data[self::FIELD_EXTENDS_EXT]) && is_array($data[self::FIELD_EXTENDS_EXT])) ? $data[self::FIELD_EXTENDS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setExtends($value);
@@ -227,8 +227,8 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TYPE_MODE]) || isset($data[self::FIELD_TYPE_MODE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE_MODE]) ? $data[self::FIELD_TYPE_MODE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_MODE_EXT]) && is_array($data[self::FIELD_TYPE_MODE_EXT])) ? $ext = $data[self::FIELD_TYPE_MODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE_MODE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_MODE_EXT]) && is_array($data[self::FIELD_TYPE_MODE_EXT])) ? $data[self::FIELD_TYPE_MODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRStructureMapGroupTypeMode) {
                     $this->setTypeMode($value);
@@ -242,8 +242,8 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DOCUMENTATION]) || isset($data[self::FIELD_DOCUMENTATION_EXT])) {
-            $value = isset($data[self::FIELD_DOCUMENTATION]) ? $data[self::FIELD_DOCUMENTATION] : null;
-            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $ext = $data[self::FIELD_DOCUMENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DOCUMENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $data[self::FIELD_DOCUMENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDocumentation($value);
@@ -294,11 +294,17 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -318,9 +324,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * A unique name for the group for the convenience of human readers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getName()
+    public function getName(): ?FHIRId
     {
         return $this->name;
     }
@@ -335,10 +341,10 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * A unique name for the group for the convenience of human readers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $name
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRId)) {
             $name = new FHIRId($name);
@@ -358,9 +364,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * Another group that this group adds rules to.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getExtends()
+    public function getExtends(): ?FHIRId
     {
         return $this->extends;
     }
@@ -375,10 +381,10 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * Another group that this group adds rules to.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $extends
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $extends
      * @return static
      */
-    public function setExtends($extends = null)
+    public function setExtends($extends = null): object
     {
         if (null !== $extends && !($extends instanceof FHIRId)) {
             $extends = new FHIRId($extends);
@@ -398,7 +404,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapGroupTypeMode
      */
-    public function getTypeMode()
+    public function getTypeMode(): ?FHIRStructureMapGroupTypeMode
     {
         return $this->typeMode;
     }
@@ -414,7 +420,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRStructureMapGroupTypeMode $typeMode
      * @return static
      */
-    public function setTypeMode(FHIRStructureMapGroupTypeMode $typeMode = null)
+    public function setTypeMode(?FHIRStructureMapGroupTypeMode $typeMode = null): object
     {
         $this->_trackValueSet($this->typeMode, $typeMode);
         $this->typeMode = $typeMode;
@@ -429,9 +435,9 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * Additional supporting documentation that explains the purpose of the group and
      * the types of mappings within it.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?FHIRString
     {
         return $this->documentation;
     }
@@ -444,10 +450,10 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * Additional supporting documentation that explains the purpose of the group and
      * the types of mappings within it.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
      * @return static
      */
-    public function setDocumentation($documentation = null)
+    public function setDocumentation($documentation = null): object
     {
         if (null !== $documentation && !($documentation instanceof FHIRString)) {
             $documentation = new FHIRString($documentation);
@@ -465,7 +471,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput[]
      */
-    public function getInput()
+    public function getInput(): ?array
     {
         return $this->input;
     }
@@ -479,7 +485,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput $input
      * @return static
      */
-    public function addInput(FHIRStructureMapInput $input = null)
+    public function addInput(?FHIRStructureMapInput $input = null): object
     {
         $this->_trackValueAdded();
         $this->input[] = $input;
@@ -495,7 +501,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapInput[] $input
      * @return static
      */
-    public function setInput(array $input = [])
+    public function setInput(array $input = []): object
     {
         if ([] !== $this->input) {
             $this->_trackValuesRemoved(count($this->input));
@@ -521,7 +527,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[]
      */
-    public function getRule()
+    public function getRule(): ?array
     {
         return $this->rule;
     }
@@ -534,7 +540,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule $rule
      * @return static
      */
-    public function addRule(FHIRStructureMapRule $rule = null)
+    public function addRule(?FHIRStructureMapRule $rule = null): object
     {
         $this->_trackValueAdded();
         $this->rule[] = $rule;
@@ -549,7 +555,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[] $rule
      * @return static
      */
-    public function setRule(array $rule = [])
+    public function setRule(array $rule = []): object
     {
         if ([] !== $this->rule) {
             $this->_trackValuesRemoved(count($this->rule));
@@ -740,15 +746,15 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapGroup
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapGroup    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRStructureMapGroup::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -768,7 +774,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -837,7 +843,7 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -890,69 +896,72 @@ class FHIRStructureMapGroup extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExtends())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXTENDS] = $val;
+                $out->{self::FIELD_EXTENDS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXTENDS_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXTENDS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTypeMode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE_MODE] = $val;
+                $out->{self::FIELD_TYPE_MODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRStructureMapGroupTypeMode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_MODE_EXT] = $ext;
+            unset($ext->{FHIRStructureMapGroupTypeMode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_MODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDocumentation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DOCUMENTATION] = $val;
+                $out->{self::FIELD_DOCUMENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DOCUMENTATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DOCUMENTATION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getInput())) {
-            $a[self::FIELD_INPUT] = [];
+            $out->{self::FIELD_INPUT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_INPUT][] = $v;
+                $out->{self::FIELD_INPUT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRule())) {
-            $a[self::FIELD_RULE] = [];
+            $out->{self::FIELD_RULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RULE][] = $v;
+                $out->{self::FIELD_RULE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

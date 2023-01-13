@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -115,9 +115,9 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * The product or brand name of the nutritional supplement such as "Acme Protein
      * Shake".
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $productName = null;
+    protected ?FHIRString $productName = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -134,7 +134,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[]
      */
-    protected $schedule = [];
+    protected ?array $schedule = [];
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -147,7 +147,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * A sequence of Unicode characters
@@ -157,15 +157,15 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * Free text or additional instructions or information pertaining to the oral
      * supplement.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $instruction = null;
+    protected ?FHIRString $instruction = null;
 
     /**
      * Validation map for fields in type NutritionOrder.Supplement
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRNutritionOrderSupplement Constructor
@@ -191,8 +191,8 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PRODUCT_NAME]) || isset($data[self::FIELD_PRODUCT_NAME_EXT])) {
-            $value = isset($data[self::FIELD_PRODUCT_NAME]) ? $data[self::FIELD_PRODUCT_NAME] : null;
-            $ext = (isset($data[self::FIELD_PRODUCT_NAME_EXT]) && is_array($data[self::FIELD_PRODUCT_NAME_EXT])) ? $ext = $data[self::FIELD_PRODUCT_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRODUCT_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_PRODUCT_NAME_EXT]) && is_array($data[self::FIELD_PRODUCT_NAME_EXT])) ? $data[self::FIELD_PRODUCT_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setProductName($value);
@@ -231,8 +231,8 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INSTRUCTION]) || isset($data[self::FIELD_INSTRUCTION_EXT])) {
-            $value = isset($data[self::FIELD_INSTRUCTION]) ? $data[self::FIELD_INSTRUCTION] : null;
-            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $ext = $data[self::FIELD_INSTRUCTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTRUCTION] ?? null;
+            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $data[self::FIELD_INSTRUCTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setInstruction($value);
@@ -247,11 +247,17 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -272,7 +278,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -289,7 +295,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -304,9 +310,9 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * The product or brand name of the nutritional supplement such as "Acme Protein
      * Shake".
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getProductName()
+    public function getProductName(): ?FHIRString
     {
         return $this->productName;
     }
@@ -319,10 +325,10 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * The product or brand name of the nutritional supplement such as "Acme Protein
      * Shake".
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $productName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $productName
      * @return static
      */
-    public function setProductName($productName = null)
+    public function setProductName($productName = null): object
     {
         if (null !== $productName && !($productName instanceof FHIRString)) {
             $productName = new FHIRString($productName);
@@ -347,7 +353,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[]
      */
-    public function getSchedule()
+    public function getSchedule(): ?array
     {
         return $this->schedule;
     }
@@ -368,7 +374,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $schedule
      * @return static
      */
-    public function addSchedule(FHIRTiming $schedule = null)
+    public function addSchedule(?FHIRTiming $schedule = null): object
     {
         $this->_trackValueAdded();
         $this->schedule[] = $schedule;
@@ -391,7 +397,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[] $schedule
      * @return static
      */
-    public function setSchedule(array $schedule = [])
+    public function setSchedule(array $schedule = []): object
     {
         if ([] !== $this->schedule) {
             $this->_trackValuesRemoved(count($this->schedule));
@@ -421,7 +427,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -438,7 +444,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -453,9 +459,9 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * Free text or additional instructions or information pertaining to the oral
      * supplement.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getInstruction()
+    public function getInstruction(): ?FHIRString
     {
         return $this->instruction;
     }
@@ -468,10 +474,10 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * Free text or additional instructions or information pertaining to the oral
      * supplement.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
      * @return static
      */
-    public function setInstruction($instruction = null)
+    public function setInstruction($instruction = null): object
     {
         if (null !== $instruction && !($instruction instanceof FHIRString)) {
             $instruction = new FHIRString($instruction);
@@ -634,15 +640,15 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderSupplement
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderSupplement    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRNutritionOrderSupplement::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -662,7 +668,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -720,7 +726,7 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -763,46 +769,49 @@ class FHIRNutritionOrderSupplement extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getProductName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRODUCT_NAME] = $val;
+                $out->{self::FIELD_PRODUCT_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRODUCT_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRODUCT_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSchedule())) {
-            $a[self::FIELD_SCHEDULE] = [];
+            $out->{self::FIELD_SCHEDULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SCHEDULE][] = $v;
+                $out->{self::FIELD_SCHEDULE}[] = $v;
             }
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getInstruction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INSTRUCTION] = $val;
+                $out->{self::FIELD_INSTRUCTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INSTRUCTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTRUCTION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

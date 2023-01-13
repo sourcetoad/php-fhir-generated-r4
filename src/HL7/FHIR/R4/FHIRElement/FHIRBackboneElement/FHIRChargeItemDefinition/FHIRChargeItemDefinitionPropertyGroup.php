@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionApplicability[]
      */
-    protected $applicability = [];
+    protected ?array $applicability = [];
 
     /**
      * The ChargeItemDefinition resource provides the properties that apply to the
@@ -114,13 +114,13 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPriceComponent[]
      */
-    protected $priceComponent = [];
+    protected ?array $priceComponent = [];
 
     /**
      * Validation map for fields in type ChargeItemDefinition.PropertyGroup
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRChargeItemDefinitionPropertyGroup Constructor
@@ -176,11 +176,17 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -200,7 +206,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionApplicability[]
      */
-    public function getApplicability()
+    public function getApplicability(): ?array
     {
         return $this->applicability;
     }
@@ -216,7 +222,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionApplicability $applicability
      * @return static
      */
-    public function addApplicability(FHIRChargeItemDefinitionApplicability $applicability = null)
+    public function addApplicability(?FHIRChargeItemDefinitionApplicability $applicability = null): object
     {
         $this->_trackValueAdded();
         $this->applicability[] = $applicability;
@@ -234,7 +240,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionApplicability[] $applicability
      * @return static
      */
-    public function setApplicability(array $applicability = [])
+    public function setApplicability(array $applicability = []): object
     {
         if ([] !== $this->applicability) {
             $this->_trackValuesRemoved(count($this->applicability));
@@ -268,7 +274,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPriceComponent[]
      */
-    public function getPriceComponent()
+    public function getPriceComponent(): ?array
     {
         return $this->priceComponent;
     }
@@ -289,7 +295,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPriceComponent $priceComponent
      * @return static
      */
-    public function addPriceComponent(FHIRChargeItemDefinitionPriceComponent $priceComponent = null)
+    public function addPriceComponent(?FHIRChargeItemDefinitionPriceComponent $priceComponent = null): object
     {
         $this->_trackValueAdded();
         $this->priceComponent[] = $priceComponent;
@@ -312,7 +318,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPriceComponent[] $priceComponent
      * @return static
      */
-    public function setPriceComponent(array $priceComponent = [])
+    public function setPriceComponent(array $priceComponent = []): object
     {
         if ([] !== $this->priceComponent) {
             $this->_trackValuesRemoved(count($this->priceComponent));
@@ -435,15 +441,15 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPropertyGroup
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRChargeItemDefinition\FHIRChargeItemDefinitionPropertyGroup    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRChargeItemDefinitionPropertyGroup::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -463,7 +469,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -497,7 +503,7 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -530,29 +536,32 @@ class FHIRChargeItemDefinitionPropertyGroup extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getApplicability())) {
-            $a[self::FIELD_APPLICABILITY] = [];
+            $out->{self::FIELD_APPLICABILITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_APPLICABILITY][] = $v;
+                $out->{self::FIELD_APPLICABILITY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPriceComponent())) {
-            $a[self::FIELD_PRICE_COMPONENT] = [];
+            $out->{self::FIELD_PRICE_COMPONENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PRICE_COMPONENT][] = $v;
+                $out->{self::FIELD_PRICE_COMPONENT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRCodePrimitive;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRCodePrimitive;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class FHIRResourceTypeList extends FHIRCodePrimitive
      * Validation map for fields in type ResourceType-list
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_VALUE => [
             PHPFHIRConstants::VALIDATE_ENUM => ['Account','ActivityDefinition','AdverseEvent','AllergyIntolerance','Appointment','AppointmentResponse','AuditEvent','Basic','Binary','BiologicallyDerivedProduct','BodyStructure','Bundle','CapabilityStatement','CarePlan','CareTeam','CatalogEntry','ChargeItem','ChargeItemDefinition','Claim','ClaimResponse','ClinicalImpression','CodeSystem','Communication','CommunicationRequest','CompartmentDefinition','Composition','ConceptMap','Condition','Consent','Contract','Coverage','CoverageEligibilityRequest','CoverageEligibilityResponse','DetectedIssue','Device','DeviceDefinition','DeviceMetric','DeviceRequest','DeviceUseStatement','DiagnosticReport','DocumentManifest','DocumentReference','DomainResource','EffectEvidenceSynthesis','Encounter','Endpoint','EnrollmentRequest','EnrollmentResponse','EpisodeOfCare','EventDefinition','Evidence','EvidenceVariable','ExampleScenario','ExplanationOfBenefit','FamilyMemberHistory','Flag','Goal','GraphDefinition','Group','GuidanceResponse','HealthcareService','ImagingStudy','Immunization','ImmunizationEvaluation','ImmunizationRecommendation','ImplementationGuide','InsurancePlan','Invoice','Library','Linkage','List','Location','Measure','MeasureReport','Media','Medication','MedicationAdministration','MedicationDispense','MedicationKnowledge','MedicationRequest','MedicationStatement','MedicinalProduct','MedicinalProductAuthorization','MedicinalProductContraindication','MedicinalProductIndication','MedicinalProductIngredient','MedicinalProductInteraction','MedicinalProductManufactured','MedicinalProductPackaged','MedicinalProductPharmaceutical','MedicinalProductUndesirableEffect','MessageDefinition','MessageHeader','MolecularSequence','NamingSystem','NutritionOrder','Observation','ObservationDefinition','OperationDefinition','OperationOutcome','Organization','OrganizationAffiliation','Parameters','Patient','PaymentNotice','PaymentReconciliation','Person','PlanDefinition','Practitioner','PractitionerRole','Procedure','Provenance','Questionnaire','QuestionnaireResponse','RelatedPerson','RequestGroup','ResearchDefinition','ResearchElementDefinition','ResearchStudy','ResearchSubject','Resource','RiskAssessment','RiskEvidenceSynthesis','Schedule','SearchParameter','ServiceRequest','Slot','Specimen','SpecimenDefinition','StructureDefinition','StructureMap','Subscription','Substance','SubstanceNucleicAcid','SubstancePolymer','SubstanceProtein','SubstanceReferenceInformation','SubstanceSourceMaterial','SubstanceSpecification','SupplyDelivery','SupplyRequest','Task','TerminologyCapabilities','TestReport','TestScript','ValueSet','VerificationResult','VisionPrescription',],
         ],
@@ -97,11 +97,17 @@ class FHIRResourceTypeList extends FHIRCodePrimitive
         parent::__construct($value);
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -153,15 +159,15 @@ class FHIRResourceTypeList extends FHIRCodePrimitive
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRCodePrimitive\FHIRResourceTypeList
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRCodePrimitive\FHIRResourceTypeList    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRResourceTypeList::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -181,7 +187,7 @@ class FHIRResourceTypeList extends FHIRCodePrimitive
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -209,7 +215,7 @@ class FHIRResourceTypeList extends FHIRCodePrimitive
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();

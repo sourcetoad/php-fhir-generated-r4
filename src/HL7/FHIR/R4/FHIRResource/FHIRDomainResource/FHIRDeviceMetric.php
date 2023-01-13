@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -121,7 +121,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -133,7 +133,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -146,7 +146,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $unit = null;
+    protected ?FHIRCodeableConcept $unit = null;
 
     /**
      * A reference from one resource to another.
@@ -159,7 +159,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $source = null;
+    protected ?FHIRReference $source = null;
 
     /**
      * A reference from one resource to another.
@@ -175,7 +175,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $parent = null;
+    protected ?FHIRReference $parent = null;
 
     /**
      * Describes the operational status of the DeviceMetric.
@@ -186,7 +186,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricOperationalStatus
      */
-    protected $operationalStatus = null;
+    protected ?FHIRDeviceMetricOperationalStatus $operationalStatus = null;
 
     /**
      * Describes the typical color of representation.
@@ -200,7 +200,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricColor
      */
-    protected $color = null;
+    protected ?FHIRDeviceMetricColor $color = null;
 
     /**
      * Describes the category of the metric.
@@ -211,7 +211,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricCategory
      */
-    protected $category = null;
+    protected ?FHIRDeviceMetricCategory $category = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -233,7 +233,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $measurementPeriod = null;
+    protected ?FHIRTiming $measurementPeriod = null;
 
     /**
      * Describes a measurement, calculation or setting capability of a medical device.
@@ -243,13 +243,13 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceMetric\FHIRDeviceMetricCalibration[]
      */
-    protected $calibration = [];
+    protected ?array $calibration = [];
 
     /**
      * Validation map for fields in type DeviceMetric
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDeviceMetric Constructor
@@ -314,8 +314,8 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_OPERATIONAL_STATUS]) || isset($data[self::FIELD_OPERATIONAL_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_OPERATIONAL_STATUS]) ? $data[self::FIELD_OPERATIONAL_STATUS] : null;
-            $ext = (isset($data[self::FIELD_OPERATIONAL_STATUS_EXT]) && is_array($data[self::FIELD_OPERATIONAL_STATUS_EXT])) ? $ext = $data[self::FIELD_OPERATIONAL_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_OPERATIONAL_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_OPERATIONAL_STATUS_EXT]) && is_array($data[self::FIELD_OPERATIONAL_STATUS_EXT])) ? $data[self::FIELD_OPERATIONAL_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDeviceMetricOperationalStatus) {
                     $this->setOperationalStatus($value);
@@ -329,8 +329,8 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_COLOR]) || isset($data[self::FIELD_COLOR_EXT])) {
-            $value = isset($data[self::FIELD_COLOR]) ? $data[self::FIELD_COLOR] : null;
-            $ext = (isset($data[self::FIELD_COLOR_EXT]) && is_array($data[self::FIELD_COLOR_EXT])) ? $ext = $data[self::FIELD_COLOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_COLOR] ?? null;
+            $ext = (isset($data[self::FIELD_COLOR_EXT]) && is_array($data[self::FIELD_COLOR_EXT])) ? $data[self::FIELD_COLOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDeviceMetricColor) {
                     $this->setColor($value);
@@ -344,8 +344,8 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_CATEGORY]) || isset($data[self::FIELD_CATEGORY_EXT])) {
-            $value = isset($data[self::FIELD_CATEGORY]) ? $data[self::FIELD_CATEGORY] : null;
-            $ext = (isset($data[self::FIELD_CATEGORY_EXT]) && is_array($data[self::FIELD_CATEGORY_EXT])) ? $ext = $data[self::FIELD_CATEGORY_EXT] : $ext = [];
+            $value = $data[self::FIELD_CATEGORY] ?? null;
+            $ext = (isset($data[self::FIELD_CATEGORY_EXT]) && is_array($data[self::FIELD_CATEGORY_EXT])) ? $data[self::FIELD_CATEGORY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDeviceMetricCategory) {
                     $this->setCategory($value);
@@ -385,11 +385,17 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -398,6 +404,9 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<DeviceMetric{$xmlns}></DeviceMetric>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -415,7 +424,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -432,7 +441,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -451,7 +460,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -480,7 +489,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -496,7 +505,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -514,7 +523,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getUnit()
+    public function getUnit(): ?FHIRCodeableConcept
     {
         return $this->unit;
     }
@@ -531,7 +540,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $unit
      * @return static
      */
-    public function setUnit(FHIRCodeableConcept $unit = null)
+    public function setUnit(?FHIRCodeableConcept $unit = null): object
     {
         $this->_trackValueSet($this->unit, $unit);
         $this->unit = $unit;
@@ -549,7 +558,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSource()
+    public function getSource(): ?FHIRReference
     {
         return $this->source;
     }
@@ -566,7 +575,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $source
      * @return static
      */
-    public function setSource(FHIRReference $source = null)
+    public function setSource(?FHIRReference $source = null): object
     {
         $this->_trackValueSet($this->source, $source);
         $this->source = $source;
@@ -587,7 +596,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getParent()
+    public function getParent(): ?FHIRReference
     {
         return $this->parent;
     }
@@ -607,7 +616,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $parent
      * @return static
      */
-    public function setParent(FHIRReference $parent = null)
+    public function setParent(?FHIRReference $parent = null): object
     {
         $this->_trackValueSet($this->parent, $parent);
         $this->parent = $parent;
@@ -623,7 +632,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricOperationalStatus
      */
-    public function getOperationalStatus()
+    public function getOperationalStatus(): ?FHIRDeviceMetricOperationalStatus
     {
         return $this->operationalStatus;
     }
@@ -638,7 +647,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricOperationalStatus $operationalStatus
      * @return static
      */
-    public function setOperationalStatus(FHIRDeviceMetricOperationalStatus $operationalStatus = null)
+    public function setOperationalStatus(?FHIRDeviceMetricOperationalStatus $operationalStatus = null): object
     {
         $this->_trackValueSet($this->operationalStatus, $operationalStatus);
         $this->operationalStatus = $operationalStatus;
@@ -657,7 +666,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricColor
      */
-    public function getColor()
+    public function getColor(): ?FHIRDeviceMetricColor
     {
         return $this->color;
     }
@@ -675,7 +684,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricColor $color
      * @return static
      */
-    public function setColor(FHIRDeviceMetricColor $color = null)
+    public function setColor(?FHIRDeviceMetricColor $color = null): object
     {
         $this->_trackValueSet($this->color, $color);
         $this->color = $color;
@@ -691,7 +700,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricCategory
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRDeviceMetricCategory
     {
         return $this->category;
     }
@@ -706,7 +715,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDeviceMetricCategory $category
      * @return static
      */
-    public function setCategory(FHIRDeviceMetricCategory $category = null)
+    public function setCategory(?FHIRDeviceMetricCategory $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -733,7 +742,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getMeasurementPeriod()
+    public function getMeasurementPeriod(): ?FHIRTiming
     {
         return $this->measurementPeriod;
     }
@@ -759,7 +768,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $measurementPeriod
      * @return static
      */
-    public function setMeasurementPeriod(FHIRTiming $measurementPeriod = null)
+    public function setMeasurementPeriod(?FHIRTiming $measurementPeriod = null): object
     {
         $this->_trackValueSet($this->measurementPeriod, $measurementPeriod);
         $this->measurementPeriod = $measurementPeriod;
@@ -774,7 +783,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceMetric\FHIRDeviceMetricCalibration[]
      */
-    public function getCalibration()
+    public function getCalibration(): ?array
     {
         return $this->calibration;
     }
@@ -788,7 +797,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceMetric\FHIRDeviceMetricCalibration $calibration
      * @return static
      */
-    public function addCalibration(FHIRDeviceMetricCalibration $calibration = null)
+    public function addCalibration(?FHIRDeviceMetricCalibration $calibration = null): object
     {
         $this->_trackValueAdded();
         $this->calibration[] = $calibration;
@@ -804,7 +813,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceMetric\FHIRDeviceMetricCalibration[] $calibration
      * @return static
      */
-    public function setCalibration(array $calibration = [])
+    public function setCalibration(array $calibration = []): object
     {
         if ([] !== $this->calibration) {
             $this->_trackValuesRemoved(count($this->calibration));
@@ -1123,15 +1132,15 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceMetric
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceMetric    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDeviceMetric::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1151,7 +1160,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1234,7 +1243,7 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1307,74 +1316,79 @@ class FHIRDeviceMetric extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getUnit())) {
-            $a[self::FIELD_UNIT] = $v;
+            $out->{self::FIELD_UNIT} = $v;
         }
         if (null !== ($v = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = $v;
+            $out->{self::FIELD_SOURCE} = $v;
         }
         if (null !== ($v = $this->getParent())) {
-            $a[self::FIELD_PARENT] = $v;
+            $out->{self::FIELD_PARENT} = $v;
         }
         if (null !== ($v = $this->getOperationalStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OPERATIONAL_STATUS] = $val;
+                $out->{self::FIELD_OPERATIONAL_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDeviceMetricOperationalStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OPERATIONAL_STATUS_EXT] = $ext;
+            unset($ext->{FHIRDeviceMetricOperationalStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OPERATIONAL_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getColor())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COLOR] = $val;
+                $out->{self::FIELD_COLOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDeviceMetricColor::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COLOR_EXT] = $ext;
+            unset($ext->{FHIRDeviceMetricColor::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COLOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCategory())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CATEGORY] = $val;
+                $out->{self::FIELD_CATEGORY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDeviceMetricCategory::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CATEGORY_EXT] = $ext;
+            unset($ext->{FHIRDeviceMetricCategory::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CATEGORY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMeasurementPeriod())) {
-            $a[self::FIELD_MEASUREMENT_PERIOD] = $v;
+            $out->{self::FIELD_MEASUREMENT_PERIOD} = $v;
         }
         if ([] !== ($vs = $this->getCalibration())) {
-            $a[self::FIELD_CALIBRATION] = [];
+            $out->{self::FIELD_CALIBRATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CALIBRATION][] = $v;
+                $out->{self::FIELD_CALIBRATION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,18 +100,18 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExtension[]
      */
-    protected $extension = [];
+    protected ?array $extension = [];
 
     /**
      * @var null|\HL7\FHIR\R4\FHIRStringPrimitive
      */
-    protected $id = null;
+    protected ?FHIRStringPrimitive $id = null;
 
     /**
      * Validation map for fields in type Element
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRElement Constructor
@@ -158,11 +158,17 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -172,13 +178,16 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -201,7 +210,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExtension[]
      */
-    public function getExtension()
+    public function getExtension(): ?array
     {
         return $this->extension;
     }
@@ -220,7 +229,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExtension $extension
      * @return static
      */
-    public function addExtension(FHIRExtension $extension = null)
+    public function addExtension(?FHIRExtension $extension = null): object
     {
         $this->_trackValueAdded();
         $this->extension[] = $extension;
@@ -241,7 +250,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRExtension[] $extension
      * @return static
      */
-    public function setExtension(array $extension = [])
+    public function setExtension(array $extension = []): object
     {
         if ([] !== $this->extension) {
             $this->_trackValuesRemoved(count($this->extension));
@@ -263,7 +272,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
     /**
      * @return null|\HL7\FHIR\R4\FHIRStringPrimitive
      */
-    public function getId()
+    public function getId(): ?FHIRStringPrimitive
     {
         return $this->id;
     }
@@ -272,7 +281,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRStringPrimitive $id
      * @return static
      */
-    public function setId($id = null)
+    public function setId($id = null): object
     {
         if (null !== $id && !($id instanceof FHIRStringPrimitive)) {
             $id = new FHIRStringPrimitive($id);
@@ -324,15 +333,15 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRElement::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -352,7 +361,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -380,7 +389,7 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -405,29 +414,32 @@ class FHIRElement implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInterf
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = [];
+        $out = new \stdClass();
         if ([] !== ($vs = $this->_getFHIRComments())) {
-            $a[PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS] = $vs;
+            $out->{PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS} = $vs;
         }
         if ([] !== ($vs = $this->getExtension())) {
-            $a[self::FIELD_EXTENSION] = [];
+            $out->{self::FIELD_EXTENSION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_EXTENSION][] = $v;
+                $out->{self::FIELD_EXTENSION}[] = $v;
             }
         }
         if (null !== ($v = $this->getId())) {
-            $a[self::FIELD_ID] = $v;
+            $out->{self::FIELD_ID} = $v;
         }
         if ([] !== ($vs = $this->_getFHIRComments())) {
-            $a[PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS] = $vs;
+            $out->{PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS} = $vs;
         }
-        return $a;
+
+        return $out;
     }
 
 

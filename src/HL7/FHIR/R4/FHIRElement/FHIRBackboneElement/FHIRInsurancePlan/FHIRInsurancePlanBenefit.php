@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -107,9 +107,9 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * The referral requirements to have access/coverage for this benefit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $requirement = null;
+    protected ?FHIRString $requirement = null;
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -118,13 +118,13 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanLimit[]
      */
-    protected $limit = [];
+    protected ?array $limit = [];
 
     /**
      * Validation map for fields in type InsurancePlan.Benefit
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRInsurancePlanBenefit Constructor
@@ -150,8 +150,8 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REQUIREMENT]) || isset($data[self::FIELD_REQUIREMENT_EXT])) {
-            $value = isset($data[self::FIELD_REQUIREMENT]) ? $data[self::FIELD_REQUIREMENT] : null;
-            $ext = (isset($data[self::FIELD_REQUIREMENT_EXT]) && is_array($data[self::FIELD_REQUIREMENT_EXT])) ? $ext = $data[self::FIELD_REQUIREMENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_REQUIREMENT] ?? null;
+            $ext = (isset($data[self::FIELD_REQUIREMENT_EXT]) && is_array($data[self::FIELD_REQUIREMENT_EXT])) ? $data[self::FIELD_REQUIREMENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setRequirement($value);
@@ -184,11 +184,17 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -208,7 +214,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -224,7 +230,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -238,9 +244,9 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * The referral requirements to have access/coverage for this benefit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getRequirement()
+    public function getRequirement(): ?FHIRString
     {
         return $this->requirement;
     }
@@ -252,10 +258,10 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * The referral requirements to have access/coverage for this benefit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $requirement
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $requirement
      * @return static
      */
-    public function setRequirement($requirement = null)
+    public function setRequirement($requirement = null): object
     {
         if (null !== $requirement && !($requirement instanceof FHIRString)) {
             $requirement = new FHIRString($requirement);
@@ -272,7 +278,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanLimit[]
      */
-    public function getLimit()
+    public function getLimit(): ?array
     {
         return $this->limit;
     }
@@ -285,7 +291,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanLimit $limit
      * @return static
      */
-    public function addLimit(FHIRInsurancePlanLimit $limit = null)
+    public function addLimit(?FHIRInsurancePlanLimit $limit = null): object
     {
         $this->_trackValueAdded();
         $this->limit[] = $limit;
@@ -300,7 +306,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanLimit[] $limit
      * @return static
      */
-    public function setLimit(array $limit = [])
+    public function setLimit(array $limit = []): object
     {
         if ([] !== $this->limit) {
             $this->_trackValuesRemoved(count($this->limit));
@@ -438,15 +444,15 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanBenefit
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanBenefit    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRInsurancePlanBenefit::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -466,7 +472,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -511,7 +517,7 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -544,33 +550,36 @@ class FHIRInsurancePlanBenefit extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getRequirement())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REQUIREMENT] = $val;
+                $out->{self::FIELD_REQUIREMENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REQUIREMENT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REQUIREMENT_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getLimit())) {
-            $a[self::FIELD_LIMIT] = [];
+            $out->{self::FIELD_LIMIT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LIMIT][] = $v;
+                $out->{self::FIELD_LIMIT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

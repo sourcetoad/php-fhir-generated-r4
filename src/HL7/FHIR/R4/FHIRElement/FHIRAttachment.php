@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,9 +109,9 @@ class FHIRAttachment extends FHIRElement
      * chosen to interpret or render the data. Includes mime type parameters such as
      * charset where appropriate.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $contentType = null;
+    protected ?FHIRCode $contentType = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -122,9 +122,9 @@ class FHIRAttachment extends FHIRElement
      * The human language of the content. The value can be any valid value according to
      * BCP 47.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $language = null;
+    protected ?FHIRCode $language = null;
 
     /**
      * A stream of bytes
@@ -133,9 +133,9 @@ class FHIRAttachment extends FHIRElement
      *
      * The actual data of the attachment - a sequence of bytes, base64 encoded.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @var null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    protected $data = null;
+    protected ?FHIRBase64Binary $data = null;
 
     /**
      * A URI that is a literal reference
@@ -144,9 +144,9 @@ class FHIRAttachment extends FHIRElement
      *
      * A location where the data can be accessed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @var null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    protected $url = null;
+    protected ?FHIRUrl $url = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -156,9 +156,9 @@ class FHIRAttachment extends FHIRElement
      * The number of bytes of data that make up this attachment (before base64
      * encoding, if that is done).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $size = null;
+    protected ?FHIRUnsignedInt $size = null;
 
     /**
      * A stream of bytes
@@ -167,9 +167,9 @@ class FHIRAttachment extends FHIRElement
      *
      * The calculated hash of the data using SHA-1. Represented using base64.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @var null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    protected $hash = null;
+    protected ?FHIRBase64Binary $hash = null;
 
     /**
      * A sequence of Unicode characters
@@ -178,9 +178,9 @@ class FHIRAttachment extends FHIRElement
      *
      * A label or set of text to display in place of the data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -192,15 +192,15 @@ class FHIRAttachment extends FHIRElement
      *
      * The date that the attachment was first created.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $creation = null;
+    protected ?FHIRDateTime $creation = null;
 
     /**
      * Validation map for fields in type Attachment
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRAttachment Constructor
@@ -219,8 +219,8 @@ class FHIRAttachment extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_CONTENT_TYPE]) || isset($data[self::FIELD_CONTENT_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_CONTENT_TYPE]) ? $data[self::FIELD_CONTENT_TYPE] : null;
-            $ext = (isset($data[self::FIELD_CONTENT_TYPE_EXT]) && is_array($data[self::FIELD_CONTENT_TYPE_EXT])) ? $ext = $data[self::FIELD_CONTENT_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CONTENT_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_CONTENT_TYPE_EXT]) && is_array($data[self::FIELD_CONTENT_TYPE_EXT])) ? $data[self::FIELD_CONTENT_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setContentType($value);
@@ -234,8 +234,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_LANGUAGE]) || isset($data[self::FIELD_LANGUAGE_EXT])) {
-            $value = isset($data[self::FIELD_LANGUAGE]) ? $data[self::FIELD_LANGUAGE] : null;
-            $ext = (isset($data[self::FIELD_LANGUAGE_EXT]) && is_array($data[self::FIELD_LANGUAGE_EXT])) ? $ext = $data[self::FIELD_LANGUAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_LANGUAGE] ?? null;
+            $ext = (isset($data[self::FIELD_LANGUAGE_EXT]) && is_array($data[self::FIELD_LANGUAGE_EXT])) ? $data[self::FIELD_LANGUAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setLanguage($value);
@@ -249,8 +249,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_DATA]) || isset($data[self::FIELD_DATA_EXT])) {
-            $value = isset($data[self::FIELD_DATA]) ? $data[self::FIELD_DATA] : null;
-            $ext = (isset($data[self::FIELD_DATA_EXT]) && is_array($data[self::FIELD_DATA_EXT])) ? $ext = $data[self::FIELD_DATA_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATA] ?? null;
+            $ext = (isset($data[self::FIELD_DATA_EXT]) && is_array($data[self::FIELD_DATA_EXT])) ? $data[self::FIELD_DATA_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBase64Binary) {
                     $this->setData($value);
@@ -264,8 +264,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUrl) {
                     $this->setUrl($value);
@@ -279,8 +279,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SIZE]) || isset($data[self::FIELD_SIZE_EXT])) {
-            $value = isset($data[self::FIELD_SIZE]) ? $data[self::FIELD_SIZE] : null;
-            $ext = (isset($data[self::FIELD_SIZE_EXT]) && is_array($data[self::FIELD_SIZE_EXT])) ? $ext = $data[self::FIELD_SIZE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SIZE] ?? null;
+            $ext = (isset($data[self::FIELD_SIZE_EXT]) && is_array($data[self::FIELD_SIZE_EXT])) ? $data[self::FIELD_SIZE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setSize($value);
@@ -294,8 +294,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_HASH]) || isset($data[self::FIELD_HASH_EXT])) {
-            $value = isset($data[self::FIELD_HASH]) ? $data[self::FIELD_HASH] : null;
-            $ext = (isset($data[self::FIELD_HASH_EXT]) && is_array($data[self::FIELD_HASH_EXT])) ? $ext = $data[self::FIELD_HASH_EXT] : $ext = [];
+            $value = $data[self::FIELD_HASH] ?? null;
+            $ext = (isset($data[self::FIELD_HASH_EXT]) && is_array($data[self::FIELD_HASH_EXT])) ? $data[self::FIELD_HASH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBase64Binary) {
                     $this->setHash($value);
@@ -309,8 +309,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -324,8 +324,8 @@ class FHIRAttachment extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_CREATION]) || isset($data[self::FIELD_CREATION_EXT])) {
-            $value = isset($data[self::FIELD_CREATION]) ? $data[self::FIELD_CREATION] : null;
-            $ext = (isset($data[self::FIELD_CREATION_EXT]) && is_array($data[self::FIELD_CREATION_EXT])) ? $ext = $data[self::FIELD_CREATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATION] ?? null;
+            $ext = (isset($data[self::FIELD_CREATION_EXT]) && is_array($data[self::FIELD_CREATION_EXT])) ? $data[self::FIELD_CREATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreation($value);
@@ -340,11 +340,17 @@ class FHIRAttachment extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -364,9 +370,9 @@ class FHIRAttachment extends FHIRElement
      * chosen to interpret or render the data. Includes mime type parameters such as
      * charset where appropriate.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getContentType()
+    public function getContentType(): ?FHIRCode
     {
         return $this->contentType;
     }
@@ -381,10 +387,10 @@ class FHIRAttachment extends FHIRElement
      * chosen to interpret or render the data. Includes mime type parameters such as
      * charset where appropriate.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $contentType
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $contentType
      * @return static
      */
-    public function setContentType($contentType = null)
+    public function setContentType($contentType = null): object
     {
         if (null !== $contentType && !($contentType instanceof FHIRCode)) {
             $contentType = new FHIRCode($contentType);
@@ -403,9 +409,9 @@ class FHIRAttachment extends FHIRElement
      * The human language of the content. The value can be any valid value according to
      * BCP 47.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getLanguage()
+    public function getLanguage(): ?FHIRCode
     {
         return $this->language;
     }
@@ -419,10 +425,10 @@ class FHIRAttachment extends FHIRElement
      * The human language of the content. The value can be any valid value according to
      * BCP 47.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $language
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $language
      * @return static
      */
-    public function setLanguage($language = null)
+    public function setLanguage($language = null): object
     {
         if (null !== $language && !($language instanceof FHIRCode)) {
             $language = new FHIRCode($language);
@@ -439,9 +445,9 @@ class FHIRAttachment extends FHIRElement
      *
      * The actual data of the attachment - a sequence of bytes, base64 encoded.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @return null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    public function getData()
+    public function getData(): ?FHIRBase64Binary
     {
         return $this->data;
     }
@@ -453,10 +459,10 @@ class FHIRAttachment extends FHIRElement
      *
      * The actual data of the attachment - a sequence of bytes, base64 encoded.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $data
+     * @param null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $data
      * @return static
      */
-    public function setData($data = null)
+    public function setData($data = null): object
     {
         if (null !== $data && !($data instanceof FHIRBase64Binary)) {
             $data = new FHIRBase64Binary($data);
@@ -473,9 +479,9 @@ class FHIRAttachment extends FHIRElement
      *
      * A location where the data can be accessed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @return null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUrl
     {
         return $this->url;
     }
@@ -487,10 +493,10 @@ class FHIRAttachment extends FHIRElement
      *
      * A location where the data can be accessed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUrl $url
+     * @param null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUrl)) {
             $url = new FHIRUrl($url);
@@ -508,9 +514,9 @@ class FHIRAttachment extends FHIRElement
      * The number of bytes of data that make up this attachment (before base64
      * encoding, if that is done).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getSize()
+    public function getSize(): ?FHIRUnsignedInt
     {
         return $this->size;
     }
@@ -523,10 +529,10 @@ class FHIRAttachment extends FHIRElement
      * The number of bytes of data that make up this attachment (before base64
      * encoding, if that is done).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $size
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $size
      * @return static
      */
-    public function setSize($size = null)
+    public function setSize($size = null): object
     {
         if (null !== $size && !($size instanceof FHIRUnsignedInt)) {
             $size = new FHIRUnsignedInt($size);
@@ -543,9 +549,9 @@ class FHIRAttachment extends FHIRElement
      *
      * The calculated hash of the data using SHA-1. Represented using base64.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @return null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    public function getHash()
+    public function getHash(): ?FHIRBase64Binary
     {
         return $this->hash;
     }
@@ -557,10 +563,10 @@ class FHIRAttachment extends FHIRElement
      *
      * The calculated hash of the data using SHA-1. Represented using base64.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $hash
+     * @param null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $hash
      * @return static
      */
-    public function setHash($hash = null)
+    public function setHash($hash = null): object
     {
         if (null !== $hash && !($hash instanceof FHIRBase64Binary)) {
             $hash = new FHIRBase64Binary($hash);
@@ -577,9 +583,9 @@ class FHIRAttachment extends FHIRElement
      *
      * A label or set of text to display in place of the data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -591,10 +597,10 @@ class FHIRAttachment extends FHIRElement
      *
      * A label or set of text to display in place of the data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -614,9 +620,9 @@ class FHIRAttachment extends FHIRElement
      *
      * The date that the attachment was first created.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreation()
+    public function getCreation(): ?FHIRDateTime
     {
         return $this->creation;
     }
@@ -631,10 +637,10 @@ class FHIRAttachment extends FHIRElement
      *
      * The date that the attachment was first created.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $creation
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $creation
      * @return static
      */
-    public function setCreation($creation = null)
+    public function setCreation($creation = null): object
     {
         if (null !== $creation && !($creation instanceof FHIRDateTime)) {
             $creation = new FHIRDateTime($creation);
@@ -834,15 +840,15 @@ class FHIRAttachment extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRAttachment    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAttachment::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -862,7 +868,7 @@ class FHIRAttachment extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -978,7 +984,7 @@ class FHIRAttachment extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1031,91 +1037,94 @@ class FHIRAttachment extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getContentType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CONTENT_TYPE] = $val;
+                $out->{self::FIELD_CONTENT_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CONTENT_TYPE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CONTENT_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLanguage())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LANGUAGE] = $val;
+                $out->{self::FIELD_LANGUAGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LANGUAGE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LANGUAGE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getData())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATA] = $val;
+                $out->{self::FIELD_DATA} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBase64Binary::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATA_EXT] = $ext;
+            unset($ext->{FHIRBase64Binary::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATA_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUrl::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUrl::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSize())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SIZE] = $val;
+                $out->{self::FIELD_SIZE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SIZE_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SIZE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getHash())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_HASH] = $val;
+                $out->{self::FIELD_HASH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBase64Binary::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_HASH_EXT] = $ext;
+            unset($ext->{FHIRBase64Binary::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_HASH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCreation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATION] = $val;
+                $out->{self::FIELD_CREATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATION_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

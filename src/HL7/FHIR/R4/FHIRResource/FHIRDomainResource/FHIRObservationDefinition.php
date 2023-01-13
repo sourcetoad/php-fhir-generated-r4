@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -124,7 +124,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $category = [];
+    protected ?array $category = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -137,7 +137,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -149,7 +149,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Permitted data type for observation value.
@@ -160,7 +160,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRObservationDataType[]
      */
-    protected $permittedDataType = [];
+    protected ?array $permittedDataType = [];
 
     /**
      * Value of "true" or "false"
@@ -169,9 +169,9 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * Multiple results allowed for observations conforming to this
      * ObservationDefinition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $multipleResultsAllowed = null;
+    protected ?FHIRBoolean $multipleResultsAllowed = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -183,7 +183,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $method = null;
+    protected ?FHIRCodeableConcept $method = null;
 
     /**
      * A sequence of Unicode characters
@@ -193,9 +193,9 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * The preferred name to be used when reporting the results of observations
      * conforming to this ObservationDefinition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $preferredReportName = null;
+    protected ?FHIRString $preferredReportName = null;
 
     /**
      * Set of definitional characteristics for a kind of observation or measurement
@@ -205,7 +205,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQuantitativeDetails
      */
-    protected $quantitativeDetails = null;
+    protected ?FHIRObservationDefinitionQuantitativeDetails $quantitativeDetails = null;
 
     /**
      * Set of definitional characteristics for a kind of observation or measurement
@@ -216,7 +216,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQualifiedInterval[]
      */
-    protected $qualifiedInterval = [];
+    protected ?array $qualifiedInterval = [];
 
     /**
      * A reference from one resource to another.
@@ -228,7 +228,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $validCodedValueSet = null;
+    protected ?FHIRReference $validCodedValueSet = null;
 
     /**
      * A reference from one resource to another.
@@ -240,7 +240,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $normalCodedValueSet = null;
+    protected ?FHIRReference $normalCodedValueSet = null;
 
     /**
      * A reference from one resource to another.
@@ -252,7 +252,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $abnormalCodedValueSet = null;
+    protected ?FHIRReference $abnormalCodedValueSet = null;
 
     /**
      * A reference from one resource to another.
@@ -264,13 +264,13 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $criticalCodedValueSet = null;
+    protected ?FHIRReference $criticalCodedValueSet = null;
 
     /**
      * Validation map for fields in type ObservationDefinition
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRObservationDefinition Constructor
@@ -332,8 +332,8 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_PERMITTED_DATA_TYPE]) || isset($data[self::FIELD_PERMITTED_DATA_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_PERMITTED_DATA_TYPE]) ? $data[self::FIELD_PERMITTED_DATA_TYPE] : null;
-            $ext = (isset($data[self::FIELD_PERMITTED_DATA_TYPE_EXT]) && is_array($data[self::FIELD_PERMITTED_DATA_TYPE_EXT])) ? $ext = $data[self::FIELD_PERMITTED_DATA_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PERMITTED_DATA_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_PERMITTED_DATA_TYPE_EXT]) && is_array($data[self::FIELD_PERMITTED_DATA_TYPE_EXT])) ? $data[self::FIELD_PERMITTED_DATA_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRObservationDataType) {
                     $this->addPermittedDataType($value);
@@ -362,8 +362,8 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED]) || isset($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT])) {
-            $value = isset($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED]) ? $data[self::FIELD_MULTIPLE_RESULTS_ALLOWED] : null;
-            $ext = (isset($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT]) && is_array($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT])) ? $ext = $data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT] : $ext = [];
+            $value = $data[self::FIELD_MULTIPLE_RESULTS_ALLOWED] ?? null;
+            $ext = (isset($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT]) && is_array($data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT])) ? $data[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setMultipleResultsAllowed($value);
@@ -384,8 +384,8 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
             }
         }
         if (isset($data[self::FIELD_PREFERRED_REPORT_NAME]) || isset($data[self::FIELD_PREFERRED_REPORT_NAME_EXT])) {
-            $value = isset($data[self::FIELD_PREFERRED_REPORT_NAME]) ? $data[self::FIELD_PREFERRED_REPORT_NAME] : null;
-            $ext = (isset($data[self::FIELD_PREFERRED_REPORT_NAME_EXT]) && is_array($data[self::FIELD_PREFERRED_REPORT_NAME_EXT])) ? $ext = $data[self::FIELD_PREFERRED_REPORT_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREFERRED_REPORT_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_PREFERRED_REPORT_NAME_EXT]) && is_array($data[self::FIELD_PREFERRED_REPORT_NAME_EXT])) ? $data[self::FIELD_PREFERRED_REPORT_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPreferredReportName($value);
@@ -453,11 +453,17 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -466,6 +472,9 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
         }
         return "<ObservationDefinition{$xmlns}></ObservationDefinition>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -482,7 +491,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCategory()
+    public function getCategory(): ?array
     {
         return $this->category;
     }
@@ -498,7 +507,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function addCategory(FHIRCodeableConcept $category = null)
+    public function addCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueAdded();
         $this->category[] = $category;
@@ -516,7 +525,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $category
      * @return static
      */
-    public function setCategory(array $category = [])
+    public function setCategory(array $category = []): object
     {
         if ([] !== $this->category) {
             $this->_trackValuesRemoved(count($this->category));
@@ -546,7 +555,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -563,7 +572,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -580,7 +589,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -596,7 +605,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -614,7 +623,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -642,7 +651,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRObservationDataType[]
      */
-    public function getPermittedDataType()
+    public function getPermittedDataType(): ?array
     {
         return $this->permittedDataType;
     }
@@ -657,7 +666,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRObservationDataType $permittedDataType
      * @return static
      */
-    public function addPermittedDataType(FHIRObservationDataType $permittedDataType = null)
+    public function addPermittedDataType(?FHIRObservationDataType $permittedDataType = null): object
     {
         $this->_trackValueAdded();
         $this->permittedDataType[] = $permittedDataType;
@@ -674,7 +683,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRObservationDataType[] $permittedDataType
      * @return static
      */
-    public function setPermittedDataType(array $permittedDataType = [])
+    public function setPermittedDataType(array $permittedDataType = []): object
     {
         if ([] !== $this->permittedDataType) {
             $this->_trackValuesRemoved(count($this->permittedDataType));
@@ -700,9 +709,9 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * Multiple results allowed for observations conforming to this
      * ObservationDefinition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getMultipleResultsAllowed()
+    public function getMultipleResultsAllowed(): ?FHIRBoolean
     {
         return $this->multipleResultsAllowed;
     }
@@ -714,10 +723,10 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * Multiple results allowed for observations conforming to this
      * ObservationDefinition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleResultsAllowed
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $multipleResultsAllowed
      * @return static
      */
-    public function setMultipleResultsAllowed($multipleResultsAllowed = null)
+    public function setMultipleResultsAllowed($multipleResultsAllowed = null): object
     {
         if (null !== $multipleResultsAllowed && !($multipleResultsAllowed instanceof FHIRBoolean)) {
             $multipleResultsAllowed = new FHIRBoolean($multipleResultsAllowed);
@@ -737,7 +746,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMethod()
+    public function getMethod(): ?FHIRCodeableConcept
     {
         return $this->method;
     }
@@ -753,7 +762,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $method
      * @return static
      */
-    public function setMethod(FHIRCodeableConcept $method = null)
+    public function setMethod(?FHIRCodeableConcept $method = null): object
     {
         $this->_trackValueSet($this->method, $method);
         $this->method = $method;
@@ -768,9 +777,9 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * The preferred name to be used when reporting the results of observations
      * conforming to this ObservationDefinition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPreferredReportName()
+    public function getPreferredReportName(): ?FHIRString
     {
         return $this->preferredReportName;
     }
@@ -783,10 +792,10 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * The preferred name to be used when reporting the results of observations
      * conforming to this ObservationDefinition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $preferredReportName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $preferredReportName
      * @return static
      */
-    public function setPreferredReportName($preferredReportName = null)
+    public function setPreferredReportName($preferredReportName = null): object
     {
         if (null !== $preferredReportName && !($preferredReportName instanceof FHIRString)) {
             $preferredReportName = new FHIRString($preferredReportName);
@@ -804,7 +813,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQuantitativeDetails
      */
-    public function getQuantitativeDetails()
+    public function getQuantitativeDetails(): ?FHIRObservationDefinitionQuantitativeDetails
     {
         return $this->quantitativeDetails;
     }
@@ -818,7 +827,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQuantitativeDetails $quantitativeDetails
      * @return static
      */
-    public function setQuantitativeDetails(FHIRObservationDefinitionQuantitativeDetails $quantitativeDetails = null)
+    public function setQuantitativeDetails(?FHIRObservationDefinitionQuantitativeDetails $quantitativeDetails = null): object
     {
         $this->_trackValueSet($this->quantitativeDetails, $quantitativeDetails);
         $this->quantitativeDetails = $quantitativeDetails;
@@ -834,7 +843,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQualifiedInterval[]
      */
-    public function getQualifiedInterval()
+    public function getQualifiedInterval(): ?array
     {
         return $this->qualifiedInterval;
     }
@@ -849,7 +858,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQualifiedInterval $qualifiedInterval
      * @return static
      */
-    public function addQualifiedInterval(FHIRObservationDefinitionQualifiedInterval $qualifiedInterval = null)
+    public function addQualifiedInterval(?FHIRObservationDefinitionQualifiedInterval $qualifiedInterval = null): object
     {
         $this->_trackValueAdded();
         $this->qualifiedInterval[] = $qualifiedInterval;
@@ -866,7 +875,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRObservationDefinition\FHIRObservationDefinitionQualifiedInterval[] $qualifiedInterval
      * @return static
      */
-    public function setQualifiedInterval(array $qualifiedInterval = [])
+    public function setQualifiedInterval(array $qualifiedInterval = []): object
     {
         if ([] !== $this->qualifiedInterval) {
             $this->_trackValuesRemoved(count($this->qualifiedInterval));
@@ -895,7 +904,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getValidCodedValueSet()
+    public function getValidCodedValueSet(): ?FHIRReference
     {
         return $this->validCodedValueSet;
     }
@@ -911,7 +920,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $validCodedValueSet
      * @return static
      */
-    public function setValidCodedValueSet(FHIRReference $validCodedValueSet = null)
+    public function setValidCodedValueSet(?FHIRReference $validCodedValueSet = null): object
     {
         $this->_trackValueSet($this->validCodedValueSet, $validCodedValueSet);
         $this->validCodedValueSet = $validCodedValueSet;
@@ -928,7 +937,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getNormalCodedValueSet()
+    public function getNormalCodedValueSet(): ?FHIRReference
     {
         return $this->normalCodedValueSet;
     }
@@ -944,7 +953,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $normalCodedValueSet
      * @return static
      */
-    public function setNormalCodedValueSet(FHIRReference $normalCodedValueSet = null)
+    public function setNormalCodedValueSet(?FHIRReference $normalCodedValueSet = null): object
     {
         $this->_trackValueSet($this->normalCodedValueSet, $normalCodedValueSet);
         $this->normalCodedValueSet = $normalCodedValueSet;
@@ -961,7 +970,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAbnormalCodedValueSet()
+    public function getAbnormalCodedValueSet(): ?FHIRReference
     {
         return $this->abnormalCodedValueSet;
     }
@@ -977,7 +986,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $abnormalCodedValueSet
      * @return static
      */
-    public function setAbnormalCodedValueSet(FHIRReference $abnormalCodedValueSet = null)
+    public function setAbnormalCodedValueSet(?FHIRReference $abnormalCodedValueSet = null): object
     {
         $this->_trackValueSet($this->abnormalCodedValueSet, $abnormalCodedValueSet);
         $this->abnormalCodedValueSet = $abnormalCodedValueSet;
@@ -994,7 +1003,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getCriticalCodedValueSet()
+    public function getCriticalCodedValueSet(): ?FHIRReference
     {
         return $this->criticalCodedValueSet;
     }
@@ -1010,7 +1019,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $criticalCodedValueSet
      * @return static
      */
-    public function setCriticalCodedValueSet(FHIRReference $criticalCodedValueSet = null)
+    public function setCriticalCodedValueSet(?FHIRReference $criticalCodedValueSet = null): object
     {
         $this->_trackValueSet($this->criticalCodedValueSet, $criticalCodedValueSet);
         $this->criticalCodedValueSet = $criticalCodedValueSet;
@@ -1372,15 +1381,15 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservationDefinition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservationDefinition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRObservationDefinition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1400,7 +1409,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1507,7 +1516,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1605,29 +1614,31 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = [];
+            $out->{self::FIELD_CATEGORY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CATEGORY][] = $v;
+                $out->{self::FIELD_CATEGORY}[] = $v;
             }
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPermittedDataType())) {
@@ -1639,7 +1650,7 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRObservationDataType::FIELD_VALUE]);
+                unset($ext->{FHIRObservationDataType::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1648,60 +1659,63 @@ class FHIRObservationDefinition extends FHIRDomainResource implements PHPFHIRCon
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PERMITTED_DATA_TYPE] = $vals;
+                $out->{self::FIELD_PERMITTED_DATA_TYPE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PERMITTED_DATA_TYPE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PERMITTED_DATA_TYPE_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getMultipleResultsAllowed())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MULTIPLE_RESULTS_ALLOWED] = $val;
+                $out->{self::FIELD_MULTIPLE_RESULTS_ALLOWED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MULTIPLE_RESULTS_ALLOWED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMethod())) {
-            $a[self::FIELD_METHOD] = $v;
+            $out->{self::FIELD_METHOD} = $v;
         }
         if (null !== ($v = $this->getPreferredReportName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PREFERRED_REPORT_NAME] = $val;
+                $out->{self::FIELD_PREFERRED_REPORT_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PREFERRED_REPORT_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREFERRED_REPORT_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getQuantitativeDetails())) {
-            $a[self::FIELD_QUANTITATIVE_DETAILS] = $v;
+            $out->{self::FIELD_QUANTITATIVE_DETAILS} = $v;
         }
         if ([] !== ($vs = $this->getQualifiedInterval())) {
-            $a[self::FIELD_QUALIFIED_INTERVAL] = [];
+            $out->{self::FIELD_QUALIFIED_INTERVAL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_QUALIFIED_INTERVAL][] = $v;
+                $out->{self::FIELD_QUALIFIED_INTERVAL}[] = $v;
             }
         }
         if (null !== ($v = $this->getValidCodedValueSet())) {
-            $a[self::FIELD_VALID_CODED_VALUE_SET] = $v;
+            $out->{self::FIELD_VALID_CODED_VALUE_SET} = $v;
         }
         if (null !== ($v = $this->getNormalCodedValueSet())) {
-            $a[self::FIELD_NORMAL_CODED_VALUE_SET] = $v;
+            $out->{self::FIELD_NORMAL_CODED_VALUE_SET} = $v;
         }
         if (null !== ($v = $this->getAbnormalCodedValueSet())) {
-            $a[self::FIELD_ABNORMAL_CODED_VALUE_SET] = $v;
+            $out->{self::FIELD_ABNORMAL_CODED_VALUE_SET} = $v;
         }
         if (null !== ($v = $this->getCriticalCodedValueSet())) {
-            $a[self::FIELD_CRITICAL_CODED_VALUE_SET] = $v;
+            $out->{self::FIELD_CRITICAL_CODED_VALUE_SET} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

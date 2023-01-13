@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRList;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRList;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $flag = null;
+    protected ?FHIRCodeableConcept $flag = null;
 
     /**
      * Value of "true" or "false"
@@ -111,9 +111,9 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * True if this item is marked as deleted in the list.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $deleted = null;
+    protected ?FHIRBoolean $deleted = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -125,9 +125,9 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * When this item was added to the list.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A reference from one resource to another.
@@ -138,13 +138,13 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $item = null;
+    protected ?FHIRReference $item = null;
 
     /**
      * Validation map for fields in type List.Entry
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRListEntry Constructor
@@ -170,8 +170,8 @@ class FHIRListEntry extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DELETED]) || isset($data[self::FIELD_DELETED_EXT])) {
-            $value = isset($data[self::FIELD_DELETED]) ? $data[self::FIELD_DELETED] : null;
-            $ext = (isset($data[self::FIELD_DELETED_EXT]) && is_array($data[self::FIELD_DELETED_EXT])) ? $ext = $data[self::FIELD_DELETED_EXT] : $ext = [];
+            $value = $data[self::FIELD_DELETED] ?? null;
+            $ext = (isset($data[self::FIELD_DELETED_EXT]) && is_array($data[self::FIELD_DELETED_EXT])) ? $data[self::FIELD_DELETED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setDeleted($value);
@@ -185,8 +185,8 @@ class FHIRListEntry extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -208,11 +208,17 @@ class FHIRListEntry extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -233,7 +239,7 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getFlag()
+    public function getFlag(): ?FHIRCodeableConcept
     {
         return $this->flag;
     }
@@ -250,7 +256,7 @@ class FHIRListEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $flag
      * @return static
      */
-    public function setFlag(FHIRCodeableConcept $flag = null)
+    public function setFlag(?FHIRCodeableConcept $flag = null): object
     {
         $this->_trackValueSet($this->flag, $flag);
         $this->flag = $flag;
@@ -263,9 +269,9 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * True if this item is marked as deleted in the list.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getDeleted()
+    public function getDeleted(): ?FHIRBoolean
     {
         return $this->deleted;
     }
@@ -276,10 +282,10 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * True if this item is marked as deleted in the list.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deleted
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deleted
      * @return static
      */
-    public function setDeleted($deleted = null)
+    public function setDeleted($deleted = null): object
     {
         if (null !== $deleted && !($deleted instanceof FHIRBoolean)) {
             $deleted = new FHIRBoolean($deleted);
@@ -299,9 +305,9 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * When this item was added to the list.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -316,10 +322,10 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * When this item was added to the list.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -338,7 +344,7 @@ class FHIRListEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getItem()
+    public function getItem(): ?FHIRReference
     {
         return $this->item;
     }
@@ -353,7 +359,7 @@ class FHIRListEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $item
      * @return static
      */
-    public function setItem(FHIRReference $item = null)
+    public function setItem(?FHIRReference $item = null): object
     {
         $this->_trackValueSet($this->item, $item);
         $this->item = $item;
@@ -494,15 +500,15 @@ class FHIRListEntry extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRList\FHIRListEntry
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRList\FHIRListEntry    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRListEntry::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -522,7 +528,7 @@ class FHIRListEntry extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -578,7 +584,7 @@ class FHIRListEntry extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -611,37 +617,40 @@ class FHIRListEntry extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getFlag())) {
-            $a[self::FIELD_FLAG] = $v;
+            $out->{self::FIELD_FLAG} = $v;
         }
         if (null !== ($v = $this->getDeleted())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DELETED] = $val;
+                $out->{self::FIELD_DELETED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DELETED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DELETED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getItem())) {
-            $a[self::FIELD_ITEM] = $v;
+            $out->{self::FIELD_ITEM} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

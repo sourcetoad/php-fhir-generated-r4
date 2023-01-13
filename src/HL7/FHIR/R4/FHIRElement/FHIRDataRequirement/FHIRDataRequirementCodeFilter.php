@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRDataRequirement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRDataRequirement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,9 +109,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * integer constant. The path must resolve to an element of type code, Coding, or
      * CodeableConcept.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $path = null;
+    protected ?FHIRString $path = null;
 
     /**
      * A sequence of Unicode characters
@@ -122,9 +122,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * type of the DataRequirement, and which searches on elements of type code,
      * Coding, or CodeableConcept.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $searchParam = null;
+    protected ?FHIRString $searchParam = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -137,9 +137,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * the value of the code-valued element specified in the path is a member of the
      * specified valueset.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $valueSet = null;
+    protected ?FHIRCanonical $valueSet = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -154,13 +154,13 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $code = [];
+    protected ?array $code = [];
 
     /**
      * Validation map for fields in type DataRequirement.CodeFilter
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDataRequirementCodeFilter Constructor
@@ -179,8 +179,8 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_PATH]) || isset($data[self::FIELD_PATH_EXT])) {
-            $value = isset($data[self::FIELD_PATH]) ? $data[self::FIELD_PATH] : null;
-            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $ext = $data[self::FIELD_PATH_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATH] ?? null;
+            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $data[self::FIELD_PATH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPath($value);
@@ -194,8 +194,8 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SEARCH_PARAM]) || isset($data[self::FIELD_SEARCH_PARAM_EXT])) {
-            $value = isset($data[self::FIELD_SEARCH_PARAM]) ? $data[self::FIELD_SEARCH_PARAM] : null;
-            $ext = (isset($data[self::FIELD_SEARCH_PARAM_EXT]) && is_array($data[self::FIELD_SEARCH_PARAM_EXT])) ? $ext = $data[self::FIELD_SEARCH_PARAM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEARCH_PARAM] ?? null;
+            $ext = (isset($data[self::FIELD_SEARCH_PARAM_EXT]) && is_array($data[self::FIELD_SEARCH_PARAM_EXT])) ? $data[self::FIELD_SEARCH_PARAM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSearchParam($value);
@@ -209,8 +209,8 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_VALUE_SET]) || isset($data[self::FIELD_VALUE_SET_EXT])) {
-            $value = isset($data[self::FIELD_VALUE_SET]) ? $data[self::FIELD_VALUE_SET] : null;
-            $ext = (isset($data[self::FIELD_VALUE_SET_EXT]) && is_array($data[self::FIELD_VALUE_SET_EXT])) ? $ext = $data[self::FIELD_VALUE_SET_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE_SET] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_SET_EXT]) && is_array($data[self::FIELD_VALUE_SET_EXT])) ? $data[self::FIELD_VALUE_SET_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setValueSet($value);
@@ -243,11 +243,17 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -271,9 +277,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * integer constant. The path must resolve to an element of type code, Coding, or
      * CodeableConcept.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPath()
+    public function getPath(): ?FHIRString
     {
         return $this->path;
     }
@@ -292,10 +298,10 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * integer constant. The path must resolve to an element of type code, Coding, or
      * CodeableConcept.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $path
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $path
      * @return static
      */
-    public function setPath($path = null)
+    public function setPath($path = null): object
     {
         if (null !== $path && !($path instanceof FHIRString)) {
             $path = new FHIRString($path);
@@ -314,9 +320,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * type of the DataRequirement, and which searches on elements of type code,
      * Coding, or CodeableConcept.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSearchParam()
+    public function getSearchParam(): ?FHIRString
     {
         return $this->searchParam;
     }
@@ -330,10 +336,10 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * type of the DataRequirement, and which searches on elements of type code,
      * Coding, or CodeableConcept.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $searchParam
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $searchParam
      * @return static
      */
-    public function setSearchParam($searchParam = null)
+    public function setSearchParam($searchParam = null): object
     {
         if (null !== $searchParam && !($searchParam instanceof FHIRString)) {
             $searchParam = new FHIRString($searchParam);
@@ -354,9 +360,9 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * the value of the code-valued element specified in the path is a member of the
      * specified valueset.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getValueSet()
+    public function getValueSet(): ?FHIRCanonical
     {
         return $this->valueSet;
     }
@@ -372,10 +378,10 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * the value of the code-valued element specified in the path is a member of the
      * specified valueset.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $valueSet
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $valueSet
      * @return static
      */
-    public function setValueSet($valueSet = null)
+    public function setValueSet($valueSet = null): object
     {
         if (null !== $valueSet && !($valueSet instanceof FHIRCanonical)) {
             $valueSet = new FHIRCanonical($valueSet);
@@ -398,7 +404,7 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getCode()
+    public function getCode(): ?array
     {
         return $this->code;
     }
@@ -417,7 +423,7 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $code
      * @return static
      */
-    public function addCode(FHIRCoding $code = null)
+    public function addCode(?FHIRCoding $code = null): object
     {
         $this->_trackValueAdded();
         $this->code[] = $code;
@@ -438,7 +444,7 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $code
      * @return static
      */
-    public function setCode(array $code = [])
+    public function setCode(array $code = []): object
     {
         if ([] !== $this->code) {
             $this->_trackValuesRemoved(count($this->code));
@@ -581,15 +587,15 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDataRequirementCodeFilter::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -609,7 +615,7 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -672,7 +678,7 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -710,50 +716,53 @@ class FHIRDataRequirementCodeFilter extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getPath())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PATH] = $val;
+                $out->{self::FIELD_PATH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PATH_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSearchParam())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEARCH_PARAM] = $val;
+                $out->{self::FIELD_SEARCH_PARAM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEARCH_PARAM_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEARCH_PARAM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValueSet())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE_SET] = $val;
+                $out->{self::FIELD_VALUE_SET} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_SET_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_SET_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getCode())) {
-            $a[self::FIELD_CODE] = [];
+            $out->{self::FIELD_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CODE][] = $v;
+                $out->{self::FIELD_CODE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

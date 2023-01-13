@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,7 +114,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $identifier = null;
+    protected ?FHIRIdentifier $identifier = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -126,7 +126,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $role = null;
+    protected ?FHIRCodeableConcept $role = null;
 
     /**
      * Value of "true" or "false"
@@ -134,9 +134,9 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * If the ingredient is a known or suspected allergen.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $allergenicIndicator = null;
+    protected ?FHIRBoolean $allergenicIndicator = null;
 
     /**
      * A reference from one resource to another.
@@ -147,7 +147,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $manufacturer = [];
+    protected ?array $manufacturer = [];
 
     /**
      * An ingredient of a manufactured item or pharmaceutical product.
@@ -156,7 +156,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance[]
      */
-    protected $specifiedSubstance = [];
+    protected ?array $specifiedSubstance = [];
 
     /**
      * An ingredient of a manufactured item or pharmaceutical product.
@@ -165,13 +165,13 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSubstance
      */
-    protected $substance = null;
+    protected ?FHIRMedicinalProductIngredientSubstance $substance = null;
 
     /**
      * Validation map for fields in type MedicinalProductIngredient
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductIngredient Constructor
@@ -204,8 +204,8 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
             }
         }
         if (isset($data[self::FIELD_ALLERGENIC_INDICATOR]) || isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) {
-            $value = isset($data[self::FIELD_ALLERGENIC_INDICATOR]) ? $data[self::FIELD_ALLERGENIC_INDICATOR] : null;
-            $ext = (isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT]) && is_array($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) ? $ext = $data[self::FIELD_ALLERGENIC_INDICATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALLERGENIC_INDICATOR] ?? null;
+            $ext = (isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT]) && is_array($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) ? $data[self::FIELD_ALLERGENIC_INDICATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAllergenicIndicator($value);
@@ -263,11 +263,17 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -276,6 +282,9 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
         }
         return "<MedicinalProductIngredient{$xmlns}></MedicinalProductIngredient>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -294,7 +303,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRIdentifier
     {
         return $this->identifier;
     }
@@ -312,7 +321,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function setIdentifier(FHIRIdentifier $identifier = null)
+    public function setIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueSet($this->identifier, $identifier);
         $this->identifier = $identifier;
@@ -329,7 +338,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRole()
+    public function getRole(): ?FHIRCodeableConcept
     {
         return $this->role;
     }
@@ -345,7 +354,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $role
      * @return static
      */
-    public function setRole(FHIRCodeableConcept $role = null)
+    public function setRole(?FHIRCodeableConcept $role = null): object
     {
         $this->_trackValueSet($this->role, $role);
         $this->role = $role;
@@ -358,9 +367,9 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * If the ingredient is a known or suspected allergen.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAllergenicIndicator()
+    public function getAllergenicIndicator(): ?FHIRBoolean
     {
         return $this->allergenicIndicator;
     }
@@ -371,10 +380,10 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * If the ingredient is a known or suspected allergen.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allergenicIndicator
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allergenicIndicator
      * @return static
      */
-    public function setAllergenicIndicator($allergenicIndicator = null)
+    public function setAllergenicIndicator($allergenicIndicator = null): object
     {
         if (null !== $allergenicIndicator && !($allergenicIndicator instanceof FHIRBoolean)) {
             $allergenicIndicator = new FHIRBoolean($allergenicIndicator);
@@ -393,7 +402,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getManufacturer()
+    public function getManufacturer(): ?array
     {
         return $this->manufacturer;
     }
@@ -408,7 +417,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $manufacturer
      * @return static
      */
-    public function addManufacturer(FHIRReference $manufacturer = null)
+    public function addManufacturer(?FHIRReference $manufacturer = null): object
     {
         $this->_trackValueAdded();
         $this->manufacturer[] = $manufacturer;
@@ -425,7 +434,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $manufacturer
      * @return static
      */
-    public function setManufacturer(array $manufacturer = [])
+    public function setManufacturer(array $manufacturer = []): object
     {
         if ([] !== $this->manufacturer) {
             $this->_trackValuesRemoved(count($this->manufacturer));
@@ -451,7 +460,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance[]
      */
-    public function getSpecifiedSubstance()
+    public function getSpecifiedSubstance(): ?array
     {
         return $this->specifiedSubstance;
     }
@@ -464,7 +473,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance $specifiedSubstance
      * @return static
      */
-    public function addSpecifiedSubstance(FHIRMedicinalProductIngredientSpecifiedSubstance $specifiedSubstance = null)
+    public function addSpecifiedSubstance(?FHIRMedicinalProductIngredientSpecifiedSubstance $specifiedSubstance = null): object
     {
         $this->_trackValueAdded();
         $this->specifiedSubstance[] = $specifiedSubstance;
@@ -479,7 +488,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance[] $specifiedSubstance
      * @return static
      */
-    public function setSpecifiedSubstance(array $specifiedSubstance = [])
+    public function setSpecifiedSubstance(array $specifiedSubstance = []): object
     {
         if ([] !== $this->specifiedSubstance) {
             $this->_trackValuesRemoved(count($this->specifiedSubstance));
@@ -505,7 +514,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSubstance
      */
-    public function getSubstance()
+    public function getSubstance(): ?FHIRMedicinalProductIngredientSubstance
     {
         return $this->substance;
     }
@@ -518,7 +527,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSubstance $substance
      * @return static
      */
-    public function setSubstance(FHIRMedicinalProductIngredientSubstance $substance = null)
+    public function setSubstance(?FHIRMedicinalProductIngredientSubstance $substance = null): object
     {
         $this->_trackValueSet($this->substance, $substance);
         $this->substance = $substance;
@@ -757,15 +766,15 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIngredient
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIngredient    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductIngredient::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -785,7 +794,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -869,7 +878,7 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -922,48 +931,53 @@ class FHIRMedicinalProductIngredient extends FHIRDomainResource implements PHPFH
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = $v;
+            $out->{self::FIELD_IDENTIFIER} = $v;
         }
         if (null !== ($v = $this->getRole())) {
-            $a[self::FIELD_ROLE] = $v;
+            $out->{self::FIELD_ROLE} = $v;
         }
         if (null !== ($v = $this->getAllergenicIndicator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ALLERGENIC_INDICATOR] = $val;
+                $out->{self::FIELD_ALLERGENIC_INDICATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ALLERGENIC_INDICATOR_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALLERGENIC_INDICATOR_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getManufacturer())) {
-            $a[self::FIELD_MANUFACTURER] = [];
+            $out->{self::FIELD_MANUFACTURER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_MANUFACTURER][] = $v;
+                $out->{self::FIELD_MANUFACTURER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSpecifiedSubstance())) {
-            $a[self::FIELD_SPECIFIED_SUBSTANCE] = [];
+            $out->{self::FIELD_SPECIFIED_SUBSTANCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIFIED_SUBSTANCE][] = $v;
+                $out->{self::FIELD_SPECIFIED_SUBSTANCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getSubstance())) {
-            $a[self::FIELD_SUBSTANCE] = $v;
+            $out->{self::FIELD_SUBSTANCE} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

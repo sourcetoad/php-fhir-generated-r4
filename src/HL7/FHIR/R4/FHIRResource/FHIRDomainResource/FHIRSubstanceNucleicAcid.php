@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -113,7 +113,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sequenceType = null;
+    protected ?FHIRCodeableConcept $sequenceType = null;
 
     /**
      * A whole number
@@ -125,9 +125,9 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * tightly associated typically through Watson-Crick base pairing. NOTE: If not
      * specified in the reference source, the assumption is that there is 1 subunit.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $numberOfSubunits = null;
+    protected ?FHIRInteger $numberOfSubunits = null;
 
     /**
      * A sequence of Unicode characters
@@ -139,9 +139,9 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * associated to the residue shall be specified in increasing order. The underscore
      * “” shall be used as separator as follows: “Subunitnumber Residue”.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $areaOfHybridisation = null;
+    protected ?FHIRString $areaOfHybridisation = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -153,7 +153,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $oligoNucleotideType = null;
+    protected ?FHIRCodeableConcept $oligoNucleotideType = null;
 
     /**
      * Nucleic acids are defined by three distinct elements: the base, sugar and
@@ -167,13 +167,13 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidSubunit[]
      */
-    protected $subunit = [];
+    protected ?array $subunit = [];
 
     /**
      * Validation map for fields in type SubstanceNucleicAcid
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceNucleicAcid Constructor
@@ -199,8 +199,8 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_SUBUNITS]) || isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_SUBUNITS]) ? $data[self::FIELD_NUMBER_OF_SUBUNITS] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_SUBUNITS_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_SUBUNITS] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) ? $data[self::FIELD_NUMBER_OF_SUBUNITS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setNumberOfSubunits($value);
@@ -214,8 +214,8 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
             }
         }
         if (isset($data[self::FIELD_AREA_OF_HYBRIDISATION]) || isset($data[self::FIELD_AREA_OF_HYBRIDISATION_EXT])) {
-            $value = isset($data[self::FIELD_AREA_OF_HYBRIDISATION]) ? $data[self::FIELD_AREA_OF_HYBRIDISATION] : null;
-            $ext = (isset($data[self::FIELD_AREA_OF_HYBRIDISATION_EXT]) && is_array($data[self::FIELD_AREA_OF_HYBRIDISATION_EXT])) ? $ext = $data[self::FIELD_AREA_OF_HYBRIDISATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_AREA_OF_HYBRIDISATION] ?? null;
+            $ext = (isset($data[self::FIELD_AREA_OF_HYBRIDISATION_EXT]) && is_array($data[self::FIELD_AREA_OF_HYBRIDISATION_EXT])) ? $data[self::FIELD_AREA_OF_HYBRIDISATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setAreaOfHybridisation($value);
@@ -255,11 +255,17 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -268,6 +274,9 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
         }
         return "<SubstanceNucleicAcid{$xmlns}></SubstanceNucleicAcid>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -284,7 +293,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSequenceType()
+    public function getSequenceType(): ?FHIRCodeableConcept
     {
         return $this->sequenceType;
     }
@@ -300,7 +309,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sequenceType
      * @return static
      */
-    public function setSequenceType(FHIRCodeableConcept $sequenceType = null)
+    public function setSequenceType(?FHIRCodeableConcept $sequenceType = null): object
     {
         $this->_trackValueSet($this->sequenceType, $sequenceType);
         $this->sequenceType = $sequenceType;
@@ -317,9 +326,9 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * tightly associated typically through Watson-Crick base pairing. NOTE: If not
      * specified in the reference source, the assumption is that there is 1 subunit.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getNumberOfSubunits()
+    public function getNumberOfSubunits(): ?FHIRInteger
     {
         return $this->numberOfSubunits;
     }
@@ -334,10 +343,10 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * tightly associated typically through Watson-Crick base pairing. NOTE: If not
      * specified in the reference source, the assumption is that there is 1 subunit.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfSubunits
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfSubunits
      * @return static
      */
-    public function setNumberOfSubunits($numberOfSubunits = null)
+    public function setNumberOfSubunits($numberOfSubunits = null): object
     {
         if (null !== $numberOfSubunits && !($numberOfSubunits instanceof FHIRInteger)) {
             $numberOfSubunits = new FHIRInteger($numberOfSubunits);
@@ -357,9 +366,9 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * associated to the residue shall be specified in increasing order. The underscore
      * “” shall be used as separator as follows: “Subunitnumber Residue”.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getAreaOfHybridisation()
+    public function getAreaOfHybridisation(): ?FHIRString
     {
         return $this->areaOfHybridisation;
     }
@@ -374,10 +383,10 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * associated to the residue shall be specified in increasing order. The underscore
      * “” shall be used as separator as follows: “Subunitnumber Residue”.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $areaOfHybridisation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $areaOfHybridisation
      * @return static
      */
-    public function setAreaOfHybridisation($areaOfHybridisation = null)
+    public function setAreaOfHybridisation($areaOfHybridisation = null): object
     {
         if (null !== $areaOfHybridisation && !($areaOfHybridisation instanceof FHIRString)) {
             $areaOfHybridisation = new FHIRString($areaOfHybridisation);
@@ -397,7 +406,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getOligoNucleotideType()
+    public function getOligoNucleotideType(): ?FHIRCodeableConcept
     {
         return $this->oligoNucleotideType;
     }
@@ -413,7 +422,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $oligoNucleotideType
      * @return static
      */
-    public function setOligoNucleotideType(FHIRCodeableConcept $oligoNucleotideType = null)
+    public function setOligoNucleotideType(?FHIRCodeableConcept $oligoNucleotideType = null): object
     {
         $this->_trackValueSet($this->oligoNucleotideType, $oligoNucleotideType);
         $this->oligoNucleotideType = $oligoNucleotideType;
@@ -432,7 +441,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidSubunit[]
      */
-    public function getSubunit()
+    public function getSubunit(): ?array
     {
         return $this->subunit;
     }
@@ -450,7 +459,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidSubunit $subunit
      * @return static
      */
-    public function addSubunit(FHIRSubstanceNucleicAcidSubunit $subunit = null)
+    public function addSubunit(?FHIRSubstanceNucleicAcidSubunit $subunit = null): object
     {
         $this->_trackValueAdded();
         $this->subunit[] = $subunit;
@@ -470,7 +479,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidSubunit[] $subunit
      * @return static
      */
-    public function setSubunit(array $subunit = [])
+    public function setSubunit(array $subunit = []): object
     {
         if ([] !== $this->subunit) {
             $this->_trackValuesRemoved(count($this->subunit));
@@ -702,15 +711,15 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceNucleicAcid
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceNucleicAcid    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceNucleicAcid::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -730,7 +739,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -821,7 +830,7 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -864,46 +873,51 @@ class FHIRSubstanceNucleicAcid extends FHIRDomainResource implements PHPFHIRCont
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequenceType())) {
-            $a[self::FIELD_SEQUENCE_TYPE] = $v;
+            $out->{self::FIELD_SEQUENCE_TYPE} = $v;
         }
         if (null !== ($v = $this->getNumberOfSubunits())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_SUBUNITS] = $val;
+                $out->{self::FIELD_NUMBER_OF_SUBUNITS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_SUBUNITS_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_SUBUNITS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAreaOfHybridisation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AREA_OF_HYBRIDISATION] = $val;
+                $out->{self::FIELD_AREA_OF_HYBRIDISATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AREA_OF_HYBRIDISATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AREA_OF_HYBRIDISATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOligoNucleotideType())) {
-            $a[self::FIELD_OLIGO_NUCLEOTIDE_TYPE] = $v;
+            $out->{self::FIELD_OLIGO_NUCLEOTIDE_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getSubunit())) {
-            $a[self::FIELD_SUBUNIT] = [];
+            $out->{self::FIELD_SUBUNIT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBUNIT][] = $v;
+                $out->{self::FIELD_SUBUNIT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

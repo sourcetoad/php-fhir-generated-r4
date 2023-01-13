@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,9 +107,9 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * The actual name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -121,7 +121,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -133,7 +133,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $status = null;
+    protected ?FHIRCodeableConcept $status = null;
 
     /**
      * Value of "true" or "false"
@@ -141,9 +141,9 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * If this is the preferred name for this substance.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $preferred = null;
+    protected ?FHIRBoolean $preferred = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -155,7 +155,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $language = [];
+    protected ?array $language = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -168,7 +168,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $domain = [];
+    protected ?array $domain = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -180,7 +180,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * The detailed description of a substance, typically at a level beyond what is
@@ -190,7 +190,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[]
      */
-    protected $synonym = [];
+    protected ?array $synonym = [];
 
     /**
      * The detailed description of a substance, typically at a level beyond what is
@@ -200,7 +200,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[]
      */
-    protected $translation = [];
+    protected ?array $translation = [];
 
     /**
      * The detailed description of a substance, typically at a level beyond what is
@@ -210,7 +210,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationOfficial[]
      */
-    protected $official = [];
+    protected ?array $official = [];
 
     /**
      * A reference from one resource to another.
@@ -221,13 +221,13 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $source = [];
+    protected ?array $source = [];
 
     /**
      * Validation map for fields in type SubstanceSpecification.Name
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceSpecificationName Constructor
@@ -246,8 +246,8 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -275,8 +275,8 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PREFERRED]) || isset($data[self::FIELD_PREFERRED_EXT])) {
-            $value = isset($data[self::FIELD_PREFERRED]) ? $data[self::FIELD_PREFERRED] : null;
-            $ext = (isset($data[self::FIELD_PREFERRED_EXT]) && is_array($data[self::FIELD_PREFERRED_EXT])) ? $ext = $data[self::FIELD_PREFERRED_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREFERRED] ?? null;
+            $ext = (isset($data[self::FIELD_PREFERRED_EXT]) && is_array($data[self::FIELD_PREFERRED_EXT])) ? $data[self::FIELD_PREFERRED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setPreferred($value);
@@ -417,11 +417,17 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -438,9 +444,9 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * The actual name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -452,10 +458,10 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * The actual name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -475,7 +481,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -491,7 +497,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -508,7 +514,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRCodeableConcept
     {
         return $this->status;
     }
@@ -524,7 +530,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $status
      * @return static
      */
-    public function setStatus(FHIRCodeableConcept $status = null)
+    public function setStatus(?FHIRCodeableConcept $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -537,9 +543,9 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * If this is the preferred name for this substance.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getPreferred()
+    public function getPreferred(): ?FHIRBoolean
     {
         return $this->preferred;
     }
@@ -550,10 +556,10 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * If this is the preferred name for this substance.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $preferred
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $preferred
      * @return static
      */
-    public function setPreferred($preferred = null)
+    public function setPreferred($preferred = null): object
     {
         if (null !== $preferred && !($preferred instanceof FHIRBoolean)) {
             $preferred = new FHIRBoolean($preferred);
@@ -573,7 +579,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getLanguage()
+    public function getLanguage(): ?array
     {
         return $this->language;
     }
@@ -589,7 +595,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $language
      * @return static
      */
-    public function addLanguage(FHIRCodeableConcept $language = null)
+    public function addLanguage(?FHIRCodeableConcept $language = null): object
     {
         $this->_trackValueAdded();
         $this->language[] = $language;
@@ -607,7 +613,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $language
      * @return static
      */
-    public function setLanguage(array $language = [])
+    public function setLanguage(array $language = []): object
     {
         if ([] !== $this->language) {
             $this->_trackValuesRemoved(count($this->language));
@@ -637,7 +643,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getDomain()
+    public function getDomain(): ?array
     {
         return $this->domain;
     }
@@ -654,7 +660,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $domain
      * @return static
      */
-    public function addDomain(FHIRCodeableConcept $domain = null)
+    public function addDomain(?FHIRCodeableConcept $domain = null): object
     {
         $this->_trackValueAdded();
         $this->domain[] = $domain;
@@ -673,7 +679,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $domain
      * @return static
      */
-    public function setDomain(array $domain = [])
+    public function setDomain(array $domain = []): object
     {
         if ([] !== $this->domain) {
             $this->_trackValuesRemoved(count($this->domain));
@@ -702,7 +708,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -718,7 +724,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -736,7 +742,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -763,7 +769,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[]
      */
-    public function getSynonym()
+    public function getSynonym(): ?array
     {
         return $this->synonym;
     }
@@ -777,7 +783,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName $synonym
      * @return static
      */
-    public function addSynonym(FHIRSubstanceSpecificationName $synonym = null)
+    public function addSynonym(?FHIRSubstanceSpecificationName $synonym = null): object
     {
         $this->_trackValueAdded();
         $this->synonym[] = $synonym;
@@ -793,7 +799,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[] $synonym
      * @return static
      */
-    public function setSynonym(array $synonym = [])
+    public function setSynonym(array $synonym = []): object
     {
         if ([] !== $this->synonym) {
             $this->_trackValuesRemoved(count($this->synonym));
@@ -820,7 +826,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[]
      */
-    public function getTranslation()
+    public function getTranslation(): ?array
     {
         return $this->translation;
     }
@@ -834,7 +840,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName $translation
      * @return static
      */
-    public function addTranslation(FHIRSubstanceSpecificationName $translation = null)
+    public function addTranslation(?FHIRSubstanceSpecificationName $translation = null): object
     {
         $this->_trackValueAdded();
         $this->translation[] = $translation;
@@ -850,7 +856,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName[] $translation
      * @return static
      */
-    public function setTranslation(array $translation = [])
+    public function setTranslation(array $translation = []): object
     {
         if ([] !== $this->translation) {
             $this->_trackValuesRemoved(count($this->translation));
@@ -877,7 +883,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationOfficial[]
      */
-    public function getOfficial()
+    public function getOfficial(): ?array
     {
         return $this->official;
     }
@@ -891,7 +897,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationOfficial $official
      * @return static
      */
-    public function addOfficial(FHIRSubstanceSpecificationOfficial $official = null)
+    public function addOfficial(?FHIRSubstanceSpecificationOfficial $official = null): object
     {
         $this->_trackValueAdded();
         $this->official[] = $official;
@@ -907,7 +913,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationOfficial[] $official
      * @return static
      */
-    public function setOfficial(array $official = [])
+    public function setOfficial(array $official = []): object
     {
         if ([] !== $this->official) {
             $this->_trackValuesRemoved(count($this->official));
@@ -935,7 +941,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSource()
+    public function getSource(): ?array
     {
         return $this->source;
     }
@@ -950,7 +956,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $source
      * @return static
      */
-    public function addSource(FHIRReference $source = null)
+    public function addSource(?FHIRReference $source = null): object
     {
         $this->_trackValueAdded();
         $this->source[] = $source;
@@ -967,7 +973,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $source
      * @return static
      */
-    public function setSource(array $source = [])
+    public function setSource(array $source = []): object
     {
         if ([] !== $this->source) {
             $this->_trackValuesRemoved(count($this->source));
@@ -1253,15 +1259,15 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSpecification\FHIRSubstanceSpecificationName    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceSpecificationName::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1281,7 +1287,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1351,7 +1357,7 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1454,100 +1460,103 @@ class FHIRSubstanceSpecificationName extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getStatus())) {
-            $a[self::FIELD_STATUS] = $v;
+            $out->{self::FIELD_STATUS} = $v;
         }
         if (null !== ($v = $this->getPreferred())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PREFERRED] = $val;
+                $out->{self::FIELD_PREFERRED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PREFERRED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREFERRED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getLanguage())) {
-            $a[self::FIELD_LANGUAGE] = [];
+            $out->{self::FIELD_LANGUAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LANGUAGE][] = $v;
+                $out->{self::FIELD_LANGUAGE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDomain())) {
-            $a[self::FIELD_DOMAIN] = [];
+            $out->{self::FIELD_DOMAIN} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOMAIN][] = $v;
+                $out->{self::FIELD_DOMAIN}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSynonym())) {
-            $a[self::FIELD_SYNONYM] = [];
+            $out->{self::FIELD_SYNONYM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SYNONYM][] = $v;
+                $out->{self::FIELD_SYNONYM}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTranslation())) {
-            $a[self::FIELD_TRANSLATION] = [];
+            $out->{self::FIELD_TRANSLATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TRANSLATION][] = $v;
+                $out->{self::FIELD_TRANSLATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getOfficial())) {
-            $a[self::FIELD_OFFICIAL] = [];
+            $out->{self::FIELD_OFFICIAL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_OFFICIAL][] = $v;
+                $out->{self::FIELD_OFFICIAL}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = [];
+            $out->{self::FIELD_SOURCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SOURCE][] = $v;
+                $out->{self::FIELD_SOURCE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

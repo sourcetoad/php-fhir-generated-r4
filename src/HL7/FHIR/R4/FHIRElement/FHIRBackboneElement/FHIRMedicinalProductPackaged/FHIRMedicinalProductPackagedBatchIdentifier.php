@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPackaged;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPackag
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,7 +95,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $outerPackaging = null;
+    protected ?FHIRIdentifier $outerPackaging = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -107,13 +107,13 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $immediatePackaging = null;
+    protected ?FHIRIdentifier $immediatePackaging = null;
 
     /**
      * Validation map for fields in type MedicinalProductPackaged.BatchIdentifier
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductPackagedBatchIdentifier Constructor
@@ -147,11 +147,17 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -171,7 +177,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getOuterPackaging()
+    public function getOuterPackaging(): ?FHIRIdentifier
     {
         return $this->outerPackaging;
     }
@@ -187,7 +193,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $outerPackaging
      * @return static
      */
-    public function setOuterPackaging(FHIRIdentifier $outerPackaging = null)
+    public function setOuterPackaging(?FHIRIdentifier $outerPackaging = null): object
     {
         $this->_trackValueSet($this->outerPackaging, $outerPackaging);
         $this->outerPackaging = $outerPackaging;
@@ -204,7 +210,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getImmediatePackaging()
+    public function getImmediatePackaging(): ?FHIRIdentifier
     {
         return $this->immediatePackaging;
     }
@@ -220,7 +226,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $immediatePackaging
      * @return static
      */
-    public function setImmediatePackaging(FHIRIdentifier $immediatePackaging = null)
+    public function setImmediatePackaging(?FHIRIdentifier $immediatePackaging = null): object
     {
         $this->_trackValueSet($this->immediatePackaging, $immediatePackaging);
         $this->immediatePackaging = $immediatePackaging;
@@ -327,15 +333,15 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPackaged\FHIRMedicinalProductPackagedBatchIdentifier
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPackaged\FHIRMedicinalProductPackagedBatchIdentifier    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductPackagedBatchIdentifier::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -355,7 +361,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -389,7 +395,7 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -412,17 +418,20 @@ class FHIRMedicinalProductPackagedBatchIdentifier extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getOuterPackaging())) {
-            $a[self::FIELD_OUTER_PACKAGING] = $v;
+            $out->{self::FIELD_OUTER_PACKAGING} = $v;
         }
         if (null !== ($v = $this->getImmediatePackaging())) {
-            $a[self::FIELD_IMMEDIATE_PACKAGING] = $v;
+            $out->{self::FIELD_IMMEDIATE_PACKAGING} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

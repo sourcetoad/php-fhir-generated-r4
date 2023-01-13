@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,9 +105,9 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * The element id of the related action.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $actionId = null;
+    protected ?FHIRId $actionId = null;
 
     /**
      * Defines the types of relationships between actions.
@@ -117,7 +117,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionRelationshipType
      */
-    protected $relationship = null;
+    protected ?FHIRActionRelationshipType $relationship = null;
 
     /**
      * A length of time.
@@ -129,7 +129,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $offsetDuration = null;
+    protected ?FHIRDuration $offsetDuration = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -141,13 +141,13 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $offsetRange = null;
+    protected ?FHIRRange $offsetRange = null;
 
     /**
      * Validation map for fields in type PlanDefinition.RelatedAction
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPlanDefinitionRelatedAction Constructor
@@ -166,8 +166,8 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_ACTION_ID]) || isset($data[self::FIELD_ACTION_ID_EXT])) {
-            $value = isset($data[self::FIELD_ACTION_ID]) ? $data[self::FIELD_ACTION_ID] : null;
-            $ext = (isset($data[self::FIELD_ACTION_ID_EXT]) && is_array($data[self::FIELD_ACTION_ID_EXT])) ? $ext = $data[self::FIELD_ACTION_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_ACTION_ID] ?? null;
+            $ext = (isset($data[self::FIELD_ACTION_ID_EXT]) && is_array($data[self::FIELD_ACTION_ID_EXT])) ? $data[self::FIELD_ACTION_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setActionId($value);
@@ -181,8 +181,8 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RELATIONSHIP]) || isset($data[self::FIELD_RELATIONSHIP_EXT])) {
-            $value = isset($data[self::FIELD_RELATIONSHIP]) ? $data[self::FIELD_RELATIONSHIP] : null;
-            $ext = (isset($data[self::FIELD_RELATIONSHIP_EXT]) && is_array($data[self::FIELD_RELATIONSHIP_EXT])) ? $ext = $data[self::FIELD_RELATIONSHIP_EXT] : $ext = [];
+            $value = $data[self::FIELD_RELATIONSHIP] ?? null;
+            $ext = (isset($data[self::FIELD_RELATIONSHIP_EXT]) && is_array($data[self::FIELD_RELATIONSHIP_EXT])) ? $data[self::FIELD_RELATIONSHIP_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionRelationshipType) {
                     $this->setRelationship($value);
@@ -211,11 +211,17 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -235,9 +241,9 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * The element id of the related action.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getActionId()
+    public function getActionId(): ?FHIRId
     {
         return $this->actionId;
     }
@@ -252,10 +258,10 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * The element id of the related action.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $actionId
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $actionId
      * @return static
      */
-    public function setActionId($actionId = null)
+    public function setActionId($actionId = null): object
     {
         if (null !== $actionId && !($actionId instanceof FHIRId)) {
             $actionId = new FHIRId($actionId);
@@ -273,7 +279,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionRelationshipType
      */
-    public function getRelationship()
+    public function getRelationship(): ?FHIRActionRelationshipType
     {
         return $this->relationship;
     }
@@ -287,7 +293,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionRelationshipType $relationship
      * @return static
      */
-    public function setRelationship(FHIRActionRelationshipType $relationship = null)
+    public function setRelationship(?FHIRActionRelationshipType $relationship = null): object
     {
         $this->_trackValueSet($this->relationship, $relationship);
         $this->relationship = $relationship;
@@ -304,7 +310,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getOffsetDuration()
+    public function getOffsetDuration(): ?FHIRDuration
     {
         return $this->offsetDuration;
     }
@@ -320,7 +326,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $offsetDuration
      * @return static
      */
-    public function setOffsetDuration(FHIRDuration $offsetDuration = null)
+    public function setOffsetDuration(?FHIRDuration $offsetDuration = null): object
     {
         $this->_trackValueSet($this->offsetDuration, $offsetDuration);
         $this->offsetDuration = $offsetDuration;
@@ -337,7 +343,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getOffsetRange()
+    public function getOffsetRange(): ?FHIRRange
     {
         return $this->offsetRange;
     }
@@ -353,7 +359,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $offsetRange
      * @return static
      */
-    public function setOffsetRange(FHIRRange $offsetRange = null)
+    public function setOffsetRange(?FHIRRange $offsetRange = null): object
     {
         $this->_trackValueSet($this->offsetRange, $offsetRange);
         $this->offsetRange = $offsetRange;
@@ -494,15 +500,15 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionRelatedAction
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionRelatedAction    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPlanDefinitionRelatedAction::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -522,7 +528,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -569,7 +575,7 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -602,37 +608,40 @@ class FHIRPlanDefinitionRelatedAction extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getActionId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ACTION_ID] = $val;
+                $out->{self::FIELD_ACTION_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ACTION_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ACTION_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRelationship())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RELATIONSHIP] = $val;
+                $out->{self::FIELD_RELATIONSHIP} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionRelationshipType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RELATIONSHIP_EXT] = $ext;
+            unset($ext->{FHIRActionRelationshipType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RELATIONSHIP_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOffsetDuration())) {
-            $a[self::FIELD_OFFSET_DURATION] = $v;
+            $out->{self::FIELD_OFFSET_DURATION} = $v;
         }
         if (null !== ($v = $this->getOffsetRange())) {
-            $a[self::FIELD_OFFSET_RANGE] = $v;
+            $out->{self::FIELD_OFFSET_RANGE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

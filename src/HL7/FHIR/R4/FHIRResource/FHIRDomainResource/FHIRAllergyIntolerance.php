@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -142,7 +142,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -154,7 +154,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $clinicalStatus = null;
+    protected ?FHIRCodeableConcept $clinicalStatus = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -167,7 +167,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $verificationStatus = null;
+    protected ?FHIRCodeableConcept $verificationStatus = null;
 
     /**
      * Identification of the underlying physiological mechanism for a Reaction Risk.
@@ -177,7 +177,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceType
      */
-    protected $type = null;
+    protected ?FHIRAllergyIntoleranceType $type = null;
 
     /**
      * Category of an identified substance associated with allergies or intolerances.
@@ -187,7 +187,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCategory[]
      */
-    protected $category = [];
+    protected ?array $category = [];
 
     /**
      * Estimate of the potential clinical harm, or seriousness, of a reaction to an
@@ -199,7 +199,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCriticality
      */
-    protected $criticality = null;
+    protected ?FHIRAllergyIntoleranceCriticality $criticality = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -225,7 +225,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A reference from one resource to another.
@@ -236,7 +236,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A reference from one resource to another.
@@ -247,7 +247,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $encounter = null;
+    protected ?FHIRReference $encounter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -260,9 +260,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $onsetDateTime = null;
+    protected ?FHIRDateTime $onsetDateTime = null;
 
     /**
      * A duration of time during which an organism (or a process) has existed.
@@ -274,7 +274,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    protected $onsetAge = null;
+    protected ?FHIRAge $onsetAge = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -286,7 +286,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $onsetPeriod = null;
+    protected ?FHIRPeriod $onsetPeriod = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -298,7 +298,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $onsetRange = null;
+    protected ?FHIRRange $onsetRange = null;
 
     /**
      * A sequence of Unicode characters
@@ -308,9 +308,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $onsetString = null;
+    protected ?FHIRString $onsetString = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -323,9 +323,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * The recordedDate represents when this particular AllergyIntolerance record was
      * created in the system, which is often a system-generated date.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $recordedDate = null;
+    protected ?FHIRDateTime $recordedDate = null;
 
     /**
      * A reference from one resource to another.
@@ -336,7 +336,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $recorder = null;
+    protected ?FHIRReference $recorder = null;
 
     /**
      * A reference from one resource to another.
@@ -347,7 +347,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $asserter = null;
+    protected ?FHIRReference $asserter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -360,9 +360,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Represents the date and/or time of the last known occurrence of a reaction
      * event.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $lastOccurrence = null;
+    protected ?FHIRDateTime $lastOccurrence = null;
 
     /**
      * A text note which also contains information about who made the statement and
@@ -375,7 +375,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Risk of harmful or undesirable, physiological response which is unique to an
@@ -386,13 +386,13 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAllergyIntolerance\FHIRAllergyIntoleranceReaction[]
      */
-    protected $reaction = [];
+    protected ?array $reaction = [];
 
     /**
      * Validation map for fields in type AllergyIntolerance
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRAllergyIntolerance Constructor
@@ -443,8 +443,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAllergyIntoleranceType) {
                     $this->setType($value);
@@ -458,8 +458,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_CATEGORY]) || isset($data[self::FIELD_CATEGORY_EXT])) {
-            $value = isset($data[self::FIELD_CATEGORY]) ? $data[self::FIELD_CATEGORY] : null;
-            $ext = (isset($data[self::FIELD_CATEGORY_EXT]) && is_array($data[self::FIELD_CATEGORY_EXT])) ? $ext = $data[self::FIELD_CATEGORY_EXT] : $ext = [];
+            $value = $data[self::FIELD_CATEGORY] ?? null;
+            $ext = (isset($data[self::FIELD_CATEGORY_EXT]) && is_array($data[self::FIELD_CATEGORY_EXT])) ? $data[self::FIELD_CATEGORY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAllergyIntoleranceCategory) {
                     $this->addCategory($value);
@@ -488,8 +488,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_CRITICALITY]) || isset($data[self::FIELD_CRITICALITY_EXT])) {
-            $value = isset($data[self::FIELD_CRITICALITY]) ? $data[self::FIELD_CRITICALITY] : null;
-            $ext = (isset($data[self::FIELD_CRITICALITY_EXT]) && is_array($data[self::FIELD_CRITICALITY_EXT])) ? $ext = $data[self::FIELD_CRITICALITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_CRITICALITY] ?? null;
+            $ext = (isset($data[self::FIELD_CRITICALITY_EXT]) && is_array($data[self::FIELD_CRITICALITY_EXT])) ? $data[self::FIELD_CRITICALITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAllergyIntoleranceCriticality) {
                     $this->setCriticality($value);
@@ -524,8 +524,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_ONSET_DATE_TIME]) || isset($data[self::FIELD_ONSET_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_ONSET_DATE_TIME]) ? $data[self::FIELD_ONSET_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_ONSET_DATE_TIME_EXT]) && is_array($data[self::FIELD_ONSET_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_ONSET_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_ONSET_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_ONSET_DATE_TIME_EXT]) && is_array($data[self::FIELD_ONSET_DATE_TIME_EXT])) ? $data[self::FIELD_ONSET_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setOnsetDateTime($value);
@@ -560,8 +560,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_ONSET_STRING]) || isset($data[self::FIELD_ONSET_STRING_EXT])) {
-            $value = isset($data[self::FIELD_ONSET_STRING]) ? $data[self::FIELD_ONSET_STRING] : null;
-            $ext = (isset($data[self::FIELD_ONSET_STRING_EXT]) && is_array($data[self::FIELD_ONSET_STRING_EXT])) ? $ext = $data[self::FIELD_ONSET_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_ONSET_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_ONSET_STRING_EXT]) && is_array($data[self::FIELD_ONSET_STRING_EXT])) ? $data[self::FIELD_ONSET_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setOnsetString($value);
@@ -575,8 +575,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_RECORDED_DATE]) || isset($data[self::FIELD_RECORDED_DATE_EXT])) {
-            $value = isset($data[self::FIELD_RECORDED_DATE]) ? $data[self::FIELD_RECORDED_DATE] : null;
-            $ext = (isset($data[self::FIELD_RECORDED_DATE_EXT]) && is_array($data[self::FIELD_RECORDED_DATE_EXT])) ? $ext = $data[self::FIELD_RECORDED_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECORDED_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_RECORDED_DATE_EXT]) && is_array($data[self::FIELD_RECORDED_DATE_EXT])) ? $data[self::FIELD_RECORDED_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setRecordedDate($value);
@@ -604,8 +604,8 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
             }
         }
         if (isset($data[self::FIELD_LAST_OCCURRENCE]) || isset($data[self::FIELD_LAST_OCCURRENCE_EXT])) {
-            $value = isset($data[self::FIELD_LAST_OCCURRENCE]) ? $data[self::FIELD_LAST_OCCURRENCE] : null;
-            $ext = (isset($data[self::FIELD_LAST_OCCURRENCE_EXT]) && is_array($data[self::FIELD_LAST_OCCURRENCE_EXT])) ? $ext = $data[self::FIELD_LAST_OCCURRENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_LAST_OCCURRENCE] ?? null;
+            $ext = (isset($data[self::FIELD_LAST_OCCURRENCE_EXT]) && is_array($data[self::FIELD_LAST_OCCURRENCE_EXT])) ? $data[self::FIELD_LAST_OCCURRENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setLastOccurrence($value);
@@ -656,11 +656,17 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -669,6 +675,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
         }
         return "<AllergyIntolerance{$xmlns}></AllergyIntolerance>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -687,7 +696,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -705,7 +714,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -725,7 +734,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -754,7 +763,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getClinicalStatus()
+    public function getClinicalStatus(): ?FHIRCodeableConcept
     {
         return $this->clinicalStatus;
     }
@@ -770,7 +779,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $clinicalStatus
      * @return static
      */
-    public function setClinicalStatus(FHIRCodeableConcept $clinicalStatus = null)
+    public function setClinicalStatus(?FHIRCodeableConcept $clinicalStatus = null): object
     {
         $this->_trackValueSet($this->clinicalStatus, $clinicalStatus);
         $this->clinicalStatus = $clinicalStatus;
@@ -788,7 +797,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getVerificationStatus()
+    public function getVerificationStatus(): ?FHIRCodeableConcept
     {
         return $this->verificationStatus;
     }
@@ -805,7 +814,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $verificationStatus
      * @return static
      */
-    public function setVerificationStatus(FHIRCodeableConcept $verificationStatus = null)
+    public function setVerificationStatus(?FHIRCodeableConcept $verificationStatus = null): object
     {
         $this->_trackValueSet($this->verificationStatus, $verificationStatus);
         $this->verificationStatus = $verificationStatus;
@@ -820,7 +829,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceType
      */
-    public function getType()
+    public function getType(): ?FHIRAllergyIntoleranceType
     {
         return $this->type;
     }
@@ -834,7 +843,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceType $type
      * @return static
      */
-    public function setType(FHIRAllergyIntoleranceType $type = null)
+    public function setType(?FHIRAllergyIntoleranceType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -849,7 +858,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCategory[]
      */
-    public function getCategory()
+    public function getCategory(): ?array
     {
         return $this->category;
     }
@@ -863,7 +872,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCategory $category
      * @return static
      */
-    public function addCategory(FHIRAllergyIntoleranceCategory $category = null)
+    public function addCategory(?FHIRAllergyIntoleranceCategory $category = null): object
     {
         $this->_trackValueAdded();
         $this->category[] = $category;
@@ -879,7 +888,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCategory[] $category
      * @return static
      */
-    public function setCategory(array $category = [])
+    public function setCategory(array $category = []): object
     {
         if ([] !== $this->category) {
             $this->_trackValuesRemoved(count($this->category));
@@ -908,7 +917,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCriticality
      */
-    public function getCriticality()
+    public function getCriticality(): ?FHIRAllergyIntoleranceCriticality
     {
         return $this->criticality;
     }
@@ -924,7 +933,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAllergyIntoleranceCriticality $criticality
      * @return static
      */
-    public function setCriticality(FHIRAllergyIntoleranceCriticality $criticality = null)
+    public function setCriticality(?FHIRAllergyIntoleranceCriticality $criticality = null): object
     {
         $this->_trackValueSet($this->criticality, $criticality);
         $this->criticality = $criticality;
@@ -955,7 +964,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -985,7 +994,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -1001,7 +1010,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -1016,7 +1025,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -1032,7 +1041,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIRReference
     {
         return $this->encounter;
     }
@@ -1047,7 +1056,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function setEncounter(FHIRReference $encounter = null)
+    public function setEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueSet($this->encounter, $encounter);
         $this->encounter = $encounter;
@@ -1065,9 +1074,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getOnsetDateTime()
+    public function getOnsetDateTime(): ?FHIRDateTime
     {
         return $this->onsetDateTime;
     }
@@ -1083,10 +1092,10 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $onsetDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $onsetDateTime
      * @return static
      */
-    public function setOnsetDateTime($onsetDateTime = null)
+    public function setOnsetDateTime($onsetDateTime = null): object
     {
         if (null !== $onsetDateTime && !($onsetDateTime instanceof FHIRDateTime)) {
             $onsetDateTime = new FHIRDateTime($onsetDateTime);
@@ -1106,7 +1115,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    public function getOnsetAge()
+    public function getOnsetAge(): ?FHIRAge
     {
         return $this->onsetAge;
     }
@@ -1122,7 +1131,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge $onsetAge
      * @return static
      */
-    public function setOnsetAge(FHIRAge $onsetAge = null)
+    public function setOnsetAge(?FHIRAge $onsetAge = null): object
     {
         $this->_trackValueSet($this->onsetAge, $onsetAge);
         $this->onsetAge = $onsetAge;
@@ -1139,7 +1148,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getOnsetPeriod()
+    public function getOnsetPeriod(): ?FHIRPeriod
     {
         return $this->onsetPeriod;
     }
@@ -1155,7 +1164,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $onsetPeriod
      * @return static
      */
-    public function setOnsetPeriod(FHIRPeriod $onsetPeriod = null)
+    public function setOnsetPeriod(?FHIRPeriod $onsetPeriod = null): object
     {
         $this->_trackValueSet($this->onsetPeriod, $onsetPeriod);
         $this->onsetPeriod = $onsetPeriod;
@@ -1172,7 +1181,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getOnsetRange()
+    public function getOnsetRange(): ?FHIRRange
     {
         return $this->onsetRange;
     }
@@ -1188,7 +1197,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $onsetRange
      * @return static
      */
-    public function setOnsetRange(FHIRRange $onsetRange = null)
+    public function setOnsetRange(?FHIRRange $onsetRange = null): object
     {
         $this->_trackValueSet($this->onsetRange, $onsetRange);
         $this->onsetRange = $onsetRange;
@@ -1203,9 +1212,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getOnsetString()
+    public function getOnsetString(): ?FHIRString
     {
         return $this->onsetString;
     }
@@ -1218,10 +1227,10 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Estimated or actual date, date-time, or age when allergy or intolerance was
      * identified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $onsetString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $onsetString
      * @return static
      */
-    public function setOnsetString($onsetString = null)
+    public function setOnsetString($onsetString = null): object
     {
         if (null !== $onsetString && !($onsetString instanceof FHIRString)) {
             $onsetString = new FHIRString($onsetString);
@@ -1242,9 +1251,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * The recordedDate represents when this particular AllergyIntolerance record was
      * created in the system, which is often a system-generated date.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getRecordedDate()
+    public function getRecordedDate(): ?FHIRDateTime
     {
         return $this->recordedDate;
     }
@@ -1260,10 +1269,10 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * The recordedDate represents when this particular AllergyIntolerance record was
      * created in the system, which is often a system-generated date.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recordedDate
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recordedDate
      * @return static
      */
-    public function setRecordedDate($recordedDate = null)
+    public function setRecordedDate($recordedDate = null): object
     {
         if (null !== $recordedDate && !($recordedDate instanceof FHIRDateTime)) {
             $recordedDate = new FHIRDateTime($recordedDate);
@@ -1282,7 +1291,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRecorder()
+    public function getRecorder(): ?FHIRReference
     {
         return $this->recorder;
     }
@@ -1297,7 +1306,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $recorder
      * @return static
      */
-    public function setRecorder(FHIRReference $recorder = null)
+    public function setRecorder(?FHIRReference $recorder = null): object
     {
         $this->_trackValueSet($this->recorder, $recorder);
         $this->recorder = $recorder;
@@ -1313,7 +1322,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAsserter()
+    public function getAsserter(): ?FHIRReference
     {
         return $this->asserter;
     }
@@ -1328,7 +1337,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $asserter
      * @return static
      */
-    public function setAsserter(FHIRReference $asserter = null)
+    public function setAsserter(?FHIRReference $asserter = null): object
     {
         $this->_trackValueSet($this->asserter, $asserter);
         $this->asserter = $asserter;
@@ -1346,9 +1355,9 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Represents the date and/or time of the last known occurrence of a reaction
      * event.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getLastOccurrence()
+    public function getLastOccurrence(): ?FHIRDateTime
     {
         return $this->lastOccurrence;
     }
@@ -1364,10 +1373,10 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * Represents the date and/or time of the last known occurrence of a reaction
      * event.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $lastOccurrence
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $lastOccurrence
      * @return static
      */
-    public function setLastOccurrence($lastOccurrence = null)
+    public function setLastOccurrence($lastOccurrence = null): object
     {
         if (null !== $lastOccurrence && !($lastOccurrence instanceof FHIRDateTime)) {
             $lastOccurrence = new FHIRDateTime($lastOccurrence);
@@ -1388,7 +1397,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1405,7 +1414,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1424,7 +1433,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1452,7 +1461,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAllergyIntolerance\FHIRAllergyIntoleranceReaction[]
      */
-    public function getReaction()
+    public function getReaction(): ?array
     {
         return $this->reaction;
     }
@@ -1467,7 +1476,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAllergyIntolerance\FHIRAllergyIntoleranceReaction $reaction
      * @return static
      */
-    public function addReaction(FHIRAllergyIntoleranceReaction $reaction = null)
+    public function addReaction(?FHIRAllergyIntoleranceReaction $reaction = null): object
     {
         $this->_trackValueAdded();
         $this->reaction[] = $reaction;
@@ -1484,7 +1493,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAllergyIntolerance\FHIRAllergyIntoleranceReaction[] $reaction
      * @return static
      */
-    public function setReaction(array $reaction = [])
+    public function setReaction(array $reaction = []): object
     {
         if ([] !== $this->reaction) {
             $this->_trackValuesRemoved(count($this->reaction));
@@ -1977,15 +1986,15 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAllergyIntolerance
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAllergyIntolerance    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAllergyIntolerance::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2005,7 +2014,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2144,7 +2153,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2277,33 +2286,35 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getClinicalStatus())) {
-            $a[self::FIELD_CLINICAL_STATUS] = $v;
+            $out->{self::FIELD_CLINICAL_STATUS} = $v;
         }
         if (null !== ($v = $this->getVerificationStatus())) {
-            $a[self::FIELD_VERIFICATION_STATUS] = $v;
+            $out->{self::FIELD_VERIFICATION_STATUS} = $v;
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAllergyIntoleranceType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRAllergyIntoleranceType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getCategory())) {
@@ -2315,7 +2326,7 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRAllergyIntoleranceCategory::FIELD_VALUE]);
+                unset($ext->{FHIRAllergyIntoleranceCategory::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -2324,105 +2335,108 @@ class FHIRAllergyIntolerance extends FHIRDomainResource implements PHPFHIRContai
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_CATEGORY] = $vals;
+                $out->{self::FIELD_CATEGORY} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_CATEGORY_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CATEGORY_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getCriticality())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CRITICALITY] = $val;
+                $out->{self::FIELD_CRITICALITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAllergyIntoleranceCriticality::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CRITICALITY_EXT] = $ext;
+            unset($ext->{FHIRAllergyIntoleranceCriticality::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CRITICALITY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = $v;
+            $out->{self::FIELD_ENCOUNTER} = $v;
         }
         if (null !== ($v = $this->getOnsetDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ONSET_DATE_TIME] = $val;
+                $out->{self::FIELD_ONSET_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ONSET_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ONSET_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOnsetAge())) {
-            $a[self::FIELD_ONSET_AGE] = $v;
+            $out->{self::FIELD_ONSET_AGE} = $v;
         }
         if (null !== ($v = $this->getOnsetPeriod())) {
-            $a[self::FIELD_ONSET_PERIOD] = $v;
+            $out->{self::FIELD_ONSET_PERIOD} = $v;
         }
         if (null !== ($v = $this->getOnsetRange())) {
-            $a[self::FIELD_ONSET_RANGE] = $v;
+            $out->{self::FIELD_ONSET_RANGE} = $v;
         }
         if (null !== ($v = $this->getOnsetString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ONSET_STRING] = $val;
+                $out->{self::FIELD_ONSET_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ONSET_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ONSET_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRecordedDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECORDED_DATE] = $val;
+                $out->{self::FIELD_RECORDED_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECORDED_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECORDED_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRecorder())) {
-            $a[self::FIELD_RECORDER] = $v;
+            $out->{self::FIELD_RECORDER} = $v;
         }
         if (null !== ($v = $this->getAsserter())) {
-            $a[self::FIELD_ASSERTER] = $v;
+            $out->{self::FIELD_ASSERTER} = $v;
         }
         if (null !== ($v = $this->getLastOccurrence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LAST_OCCURRENCE] = $val;
+                $out->{self::FIELD_LAST_OCCURRENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LAST_OCCURRENCE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LAST_OCCURRENCE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReaction())) {
-            $a[self::FIELD_REACTION] = [];
+            $out->{self::FIELD_REACTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REACTION][] = $v;
+                $out->{self::FIELD_REACTION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

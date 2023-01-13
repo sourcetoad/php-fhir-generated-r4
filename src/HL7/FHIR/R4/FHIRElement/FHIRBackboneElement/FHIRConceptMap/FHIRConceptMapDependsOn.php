@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConceptMap;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConceptMap;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * system property. The idea is that the information model carries an element
      * somewhere that is labeled to correspond with a code system property.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $property = null;
+    protected ?FHIRUri $property = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -117,9 +117,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * An absolute URI that identifies the code system of the dependency code (if the
      * source/dependency is a value set that crosses code systems).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $system = null;
+    protected ?FHIRCanonical $system = null;
 
     /**
      * A sequence of Unicode characters
@@ -129,9 +129,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * Identity (code or path) or the element/item/ValueSet/text that the map depends
      * on / refers to.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $value = null;
+    protected ?FHIRString $value = null;
 
     /**
      * A sequence of Unicode characters
@@ -141,15 +141,15 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * The display for the code. The display is only provided to help editors when
      * editing the concept map.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $display = null;
+    protected ?FHIRString $display = null;
 
     /**
      * Validation map for fields in type ConceptMap.DependsOn
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRConceptMapDependsOn Constructor
@@ -168,8 +168,8 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_PROPERTY]) || isset($data[self::FIELD_PROPERTY_EXT])) {
-            $value = isset($data[self::FIELD_PROPERTY]) ? $data[self::FIELD_PROPERTY] : null;
-            $ext = (isset($data[self::FIELD_PROPERTY_EXT]) && is_array($data[self::FIELD_PROPERTY_EXT])) ? $ext = $data[self::FIELD_PROPERTY_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROPERTY] ?? null;
+            $ext = (isset($data[self::FIELD_PROPERTY_EXT]) && is_array($data[self::FIELD_PROPERTY_EXT])) ? $data[self::FIELD_PROPERTY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setProperty($value);
@@ -183,8 +183,8 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setSystem($value);
@@ -198,8 +198,8 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setValue($value);
@@ -213,8 +213,8 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DISPLAY]) || isset($data[self::FIELD_DISPLAY_EXT])) {
-            $value = isset($data[self::FIELD_DISPLAY]) ? $data[self::FIELD_DISPLAY] : null;
-            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $ext = $data[self::FIELD_DISPLAY_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISPLAY] ?? null;
+            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $data[self::FIELD_DISPLAY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDisplay($value);
@@ -229,11 +229,17 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -252,9 +258,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * system property. The idea is that the information model carries an element
      * somewhere that is labeled to correspond with a code system property.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getProperty()
+    public function getProperty(): ?FHIRUri
     {
         return $this->property;
     }
@@ -268,10 +274,10 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * system property. The idea is that the information model carries an element
      * somewhere that is labeled to correspond with a code system property.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $property
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $property
      * @return static
      */
-    public function setProperty($property = null)
+    public function setProperty($property = null): object
     {
         if (null !== $property && !($property instanceof FHIRUri)) {
             $property = new FHIRUri($property);
@@ -290,9 +296,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * An absolute URI that identifies the code system of the dependency code (if the
      * source/dependency is a value set that crosses code systems).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRCanonical
     {
         return $this->system;
     }
@@ -306,10 +312,10 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * An absolute URI that identifies the code system of the dependency code (if the
      * source/dependency is a value set that crosses code systems).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $system
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRCanonical)) {
             $system = new FHIRCanonical($system);
@@ -327,9 +333,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * Identity (code or path) or the element/item/ValueSet/text that the map depends
      * on / refers to.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getValue()
+    public function getValue(): ?FHIRString
     {
         return $this->value;
     }
@@ -342,10 +348,10 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * Identity (code or path) or the element/item/ValueSet/text that the map depends
      * on / refers to.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $value
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRString)) {
             $value = new FHIRString($value);
@@ -363,9 +369,9 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * The display for the code. The display is only provided to help editors when
      * editing the concept map.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDisplay()
+    public function getDisplay(): ?FHIRString
     {
         return $this->display;
     }
@@ -378,10 +384,10 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * The display for the code. The display is only provided to help editors when
      * editing the concept map.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $display
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $display
      * @return static
      */
-    public function setDisplay($display = null)
+    public function setDisplay($display = null): object
     {
         if (null !== $display && !($display instanceof FHIRString)) {
             $display = new FHIRString($display);
@@ -525,15 +531,15 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConceptMap\FHIRConceptMapDependsOn
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConceptMap\FHIRConceptMapDependsOn    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRConceptMapDependsOn::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -553,7 +559,7 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -627,7 +633,7 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -660,51 +666,54 @@ class FHIRConceptMapDependsOn extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getProperty())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PROPERTY] = $val;
+                $out->{self::FIELD_PROPERTY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PROPERTY_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROPERTY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDisplay())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISPLAY] = $val;
+                $out->{self::FIELD_DISPLAY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISPLAY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISPLAY_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

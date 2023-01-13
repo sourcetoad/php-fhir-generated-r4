@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,9 +99,9 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * A reference to the message definition that must be adhered to by this supported
      * response.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $message = null;
+    protected ?FHIRCanonical $message = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -115,15 +115,15 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * Provides a description of the circumstances in which this response should be
      * used (as opposed to one of the alternative responses).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $situation = null;
+    protected ?FHIRMarkdown $situation = null;
 
     /**
      * Validation map for fields in type MessageDefinition.AllowedResponse
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMessageDefinitionAllowedResponse Constructor
@@ -142,8 +142,8 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_MESSAGE]) || isset($data[self::FIELD_MESSAGE_EXT])) {
-            $value = isset($data[self::FIELD_MESSAGE]) ? $data[self::FIELD_MESSAGE] : null;
-            $ext = (isset($data[self::FIELD_MESSAGE_EXT]) && is_array($data[self::FIELD_MESSAGE_EXT])) ? $ext = $data[self::FIELD_MESSAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_MESSAGE] ?? null;
+            $ext = (isset($data[self::FIELD_MESSAGE_EXT]) && is_array($data[self::FIELD_MESSAGE_EXT])) ? $data[self::FIELD_MESSAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setMessage($value);
@@ -157,8 +157,8 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SITUATION]) || isset($data[self::FIELD_SITUATION_EXT])) {
-            $value = isset($data[self::FIELD_SITUATION]) ? $data[self::FIELD_SITUATION] : null;
-            $ext = (isset($data[self::FIELD_SITUATION_EXT]) && is_array($data[self::FIELD_SITUATION_EXT])) ? $ext = $data[self::FIELD_SITUATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_SITUATION] ?? null;
+            $ext = (isset($data[self::FIELD_SITUATION_EXT]) && is_array($data[self::FIELD_SITUATION_EXT])) ? $data[self::FIELD_SITUATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setSituation($value);
@@ -173,11 +173,17 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -196,9 +202,9 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * A reference to the message definition that must be adhered to by this supported
      * response.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getMessage()
+    public function getMessage(): ?FHIRCanonical
     {
         return $this->message;
     }
@@ -212,10 +218,10 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * A reference to the message definition that must be adhered to by this supported
      * response.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $message
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $message
      * @return static
      */
-    public function setMessage($message = null)
+    public function setMessage($message = null): object
     {
         if (null !== $message && !($message instanceof FHIRCanonical)) {
             $message = new FHIRCanonical($message);
@@ -237,9 +243,9 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * Provides a description of the circumstances in which this response should be
      * used (as opposed to one of the alternative responses).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getSituation()
+    public function getSituation(): ?FHIRMarkdown
     {
         return $this->situation;
     }
@@ -256,10 +262,10 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * Provides a description of the circumstances in which this response should be
      * used (as opposed to one of the alternative responses).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $situation
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $situation
      * @return static
      */
-    public function setSituation($situation = null)
+    public function setSituation($situation = null): object
     {
         if (null !== $situation && !($situation instanceof FHIRMarkdown)) {
             $situation = new FHIRMarkdown($situation);
@@ -369,15 +375,15 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageDefinition\FHIRMessageDefinitionAllowedResponse
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMessageDefinition\FHIRMessageDefinitionAllowedResponse    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMessageDefinitionAllowedResponse::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -397,7 +403,7 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -449,7 +455,7 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -472,31 +478,34 @@ class FHIRMessageDefinitionAllowedResponse extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getMessage())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MESSAGE] = $val;
+                $out->{self::FIELD_MESSAGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MESSAGE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MESSAGE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSituation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SITUATION] = $val;
+                $out->{self::FIELD_SITUATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SITUATION_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SITUATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

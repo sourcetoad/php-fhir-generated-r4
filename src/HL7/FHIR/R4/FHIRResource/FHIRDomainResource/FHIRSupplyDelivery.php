@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -123,7 +123,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A reference from one resource to another.
@@ -134,7 +134,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A reference from one resource to another.
@@ -145,7 +145,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $partOf = [];
+    protected ?array $partOf = [];
 
     /**
      * Status of the supply delivery.
@@ -155,7 +155,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSupplyDeliveryStatus
      */
-    protected $status = null;
+    protected ?FHIRSupplyDeliveryStatus $status = null;
 
     /**
      * A reference from one resource to another.
@@ -166,7 +166,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -179,7 +179,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * Record of delivery of what is supplied.
@@ -188,7 +188,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyDelivery\FHIRSupplyDeliverySuppliedItem
      */
-    protected $suppliedItem = null;
+    protected ?FHIRSupplyDeliverySuppliedItem $suppliedItem = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -200,9 +200,9 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * The date or time(s) the activity occurred.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $occurrenceDateTime = null;
+    protected ?FHIRDateTime $occurrenceDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -213,7 +213,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $occurrencePeriod = null;
+    protected ?FHIRPeriod $occurrencePeriod = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -228,7 +228,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $occurrenceTiming = null;
+    protected ?FHIRTiming $occurrenceTiming = null;
 
     /**
      * A reference from one resource to another.
@@ -239,7 +239,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $supplier = null;
+    protected ?FHIRReference $supplier = null;
 
     /**
      * A reference from one resource to another.
@@ -251,7 +251,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $destination = null;
+    protected ?FHIRReference $destination = null;
 
     /**
      * A reference from one resource to another.
@@ -262,13 +262,13 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $receiver = [];
+    protected ?array $receiver = [];
 
     /**
      * Validation map for fields in type SupplyDelivery
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSupplyDelivery Constructor
@@ -341,8 +341,8 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSupplyDeliveryStatus) {
                     $this->setStatus($value);
@@ -377,8 +377,8 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
             }
         }
         if (isset($data[self::FIELD_OCCURRENCE_DATE_TIME]) || isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_OCCURRENCE_DATE_TIME]) ? $data[self::FIELD_OCCURRENCE_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT]) && is_array($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_OCCURRENCE_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_OCCURRENCE_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT]) && is_array($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) ? $data[self::FIELD_OCCURRENCE_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setOccurrenceDateTime($value);
@@ -439,11 +439,17 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -452,6 +458,9 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
         }
         return "<SupplyDelivery{$xmlns}></SupplyDelivery>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -469,7 +478,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -486,7 +495,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -505,7 +514,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -533,7 +542,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -548,7 +557,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -565,7 +574,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -593,7 +602,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getPartOf()
+    public function getPartOf(): ?array
     {
         return $this->partOf;
     }
@@ -608,7 +617,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $partOf
      * @return static
      */
-    public function addPartOf(FHIRReference $partOf = null)
+    public function addPartOf(?FHIRReference $partOf = null): object
     {
         $this->_trackValueAdded();
         $this->partOf[] = $partOf;
@@ -625,7 +634,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $partOf
      * @return static
      */
-    public function setPartOf(array $partOf = [])
+    public function setPartOf(array $partOf = []): object
     {
         if ([] !== $this->partOf) {
             $this->_trackValuesRemoved(count($this->partOf));
@@ -652,7 +661,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSupplyDeliveryStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRSupplyDeliveryStatus
     {
         return $this->status;
     }
@@ -666,7 +675,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSupplyDeliveryStatus $status
      * @return static
      */
-    public function setStatus(FHIRSupplyDeliveryStatus $status = null)
+    public function setStatus(?FHIRSupplyDeliveryStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -682,7 +691,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -697,7 +706,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -715,7 +724,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -732,7 +741,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -746,7 +755,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyDelivery\FHIRSupplyDeliverySuppliedItem
      */
-    public function getSuppliedItem()
+    public function getSuppliedItem(): ?FHIRSupplyDeliverySuppliedItem
     {
         return $this->suppliedItem;
     }
@@ -759,7 +768,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSupplyDelivery\FHIRSupplyDeliverySuppliedItem $suppliedItem
      * @return static
      */
-    public function setSuppliedItem(FHIRSupplyDeliverySuppliedItem $suppliedItem = null)
+    public function setSuppliedItem(?FHIRSupplyDeliverySuppliedItem $suppliedItem = null): object
     {
         $this->_trackValueSet($this->suppliedItem, $suppliedItem);
         $this->suppliedItem = $suppliedItem;
@@ -776,9 +785,9 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * The date or time(s) the activity occurred.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getOccurrenceDateTime()
+    public function getOccurrenceDateTime(): ?FHIRDateTime
     {
         return $this->occurrenceDateTime;
     }
@@ -793,10 +802,10 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * The date or time(s) the activity occurred.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $occurrenceDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $occurrenceDateTime
      * @return static
      */
-    public function setOccurrenceDateTime($occurrenceDateTime = null)
+    public function setOccurrenceDateTime($occurrenceDateTime = null): object
     {
         if (null !== $occurrenceDateTime && !($occurrenceDateTime instanceof FHIRDateTime)) {
             $occurrenceDateTime = new FHIRDateTime($occurrenceDateTime);
@@ -815,7 +824,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getOccurrencePeriod()
+    public function getOccurrencePeriod(): ?FHIRPeriod
     {
         return $this->occurrencePeriod;
     }
@@ -830,7 +839,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $occurrencePeriod
      * @return static
      */
-    public function setOccurrencePeriod(FHIRPeriod $occurrencePeriod = null)
+    public function setOccurrencePeriod(?FHIRPeriod $occurrencePeriod = null): object
     {
         $this->_trackValueSet($this->occurrencePeriod, $occurrencePeriod);
         $this->occurrencePeriod = $occurrencePeriod;
@@ -850,7 +859,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getOccurrenceTiming()
+    public function getOccurrenceTiming(): ?FHIRTiming
     {
         return $this->occurrenceTiming;
     }
@@ -869,7 +878,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $occurrenceTiming
      * @return static
      */
-    public function setOccurrenceTiming(FHIRTiming $occurrenceTiming = null)
+    public function setOccurrenceTiming(?FHIRTiming $occurrenceTiming = null): object
     {
         $this->_trackValueSet($this->occurrenceTiming, $occurrenceTiming);
         $this->occurrenceTiming = $occurrenceTiming;
@@ -885,7 +894,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSupplier()
+    public function getSupplier(): ?FHIRReference
     {
         return $this->supplier;
     }
@@ -900,7 +909,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $supplier
      * @return static
      */
-    public function setSupplier(FHIRReference $supplier = null)
+    public function setSupplier(?FHIRReference $supplier = null): object
     {
         $this->_trackValueSet($this->supplier, $supplier);
         $this->supplier = $supplier;
@@ -917,7 +926,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDestination()
+    public function getDestination(): ?FHIRReference
     {
         return $this->destination;
     }
@@ -933,7 +942,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $destination
      * @return static
      */
-    public function setDestination(FHIRReference $destination = null)
+    public function setDestination(?FHIRReference $destination = null): object
     {
         $this->_trackValueSet($this->destination, $destination);
         $this->destination = $destination;
@@ -949,7 +958,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReceiver()
+    public function getReceiver(): ?array
     {
         return $this->receiver;
     }
@@ -964,7 +973,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $receiver
      * @return static
      */
-    public function addReceiver(FHIRReference $receiver = null)
+    public function addReceiver(?FHIRReference $receiver = null): object
     {
         $this->_trackValueAdded();
         $this->receiver[] = $receiver;
@@ -981,7 +990,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $receiver
      * @return static
      */
-    public function setReceiver(array $receiver = [])
+    public function setReceiver(array $receiver = []): object
     {
         if ([] !== $this->receiver) {
             $this->_trackValuesRemoved(count($this->receiver));
@@ -1355,15 +1364,15 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyDelivery
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyDelivery    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSupplyDelivery::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1383,7 +1392,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1481,7 +1490,7 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1579,88 +1588,93 @@ class FHIRSupplyDelivery extends FHIRDomainResource implements PHPFHIRContainedT
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPartOf())) {
-            $a[self::FIELD_PART_OF] = [];
+            $out->{self::FIELD_PART_OF} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PART_OF][] = $v;
+                $out->{self::FIELD_PART_OF}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRSupplyDeliveryStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRSupplyDeliveryStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getSuppliedItem())) {
-            $a[self::FIELD_SUPPLIED_ITEM] = $v;
+            $out->{self::FIELD_SUPPLIED_ITEM} = $v;
         }
         if (null !== ($v = $this->getOccurrenceDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OCCURRENCE_DATE_TIME] = $val;
+                $out->{self::FIELD_OCCURRENCE_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OCCURRENCE_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OCCURRENCE_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOccurrencePeriod())) {
-            $a[self::FIELD_OCCURRENCE_PERIOD] = $v;
+            $out->{self::FIELD_OCCURRENCE_PERIOD} = $v;
         }
         if (null !== ($v = $this->getOccurrenceTiming())) {
-            $a[self::FIELD_OCCURRENCE_TIMING] = $v;
+            $out->{self::FIELD_OCCURRENCE_TIMING} = $v;
         }
         if (null !== ($v = $this->getSupplier())) {
-            $a[self::FIELD_SUPPLIER] = $v;
+            $out->{self::FIELD_SUPPLIER} = $v;
         }
         if (null !== ($v = $this->getDestination())) {
-            $a[self::FIELD_DESTINATION] = $v;
+            $out->{self::FIELD_DESTINATION} = $v;
         }
         if ([] !== ($vs = $this->getReceiver())) {
-            $a[self::FIELD_RECEIVER] = [];
+            $out->{self::FIELD_RECEIVER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RECEIVER][] = $v;
+                $out->{self::FIELD_RECEIVER}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 
