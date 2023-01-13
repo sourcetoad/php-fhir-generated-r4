@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,9 +101,9 @@ class FHIRCoding extends FHIRElement
      * The identification of the code system that defines the meaning of the symbol in
      * the code.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $system = null;
+    protected ?FHIRUri $system = null;
 
     /**
      * A sequence of Unicode characters
@@ -116,9 +116,9 @@ class FHIRCoding extends FHIRElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -129,9 +129,9 @@ class FHIRCoding extends FHIRElement
      * A symbol in syntax defined by the system. The symbol may be a predefined code or
      * an expression in a syntax defined by the coding system (e.g. post-coordination).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -141,9 +141,9 @@ class FHIRCoding extends FHIRElement
      * A representation of the meaning of the code in the system, following the rules
      * of the system.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $display = null;
+    protected ?FHIRString $display = null;
 
     /**
      * Value of "true" or "false"
@@ -152,15 +152,15 @@ class FHIRCoding extends FHIRElement
      * Indicates that this coding was chosen by a user directly - e.g. off a pick list
      * of available items (codes or displays).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $userSelected = null;
+    protected ?FHIRBoolean $userSelected = null;
 
     /**
      * Validation map for fields in type Coding
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCoding Constructor
@@ -179,8 +179,8 @@ class FHIRCoding extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSystem($value);
@@ -194,8 +194,8 @@ class FHIRCoding extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -209,8 +209,8 @@ class FHIRCoding extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -224,8 +224,8 @@ class FHIRCoding extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_DISPLAY]) || isset($data[self::FIELD_DISPLAY_EXT])) {
-            $value = isset($data[self::FIELD_DISPLAY]) ? $data[self::FIELD_DISPLAY] : null;
-            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $ext = $data[self::FIELD_DISPLAY_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISPLAY] ?? null;
+            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $data[self::FIELD_DISPLAY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDisplay($value);
@@ -239,8 +239,8 @@ class FHIRCoding extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_USER_SELECTED]) || isset($data[self::FIELD_USER_SELECTED_EXT])) {
-            $value = isset($data[self::FIELD_USER_SELECTED]) ? $data[self::FIELD_USER_SELECTED] : null;
-            $ext = (isset($data[self::FIELD_USER_SELECTED_EXT]) && is_array($data[self::FIELD_USER_SELECTED_EXT])) ? $ext = $data[self::FIELD_USER_SELECTED_EXT] : $ext = [];
+            $value = $data[self::FIELD_USER_SELECTED] ?? null;
+            $ext = (isset($data[self::FIELD_USER_SELECTED_EXT]) && is_array($data[self::FIELD_USER_SELECTED_EXT])) ? $data[self::FIELD_USER_SELECTED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setUserSelected($value);
@@ -255,11 +255,17 @@ class FHIRCoding extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -277,9 +283,9 @@ class FHIRCoding extends FHIRElement
      * The identification of the code system that defines the meaning of the symbol in
      * the code.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRUri
     {
         return $this->system;
     }
@@ -292,10 +298,10 @@ class FHIRCoding extends FHIRElement
      * The identification of the code system that defines the meaning of the symbol in
      * the code.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRUri)) {
             $system = new FHIRUri($system);
@@ -316,9 +322,9 @@ class FHIRCoding extends FHIRElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -334,10 +340,10 @@ class FHIRCoding extends FHIRElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -356,9 +362,9 @@ class FHIRCoding extends FHIRElement
      * A symbol in syntax defined by the system. The symbol may be a predefined code or
      * an expression in a syntax defined by the coding system (e.g. post-coordination).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -372,10 +378,10 @@ class FHIRCoding extends FHIRElement
      * A symbol in syntax defined by the system. The symbol may be a predefined code or
      * an expression in a syntax defined by the coding system (e.g. post-coordination).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -393,9 +399,9 @@ class FHIRCoding extends FHIRElement
      * A representation of the meaning of the code in the system, following the rules
      * of the system.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDisplay()
+    public function getDisplay(): ?FHIRString
     {
         return $this->display;
     }
@@ -408,10 +414,10 @@ class FHIRCoding extends FHIRElement
      * A representation of the meaning of the code in the system, following the rules
      * of the system.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $display
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $display
      * @return static
      */
-    public function setDisplay($display = null)
+    public function setDisplay($display = null): object
     {
         if (null !== $display && !($display instanceof FHIRString)) {
             $display = new FHIRString($display);
@@ -428,9 +434,9 @@ class FHIRCoding extends FHIRElement
      * Indicates that this coding was chosen by a user directly - e.g. off a pick list
      * of available items (codes or displays).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getUserSelected()
+    public function getUserSelected(): ?FHIRBoolean
     {
         return $this->userSelected;
     }
@@ -442,10 +448,10 @@ class FHIRCoding extends FHIRElement
      * Indicates that this coding was chosen by a user directly - e.g. off a pick list
      * of available items (codes or displays).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $userSelected
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $userSelected
      * @return static
      */
-    public function setUserSelected($userSelected = null)
+    public function setUserSelected($userSelected = null): object
     {
         if (null !== $userSelected && !($userSelected instanceof FHIRBoolean)) {
             $userSelected = new FHIRBoolean($userSelected);
@@ -594,15 +600,15 @@ class FHIRCoding extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRCoding    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCoding::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -622,7 +628,7 @@ class FHIRCoding extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -705,7 +711,7 @@ class FHIRCoding extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -743,61 +749,64 @@ class FHIRCoding extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDisplay())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISPLAY] = $val;
+                $out->{self::FIELD_DISPLAY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISPLAY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISPLAY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUserSelected())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_USER_SELECTED] = $val;
+                $out->{self::FIELD_USER_SELECTED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_USER_SELECTED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_USER_SELECTED_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

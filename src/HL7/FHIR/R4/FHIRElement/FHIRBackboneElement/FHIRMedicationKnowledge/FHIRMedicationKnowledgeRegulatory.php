@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $regulatoryAuthority = null;
+    protected ?FHIRReference $regulatoryAuthority = null;
 
     /**
      * Information about a medication that is used to support knowledge.
@@ -106,7 +106,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSubstitution[]
      */
-    protected $substitution = [];
+    protected ?array $substitution = [];
 
     /**
      * Information about a medication that is used to support knowledge.
@@ -115,7 +115,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSchedule[]
      */
-    protected $schedule = [];
+    protected ?array $schedule = [];
 
     /**
      * Information about a medication that is used to support knowledge.
@@ -124,13 +124,13 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeMaxDispense
      */
-    protected $maxDispense = null;
+    protected ?FHIRMedicationKnowledgeMaxDispense $maxDispense = null;
 
     /**
      * Validation map for fields in type MedicationKnowledge.Regulatory
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationKnowledgeRegulatory Constructor
@@ -200,11 +200,17 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -223,7 +229,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRegulatoryAuthority()
+    public function getRegulatoryAuthority(): ?FHIRReference
     {
         return $this->regulatoryAuthority;
     }
@@ -238,7 +244,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $regulatoryAuthority
      * @return static
      */
-    public function setRegulatoryAuthority(FHIRReference $regulatoryAuthority = null)
+    public function setRegulatoryAuthority(?FHIRReference $regulatoryAuthority = null): object
     {
         $this->_trackValueSet($this->regulatoryAuthority, $regulatoryAuthority);
         $this->regulatoryAuthority = $regulatoryAuthority;
@@ -253,7 +259,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSubstitution[]
      */
-    public function getSubstitution()
+    public function getSubstitution(): ?array
     {
         return $this->substitution;
     }
@@ -267,7 +273,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSubstitution $substitution
      * @return static
      */
-    public function addSubstitution(FHIRMedicationKnowledgeSubstitution $substitution = null)
+    public function addSubstitution(?FHIRMedicationKnowledgeSubstitution $substitution = null): object
     {
         $this->_trackValueAdded();
         $this->substitution[] = $substitution;
@@ -283,7 +289,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSubstitution[] $substitution
      * @return static
      */
-    public function setSubstitution(array $substitution = [])
+    public function setSubstitution(array $substitution = []): object
     {
         if ([] !== $this->substitution) {
             $this->_trackValuesRemoved(count($this->substitution));
@@ -309,7 +315,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSchedule[]
      */
-    public function getSchedule()
+    public function getSchedule(): ?array
     {
         return $this->schedule;
     }
@@ -322,7 +328,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSchedule $schedule
      * @return static
      */
-    public function addSchedule(FHIRMedicationKnowledgeSchedule $schedule = null)
+    public function addSchedule(?FHIRMedicationKnowledgeSchedule $schedule = null): object
     {
         $this->_trackValueAdded();
         $this->schedule[] = $schedule;
@@ -337,7 +343,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeSchedule[] $schedule
      * @return static
      */
-    public function setSchedule(array $schedule = [])
+    public function setSchedule(array $schedule = []): object
     {
         if ([] !== $this->schedule) {
             $this->_trackValuesRemoved(count($this->schedule));
@@ -363,7 +369,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeMaxDispense
      */
-    public function getMaxDispense()
+    public function getMaxDispense(): ?FHIRMedicationKnowledgeMaxDispense
     {
         return $this->maxDispense;
     }
@@ -376,7 +382,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeMaxDispense $maxDispense
      * @return static
      */
-    public function setMaxDispense(FHIRMedicationKnowledgeMaxDispense $maxDispense = null)
+    public function setMaxDispense(?FHIRMedicationKnowledgeMaxDispense $maxDispense = null): object
     {
         $this->_trackValueSet($this->maxDispense, $maxDispense);
         $this->maxDispense = $maxDispense;
@@ -521,15 +527,15 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeRegulatory
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeRegulatory    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationKnowledgeRegulatory::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -549,7 +555,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -587,7 +593,7 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -630,35 +636,38 @@ class FHIRMedicationKnowledgeRegulatory extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getRegulatoryAuthority())) {
-            $a[self::FIELD_REGULATORY_AUTHORITY] = $v;
+            $out->{self::FIELD_REGULATORY_AUTHORITY} = $v;
         }
         if ([] !== ($vs = $this->getSubstitution())) {
-            $a[self::FIELD_SUBSTITUTION] = [];
+            $out->{self::FIELD_SUBSTITUTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBSTITUTION][] = $v;
+                $out->{self::FIELD_SUBSTITUTION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSchedule())) {
-            $a[self::FIELD_SCHEDULE] = [];
+            $out->{self::FIELD_SCHEDULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SCHEDULE][] = $v;
+                $out->{self::FIELD_SCHEDULE}[] = $v;
             }
         }
         if (null !== ($v = $this->getMaxDispense())) {
-            $a[self::FIELD_MAX_DISPENSE] = $v;
+            $out->{self::FIELD_MAX_DISPENSE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

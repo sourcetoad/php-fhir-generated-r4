@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRResearchElementDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRResearchElementDefinit
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -137,7 +137,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $definitionCodeableConcept = null;
+    protected ?FHIRCodeableConcept $definitionCodeableConcept = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -150,9 +150,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the
      * last year).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $definitionCanonical = null;
+    protected ?FHIRCanonical $definitionCanonical = null;
 
     /**
      * A expression that is evaluated in a specified context and returns a value. The
@@ -168,7 +168,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    protected $definitionExpression = null;
+    protected ?FHIRExpression $definitionExpression = null;
 
     /**
      * Describes a required data item for evaluation in terms of the type of data, and
@@ -183,7 +183,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement
      */
-    protected $definitionDataRequirement = null;
+    protected ?FHIRDataRequirement $definitionDataRequirement = null;
 
     /**
      * Specifies clinical/business/etc. metadata that can be used to retrieve, index
@@ -198,7 +198,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    protected $usageContext = [];
+    protected ?array $usageContext = [];
 
     /**
      * Value of "true" or "false"
@@ -206,9 +206,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * When true, members with this characteristic are excluded from the element.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $exclude = null;
+    protected ?FHIRBoolean $exclude = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -220,7 +220,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $unitOfMeasure = null;
+    protected ?FHIRCodeableConcept $unitOfMeasure = null;
 
     /**
      * A sequence of Unicode characters
@@ -229,9 +229,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $studyEffectiveDescription = null;
+    protected ?FHIRString $studyEffectiveDescription = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -243,9 +243,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $studyEffectiveDateTime = null;
+    protected ?FHIRDateTime $studyEffectiveDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -256,7 +256,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $studyEffectivePeriod = null;
+    protected ?FHIRPeriod $studyEffectivePeriod = null;
 
     /**
      * A length of time.
@@ -267,7 +267,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $studyEffectiveDuration = null;
+    protected ?FHIRDuration $studyEffectiveDuration = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -282,7 +282,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $studyEffectiveTiming = null;
+    protected ?FHIRTiming $studyEffectiveTiming = null;
 
     /**
      * A length of time.
@@ -293,7 +293,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $studyEffectiveTimeFromStart = null;
+    protected ?FHIRDuration $studyEffectiveTimeFromStart = null;
 
     /**
      * Possible group measure aggregates (E.g. Mean, Median).
@@ -303,7 +303,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure
      */
-    protected $studyEffectiveGroupMeasure = null;
+    protected ?FHIRGroupMeasure $studyEffectiveGroupMeasure = null;
 
     /**
      * A sequence of Unicode characters
@@ -312,9 +312,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $participantEffectiveDescription = null;
+    protected ?FHIRString $participantEffectiveDescription = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -326,9 +326,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $participantEffectiveDateTime = null;
+    protected ?FHIRDateTime $participantEffectiveDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -339,7 +339,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $participantEffectivePeriod = null;
+    protected ?FHIRPeriod $participantEffectivePeriod = null;
 
     /**
      * A length of time.
@@ -350,7 +350,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $participantEffectiveDuration = null;
+    protected ?FHIRDuration $participantEffectiveDuration = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -365,7 +365,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $participantEffectiveTiming = null;
+    protected ?FHIRTiming $participantEffectiveTiming = null;
 
     /**
      * A length of time.
@@ -376,7 +376,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $participantEffectiveTimeFromStart = null;
+    protected ?FHIRDuration $participantEffectiveTimeFromStart = null;
 
     /**
      * Possible group measure aggregates (E.g. Mean, Median).
@@ -386,13 +386,13 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure
      */
-    protected $participantEffectiveGroupMeasure = null;
+    protected ?FHIRGroupMeasure $participantEffectiveGroupMeasure = null;
 
     /**
      * Validation map for fields in type ResearchElementDefinition.Characteristic
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRResearchElementDefinitionCharacteristic Constructor
@@ -418,8 +418,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DEFINITION_CANONICAL]) || isset($data[self::FIELD_DEFINITION_CANONICAL_EXT])) {
-            $value = isset($data[self::FIELD_DEFINITION_CANONICAL]) ? $data[self::FIELD_DEFINITION_CANONICAL] : null;
-            $ext = (isset($data[self::FIELD_DEFINITION_CANONICAL_EXT]) && is_array($data[self::FIELD_DEFINITION_CANONICAL_EXT])) ? $ext = $data[self::FIELD_DEFINITION_CANONICAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_DEFINITION_CANONICAL] ?? null;
+            $ext = (isset($data[self::FIELD_DEFINITION_CANONICAL_EXT]) && is_array($data[self::FIELD_DEFINITION_CANONICAL_EXT])) ? $data[self::FIELD_DEFINITION_CANONICAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setDefinitionCanonical($value);
@@ -465,8 +465,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXCLUDE]) || isset($data[self::FIELD_EXCLUDE_EXT])) {
-            $value = isset($data[self::FIELD_EXCLUDE]) ? $data[self::FIELD_EXCLUDE] : null;
-            $ext = (isset($data[self::FIELD_EXCLUDE_EXT]) && is_array($data[self::FIELD_EXCLUDE_EXT])) ? $ext = $data[self::FIELD_EXCLUDE_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXCLUDE] ?? null;
+            $ext = (isset($data[self::FIELD_EXCLUDE_EXT]) && is_array($data[self::FIELD_EXCLUDE_EXT])) ? $data[self::FIELD_EXCLUDE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExclude($value);
@@ -487,8 +487,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION]) || isset($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION]) ? $data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT])) ? $data[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setStudyEffectiveDescription($value);
@@ -502,8 +502,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME]) || isset($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME]) ? $data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT])) ? $data[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setStudyEffectiveDateTime($value);
@@ -545,8 +545,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE]) || isset($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT])) {
-            $value = isset($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE]) ? $data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE] : null;
-            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT])) ? $ext = $data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT] : $ext = [];
+            $value = $data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE] ?? null;
+            $ext = (isset($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT]) && is_array($data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT])) ? $data[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRGroupMeasure) {
                     $this->setStudyEffectiveGroupMeasure($value);
@@ -560,8 +560,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION]) || isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION]) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT])) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setParticipantEffectiveDescription($value);
@@ -575,8 +575,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME]) || isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME]) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT])) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setParticipantEffectiveDateTime($value);
@@ -618,8 +618,8 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE]) || isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT])) {
-            $value = isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE]) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE] : null;
-            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT])) ? $ext = $data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE] ?? null;
+            $ext = (isset($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT]) && is_array($data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT])) ? $data[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRGroupMeasure) {
                     $this->setParticipantEffectiveGroupMeasure($value);
@@ -634,11 +634,17 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -661,7 +667,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDefinitionCodeableConcept()
+    public function getDefinitionCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->definitionCodeableConcept;
     }
@@ -680,7 +686,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $definitionCodeableConcept
      * @return static
      */
-    public function setDefinitionCodeableConcept(FHIRCodeableConcept $definitionCodeableConcept = null)
+    public function setDefinitionCodeableConcept(?FHIRCodeableConcept $definitionCodeableConcept = null): object
     {
         $this->_trackValueSet($this->definitionCodeableConcept, $definitionCodeableConcept);
         $this->definitionCodeableConcept = $definitionCodeableConcept;
@@ -698,9 +704,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the
      * last year).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getDefinitionCanonical()
+    public function getDefinitionCanonical(): ?FHIRCanonical
     {
         return $this->definitionCanonical;
     }
@@ -716,10 +722,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the
      * last year).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definitionCanonical
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $definitionCanonical
      * @return static
      */
-    public function setDefinitionCanonical($definitionCanonical = null)
+    public function setDefinitionCanonical($definitionCanonical = null): object
     {
         if (null !== $definitionCanonical && !($definitionCanonical instanceof FHIRCanonical)) {
             $definitionCanonical = new FHIRCanonical($definitionCanonical);
@@ -743,7 +749,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    public function getDefinitionExpression()
+    public function getDefinitionExpression(): ?FHIRExpression
     {
         return $this->definitionExpression;
     }
@@ -763,7 +769,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExpression $definitionExpression
      * @return static
      */
-    public function setDefinitionExpression(FHIRExpression $definitionExpression = null)
+    public function setDefinitionExpression(?FHIRExpression $definitionExpression = null): object
     {
         $this->_trackValueSet($this->definitionExpression, $definitionExpression);
         $this->definitionExpression = $definitionExpression;
@@ -783,7 +789,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement
      */
-    public function getDefinitionDataRequirement()
+    public function getDefinitionDataRequirement(): ?FHIRDataRequirement
     {
         return $this->definitionDataRequirement;
     }
@@ -802,7 +808,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement $definitionDataRequirement
      * @return static
      */
-    public function setDefinitionDataRequirement(FHIRDataRequirement $definitionDataRequirement = null)
+    public function setDefinitionDataRequirement(?FHIRDataRequirement $definitionDataRequirement = null): object
     {
         $this->_trackValueSet($this->definitionDataRequirement, $definitionDataRequirement);
         $this->definitionDataRequirement = $definitionDataRequirement;
@@ -822,7 +828,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    public function getUsageContext()
+    public function getUsageContext(): ?array
     {
         return $this->usageContext;
     }
@@ -841,7 +847,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext $usageContext
      * @return static
      */
-    public function addUsageContext(FHIRUsageContext $usageContext = null)
+    public function addUsageContext(?FHIRUsageContext $usageContext = null): object
     {
         $this->_trackValueAdded();
         $this->usageContext[] = $usageContext;
@@ -862,7 +868,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUsageContext[] $usageContext
      * @return static
      */
-    public function setUsageContext(array $usageContext = [])
+    public function setUsageContext(array $usageContext = []): object
     {
         if ([] !== $this->usageContext) {
             $this->_trackValuesRemoved(count($this->usageContext));
@@ -887,9 +893,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * When true, members with this characteristic are excluded from the element.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExclude()
+    public function getExclude(): ?FHIRBoolean
     {
         return $this->exclude;
     }
@@ -900,10 +906,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * When true, members with this characteristic are excluded from the element.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $exclude
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $exclude
      * @return static
      */
-    public function setExclude($exclude = null)
+    public function setExclude($exclude = null): object
     {
         if (null !== $exclude && !($exclude instanceof FHIRBoolean)) {
             $exclude = new FHIRBoolean($exclude);
@@ -923,7 +929,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getUnitOfMeasure()
+    public function getUnitOfMeasure(): ?FHIRCodeableConcept
     {
         return $this->unitOfMeasure;
     }
@@ -939,7 +945,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $unitOfMeasure
      * @return static
      */
-    public function setUnitOfMeasure(FHIRCodeableConcept $unitOfMeasure = null)
+    public function setUnitOfMeasure(?FHIRCodeableConcept $unitOfMeasure = null): object
     {
         $this->_trackValueSet($this->unitOfMeasure, $unitOfMeasure);
         $this->unitOfMeasure = $unitOfMeasure;
@@ -953,9 +959,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getStudyEffectiveDescription()
+    public function getStudyEffectiveDescription(): ?FHIRString
     {
         return $this->studyEffectiveDescription;
     }
@@ -967,10 +973,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $studyEffectiveDescription
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $studyEffectiveDescription
      * @return static
      */
-    public function setStudyEffectiveDescription($studyEffectiveDescription = null)
+    public function setStudyEffectiveDescription($studyEffectiveDescription = null): object
     {
         if (null !== $studyEffectiveDescription && !($studyEffectiveDescription instanceof FHIRString)) {
             $studyEffectiveDescription = new FHIRString($studyEffectiveDescription);
@@ -990,9 +996,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getStudyEffectiveDateTime()
+    public function getStudyEffectiveDateTime(): ?FHIRDateTime
     {
         return $this->studyEffectiveDateTime;
     }
@@ -1007,10 +1013,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $studyEffectiveDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $studyEffectiveDateTime
      * @return static
      */
-    public function setStudyEffectiveDateTime($studyEffectiveDateTime = null)
+    public function setStudyEffectiveDateTime($studyEffectiveDateTime = null): object
     {
         if (null !== $studyEffectiveDateTime && !($studyEffectiveDateTime instanceof FHIRDateTime)) {
             $studyEffectiveDateTime = new FHIRDateTime($studyEffectiveDateTime);
@@ -1029,7 +1035,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getStudyEffectivePeriod()
+    public function getStudyEffectivePeriod(): ?FHIRPeriod
     {
         return $this->studyEffectivePeriod;
     }
@@ -1044,7 +1050,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $studyEffectivePeriod
      * @return static
      */
-    public function setStudyEffectivePeriod(FHIRPeriod $studyEffectivePeriod = null)
+    public function setStudyEffectivePeriod(?FHIRPeriod $studyEffectivePeriod = null): object
     {
         $this->_trackValueSet($this->studyEffectivePeriod, $studyEffectivePeriod);
         $this->studyEffectivePeriod = $studyEffectivePeriod;
@@ -1060,7 +1066,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getStudyEffectiveDuration()
+    public function getStudyEffectiveDuration(): ?FHIRDuration
     {
         return $this->studyEffectiveDuration;
     }
@@ -1075,7 +1081,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $studyEffectiveDuration
      * @return static
      */
-    public function setStudyEffectiveDuration(FHIRDuration $studyEffectiveDuration = null)
+    public function setStudyEffectiveDuration(?FHIRDuration $studyEffectiveDuration = null): object
     {
         $this->_trackValueSet($this->studyEffectiveDuration, $studyEffectiveDuration);
         $this->studyEffectiveDuration = $studyEffectiveDuration;
@@ -1095,7 +1101,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getStudyEffectiveTiming()
+    public function getStudyEffectiveTiming(): ?FHIRTiming
     {
         return $this->studyEffectiveTiming;
     }
@@ -1114,7 +1120,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $studyEffectiveTiming
      * @return static
      */
-    public function setStudyEffectiveTiming(FHIRTiming $studyEffectiveTiming = null)
+    public function setStudyEffectiveTiming(?FHIRTiming $studyEffectiveTiming = null): object
     {
         $this->_trackValueSet($this->studyEffectiveTiming, $studyEffectiveTiming);
         $this->studyEffectiveTiming = $studyEffectiveTiming;
@@ -1130,7 +1136,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getStudyEffectiveTimeFromStart()
+    public function getStudyEffectiveTimeFromStart(): ?FHIRDuration
     {
         return $this->studyEffectiveTimeFromStart;
     }
@@ -1145,7 +1151,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $studyEffectiveTimeFromStart
      * @return static
      */
-    public function setStudyEffectiveTimeFromStart(FHIRDuration $studyEffectiveTimeFromStart = null)
+    public function setStudyEffectiveTimeFromStart(?FHIRDuration $studyEffectiveTimeFromStart = null): object
     {
         $this->_trackValueSet($this->studyEffectiveTimeFromStart, $studyEffectiveTimeFromStart);
         $this->studyEffectiveTimeFromStart = $studyEffectiveTimeFromStart;
@@ -1160,7 +1166,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure
      */
-    public function getStudyEffectiveGroupMeasure()
+    public function getStudyEffectiveGroupMeasure(): ?FHIRGroupMeasure
     {
         return $this->studyEffectiveGroupMeasure;
     }
@@ -1174,7 +1180,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure $studyEffectiveGroupMeasure
      * @return static
      */
-    public function setStudyEffectiveGroupMeasure(FHIRGroupMeasure $studyEffectiveGroupMeasure = null)
+    public function setStudyEffectiveGroupMeasure(?FHIRGroupMeasure $studyEffectiveGroupMeasure = null): object
     {
         $this->_trackValueSet($this->studyEffectiveGroupMeasure, $studyEffectiveGroupMeasure);
         $this->studyEffectiveGroupMeasure = $studyEffectiveGroupMeasure;
@@ -1188,9 +1194,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getParticipantEffectiveDescription()
+    public function getParticipantEffectiveDescription(): ?FHIRString
     {
         return $this->participantEffectiveDescription;
     }
@@ -1202,10 +1208,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * A narrative description of the time period the study covers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $participantEffectiveDescription
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $participantEffectiveDescription
      * @return static
      */
-    public function setParticipantEffectiveDescription($participantEffectiveDescription = null)
+    public function setParticipantEffectiveDescription($participantEffectiveDescription = null): object
     {
         if (null !== $participantEffectiveDescription && !($participantEffectiveDescription instanceof FHIRString)) {
             $participantEffectiveDescription = new FHIRString($participantEffectiveDescription);
@@ -1225,9 +1231,9 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getParticipantEffectiveDateTime()
+    public function getParticipantEffectiveDateTime(): ?FHIRDateTime
     {
         return $this->participantEffectiveDateTime;
     }
@@ -1242,10 +1248,10 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * Indicates what effective period the study covers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $participantEffectiveDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $participantEffectiveDateTime
      * @return static
      */
-    public function setParticipantEffectiveDateTime($participantEffectiveDateTime = null)
+    public function setParticipantEffectiveDateTime($participantEffectiveDateTime = null): object
     {
         if (null !== $participantEffectiveDateTime && !($participantEffectiveDateTime instanceof FHIRDateTime)) {
             $participantEffectiveDateTime = new FHIRDateTime($participantEffectiveDateTime);
@@ -1264,7 +1270,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getParticipantEffectivePeriod()
+    public function getParticipantEffectivePeriod(): ?FHIRPeriod
     {
         return $this->participantEffectivePeriod;
     }
@@ -1279,7 +1285,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $participantEffectivePeriod
      * @return static
      */
-    public function setParticipantEffectivePeriod(FHIRPeriod $participantEffectivePeriod = null)
+    public function setParticipantEffectivePeriod(?FHIRPeriod $participantEffectivePeriod = null): object
     {
         $this->_trackValueSet($this->participantEffectivePeriod, $participantEffectivePeriod);
         $this->participantEffectivePeriod = $participantEffectivePeriod;
@@ -1295,7 +1301,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getParticipantEffectiveDuration()
+    public function getParticipantEffectiveDuration(): ?FHIRDuration
     {
         return $this->participantEffectiveDuration;
     }
@@ -1310,7 +1316,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $participantEffectiveDuration
      * @return static
      */
-    public function setParticipantEffectiveDuration(FHIRDuration $participantEffectiveDuration = null)
+    public function setParticipantEffectiveDuration(?FHIRDuration $participantEffectiveDuration = null): object
     {
         $this->_trackValueSet($this->participantEffectiveDuration, $participantEffectiveDuration);
         $this->participantEffectiveDuration = $participantEffectiveDuration;
@@ -1330,7 +1336,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getParticipantEffectiveTiming()
+    public function getParticipantEffectiveTiming(): ?FHIRTiming
     {
         return $this->participantEffectiveTiming;
     }
@@ -1349,7 +1355,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $participantEffectiveTiming
      * @return static
      */
-    public function setParticipantEffectiveTiming(FHIRTiming $participantEffectiveTiming = null)
+    public function setParticipantEffectiveTiming(?FHIRTiming $participantEffectiveTiming = null): object
     {
         $this->_trackValueSet($this->participantEffectiveTiming, $participantEffectiveTiming);
         $this->participantEffectiveTiming = $participantEffectiveTiming;
@@ -1365,7 +1371,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getParticipantEffectiveTimeFromStart()
+    public function getParticipantEffectiveTimeFromStart(): ?FHIRDuration
     {
         return $this->participantEffectiveTimeFromStart;
     }
@@ -1380,7 +1386,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $participantEffectiveTimeFromStart
      * @return static
      */
-    public function setParticipantEffectiveTimeFromStart(FHIRDuration $participantEffectiveTimeFromStart = null)
+    public function setParticipantEffectiveTimeFromStart(?FHIRDuration $participantEffectiveTimeFromStart = null): object
     {
         $this->_trackValueSet($this->participantEffectiveTimeFromStart, $participantEffectiveTimeFromStart);
         $this->participantEffectiveTimeFromStart = $participantEffectiveTimeFromStart;
@@ -1395,7 +1401,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure
      */
-    public function getParticipantEffectiveGroupMeasure()
+    public function getParticipantEffectiveGroupMeasure(): ?FHIRGroupMeasure
     {
         return $this->participantEffectiveGroupMeasure;
     }
@@ -1409,7 +1415,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRGroupMeasure $participantEffectiveGroupMeasure
      * @return static
      */
-    public function setParticipantEffectiveGroupMeasure(FHIRGroupMeasure $participantEffectiveGroupMeasure = null)
+    public function setParticipantEffectiveGroupMeasure(?FHIRGroupMeasure $participantEffectiveGroupMeasure = null): object
     {
         $this->_trackValueSet($this->participantEffectiveGroupMeasure, $participantEffectiveGroupMeasure);
         $this->participantEffectiveGroupMeasure = $participantEffectiveGroupMeasure;
@@ -1841,15 +1847,15 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRResearchElementDefinition\FHIRResearchElementDefinitionCharacteristic
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRResearchElementDefinition\FHIRResearchElementDefinitionCharacteristic    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRResearchElementDefinitionCharacteristic::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1869,7 +1875,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1995,7 +2001,7 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2118,136 +2124,139 @@ class FHIRResearchElementDefinitionCharacteristic extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDefinitionCodeableConcept())) {
-            $a[self::FIELD_DEFINITION_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_DEFINITION_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getDefinitionCanonical())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DEFINITION_CANONICAL] = $val;
+                $out->{self::FIELD_DEFINITION_CANONICAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DEFINITION_CANONICAL_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DEFINITION_CANONICAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDefinitionExpression())) {
-            $a[self::FIELD_DEFINITION_EXPRESSION] = $v;
+            $out->{self::FIELD_DEFINITION_EXPRESSION} = $v;
         }
         if (null !== ($v = $this->getDefinitionDataRequirement())) {
-            $a[self::FIELD_DEFINITION_DATA_REQUIREMENT] = $v;
+            $out->{self::FIELD_DEFINITION_DATA_REQUIREMENT} = $v;
         }
         if ([] !== ($vs = $this->getUsageContext())) {
-            $a[self::FIELD_USAGE_CONTEXT] = [];
+            $out->{self::FIELD_USAGE_CONTEXT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_USAGE_CONTEXT][] = $v;
+                $out->{self::FIELD_USAGE_CONTEXT}[] = $v;
             }
         }
         if (null !== ($v = $this->getExclude())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXCLUDE] = $val;
+                $out->{self::FIELD_EXCLUDE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXCLUDE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXCLUDE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUnitOfMeasure())) {
-            $a[self::FIELD_UNIT_OF_MEASURE] = $v;
+            $out->{self::FIELD_UNIT_OF_MEASURE} = $v;
         }
         if (null !== ($v = $this->getStudyEffectiveDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION] = $val;
+                $out->{self::FIELD_STUDY_EFFECTIVE_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STUDY_EFFECTIVE_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStudyEffectiveDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STUDY_EFFECTIVE_DATE_TIME] = $val;
+                $out->{self::FIELD_STUDY_EFFECTIVE_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STUDY_EFFECTIVE_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStudyEffectivePeriod())) {
-            $a[self::FIELD_STUDY_EFFECTIVE_PERIOD] = $v;
+            $out->{self::FIELD_STUDY_EFFECTIVE_PERIOD} = $v;
         }
         if (null !== ($v = $this->getStudyEffectiveDuration())) {
-            $a[self::FIELD_STUDY_EFFECTIVE_DURATION] = $v;
+            $out->{self::FIELD_STUDY_EFFECTIVE_DURATION} = $v;
         }
         if (null !== ($v = $this->getStudyEffectiveTiming())) {
-            $a[self::FIELD_STUDY_EFFECTIVE_TIMING] = $v;
+            $out->{self::FIELD_STUDY_EFFECTIVE_TIMING} = $v;
         }
         if (null !== ($v = $this->getStudyEffectiveTimeFromStart())) {
-            $a[self::FIELD_STUDY_EFFECTIVE_TIME_FROM_START] = $v;
+            $out->{self::FIELD_STUDY_EFFECTIVE_TIME_FROM_START} = $v;
         }
         if (null !== ($v = $this->getStudyEffectiveGroupMeasure())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE] = $val;
+                $out->{self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRGroupMeasure::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT] = $ext;
+            unset($ext->{FHIRGroupMeasure::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STUDY_EFFECTIVE_GROUP_MEASURE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getParticipantEffectiveDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION] = $val;
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getParticipantEffectiveDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME] = $val;
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getParticipantEffectivePeriod())) {
-            $a[self::FIELD_PARTICIPANT_EFFECTIVE_PERIOD] = $v;
+            $out->{self::FIELD_PARTICIPANT_EFFECTIVE_PERIOD} = $v;
         }
         if (null !== ($v = $this->getParticipantEffectiveDuration())) {
-            $a[self::FIELD_PARTICIPANT_EFFECTIVE_DURATION] = $v;
+            $out->{self::FIELD_PARTICIPANT_EFFECTIVE_DURATION} = $v;
         }
         if (null !== ($v = $this->getParticipantEffectiveTiming())) {
-            $a[self::FIELD_PARTICIPANT_EFFECTIVE_TIMING] = $v;
+            $out->{self::FIELD_PARTICIPANT_EFFECTIVE_TIMING} = $v;
         }
         if (null !== ($v = $this->getParticipantEffectiveTimeFromStart())) {
-            $a[self::FIELD_PARTICIPANT_EFFECTIVE_TIME_FROM_START] = $v;
+            $out->{self::FIELD_PARTICIPANT_EFFECTIVE_TIME_FROM_START} = $v;
         }
         if (null !== ($v = $this->getParticipantEffectiveGroupMeasure())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE] = $val;
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRGroupMeasure::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT] = $ext;
+            unset($ext->{FHIRGroupMeasure::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PARTICIPANT_EFFECTIVE_GROUP_MEASURE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

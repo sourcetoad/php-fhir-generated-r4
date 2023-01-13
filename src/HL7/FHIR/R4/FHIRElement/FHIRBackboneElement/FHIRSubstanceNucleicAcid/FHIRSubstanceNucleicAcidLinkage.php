@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,9 +105,9 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Linkage connectivity is assumed to be 3’-5’. If the linkage is either
      * 3’-3’ or 5’-5’ this should be specified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $connectivity = null;
+    protected ?FHIRString $connectivity = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -119,7 +119,7 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $identifier = null;
+    protected ?FHIRIdentifier $identifier = null;
 
     /**
      * A sequence of Unicode characters
@@ -129,9 +129,9 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Each linkage will be registered as a fragment and have at least one name. A
      * single name shall be assigned to each linkage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -140,15 +140,15 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      *
      * Residues shall be captured as described in 5.3.6.8.3.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $residueSite = null;
+    protected ?FHIRString $residueSite = null;
 
     /**
      * Validation map for fields in type SubstanceNucleicAcid.Linkage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceNucleicAcidLinkage Constructor
@@ -167,8 +167,8 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_CONNECTIVITY]) || isset($data[self::FIELD_CONNECTIVITY_EXT])) {
-            $value = isset($data[self::FIELD_CONNECTIVITY]) ? $data[self::FIELD_CONNECTIVITY] : null;
-            $ext = (isset($data[self::FIELD_CONNECTIVITY_EXT]) && is_array($data[self::FIELD_CONNECTIVITY_EXT])) ? $ext = $data[self::FIELD_CONNECTIVITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_CONNECTIVITY] ?? null;
+            $ext = (isset($data[self::FIELD_CONNECTIVITY_EXT]) && is_array($data[self::FIELD_CONNECTIVITY_EXT])) ? $data[self::FIELD_CONNECTIVITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setConnectivity($value);
@@ -189,8 +189,8 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -204,8 +204,8 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESIDUE_SITE]) || isset($data[self::FIELD_RESIDUE_SITE_EXT])) {
-            $value = isset($data[self::FIELD_RESIDUE_SITE]) ? $data[self::FIELD_RESIDUE_SITE] : null;
-            $ext = (isset($data[self::FIELD_RESIDUE_SITE_EXT]) && is_array($data[self::FIELD_RESIDUE_SITE_EXT])) ? $ext = $data[self::FIELD_RESIDUE_SITE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESIDUE_SITE] ?? null;
+            $ext = (isset($data[self::FIELD_RESIDUE_SITE_EXT]) && is_array($data[self::FIELD_RESIDUE_SITE_EXT])) ? $data[self::FIELD_RESIDUE_SITE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setResidueSite($value);
@@ -220,11 +220,17 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -245,9 +251,9 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Linkage connectivity is assumed to be 3’-5’. If the linkage is either
      * 3’-3’ or 5’-5’ this should be specified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getConnectivity()
+    public function getConnectivity(): ?FHIRString
     {
         return $this->connectivity;
     }
@@ -263,10 +269,10 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Linkage connectivity is assumed to be 3’-5’. If the linkage is either
      * 3’-3’ or 5’-5’ this should be specified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $connectivity
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $connectivity
      * @return static
      */
-    public function setConnectivity($connectivity = null)
+    public function setConnectivity($connectivity = null): object
     {
         if (null !== $connectivity && !($connectivity instanceof FHIRString)) {
             $connectivity = new FHIRString($connectivity);
@@ -286,7 +292,7 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRIdentifier
     {
         return $this->identifier;
     }
@@ -302,7 +308,7 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function setIdentifier(FHIRIdentifier $identifier = null)
+    public function setIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueSet($this->identifier, $identifier);
         $this->identifier = $identifier;
@@ -317,9 +323,9 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Each linkage will be registered as a fragment and have at least one name. A
      * single name shall be assigned to each linkage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -332,10 +338,10 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * Each linkage will be registered as a fragment and have at least one name. A
      * single name shall be assigned to each linkage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -352,9 +358,9 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      *
      * Residues shall be captured as described in 5.3.6.8.3.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getResidueSite()
+    public function getResidueSite(): ?FHIRString
     {
         return $this->residueSite;
     }
@@ -366,10 +372,10 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      *
      * Residues shall be captured as described in 5.3.6.8.3.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $residueSite
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $residueSite
      * @return static
      */
-    public function setResidueSite($residueSite = null)
+    public function setResidueSite($residueSite = null): object
     {
         if (null !== $residueSite && !($residueSite instanceof FHIRString)) {
             $residueSite = new FHIRString($residueSite);
@@ -513,15 +519,15 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidLinkage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceNucleicAcid\FHIRSubstanceNucleicAcidLinkage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceNucleicAcidLinkage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -541,7 +547,7 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -606,7 +612,7 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -639,44 +645,47 @@ class FHIRSubstanceNucleicAcidLinkage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getConnectivity())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CONNECTIVITY] = $val;
+                $out->{self::FIELD_CONNECTIVITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CONNECTIVITY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CONNECTIVITY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = $v;
+            $out->{self::FIELD_IDENTIFIER} = $v;
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResidueSite())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESIDUE_SITE] = $val;
+                $out->{self::FIELD_RESIDUE_SITE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESIDUE_SITE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESIDUE_SITE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

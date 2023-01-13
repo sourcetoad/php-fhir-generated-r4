@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,9 +97,9 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * Entity or Organization having regulatory jurisdiction or accountability for
      * enforcing policies pertaining to Consent Directives.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $authority = null;
+    protected ?FHIRUri $authority = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -109,15 +109,15 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * The references to the policies that are included in this consent scope. Policies
      * may be organizational, but are often defined jurisdictionally, or in law.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $uri = null;
+    protected ?FHIRUri $uri = null;
 
     /**
      * Validation map for fields in type Consent.Policy
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRConsentPolicy Constructor
@@ -136,8 +136,8 @@ class FHIRConsentPolicy extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_AUTHORITY]) || isset($data[self::FIELD_AUTHORITY_EXT])) {
-            $value = isset($data[self::FIELD_AUTHORITY]) ? $data[self::FIELD_AUTHORITY] : null;
-            $ext = (isset($data[self::FIELD_AUTHORITY_EXT]) && is_array($data[self::FIELD_AUTHORITY_EXT])) ? $ext = $data[self::FIELD_AUTHORITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_AUTHORITY] ?? null;
+            $ext = (isset($data[self::FIELD_AUTHORITY_EXT]) && is_array($data[self::FIELD_AUTHORITY_EXT])) ? $data[self::FIELD_AUTHORITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setAuthority($value);
@@ -151,8 +151,8 @@ class FHIRConsentPolicy extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_URI]) || isset($data[self::FIELD_URI_EXT])) {
-            $value = isset($data[self::FIELD_URI]) ? $data[self::FIELD_URI] : null;
-            $ext = (isset($data[self::FIELD_URI_EXT]) && is_array($data[self::FIELD_URI_EXT])) ? $ext = $data[self::FIELD_URI_EXT] : $ext = [];
+            $value = $data[self::FIELD_URI] ?? null;
+            $ext = (isset($data[self::FIELD_URI_EXT]) && is_array($data[self::FIELD_URI_EXT])) ? $data[self::FIELD_URI_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUri($value);
@@ -167,11 +167,17 @@ class FHIRConsentPolicy extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -189,9 +195,9 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * Entity or Organization having regulatory jurisdiction or accountability for
      * enforcing policies pertaining to Consent Directives.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getAuthority()
+    public function getAuthority(): ?FHIRUri
     {
         return $this->authority;
     }
@@ -204,10 +210,10 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * Entity or Organization having regulatory jurisdiction or accountability for
      * enforcing policies pertaining to Consent Directives.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $authority
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $authority
      * @return static
      */
-    public function setAuthority($authority = null)
+    public function setAuthority($authority = null): object
     {
         if (null !== $authority && !($authority instanceof FHIRUri)) {
             $authority = new FHIRUri($authority);
@@ -225,9 +231,9 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * The references to the policies that are included in this consent scope. Policies
      * may be organizational, but are often defined jurisdictionally, or in law.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUri()
+    public function getUri(): ?FHIRUri
     {
         return $this->uri;
     }
@@ -240,10 +246,10 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * The references to the policies that are included in this consent scope. Policies
      * may be organizational, but are often defined jurisdictionally, or in law.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $uri
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $uri
      * @return static
      */
-    public function setUri($uri = null)
+    public function setUri($uri = null): object
     {
         if (null !== $uri && !($uri instanceof FHIRUri)) {
             $uri = new FHIRUri($uri);
@@ -353,15 +359,15 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentPolicy
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentPolicy    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRConsentPolicy::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -381,7 +387,7 @@ class FHIRConsentPolicy extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -433,7 +439,7 @@ class FHIRConsentPolicy extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -456,31 +462,34 @@ class FHIRConsentPolicy extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getAuthority())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AUTHORITY] = $val;
+                $out->{self::FIELD_AUTHORITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AUTHORITY_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AUTHORITY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUri())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URI] = $val;
+                $out->{self::FIELD_URI} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URI_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URI_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

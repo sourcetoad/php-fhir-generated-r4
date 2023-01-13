@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -112,7 +112,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $subject = [];
+    protected ?array $subject = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -124,7 +124,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $diseaseSymptomProcedure = null;
+    protected ?FHIRCodeableConcept $diseaseSymptomProcedure = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -136,7 +136,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $diseaseStatus = null;
+    protected ?FHIRCodeableConcept $diseaseStatus = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -148,7 +148,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $comorbidity = [];
+    protected ?array $comorbidity = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -160,7 +160,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $intendedEffect = null;
+    protected ?FHIRCodeableConcept $intendedEffect = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -173,7 +173,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $duration = null;
+    protected ?FHIRQuantity $duration = null;
 
     /**
      * Indication for the Medicinal Product.
@@ -183,7 +183,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIndication\FHIRMedicinalProductIndicationOtherTherapy[]
      */
-    protected $otherTherapy = [];
+    protected ?array $otherTherapy = [];
 
     /**
      * A reference from one resource to another.
@@ -194,7 +194,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $undesirableEffect = [];
+    protected ?array $undesirableEffect = [];
 
     /**
      * A populatioof people with some set of grouping criteria.
@@ -205,13 +205,13 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation[]
      */
-    protected $population = [];
+    protected ?array $population = [];
 
     /**
      * Validation map for fields in type MedicinalProductIndication
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductIndication Constructor
@@ -349,11 +349,17 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -362,6 +368,9 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
         }
         return "<MedicinalProductIndication{$xmlns}></MedicinalProductIndication>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -377,7 +386,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSubject()
+    public function getSubject(): ?array
     {
         return $this->subject;
     }
@@ -392,7 +401,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function addSubject(FHIRReference $subject = null)
+    public function addSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueAdded();
         $this->subject[] = $subject;
@@ -409,7 +418,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $subject
      * @return static
      */
-    public function setSubject(array $subject = [])
+    public function setSubject(array $subject = []): object
     {
         if ([] !== $this->subject) {
             $this->_trackValuesRemoved(count($this->subject));
@@ -438,7 +447,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDiseaseSymptomProcedure()
+    public function getDiseaseSymptomProcedure(): ?FHIRCodeableConcept
     {
         return $this->diseaseSymptomProcedure;
     }
@@ -454,7 +463,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $diseaseSymptomProcedure
      * @return static
      */
-    public function setDiseaseSymptomProcedure(FHIRCodeableConcept $diseaseSymptomProcedure = null)
+    public function setDiseaseSymptomProcedure(?FHIRCodeableConcept $diseaseSymptomProcedure = null): object
     {
         $this->_trackValueSet($this->diseaseSymptomProcedure, $diseaseSymptomProcedure);
         $this->diseaseSymptomProcedure = $diseaseSymptomProcedure;
@@ -471,7 +480,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDiseaseStatus()
+    public function getDiseaseStatus(): ?FHIRCodeableConcept
     {
         return $this->diseaseStatus;
     }
@@ -487,7 +496,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $diseaseStatus
      * @return static
      */
-    public function setDiseaseStatus(FHIRCodeableConcept $diseaseStatus = null)
+    public function setDiseaseStatus(?FHIRCodeableConcept $diseaseStatus = null): object
     {
         $this->_trackValueSet($this->diseaseStatus, $diseaseStatus);
         $this->diseaseStatus = $diseaseStatus;
@@ -504,7 +513,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getComorbidity()
+    public function getComorbidity(): ?array
     {
         return $this->comorbidity;
     }
@@ -520,7 +529,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $comorbidity
      * @return static
      */
-    public function addComorbidity(FHIRCodeableConcept $comorbidity = null)
+    public function addComorbidity(?FHIRCodeableConcept $comorbidity = null): object
     {
         $this->_trackValueAdded();
         $this->comorbidity[] = $comorbidity;
@@ -538,7 +547,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $comorbidity
      * @return static
      */
-    public function setComorbidity(array $comorbidity = [])
+    public function setComorbidity(array $comorbidity = []): object
     {
         if ([] !== $this->comorbidity) {
             $this->_trackValuesRemoved(count($this->comorbidity));
@@ -567,7 +576,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIntendedEffect()
+    public function getIntendedEffect(): ?FHIRCodeableConcept
     {
         return $this->intendedEffect;
     }
@@ -583,7 +592,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $intendedEffect
      * @return static
      */
-    public function setIntendedEffect(FHIRCodeableConcept $intendedEffect = null)
+    public function setIntendedEffect(?FHIRCodeableConcept $intendedEffect = null): object
     {
         $this->_trackValueSet($this->intendedEffect, $intendedEffect);
         $this->intendedEffect = $intendedEffect;
@@ -601,7 +610,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getDuration()
+    public function getDuration(): ?FHIRQuantity
     {
         return $this->duration;
     }
@@ -618,7 +627,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $duration
      * @return static
      */
-    public function setDuration(FHIRQuantity $duration = null)
+    public function setDuration(?FHIRQuantity $duration = null): object
     {
         $this->_trackValueSet($this->duration, $duration);
         $this->duration = $duration;
@@ -633,7 +642,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIndication\FHIRMedicinalProductIndicationOtherTherapy[]
      */
-    public function getOtherTherapy()
+    public function getOtherTherapy(): ?array
     {
         return $this->otherTherapy;
     }
@@ -647,7 +656,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIndication\FHIRMedicinalProductIndicationOtherTherapy $otherTherapy
      * @return static
      */
-    public function addOtherTherapy(FHIRMedicinalProductIndicationOtherTherapy $otherTherapy = null)
+    public function addOtherTherapy(?FHIRMedicinalProductIndicationOtherTherapy $otherTherapy = null): object
     {
         $this->_trackValueAdded();
         $this->otherTherapy[] = $otherTherapy;
@@ -663,7 +672,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIndication\FHIRMedicinalProductIndicationOtherTherapy[] $otherTherapy
      * @return static
      */
-    public function setOtherTherapy(array $otherTherapy = [])
+    public function setOtherTherapy(array $otherTherapy = []): object
     {
         if ([] !== $this->otherTherapy) {
             $this->_trackValuesRemoved(count($this->otherTherapy));
@@ -691,7 +700,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getUndesirableEffect()
+    public function getUndesirableEffect(): ?array
     {
         return $this->undesirableEffect;
     }
@@ -706,7 +715,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $undesirableEffect
      * @return static
      */
-    public function addUndesirableEffect(FHIRReference $undesirableEffect = null)
+    public function addUndesirableEffect(?FHIRReference $undesirableEffect = null): object
     {
         $this->_trackValueAdded();
         $this->undesirableEffect[] = $undesirableEffect;
@@ -723,7 +732,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $undesirableEffect
      * @return static
      */
-    public function setUndesirableEffect(array $undesirableEffect = [])
+    public function setUndesirableEffect(array $undesirableEffect = []): object
     {
         if ([] !== $this->undesirableEffect) {
             $this->_trackValuesRemoved(count($this->undesirableEffect));
@@ -751,7 +760,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation[]
      */
-    public function getPopulation()
+    public function getPopulation(): ?array
     {
         return $this->population;
     }
@@ -766,7 +775,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation $population
      * @return static
      */
-    public function addPopulation(FHIRPopulation $population = null)
+    public function addPopulation(?FHIRPopulation $population = null): object
     {
         $this->_trackValueAdded();
         $this->population[] = $population;
@@ -783,7 +792,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation[] $population
      * @return static
      */
-    public function setPopulation(array $population = [])
+    public function setPopulation(array $population = []): object
     {
         if ([] !== $this->population) {
             $this->_trackValuesRemoved(count($this->population));
@@ -1091,15 +1100,15 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIndication
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIndication    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductIndication::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1119,7 +1128,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1200,7 +1209,7 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1283,68 +1292,73 @@ class FHIRMedicinalProductIndication extends FHIRDomainResource implements PHPFH
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = [];
+            $out->{self::FIELD_SUBJECT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBJECT][] = $v;
+                $out->{self::FIELD_SUBJECT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDiseaseSymptomProcedure())) {
-            $a[self::FIELD_DISEASE_SYMPTOM_PROCEDURE] = $v;
+            $out->{self::FIELD_DISEASE_SYMPTOM_PROCEDURE} = $v;
         }
         if (null !== ($v = $this->getDiseaseStatus())) {
-            $a[self::FIELD_DISEASE_STATUS] = $v;
+            $out->{self::FIELD_DISEASE_STATUS} = $v;
         }
         if ([] !== ($vs = $this->getComorbidity())) {
-            $a[self::FIELD_COMORBIDITY] = [];
+            $out->{self::FIELD_COMORBIDITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COMORBIDITY][] = $v;
+                $out->{self::FIELD_COMORBIDITY}[] = $v;
             }
         }
         if (null !== ($v = $this->getIntendedEffect())) {
-            $a[self::FIELD_INTENDED_EFFECT] = $v;
+            $out->{self::FIELD_INTENDED_EFFECT} = $v;
         }
         if (null !== ($v = $this->getDuration())) {
-            $a[self::FIELD_DURATION] = $v;
+            $out->{self::FIELD_DURATION} = $v;
         }
         if ([] !== ($vs = $this->getOtherTherapy())) {
-            $a[self::FIELD_OTHER_THERAPY] = [];
+            $out->{self::FIELD_OTHER_THERAPY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_OTHER_THERAPY][] = $v;
+                $out->{self::FIELD_OTHER_THERAPY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getUndesirableEffect())) {
-            $a[self::FIELD_UNDESIRABLE_EFFECT] = [];
+            $out->{self::FIELD_UNDESIRABLE_EFFECT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_UNDESIRABLE_EFFECT][] = $v;
+                $out->{self::FIELD_UNDESIRABLE_EFFECT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPopulation())) {
-            $a[self::FIELD_POPULATION] = [];
+            $out->{self::FIELD_POPULATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_POPULATION][] = $v;
+                $out->{self::FIELD_POPULATION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

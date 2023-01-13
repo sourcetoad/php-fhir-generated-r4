@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCarePlan;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCarePlan;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -134,7 +134,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityKind
      */
-    protected $kind = null;
+    protected ?FHIRCarePlanActivityKind $kind = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -145,9 +145,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other
      * definition that is adhered to in whole or in part by this CarePlan activity.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $instantiatesCanonical = [];
+    protected ?array $instantiatesCanonical = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -158,9 +158,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * or other definition that is adhered to in whole or in part by this CarePlan
      * activity.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    protected $instantiatesUri = [];
+    protected ?array $instantiatesUri = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -173,7 +173,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -186,7 +186,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -199,7 +199,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * A reference from one resource to another.
@@ -211,7 +211,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $goal = [];
+    protected ?array $goal = [];
 
     /**
      * Codes that reflect the current state of a care plan activity within its overall
@@ -222,7 +222,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityStatus
      */
-    protected $status = null;
+    protected ?FHIRCarePlanActivityStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -235,7 +235,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $statusReason = null;
+    protected ?FHIRCodeableConcept $statusReason = null;
 
     /**
      * Value of "true" or "false"
@@ -245,9 +245,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * in when following the plan. If false, or missing, indicates that the described
      * activity is one that should be engaged in when following the plan.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $doNotPerform = null;
+    protected ?FHIRBoolean $doNotPerform = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -262,7 +262,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $scheduledTiming = null;
+    protected ?FHIRTiming $scheduledTiming = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -273,7 +273,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $scheduledPeriod = null;
+    protected ?FHIRPeriod $scheduledPeriod = null;
 
     /**
      * A sequence of Unicode characters
@@ -282,9 +282,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * The period, timing or frequency upon which the described activity is to occur.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $scheduledString = null;
+    protected ?FHIRString $scheduledString = null;
 
     /**
      * A reference from one resource to another.
@@ -296,7 +296,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $location = null;
+    protected ?FHIRReference $location = null;
 
     /**
      * A reference from one resource to another.
@@ -307,7 +307,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $performer = [];
+    protected ?array $performer = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -320,7 +320,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $productCodeableConcept = null;
+    protected ?FHIRCodeableConcept $productCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -332,7 +332,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $productReference = null;
+    protected ?FHIRReference $productReference = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -345,7 +345,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $dailyAmount = null;
+    protected ?FHIRQuantity $dailyAmount = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -359,7 +359,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * A sequence of Unicode characters
@@ -371,15 +371,15 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * objectives, pre-conditions and end-conditions. Finally, it may convey specifics
      * about the activity such as body site, method, route, etc.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * Validation map for fields in type CarePlan.Detail
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCarePlanDetail Constructor
@@ -398,8 +398,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_KIND]) || isset($data[self::FIELD_KIND_EXT])) {
-            $value = isset($data[self::FIELD_KIND]) ? $data[self::FIELD_KIND] : null;
-            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $ext = $data[self::FIELD_KIND_EXT] : $ext = [];
+            $value = $data[self::FIELD_KIND] ?? null;
+            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $data[self::FIELD_KIND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCarePlanActivityKind) {
                     $this->setKind($value);
@@ -413,8 +413,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES_CANONICAL]) || isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES_CANONICAL]) ? $data[self::FIELD_INSTANTIATES_CANONICAL] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT]) && is_array($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_CANONICAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES_CANONICAL] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT]) && is_array($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) ? $data[self::FIELD_INSTANTIATES_CANONICAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addInstantiatesCanonical($value);
@@ -443,8 +443,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES_URI]) || isset($data[self::FIELD_INSTANTIATES_URI_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES_URI]) ? $data[self::FIELD_INSTANTIATES_URI] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_URI_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES_URI] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $data[self::FIELD_INSTANTIATES_URI_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->addInstantiatesUri($value);
@@ -534,8 +534,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCarePlanActivityStatus) {
                     $this->setStatus($value);
@@ -556,8 +556,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DO_NOT_PERFORM]) || isset($data[self::FIELD_DO_NOT_PERFORM_EXT])) {
-            $value = isset($data[self::FIELD_DO_NOT_PERFORM]) ? $data[self::FIELD_DO_NOT_PERFORM] : null;
-            $ext = (isset($data[self::FIELD_DO_NOT_PERFORM_EXT]) && is_array($data[self::FIELD_DO_NOT_PERFORM_EXT])) ? $ext = $data[self::FIELD_DO_NOT_PERFORM_EXT] : $ext = [];
+            $value = $data[self::FIELD_DO_NOT_PERFORM] ?? null;
+            $ext = (isset($data[self::FIELD_DO_NOT_PERFORM_EXT]) && is_array($data[self::FIELD_DO_NOT_PERFORM_EXT])) ? $data[self::FIELD_DO_NOT_PERFORM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setDoNotPerform($value);
@@ -585,8 +585,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SCHEDULED_STRING]) || isset($data[self::FIELD_SCHEDULED_STRING_EXT])) {
-            $value = isset($data[self::FIELD_SCHEDULED_STRING]) ? $data[self::FIELD_SCHEDULED_STRING] : null;
-            $ext = (isset($data[self::FIELD_SCHEDULED_STRING_EXT]) && is_array($data[self::FIELD_SCHEDULED_STRING_EXT])) ? $ext = $data[self::FIELD_SCHEDULED_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_SCHEDULED_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_SCHEDULED_STRING_EXT]) && is_array($data[self::FIELD_SCHEDULED_STRING_EXT])) ? $data[self::FIELD_SCHEDULED_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setScheduledString($value);
@@ -653,8 +653,8 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -669,11 +669,17 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -695,7 +701,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityKind
      */
-    public function getKind()
+    public function getKind(): ?FHIRCarePlanActivityKind
     {
         return $this->kind;
     }
@@ -713,7 +719,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityKind $kind
      * @return static
      */
-    public function setKind(FHIRCarePlanActivityKind $kind = null)
+    public function setKind(?FHIRCarePlanActivityKind $kind = null): object
     {
         $this->_trackValueSet($this->kind, $kind);
         $this->kind = $kind;
@@ -729,9 +735,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other
      * definition that is adhered to in whole or in part by this CarePlan activity.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getInstantiatesCanonical()
+    public function getInstantiatesCanonical(): ?array
     {
         return $this->instantiatesCanonical;
     }
@@ -745,10 +751,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other
      * definition that is adhered to in whole or in part by this CarePlan activity.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $instantiatesCanonical
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiatesCanonical
      * @return static
      */
-    public function addInstantiatesCanonical($instantiatesCanonical = null)
+    public function addInstantiatesCanonical($instantiatesCanonical = null): object
     {
         if (null !== $instantiatesCanonical && !($instantiatesCanonical instanceof FHIRCanonical)) {
             $instantiatesCanonical = new FHIRCanonical($instantiatesCanonical);
@@ -770,7 +776,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiatesCanonical
      * @return static
      */
-    public function setInstantiatesCanonical(array $instantiatesCanonical = [])
+    public function setInstantiatesCanonical(array $instantiatesCanonical = []): object
     {
         if ([] !== $this->instantiatesCanonical) {
             $this->_trackValuesRemoved(count($this->instantiatesCanonical));
@@ -798,9 +804,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * or other definition that is adhered to in whole or in part by this CarePlan
      * activity.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    public function getInstantiatesUri()
+    public function getInstantiatesUri(): ?array
     {
         return $this->instantiatesUri;
     }
@@ -814,10 +820,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * or other definition that is adhered to in whole or in part by this CarePlan
      * activity.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $instantiatesUri
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiatesUri
      * @return static
      */
-    public function addInstantiatesUri($instantiatesUri = null)
+    public function addInstantiatesUri($instantiatesUri = null): object
     {
         if (null !== $instantiatesUri && !($instantiatesUri instanceof FHIRUri)) {
             $instantiatesUri = new FHIRUri($instantiatesUri);
@@ -839,7 +845,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiatesUri
      * @return static
      */
-    public function setInstantiatesUri(array $instantiatesUri = [])
+    public function setInstantiatesUri(array $instantiatesUri = []): object
     {
         if ([] !== $this->instantiatesUri) {
             $this->_trackValuesRemoved(count($this->instantiatesUri));
@@ -869,7 +875,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -886,7 +892,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -904,7 +910,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -921,7 +927,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -940,7 +946,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -970,7 +976,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -987,7 +993,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1006,7 +1012,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1035,7 +1041,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getGoal()
+    public function getGoal(): ?array
     {
         return $this->goal;
     }
@@ -1051,7 +1057,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $goal
      * @return static
      */
-    public function addGoal(FHIRReference $goal = null)
+    public function addGoal(?FHIRReference $goal = null): object
     {
         $this->_trackValueAdded();
         $this->goal[] = $goal;
@@ -1069,7 +1075,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $goal
      * @return static
      */
-    public function setGoal(array $goal = [])
+    public function setGoal(array $goal = []): object
     {
         if ([] !== $this->goal) {
             $this->_trackValuesRemoved(count($this->goal));
@@ -1097,7 +1103,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRCarePlanActivityStatus
     {
         return $this->status;
     }
@@ -1112,7 +1118,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCarePlanActivityStatus $status
      * @return static
      */
-    public function setStatus(FHIRCarePlanActivityStatus $status = null)
+    public function setStatus(?FHIRCarePlanActivityStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1130,7 +1136,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStatusReason()
+    public function getStatusReason(): ?FHIRCodeableConcept
     {
         return $this->statusReason;
     }
@@ -1147,7 +1153,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $statusReason
      * @return static
      */
-    public function setStatusReason(FHIRCodeableConcept $statusReason = null)
+    public function setStatusReason(?FHIRCodeableConcept $statusReason = null): object
     {
         $this->_trackValueSet($this->statusReason, $statusReason);
         $this->statusReason = $statusReason;
@@ -1162,9 +1168,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * in when following the plan. If false, or missing, indicates that the described
      * activity is one that should be engaged in when following the plan.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getDoNotPerform()
+    public function getDoNotPerform(): ?FHIRBoolean
     {
         return $this->doNotPerform;
     }
@@ -1177,10 +1183,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * in when following the plan. If false, or missing, indicates that the described
      * activity is one that should be engaged in when following the plan.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $doNotPerform
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $doNotPerform
      * @return static
      */
-    public function setDoNotPerform($doNotPerform = null)
+    public function setDoNotPerform($doNotPerform = null): object
     {
         if (null !== $doNotPerform && !($doNotPerform instanceof FHIRBoolean)) {
             $doNotPerform = new FHIRBoolean($doNotPerform);
@@ -1203,7 +1209,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getScheduledTiming()
+    public function getScheduledTiming(): ?FHIRTiming
     {
         return $this->scheduledTiming;
     }
@@ -1222,7 +1228,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $scheduledTiming
      * @return static
      */
-    public function setScheduledTiming(FHIRTiming $scheduledTiming = null)
+    public function setScheduledTiming(?FHIRTiming $scheduledTiming = null): object
     {
         $this->_trackValueSet($this->scheduledTiming, $scheduledTiming);
         $this->scheduledTiming = $scheduledTiming;
@@ -1238,7 +1244,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getScheduledPeriod()
+    public function getScheduledPeriod(): ?FHIRPeriod
     {
         return $this->scheduledPeriod;
     }
@@ -1253,7 +1259,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $scheduledPeriod
      * @return static
      */
-    public function setScheduledPeriod(FHIRPeriod $scheduledPeriod = null)
+    public function setScheduledPeriod(?FHIRPeriod $scheduledPeriod = null): object
     {
         $this->_trackValueSet($this->scheduledPeriod, $scheduledPeriod);
         $this->scheduledPeriod = $scheduledPeriod;
@@ -1267,9 +1273,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * The period, timing or frequency upon which the described activity is to occur.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getScheduledString()
+    public function getScheduledString(): ?FHIRString
     {
         return $this->scheduledString;
     }
@@ -1281,10 +1287,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * The period, timing or frequency upon which the described activity is to occur.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $scheduledString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $scheduledString
      * @return static
      */
-    public function setScheduledString($scheduledString = null)
+    public function setScheduledString($scheduledString = null): object
     {
         if (null !== $scheduledString && !($scheduledString instanceof FHIRString)) {
             $scheduledString = new FHIRString($scheduledString);
@@ -1304,7 +1310,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRReference
     {
         return $this->location;
     }
@@ -1320,7 +1326,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $location
      * @return static
      */
-    public function setLocation(FHIRReference $location = null)
+    public function setLocation(?FHIRReference $location = null): object
     {
         $this->_trackValueSet($this->location, $location);
         $this->location = $location;
@@ -1336,7 +1342,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getPerformer()
+    public function getPerformer(): ?array
     {
         return $this->performer;
     }
@@ -1351,7 +1357,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $performer
      * @return static
      */
-    public function addPerformer(FHIRReference $performer = null)
+    public function addPerformer(?FHIRReference $performer = null): object
     {
         $this->_trackValueAdded();
         $this->performer[] = $performer;
@@ -1368,7 +1374,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $performer
      * @return static
      */
-    public function setPerformer(array $performer = [])
+    public function setPerformer(array $performer = []): object
     {
         if ([] !== $this->performer) {
             $this->_trackValuesRemoved(count($this->performer));
@@ -1398,7 +1404,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getProductCodeableConcept()
+    public function getProductCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->productCodeableConcept;
     }
@@ -1415,7 +1421,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $productCodeableConcept
      * @return static
      */
-    public function setProductCodeableConcept(FHIRCodeableConcept $productCodeableConcept = null)
+    public function setProductCodeableConcept(?FHIRCodeableConcept $productCodeableConcept = null): object
     {
         $this->_trackValueSet($this->productCodeableConcept, $productCodeableConcept);
         $this->productCodeableConcept = $productCodeableConcept;
@@ -1432,7 +1438,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getProductReference()
+    public function getProductReference(): ?FHIRReference
     {
         return $this->productReference;
     }
@@ -1448,7 +1454,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $productReference
      * @return static
      */
-    public function setProductReference(FHIRReference $productReference = null)
+    public function setProductReference(?FHIRReference $productReference = null): object
     {
         $this->_trackValueSet($this->productReference, $productReference);
         $this->productReference = $productReference;
@@ -1466,7 +1472,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getDailyAmount()
+    public function getDailyAmount(): ?FHIRQuantity
     {
         return $this->dailyAmount;
     }
@@ -1483,7 +1489,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $dailyAmount
      * @return static
      */
-    public function setDailyAmount(FHIRQuantity $dailyAmount = null)
+    public function setDailyAmount(?FHIRQuantity $dailyAmount = null): object
     {
         $this->_trackValueSet($this->dailyAmount, $dailyAmount);
         $this->dailyAmount = $dailyAmount;
@@ -1502,7 +1508,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -1520,7 +1526,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -1537,9 +1543,9 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * objectives, pre-conditions and end-conditions. Finally, it may convey specifics
      * about the activity such as body site, method, route, etc.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -1554,10 +1560,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * objectives, pre-conditions and end-conditions. Finally, it may convey specifics
      * about the activity such as body site, method, route, etc.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -1985,15 +1991,15 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCarePlan\FHIRCarePlanDetail
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCarePlan\FHIRCarePlanDetail    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCarePlanDetail::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2013,7 +2019,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2128,7 +2134,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2271,18 +2277,20 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getKind())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_KIND] = $val;
+                $out->{self::FIELD_KIND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCarePlanActivityKind::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_KIND_EXT] = $ext;
+            unset($ext->{FHIRCarePlanActivityKind::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_KIND_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getInstantiatesCanonical())) {
@@ -2294,7 +2302,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -2303,10 +2311,10 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES_CANONICAL] = $vals;
+                $out->{self::FIELD_INSTANTIATES_CANONICAL} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_CANONICAL_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_CANONICAL_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getInstantiatesUri())) {
@@ -2318,7 +2326,7 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRUri::FIELD_VALUE]);
+                unset($ext->{FHIRUri::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -2327,116 +2335,117 @@ class FHIRCarePlanDetail extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES_URI] = $vals;
+                $out->{self::FIELD_INSTANTIATES_URI} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_URI_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_URI_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getGoal())) {
-            $a[self::FIELD_GOAL] = [];
+            $out->{self::FIELD_GOAL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_GOAL][] = $v;
+                $out->{self::FIELD_GOAL}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCarePlanActivityStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRCarePlanActivityStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatusReason())) {
-            $a[self::FIELD_STATUS_REASON] = $v;
+            $out->{self::FIELD_STATUS_REASON} = $v;
         }
         if (null !== ($v = $this->getDoNotPerform())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DO_NOT_PERFORM] = $val;
+                $out->{self::FIELD_DO_NOT_PERFORM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DO_NOT_PERFORM_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DO_NOT_PERFORM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getScheduledTiming())) {
-            $a[self::FIELD_SCHEDULED_TIMING] = $v;
+            $out->{self::FIELD_SCHEDULED_TIMING} = $v;
         }
         if (null !== ($v = $this->getScheduledPeriod())) {
-            $a[self::FIELD_SCHEDULED_PERIOD] = $v;
+            $out->{self::FIELD_SCHEDULED_PERIOD} = $v;
         }
         if (null !== ($v = $this->getScheduledString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SCHEDULED_STRING] = $val;
+                $out->{self::FIELD_SCHEDULED_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SCHEDULED_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SCHEDULED_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = $v;
+            $out->{self::FIELD_LOCATION} = $v;
         }
         if ([] !== ($vs = $this->getPerformer())) {
-            $a[self::FIELD_PERFORMER] = [];
+            $out->{self::FIELD_PERFORMER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PERFORMER][] = $v;
+                $out->{self::FIELD_PERFORMER}[] = $v;
             }
         }
         if (null !== ($v = $this->getProductCodeableConcept())) {
-            $a[self::FIELD_PRODUCT_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_PRODUCT_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getProductReference())) {
-            $a[self::FIELD_PRODUCT_REFERENCE] = $v;
+            $out->{self::FIELD_PRODUCT_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getDailyAmount())) {
-            $a[self::FIELD_DAILY_AMOUNT] = $v;
+            $out->{self::FIELD_DAILY_AMOUNT} = $v;
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -115,7 +115,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $doseRange = null;
+    protected ?FHIRRange $doseRange = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -128,7 +128,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $doseQuantity = null;
+    protected ?FHIRQuantity $doseQuantity = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -140,7 +140,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $rateRatio = null;
+    protected ?FHIRRatio $rateRatio = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -151,7 +151,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $rateRange = null;
+    protected ?FHIRRange $rateRange = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -164,13 +164,13 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $rateQuantity = null;
+    protected ?FHIRQuantity $rateQuantity = null;
 
     /**
      * Validation map for fields in type Dosage.DoseAndRate
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDosageDoseAndRate Constructor
@@ -232,11 +232,17 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -256,7 +262,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -272,7 +278,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -288,7 +294,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getDoseRange()
+    public function getDoseRange(): ?FHIRRange
     {
         return $this->doseRange;
     }
@@ -303,7 +309,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $doseRange
      * @return static
      */
-    public function setDoseRange(FHIRRange $doseRange = null)
+    public function setDoseRange(?FHIRRange $doseRange = null): object
     {
         $this->_trackValueSet($this->doseRange, $doseRange);
         $this->doseRange = $doseRange;
@@ -321,7 +327,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getDoseQuantity()
+    public function getDoseQuantity(): ?FHIRQuantity
     {
         return $this->doseQuantity;
     }
@@ -338,7 +344,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $doseQuantity
      * @return static
      */
-    public function setDoseQuantity(FHIRQuantity $doseQuantity = null)
+    public function setDoseQuantity(?FHIRQuantity $doseQuantity = null): object
     {
         $this->_trackValueSet($this->doseQuantity, $doseQuantity);
         $this->doseQuantity = $doseQuantity;
@@ -355,7 +361,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getRateRatio()
+    public function getRateRatio(): ?FHIRRatio
     {
         return $this->rateRatio;
     }
@@ -371,7 +377,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $rateRatio
      * @return static
      */
-    public function setRateRatio(FHIRRatio $rateRatio = null)
+    public function setRateRatio(?FHIRRatio $rateRatio = null): object
     {
         $this->_trackValueSet($this->rateRatio, $rateRatio);
         $this->rateRatio = $rateRatio;
@@ -387,7 +393,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getRateRange()
+    public function getRateRange(): ?FHIRRange
     {
         return $this->rateRange;
     }
@@ -402,7 +408,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $rateRange
      * @return static
      */
-    public function setRateRange(FHIRRange $rateRange = null)
+    public function setRateRange(?FHIRRange $rateRange = null): object
     {
         $this->_trackValueSet($this->rateRange, $rateRange);
         $this->rateRange = $rateRange;
@@ -420,7 +426,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getRateQuantity()
+    public function getRateQuantity(): ?FHIRQuantity
     {
         return $this->rateQuantity;
     }
@@ -437,7 +443,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $rateQuantity
      * @return static
      */
-    public function setRateQuantity(FHIRQuantity $rateQuantity = null)
+    public function setRateQuantity(?FHIRQuantity $rateQuantity = null): object
     {
         $this->_trackValueSet($this->rateQuantity, $rateQuantity);
         $this->rateQuantity = $rateQuantity;
@@ -612,15 +618,15 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDosageDoseAndRate::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -640,7 +646,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -682,7 +688,7 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -725,29 +731,32 @@ class FHIRDosageDoseAndRate extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getDoseRange())) {
-            $a[self::FIELD_DOSE_RANGE] = $v;
+            $out->{self::FIELD_DOSE_RANGE} = $v;
         }
         if (null !== ($v = $this->getDoseQuantity())) {
-            $a[self::FIELD_DOSE_QUANTITY] = $v;
+            $out->{self::FIELD_DOSE_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getRateRatio())) {
-            $a[self::FIELD_RATE_RATIO] = $v;
+            $out->{self::FIELD_RATE_RATIO} = $v;
         }
         if (null !== ($v = $this->getRateRange())) {
-            $a[self::FIELD_RATE_RANGE] = $v;
+            $out->{self::FIELD_RATE_RANGE} = $v;
         }
         if (null !== ($v = $this->getRateQuantity())) {
-            $a[self::FIELD_RATE_QUANTITY] = $v;
+            $out->{self::FIELD_RATE_QUANTITY} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

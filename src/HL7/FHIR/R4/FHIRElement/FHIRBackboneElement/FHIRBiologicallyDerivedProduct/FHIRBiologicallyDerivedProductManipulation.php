@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedPro
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -98,9 +98,9 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Description of manipulation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -112,9 +112,9 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Time of manipulation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $timeDateTime = null;
+    protected ?FHIRDateTime $timeDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -125,13 +125,13 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $timePeriod = null;
+    protected ?FHIRPeriod $timePeriod = null;
 
     /**
      * Validation map for fields in type BiologicallyDerivedProduct.Manipulation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRBiologicallyDerivedProductManipulation Constructor
@@ -150,8 +150,8 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -165,8 +165,8 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TIME_DATE_TIME]) || isset($data[self::FIELD_TIME_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_TIME_DATE_TIME]) ? $data[self::FIELD_TIME_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_TIME_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIME_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_TIME_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIME_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_TIME_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIME_DATE_TIME_EXT])) ? $data[self::FIELD_TIME_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTimeDateTime($value);
@@ -188,11 +188,17 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -209,9 +215,9 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Description of manipulation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -223,10 +229,10 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Description of manipulation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -246,9 +252,9 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Time of manipulation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTimeDateTime()
+    public function getTimeDateTime(): ?FHIRDateTime
     {
         return $this->timeDateTime;
     }
@@ -263,10 +269,10 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * Time of manipulation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timeDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timeDateTime
      * @return static
      */
-    public function setTimeDateTime($timeDateTime = null)
+    public function setTimeDateTime($timeDateTime = null): object
     {
         if (null !== $timeDateTime && !($timeDateTime instanceof FHIRDateTime)) {
             $timeDateTime = new FHIRDateTime($timeDateTime);
@@ -285,7 +291,7 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getTimePeriod()
+    public function getTimePeriod(): ?FHIRPeriod
     {
         return $this->timePeriod;
     }
@@ -300,7 +306,7 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $timePeriod
      * @return static
      */
-    public function setTimePeriod(FHIRPeriod $timePeriod = null)
+    public function setTimePeriod(?FHIRPeriod $timePeriod = null): object
     {
         $this->_trackValueSet($this->timePeriod, $timePeriod);
         $this->timePeriod = $timePeriod;
@@ -424,15 +430,15 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct\FHIRBiologicallyDerivedProductManipulation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct\FHIRBiologicallyDerivedProductManipulation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBiologicallyDerivedProductManipulation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -452,7 +458,7 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -506,7 +512,7 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -534,34 +540,37 @@ class FHIRBiologicallyDerivedProductManipulation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimeDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIME_DATE_TIME] = $val;
+                $out->{self::FIELD_TIME_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIME_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIME_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimePeriod())) {
-            $a[self::FIELD_TIME_PERIOD] = $v;
+            $out->{self::FIELD_TIME_PERIOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

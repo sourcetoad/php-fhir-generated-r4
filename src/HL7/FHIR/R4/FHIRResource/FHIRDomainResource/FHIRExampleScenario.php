@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -141,9 +141,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the example scenario is stored on different servers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -157,7 +157,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A sequence of Unicode characters
@@ -171,9 +171,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A sequence of Unicode characters
@@ -184,9 +184,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -196,7 +196,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * Value of "true" or "false"
@@ -206,9 +206,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $experimental = null;
+    protected ?FHIRBoolean $experimental = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -223,9 +223,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * example scenario changes. (e.g. the 'content logical definition').
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -234,9 +234,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the example scenario.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $publisher = null;
+    protected ?FHIRString $publisher = null;
 
     /**
      * Specifies contact information for a person or organization.
@@ -248,7 +248,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * Specifies clinical/business/etc. metadata that can be used to retrieve, index
@@ -266,7 +266,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    protected $useContext = [];
+    protected ?array $useContext = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -279,7 +279,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -294,9 +294,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the example scenario.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $copyright = null;
+    protected ?FHIRMarkdown $copyright = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -311,9 +311,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * show the business purpose of the scenario itself, but the purpose of documenting
      * a scenario.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $purpose = null;
+    protected ?FHIRMarkdown $purpose = null;
 
     /**
      * Example of workflow instance.
@@ -322,7 +322,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioActor[]
      */
-    protected $actor = [];
+    protected ?array $actor = [];
 
     /**
      * Example of workflow instance.
@@ -331,7 +331,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioInstance[]
      */
-    protected $instance = [];
+    protected ?array $instance = [];
 
     /**
      * Example of workflow instance.
@@ -340,7 +340,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioProcess[]
      */
-    protected $process = [];
+    protected ?array $process = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -350,15 +350,15 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * Another nested workflow.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $workflow = [];
+    protected ?array $workflow = [];
 
     /**
      * Validation map for fields in type ExampleScenario
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRExampleScenario Constructor
@@ -377,8 +377,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -410,8 +410,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -425,8 +425,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -440,8 +440,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -455,8 +455,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_EXPERIMENTAL]) || isset($data[self::FIELD_EXPERIMENTAL_EXT])) {
-            $value = isset($data[self::FIELD_EXPERIMENTAL]) ? $data[self::FIELD_EXPERIMENTAL] : null;
-            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $ext = $data[self::FIELD_EXPERIMENTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPERIMENTAL] ?? null;
+            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $data[self::FIELD_EXPERIMENTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExperimental($value);
@@ -470,8 +470,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -485,8 +485,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_PUBLISHER]) || isset($data[self::FIELD_PUBLISHER_EXT])) {
-            $value = isset($data[self::FIELD_PUBLISHER]) ? $data[self::FIELD_PUBLISHER] : null;
-            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $ext = $data[self::FIELD_PUBLISHER_EXT] : $ext = [];
+            $value = $data[self::FIELD_PUBLISHER] ?? null;
+            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $data[self::FIELD_PUBLISHER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPublisher($value);
@@ -554,8 +554,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_COPYRIGHT]) || isset($data[self::FIELD_COPYRIGHT_EXT])) {
-            $value = isset($data[self::FIELD_COPYRIGHT]) ? $data[self::FIELD_COPYRIGHT] : null;
-            $ext = (isset($data[self::FIELD_COPYRIGHT_EXT]) && is_array($data[self::FIELD_COPYRIGHT_EXT])) ? $ext = $data[self::FIELD_COPYRIGHT_EXT] : $ext = [];
+            $value = $data[self::FIELD_COPYRIGHT] ?? null;
+            $ext = (isset($data[self::FIELD_COPYRIGHT_EXT]) && is_array($data[self::FIELD_COPYRIGHT_EXT])) ? $data[self::FIELD_COPYRIGHT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setCopyright($value);
@@ -569,8 +569,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_PURPOSE]) || isset($data[self::FIELD_PURPOSE_EXT])) {
-            $value = isset($data[self::FIELD_PURPOSE]) ? $data[self::FIELD_PURPOSE] : null;
-            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $ext = $data[self::FIELD_PURPOSE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PURPOSE] ?? null;
+            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $data[self::FIELD_PURPOSE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setPurpose($value);
@@ -638,8 +638,8 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
             }
         }
         if (isset($data[self::FIELD_WORKFLOW]) || isset($data[self::FIELD_WORKFLOW_EXT])) {
-            $value = isset($data[self::FIELD_WORKFLOW]) ? $data[self::FIELD_WORKFLOW] : null;
-            $ext = (isset($data[self::FIELD_WORKFLOW_EXT]) && is_array($data[self::FIELD_WORKFLOW_EXT])) ? $ext = $data[self::FIELD_WORKFLOW_EXT] : $ext = [];
+            $value = $data[self::FIELD_WORKFLOW] ?? null;
+            $ext = (isset($data[self::FIELD_WORKFLOW_EXT]) && is_array($data[self::FIELD_WORKFLOW_EXT])) ? $data[self::FIELD_WORKFLOW_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addWorkflow($value);
@@ -669,11 +669,17 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -682,6 +688,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
         }
         return "<ExampleScenario{$xmlns}></ExampleScenario>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -700,9 +709,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the example scenario is stored on different servers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -719,10 +728,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * (or will be) published. This URL can be the target of a canonical reference. It
      * SHALL remain the same when the example scenario is stored on different servers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -744,7 +753,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -762,7 +771,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -782,7 +791,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -813,9 +822,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -832,10 +841,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -854,9 +863,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -870,10 +879,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * usable as an identifier for the module by machine processing applications such
      * as code generation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -891,7 +900,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -905,7 +914,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -920,9 +929,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExperimental()
+    public function getExperimental(): ?FHIRBoolean
     {
         return $this->experimental;
     }
@@ -935,10 +944,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * purposes (or education/evaluation/marketing) and is not intended to be used for
      * genuine usage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
      * @return static
      */
-    public function setExperimental($experimental = null)
+    public function setExperimental($experimental = null): object
     {
         if (null !== $experimental && !($experimental instanceof FHIRBoolean)) {
             $experimental = new FHIRBoolean($experimental);
@@ -961,9 +970,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * example scenario changes. (e.g. the 'content logical definition').
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -981,10 +990,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * code changes. In addition, it should change when the substantive content of the
      * example scenario changes. (e.g. the 'content logical definition').
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -1001,9 +1010,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the example scenario.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPublisher()
+    public function getPublisher(): ?FHIRString
     {
         return $this->publisher;
     }
@@ -1015,10 +1024,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * The name of the organization or individual that published the example scenario.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
      * @return static
      */
-    public function setPublisher($publisher = null)
+    public function setPublisher($publisher = null): object
     {
         if (null !== $publisher && !($publisher instanceof FHIRString)) {
             $publisher = new FHIRString($publisher);
@@ -1038,7 +1047,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1054,7 +1063,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail $contact
      * @return static
      */
-    public function addContact(FHIRContactDetail $contact = null)
+    public function addContact(?FHIRContactDetail $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1072,7 +1081,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactDetail[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1107,7 +1116,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    public function getUseContext()
+    public function getUseContext(): ?array
     {
         return $this->useContext;
     }
@@ -1129,7 +1138,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext $useContext
      * @return static
      */
-    public function addUseContext(FHIRUsageContext $useContext = null)
+    public function addUseContext(?FHIRUsageContext $useContext = null): object
     {
         $this->_trackValueAdded();
         $this->useContext[] = $useContext;
@@ -1153,7 +1162,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUsageContext[] $useContext
      * @return static
      */
-    public function setUseContext(array $useContext = [])
+    public function setUseContext(array $useContext = []): object
     {
         if ([] !== $this->useContext) {
             $this->_trackValuesRemoved(count($this->useContext));
@@ -1183,7 +1192,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -1200,7 +1209,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -1219,7 +1228,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -1251,9 +1260,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the example scenario.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getCopyright()
+    public function getCopyright(): ?FHIRMarkdown
     {
         return $this->copyright;
     }
@@ -1271,10 +1280,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * Copyright statements are generally legal restrictions on the use and publishing
      * of the example scenario.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $copyright
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $copyright
      * @return static
      */
-    public function setCopyright($copyright = null)
+    public function setCopyright($copyright = null): object
     {
         if (null !== $copyright && !($copyright instanceof FHIRMarkdown)) {
             $copyright = new FHIRMarkdown($copyright);
@@ -1297,9 +1306,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * show the business purpose of the scenario itself, but the purpose of documenting
      * a scenario.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getPurpose()
+    public function getPurpose(): ?FHIRMarkdown
     {
         return $this->purpose;
     }
@@ -1317,10 +1326,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * show the business purpose of the scenario itself, but the purpose of documenting
      * a scenario.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
      * @return static
      */
-    public function setPurpose($purpose = null)
+    public function setPurpose($purpose = null): object
     {
         if (null !== $purpose && !($purpose instanceof FHIRMarkdown)) {
             $purpose = new FHIRMarkdown($purpose);
@@ -1337,7 +1346,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioActor[]
      */
-    public function getActor()
+    public function getActor(): ?array
     {
         return $this->actor;
     }
@@ -1350,7 +1359,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioActor $actor
      * @return static
      */
-    public function addActor(FHIRExampleScenarioActor $actor = null)
+    public function addActor(?FHIRExampleScenarioActor $actor = null): object
     {
         $this->_trackValueAdded();
         $this->actor[] = $actor;
@@ -1365,7 +1374,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioActor[] $actor
      * @return static
      */
-    public function setActor(array $actor = [])
+    public function setActor(array $actor = []): object
     {
         if ([] !== $this->actor) {
             $this->_trackValuesRemoved(count($this->actor));
@@ -1391,7 +1400,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioInstance[]
      */
-    public function getInstance()
+    public function getInstance(): ?array
     {
         return $this->instance;
     }
@@ -1404,7 +1413,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioInstance $instance
      * @return static
      */
-    public function addInstance(FHIRExampleScenarioInstance $instance = null)
+    public function addInstance(?FHIRExampleScenarioInstance $instance = null): object
     {
         $this->_trackValueAdded();
         $this->instance[] = $instance;
@@ -1419,7 +1428,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioInstance[] $instance
      * @return static
      */
-    public function setInstance(array $instance = [])
+    public function setInstance(array $instance = []): object
     {
         if ([] !== $this->instance) {
             $this->_trackValuesRemoved(count($this->instance));
@@ -1445,7 +1454,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioProcess[]
      */
-    public function getProcess()
+    public function getProcess(): ?array
     {
         return $this->process;
     }
@@ -1458,7 +1467,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioProcess $process
      * @return static
      */
-    public function addProcess(FHIRExampleScenarioProcess $process = null)
+    public function addProcess(?FHIRExampleScenarioProcess $process = null): object
     {
         $this->_trackValueAdded();
         $this->process[] = $process;
@@ -1473,7 +1482,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioProcess[] $process
      * @return static
      */
-    public function setProcess(array $process = [])
+    public function setProcess(array $process = []): object
     {
         if ([] !== $this->process) {
             $this->_trackValuesRemoved(count($this->process));
@@ -1500,9 +1509,9 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * Another nested workflow.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getWorkflow()
+    public function getWorkflow(): ?array
     {
         return $this->workflow;
     }
@@ -1515,10 +1524,10 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      *
      * Another nested workflow.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $workflow
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $workflow
      * @return static
      */
-    public function addWorkflow($workflow = null)
+    public function addWorkflow($workflow = null): object
     {
         if (null !== $workflow && !($workflow instanceof FHIRCanonical)) {
             $workflow = new FHIRCanonical($workflow);
@@ -1539,7 +1548,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $workflow
      * @return static
      */
-    public function setWorkflow(array $workflow = [])
+    public function setWorkflow(array $workflow = []): object
     {
         if ([] !== $this->workflow) {
             $this->_trackValuesRemoved(count($this->workflow));
@@ -1989,15 +1998,15 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExampleScenario
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExampleScenario    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRExampleScenario::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2017,7 +2026,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2195,7 +2204,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2333,161 +2342,163 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExperimental())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPERIMENTAL] = $val;
+                $out->{self::FIELD_EXPERIMENTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPERIMENTAL_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPERIMENTAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPublisher())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PUBLISHER] = $val;
+                $out->{self::FIELD_PUBLISHER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PUBLISHER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PUBLISHER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getUseContext())) {
-            $a[self::FIELD_USE_CONTEXT] = [];
+            $out->{self::FIELD_USE_CONTEXT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_USE_CONTEXT][] = $v;
+                $out->{self::FIELD_USE_CONTEXT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getCopyright())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COPYRIGHT] = $val;
+                $out->{self::FIELD_COPYRIGHT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COPYRIGHT_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COPYRIGHT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPurpose())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PURPOSE] = $val;
+                $out->{self::FIELD_PURPOSE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PURPOSE_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PURPOSE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getActor())) {
-            $a[self::FIELD_ACTOR] = [];
+            $out->{self::FIELD_ACTOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ACTOR][] = $v;
+                $out->{self::FIELD_ACTOR}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getInstance())) {
-            $a[self::FIELD_INSTANCE] = [];
+            $out->{self::FIELD_INSTANCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_INSTANCE][] = $v;
+                $out->{self::FIELD_INSTANCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProcess())) {
-            $a[self::FIELD_PROCESS] = [];
+            $out->{self::FIELD_PROCESS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROCESS][] = $v;
+                $out->{self::FIELD_PROCESS}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getWorkflow())) {
@@ -2499,7 +2510,7 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -2508,13 +2519,16 @@ class FHIRExampleScenario extends FHIRDomainResource implements PHPFHIRContained
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_WORKFLOW] = $vals;
+                $out->{self::FIELD_WORKFLOW} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_WORKFLOW_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WORKFLOW_EXT} = $exts;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

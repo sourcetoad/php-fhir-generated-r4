@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRActionConditionKind
      */
-    protected $kind = null;
+    protected ?FHIRActionConditionKind $kind = null;
 
     /**
      * A expression that is evaluated in a specified context and returns a value. The
@@ -110,13 +110,13 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    protected $expression = null;
+    protected ?FHIRExpression $expression = null;
 
     /**
      * Validation map for fields in type RequestGroup.Condition
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRRequestGroupCondition Constructor
@@ -135,8 +135,8 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_KIND]) || isset($data[self::FIELD_KIND_EXT])) {
-            $value = isset($data[self::FIELD_KIND]) ? $data[self::FIELD_KIND] : null;
-            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $ext = $data[self::FIELD_KIND_EXT] : $ext = [];
+            $value = $data[self::FIELD_KIND] ?? null;
+            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $data[self::FIELD_KIND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRActionConditionKind) {
                     $this->setKind($value);
@@ -158,11 +158,17 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -180,7 +186,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRActionConditionKind
      */
-    public function getKind()
+    public function getKind(): ?FHIRActionConditionKind
     {
         return $this->kind;
     }
@@ -194,7 +200,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRActionConditionKind $kind
      * @return static
      */
-    public function setKind(FHIRActionConditionKind $kind = null)
+    public function setKind(?FHIRActionConditionKind $kind = null): object
     {
         $this->_trackValueSet($this->kind, $kind);
         $this->kind = $kind;
@@ -213,7 +219,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    public function getExpression()
+    public function getExpression(): ?FHIRExpression
     {
         return $this->expression;
     }
@@ -231,7 +237,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExpression $expression
      * @return static
      */
-    public function setExpression(FHIRExpression $expression = null)
+    public function setExpression(?FHIRExpression $expression = null): object
     {
         $this->_trackValueSet($this->expression, $expression);
         $this->expression = $expression;
@@ -338,15 +344,15 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRequestGroup\FHIRRequestGroupCondition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRRequestGroupCondition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -366,7 +372,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -400,7 +406,7 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -423,24 +429,27 @@ class FHIRRequestGroupCondition extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getKind())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_KIND] = $val;
+                $out->{self::FIELD_KIND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRActionConditionKind::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_KIND_EXT] = $ext;
+            unset($ext->{FHIRActionConditionKind::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_KIND_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExpression())) {
-            $a[self::FIELD_EXPRESSION] = $v;
+            $out->{self::FIELD_EXPRESSION} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

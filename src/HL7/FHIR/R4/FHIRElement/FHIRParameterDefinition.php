@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,9 +108,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The name of the parameter used to allow access to the value of the parameter in
      * evaluation contexts.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $name = null;
+    protected ?FHIRCode $name = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -120,9 +120,9 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * Whether the parameter is input or output for the module.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $use = null;
+    protected ?FHIRCode $use = null;
 
     /**
      * A whole number
@@ -132,9 +132,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The minimum number of times this parameter SHALL appear in the request or
      * response.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $min = null;
+    protected ?FHIRInteger $min = null;
 
     /**
      * A sequence of Unicode characters
@@ -144,9 +144,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The maximum number of times this element is permitted to appear in the request
      * or response.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $max = null;
+    protected ?FHIRString $max = null;
 
     /**
      * A sequence of Unicode characters
@@ -156,9 +156,9 @@ class FHIRParameterDefinition extends FHIRElement
      * A brief discussion of what the parameter is for and how it is used by the
      * module.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $documentation = null;
+    protected ?FHIRString $documentation = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -168,9 +168,9 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * The type of the parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $type = null;
+    protected ?FHIRCode $type = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -181,15 +181,15 @@ class FHIRParameterDefinition extends FHIRElement
      * If specified, this indicates a profile that the input data must conform to, or
      * that the output data will conform to.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $profile = null;
+    protected ?FHIRCanonical $profile = null;
 
     /**
      * Validation map for fields in type ParameterDefinition
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRParameterDefinition Constructor
@@ -208,8 +208,8 @@ class FHIRParameterDefinition extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setName($value);
@@ -223,8 +223,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_USE]) || isset($data[self::FIELD_USE_EXT])) {
-            $value = isset($data[self::FIELD_USE]) ? $data[self::FIELD_USE] : null;
-            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $ext = $data[self::FIELD_USE_EXT] : $ext = [];
+            $value = $data[self::FIELD_USE] ?? null;
+            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $data[self::FIELD_USE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setUse($value);
@@ -238,8 +238,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_MIN]) || isset($data[self::FIELD_MIN_EXT])) {
-            $value = isset($data[self::FIELD_MIN]) ? $data[self::FIELD_MIN] : null;
-            $ext = (isset($data[self::FIELD_MIN_EXT]) && is_array($data[self::FIELD_MIN_EXT])) ? $ext = $data[self::FIELD_MIN_EXT] : $ext = [];
+            $value = $data[self::FIELD_MIN] ?? null;
+            $ext = (isset($data[self::FIELD_MIN_EXT]) && is_array($data[self::FIELD_MIN_EXT])) ? $data[self::FIELD_MIN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setMin($value);
@@ -253,8 +253,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_MAX]) || isset($data[self::FIELD_MAX_EXT])) {
-            $value = isset($data[self::FIELD_MAX]) ? $data[self::FIELD_MAX] : null;
-            $ext = (isset($data[self::FIELD_MAX_EXT]) && is_array($data[self::FIELD_MAX_EXT])) ? $ext = $data[self::FIELD_MAX_EXT] : $ext = [];
+            $value = $data[self::FIELD_MAX] ?? null;
+            $ext = (isset($data[self::FIELD_MAX_EXT]) && is_array($data[self::FIELD_MAX_EXT])) ? $data[self::FIELD_MAX_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setMax($value);
@@ -268,8 +268,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_DOCUMENTATION]) || isset($data[self::FIELD_DOCUMENTATION_EXT])) {
-            $value = isset($data[self::FIELD_DOCUMENTATION]) ? $data[self::FIELD_DOCUMENTATION] : null;
-            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $ext = $data[self::FIELD_DOCUMENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DOCUMENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $data[self::FIELD_DOCUMENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDocumentation($value);
@@ -283,8 +283,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setType($value);
@@ -298,8 +298,8 @@ class FHIRParameterDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_PROFILE]) || isset($data[self::FIELD_PROFILE_EXT])) {
-            $value = isset($data[self::FIELD_PROFILE]) ? $data[self::FIELD_PROFILE] : null;
-            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $ext = $data[self::FIELD_PROFILE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROFILE] ?? null;
+            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $data[self::FIELD_PROFILE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setProfile($value);
@@ -314,11 +314,17 @@ class FHIRParameterDefinition extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -337,9 +343,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The name of the parameter used to allow access to the value of the parameter in
      * evaluation contexts.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getName()
+    public function getName(): ?FHIRCode
     {
         return $this->name;
     }
@@ -353,10 +359,10 @@ class FHIRParameterDefinition extends FHIRElement
      * The name of the parameter used to allow access to the value of the parameter in
      * evaluation contexts.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $name
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRCode)) {
             $name = new FHIRCode($name);
@@ -374,9 +380,9 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * Whether the parameter is input or output for the module.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getUse()
+    public function getUse(): ?FHIRCode
     {
         return $this->use;
     }
@@ -389,10 +395,10 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * Whether the parameter is input or output for the module.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $use
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $use
      * @return static
      */
-    public function setUse($use = null)
+    public function setUse($use = null): object
     {
         if (null !== $use && !($use instanceof FHIRCode)) {
             $use = new FHIRCode($use);
@@ -410,9 +416,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The minimum number of times this parameter SHALL appear in the request or
      * response.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getMin()
+    public function getMin(): ?FHIRInteger
     {
         return $this->min;
     }
@@ -425,10 +431,10 @@ class FHIRParameterDefinition extends FHIRElement
      * The minimum number of times this parameter SHALL appear in the request or
      * response.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $min
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $min
      * @return static
      */
-    public function setMin($min = null)
+    public function setMin($min = null): object
     {
         if (null !== $min && !($min instanceof FHIRInteger)) {
             $min = new FHIRInteger($min);
@@ -446,9 +452,9 @@ class FHIRParameterDefinition extends FHIRElement
      * The maximum number of times this element is permitted to appear in the request
      * or response.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getMax()
+    public function getMax(): ?FHIRString
     {
         return $this->max;
     }
@@ -461,10 +467,10 @@ class FHIRParameterDefinition extends FHIRElement
      * The maximum number of times this element is permitted to appear in the request
      * or response.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $max
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $max
      * @return static
      */
-    public function setMax($max = null)
+    public function setMax($max = null): object
     {
         if (null !== $max && !($max instanceof FHIRString)) {
             $max = new FHIRString($max);
@@ -482,9 +488,9 @@ class FHIRParameterDefinition extends FHIRElement
      * A brief discussion of what the parameter is for and how it is used by the
      * module.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?FHIRString
     {
         return $this->documentation;
     }
@@ -497,10 +503,10 @@ class FHIRParameterDefinition extends FHIRElement
      * A brief discussion of what the parameter is for and how it is used by the
      * module.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
      * @return static
      */
-    public function setDocumentation($documentation = null)
+    public function setDocumentation($documentation = null): object
     {
         if (null !== $documentation && !($documentation instanceof FHIRString)) {
             $documentation = new FHIRString($documentation);
@@ -518,9 +524,9 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * The type of the parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getType()
+    public function getType(): ?FHIRCode
     {
         return $this->type;
     }
@@ -533,10 +539,10 @@ class FHIRParameterDefinition extends FHIRElement
      *
      * The type of the parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $type
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $type
      * @return static
      */
-    public function setType($type = null)
+    public function setType($type = null): object
     {
         if (null !== $type && !($type instanceof FHIRCode)) {
             $type = new FHIRCode($type);
@@ -555,9 +561,9 @@ class FHIRParameterDefinition extends FHIRElement
      * If specified, this indicates a profile that the input data must conform to, or
      * that the output data will conform to.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getProfile()
+    public function getProfile(): ?FHIRCanonical
     {
         return $this->profile;
     }
@@ -571,10 +577,10 @@ class FHIRParameterDefinition extends FHIRElement
      * If specified, this indicates a profile that the input data must conform to, or
      * that the output data will conform to.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $profile
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $profile
      * @return static
      */
-    public function setProfile($profile = null)
+    public function setProfile($profile = null): object
     {
         if (null !== $profile && !($profile instanceof FHIRCanonical)) {
             $profile = new FHIRCanonical($profile);
@@ -757,15 +763,15 @@ class FHIRParameterDefinition extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRParameterDefinition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRParameterDefinition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRParameterDefinition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -785,7 +791,7 @@ class FHIRParameterDefinition extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -890,7 +896,7 @@ class FHIRParameterDefinition extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -938,81 +944,84 @@ class FHIRParameterDefinition extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getUse())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_USE] = $val;
+                $out->{self::FIELD_USE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_USE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_USE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMin())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MIN] = $val;
+                $out->{self::FIELD_MIN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MIN_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MIN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMax())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MAX] = $val;
+                $out->{self::FIELD_MAX} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MAX_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MAX_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDocumentation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DOCUMENTATION] = $val;
+                $out->{self::FIELD_DOCUMENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DOCUMENTATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DOCUMENTATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProfile())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PROFILE] = $val;
+                $out->{self::FIELD_PROFILE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PROFILE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROFILE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

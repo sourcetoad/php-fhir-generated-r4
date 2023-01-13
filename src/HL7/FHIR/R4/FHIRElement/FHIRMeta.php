@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,9 +106,9 @@ class FHIRMeta extends FHIRElement
      * The version specific identifier, as it appears in the version portion of the
      * URL. This value changes when the resource is created, updated, or deleted.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $versionId = null;
+    protected ?FHIRId $versionId = null;
 
     /**
      * An instant in time - known at least to the second
@@ -120,9 +120,9 @@ class FHIRMeta extends FHIRElement
      *
      * When the resource last changed - e.g. when the version changed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $lastUpdated = null;
+    protected ?FHIRInstant $lastUpdated = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -134,9 +134,9 @@ class FHIRMeta extends FHIRElement
      * differentiate the source of information in the resource. The source may identify
      * another FHIR server, document, message, database, etc.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $source = null;
+    protected ?FHIRUri $source = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -148,9 +148,9 @@ class FHIRMeta extends FHIRElement
      * resource claims to conform to. The URL is a reference to
      * [[[StructureDefinition.url]]].
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $profile = [];
+    protected ?array $profile = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -162,7 +162,7 @@ class FHIRMeta extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $security = [];
+    protected ?array $security = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -175,13 +175,13 @@ class FHIRMeta extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $tag = [];
+    protected ?array $tag = [];
 
     /**
      * Validation map for fields in type Meta
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMeta Constructor
@@ -200,8 +200,8 @@ class FHIRMeta extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_VERSION_ID]) || isset($data[self::FIELD_VERSION_ID_EXT])) {
-            $value = isset($data[self::FIELD_VERSION_ID]) ? $data[self::FIELD_VERSION_ID] : null;
-            $ext = (isset($data[self::FIELD_VERSION_ID_EXT]) && is_array($data[self::FIELD_VERSION_ID_EXT])) ? $ext = $data[self::FIELD_VERSION_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION_ID] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_ID_EXT]) && is_array($data[self::FIELD_VERSION_ID_EXT])) ? $data[self::FIELD_VERSION_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setVersionId($value);
@@ -215,8 +215,8 @@ class FHIRMeta extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_LAST_UPDATED]) || isset($data[self::FIELD_LAST_UPDATED_EXT])) {
-            $value = isset($data[self::FIELD_LAST_UPDATED]) ? $data[self::FIELD_LAST_UPDATED] : null;
-            $ext = (isset($data[self::FIELD_LAST_UPDATED_EXT]) && is_array($data[self::FIELD_LAST_UPDATED_EXT])) ? $ext = $data[self::FIELD_LAST_UPDATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_LAST_UPDATED] ?? null;
+            $ext = (isset($data[self::FIELD_LAST_UPDATED_EXT]) && is_array($data[self::FIELD_LAST_UPDATED_EXT])) ? $data[self::FIELD_LAST_UPDATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setLastUpdated($value);
@@ -230,8 +230,8 @@ class FHIRMeta extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SOURCE]) || isset($data[self::FIELD_SOURCE_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE]) ? $data[self::FIELD_SOURCE] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $ext = $data[self::FIELD_SOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $data[self::FIELD_SOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSource($value);
@@ -245,8 +245,8 @@ class FHIRMeta extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_PROFILE]) || isset($data[self::FIELD_PROFILE_EXT])) {
-            $value = isset($data[self::FIELD_PROFILE]) ? $data[self::FIELD_PROFILE] : null;
-            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $ext = $data[self::FIELD_PROFILE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROFILE] ?? null;
+            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $data[self::FIELD_PROFILE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addProfile($value);
@@ -312,11 +312,17 @@ class FHIRMeta extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -337,9 +343,9 @@ class FHIRMeta extends FHIRElement
      * The version specific identifier, as it appears in the version portion of the
      * URL. This value changes when the resource is created, updated, or deleted.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getVersionId()
+    public function getVersionId(): ?FHIRId
     {
         return $this->versionId;
     }
@@ -355,10 +361,10 @@ class FHIRMeta extends FHIRElement
      * The version specific identifier, as it appears in the version portion of the
      * URL. This value changes when the resource is created, updated, or deleted.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $versionId
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $versionId
      * @return static
      */
-    public function setVersionId($versionId = null)
+    public function setVersionId($versionId = null): object
     {
         if (null !== $versionId && !($versionId instanceof FHIRId)) {
             $versionId = new FHIRId($versionId);
@@ -378,9 +384,9 @@ class FHIRMeta extends FHIRElement
      *
      * When the resource last changed - e.g. when the version changed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getLastUpdated()
+    public function getLastUpdated(): ?FHIRInstant
     {
         return $this->lastUpdated;
     }
@@ -395,10 +401,10 @@ class FHIRMeta extends FHIRElement
      *
      * When the resource last changed - e.g. when the version changed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $lastUpdated
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $lastUpdated
      * @return static
      */
-    public function setLastUpdated($lastUpdated = null)
+    public function setLastUpdated($lastUpdated = null): object
     {
         if (null !== $lastUpdated && !($lastUpdated instanceof FHIRInstant)) {
             $lastUpdated = new FHIRInstant($lastUpdated);
@@ -418,9 +424,9 @@ class FHIRMeta extends FHIRElement
      * differentiate the source of information in the resource. The source may identify
      * another FHIR server, document, message, database, etc.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSource()
+    public function getSource(): ?FHIRUri
     {
         return $this->source;
     }
@@ -435,10 +441,10 @@ class FHIRMeta extends FHIRElement
      * differentiate the source of information in the resource. The source may identify
      * another FHIR server, document, message, database, etc.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $source
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $source
      * @return static
      */
-    public function setSource($source = null)
+    public function setSource($source = null): object
     {
         if (null !== $source && !($source instanceof FHIRUri)) {
             $source = new FHIRUri($source);
@@ -458,9 +464,9 @@ class FHIRMeta extends FHIRElement
      * resource claims to conform to. The URL is a reference to
      * [[[StructureDefinition.url]]].
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getProfile()
+    public function getProfile(): ?array
     {
         return $this->profile;
     }
@@ -475,10 +481,10 @@ class FHIRMeta extends FHIRElement
      * resource claims to conform to. The URL is a reference to
      * [[[StructureDefinition.url]]].
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $profile
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $profile
      * @return static
      */
-    public function addProfile($profile = null)
+    public function addProfile($profile = null): object
     {
         if (null !== $profile && !($profile instanceof FHIRCanonical)) {
             $profile = new FHIRCanonical($profile);
@@ -501,7 +507,7 @@ class FHIRMeta extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $profile
      * @return static
      */
-    public function setProfile(array $profile = [])
+    public function setProfile(array $profile = []): object
     {
         if ([] !== $this->profile) {
             $this->_trackValuesRemoved(count($this->profile));
@@ -530,7 +536,7 @@ class FHIRMeta extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getSecurity()
+    public function getSecurity(): ?array
     {
         return $this->security;
     }
@@ -546,7 +552,7 @@ class FHIRMeta extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $security
      * @return static
      */
-    public function addSecurity(FHIRCoding $security = null)
+    public function addSecurity(?FHIRCoding $security = null): object
     {
         $this->_trackValueAdded();
         $this->security[] = $security;
@@ -564,7 +570,7 @@ class FHIRMeta extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $security
      * @return static
      */
-    public function setSecurity(array $security = [])
+    public function setSecurity(array $security = []): object
     {
         if ([] !== $this->security) {
             $this->_trackValuesRemoved(count($this->security));
@@ -594,7 +600,7 @@ class FHIRMeta extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getTag()
+    public function getTag(): ?array
     {
         return $this->tag;
     }
@@ -611,7 +617,7 @@ class FHIRMeta extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $tag
      * @return static
      */
-    public function addTag(FHIRCoding $tag = null)
+    public function addTag(?FHIRCoding $tag = null): object
     {
         $this->_trackValueAdded();
         $this->tag[] = $tag;
@@ -630,7 +636,7 @@ class FHIRMeta extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $tag
      * @return static
      */
-    public function setTag(array $tag = [])
+    public function setTag(array $tag = []): object
     {
         if ([] !== $this->tag) {
             $this->_trackValuesRemoved(count($this->tag));
@@ -811,15 +817,15 @@ class FHIRMeta extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMeta
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRMeta    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMeta::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -839,7 +845,7 @@ class FHIRMeta extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -915,7 +921,7 @@ class FHIRMeta extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -973,38 +979,40 @@ class FHIRMeta extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getVersionId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION_ID] = $val;
+                $out->{self::FIELD_VERSION_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLastUpdated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LAST_UPDATED] = $val;
+                $out->{self::FIELD_LAST_UPDATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LAST_UPDATED_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LAST_UPDATED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE] = $val;
+                $out->{self::FIELD_SOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getProfile())) {
@@ -1016,7 +1024,7 @@ class FHIRMeta extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1025,31 +1033,32 @@ class FHIRMeta extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PROFILE] = $vals;
+                $out->{self::FIELD_PROFILE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PROFILE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROFILE_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getSecurity())) {
-            $a[self::FIELD_SECURITY] = [];
+            $out->{self::FIELD_SECURITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SECURITY][] = $v;
+                $out->{self::FIELD_SECURITY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTag())) {
-            $a[self::FIELD_TAG] = [];
+            $out->{self::FIELD_TAG} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TAG][] = $v;
+                $out->{self::FIELD_TAG}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

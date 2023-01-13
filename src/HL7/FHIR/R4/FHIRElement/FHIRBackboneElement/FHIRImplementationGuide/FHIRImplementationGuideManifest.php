@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,9 +103,9 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * A pointer to official web page, PDF or other rendering of the implementation
      * guide.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @var null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    protected $rendering = null;
+    protected ?FHIRUrl $rendering = null;
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -120,7 +120,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource1[]
      */
-    protected $resource = [];
+    protected ?array $resource = [];
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -132,7 +132,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage1[]
      */
-    protected $page = [];
+    protected ?array $page = [];
 
     /**
      * A sequence of Unicode characters
@@ -141,9 +141,9 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * Indicates a relative path to an image that exists within the IG.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $image = [];
+    protected ?array $image = [];
 
     /**
      * A sequence of Unicode characters
@@ -154,15 +154,15 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * part of the IG - e.g. zip, jar and similar files that could be the target of a
      * hyperlink in a derived IG.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $other = [];
+    protected ?array $other = [];
 
     /**
      * Validation map for fields in type ImplementationGuide.Manifest
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_RESOURCE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -185,8 +185,8 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_RENDERING]) || isset($data[self::FIELD_RENDERING_EXT])) {
-            $value = isset($data[self::FIELD_RENDERING]) ? $data[self::FIELD_RENDERING] : null;
-            $ext = (isset($data[self::FIELD_RENDERING_EXT]) && is_array($data[self::FIELD_RENDERING_EXT])) ? $ext = $data[self::FIELD_RENDERING_EXT] : $ext = [];
+            $value = $data[self::FIELD_RENDERING] ?? null;
+            $ext = (isset($data[self::FIELD_RENDERING_EXT]) && is_array($data[self::FIELD_RENDERING_EXT])) ? $data[self::FIELD_RENDERING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUrl) {
                     $this->setRendering($value);
@@ -236,8 +236,8 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_IMAGE]) || isset($data[self::FIELD_IMAGE_EXT])) {
-            $value = isset($data[self::FIELD_IMAGE]) ? $data[self::FIELD_IMAGE] : null;
-            $ext = (isset($data[self::FIELD_IMAGE_EXT]) && is_array($data[self::FIELD_IMAGE_EXT])) ? $ext = $data[self::FIELD_IMAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_IMAGE] ?? null;
+            $ext = (isset($data[self::FIELD_IMAGE_EXT]) && is_array($data[self::FIELD_IMAGE_EXT])) ? $data[self::FIELD_IMAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addImage($value);
@@ -266,8 +266,8 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OTHER]) || isset($data[self::FIELD_OTHER_EXT])) {
-            $value = isset($data[self::FIELD_OTHER]) ? $data[self::FIELD_OTHER] : null;
-            $ext = (isset($data[self::FIELD_OTHER_EXT]) && is_array($data[self::FIELD_OTHER_EXT])) ? $ext = $data[self::FIELD_OTHER_EXT] : $ext = [];
+            $value = $data[self::FIELD_OTHER] ?? null;
+            $ext = (isset($data[self::FIELD_OTHER_EXT]) && is_array($data[self::FIELD_OTHER_EXT])) ? $data[self::FIELD_OTHER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addOther($value);
@@ -297,11 +297,17 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -319,9 +325,9 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * A pointer to official web page, PDF or other rendering of the implementation
      * guide.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @return null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    public function getRendering()
+    public function getRendering(): ?FHIRUrl
     {
         return $this->rendering;
     }
@@ -334,10 +340,10 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * A pointer to official web page, PDF or other rendering of the implementation
      * guide.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUrl $rendering
+     * @param null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl $rendering
      * @return static
      */
-    public function setRendering($rendering = null)
+    public function setRendering($rendering = null): object
     {
         if (null !== $rendering && !($rendering instanceof FHIRUrl)) {
             $rendering = new FHIRUrl($rendering);
@@ -360,7 +366,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource1[]
      */
-    public function getResource()
+    public function getResource(): ?array
     {
         return $this->resource;
     }
@@ -379,7 +385,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource1 $resource
      * @return static
      */
-    public function addResource(FHIRImplementationGuideResource1 $resource = null)
+    public function addResource(?FHIRImplementationGuideResource1 $resource = null): object
     {
         $this->_trackValueAdded();
         $this->resource[] = $resource;
@@ -400,7 +406,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource1[] $resource
      * @return static
      */
-    public function setResource(array $resource = [])
+    public function setResource(array $resource = []): object
     {
         if ([] !== $this->resource) {
             $this->_trackValuesRemoved(count($this->resource));
@@ -429,7 +435,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage1[]
      */
-    public function getPage()
+    public function getPage(): ?array
     {
         return $this->page;
     }
@@ -445,7 +451,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage1 $page
      * @return static
      */
-    public function addPage(FHIRImplementationGuidePage1 $page = null)
+    public function addPage(?FHIRImplementationGuidePage1 $page = null): object
     {
         $this->_trackValueAdded();
         $this->page[] = $page;
@@ -463,7 +469,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage1[] $page
      * @return static
      */
-    public function setPage(array $page = [])
+    public function setPage(array $page = []): object
     {
         if ([] !== $this->page) {
             $this->_trackValuesRemoved(count($this->page));
@@ -489,9 +495,9 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * Indicates a relative path to an image that exists within the IG.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getImage()
+    public function getImage(): ?array
     {
         return $this->image;
     }
@@ -503,10 +509,10 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      *
      * Indicates a relative path to an image that exists within the IG.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $image
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $image
      * @return static
      */
-    public function addImage($image = null)
+    public function addImage($image = null): object
     {
         if (null !== $image && !($image instanceof FHIRString)) {
             $image = new FHIRString($image);
@@ -526,7 +532,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $image
      * @return static
      */
-    public function setImage(array $image = [])
+    public function setImage(array $image = []): object
     {
         if ([] !== $this->image) {
             $this->_trackValuesRemoved(count($this->image));
@@ -554,9 +560,9 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * part of the IG - e.g. zip, jar and similar files that could be the target of a
      * hyperlink in a derived IG.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getOther()
+    public function getOther(): ?array
     {
         return $this->other;
     }
@@ -570,10 +576,10 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * part of the IG - e.g. zip, jar and similar files that could be the target of a
      * hyperlink in a derived IG.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $other
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $other
      * @return static
      */
-    public function addOther($other = null)
+    public function addOther($other = null): object
     {
         if (null !== $other && !($other instanceof FHIRString)) {
             $other = new FHIRString($other);
@@ -595,7 +601,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $other
      * @return static
      */
-    public function setOther(array $other = [])
+    public function setOther(array $other = []): object
     {
         if ([] !== $this->other) {
             $this->_trackValuesRemoved(count($this->other));
@@ -773,15 +779,15 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideManifest
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideManifest    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImplementationGuideManifest::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -801,7 +807,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -868,7 +874,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -926,36 +932,38 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getRendering())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RENDERING] = $val;
+                $out->{self::FIELD_RENDERING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUrl::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RENDERING_EXT] = $ext;
+            unset($ext->{FHIRUrl::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RENDERING_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getResource())) {
-            $a[self::FIELD_RESOURCE] = [];
+            $out->{self::FIELD_RESOURCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RESOURCE][] = $v;
+                $out->{self::FIELD_RESOURCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPage())) {
-            $a[self::FIELD_PAGE] = [];
+            $out->{self::FIELD_PAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PAGE][] = $v;
+                $out->{self::FIELD_PAGE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getImage())) {
@@ -967,7 +975,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -976,10 +984,10 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_IMAGE] = $vals;
+                $out->{self::FIELD_IMAGE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_IMAGE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IMAGE_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getOther())) {
@@ -991,7 +999,7 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1000,13 +1008,14 @@ class FHIRImplementationGuideManifest extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_OTHER] = $vals;
+                $out->{self::FIELD_OTHER} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_OTHER_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OTHER_EXT} = $exts;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -112,7 +112,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity[]
      */
-    protected $valueQuantity = [];
+    protected ?array $valueQuantity = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -124,13 +124,13 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $valueCode = [];
+    protected ?array $valueCode = [];
 
     /**
      * Validation map for fields in type Device.Property
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDeviceProperty Constructor
@@ -193,11 +193,17 @@ class FHIRDeviceProperty extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -217,7 +223,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -233,7 +239,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -251,7 +257,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity[]
      */
-    public function getValueQuantity()
+    public function getValueQuantity(): ?array
     {
         return $this->valueQuantity;
     }
@@ -268,7 +274,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $valueQuantity
      * @return static
      */
-    public function addValueQuantity(FHIRQuantity $valueQuantity = null)
+    public function addValueQuantity(?FHIRQuantity $valueQuantity = null): object
     {
         $this->_trackValueAdded();
         $this->valueQuantity[] = $valueQuantity;
@@ -287,7 +293,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRQuantity[] $valueQuantity
      * @return static
      */
-    public function setValueQuantity(array $valueQuantity = [])
+    public function setValueQuantity(array $valueQuantity = []): object
     {
         if ([] !== $this->valueQuantity) {
             $this->_trackValuesRemoved(count($this->valueQuantity));
@@ -316,7 +322,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getValueCode()
+    public function getValueCode(): ?array
     {
         return $this->valueCode;
     }
@@ -332,7 +338,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $valueCode
      * @return static
      */
-    public function addValueCode(FHIRCodeableConcept $valueCode = null)
+    public function addValueCode(?FHIRCodeableConcept $valueCode = null): object
     {
         $this->_trackValueAdded();
         $this->valueCode[] = $valueCode;
@@ -350,7 +356,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $valueCode
      * @return static
      */
-    public function setValueCode(array $valueCode = [])
+    public function setValueCode(array $valueCode = []): object
     {
         if ([] !== $this->valueCode) {
             $this->_trackValuesRemoved(count($this->valueCode));
@@ -490,15 +496,15 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDevice\FHIRDeviceProperty    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDeviceProperty::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -518,7 +524,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -554,7 +560,7 @@ class FHIRDeviceProperty extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -592,32 +598,35 @@ class FHIRDeviceProperty extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getValueQuantity())) {
-            $a[self::FIELD_VALUE_QUANTITY] = [];
+            $out->{self::FIELD_VALUE_QUANTITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_VALUE_QUANTITY][] = $v;
+                $out->{self::FIELD_VALUE_QUANTITY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getValueCode())) {
-            $a[self::FIELD_VALUE_CODE] = [];
+            $out->{self::FIELD_VALUE_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_VALUE_CODE][] = $v;
+                $out->{self::FIELD_VALUE_CODE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

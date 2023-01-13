@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $protocol = null;
+    protected ?FHIRCoding $protocol = null;
 
     /**
      * A URI that is a literal reference
@@ -110,15 +110,15 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * The network address of the endpoint. For solutions that do not use network
      * addresses for routing, it can be just an identifier.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @var null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    protected $address = null;
+    protected ?FHIRUrl $address = null;
 
     /**
      * Validation map for fields in type CapabilityStatement.Endpoint
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCapabilityStatementEndpoint Constructor
@@ -144,8 +144,8 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ADDRESS]) || isset($data[self::FIELD_ADDRESS_EXT])) {
-            $value = isset($data[self::FIELD_ADDRESS]) ? $data[self::FIELD_ADDRESS] : null;
-            $ext = (isset($data[self::FIELD_ADDRESS_EXT]) && is_array($data[self::FIELD_ADDRESS_EXT])) ? $ext = $data[self::FIELD_ADDRESS_EXT] : $ext = [];
+            $value = $data[self::FIELD_ADDRESS] ?? null;
+            $ext = (isset($data[self::FIELD_ADDRESS_EXT]) && is_array($data[self::FIELD_ADDRESS_EXT])) ? $data[self::FIELD_ADDRESS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUrl) {
                     $this->setAddress($value);
@@ -160,11 +160,17 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -184,7 +190,7 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getProtocol()
+    public function getProtocol(): ?FHIRCoding
     {
         return $this->protocol;
     }
@@ -200,7 +206,7 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $protocol
      * @return static
      */
-    public function setProtocol(FHIRCoding $protocol = null)
+    public function setProtocol(?FHIRCoding $protocol = null): object
     {
         $this->_trackValueSet($this->protocol, $protocol);
         $this->protocol = $protocol;
@@ -215,9 +221,9 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * The network address of the endpoint. For solutions that do not use network
      * addresses for routing, it can be just an identifier.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUrl
+     * @return null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl
      */
-    public function getAddress()
+    public function getAddress(): ?FHIRUrl
     {
         return $this->address;
     }
@@ -230,10 +236,10 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * The network address of the endpoint. For solutions that do not use network
      * addresses for routing, it can be just an identifier.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUrl $address
+     * @param null|\HL7\FHIR\R4\FHIRUrlPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUrl $address
      * @return static
      */
-    public function setAddress($address = null)
+    public function setAddress($address = null): object
     {
         if (null !== $address && !($address instanceof FHIRUrl)) {
             $address = new FHIRUrl($address);
@@ -343,15 +349,15 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementEndpoint
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCapabilityStatement\FHIRCapabilityStatementEndpoint    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCapabilityStatementEndpoint::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -371,7 +377,7 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -414,7 +420,7 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -437,24 +443,27 @@ class FHIRCapabilityStatementEndpoint extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getProtocol())) {
-            $a[self::FIELD_PROTOCOL] = $v;
+            $out->{self::FIELD_PROTOCOL} = $v;
         }
         if (null !== ($v = $this->getAddress())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ADDRESS] = $val;
+                $out->{self::FIELD_ADDRESS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUrl::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ADDRESS_EXT] = $ext;
+            unset($ext->{FHIRUrl::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ADDRESS_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

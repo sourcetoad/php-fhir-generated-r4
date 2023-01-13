@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,7 +95,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeDosage[]
      */
-    protected $dosage = [];
+    protected ?array $dosage = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -107,7 +107,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $indicationCodeableConcept = null;
+    protected ?FHIRCodeableConcept $indicationCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -118,7 +118,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $indicationReference = null;
+    protected ?FHIRReference $indicationReference = null;
 
     /**
      * Information about a medication that is used to support knowledge.
@@ -128,13 +128,13 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgePatientCharacteristics[]
      */
-    protected $patientCharacteristics = [];
+    protected ?array $patientCharacteristics = [];
 
     /**
      * Validation map for fields in type MedicationKnowledge.AdministrationGuidelines
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationKnowledgeAdministrationGuidelines Constructor
@@ -204,11 +204,17 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -225,7 +231,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeDosage[]
      */
-    public function getDosage()
+    public function getDosage(): ?array
     {
         return $this->dosage;
     }
@@ -238,7 +244,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeDosage $dosage
      * @return static
      */
-    public function addDosage(FHIRMedicationKnowledgeDosage $dosage = null)
+    public function addDosage(?FHIRMedicationKnowledgeDosage $dosage = null): object
     {
         $this->_trackValueAdded();
         $this->dosage[] = $dosage;
@@ -253,7 +259,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeDosage[] $dosage
      * @return static
      */
-    public function setDosage(array $dosage = [])
+    public function setDosage(array $dosage = []): object
     {
         if ([] !== $this->dosage) {
             $this->_trackValuesRemoved(count($this->dosage));
@@ -282,7 +288,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIndicationCodeableConcept()
+    public function getIndicationCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->indicationCodeableConcept;
     }
@@ -298,7 +304,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $indicationCodeableConcept
      * @return static
      */
-    public function setIndicationCodeableConcept(FHIRCodeableConcept $indicationCodeableConcept = null)
+    public function setIndicationCodeableConcept(?FHIRCodeableConcept $indicationCodeableConcept = null): object
     {
         $this->_trackValueSet($this->indicationCodeableConcept, $indicationCodeableConcept);
         $this->indicationCodeableConcept = $indicationCodeableConcept;
@@ -314,7 +320,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getIndicationReference()
+    public function getIndicationReference(): ?FHIRReference
     {
         return $this->indicationReference;
     }
@@ -329,7 +335,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $indicationReference
      * @return static
      */
-    public function setIndicationReference(FHIRReference $indicationReference = null)
+    public function setIndicationReference(?FHIRReference $indicationReference = null): object
     {
         $this->_trackValueSet($this->indicationReference, $indicationReference);
         $this->indicationReference = $indicationReference;
@@ -344,7 +350,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgePatientCharacteristics[]
      */
-    public function getPatientCharacteristics()
+    public function getPatientCharacteristics(): ?array
     {
         return $this->patientCharacteristics;
     }
@@ -358,7 +364,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgePatientCharacteristics $patientCharacteristics
      * @return static
      */
-    public function addPatientCharacteristics(FHIRMedicationKnowledgePatientCharacteristics $patientCharacteristics = null)
+    public function addPatientCharacteristics(?FHIRMedicationKnowledgePatientCharacteristics $patientCharacteristics = null): object
     {
         $this->_trackValueAdded();
         $this->patientCharacteristics[] = $patientCharacteristics;
@@ -374,7 +380,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgePatientCharacteristics[] $patientCharacteristics
      * @return static
      */
-    public function setPatientCharacteristics(array $patientCharacteristics = [])
+    public function setPatientCharacteristics(array $patientCharacteristics = []): object
     {
         if ([] !== $this->patientCharacteristics) {
             $this->_trackValuesRemoved(count($this->patientCharacteristics));
@@ -531,15 +537,15 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeAdministrationGuidelines
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeAdministrationGuidelines    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationKnowledgeAdministrationGuidelines::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -559,7 +565,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -597,7 +603,7 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -640,35 +646,38 @@ class FHIRMedicationKnowledgeAdministrationGuidelines extends FHIRBackboneElemen
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getDosage())) {
-            $a[self::FIELD_DOSAGE] = [];
+            $out->{self::FIELD_DOSAGE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOSAGE][] = $v;
+                $out->{self::FIELD_DOSAGE}[] = $v;
             }
         }
         if (null !== ($v = $this->getIndicationCodeableConcept())) {
-            $a[self::FIELD_INDICATION_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_INDICATION_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getIndicationReference())) {
-            $a[self::FIELD_INDICATION_REFERENCE] = $v;
+            $out->{self::FIELD_INDICATION_REFERENCE} = $v;
         }
         if ([] !== ($vs = $this->getPatientCharacteristics())) {
-            $a[self::FIELD_PATIENT_CHARACTERISTICS] = [];
+            $out->{self::FIELD_PATIENT_CHARACTERISTICS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PATIENT_CHARACTERISTICS][] = $v;
+                $out->{self::FIELD_PATIENT_CHARACTERISTICS}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

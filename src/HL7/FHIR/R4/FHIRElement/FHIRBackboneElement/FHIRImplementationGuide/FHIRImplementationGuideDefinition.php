@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideGrouping[]
      */
-    protected $grouping = [];
+    protected ?array $grouping = [];
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -115,7 +115,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource[]
      */
-    protected $resource = [];
+    protected ?array $resource = [];
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -128,7 +128,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage
      */
-    protected $page = null;
+    protected ?FHIRImplementationGuidePage $page = null;
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -140,7 +140,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideParameter[]
      */
-    protected $parameter = [];
+    protected ?array $parameter = [];
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -152,13 +152,13 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate[]
      */
-    protected $template = [];
+    protected ?array $template = [];
 
     /**
      * Validation map for fields in type ImplementationGuide.Definition
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_RESOURCE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -261,11 +261,17 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -285,7 +291,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideGrouping[]
      */
-    public function getGrouping()
+    public function getGrouping(): ?array
     {
         return $this->grouping;
     }
@@ -301,7 +307,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideGrouping $grouping
      * @return static
      */
-    public function addGrouping(FHIRImplementationGuideGrouping $grouping = null)
+    public function addGrouping(?FHIRImplementationGuideGrouping $grouping = null): object
     {
         $this->_trackValueAdded();
         $this->grouping[] = $grouping;
@@ -319,7 +325,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideGrouping[] $grouping
      * @return static
      */
-    public function setGrouping(array $grouping = [])
+    public function setGrouping(array $grouping = []): object
     {
         if ([] !== $this->grouping) {
             $this->_trackValuesRemoved(count($this->grouping));
@@ -351,7 +357,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource[]
      */
-    public function getResource()
+    public function getResource(): ?array
     {
         return $this->resource;
     }
@@ -370,7 +376,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource $resource
      * @return static
      */
-    public function addResource(FHIRImplementationGuideResource $resource = null)
+    public function addResource(?FHIRImplementationGuideResource $resource = null): object
     {
         $this->_trackValueAdded();
         $this->resource[] = $resource;
@@ -391,7 +397,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideResource[] $resource
      * @return static
      */
-    public function setResource(array $resource = [])
+    public function setResource(array $resource = []): object
     {
         if ([] !== $this->resource) {
             $this->_trackValuesRemoved(count($this->resource));
@@ -421,7 +427,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage
      */
-    public function getPage()
+    public function getPage(): ?FHIRImplementationGuidePage
     {
         return $this->page;
     }
@@ -438,7 +444,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuidePage $page
      * @return static
      */
-    public function setPage(FHIRImplementationGuidePage $page = null)
+    public function setPage(?FHIRImplementationGuidePage $page = null): object
     {
         $this->_trackValueSet($this->page, $page);
         $this->page = $page;
@@ -455,7 +461,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideParameter[]
      */
-    public function getParameter()
+    public function getParameter(): ?array
     {
         return $this->parameter;
     }
@@ -471,7 +477,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideParameter $parameter
      * @return static
      */
-    public function addParameter(FHIRImplementationGuideParameter $parameter = null)
+    public function addParameter(?FHIRImplementationGuideParameter $parameter = null): object
     {
         $this->_trackValueAdded();
         $this->parameter[] = $parameter;
@@ -489,7 +495,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideParameter[] $parameter
      * @return static
      */
-    public function setParameter(array $parameter = [])
+    public function setParameter(array $parameter = []): object
     {
         if ([] !== $this->parameter) {
             $this->_trackValuesRemoved(count($this->parameter));
@@ -518,7 +524,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate[]
      */
-    public function getTemplate()
+    public function getTemplate(): ?array
     {
         return $this->template;
     }
@@ -534,7 +540,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate $template
      * @return static
      */
-    public function addTemplate(FHIRImplementationGuideTemplate $template = null)
+    public function addTemplate(?FHIRImplementationGuideTemplate $template = null): object
     {
         $this->_trackValueAdded();
         $this->template[] = $template;
@@ -552,7 +558,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate[] $template
      * @return static
      */
-    public function setTemplate(array $template = [])
+    public function setTemplate(array $template = []): object
     {
         if ([] !== $this->template) {
             $this->_trackValuesRemoved(count($this->template));
@@ -730,15 +736,15 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideDefinition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideDefinition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImplementationGuideDefinition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -758,7 +764,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -798,7 +804,7 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -856,50 +862,53 @@ class FHIRImplementationGuideDefinition extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getGrouping())) {
-            $a[self::FIELD_GROUPING] = [];
+            $out->{self::FIELD_GROUPING} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_GROUPING][] = $v;
+                $out->{self::FIELD_GROUPING}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getResource())) {
-            $a[self::FIELD_RESOURCE] = [];
+            $out->{self::FIELD_RESOURCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RESOURCE][] = $v;
+                $out->{self::FIELD_RESOURCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getPage())) {
-            $a[self::FIELD_PAGE] = $v;
+            $out->{self::FIELD_PAGE} = $v;
         }
         if ([] !== ($vs = $this->getParameter())) {
-            $a[self::FIELD_PARAMETER] = [];
+            $out->{self::FIELD_PARAMETER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARAMETER][] = $v;
+                $out->{self::FIELD_PARAMETER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTemplate())) {
-            $a[self::FIELD_TEMPLATE] = [];
+            $out->{self::FIELD_TEMPLATE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TEMPLATE][] = $v;
+                $out->{self::FIELD_TEMPLATE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

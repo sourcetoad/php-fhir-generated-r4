@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $substance = null;
+    protected ?FHIRCodeableConcept $substance = null;
 
     /**
      * Value of "true" or "false"
@@ -108,9 +108,9 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Indicates an alternative material of the device.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $alternate = null;
+    protected ?FHIRBoolean $alternate = null;
 
     /**
      * Value of "true" or "false"
@@ -118,15 +118,15 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Whether the substance is a known or suspected allergen.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $allergenicIndicator = null;
+    protected ?FHIRBoolean $allergenicIndicator = null;
 
     /**
      * Validation map for fields in type DeviceDefinition.Material
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDeviceDefinitionMaterial Constructor
@@ -152,8 +152,8 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ALTERNATE]) || isset($data[self::FIELD_ALTERNATE_EXT])) {
-            $value = isset($data[self::FIELD_ALTERNATE]) ? $data[self::FIELD_ALTERNATE] : null;
-            $ext = (isset($data[self::FIELD_ALTERNATE_EXT]) && is_array($data[self::FIELD_ALTERNATE_EXT])) ? $ext = $data[self::FIELD_ALTERNATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALTERNATE] ?? null;
+            $ext = (isset($data[self::FIELD_ALTERNATE_EXT]) && is_array($data[self::FIELD_ALTERNATE_EXT])) ? $data[self::FIELD_ALTERNATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAlternate($value);
@@ -167,8 +167,8 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ALLERGENIC_INDICATOR]) || isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) {
-            $value = isset($data[self::FIELD_ALLERGENIC_INDICATOR]) ? $data[self::FIELD_ALLERGENIC_INDICATOR] : null;
-            $ext = (isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT]) && is_array($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) ? $ext = $data[self::FIELD_ALLERGENIC_INDICATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALLERGENIC_INDICATOR] ?? null;
+            $ext = (isset($data[self::FIELD_ALLERGENIC_INDICATOR_EXT]) && is_array($data[self::FIELD_ALLERGENIC_INDICATOR_EXT])) ? $data[self::FIELD_ALLERGENIC_INDICATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAllergenicIndicator($value);
@@ -183,11 +183,17 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -207,7 +213,7 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSubstance()
+    public function getSubstance(): ?FHIRCodeableConcept
     {
         return $this->substance;
     }
@@ -223,7 +229,7 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $substance
      * @return static
      */
-    public function setSubstance(FHIRCodeableConcept $substance = null)
+    public function setSubstance(?FHIRCodeableConcept $substance = null): object
     {
         $this->_trackValueSet($this->substance, $substance);
         $this->substance = $substance;
@@ -236,9 +242,9 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Indicates an alternative material of the device.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAlternate()
+    public function getAlternate(): ?FHIRBoolean
     {
         return $this->alternate;
     }
@@ -249,10 +255,10 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Indicates an alternative material of the device.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $alternate
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $alternate
      * @return static
      */
-    public function setAlternate($alternate = null)
+    public function setAlternate($alternate = null): object
     {
         if (null !== $alternate && !($alternate instanceof FHIRBoolean)) {
             $alternate = new FHIRBoolean($alternate);
@@ -268,9 +274,9 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Whether the substance is a known or suspected allergen.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAllergenicIndicator()
+    public function getAllergenicIndicator(): ?FHIRBoolean
     {
         return $this->allergenicIndicator;
     }
@@ -281,10 +287,10 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      *
      * Whether the substance is a known or suspected allergen.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allergenicIndicator
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allergenicIndicator
      * @return static
      */
-    public function setAllergenicIndicator($allergenicIndicator = null)
+    public function setAllergenicIndicator($allergenicIndicator = null): object
     {
         if (null !== $allergenicIndicator && !($allergenicIndicator instanceof FHIRBoolean)) {
             $allergenicIndicator = new FHIRBoolean($allergenicIndicator);
@@ -411,15 +417,15 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceDefinition\FHIRDeviceDefinitionMaterial
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDeviceDefinition\FHIRDeviceDefinitionMaterial    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDeviceDefinitionMaterial::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -439,7 +445,7 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -493,7 +499,7 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -521,34 +527,37 @@ class FHIRDeviceDefinitionMaterial extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSubstance())) {
-            $a[self::FIELD_SUBSTANCE] = $v;
+            $out->{self::FIELD_SUBSTANCE} = $v;
         }
         if (null !== ($v = $this->getAlternate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ALTERNATE] = $val;
+                $out->{self::FIELD_ALTERNATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ALTERNATE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALTERNATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAllergenicIndicator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ALLERGENIC_INDICATOR] = $val;
+                $out->{self::FIELD_ALLERGENIC_INDICATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ALLERGENIC_INDICATOR_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALLERGENIC_INDICATOR_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,9 +70,8 @@ abstract class PHPFHIRTypeMap
 {
     /**
      * This array represents every type known to this lib
-     * @var array
      */
-    private static $_typeMap = [
+    private const TYPE_MAP = [
         PHPFHIRConstants::TYPE_NAME_ACCOUNT => PHPFHIRConstants::TYPE_CLASS_ACCOUNT,
         PHPFHIRConstants::TYPE_NAME_ACCOUNT_DOT_COVERAGE => PHPFHIRConstants::TYPE_CLASS_ACCOUNT_DOT_COVERAGE,
         PHPFHIRConstants::TYPE_NAME_ACCOUNT_DOT_GUARANTOR => PHPFHIRConstants::TYPE_CLASS_ACCOUNT_DOT_GUARANTOR,
@@ -894,7 +893,6 @@ abstract class PHPFHIRTypeMap
         PHPFHIRConstants::TYPE_NAME_QUESTIONNAIRE_RESPONSE_STATUS_HYPHEN_LIST => PHPFHIRConstants::TYPE_CLASS_QUESTIONNAIRE_RESPONSE_STATUS_HYPHEN_LIST,
         PHPFHIRConstants::TYPE_NAME_RANGE => PHPFHIRConstants::TYPE_CLASS_RANGE,
         PHPFHIRConstants::TYPE_NAME_RATIO => PHPFHIRConstants::TYPE_CLASS_RATIO,
-        PHPFHIRConstants::TYPE_NAME_RAW => PHPFHIRConstants::TYPE_CLASS_RAW,
         PHPFHIRConstants::TYPE_NAME_REFERENCE => PHPFHIRConstants::TYPE_CLASS_REFERENCE,
         PHPFHIRConstants::TYPE_NAME_REFERENCE_HANDLING_POLICY => PHPFHIRConstants::TYPE_CLASS_REFERENCE_HANDLING_POLICY,
         PHPFHIRConstants::TYPE_NAME_REFERENCE_HANDLING_POLICY_HYPHEN_LIST => PHPFHIRConstants::TYPE_CLASS_REFERENCE_HANDLING_POLICY_HYPHEN_LIST,
@@ -1191,15 +1189,15 @@ abstract class PHPFHIRTypeMap
         PHPFHIRConstants::TYPE_NAME_VISION_PRESCRIPTION => PHPFHIRConstants::TYPE_CLASS_VISION_PRESCRIPTION,
         PHPFHIRConstants::TYPE_NAME_VISION_PRESCRIPTION_DOT_LENS_SPECIFICATION => PHPFHIRConstants::TYPE_CLASS_VISION_PRESCRIPTION_DOT_LENS_SPECIFICATION,
         PHPFHIRConstants::TYPE_NAME_VISION_PRESCRIPTION_DOT_PRISM => PHPFHIRConstants::TYPE_CLASS_VISION_PRESCRIPTION_DOT_PRISM,
+        PHPFHIRConstants::TYPE_NAME_XHTML => PHPFHIRConstants::TYPE_CLASS_XHTML,
         PHPFHIRConstants::TYPE_NAME_XPATH_USAGE_TYPE => PHPFHIRConstants::TYPE_CLASS_XPATH_USAGE_TYPE,
         PHPFHIRConstants::TYPE_NAME_XPATH_USAGE_TYPE_HYPHEN_LIST => PHPFHIRConstants::TYPE_CLASS_XPATH_USAGE_TYPE_HYPHEN_LIST,
     ];
 
     /**
      * This is the list of resource types that are allowed to be contained within a ResourceContainer type
-     * @var array
      */
-    private static $_containableTypes = [
+    private const CONTAINABLE_TYPES = [
         PHPFHIRConstants::TYPE_NAME_ACCOUNT => PHPFHIRConstants::TYPE_CLASS_ACCOUNT,
         PHPFHIRConstants::TYPE_NAME_ACTIVITY_DEFINITION => PHPFHIRConstants::TYPE_CLASS_ACTIVITY_DEFINITION,
         PHPFHIRConstants::TYPE_NAME_ADVERSE_EVENT => PHPFHIRConstants::TYPE_CLASS_ADVERSE_EVENT,
@@ -1353,41 +1351,36 @@ abstract class PHPFHIRTypeMap
      * @param string $typeName
      * @return string|null
      */
-    public static function getTypeClass($typeName) {
-        if (is_string($typeName) && isset(self::$_typeMap[$typeName])) {
-            return self::$_typeMap[$typeName];
-        } else {
-            return null;
-        }
+    public static function getTypeClass(string $typeName): ?string
+    {
+        return self::TYPE_MAP[$typeName] ?? null;
     }
 
     /**
      * Returns the full internal class map
      * @return array
      */
-    public static function getMap() {
-        return self::$_typeMap;
+    public static function getMap(): array
+    {
+        return self::TYPE_MAP;
     }
 
     /**
      * Returns the full list of containable resource types
      * @return array
      */
-    public static function getContainableTypes() {
-        return self::$_containableTypes;
+    public static function getContainableTypes(): array
+    {
+        return self::CONTAINABLE_TYPES;
     }
 
     /**
      * @param string $typeName Name of FHIR object reference by ResourceContainer
      * @return string|null Name of class as string or null if type is not contained in map
      */
-    public static function getContainedTypeClassName($typeName)
+    public static function getContainedTypeClassName(string $typeName): ?string
     {
-        if (is_string($typeName) && isset(self::$_containableTypes[$typeName])) {
-            return self::$_containableTypes[$typeName];
-        } else {
-            return null;
-        }
+        return self::CONTAINABLE_TYPES[$typeName] ?? null;
     }
 
     /**
@@ -1396,14 +1389,15 @@ abstract class PHPFHIRTypeMap
      * @return bool
      * @throws \InvalidArgumentException
      */
-    public static function isContainableResource($type) {
+    public static function isContainableResource($type): bool
+    {
         $tt = gettype($type);
         if ('object' === $tt) {
             if ($type instanceof PHPFHIRTypeInterface) {
-                return in_array('\\' . get_class($type), self::$_containableTypes, true);
+                return in_array('\\' . get_class($type), self::CONTAINABLE_TYPES, true);
             }
             if ($type instanceof \DOMNode) {
-                return isset(self::$_containableTypes[$type->nodeName]);
+                return isset(self::CONTAINABLE_TYPES[$type->nodeName]);
             }
             throw new \InvalidArgumentException(sprintf(
                 'Expected "$type" to be instance of "\HL7\FHIR\R4\PHPFHIRTypeInterface" or "%s", saw "%s"',
@@ -1412,11 +1406,11 @@ abstract class PHPFHIRTypeMap
             ));
         }
         if ('string' === $tt) {
-            return isset(self::$_containableTypes[$type]) || in_array('\\' . ltrim($type, '\\'), self::$_containableTypes, true);
+            return isset(self::CONTAINABLE_TYPES[$type]) || in_array('\\' . ltrim($type, '\\'), self::CONTAINABLE_TYPES, true);
         }
         if ('array' === $tt) {
             if (isset($type[PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE])) {
-                return isset(self::$_containableTypes[$type[PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE]]);
+                return isset(self::CONTAINABLE_TYPES[$type[PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE]]);
             }
             return false;
         }
@@ -1431,7 +1425,7 @@ abstract class PHPFHIRTypeMap
      * @param \DOMNode $node Parent element containing inline resource
      * @return \HL7\FHIR\R4\PHPFHIRContainedTypeInterface|null
      */
-    public static function getContainedTypeFromXML(\DOMNode $node)
+    public static function getContainedTypeFromXML(\DOMNode $node): ?PHPFHIRContainedTypeInterface
     {
         $typeName = $node->nodeName;
         $className = self::getContainedTypeClassName($typeName);
@@ -1446,7 +1440,7 @@ abstract class PHPFHIRTypeMap
      * @param array|null $data
      * @return \HL7\FHIR\R4\PHPFHIRContainedTypeInterface|null
      */
-    public static function getContainedTypeFromArray($data)
+    public static function getContainedTypeFromArray(?array $data): ?PHPFHIRContainedTypeInterface
     {
         if (null === $data || [] === $data) {
             return null;
@@ -1480,7 +1474,8 @@ abstract class PHPFHIRTypeMap
      * @param string $typeName
      * @return \UnexpectedValueException
      */
-    private static function createdInvalidContainedTypeException($typeName) {
+    private static function createdInvalidContainedTypeException(string $typeName): \UnexpectedValueException
+    {
         return new \UnexpectedValueException(sprintf(
             'Type "%s" is not among the list of types allowed within a ResourceContainer',
             $typeName

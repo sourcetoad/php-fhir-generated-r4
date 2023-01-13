@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMateria
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -115,7 +115,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $family = null;
+    protected ?FHIRCodeableConcept $family = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -129,7 +129,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $genus = null;
+    protected ?FHIRCodeableConcept $genus = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -143,7 +143,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $species = null;
+    protected ?FHIRCodeableConcept $species = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -155,7 +155,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $intraspecificType = null;
+    protected ?FHIRCodeableConcept $intraspecificType = null;
 
     /**
      * A sequence of Unicode characters
@@ -166,9 +166,9 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * controlled vocabulary. For Influenza Vaccine, the intraspecific description
      * shall contain the syntax of the antigen in line with the WHO convention.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $intraspecificDescription = null;
+    protected ?FHIRString $intraspecificDescription = null;
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -189,7 +189,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialAuthor[]
      */
-    protected $author = [];
+    protected ?array $author = [];
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -210,7 +210,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialHybrid
      */
-    protected $hybrid = null;
+    protected ?FHIRSubstanceSourceMaterialHybrid $hybrid = null;
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -231,13 +231,13 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganismGeneral
      */
-    protected $organismGeneral = null;
+    protected ?FHIRSubstanceSourceMaterialOrganismGeneral $organismGeneral = null;
 
     /**
      * Validation map for fields in type SubstanceSourceMaterial.Organism
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceSourceMaterialOrganism Constructor
@@ -284,8 +284,8 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INTRASPECIFIC_DESCRIPTION]) || isset($data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_INTRASPECIFIC_DESCRIPTION]) ? $data[self::FIELD_INTRASPECIFIC_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT]) && is_array($data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_INTRASPECIFIC_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT]) && is_array($data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT])) ? $data[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setIntraspecificDescription($value);
@@ -332,11 +332,17 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -356,7 +362,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getFamily()
+    public function getFamily(): ?FHIRCodeableConcept
     {
         return $this->family;
     }
@@ -372,7 +378,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $family
      * @return static
      */
-    public function setFamily(FHIRCodeableConcept $family = null)
+    public function setFamily(?FHIRCodeableConcept $family = null): object
     {
         $this->_trackValueSet($this->family, $family);
         $this->family = $family;
@@ -391,7 +397,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getGenus()
+    public function getGenus(): ?FHIRCodeableConcept
     {
         return $this->genus;
     }
@@ -409,7 +415,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $genus
      * @return static
      */
-    public function setGenus(FHIRCodeableConcept $genus = null)
+    public function setGenus(?FHIRCodeableConcept $genus = null): object
     {
         $this->_trackValueSet($this->genus, $genus);
         $this->genus = $genus;
@@ -428,7 +434,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSpecies()
+    public function getSpecies(): ?FHIRCodeableConcept
     {
         return $this->species;
     }
@@ -446,7 +452,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $species
      * @return static
      */
-    public function setSpecies(FHIRCodeableConcept $species = null)
+    public function setSpecies(?FHIRCodeableConcept $species = null): object
     {
         $this->_trackValueSet($this->species, $species);
         $this->species = $species;
@@ -463,7 +469,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIntraspecificType()
+    public function getIntraspecificType(): ?FHIRCodeableConcept
     {
         return $this->intraspecificType;
     }
@@ -479,7 +485,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $intraspecificType
      * @return static
      */
-    public function setIntraspecificType(FHIRCodeableConcept $intraspecificType = null)
+    public function setIntraspecificType(?FHIRCodeableConcept $intraspecificType = null): object
     {
         $this->_trackValueSet($this->intraspecificType, $intraspecificType);
         $this->intraspecificType = $intraspecificType;
@@ -495,9 +501,9 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * controlled vocabulary. For Influenza Vaccine, the intraspecific description
      * shall contain the syntax of the antigen in line with the WHO convention.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getIntraspecificDescription()
+    public function getIntraspecificDescription(): ?FHIRString
     {
         return $this->intraspecificDescription;
     }
@@ -511,10 +517,10 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * controlled vocabulary. For Influenza Vaccine, the intraspecific description
      * shall contain the syntax of the antigen in line with the WHO convention.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $intraspecificDescription
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $intraspecificDescription
      * @return static
      */
-    public function setIntraspecificDescription($intraspecificDescription = null)
+    public function setIntraspecificDescription($intraspecificDescription = null): object
     {
         if (null !== $intraspecificDescription && !($intraspecificDescription instanceof FHIRString)) {
             $intraspecificDescription = new FHIRString($intraspecificDescription);
@@ -543,7 +549,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialAuthor[]
      */
-    public function getAuthor()
+    public function getAuthor(): ?array
     {
         return $this->author;
     }
@@ -568,7 +574,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialAuthor $author
      * @return static
      */
-    public function addAuthor(FHIRSubstanceSourceMaterialAuthor $author = null)
+    public function addAuthor(?FHIRSubstanceSourceMaterialAuthor $author = null): object
     {
         $this->_trackValueAdded();
         $this->author[] = $author;
@@ -595,7 +601,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialAuthor[] $author
      * @return static
      */
-    public function setAuthor(array $author = [])
+    public function setAuthor(array $author = []): object
     {
         if ([] !== $this->author) {
             $this->_trackValuesRemoved(count($this->author));
@@ -633,7 +639,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialHybrid
      */
-    public function getHybrid()
+    public function getHybrid(): ?FHIRSubstanceSourceMaterialHybrid
     {
         return $this->hybrid;
     }
@@ -658,7 +664,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialHybrid $hybrid
      * @return static
      */
-    public function setHybrid(FHIRSubstanceSourceMaterialHybrid $hybrid = null)
+    public function setHybrid(?FHIRSubstanceSourceMaterialHybrid $hybrid = null): object
     {
         $this->_trackValueSet($this->hybrid, $hybrid);
         $this->hybrid = $hybrid;
@@ -684,7 +690,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganismGeneral
      */
-    public function getOrganismGeneral()
+    public function getOrganismGeneral(): ?FHIRSubstanceSourceMaterialOrganismGeneral
     {
         return $this->organismGeneral;
     }
@@ -709,7 +715,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganismGeneral $organismGeneral
      * @return static
      */
-    public function setOrganismGeneral(FHIRSubstanceSourceMaterialOrganismGeneral $organismGeneral = null)
+    public function setOrganismGeneral(?FHIRSubstanceSourceMaterialOrganismGeneral $organismGeneral = null): object
     {
         $this->_trackValueSet($this->organismGeneral, $organismGeneral);
         $this->organismGeneral = $organismGeneral;
@@ -920,15 +926,15 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganism
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganism    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceSourceMaterialOrganism::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -948,7 +954,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1003,7 +1009,7 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1061,48 +1067,51 @@ class FHIRSubstanceSourceMaterialOrganism extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getFamily())) {
-            $a[self::FIELD_FAMILY] = $v;
+            $out->{self::FIELD_FAMILY} = $v;
         }
         if (null !== ($v = $this->getGenus())) {
-            $a[self::FIELD_GENUS] = $v;
+            $out->{self::FIELD_GENUS} = $v;
         }
         if (null !== ($v = $this->getSpecies())) {
-            $a[self::FIELD_SPECIES] = $v;
+            $out->{self::FIELD_SPECIES} = $v;
         }
         if (null !== ($v = $this->getIntraspecificType())) {
-            $a[self::FIELD_INTRASPECIFIC_TYPE] = $v;
+            $out->{self::FIELD_INTRASPECIFIC_TYPE} = $v;
         }
         if (null !== ($v = $this->getIntraspecificDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INTRASPECIFIC_DESCRIPTION] = $val;
+                $out->{self::FIELD_INTRASPECIFIC_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INTRASPECIFIC_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAuthor())) {
-            $a[self::FIELD_AUTHOR] = [];
+            $out->{self::FIELD_AUTHOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_AUTHOR][] = $v;
+                $out->{self::FIELD_AUTHOR}[] = $v;
             }
         }
         if (null !== ($v = $this->getHybrid())) {
-            $a[self::FIELD_HYBRID] = $v;
+            $out->{self::FIELD_HYBRID} = $v;
         }
         if (null !== ($v = $this->getOrganismGeneral())) {
-            $a[self::FIELD_ORGANISM_GENERAL] = $v;
+            $out->{self::FIELD_ORGANISM_GENERAL} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

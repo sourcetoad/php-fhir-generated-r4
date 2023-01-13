@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,9 +101,9 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * Type of template specified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -112,9 +112,9 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The source location for the template.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $source = null;
+    protected ?FHIRString $source = null;
 
     /**
      * A sequence of Unicode characters
@@ -123,15 +123,15 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The scope in which the template applies.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $scope = null;
+    protected ?FHIRString $scope = null;
 
     /**
      * Validation map for fields in type ImplementationGuide.Template
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRImplementationGuideTemplate Constructor
@@ -150,8 +150,8 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -165,8 +165,8 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SOURCE]) || isset($data[self::FIELD_SOURCE_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE]) ? $data[self::FIELD_SOURCE] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $ext = $data[self::FIELD_SOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $data[self::FIELD_SOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSource($value);
@@ -180,8 +180,8 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SCOPE]) || isset($data[self::FIELD_SCOPE_EXT])) {
-            $value = isset($data[self::FIELD_SCOPE]) ? $data[self::FIELD_SCOPE] : null;
-            $ext = (isset($data[self::FIELD_SCOPE_EXT]) && is_array($data[self::FIELD_SCOPE_EXT])) ? $ext = $data[self::FIELD_SCOPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SCOPE] ?? null;
+            $ext = (isset($data[self::FIELD_SCOPE_EXT]) && is_array($data[self::FIELD_SCOPE_EXT])) ? $data[self::FIELD_SCOPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setScope($value);
@@ -196,11 +196,17 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -218,9 +224,9 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * Type of template specified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -233,10 +239,10 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * Type of template specified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -253,9 +259,9 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The source location for the template.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSource()
+    public function getSource(): ?FHIRString
     {
         return $this->source;
     }
@@ -267,10 +273,10 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The source location for the template.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $source
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $source
      * @return static
      */
-    public function setSource($source = null)
+    public function setSource($source = null): object
     {
         if (null !== $source && !($source instanceof FHIRString)) {
             $source = new FHIRString($source);
@@ -287,9 +293,9 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The scope in which the template applies.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getScope()
+    public function getScope(): ?FHIRString
     {
         return $this->scope;
     }
@@ -301,10 +307,10 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      *
      * The scope in which the template applies.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $scope
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $scope
      * @return static
      */
-    public function setScope($scope = null)
+    public function setScope($scope = null): object
     {
         if (null !== $scope && !($scope instanceof FHIRString)) {
             $scope = new FHIRString($scope);
@@ -431,15 +437,15 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImplementationGuide\FHIRImplementationGuideTemplate    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImplementationGuideTemplate::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -459,7 +465,7 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -522,7 +528,7 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -550,41 +556,44 @@ class FHIRImplementationGuideTemplate extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE] = $val;
+                $out->{self::FIELD_SOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getScope())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SCOPE] = $val;
+                $out->{self::FIELD_SCOPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SCOPE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SCOPE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

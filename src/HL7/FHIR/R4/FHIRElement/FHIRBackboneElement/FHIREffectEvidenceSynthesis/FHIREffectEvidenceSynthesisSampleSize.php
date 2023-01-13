@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesi
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,9 +99,9 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Human-readable summary of sample size.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A whole number
@@ -110,9 +110,9 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of studies included in this evidence synthesis.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $numberOfStudies = null;
+    protected ?FHIRInteger $numberOfStudies = null;
 
     /**
      * A whole number
@@ -121,15 +121,15 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of participants included in this evidence synthesis.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $numberOfParticipants = null;
+    protected ?FHIRInteger $numberOfParticipants = null;
 
     /**
      * Validation map for fields in type EffectEvidenceSynthesis.SampleSize
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIREffectEvidenceSynthesisSampleSize Constructor
@@ -148,8 +148,8 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -163,8 +163,8 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_STUDIES]) || isset($data[self::FIELD_NUMBER_OF_STUDIES_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_STUDIES]) ? $data[self::FIELD_NUMBER_OF_STUDIES] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_STUDIES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_STUDIES_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_STUDIES_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_STUDIES] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_STUDIES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_STUDIES_EXT])) ? $data[self::FIELD_NUMBER_OF_STUDIES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setNumberOfStudies($value);
@@ -178,8 +178,8 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_PARTICIPANTS]) || isset($data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_PARTICIPANTS]) ? $data[self::FIELD_NUMBER_OF_PARTICIPANTS] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_PARTICIPANTS] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT])) ? $data[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setNumberOfParticipants($value);
@@ -194,11 +194,17 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -215,9 +221,9 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Human-readable summary of sample size.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -229,10 +235,10 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Human-readable summary of sample size.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -249,9 +255,9 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of studies included in this evidence synthesis.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getNumberOfStudies()
+    public function getNumberOfStudies(): ?FHIRInteger
     {
         return $this->numberOfStudies;
     }
@@ -263,10 +269,10 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of studies included in this evidence synthesis.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfStudies
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfStudies
      * @return static
      */
-    public function setNumberOfStudies($numberOfStudies = null)
+    public function setNumberOfStudies($numberOfStudies = null): object
     {
         if (null !== $numberOfStudies && !($numberOfStudies instanceof FHIRInteger)) {
             $numberOfStudies = new FHIRInteger($numberOfStudies);
@@ -283,9 +289,9 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of participants included in this evidence synthesis.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getNumberOfParticipants()
+    public function getNumberOfParticipants(): ?FHIRInteger
     {
         return $this->numberOfParticipants;
     }
@@ -297,10 +303,10 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      *
      * Number of participants included in this evidence synthesis.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfParticipants
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfParticipants
      * @return static
      */
-    public function setNumberOfParticipants($numberOfParticipants = null)
+    public function setNumberOfParticipants($numberOfParticipants = null): object
     {
         if (null !== $numberOfParticipants && !($numberOfParticipants instanceof FHIRInteger)) {
             $numberOfParticipants = new FHIRInteger($numberOfParticipants);
@@ -427,15 +433,15 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis\FHIREffectEvidenceSynthesisSampleSize
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis\FHIREffectEvidenceSynthesisSampleSize    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIREffectEvidenceSynthesisSampleSize::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -455,7 +461,7 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -518,7 +524,7 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -546,41 +552,44 @@ class FHIREffectEvidenceSynthesisSampleSize extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNumberOfStudies())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_STUDIES] = $val;
+                $out->{self::FIELD_NUMBER_OF_STUDIES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_STUDIES_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_STUDIES_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNumberOfParticipants())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_PARTICIPANTS] = $val;
+                $out->{self::FIELD_NUMBER_OF_PARTICIPANTS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_PARTICIPANTS_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_PARTICIPANTS_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -114,7 +114,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A reference from one resource to another.
@@ -125,7 +125,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $coverageArea = [];
+    protected ?array $coverageArea = [];
 
     /**
      * A reference from one resource to another.
@@ -136,7 +136,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $network = [];
+    protected ?array $network = [];
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -145,7 +145,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost[]
      */
-    protected $generalCost = [];
+    protected ?array $generalCost = [];
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -154,13 +154,13 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanSpecificCost[]
      */
-    protected $specificCost = [];
+    protected ?array $specificCost = [];
 
     /**
      * Validation map for fields in type InsurancePlan.Plan
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRInsurancePlanPlan Constructor
@@ -277,11 +277,17 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -302,7 +308,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -319,7 +325,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -338,7 +344,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -367,7 +373,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -383,7 +389,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -399,7 +405,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getCoverageArea()
+    public function getCoverageArea(): ?array
     {
         return $this->coverageArea;
     }
@@ -414,7 +420,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $coverageArea
      * @return static
      */
-    public function addCoverageArea(FHIRReference $coverageArea = null)
+    public function addCoverageArea(?FHIRReference $coverageArea = null): object
     {
         $this->_trackValueAdded();
         $this->coverageArea[] = $coverageArea;
@@ -431,7 +437,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $coverageArea
      * @return static
      */
-    public function setCoverageArea(array $coverageArea = [])
+    public function setCoverageArea(array $coverageArea = []): object
     {
         if ([] !== $this->coverageArea) {
             $this->_trackValuesRemoved(count($this->coverageArea));
@@ -459,7 +465,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getNetwork()
+    public function getNetwork(): ?array
     {
         return $this->network;
     }
@@ -474,7 +480,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $network
      * @return static
      */
-    public function addNetwork(FHIRReference $network = null)
+    public function addNetwork(?FHIRReference $network = null): object
     {
         $this->_trackValueAdded();
         $this->network[] = $network;
@@ -491,7 +497,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $network
      * @return static
      */
-    public function setNetwork(array $network = [])
+    public function setNetwork(array $network = []): object
     {
         if ([] !== $this->network) {
             $this->_trackValuesRemoved(count($this->network));
@@ -517,7 +523,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost[]
      */
-    public function getGeneralCost()
+    public function getGeneralCost(): ?array
     {
         return $this->generalCost;
     }
@@ -530,7 +536,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost $generalCost
      * @return static
      */
-    public function addGeneralCost(FHIRInsurancePlanGeneralCost $generalCost = null)
+    public function addGeneralCost(?FHIRInsurancePlanGeneralCost $generalCost = null): object
     {
         $this->_trackValueAdded();
         $this->generalCost[] = $generalCost;
@@ -545,7 +551,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost[] $generalCost
      * @return static
      */
-    public function setGeneralCost(array $generalCost = [])
+    public function setGeneralCost(array $generalCost = []): object
     {
         if ([] !== $this->generalCost) {
             $this->_trackValuesRemoved(count($this->generalCost));
@@ -571,7 +577,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanSpecificCost[]
      */
-    public function getSpecificCost()
+    public function getSpecificCost(): ?array
     {
         return $this->specificCost;
     }
@@ -584,7 +590,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanSpecificCost $specificCost
      * @return static
      */
-    public function addSpecificCost(FHIRInsurancePlanSpecificCost $specificCost = null)
+    public function addSpecificCost(?FHIRInsurancePlanSpecificCost $specificCost = null): object
     {
         $this->_trackValueAdded();
         $this->specificCost[] = $specificCost;
@@ -599,7 +605,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanSpecificCost[] $specificCost
      * @return static
      */
-    public function setSpecificCost(array $specificCost = [])
+    public function setSpecificCost(array $specificCost = []): object
     {
         if ([] !== $this->specificCost) {
             $this->_trackValuesRemoved(count($this->specificCost));
@@ -796,15 +802,15 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanPlan    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRInsurancePlanPlan::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -824,7 +830,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -866,7 +872,7 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -934,59 +940,62 @@ class FHIRInsurancePlanPlan extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getCoverageArea())) {
-            $a[self::FIELD_COVERAGE_AREA] = [];
+            $out->{self::FIELD_COVERAGE_AREA} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COVERAGE_AREA][] = $v;
+                $out->{self::FIELD_COVERAGE_AREA}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNetwork())) {
-            $a[self::FIELD_NETWORK] = [];
+            $out->{self::FIELD_NETWORK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NETWORK][] = $v;
+                $out->{self::FIELD_NETWORK}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getGeneralCost())) {
-            $a[self::FIELD_GENERAL_COST] = [];
+            $out->{self::FIELD_GENERAL_COST} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_GENERAL_COST][] = $v;
+                $out->{self::FIELD_GENERAL_COST}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSpecificCost())) {
-            $a[self::FIELD_SPECIFIC_COST] = [];
+            $out->{self::FIELD_SPECIFIC_COST} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIFIC_COST][] = $v;
+                $out->{self::FIELD_SPECIFIC_COST}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

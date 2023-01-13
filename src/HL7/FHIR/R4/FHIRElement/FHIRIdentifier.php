@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifierUse
      */
-    protected $use = null;
+    protected ?FHIRIdentifierUse $use = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -114,7 +114,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -124,9 +124,9 @@ class FHIRIdentifier extends FHIRElement
      * Establishes the namespace for the value - that is, a URL that describes a set
      * values that are unique.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $system = null;
+    protected ?FHIRUri $system = null;
 
     /**
      * A sequence of Unicode characters
@@ -136,9 +136,9 @@ class FHIRIdentifier extends FHIRElement
      * The portion of the identifier typically relevant to the user and which is unique
      * within the context of the system.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $value = null;
+    protected ?FHIRString $value = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -149,7 +149,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A reference from one resource to another.
@@ -160,13 +160,13 @@ class FHIRIdentifier extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $assigner = null;
+    protected ?FHIRReference $assigner = null;
 
     /**
      * Validation map for fields in type Identifier
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRIdentifier Constructor
@@ -185,8 +185,8 @@ class FHIRIdentifier extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_USE]) || isset($data[self::FIELD_USE_EXT])) {
-            $value = isset($data[self::FIELD_USE]) ? $data[self::FIELD_USE] : null;
-            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $ext = $data[self::FIELD_USE_EXT] : $ext = [];
+            $value = $data[self::FIELD_USE] ?? null;
+            $ext = (isset($data[self::FIELD_USE_EXT]) && is_array($data[self::FIELD_USE_EXT])) ? $data[self::FIELD_USE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRIdentifierUse) {
                     $this->setUse($value);
@@ -207,8 +207,8 @@ class FHIRIdentifier extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSystem($value);
@@ -222,8 +222,8 @@ class FHIRIdentifier extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setValue($value);
@@ -252,11 +252,17 @@ class FHIRIdentifier extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -274,7 +280,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifierUse
      */
-    public function getUse()
+    public function getUse(): ?FHIRIdentifierUse
     {
         return $this->use;
     }
@@ -288,7 +294,7 @@ class FHIRIdentifier extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifierUse $use
      * @return static
      */
-    public function setUse(FHIRIdentifierUse $use = null)
+    public function setUse(?FHIRIdentifierUse $use = null): object
     {
         $this->_trackValueSet($this->use, $use);
         $this->use = $use;
@@ -306,7 +312,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -323,7 +329,7 @@ class FHIRIdentifier extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -338,9 +344,9 @@ class FHIRIdentifier extends FHIRElement
      * Establishes the namespace for the value - that is, a URL that describes a set
      * values that are unique.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRUri
     {
         return $this->system;
     }
@@ -353,10 +359,10 @@ class FHIRIdentifier extends FHIRElement
      * Establishes the namespace for the value - that is, a URL that describes a set
      * values that are unique.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRUri)) {
             $system = new FHIRUri($system);
@@ -374,9 +380,9 @@ class FHIRIdentifier extends FHIRElement
      * The portion of the identifier typically relevant to the user and which is unique
      * within the context of the system.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getValue()
+    public function getValue(): ?FHIRString
     {
         return $this->value;
     }
@@ -389,10 +395,10 @@ class FHIRIdentifier extends FHIRElement
      * The portion of the identifier typically relevant to the user and which is unique
      * within the context of the system.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $value
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRString)) {
             $value = new FHIRString($value);
@@ -411,7 +417,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -426,7 +432,7 @@ class FHIRIdentifier extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -442,7 +448,7 @@ class FHIRIdentifier extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAssigner()
+    public function getAssigner(): ?FHIRReference
     {
         return $this->assigner;
     }
@@ -457,7 +463,7 @@ class FHIRIdentifier extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $assigner
      * @return static
      */
-    public function setAssigner(FHIRReference $assigner = null)
+    public function setAssigner(?FHIRReference $assigner = null): object
     {
         $this->_trackValueSet($this->assigner, $assigner);
         $this->assigner = $assigner;
@@ -620,15 +626,15 @@ class FHIRIdentifier extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRIdentifier    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRIdentifier::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -648,7 +654,7 @@ class FHIRIdentifier extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -706,7 +712,7 @@ class FHIRIdentifier extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -749,50 +755,53 @@ class FHIRIdentifier extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUse())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_USE] = $val;
+                $out->{self::FIELD_USE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRIdentifierUse::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_USE_EXT] = $ext;
+            unset($ext->{FHIRIdentifierUse::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_USE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getAssigner())) {
-            $a[self::FIELD_ASSIGNER] = $v;
+            $out->{self::FIELD_ASSIGNER} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

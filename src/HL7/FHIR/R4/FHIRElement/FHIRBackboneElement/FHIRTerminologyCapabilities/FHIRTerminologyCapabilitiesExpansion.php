@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilitie
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,9 +101,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server can return nested value sets.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $hierarchical = null;
+    protected ?FHIRBoolean $hierarchical = null;
 
     /**
      * Value of "true" or "false"
@@ -111,9 +111,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server supports paging on expansion.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $paging = null;
+    protected ?FHIRBoolean $paging = null;
 
     /**
      * Value of "true" or "false"
@@ -121,9 +121,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Allow request for incomplete expansions?
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $incomplete = null;
+    protected ?FHIRBoolean $incomplete = null;
 
     /**
      * A TerminologyCapabilities resource documents a set of capabilities (behaviors)
@@ -134,7 +134,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesParameter[]
      */
-    protected $parameter = [];
+    protected ?array $parameter = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -147,15 +147,15 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Documentation about text searching works.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $textFilter = null;
+    protected ?FHIRMarkdown $textFilter = null;
 
     /**
      * Validation map for fields in type TerminologyCapabilities.Expansion
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTerminologyCapabilitiesExpansion Constructor
@@ -174,8 +174,8 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_HIERARCHICAL]) || isset($data[self::FIELD_HIERARCHICAL_EXT])) {
-            $value = isset($data[self::FIELD_HIERARCHICAL]) ? $data[self::FIELD_HIERARCHICAL] : null;
-            $ext = (isset($data[self::FIELD_HIERARCHICAL_EXT]) && is_array($data[self::FIELD_HIERARCHICAL_EXT])) ? $ext = $data[self::FIELD_HIERARCHICAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_HIERARCHICAL] ?? null;
+            $ext = (isset($data[self::FIELD_HIERARCHICAL_EXT]) && is_array($data[self::FIELD_HIERARCHICAL_EXT])) ? $data[self::FIELD_HIERARCHICAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setHierarchical($value);
@@ -189,8 +189,8 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PAGING]) || isset($data[self::FIELD_PAGING_EXT])) {
-            $value = isset($data[self::FIELD_PAGING]) ? $data[self::FIELD_PAGING] : null;
-            $ext = (isset($data[self::FIELD_PAGING_EXT]) && is_array($data[self::FIELD_PAGING_EXT])) ? $ext = $data[self::FIELD_PAGING_EXT] : $ext = [];
+            $value = $data[self::FIELD_PAGING] ?? null;
+            $ext = (isset($data[self::FIELD_PAGING_EXT]) && is_array($data[self::FIELD_PAGING_EXT])) ? $data[self::FIELD_PAGING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setPaging($value);
@@ -204,8 +204,8 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INCOMPLETE]) || isset($data[self::FIELD_INCOMPLETE_EXT])) {
-            $value = isset($data[self::FIELD_INCOMPLETE]) ? $data[self::FIELD_INCOMPLETE] : null;
-            $ext = (isset($data[self::FIELD_INCOMPLETE_EXT]) && is_array($data[self::FIELD_INCOMPLETE_EXT])) ? $ext = $data[self::FIELD_INCOMPLETE_EXT] : $ext = [];
+            $value = $data[self::FIELD_INCOMPLETE] ?? null;
+            $ext = (isset($data[self::FIELD_INCOMPLETE_EXT]) && is_array($data[self::FIELD_INCOMPLETE_EXT])) ? $data[self::FIELD_INCOMPLETE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setIncomplete($value);
@@ -237,8 +237,8 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TEXT_FILTER]) || isset($data[self::FIELD_TEXT_FILTER_EXT])) {
-            $value = isset($data[self::FIELD_TEXT_FILTER]) ? $data[self::FIELD_TEXT_FILTER] : null;
-            $ext = (isset($data[self::FIELD_TEXT_FILTER_EXT]) && is_array($data[self::FIELD_TEXT_FILTER_EXT])) ? $ext = $data[self::FIELD_TEXT_FILTER_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEXT_FILTER] ?? null;
+            $ext = (isset($data[self::FIELD_TEXT_FILTER_EXT]) && is_array($data[self::FIELD_TEXT_FILTER_EXT])) ? $data[self::FIELD_TEXT_FILTER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setTextFilter($value);
@@ -253,11 +253,17 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -273,9 +279,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server can return nested value sets.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getHierarchical()
+    public function getHierarchical(): ?FHIRBoolean
     {
         return $this->hierarchical;
     }
@@ -286,10 +292,10 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server can return nested value sets.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $hierarchical
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $hierarchical
      * @return static
      */
-    public function setHierarchical($hierarchical = null)
+    public function setHierarchical($hierarchical = null): object
     {
         if (null !== $hierarchical && !($hierarchical instanceof FHIRBoolean)) {
             $hierarchical = new FHIRBoolean($hierarchical);
@@ -305,9 +311,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server supports paging on expansion.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getPaging()
+    public function getPaging(): ?FHIRBoolean
     {
         return $this->paging;
     }
@@ -318,10 +324,10 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Whether the server supports paging on expansion.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $paging
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $paging
      * @return static
      */
-    public function setPaging($paging = null)
+    public function setPaging($paging = null): object
     {
         if (null !== $paging && !($paging instanceof FHIRBoolean)) {
             $paging = new FHIRBoolean($paging);
@@ -337,9 +343,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Allow request for incomplete expansions?
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getIncomplete()
+    public function getIncomplete(): ?FHIRBoolean
     {
         return $this->incomplete;
     }
@@ -350,10 +356,10 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Allow request for incomplete expansions?
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $incomplete
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $incomplete
      * @return static
      */
-    public function setIncomplete($incomplete = null)
+    public function setIncomplete($incomplete = null): object
     {
         if (null !== $incomplete && !($incomplete instanceof FHIRBoolean)) {
             $incomplete = new FHIRBoolean($incomplete);
@@ -372,7 +378,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesParameter[]
      */
-    public function getParameter()
+    public function getParameter(): ?array
     {
         return $this->parameter;
     }
@@ -387,7 +393,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesParameter $parameter
      * @return static
      */
-    public function addParameter(FHIRTerminologyCapabilitiesParameter $parameter = null)
+    public function addParameter(?FHIRTerminologyCapabilitiesParameter $parameter = null): object
     {
         $this->_trackValueAdded();
         $this->parameter[] = $parameter;
@@ -404,7 +410,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesParameter[] $parameter
      * @return static
      */
-    public function setParameter(array $parameter = [])
+    public function setParameter(array $parameter = []): object
     {
         if ([] !== $this->parameter) {
             $this->_trackValuesRemoved(count($this->parameter));
@@ -434,9 +440,9 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Documentation about text searching works.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getTextFilter()
+    public function getTextFilter(): ?FHIRMarkdown
     {
         return $this->textFilter;
     }
@@ -452,10 +458,10 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      *
      * Documentation about text searching works.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $textFilter
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $textFilter
      * @return static
      */
-    public function setTextFilter($textFilter = null)
+    public function setTextFilter($textFilter = null): object
     {
         if (null !== $textFilter && !($textFilter instanceof FHIRMarkdown)) {
             $textFilter = new FHIRMarkdown($textFilter);
@@ -618,15 +624,15 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesExpansion
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTerminologyCapabilities\FHIRTerminologyCapabilitiesExpansion    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTerminologyCapabilitiesExpansion::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -646,7 +652,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -722,7 +728,7 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -765,60 +771,63 @@ class FHIRTerminologyCapabilitiesExpansion extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getHierarchical())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_HIERARCHICAL] = $val;
+                $out->{self::FIELD_HIERARCHICAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_HIERARCHICAL_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_HIERARCHICAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPaging())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PAGING] = $val;
+                $out->{self::FIELD_PAGING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PAGING_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PAGING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getIncomplete())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INCOMPLETE] = $val;
+                $out->{self::FIELD_INCOMPLETE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INCOMPLETE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INCOMPLETE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getParameter())) {
-            $a[self::FIELD_PARAMETER] = [];
+            $out->{self::FIELD_PARAMETER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARAMETER][] = $v;
+                $out->{self::FIELD_PARAMETER}[] = $v;
             }
         }
         if (null !== ($v = $this->getTextFilter())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEXT_FILTER] = $val;
+                $out->{self::FIELD_TEXT_FILTER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEXT_FILTER_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEXT_FILTER_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

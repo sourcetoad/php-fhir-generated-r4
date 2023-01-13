@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $code = null;
+    protected ?FHIRCoding $code = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -114,7 +114,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $valueCodeableConcept = null;
+    protected ?FHIRCodeableConcept $valueCodeableConcept = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -128,7 +128,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $valueQuantity = null;
+    protected ?FHIRQuantity $valueQuantity = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -140,7 +140,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $valueRange = null;
+    protected ?FHIRRange $valueRange = null;
 
     /**
      * A reference from one resource to another.
@@ -152,13 +152,13 @@ class FHIRUsageContext extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $valueReference = null;
+    protected ?FHIRReference $valueReference = null;
 
     /**
      * Validation map for fields in type UsageContext
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRUsageContext Constructor
@@ -213,11 +213,17 @@ class FHIRUsageContext extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -237,7 +243,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getCode()
+    public function getCode(): ?FHIRCoding
     {
         return $this->code;
     }
@@ -253,7 +259,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $code
      * @return static
      */
-    public function setCode(FHIRCoding $code = null)
+    public function setCode(?FHIRCoding $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -271,7 +277,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getValueCodeableConcept()
+    public function getValueCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->valueCodeableConcept;
     }
@@ -288,7 +294,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $valueCodeableConcept
      * @return static
      */
-    public function setValueCodeableConcept(FHIRCodeableConcept $valueCodeableConcept = null)
+    public function setValueCodeableConcept(?FHIRCodeableConcept $valueCodeableConcept = null): object
     {
         $this->_trackValueSet($this->valueCodeableConcept, $valueCodeableConcept);
         $this->valueCodeableConcept = $valueCodeableConcept;
@@ -307,7 +313,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getValueQuantity()
+    public function getValueQuantity(): ?FHIRQuantity
     {
         return $this->valueQuantity;
     }
@@ -325,7 +331,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $valueQuantity
      * @return static
      */
-    public function setValueQuantity(FHIRQuantity $valueQuantity = null)
+    public function setValueQuantity(?FHIRQuantity $valueQuantity = null): object
     {
         $this->_trackValueSet($this->valueQuantity, $valueQuantity);
         $this->valueQuantity = $valueQuantity;
@@ -342,7 +348,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getValueRange()
+    public function getValueRange(): ?FHIRRange
     {
         return $this->valueRange;
     }
@@ -358,7 +364,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $valueRange
      * @return static
      */
-    public function setValueRange(FHIRRange $valueRange = null)
+    public function setValueRange(?FHIRRange $valueRange = null): object
     {
         $this->_trackValueSet($this->valueRange, $valueRange);
         $this->valueRange = $valueRange;
@@ -375,7 +381,7 @@ class FHIRUsageContext extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getValueReference()
+    public function getValueReference(): ?FHIRReference
     {
         return $this->valueReference;
     }
@@ -391,7 +397,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $valueReference
      * @return static
      */
-    public function setValueReference(FHIRReference $valueReference = null)
+    public function setValueReference(?FHIRReference $valueReference = null): object
     {
         $this->_trackValueSet($this->valueReference, $valueReference);
         $this->valueReference = $valueReference;
@@ -537,15 +543,15 @@ class FHIRUsageContext extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRUsageContext    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRUsageContext::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -565,7 +571,7 @@ class FHIRUsageContext extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -603,7 +609,7 @@ class FHIRUsageContext extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -641,26 +647,29 @@ class FHIRUsageContext extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getValueCodeableConcept())) {
-            $a[self::FIELD_VALUE_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_VALUE_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getValueQuantity())) {
-            $a[self::FIELD_VALUE_QUANTITY] = $v;
+            $out->{self::FIELD_VALUE_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getValueRange())) {
-            $a[self::FIELD_VALUE_RANGE] = $v;
+            $out->{self::FIELD_VALUE_RANGE} = $v;
         }
         if (null !== ($v = $this->getValueReference())) {
-            $a[self::FIELD_VALUE_REFERENCE] = $v;
+            $out->{self::FIELD_VALUE_REFERENCE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

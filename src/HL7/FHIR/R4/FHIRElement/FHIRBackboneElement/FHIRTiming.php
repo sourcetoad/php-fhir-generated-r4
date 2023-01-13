@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,9 +105,9 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * Identifies specific times when the event occurs.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime[]
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRDateTime[]
      */
-    protected $event = [];
+    protected ?array $event = [];
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -122,7 +122,7 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming\FHIRTimingRepeat
      */
-    protected $repeat = null;
+    protected ?FHIRTimingRepeat $repeat = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -139,13 +139,13 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * Validation map for fields in type Timing
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTiming Constructor
@@ -164,8 +164,8 @@ class FHIRTiming extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_EVENT]) || isset($data[self::FIELD_EVENT_EXT])) {
-            $value = isset($data[self::FIELD_EVENT]) ? $data[self::FIELD_EVENT] : null;
-            $ext = (isset($data[self::FIELD_EVENT_EXT]) && is_array($data[self::FIELD_EVENT_EXT])) ? $ext = $data[self::FIELD_EVENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_EVENT] ?? null;
+            $ext = (isset($data[self::FIELD_EVENT_EXT]) && is_array($data[self::FIELD_EVENT_EXT])) ? $data[self::FIELD_EVENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->addEvent($value);
@@ -209,11 +209,17 @@ class FHIRTiming extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -233,9 +239,9 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * Identifies specific times when the event occurs.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime[]
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRDateTime[]
      */
-    public function getEvent()
+    public function getEvent(): ?array
     {
         return $this->event;
     }
@@ -250,10 +256,10 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * Identifies specific times when the event occurs.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $event
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRDateTime[] $event
      * @return static
      */
-    public function addEvent($event = null)
+    public function addEvent($event = null): object
     {
         if (null !== $event && !($event instanceof FHIRDateTime)) {
             $event = new FHIRDateTime($event);
@@ -276,7 +282,7 @@ class FHIRTiming extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDateTime[] $event
      * @return static
      */
-    public function setEvent(array $event = [])
+    public function setEvent(array $event = []): object
     {
         if ([] !== $this->event) {
             $this->_trackValuesRemoved(count($this->event));
@@ -308,7 +314,7 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming\FHIRTimingRepeat
      */
-    public function getRepeat()
+    public function getRepeat(): ?FHIRTimingRepeat
     {
         return $this->repeat;
     }
@@ -327,7 +333,7 @@ class FHIRTiming extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming\FHIRTimingRepeat $repeat
      * @return static
      */
-    public function setRepeat(FHIRTimingRepeat $repeat = null)
+    public function setRepeat(?FHIRTimingRepeat $repeat = null): object
     {
         $this->_trackValueSet($this->repeat, $repeat);
         $this->repeat = $repeat;
@@ -349,7 +355,7 @@ class FHIRTiming extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -370,7 +376,7 @@ class FHIRTiming extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -496,15 +502,15 @@ class FHIRTiming extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTiming::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -524,7 +530,7 @@ class FHIRTiming extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -569,7 +575,7 @@ class FHIRTiming extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -602,10 +608,12 @@ class FHIRTiming extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getEvent())) {
             $vals = [];
             $exts = [];
@@ -615,7 +623,7 @@ class FHIRTiming extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRDateTime::FIELD_VALUE]);
+                unset($ext->{FHIRDateTime::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -624,19 +632,20 @@ class FHIRTiming extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_EVENT] = $vals;
+                $out->{self::FIELD_EVENT} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_EVENT_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EVENT_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getRepeat())) {
-            $a[self::FIELD_REPEAT] = $v;
+            $out->{self::FIELD_REPEAT} = $v;
         }
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

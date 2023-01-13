@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProvenance;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProvenance;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -119,7 +119,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $role = [];
+    protected ?array $role = [];
 
     /**
      * A reference from one resource to another.
@@ -130,7 +130,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $who = null;
+    protected ?FHIRReference $who = null;
 
     /**
      * A reference from one resource to another.
@@ -141,13 +141,13 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $onBehalfOf = null;
+    protected ?FHIRReference $onBehalfOf = null;
 
     /**
      * Validation map for fields in type Provenance.Agent
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRProvenanceAgent Constructor
@@ -206,11 +206,17 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -230,7 +236,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -246,7 +252,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -264,7 +270,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getRole()
+    public function getRole(): ?array
     {
         return $this->role;
     }
@@ -281,7 +287,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $role
      * @return static
      */
-    public function addRole(FHIRCodeableConcept $role = null)
+    public function addRole(?FHIRCodeableConcept $role = null): object
     {
         $this->_trackValueAdded();
         $this->role[] = $role;
@@ -300,7 +306,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $role
      * @return static
      */
-    public function setRole(array $role = [])
+    public function setRole(array $role = []): object
     {
         if ([] !== $this->role) {
             $this->_trackValuesRemoved(count($this->role));
@@ -328,7 +334,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getWho()
+    public function getWho(): ?FHIRReference
     {
         return $this->who;
     }
@@ -343,7 +349,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $who
      * @return static
      */
-    public function setWho(FHIRReference $who = null)
+    public function setWho(?FHIRReference $who = null): object
     {
         $this->_trackValueSet($this->who, $who);
         $this->who = $who;
@@ -359,7 +365,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOnBehalfOf()
+    public function getOnBehalfOf(): ?FHIRReference
     {
         return $this->onBehalfOf;
     }
@@ -374,7 +380,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $onBehalfOf
      * @return static
      */
-    public function setOnBehalfOf(FHIRReference $onBehalfOf = null)
+    public function setOnBehalfOf(?FHIRReference $onBehalfOf = null): object
     {
         $this->_trackValueSet($this->onBehalfOf, $onBehalfOf);
         $this->onBehalfOf = $onBehalfOf;
@@ -517,15 +523,15 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProvenance\FHIRProvenanceAgent
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRProvenance\FHIRProvenanceAgent    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRProvenanceAgent::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -545,7 +551,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -583,7 +589,7 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -621,29 +627,32 @@ class FHIRProvenanceAgent extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getRole())) {
-            $a[self::FIELD_ROLE] = [];
+            $out->{self::FIELD_ROLE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ROLE][] = $v;
+                $out->{self::FIELD_ROLE}[] = $v;
             }
         }
         if (null !== ($v = $this->getWho())) {
-            $a[self::FIELD_WHO] = $v;
+            $out->{self::FIELD_WHO} = $v;
         }
         if (null !== ($v = $this->getOnBehalfOf())) {
-            $a[self::FIELD_ON_BEHALF_OF] = $v;
+            $out->{self::FIELD_ON_BEHALF_OF} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,9 +102,9 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Name of the rule for internal references.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $name = null;
+    protected ?FHIRId $name = null;
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -113,7 +113,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapSource[]
      */
-    protected $source = [];
+    protected ?array $source = [];
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -122,7 +122,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapTarget[]
      */
-    protected $target = [];
+    protected ?array $target = [];
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -131,7 +131,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[]
      */
-    protected $rule = [];
+    protected ?array $rule = [];
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -140,7 +140,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapDependent[]
      */
-    protected $dependent = [];
+    protected ?array $dependent = [];
 
     /**
      * A sequence of Unicode characters
@@ -149,15 +149,15 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $documentation = null;
+    protected ?FHIRString $documentation = null;
 
     /**
      * Validation map for fields in type StructureMap.Rule
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_SOURCE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -180,8 +180,8 @@ class FHIRStructureMapRule extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setName($value);
@@ -267,8 +267,8 @@ class FHIRStructureMapRule extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DOCUMENTATION]) || isset($data[self::FIELD_DOCUMENTATION_EXT])) {
-            $value = isset($data[self::FIELD_DOCUMENTATION]) ? $data[self::FIELD_DOCUMENTATION] : null;
-            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $ext = $data[self::FIELD_DOCUMENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DOCUMENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_DOCUMENTATION_EXT]) && is_array($data[self::FIELD_DOCUMENTATION_EXT])) ? $data[self::FIELD_DOCUMENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDocumentation($value);
@@ -283,11 +283,17 @@ class FHIRStructureMapRule extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -307,9 +313,9 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Name of the rule for internal references.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getName()
+    public function getName(): ?FHIRId
     {
         return $this->name;
     }
@@ -324,10 +330,10 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Name of the rule for internal references.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $name
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRId)) {
             $name = new FHIRId($name);
@@ -344,7 +350,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapSource[]
      */
-    public function getSource()
+    public function getSource(): ?array
     {
         return $this->source;
     }
@@ -357,7 +363,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapSource $source
      * @return static
      */
-    public function addSource(FHIRStructureMapSource $source = null)
+    public function addSource(?FHIRStructureMapSource $source = null): object
     {
         $this->_trackValueAdded();
         $this->source[] = $source;
@@ -372,7 +378,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapSource[] $source
      * @return static
      */
-    public function setSource(array $source = [])
+    public function setSource(array $source = []): object
     {
         if ([] !== $this->source) {
             $this->_trackValuesRemoved(count($this->source));
@@ -398,7 +404,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapTarget[]
      */
-    public function getTarget()
+    public function getTarget(): ?array
     {
         return $this->target;
     }
@@ -411,7 +417,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapTarget $target
      * @return static
      */
-    public function addTarget(FHIRStructureMapTarget $target = null)
+    public function addTarget(?FHIRStructureMapTarget $target = null): object
     {
         $this->_trackValueAdded();
         $this->target[] = $target;
@@ -426,7 +432,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapTarget[] $target
      * @return static
      */
-    public function setTarget(array $target = [])
+    public function setTarget(array $target = []): object
     {
         if ([] !== $this->target) {
             $this->_trackValuesRemoved(count($this->target));
@@ -452,7 +458,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[]
      */
-    public function getRule()
+    public function getRule(): ?array
     {
         return $this->rule;
     }
@@ -465,7 +471,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule $rule
      * @return static
      */
-    public function addRule(FHIRStructureMapRule $rule = null)
+    public function addRule(?FHIRStructureMapRule $rule = null): object
     {
         $this->_trackValueAdded();
         $this->rule[] = $rule;
@@ -480,7 +486,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule[] $rule
      * @return static
      */
-    public function setRule(array $rule = [])
+    public function setRule(array $rule = []): object
     {
         if ([] !== $this->rule) {
             $this->_trackValuesRemoved(count($this->rule));
@@ -506,7 +512,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapDependent[]
      */
-    public function getDependent()
+    public function getDependent(): ?array
     {
         return $this->dependent;
     }
@@ -519,7 +525,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapDependent $dependent
      * @return static
      */
-    public function addDependent(FHIRStructureMapDependent $dependent = null)
+    public function addDependent(?FHIRStructureMapDependent $dependent = null): object
     {
         $this->_trackValueAdded();
         $this->dependent[] = $dependent;
@@ -534,7 +540,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapDependent[] $dependent
      * @return static
      */
-    public function setDependent(array $dependent = [])
+    public function setDependent(array $dependent = []): object
     {
         if ([] !== $this->dependent) {
             $this->_trackValuesRemoved(count($this->dependent));
@@ -560,9 +566,9 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?FHIRString
     {
         return $this->documentation;
     }
@@ -574,10 +580,10 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      *
      * Documentation for this instance of data.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $documentation
      * @return static
      */
-    public function setDocumentation($documentation = null)
+    public function setDocumentation($documentation = null): object
     {
         if (null !== $documentation && !($documentation instanceof FHIRString)) {
             $documentation = new FHIRString($documentation);
@@ -763,15 +769,15 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRStructureMap\FHIRStructureMapRule    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRStructureMapRule::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -791,7 +797,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -851,7 +857,7 @@ class FHIRStructureMapRule extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -914,67 +920,70 @@ class FHIRStructureMapRule extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSource())) {
-            $a[self::FIELD_SOURCE] = [];
+            $out->{self::FIELD_SOURCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SOURCE][] = $v;
+                $out->{self::FIELD_SOURCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTarget())) {
-            $a[self::FIELD_TARGET] = [];
+            $out->{self::FIELD_TARGET} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TARGET][] = $v;
+                $out->{self::FIELD_TARGET}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRule())) {
-            $a[self::FIELD_RULE] = [];
+            $out->{self::FIELD_RULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RULE][] = $v;
+                $out->{self::FIELD_RULE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDependent())) {
-            $a[self::FIELD_DEPENDENT] = [];
+            $out->{self::FIELD_DEPENDENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DEPENDENT][] = $v;
+                $out->{self::FIELD_DEPENDENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDocumentation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DOCUMENTATION] = $val;
+                $out->{self::FIELD_DOCUMENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DOCUMENTATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DOCUMENTATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

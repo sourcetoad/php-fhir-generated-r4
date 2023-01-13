@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -133,7 +133,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * Codes identifying the lifecycle stage of an Invoice.
@@ -143,7 +143,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInvoiceStatus
      */
-    protected $status = null;
+    protected ?FHIRInvoiceStatus $status = null;
 
     /**
      * A sequence of Unicode characters
@@ -153,9 +153,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * In case of Invoice cancellation a reason must be given (entered in error,
      * superseded by corrected invoice etc.).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $cancelledReason = null;
+    protected ?FHIRString $cancelledReason = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -168,7 +168,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A reference from one resource to another.
@@ -180,7 +180,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -191,7 +191,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $recipient = null;
+    protected ?FHIRReference $recipient = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -203,9 +203,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Date/time(s) of when this Invoice was posted.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * Invoice containing collected ChargeItems from an Account with calculated
@@ -215,7 +215,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceParticipant[]
      */
-    protected $participant = [];
+    protected ?array $participant = [];
 
     /**
      * A reference from one resource to another.
@@ -226,7 +226,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $issuer = null;
+    protected ?FHIRReference $issuer = null;
 
     /**
      * A reference from one resource to another.
@@ -237,7 +237,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $account = null;
+    protected ?FHIRReference $account = null;
 
     /**
      * Invoice containing collected ChargeItems from an Account with calculated
@@ -248,7 +248,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceLineItem[]
      */
-    protected $lineItem = [];
+    protected ?array $lineItem = [];
 
     /**
      * Invoice containing collected ChargeItems from an Account with calculated
@@ -261,7 +261,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoicePriceComponent[]
      */
-    protected $totalPriceComponent = [];
+    protected ?array $totalPriceComponent = [];
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -272,7 +272,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $totalNet = null;
+    protected ?FHIRMoney $totalNet = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -283,7 +283,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $totalGross = null;
+    protected ?FHIRMoney $totalGross = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -297,9 +297,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Payment details such as banking details, period of payment, deductibles, methods
      * of payment.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $paymentTerms = null;
+    protected ?FHIRMarkdown $paymentTerms = null;
 
     /**
      * A text note which also contains information about who made the statement and
@@ -311,13 +311,13 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Validation map for fields in type Invoice
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRInvoice Constructor
@@ -354,8 +354,8 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInvoiceStatus) {
                     $this->setStatus($value);
@@ -369,8 +369,8 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_CANCELLED_REASON]) || isset($data[self::FIELD_CANCELLED_REASON_EXT])) {
-            $value = isset($data[self::FIELD_CANCELLED_REASON]) ? $data[self::FIELD_CANCELLED_REASON] : null;
-            $ext = (isset($data[self::FIELD_CANCELLED_REASON_EXT]) && is_array($data[self::FIELD_CANCELLED_REASON_EXT])) ? $ext = $data[self::FIELD_CANCELLED_REASON_EXT] : $ext = [];
+            $value = $data[self::FIELD_CANCELLED_REASON] ?? null;
+            $ext = (isset($data[self::FIELD_CANCELLED_REASON_EXT]) && is_array($data[self::FIELD_CANCELLED_REASON_EXT])) ? $data[self::FIELD_CANCELLED_REASON_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCancelledReason($value);
@@ -405,8 +405,8 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -502,8 +502,8 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
             }
         }
         if (isset($data[self::FIELD_PAYMENT_TERMS]) || isset($data[self::FIELD_PAYMENT_TERMS_EXT])) {
-            $value = isset($data[self::FIELD_PAYMENT_TERMS]) ? $data[self::FIELD_PAYMENT_TERMS] : null;
-            $ext = (isset($data[self::FIELD_PAYMENT_TERMS_EXT]) && is_array($data[self::FIELD_PAYMENT_TERMS_EXT])) ? $ext = $data[self::FIELD_PAYMENT_TERMS_EXT] : $ext = [];
+            $value = $data[self::FIELD_PAYMENT_TERMS] ?? null;
+            $ext = (isset($data[self::FIELD_PAYMENT_TERMS_EXT]) && is_array($data[self::FIELD_PAYMENT_TERMS_EXT])) ? $data[self::FIELD_PAYMENT_TERMS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setPaymentTerms($value);
@@ -536,11 +536,17 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -549,6 +555,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         }
         return "<Invoice{$xmlns}></Invoice>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -566,7 +575,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -583,7 +592,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -602,7 +611,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -629,7 +638,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInvoiceStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRInvoiceStatus
     {
         return $this->status;
     }
@@ -643,7 +652,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInvoiceStatus $status
      * @return static
      */
-    public function setStatus(FHIRInvoiceStatus $status = null)
+    public function setStatus(?FHIRInvoiceStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -658,9 +667,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * In case of Invoice cancellation a reason must be given (entered in error,
      * superseded by corrected invoice etc.).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCancelledReason()
+    public function getCancelledReason(): ?FHIRString
     {
         return $this->cancelledReason;
     }
@@ -673,10 +682,10 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * In case of Invoice cancellation a reason must be given (entered in error,
      * superseded by corrected invoice etc.).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $cancelledReason
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $cancelledReason
      * @return static
      */
-    public function setCancelledReason($cancelledReason = null)
+    public function setCancelledReason($cancelledReason = null): object
     {
         if (null !== $cancelledReason && !($cancelledReason instanceof FHIRString)) {
             $cancelledReason = new FHIRString($cancelledReason);
@@ -697,7 +706,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -714,7 +723,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -731,7 +740,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -747,7 +756,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -763,7 +772,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRecipient()
+    public function getRecipient(): ?FHIRReference
     {
         return $this->recipient;
     }
@@ -778,7 +787,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $recipient
      * @return static
      */
-    public function setRecipient(FHIRReference $recipient = null)
+    public function setRecipient(?FHIRReference $recipient = null): object
     {
         $this->_trackValueSet($this->recipient, $recipient);
         $this->recipient = $recipient;
@@ -795,9 +804,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Date/time(s) of when this Invoice was posted.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -812,10 +821,10 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * Date/time(s) of when this Invoice was posted.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -833,7 +842,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceParticipant[]
      */
-    public function getParticipant()
+    public function getParticipant(): ?array
     {
         return $this->participant;
     }
@@ -847,7 +856,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceParticipant $participant
      * @return static
      */
-    public function addParticipant(FHIRInvoiceParticipant $participant = null)
+    public function addParticipant(?FHIRInvoiceParticipant $participant = null): object
     {
         $this->_trackValueAdded();
         $this->participant[] = $participant;
@@ -863,7 +872,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceParticipant[] $participant
      * @return static
      */
-    public function setParticipant(array $participant = [])
+    public function setParticipant(array $participant = []): object
     {
         if ([] !== $this->participant) {
             $this->_trackValuesRemoved(count($this->participant));
@@ -891,7 +900,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getIssuer()
+    public function getIssuer(): ?FHIRReference
     {
         return $this->issuer;
     }
@@ -906,7 +915,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $issuer
      * @return static
      */
-    public function setIssuer(FHIRReference $issuer = null)
+    public function setIssuer(?FHIRReference $issuer = null): object
     {
         $this->_trackValueSet($this->issuer, $issuer);
         $this->issuer = $issuer;
@@ -922,7 +931,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAccount()
+    public function getAccount(): ?FHIRReference
     {
         return $this->account;
     }
@@ -937,7 +946,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $account
      * @return static
      */
-    public function setAccount(FHIRReference $account = null)
+    public function setAccount(?FHIRReference $account = null): object
     {
         $this->_trackValueSet($this->account, $account);
         $this->account = $account;
@@ -953,7 +962,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceLineItem[]
      */
-    public function getLineItem()
+    public function getLineItem(): ?array
     {
         return $this->lineItem;
     }
@@ -968,7 +977,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceLineItem $lineItem
      * @return static
      */
-    public function addLineItem(FHIRInvoiceLineItem $lineItem = null)
+    public function addLineItem(?FHIRInvoiceLineItem $lineItem = null): object
     {
         $this->_trackValueAdded();
         $this->lineItem[] = $lineItem;
@@ -985,7 +994,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoiceLineItem[] $lineItem
      * @return static
      */
-    public function setLineItem(array $lineItem = [])
+    public function setLineItem(array $lineItem = []): object
     {
         if ([] !== $this->lineItem) {
             $this->_trackValuesRemoved(count($this->lineItem));
@@ -1015,7 +1024,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoicePriceComponent[]
      */
-    public function getTotalPriceComponent()
+    public function getTotalPriceComponent(): ?array
     {
         return $this->totalPriceComponent;
     }
@@ -1032,7 +1041,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoicePriceComponent $totalPriceComponent
      * @return static
      */
-    public function addTotalPriceComponent(FHIRInvoicePriceComponent $totalPriceComponent = null)
+    public function addTotalPriceComponent(?FHIRInvoicePriceComponent $totalPriceComponent = null): object
     {
         $this->_trackValueAdded();
         $this->totalPriceComponent[] = $totalPriceComponent;
@@ -1051,7 +1060,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInvoice\FHIRInvoicePriceComponent[] $totalPriceComponent
      * @return static
      */
-    public function setTotalPriceComponent(array $totalPriceComponent = [])
+    public function setTotalPriceComponent(array $totalPriceComponent = []): object
     {
         if ([] !== $this->totalPriceComponent) {
             $this->_trackValuesRemoved(count($this->totalPriceComponent));
@@ -1079,7 +1088,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getTotalNet()
+    public function getTotalNet(): ?FHIRMoney
     {
         return $this->totalNet;
     }
@@ -1094,7 +1103,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $totalNet
      * @return static
      */
-    public function setTotalNet(FHIRMoney $totalNet = null)
+    public function setTotalNet(?FHIRMoney $totalNet = null): object
     {
         $this->_trackValueSet($this->totalNet, $totalNet);
         $this->totalNet = $totalNet;
@@ -1110,7 +1119,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getTotalGross()
+    public function getTotalGross(): ?FHIRMoney
     {
         return $this->totalGross;
     }
@@ -1125,7 +1134,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $totalGross
      * @return static
      */
-    public function setTotalGross(FHIRMoney $totalGross = null)
+    public function setTotalGross(?FHIRMoney $totalGross = null): object
     {
         $this->_trackValueSet($this->totalGross, $totalGross);
         $this->totalGross = $totalGross;
@@ -1144,9 +1153,9 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Payment details such as banking details, period of payment, deductibles, methods
      * of payment.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getPaymentTerms()
+    public function getPaymentTerms(): ?FHIRMarkdown
     {
         return $this->paymentTerms;
     }
@@ -1163,10 +1172,10 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * Payment details such as banking details, period of payment, deductibles, methods
      * of payment.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $paymentTerms
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $paymentTerms
      * @return static
      */
-    public function setPaymentTerms($paymentTerms = null)
+    public function setPaymentTerms($paymentTerms = null): object
     {
         if (null !== $paymentTerms && !($paymentTerms instanceof FHIRMarkdown)) {
             $paymentTerms = new FHIRMarkdown($paymentTerms);
@@ -1186,7 +1195,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1202,7 +1211,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1220,7 +1229,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1647,15 +1656,15 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInvoice
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInvoice    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRInvoice::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1675,7 +1684,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1797,7 +1806,7 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1915,117 +1924,122 @@ class FHIRInvoice extends FHIRDomainResource implements PHPFHIRContainedTypeInte
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInvoiceStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRInvoiceStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCancelledReason())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CANCELLED_REASON] = $val;
+                $out->{self::FIELD_CANCELLED_REASON} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CANCELLED_REASON_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CANCELLED_REASON_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getRecipient())) {
-            $a[self::FIELD_RECIPIENT] = $v;
+            $out->{self::FIELD_RECIPIENT} = $v;
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getParticipant())) {
-            $a[self::FIELD_PARTICIPANT] = [];
+            $out->{self::FIELD_PARTICIPANT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARTICIPANT][] = $v;
+                $out->{self::FIELD_PARTICIPANT}[] = $v;
             }
         }
         if (null !== ($v = $this->getIssuer())) {
-            $a[self::FIELD_ISSUER] = $v;
+            $out->{self::FIELD_ISSUER} = $v;
         }
         if (null !== ($v = $this->getAccount())) {
-            $a[self::FIELD_ACCOUNT] = $v;
+            $out->{self::FIELD_ACCOUNT} = $v;
         }
         if ([] !== ($vs = $this->getLineItem())) {
-            $a[self::FIELD_LINE_ITEM] = [];
+            $out->{self::FIELD_LINE_ITEM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LINE_ITEM][] = $v;
+                $out->{self::FIELD_LINE_ITEM}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTotalPriceComponent())) {
-            $a[self::FIELD_TOTAL_PRICE_COMPONENT] = [];
+            $out->{self::FIELD_TOTAL_PRICE_COMPONENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TOTAL_PRICE_COMPONENT][] = $v;
+                $out->{self::FIELD_TOTAL_PRICE_COMPONENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getTotalNet())) {
-            $a[self::FIELD_TOTAL_NET] = $v;
+            $out->{self::FIELD_TOTAL_NET} = $v;
         }
         if (null !== ($v = $this->getTotalGross())) {
-            $a[self::FIELD_TOTAL_GROSS] = $v;
+            $out->{self::FIELD_TOTAL_GROSS} = $v;
         }
         if (null !== ($v = $this->getPaymentTerms())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PAYMENT_TERMS] = $val;
+                $out->{self::FIELD_PAYMENT_TERMS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PAYMENT_TERMS_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PAYMENT_TERMS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

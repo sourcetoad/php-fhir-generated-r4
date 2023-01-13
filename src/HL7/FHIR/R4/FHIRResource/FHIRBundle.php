@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,7 +114,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $identifier = null;
+    protected ?FHIRIdentifier $identifier = null;
 
     /**
      * Indicates the purpose of a bundle - how it is intended to be used.
@@ -124,7 +124,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBundleType
      */
-    protected $type = null;
+    protected ?FHIRBundleType $type = null;
 
     /**
      * An instant in time - known at least to the second
@@ -137,9 +137,9 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * The date/time that the bundle was assembled - i.e. when the resources were
      * placed in the bundle.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $timestamp = null;
+    protected ?FHIRInstant $timestamp = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -151,9 +151,9 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * 'outcome' entries and it does not provide a count of the number of entries in
      * the Bundle.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $total = null;
+    protected ?FHIRUnsignedInt $total = null;
 
     /**
      * A container for a collection of resources.
@@ -162,7 +162,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[]
      */
-    protected $link = [];
+    protected ?array $link = [];
 
     /**
      * A container for a collection of resources.
@@ -172,7 +172,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry[]
      */
-    protected $entry = [];
+    protected ?array $entry = [];
 
     /**
      * A signature along with supporting context. The signature may be a digital
@@ -187,13 +187,13 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    protected $signature = null;
+    protected ?FHIRSignature $signature = null;
 
     /**
      * Validation map for fields in type Bundle
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRBundle Constructor
@@ -219,8 +219,8 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBundleType) {
                     $this->setType($value);
@@ -234,8 +234,8 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
             }
         }
         if (isset($data[self::FIELD_TIMESTAMP]) || isset($data[self::FIELD_TIMESTAMP_EXT])) {
-            $value = isset($data[self::FIELD_TIMESTAMP]) ? $data[self::FIELD_TIMESTAMP] : null;
-            $ext = (isset($data[self::FIELD_TIMESTAMP_EXT]) && is_array($data[self::FIELD_TIMESTAMP_EXT])) ? $ext = $data[self::FIELD_TIMESTAMP_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMESTAMP] ?? null;
+            $ext = (isset($data[self::FIELD_TIMESTAMP_EXT]) && is_array($data[self::FIELD_TIMESTAMP_EXT])) ? $data[self::FIELD_TIMESTAMP_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setTimestamp($value);
@@ -249,8 +249,8 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
             }
         }
         if (isset($data[self::FIELD_TOTAL]) || isset($data[self::FIELD_TOTAL_EXT])) {
-            $value = isset($data[self::FIELD_TOTAL]) ? $data[self::FIELD_TOTAL] : null;
-            $ext = (isset($data[self::FIELD_TOTAL_EXT]) && is_array($data[self::FIELD_TOTAL_EXT])) ? $ext = $data[self::FIELD_TOTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_TOTAL] ?? null;
+            $ext = (isset($data[self::FIELD_TOTAL_EXT]) && is_array($data[self::FIELD_TOTAL_EXT])) ? $data[self::FIELD_TOTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setTotal($value);
@@ -308,11 +308,17 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -321,6 +327,9 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
         }
         return "<Bundle{$xmlns}></Bundle>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -338,7 +347,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRIdentifier
     {
         return $this->identifier;
     }
@@ -355,7 +364,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function setIdentifier(FHIRIdentifier $identifier = null)
+    public function setIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueSet($this->identifier, $identifier);
         $this->identifier = $identifier;
@@ -370,7 +379,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBundleType
      */
-    public function getType()
+    public function getType(): ?FHIRBundleType
     {
         return $this->type;
     }
@@ -384,7 +393,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBundleType $type
      * @return static
      */
-    public function setType(FHIRBundleType $type = null)
+    public function setType(?FHIRBundleType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -402,9 +411,9 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * The date/time that the bundle was assembled - i.e. when the resources were
      * placed in the bundle.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getTimestamp()
+    public function getTimestamp(): ?FHIRInstant
     {
         return $this->timestamp;
     }
@@ -420,10 +429,10 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * The date/time that the bundle was assembled - i.e. when the resources were
      * placed in the bundle.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $timestamp
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $timestamp
      * @return static
      */
-    public function setTimestamp($timestamp = null)
+    public function setTimestamp($timestamp = null): object
     {
         if (null !== $timestamp && !($timestamp instanceof FHIRInstant)) {
             $timestamp = new FHIRInstant($timestamp);
@@ -443,9 +452,9 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * 'outcome' entries and it does not provide a count of the number of entries in
      * the Bundle.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getTotal()
+    public function getTotal(): ?FHIRUnsignedInt
     {
         return $this->total;
     }
@@ -460,10 +469,10 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * 'outcome' entries and it does not provide a count of the number of entries in
      * the Bundle.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $total
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $total
      * @return static
      */
-    public function setTotal($total = null)
+    public function setTotal($total = null): object
     {
         if (null !== $total && !($total instanceof FHIRUnsignedInt)) {
             $total = new FHIRUnsignedInt($total);
@@ -480,7 +489,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[]
      */
-    public function getLink()
+    public function getLink(): ?array
     {
         return $this->link;
     }
@@ -493,7 +502,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink $link
      * @return static
      */
-    public function addLink(FHIRBundleLink $link = null)
+    public function addLink(?FHIRBundleLink $link = null): object
     {
         $this->_trackValueAdded();
         $this->link[] = $link;
@@ -508,7 +517,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[] $link
      * @return static
      */
-    public function setLink(array $link = [])
+    public function setLink(array $link = []): object
     {
         if ([] !== $this->link) {
             $this->_trackValuesRemoved(count($this->link));
@@ -535,7 +544,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry[]
      */
-    public function getEntry()
+    public function getEntry(): ?array
     {
         return $this->entry;
     }
@@ -549,7 +558,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry $entry
      * @return static
      */
-    public function addEntry(FHIRBundleEntry $entry = null)
+    public function addEntry(?FHIRBundleEntry $entry = null): object
     {
         $this->_trackValueAdded();
         $this->entry[] = $entry;
@@ -565,7 +574,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry[] $entry
      * @return static
      */
-    public function setEntry(array $entry = [])
+    public function setEntry(array $entry = []): object
     {
         if ([] !== $this->entry) {
             $this->_trackValuesRemoved(count($this->entry));
@@ -597,7 +606,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    public function getSignature()
+    public function getSignature(): ?FHIRSignature
     {
         return $this->signature;
     }
@@ -616,7 +625,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSignature $signature
      * @return static
      */
-    public function setSignature(FHIRSignature $signature = null)
+    public function setSignature(?FHIRSignature $signature = null): object
     {
         $this->_trackValueSet($this->signature, $signature);
         $this->signature = $signature;
@@ -824,15 +833,15 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRBundle
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRBundle    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBundle::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -852,7 +861,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -934,7 +943,7 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -992,65 +1001,70 @@ class FHIRBundle extends FHIRResource implements PHPFHIRContainedTypeInterface
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = $v;
+            $out->{self::FIELD_IDENTIFIER} = $v;
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBundleType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRBundleType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimestamp())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMESTAMP] = $val;
+                $out->{self::FIELD_TIMESTAMP} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMESTAMP_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMESTAMP_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTotal())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TOTAL] = $val;
+                $out->{self::FIELD_TOTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TOTAL_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TOTAL_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getLink())) {
-            $a[self::FIELD_LINK] = [];
+            $out->{self::FIELD_LINK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LINK][] = $v;
+                $out->{self::FIELD_LINK}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEntry())) {
-            $a[self::FIELD_ENTRY] = [];
+            $out->{self::FIELD_ENTRY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENTRY][] = $v;
+                $out->{self::FIELD_ENTRY}[] = $v;
             }
         }
         if (null !== ($v = $this->getSignature())) {
-            $a[self::FIELD_SIGNATURE] = $v;
+            $out->{self::FIELD_SIGNATURE} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

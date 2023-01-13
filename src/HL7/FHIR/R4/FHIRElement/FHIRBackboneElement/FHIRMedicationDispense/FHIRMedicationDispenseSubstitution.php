@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationDispense;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationDispense;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,9 +100,9 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * True if the dispenser dispensed a different drug or product from what was
      * prescribed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $wasSubstituted = null;
+    protected ?FHIRBoolean $wasSubstituted = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -115,7 +115,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -128,7 +128,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reason = [];
+    protected ?array $reason = [];
 
     /**
      * A reference from one resource to another.
@@ -139,13 +139,13 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $responsibleParty = [];
+    protected ?array $responsibleParty = [];
 
     /**
      * Validation map for fields in type MedicationDispense.Substitution
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationDispenseSubstitution Constructor
@@ -164,8 +164,8 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_WAS_SUBSTITUTED]) || isset($data[self::FIELD_WAS_SUBSTITUTED_EXT])) {
-            $value = isset($data[self::FIELD_WAS_SUBSTITUTED]) ? $data[self::FIELD_WAS_SUBSTITUTED] : null;
-            $ext = (isset($data[self::FIELD_WAS_SUBSTITUTED_EXT]) && is_array($data[self::FIELD_WAS_SUBSTITUTED_EXT])) ? $ext = $data[self::FIELD_WAS_SUBSTITUTED_EXT] : $ext = [];
+            $value = $data[self::FIELD_WAS_SUBSTITUTED] ?? null;
+            $ext = (isset($data[self::FIELD_WAS_SUBSTITUTED_EXT]) && is_array($data[self::FIELD_WAS_SUBSTITUTED_EXT])) ? $data[self::FIELD_WAS_SUBSTITUTED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setWasSubstituted($value);
@@ -223,11 +223,17 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -244,9 +250,9 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * True if the dispenser dispensed a different drug or product from what was
      * prescribed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getWasSubstituted()
+    public function getWasSubstituted(): ?FHIRBoolean
     {
         return $this->wasSubstituted;
     }
@@ -258,10 +264,10 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * True if the dispenser dispensed a different drug or product from what was
      * prescribed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $wasSubstituted
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $wasSubstituted
      * @return static
      */
-    public function setWasSubstituted($wasSubstituted = null)
+    public function setWasSubstituted($wasSubstituted = null): object
     {
         if (null !== $wasSubstituted && !($wasSubstituted instanceof FHIRBoolean)) {
             $wasSubstituted = new FHIRBoolean($wasSubstituted);
@@ -282,7 +288,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -299,7 +305,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -317,7 +323,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReason()
+    public function getReason(): ?array
     {
         return $this->reason;
     }
@@ -334,7 +340,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reason
      * @return static
      */
-    public function addReason(FHIRCodeableConcept $reason = null)
+    public function addReason(?FHIRCodeableConcept $reason = null): object
     {
         $this->_trackValueAdded();
         $this->reason[] = $reason;
@@ -353,7 +359,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reason
      * @return static
      */
-    public function setReason(array $reason = [])
+    public function setReason(array $reason = []): object
     {
         if ([] !== $this->reason) {
             $this->_trackValuesRemoved(count($this->reason));
@@ -381,7 +387,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getResponsibleParty()
+    public function getResponsibleParty(): ?array
     {
         return $this->responsibleParty;
     }
@@ -396,7 +402,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $responsibleParty
      * @return static
      */
-    public function addResponsibleParty(FHIRReference $responsibleParty = null)
+    public function addResponsibleParty(?FHIRReference $responsibleParty = null): object
     {
         $this->_trackValueAdded();
         $this->responsibleParty[] = $responsibleParty;
@@ -413,7 +419,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $responsibleParty
      * @return static
      */
-    public function setResponsibleParty(array $responsibleParty = [])
+    public function setResponsibleParty(array $responsibleParty = []): object
     {
         if ([] !== $this->responsibleParty) {
             $this->_trackValuesRemoved(count($this->responsibleParty));
@@ -570,15 +576,15 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationDispense\FHIRMedicationDispenseSubstitution
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationDispense\FHIRMedicationDispenseSubstitution    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationDispenseSubstitution::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -598,7 +604,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -645,7 +651,7 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -688,42 +694,45 @@ class FHIRMedicationDispenseSubstitution extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getWasSubstituted())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WAS_SUBSTITUTED] = $val;
+                $out->{self::FIELD_WAS_SUBSTITUTED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WAS_SUBSTITUTED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WAS_SUBSTITUTED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getReason())) {
-            $a[self::FIELD_REASON] = [];
+            $out->{self::FIELD_REASON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON][] = $v;
+                $out->{self::FIELD_REASON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getResponsibleParty())) {
-            $a[self::FIELD_RESPONSIBLE_PARTY] = [];
+            $out->{self::FIELD_RESPONSIBLE_PARTY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RESPONSIBLE_PARTY][] = $v;
+                $out->{self::FIELD_RESPONSIBLE_PARTY}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

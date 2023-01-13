@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,7 +107,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionDiscriminator[]
      */
-    protected $discriminator = [];
+    protected ?array $discriminator = [];
 
     /**
      * A sequence of Unicode characters
@@ -118,9 +118,9 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * discriminator, this is required to be present to provide whatever information is
      * possible about how the slices can be differentiated.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * Value of "true" or "false"
@@ -129,9 +129,9 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * If the matching elements have to occur in the same order as defined in the
      * profile.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $ordered = null;
+    protected ?FHIRBoolean $ordered = null;
 
     /**
      * How slices are interpreted when evaluating an instance.
@@ -142,13 +142,13 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSlicingRules
      */
-    protected $rules = null;
+    protected ?FHIRSlicingRules $rules = null;
 
     /**
      * Validation map for fields in type ElementDefinition.Slicing
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRElementDefinitionSlicing Constructor
@@ -185,8 +185,8 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -200,8 +200,8 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ORDERED]) || isset($data[self::FIELD_ORDERED_EXT])) {
-            $value = isset($data[self::FIELD_ORDERED]) ? $data[self::FIELD_ORDERED] : null;
-            $ext = (isset($data[self::FIELD_ORDERED_EXT]) && is_array($data[self::FIELD_ORDERED_EXT])) ? $ext = $data[self::FIELD_ORDERED_EXT] : $ext = [];
+            $value = $data[self::FIELD_ORDERED] ?? null;
+            $ext = (isset($data[self::FIELD_ORDERED_EXT]) && is_array($data[self::FIELD_ORDERED_EXT])) ? $data[self::FIELD_ORDERED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setOrdered($value);
@@ -215,8 +215,8 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RULES]) || isset($data[self::FIELD_RULES_EXT])) {
-            $value = isset($data[self::FIELD_RULES]) ? $data[self::FIELD_RULES] : null;
-            $ext = (isset($data[self::FIELD_RULES_EXT]) && is_array($data[self::FIELD_RULES_EXT])) ? $ext = $data[self::FIELD_RULES_EXT] : $ext = [];
+            $value = $data[self::FIELD_RULES] ?? null;
+            $ext = (isset($data[self::FIELD_RULES_EXT]) && is_array($data[self::FIELD_RULES_EXT])) ? $data[self::FIELD_RULES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSlicingRules) {
                     $this->setRules($value);
@@ -231,11 +231,17 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -258,7 +264,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionDiscriminator[]
      */
-    public function getDiscriminator()
+    public function getDiscriminator(): ?array
     {
         return $this->discriminator;
     }
@@ -277,7 +283,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionDiscriminator $discriminator
      * @return static
      */
-    public function addDiscriminator(FHIRElementDefinitionDiscriminator $discriminator = null)
+    public function addDiscriminator(?FHIRElementDefinitionDiscriminator $discriminator = null): object
     {
         $this->_trackValueAdded();
         $this->discriminator[] = $discriminator;
@@ -298,7 +304,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionDiscriminator[] $discriminator
      * @return static
      */
-    public function setDiscriminator(array $discriminator = [])
+    public function setDiscriminator(array $discriminator = []): object
     {
         if ([] !== $this->discriminator) {
             $this->_trackValuesRemoved(count($this->discriminator));
@@ -326,9 +332,9 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * discriminator, this is required to be present to provide whatever information is
      * possible about how the slices can be differentiated.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -342,10 +348,10 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * discriminator, this is required to be present to provide whatever information is
      * possible about how the slices can be differentiated.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -362,9 +368,9 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * If the matching elements have to occur in the same order as defined in the
      * profile.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getOrdered()
+    public function getOrdered(): ?FHIRBoolean
     {
         return $this->ordered;
     }
@@ -376,10 +382,10 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * If the matching elements have to occur in the same order as defined in the
      * profile.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $ordered
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $ordered
      * @return static
      */
-    public function setOrdered($ordered = null)
+    public function setOrdered($ordered = null): object
     {
         if (null !== $ordered && !($ordered instanceof FHIRBoolean)) {
             $ordered = new FHIRBoolean($ordered);
@@ -398,7 +404,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSlicingRules
      */
-    public function getRules()
+    public function getRules(): ?FHIRSlicingRules
     {
         return $this->rules;
     }
@@ -413,7 +419,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSlicingRules $rules
      * @return static
      */
-    public function setRules(FHIRSlicingRules $rules = null)
+    public function setRules(?FHIRSlicingRules $rules = null): object
     {
         $this->_trackValueSet($this->rules, $rules);
         $this->rules = $rules;
@@ -556,15 +562,15 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionSlicing
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRElementDefinition\FHIRElementDefinitionSlicing    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRElementDefinitionSlicing::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -584,7 +590,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -640,7 +646,7 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -678,50 +684,53 @@ class FHIRElementDefinitionSlicing extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getDiscriminator())) {
-            $a[self::FIELD_DISCRIMINATOR] = [];
+            $out->{self::FIELD_DISCRIMINATOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DISCRIMINATOR][] = $v;
+                $out->{self::FIELD_DISCRIMINATOR}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOrdered())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ORDERED] = $val;
+                $out->{self::FIELD_ORDERED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ORDERED_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ORDERED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRules())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RULES] = $val;
+                $out->{self::FIELD_RULES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRSlicingRules::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RULES_EXT] = $ext;
+            unset($ext->{FHIRSlicingRules::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RULES_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

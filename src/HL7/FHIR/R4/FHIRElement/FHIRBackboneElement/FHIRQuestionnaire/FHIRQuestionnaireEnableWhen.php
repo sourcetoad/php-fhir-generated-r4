@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaire;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaire;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -124,9 +124,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * The linkId for the question whose answer (or lack of answer) governs whether
      * this item is enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $question = null;
+    protected ?FHIRString $question = null;
 
     /**
      * The criteria by which a question is enabled.
@@ -136,7 +136,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireItemOperator
      */
-    protected $operator = null;
+    protected ?FHIRQuestionnaireItemOperator $operator = null;
 
     /**
      * Value of "true" or "false"
@@ -145,9 +145,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $answerBoolean = null;
+    protected ?FHIRBoolean $answerBoolean = null;
 
     /**
      * A rational number with implicit precision
@@ -158,9 +158,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $answerDecimal = null;
+    protected ?FHIRDecimal $answerDecimal = null;
 
     /**
      * A whole number
@@ -170,9 +170,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $answerInteger = null;
+    protected ?FHIRInteger $answerInteger = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -183,9 +183,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $answerDate = null;
+    protected ?FHIRDate $answerDate = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -198,9 +198,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $answerDateTime = null;
+    protected ?FHIRDateTime $answerDateTime = null;
 
     /**
      * A time during the day, with no date specified
@@ -209,9 +209,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @var null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    protected $answerTime = null;
+    protected ?FHIRTime $answerTime = null;
 
     /**
      * A sequence of Unicode characters
@@ -221,9 +221,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $answerString = null;
+    protected ?FHIRString $answerString = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -235,7 +235,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $answerCoding = null;
+    protected ?FHIRCoding $answerCoding = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -249,7 +249,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $answerQuantity = null;
+    protected ?FHIRQuantity $answerQuantity = null;
 
     /**
      * A reference from one resource to another.
@@ -261,13 +261,13 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $answerReference = null;
+    protected ?FHIRReference $answerReference = null;
 
     /**
      * Validation map for fields in type Questionnaire.EnableWhen
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRQuestionnaireEnableWhen Constructor
@@ -286,8 +286,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_QUESTION]) || isset($data[self::FIELD_QUESTION_EXT])) {
-            $value = isset($data[self::FIELD_QUESTION]) ? $data[self::FIELD_QUESTION] : null;
-            $ext = (isset($data[self::FIELD_QUESTION_EXT]) && is_array($data[self::FIELD_QUESTION_EXT])) ? $ext = $data[self::FIELD_QUESTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_QUESTION] ?? null;
+            $ext = (isset($data[self::FIELD_QUESTION_EXT]) && is_array($data[self::FIELD_QUESTION_EXT])) ? $data[self::FIELD_QUESTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setQuestion($value);
@@ -301,8 +301,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OPERATOR]) || isset($data[self::FIELD_OPERATOR_EXT])) {
-            $value = isset($data[self::FIELD_OPERATOR]) ? $data[self::FIELD_OPERATOR] : null;
-            $ext = (isset($data[self::FIELD_OPERATOR_EXT]) && is_array($data[self::FIELD_OPERATOR_EXT])) ? $ext = $data[self::FIELD_OPERATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_OPERATOR] ?? null;
+            $ext = (isset($data[self::FIELD_OPERATOR_EXT]) && is_array($data[self::FIELD_OPERATOR_EXT])) ? $data[self::FIELD_OPERATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRQuestionnaireItemOperator) {
                     $this->setOperator($value);
@@ -316,8 +316,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_BOOLEAN]) || isset($data[self::FIELD_ANSWER_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_BOOLEAN]) ? $data[self::FIELD_ANSWER_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_BOOLEAN_EXT]) && is_array($data[self::FIELD_ANSWER_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_ANSWER_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_BOOLEAN_EXT]) && is_array($data[self::FIELD_ANSWER_BOOLEAN_EXT])) ? $data[self::FIELD_ANSWER_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAnswerBoolean($value);
@@ -331,8 +331,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_DECIMAL]) || isset($data[self::FIELD_ANSWER_DECIMAL_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_DECIMAL]) ? $data[self::FIELD_ANSWER_DECIMAL] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_DECIMAL_EXT]) && is_array($data[self::FIELD_ANSWER_DECIMAL_EXT])) ? $ext = $data[self::FIELD_ANSWER_DECIMAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_DECIMAL] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_DECIMAL_EXT]) && is_array($data[self::FIELD_ANSWER_DECIMAL_EXT])) ? $data[self::FIELD_ANSWER_DECIMAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setAnswerDecimal($value);
@@ -346,8 +346,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_INTEGER]) || isset($data[self::FIELD_ANSWER_INTEGER_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_INTEGER]) ? $data[self::FIELD_ANSWER_INTEGER] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_INTEGER_EXT]) && is_array($data[self::FIELD_ANSWER_INTEGER_EXT])) ? $ext = $data[self::FIELD_ANSWER_INTEGER_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_INTEGER] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_INTEGER_EXT]) && is_array($data[self::FIELD_ANSWER_INTEGER_EXT])) ? $data[self::FIELD_ANSWER_INTEGER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setAnswerInteger($value);
@@ -361,8 +361,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_DATE]) || isset($data[self::FIELD_ANSWER_DATE_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_DATE]) ? $data[self::FIELD_ANSWER_DATE] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_DATE_EXT]) && is_array($data[self::FIELD_ANSWER_DATE_EXT])) ? $ext = $data[self::FIELD_ANSWER_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_DATE_EXT]) && is_array($data[self::FIELD_ANSWER_DATE_EXT])) ? $data[self::FIELD_ANSWER_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setAnswerDate($value);
@@ -376,8 +376,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_DATE_TIME]) || isset($data[self::FIELD_ANSWER_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_DATE_TIME]) ? $data[self::FIELD_ANSWER_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_DATE_TIME_EXT]) && is_array($data[self::FIELD_ANSWER_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_ANSWER_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_DATE_TIME_EXT]) && is_array($data[self::FIELD_ANSWER_DATE_TIME_EXT])) ? $data[self::FIELD_ANSWER_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setAnswerDateTime($value);
@@ -391,8 +391,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_TIME]) || isset($data[self::FIELD_ANSWER_TIME_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_TIME]) ? $data[self::FIELD_ANSWER_TIME] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_TIME_EXT]) && is_array($data[self::FIELD_ANSWER_TIME_EXT])) ? $ext = $data[self::FIELD_ANSWER_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_TIME_EXT]) && is_array($data[self::FIELD_ANSWER_TIME_EXT])) ? $data[self::FIELD_ANSWER_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTime) {
                     $this->setAnswerTime($value);
@@ -406,8 +406,8 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ANSWER_STRING]) || isset($data[self::FIELD_ANSWER_STRING_EXT])) {
-            $value = isset($data[self::FIELD_ANSWER_STRING]) ? $data[self::FIELD_ANSWER_STRING] : null;
-            $ext = (isset($data[self::FIELD_ANSWER_STRING_EXT]) && is_array($data[self::FIELD_ANSWER_STRING_EXT])) ? $ext = $data[self::FIELD_ANSWER_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_ANSWER_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_ANSWER_STRING_EXT]) && is_array($data[self::FIELD_ANSWER_STRING_EXT])) ? $data[self::FIELD_ANSWER_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setAnswerString($value);
@@ -443,11 +443,17 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -465,9 +471,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * The linkId for the question whose answer (or lack of answer) governs whether
      * this item is enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getQuestion()
+    public function getQuestion(): ?FHIRString
     {
         return $this->question;
     }
@@ -480,10 +486,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * The linkId for the question whose answer (or lack of answer) governs whether
      * this item is enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $question
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $question
      * @return static
      */
-    public function setQuestion($question = null)
+    public function setQuestion($question = null): object
     {
         if (null !== $question && !($question instanceof FHIRString)) {
             $question = new FHIRString($question);
@@ -501,7 +507,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireItemOperator
      */
-    public function getOperator()
+    public function getOperator(): ?FHIRQuestionnaireItemOperator
     {
         return $this->operator;
     }
@@ -515,7 +521,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuestionnaireItemOperator $operator
      * @return static
      */
-    public function setOperator(FHIRQuestionnaireItemOperator $operator = null)
+    public function setOperator(?FHIRQuestionnaireItemOperator $operator = null): object
     {
         $this->_trackValueSet($this->operator, $operator);
         $this->operator = $operator;
@@ -529,9 +535,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAnswerBoolean()
+    public function getAnswerBoolean(): ?FHIRBoolean
     {
         return $this->answerBoolean;
     }
@@ -543,10 +549,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $answerBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $answerBoolean
      * @return static
      */
-    public function setAnswerBoolean($answerBoolean = null)
+    public function setAnswerBoolean($answerBoolean = null): object
     {
         if (null !== $answerBoolean && !($answerBoolean instanceof FHIRBoolean)) {
             $answerBoolean = new FHIRBoolean($answerBoolean);
@@ -565,9 +571,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getAnswerDecimal()
+    public function getAnswerDecimal(): ?FHIRDecimal
     {
         return $this->answerDecimal;
     }
@@ -581,10 +587,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $answerDecimal
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $answerDecimal
      * @return static
      */
-    public function setAnswerDecimal($answerDecimal = null)
+    public function setAnswerDecimal($answerDecimal = null): object
     {
         if (null !== $answerDecimal && !($answerDecimal instanceof FHIRDecimal)) {
             $answerDecimal = new FHIRDecimal($answerDecimal);
@@ -602,9 +608,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getAnswerInteger()
+    public function getAnswerInteger(): ?FHIRInteger
     {
         return $this->answerInteger;
     }
@@ -617,10 +623,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $answerInteger
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $answerInteger
      * @return static
      */
-    public function setAnswerInteger($answerInteger = null)
+    public function setAnswerInteger($answerInteger = null): object
     {
         if (null !== $answerInteger && !($answerInteger instanceof FHIRInteger)) {
             $answerInteger = new FHIRInteger($answerInteger);
@@ -639,9 +645,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getAnswerDate()
+    public function getAnswerDate(): ?FHIRDate
     {
         return $this->answerDate;
     }
@@ -655,10 +661,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $answerDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $answerDate
      * @return static
      */
-    public function setAnswerDate($answerDate = null)
+    public function setAnswerDate($answerDate = null): object
     {
         if (null !== $answerDate && !($answerDate instanceof FHIRDate)) {
             $answerDate = new FHIRDate($answerDate);
@@ -679,9 +685,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getAnswerDateTime()
+    public function getAnswerDateTime(): ?FHIRDateTime
     {
         return $this->answerDateTime;
     }
@@ -697,10 +703,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $answerDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $answerDateTime
      * @return static
      */
-    public function setAnswerDateTime($answerDateTime = null)
+    public function setAnswerDateTime($answerDateTime = null): object
     {
         if (null !== $answerDateTime && !($answerDateTime instanceof FHIRDateTime)) {
             $answerDateTime = new FHIRDateTime($answerDateTime);
@@ -717,9 +723,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @return null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    public function getAnswerTime()
+    public function getAnswerTime(): ?FHIRTime
     {
         return $this->answerTime;
     }
@@ -731,10 +737,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTime $answerTime
+     * @param null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime $answerTime
      * @return static
      */
-    public function setAnswerTime($answerTime = null)
+    public function setAnswerTime($answerTime = null): object
     {
         if (null !== $answerTime && !($answerTime instanceof FHIRTime)) {
             $answerTime = new FHIRTime($answerTime);
@@ -752,9 +758,9 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getAnswerString()
+    public function getAnswerString(): ?FHIRString
     {
         return $this->answerString;
     }
@@ -767,10 +773,10 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * A value that the referenced question is tested using the specified operator in
      * order for the item to be enabled.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $answerString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $answerString
      * @return static
      */
-    public function setAnswerString($answerString = null)
+    public function setAnswerString($answerString = null): object
     {
         if (null !== $answerString && !($answerString instanceof FHIRString)) {
             $answerString = new FHIRString($answerString);
@@ -790,7 +796,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getAnswerCoding()
+    public function getAnswerCoding(): ?FHIRCoding
     {
         return $this->answerCoding;
     }
@@ -806,7 +812,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $answerCoding
      * @return static
      */
-    public function setAnswerCoding(FHIRCoding $answerCoding = null)
+    public function setAnswerCoding(?FHIRCoding $answerCoding = null): object
     {
         $this->_trackValueSet($this->answerCoding, $answerCoding);
         $this->answerCoding = $answerCoding;
@@ -825,7 +831,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getAnswerQuantity()
+    public function getAnswerQuantity(): ?FHIRQuantity
     {
         return $this->answerQuantity;
     }
@@ -843,7 +849,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $answerQuantity
      * @return static
      */
-    public function setAnswerQuantity(FHIRQuantity $answerQuantity = null)
+    public function setAnswerQuantity(?FHIRQuantity $answerQuantity = null): object
     {
         $this->_trackValueSet($this->answerQuantity, $answerQuantity);
         $this->answerQuantity = $answerQuantity;
@@ -860,7 +866,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getAnswerReference()
+    public function getAnswerReference(): ?FHIRReference
     {
         return $this->answerReference;
     }
@@ -876,7 +882,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $answerReference
      * @return static
      */
-    public function setAnswerReference(FHIRReference $answerReference = null)
+    public function setAnswerReference(?FHIRReference $answerReference = null): object
     {
         $this->_trackValueSet($this->answerReference, $answerReference);
         $this->answerReference = $answerReference;
@@ -1153,15 +1159,15 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaire\FHIRQuestionnaireEnableWhen
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRQuestionnaire\FHIRQuestionnaireEnableWhen    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRQuestionnaireEnableWhen::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1181,7 +1187,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1307,7 +1313,7 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1380,110 +1386,113 @@ class FHIRQuestionnaireEnableWhen extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getQuestion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_QUESTION] = $val;
+                $out->{self::FIELD_QUESTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_QUESTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_QUESTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOperator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OPERATOR] = $val;
+                $out->{self::FIELD_OPERATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRQuestionnaireItemOperator::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OPERATOR_EXT] = $ext;
+            unset($ext->{FHIRQuestionnaireItemOperator::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OPERATOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_BOOLEAN] = $val;
+                $out->{self::FIELD_ANSWER_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerDecimal())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_DECIMAL] = $val;
+                $out->{self::FIELD_ANSWER_DECIMAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_DECIMAL_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_DECIMAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerInteger())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_INTEGER] = $val;
+                $out->{self::FIELD_ANSWER_INTEGER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_INTEGER_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_INTEGER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_DATE] = $val;
+                $out->{self::FIELD_ANSWER_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_DATE_TIME] = $val;
+                $out->{self::FIELD_ANSWER_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_TIME] = $val;
+                $out->{self::FIELD_ANSWER_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_TIME_EXT] = $ext;
+            unset($ext->{FHIRTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ANSWER_STRING] = $val;
+                $out->{self::FIELD_ANSWER_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ANSWER_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ANSWER_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAnswerCoding())) {
-            $a[self::FIELD_ANSWER_CODING] = $v;
+            $out->{self::FIELD_ANSWER_CODING} = $v;
         }
         if (null !== ($v = $this->getAnswerQuantity())) {
-            $a[self::FIELD_ANSWER_QUANTITY] = $v;
+            $out->{self::FIELD_ANSWER_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getAnswerReference())) {
-            $a[self::FIELD_ANSWER_REFERENCE] = $v;
+            $out->{self::FIELD_ANSWER_REFERENCE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

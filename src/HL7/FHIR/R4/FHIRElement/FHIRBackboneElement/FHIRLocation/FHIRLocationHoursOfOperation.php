@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDaysOfWeek[]
      */
-    protected $daysOfWeek = [];
+    protected ?array $daysOfWeek = [];
 
     /**
      * Value of "true" or "false"
@@ -111,9 +111,9 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * The Location is open all day.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $allDay = null;
+    protected ?FHIRBoolean $allDay = null;
 
     /**
      * A time during the day, with no date specified
@@ -121,9 +121,9 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location opens.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @var null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    protected $openingTime = null;
+    protected ?FHIRTime $openingTime = null;
 
     /**
      * A time during the day, with no date specified
@@ -131,15 +131,15 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location closes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @var null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    protected $closingTime = null;
+    protected ?FHIRTime $closingTime = null;
 
     /**
      * Validation map for fields in type Location.HoursOfOperation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRLocationHoursOfOperation Constructor
@@ -158,8 +158,8 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DAYS_OF_WEEK]) || isset($data[self::FIELD_DAYS_OF_WEEK_EXT])) {
-            $value = isset($data[self::FIELD_DAYS_OF_WEEK]) ? $data[self::FIELD_DAYS_OF_WEEK] : null;
-            $ext = (isset($data[self::FIELD_DAYS_OF_WEEK_EXT]) && is_array($data[self::FIELD_DAYS_OF_WEEK_EXT])) ? $ext = $data[self::FIELD_DAYS_OF_WEEK_EXT] : $ext = [];
+            $value = $data[self::FIELD_DAYS_OF_WEEK] ?? null;
+            $ext = (isset($data[self::FIELD_DAYS_OF_WEEK_EXT]) && is_array($data[self::FIELD_DAYS_OF_WEEK_EXT])) ? $data[self::FIELD_DAYS_OF_WEEK_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDaysOfWeek) {
                     $this->addDaysOfWeek($value);
@@ -188,8 +188,8 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ALL_DAY]) || isset($data[self::FIELD_ALL_DAY_EXT])) {
-            $value = isset($data[self::FIELD_ALL_DAY]) ? $data[self::FIELD_ALL_DAY] : null;
-            $ext = (isset($data[self::FIELD_ALL_DAY_EXT]) && is_array($data[self::FIELD_ALL_DAY_EXT])) ? $ext = $data[self::FIELD_ALL_DAY_EXT] : $ext = [];
+            $value = $data[self::FIELD_ALL_DAY] ?? null;
+            $ext = (isset($data[self::FIELD_ALL_DAY_EXT]) && is_array($data[self::FIELD_ALL_DAY_EXT])) ? $data[self::FIELD_ALL_DAY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAllDay($value);
@@ -203,8 +203,8 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OPENING_TIME]) || isset($data[self::FIELD_OPENING_TIME_EXT])) {
-            $value = isset($data[self::FIELD_OPENING_TIME]) ? $data[self::FIELD_OPENING_TIME] : null;
-            $ext = (isset($data[self::FIELD_OPENING_TIME_EXT]) && is_array($data[self::FIELD_OPENING_TIME_EXT])) ? $ext = $data[self::FIELD_OPENING_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_OPENING_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_OPENING_TIME_EXT]) && is_array($data[self::FIELD_OPENING_TIME_EXT])) ? $data[self::FIELD_OPENING_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTime) {
                     $this->setOpeningTime($value);
@@ -218,8 +218,8 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CLOSING_TIME]) || isset($data[self::FIELD_CLOSING_TIME_EXT])) {
-            $value = isset($data[self::FIELD_CLOSING_TIME]) ? $data[self::FIELD_CLOSING_TIME] : null;
-            $ext = (isset($data[self::FIELD_CLOSING_TIME_EXT]) && is_array($data[self::FIELD_CLOSING_TIME_EXT])) ? $ext = $data[self::FIELD_CLOSING_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_CLOSING_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_CLOSING_TIME_EXT]) && is_array($data[self::FIELD_CLOSING_TIME_EXT])) ? $data[self::FIELD_CLOSING_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTime) {
                     $this->setClosingTime($value);
@@ -234,11 +234,17 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -256,7 +262,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDaysOfWeek[]
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): ?array
     {
         return $this->daysOfWeek;
     }
@@ -270,7 +276,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDaysOfWeek $daysOfWeek
      * @return static
      */
-    public function addDaysOfWeek(FHIRDaysOfWeek $daysOfWeek = null)
+    public function addDaysOfWeek(?FHIRDaysOfWeek $daysOfWeek = null): object
     {
         $this->_trackValueAdded();
         $this->daysOfWeek[] = $daysOfWeek;
@@ -286,7 +292,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDaysOfWeek[] $daysOfWeek
      * @return static
      */
-    public function setDaysOfWeek(array $daysOfWeek = [])
+    public function setDaysOfWeek(array $daysOfWeek = []): object
     {
         if ([] !== $this->daysOfWeek) {
             $this->_trackValuesRemoved(count($this->daysOfWeek));
@@ -311,9 +317,9 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * The Location is open all day.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAllDay()
+    public function getAllDay(): ?FHIRBoolean
     {
         return $this->allDay;
     }
@@ -324,10 +330,10 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * The Location is open all day.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allDay
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $allDay
      * @return static
      */
-    public function setAllDay($allDay = null)
+    public function setAllDay($allDay = null): object
     {
         if (null !== $allDay && !($allDay instanceof FHIRBoolean)) {
             $allDay = new FHIRBoolean($allDay);
@@ -343,9 +349,9 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location opens.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @return null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    public function getOpeningTime()
+    public function getOpeningTime(): ?FHIRTime
     {
         return $this->openingTime;
     }
@@ -356,10 +362,10 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location opens.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTime $openingTime
+     * @param null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime $openingTime
      * @return static
      */
-    public function setOpeningTime($openingTime = null)
+    public function setOpeningTime($openingTime = null): object
     {
         if (null !== $openingTime && !($openingTime instanceof FHIRTime)) {
             $openingTime = new FHIRTime($openingTime);
@@ -375,9 +381,9 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location closes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTime
+     * @return null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime
      */
-    public function getClosingTime()
+    public function getClosingTime(): ?FHIRTime
     {
         return $this->closingTime;
     }
@@ -388,10 +394,10 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      *
      * Time that the Location closes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTime $closingTime
+     * @param null|\HL7\FHIR\R4\FHIRTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRTime $closingTime
      * @return static
      */
-    public function setClosingTime($closingTime = null)
+    public function setClosingTime($closingTime = null): object
     {
         if (null !== $closingTime && !($closingTime instanceof FHIRTime)) {
             $closingTime = new FHIRTime($closingTime);
@@ -537,15 +543,15 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation\FHIRLocationHoursOfOperation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRLocation\FHIRLocationHoursOfOperation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRLocationHoursOfOperation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -565,7 +571,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -630,7 +636,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -668,10 +674,12 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getDaysOfWeek())) {
             $vals = [];
             $exts = [];
@@ -681,7 +689,7 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRDaysOfWeek::FIELD_VALUE]);
+                unset($ext->{FHIRDaysOfWeek::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -690,43 +698,44 @@ class FHIRLocationHoursOfOperation extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_DAYS_OF_WEEK] = $vals;
+                $out->{self::FIELD_DAYS_OF_WEEK} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_DAYS_OF_WEEK_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DAYS_OF_WEEK_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getAllDay())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ALL_DAY] = $val;
+                $out->{self::FIELD_ALL_DAY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ALL_DAY_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ALL_DAY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOpeningTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OPENING_TIME] = $val;
+                $out->{self::FIELD_OPENING_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OPENING_TIME_EXT] = $ext;
+            unset($ext->{FHIRTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OPENING_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getClosingTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CLOSING_TIME] = $val;
+                $out->{self::FIELD_CLOSING_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CLOSING_TIME_EXT] = $ext;
+            unset($ext->{FHIRTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CLOSING_TIME_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

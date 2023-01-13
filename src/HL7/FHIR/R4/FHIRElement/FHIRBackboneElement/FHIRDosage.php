@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -117,9 +117,9 @@ class FHIRDosage extends FHIRBackboneElement
      * Indicates the order in which the dosage instructions should be applied or
      * interpreted.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $sequence = null;
+    protected ?FHIRInteger $sequence = null;
 
     /**
      * A sequence of Unicode characters
@@ -128,9 +128,9 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Free text dosage instructions e.g. SIG.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $text = null;
+    protected ?FHIRString $text = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -145,7 +145,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $additionalInstruction = [];
+    protected ?array $additionalInstruction = [];
 
     /**
      * A sequence of Unicode characters
@@ -154,9 +154,9 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Instructions in terms that are understood by the patient or consumer.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $patientInstruction = null;
+    protected ?FHIRString $patientInstruction = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -171,7 +171,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $timing = null;
+    protected ?FHIRTiming $timing = null;
 
     /**
      * Value of "true" or "false"
@@ -181,9 +181,9 @@ class FHIRDosage extends FHIRBackboneElement
      * dosing schedule (Boolean option), or it indicates the precondition for taking
      * the Medication (CodeableConcept).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $asNeededBoolean = null;
+    protected ?FHIRBoolean $asNeededBoolean = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -197,7 +197,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $asNeededCodeableConcept = null;
+    protected ?FHIRCodeableConcept $asNeededCodeableConcept = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -209,7 +209,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $site = null;
+    protected ?FHIRCodeableConcept $site = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -221,7 +221,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $route = null;
+    protected ?FHIRCodeableConcept $route = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -233,7 +233,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $method = null;
+    protected ?FHIRCodeableConcept $method = null;
 
     /**
      * Indicates how the medication is/was taken or should be taken by the patient.
@@ -244,7 +244,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate[]
      */
-    protected $doseAndRate = [];
+    protected ?array $doseAndRate = [];
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -256,7 +256,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $maxDosePerPeriod = null;
+    protected ?FHIRRatio $maxDosePerPeriod = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -269,7 +269,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $maxDosePerAdministration = null;
+    protected ?FHIRQuantity $maxDosePerAdministration = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -282,13 +282,13 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $maxDosePerLifetime = null;
+    protected ?FHIRQuantity $maxDosePerLifetime = null;
 
     /**
      * Validation map for fields in type Dosage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDosage Constructor
@@ -307,8 +307,8 @@ class FHIRDosage extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SEQUENCE]) || isset($data[self::FIELD_SEQUENCE_EXT])) {
-            $value = isset($data[self::FIELD_SEQUENCE]) ? $data[self::FIELD_SEQUENCE] : null;
-            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $ext = $data[self::FIELD_SEQUENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEQUENCE] ?? null;
+            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $data[self::FIELD_SEQUENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setSequence($value);
@@ -322,8 +322,8 @@ class FHIRDosage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TEXT]) || isset($data[self::FIELD_TEXT_EXT])) {
-            $value = isset($data[self::FIELD_TEXT]) ? $data[self::FIELD_TEXT] : null;
-            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $ext = $data[self::FIELD_TEXT_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEXT] ?? null;
+            $ext = (isset($data[self::FIELD_TEXT_EXT]) && is_array($data[self::FIELD_TEXT_EXT])) ? $data[self::FIELD_TEXT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setText($value);
@@ -355,8 +355,8 @@ class FHIRDosage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PATIENT_INSTRUCTION]) || isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) {
-            $value = isset($data[self::FIELD_PATIENT_INSTRUCTION]) ? $data[self::FIELD_PATIENT_INSTRUCTION] : null;
-            $ext = (isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT]) && is_array($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) ? $ext = $data[self::FIELD_PATIENT_INSTRUCTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATIENT_INSTRUCTION] ?? null;
+            $ext = (isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT]) && is_array($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) ? $data[self::FIELD_PATIENT_INSTRUCTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPatientInstruction($value);
@@ -377,8 +377,8 @@ class FHIRDosage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_AS_NEEDED_BOOLEAN]) || isset($data[self::FIELD_AS_NEEDED_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_AS_NEEDED_BOOLEAN]) ? $data[self::FIELD_AS_NEEDED_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_AS_NEEDED_BOOLEAN_EXT]) && is_array($data[self::FIELD_AS_NEEDED_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_AS_NEEDED_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_AS_NEEDED_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_AS_NEEDED_BOOLEAN_EXT]) && is_array($data[self::FIELD_AS_NEEDED_BOOLEAN_EXT])) ? $data[self::FIELD_AS_NEEDED_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAsNeededBoolean($value);
@@ -460,11 +460,17 @@ class FHIRDosage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -482,9 +488,9 @@ class FHIRDosage extends FHIRBackboneElement
      * Indicates the order in which the dosage instructions should be applied or
      * interpreted.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getSequence()
+    public function getSequence(): ?FHIRInteger
     {
         return $this->sequence;
     }
@@ -497,10 +503,10 @@ class FHIRDosage extends FHIRBackboneElement
      * Indicates the order in which the dosage instructions should be applied or
      * interpreted.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $sequence
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $sequence
      * @return static
      */
-    public function setSequence($sequence = null)
+    public function setSequence($sequence = null): object
     {
         if (null !== $sequence && !($sequence instanceof FHIRInteger)) {
             $sequence = new FHIRInteger($sequence);
@@ -517,9 +523,9 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Free text dosage instructions e.g. SIG.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getText()
+    public function getText(): ?FHIRString
     {
         return $this->text;
     }
@@ -531,10 +537,10 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Free text dosage instructions e.g. SIG.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $text
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $text
      * @return static
      */
-    public function setText($text = null)
+    public function setText($text = null): object
     {
         if (null !== $text && !($text instanceof FHIRString)) {
             $text = new FHIRString($text);
@@ -557,7 +563,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAdditionalInstruction()
+    public function getAdditionalInstruction(): ?array
     {
         return $this->additionalInstruction;
     }
@@ -576,7 +582,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $additionalInstruction
      * @return static
      */
-    public function addAdditionalInstruction(FHIRCodeableConcept $additionalInstruction = null)
+    public function addAdditionalInstruction(?FHIRCodeableConcept $additionalInstruction = null): object
     {
         $this->_trackValueAdded();
         $this->additionalInstruction[] = $additionalInstruction;
@@ -597,7 +603,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $additionalInstruction
      * @return static
      */
-    public function setAdditionalInstruction(array $additionalInstruction = [])
+    public function setAdditionalInstruction(array $additionalInstruction = []): object
     {
         if ([] !== $this->additionalInstruction) {
             $this->_trackValuesRemoved(count($this->additionalInstruction));
@@ -623,9 +629,9 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Instructions in terms that are understood by the patient or consumer.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPatientInstruction()
+    public function getPatientInstruction(): ?FHIRString
     {
         return $this->patientInstruction;
     }
@@ -637,10 +643,10 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * Instructions in terms that are understood by the patient or consumer.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $patientInstruction
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $patientInstruction
      * @return static
      */
-    public function setPatientInstruction($patientInstruction = null)
+    public function setPatientInstruction($patientInstruction = null): object
     {
         if (null !== $patientInstruction && !($patientInstruction instanceof FHIRString)) {
             $patientInstruction = new FHIRString($patientInstruction);
@@ -663,7 +669,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getTiming()
+    public function getTiming(): ?FHIRTiming
     {
         return $this->timing;
     }
@@ -682,7 +688,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $timing
      * @return static
      */
-    public function setTiming(FHIRTiming $timing = null)
+    public function setTiming(?FHIRTiming $timing = null): object
     {
         $this->_trackValueSet($this->timing, $timing);
         $this->timing = $timing;
@@ -697,9 +703,9 @@ class FHIRDosage extends FHIRBackboneElement
      * dosing schedule (Boolean option), or it indicates the precondition for taking
      * the Medication (CodeableConcept).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAsNeededBoolean()
+    public function getAsNeededBoolean(): ?FHIRBoolean
     {
         return $this->asNeededBoolean;
     }
@@ -712,10 +718,10 @@ class FHIRDosage extends FHIRBackboneElement
      * dosing schedule (Boolean option), or it indicates the precondition for taking
      * the Medication (CodeableConcept).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $asNeededBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $asNeededBoolean
      * @return static
      */
-    public function setAsNeededBoolean($asNeededBoolean = null)
+    public function setAsNeededBoolean($asNeededBoolean = null): object
     {
         if (null !== $asNeededBoolean && !($asNeededBoolean instanceof FHIRBoolean)) {
             $asNeededBoolean = new FHIRBoolean($asNeededBoolean);
@@ -737,7 +743,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getAsNeededCodeableConcept()
+    public function getAsNeededCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->asNeededCodeableConcept;
     }
@@ -755,7 +761,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $asNeededCodeableConcept
      * @return static
      */
-    public function setAsNeededCodeableConcept(FHIRCodeableConcept $asNeededCodeableConcept = null)
+    public function setAsNeededCodeableConcept(?FHIRCodeableConcept $asNeededCodeableConcept = null): object
     {
         $this->_trackValueSet($this->asNeededCodeableConcept, $asNeededCodeableConcept);
         $this->asNeededCodeableConcept = $asNeededCodeableConcept;
@@ -772,7 +778,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSite()
+    public function getSite(): ?FHIRCodeableConcept
     {
         return $this->site;
     }
@@ -788,7 +794,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $site
      * @return static
      */
-    public function setSite(FHIRCodeableConcept $site = null)
+    public function setSite(?FHIRCodeableConcept $site = null): object
     {
         $this->_trackValueSet($this->site, $site);
         $this->site = $site;
@@ -805,7 +811,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRoute()
+    public function getRoute(): ?FHIRCodeableConcept
     {
         return $this->route;
     }
@@ -821,7 +827,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $route
      * @return static
      */
-    public function setRoute(FHIRCodeableConcept $route = null)
+    public function setRoute(?FHIRCodeableConcept $route = null): object
     {
         $this->_trackValueSet($this->route, $route);
         $this->route = $route;
@@ -838,7 +844,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMethod()
+    public function getMethod(): ?FHIRCodeableConcept
     {
         return $this->method;
     }
@@ -854,7 +860,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $method
      * @return static
      */
-    public function setMethod(FHIRCodeableConcept $method = null)
+    public function setMethod(?FHIRCodeableConcept $method = null): object
     {
         $this->_trackValueSet($this->method, $method);
         $this->method = $method;
@@ -870,7 +876,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate[]
      */
-    public function getDoseAndRate()
+    public function getDoseAndRate(): ?array
     {
         return $this->doseAndRate;
     }
@@ -885,7 +891,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate $doseAndRate
      * @return static
      */
-    public function addDoseAndRate(FHIRDosageDoseAndRate $doseAndRate = null)
+    public function addDoseAndRate(?FHIRDosageDoseAndRate $doseAndRate = null): object
     {
         $this->_trackValueAdded();
         $this->doseAndRate[] = $doseAndRate;
@@ -902,7 +908,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage\FHIRDosageDoseAndRate[] $doseAndRate
      * @return static
      */
-    public function setDoseAndRate(array $doseAndRate = [])
+    public function setDoseAndRate(array $doseAndRate = []): object
     {
         if ([] !== $this->doseAndRate) {
             $this->_trackValuesRemoved(count($this->doseAndRate));
@@ -931,7 +937,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getMaxDosePerPeriod()
+    public function getMaxDosePerPeriod(): ?FHIRRatio
     {
         return $this->maxDosePerPeriod;
     }
@@ -947,7 +953,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $maxDosePerPeriod
      * @return static
      */
-    public function setMaxDosePerPeriod(FHIRRatio $maxDosePerPeriod = null)
+    public function setMaxDosePerPeriod(?FHIRRatio $maxDosePerPeriod = null): object
     {
         $this->_trackValueSet($this->maxDosePerPeriod, $maxDosePerPeriod);
         $this->maxDosePerPeriod = $maxDosePerPeriod;
@@ -965,7 +971,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getMaxDosePerAdministration()
+    public function getMaxDosePerAdministration(): ?FHIRQuantity
     {
         return $this->maxDosePerAdministration;
     }
@@ -982,7 +988,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $maxDosePerAdministration
      * @return static
      */
-    public function setMaxDosePerAdministration(FHIRQuantity $maxDosePerAdministration = null)
+    public function setMaxDosePerAdministration(?FHIRQuantity $maxDosePerAdministration = null): object
     {
         $this->_trackValueSet($this->maxDosePerAdministration, $maxDosePerAdministration);
         $this->maxDosePerAdministration = $maxDosePerAdministration;
@@ -1000,7 +1006,7 @@ class FHIRDosage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getMaxDosePerLifetime()
+    public function getMaxDosePerLifetime(): ?FHIRQuantity
     {
         return $this->maxDosePerLifetime;
     }
@@ -1017,7 +1023,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $maxDosePerLifetime
      * @return static
      */
-    public function setMaxDosePerLifetime(FHIRQuantity $maxDosePerLifetime = null)
+    public function setMaxDosePerLifetime(?FHIRQuantity $maxDosePerLifetime = null): object
     {
         $this->_trackValueSet($this->maxDosePerLifetime, $maxDosePerLifetime);
         $this->maxDosePerLifetime = $maxDosePerLifetime;
@@ -1332,15 +1338,15 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDosage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDosage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1360,7 +1366,7 @@ class FHIRDosage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1454,7 +1460,7 @@ class FHIRDosage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1547,93 +1553,96 @@ class FHIRDosage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEQUENCE] = $val;
+                $out->{self::FIELD_SEQUENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEQUENCE_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEQUENCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getText())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEXT] = $val;
+                $out->{self::FIELD_TEXT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEXT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEXT_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAdditionalInstruction())) {
-            $a[self::FIELD_ADDITIONAL_INSTRUCTION] = [];
+            $out->{self::FIELD_ADDITIONAL_INSTRUCTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDITIONAL_INSTRUCTION][] = $v;
+                $out->{self::FIELD_ADDITIONAL_INSTRUCTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getPatientInstruction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PATIENT_INSTRUCTION] = $val;
+                $out->{self::FIELD_PATIENT_INSTRUCTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PATIENT_INSTRUCTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATIENT_INSTRUCTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTiming())) {
-            $a[self::FIELD_TIMING] = $v;
+            $out->{self::FIELD_TIMING} = $v;
         }
         if (null !== ($v = $this->getAsNeededBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AS_NEEDED_BOOLEAN] = $val;
+                $out->{self::FIELD_AS_NEEDED_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AS_NEEDED_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AS_NEEDED_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAsNeededCodeableConcept())) {
-            $a[self::FIELD_AS_NEEDED_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_AS_NEEDED_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getSite())) {
-            $a[self::FIELD_SITE] = $v;
+            $out->{self::FIELD_SITE} = $v;
         }
         if (null !== ($v = $this->getRoute())) {
-            $a[self::FIELD_ROUTE] = $v;
+            $out->{self::FIELD_ROUTE} = $v;
         }
         if (null !== ($v = $this->getMethod())) {
-            $a[self::FIELD_METHOD] = $v;
+            $out->{self::FIELD_METHOD} = $v;
         }
         if ([] !== ($vs = $this->getDoseAndRate())) {
-            $a[self::FIELD_DOSE_AND_RATE] = [];
+            $out->{self::FIELD_DOSE_AND_RATE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOSE_AND_RATE][] = $v;
+                $out->{self::FIELD_DOSE_AND_RATE}[] = $v;
             }
         }
         if (null !== ($v = $this->getMaxDosePerPeriod())) {
-            $a[self::FIELD_MAX_DOSE_PER_PERIOD] = $v;
+            $out->{self::FIELD_MAX_DOSE_PER_PERIOD} = $v;
         }
         if (null !== ($v = $this->getMaxDosePerAdministration())) {
-            $a[self::FIELD_MAX_DOSE_PER_ADMINISTRATION] = $v;
+            $out->{self::FIELD_MAX_DOSE_PER_ADMINISTRATION} = $v;
         }
         if (null !== ($v = $this->getMaxDosePerLifetime())) {
-            $a[self::FIELD_MAX_DOSE_PER_LIFETIME] = $v;
+            $out->{self::FIELD_MAX_DOSE_PER_LIFETIME} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $country = null;
+    protected ?FHIRCodeableConcept $country = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -120,7 +120,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $jurisdiction = null;
+    protected ?FHIRCodeableConcept $jurisdiction = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -133,7 +133,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $status = null;
+    protected ?FHIRCodeableConcept $status = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -149,7 +149,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $dateRange = null;
+    protected ?FHIRPeriod $dateRange = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -166,15 +166,15 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * on the market” refers to the release of the Medicinal Product into the
      * distribution chain.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $restoreDate = null;
+    protected ?FHIRDateTime $restoreDate = null;
 
     /**
      * Validation map for fields in type MarketingStatus
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMarketingStatus Constructor
@@ -221,8 +221,8 @@ class FHIRMarketingStatus extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESTORE_DATE]) || isset($data[self::FIELD_RESTORE_DATE_EXT])) {
-            $value = isset($data[self::FIELD_RESTORE_DATE]) ? $data[self::FIELD_RESTORE_DATE] : null;
-            $ext = (isset($data[self::FIELD_RESTORE_DATE_EXT]) && is_array($data[self::FIELD_RESTORE_DATE_EXT])) ? $ext = $data[self::FIELD_RESTORE_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESTORE_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_RESTORE_DATE_EXT]) && is_array($data[self::FIELD_RESTORE_DATE_EXT])) ? $data[self::FIELD_RESTORE_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setRestoreDate($value);
@@ -237,11 +237,17 @@ class FHIRMarketingStatus extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -262,7 +268,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCountry()
+    public function getCountry(): ?FHIRCodeableConcept
     {
         return $this->country;
     }
@@ -279,7 +285,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $country
      * @return static
      */
-    public function setCountry(FHIRCodeableConcept $country = null)
+    public function setCountry(?FHIRCodeableConcept $country = null): object
     {
         $this->_trackValueSet($this->country, $country);
         $this->country = $country;
@@ -299,7 +305,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?FHIRCodeableConcept
     {
         return $this->jurisdiction;
     }
@@ -318,7 +324,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function setJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function setJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueSet($this->jurisdiction, $jurisdiction);
         $this->jurisdiction = $jurisdiction;
@@ -336,7 +342,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRCodeableConcept
     {
         return $this->status;
     }
@@ -353,7 +359,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $status
      * @return static
      */
-    public function setStatus(FHIRCodeableConcept $status = null)
+    public function setStatus(?FHIRCodeableConcept $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -374,7 +380,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getDateRange()
+    public function getDateRange(): ?FHIRPeriod
     {
         return $this->dateRange;
     }
@@ -394,7 +400,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $dateRange
      * @return static
      */
-    public function setDateRange(FHIRPeriod $dateRange = null)
+    public function setDateRange(?FHIRPeriod $dateRange = null): object
     {
         $this->_trackValueSet($this->dateRange, $dateRange);
         $this->dateRange = $dateRange;
@@ -416,9 +422,9 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * on the market” refers to the release of the Medicinal Product into the
      * distribution chain.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getRestoreDate()
+    public function getRestoreDate(): ?FHIRDateTime
     {
         return $this->restoreDate;
     }
@@ -438,10 +444,10 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * on the market” refers to the release of the Medicinal Product into the
      * distribution chain.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $restoreDate
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $restoreDate
      * @return static
      */
-    public function setRestoreDate($restoreDate = null)
+    public function setRestoreDate($restoreDate = null): object
     {
         if (null !== $restoreDate && !($restoreDate instanceof FHIRDateTime)) {
             $restoreDate = new FHIRDateTime($restoreDate);
@@ -602,15 +608,15 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMarketingStatus
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMarketingStatus    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMarketingStatus::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -630,7 +636,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -679,7 +685,7 @@ class FHIRMarketingStatus extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -717,33 +723,36 @@ class FHIRMarketingStatus extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCountry())) {
-            $a[self::FIELD_COUNTRY] = $v;
+            $out->{self::FIELD_COUNTRY} = $v;
         }
         if (null !== ($v = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = $v;
+            $out->{self::FIELD_JURISDICTION} = $v;
         }
         if (null !== ($v = $this->getStatus())) {
-            $a[self::FIELD_STATUS] = $v;
+            $out->{self::FIELD_STATUS} = $v;
         }
         if (null !== ($v = $this->getDateRange())) {
-            $a[self::FIELD_DATE_RANGE] = $v;
+            $out->{self::FIELD_DATE_RANGE} = $v;
         }
         if (null !== ($v = $this->getRestoreDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESTORE_DATE] = $val;
+                $out->{self::FIELD_RESTORE_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESTORE_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESTORE_DATE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

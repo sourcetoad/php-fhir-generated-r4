@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\PHPFHIRTests;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -4996,12 +4996,6 @@ class PHPFHIRConstantsTest extends TestCase
         $this->assertEquals('\HL7\FHIR\R4\FHIRElement\FHIRRatio', PHPFHIRConstants::TYPE_CLASS_RATIO);
     }
 
-    public function testTypeConstantsDefinedHL7_FHIR_R4_FHIRRaw()
-    {
-        $this->assertEquals('raw', PHPFHIRConstants::TYPE_NAME_RAW);
-        $this->assertEquals('\HL7\FHIR\R4\FHIRRaw', PHPFHIRConstants::TYPE_CLASS_RAW);
-    }
-
     public function testTypeConstantsDefinedHL7_FHIR_R4_FHIRElement_FHIRReference()
     {
         $this->assertEquals('Reference', PHPFHIRConstants::TYPE_NAME_REFERENCE);
@@ -6776,6 +6770,12 @@ class PHPFHIRConstantsTest extends TestCase
     {
         $this->assertEquals('VisionPrescription.Prism', PHPFHIRConstants::TYPE_NAME_VISION_PRESCRIPTION_DOT_PRISM);
         $this->assertEquals('\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVisionPrescription\FHIRVisionPrescriptionPrism', PHPFHIRConstants::TYPE_CLASS_VISION_PRESCRIPTION_DOT_PRISM);
+    }
+
+    public function testTypeConstantsDefinedHL7_FHIR_R4_FHIRXHTML()
+    {
+        $this->assertEquals('XHTML', PHPFHIRConstants::TYPE_NAME_XHTML);
+        $this->assertEquals('\HL7\FHIR\R4\FHIRXHTML', PHPFHIRConstants::TYPE_CLASS_XHTML);
     }
 
     public function testTypeConstantsDefinedHL7_FHIR_R4_FHIRElement_FHIRXPathUsageType()

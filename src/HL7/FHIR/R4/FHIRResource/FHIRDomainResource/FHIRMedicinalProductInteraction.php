@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,7 +111,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $subject = [];
+    protected ?array $subject = [];
 
     /**
      * A sequence of Unicode characters
@@ -120,9 +120,9 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * The interaction described.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * The interactions of the medicinal product with other medicinal products, or
@@ -132,7 +132,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductInteraction\FHIRMedicinalProductInteractionInteractant[]
      */
-    protected $interactant = [];
+    protected ?array $interactant = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -145,7 +145,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -158,7 +158,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $effect = null;
+    protected ?FHIRCodeableConcept $effect = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -170,7 +170,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $incidence = null;
+    protected ?FHIRCodeableConcept $incidence = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -182,13 +182,13 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $management = null;
+    protected ?FHIRCodeableConcept $management = null;
 
     /**
      * Validation map for fields in type MedicinalProductInteraction
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductInteraction Constructor
@@ -225,8 +225,8 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -287,11 +287,17 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -300,6 +306,9 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
         }
         return "<MedicinalProductInteraction{$xmlns}></MedicinalProductInteraction>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -315,7 +324,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSubject()
+    public function getSubject(): ?array
     {
         return $this->subject;
     }
@@ -330,7 +339,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function addSubject(FHIRReference $subject = null)
+    public function addSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueAdded();
         $this->subject[] = $subject;
@@ -347,7 +356,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $subject
      * @return static
      */
-    public function setSubject(array $subject = [])
+    public function setSubject(array $subject = []): object
     {
         if ([] !== $this->subject) {
             $this->_trackValuesRemoved(count($this->subject));
@@ -373,9 +382,9 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * The interaction described.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -387,10 +396,10 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * The interaction described.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -408,7 +417,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductInteraction\FHIRMedicinalProductInteractionInteractant[]
      */
-    public function getInteractant()
+    public function getInteractant(): ?array
     {
         return $this->interactant;
     }
@@ -422,7 +431,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductInteraction\FHIRMedicinalProductInteractionInteractant $interactant
      * @return static
      */
-    public function addInteractant(FHIRMedicinalProductInteractionInteractant $interactant = null)
+    public function addInteractant(?FHIRMedicinalProductInteractionInteractant $interactant = null): object
     {
         $this->_trackValueAdded();
         $this->interactant[] = $interactant;
@@ -438,7 +447,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductInteraction\FHIRMedicinalProductInteractionInteractant[] $interactant
      * @return static
      */
-    public function setInteractant(array $interactant = [])
+    public function setInteractant(array $interactant = []): object
     {
         if ([] !== $this->interactant) {
             $this->_trackValuesRemoved(count($this->interactant));
@@ -468,7 +477,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -485,7 +494,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -503,7 +512,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getEffect()
+    public function getEffect(): ?FHIRCodeableConcept
     {
         return $this->effect;
     }
@@ -520,7 +529,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $effect
      * @return static
      */
-    public function setEffect(FHIRCodeableConcept $effect = null)
+    public function setEffect(?FHIRCodeableConcept $effect = null): object
     {
         $this->_trackValueSet($this->effect, $effect);
         $this->effect = $effect;
@@ -537,7 +546,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIncidence()
+    public function getIncidence(): ?FHIRCodeableConcept
     {
         return $this->incidence;
     }
@@ -553,7 +562,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $incidence
      * @return static
      */
-    public function setIncidence(FHIRCodeableConcept $incidence = null)
+    public function setIncidence(?FHIRCodeableConcept $incidence = null): object
     {
         $this->_trackValueSet($this->incidence, $incidence);
         $this->incidence = $incidence;
@@ -570,7 +579,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getManagement()
+    public function getManagement(): ?FHIRCodeableConcept
     {
         return $this->management;
     }
@@ -586,7 +595,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $management
      * @return static
      */
-    public function setManagement(FHIRCodeableConcept $management = null)
+    public function setManagement(?FHIRCodeableConcept $management = null): object
     {
         $this->_trackValueSet($this->management, $management);
         $this->management = $management;
@@ -842,15 +851,15 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductInteraction
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductInteraction    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductInteraction::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -870,7 +879,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -956,7 +965,7 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1014,51 +1023,56 @@ class FHIRMedicinalProductInteraction extends FHIRDomainResource implements PHPF
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = [];
+            $out->{self::FIELD_SUBJECT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBJECT][] = $v;
+                $out->{self::FIELD_SUBJECT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getInteractant())) {
-            $a[self::FIELD_INTERACTANT] = [];
+            $out->{self::FIELD_INTERACTANT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_INTERACTANT][] = $v;
+                $out->{self::FIELD_INTERACTANT}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getEffect())) {
-            $a[self::FIELD_EFFECT] = $v;
+            $out->{self::FIELD_EFFECT} = $v;
         }
         if (null !== ($v = $this->getIncidence())) {
-            $a[self::FIELD_INCIDENCE] = $v;
+            $out->{self::FIELD_INCIDENCE} = $v;
         }
         if (null !== ($v = $this->getManagement())) {
-            $a[self::FIELD_MANAGEMENT] = $v;
+            $out->{self::FIELD_MANAGEMENT} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

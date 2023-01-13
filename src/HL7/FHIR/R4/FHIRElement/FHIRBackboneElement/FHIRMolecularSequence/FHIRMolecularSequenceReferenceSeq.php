@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $chromosome = null;
+    protected ?FHIRCodeableConcept $chromosome = null;
 
     /**
      * A sequence of Unicode characters
@@ -127,9 +127,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * 37'. Version number must be included if a versioned release of a primary build
      * was used.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $genomeBuild = null;
+    protected ?FHIRString $genomeBuild = null;
 
     /**
      * Type for orientation.
@@ -141,7 +141,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIROrientationType
      */
-    protected $orientation = null;
+    protected ?FHIROrientationType $orientation = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -156,7 +156,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $referenceSeqId = null;
+    protected ?FHIRCodeableConcept $referenceSeqId = null;
 
     /**
      * A reference from one resource to another.
@@ -167,7 +167,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $referenceSeqPointer = null;
+    protected ?FHIRReference $referenceSeqPointer = null;
 
     /**
      * A sequence of Unicode characters
@@ -176,9 +176,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * A string like "ACGT".
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $referenceSeqString = null;
+    protected ?FHIRString $referenceSeqString = null;
 
     /**
      * Type for strand.
@@ -190,7 +190,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRStrandType
      */
-    protected $strand = null;
+    protected ?FHIRStrandType $strand = null;
 
     /**
      * A whole number
@@ -200,9 +200,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * Start position of the window on the reference sequence. If the coordinate system
      * is either 0-based or 1-based, then start position is inclusive.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $windowStart = null;
+    protected ?FHIRInteger $windowStart = null;
 
     /**
      * A whole number
@@ -214,15 +214,15 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $windowEnd = null;
+    protected ?FHIRInteger $windowEnd = null;
 
     /**
      * Validation map for fields in type MolecularSequence.ReferenceSeq
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMolecularSequenceReferenceSeq Constructor
@@ -248,8 +248,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_GENOME_BUILD]) || isset($data[self::FIELD_GENOME_BUILD_EXT])) {
-            $value = isset($data[self::FIELD_GENOME_BUILD]) ? $data[self::FIELD_GENOME_BUILD] : null;
-            $ext = (isset($data[self::FIELD_GENOME_BUILD_EXT]) && is_array($data[self::FIELD_GENOME_BUILD_EXT])) ? $ext = $data[self::FIELD_GENOME_BUILD_EXT] : $ext = [];
+            $value = $data[self::FIELD_GENOME_BUILD] ?? null;
+            $ext = (isset($data[self::FIELD_GENOME_BUILD_EXT]) && is_array($data[self::FIELD_GENOME_BUILD_EXT])) ? $data[self::FIELD_GENOME_BUILD_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setGenomeBuild($value);
@@ -263,8 +263,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ORIENTATION]) || isset($data[self::FIELD_ORIENTATION_EXT])) {
-            $value = isset($data[self::FIELD_ORIENTATION]) ? $data[self::FIELD_ORIENTATION] : null;
-            $ext = (isset($data[self::FIELD_ORIENTATION_EXT]) && is_array($data[self::FIELD_ORIENTATION_EXT])) ? $ext = $data[self::FIELD_ORIENTATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_ORIENTATION] ?? null;
+            $ext = (isset($data[self::FIELD_ORIENTATION_EXT]) && is_array($data[self::FIELD_ORIENTATION_EXT])) ? $data[self::FIELD_ORIENTATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIROrientationType) {
                     $this->setOrientation($value);
@@ -292,8 +292,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REFERENCE_SEQ_STRING]) || isset($data[self::FIELD_REFERENCE_SEQ_STRING_EXT])) {
-            $value = isset($data[self::FIELD_REFERENCE_SEQ_STRING]) ? $data[self::FIELD_REFERENCE_SEQ_STRING] : null;
-            $ext = (isset($data[self::FIELD_REFERENCE_SEQ_STRING_EXT]) && is_array($data[self::FIELD_REFERENCE_SEQ_STRING_EXT])) ? $ext = $data[self::FIELD_REFERENCE_SEQ_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_REFERENCE_SEQ_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_REFERENCE_SEQ_STRING_EXT]) && is_array($data[self::FIELD_REFERENCE_SEQ_STRING_EXT])) ? $data[self::FIELD_REFERENCE_SEQ_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setReferenceSeqString($value);
@@ -307,8 +307,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STRAND]) || isset($data[self::FIELD_STRAND_EXT])) {
-            $value = isset($data[self::FIELD_STRAND]) ? $data[self::FIELD_STRAND] : null;
-            $ext = (isset($data[self::FIELD_STRAND_EXT]) && is_array($data[self::FIELD_STRAND_EXT])) ? $ext = $data[self::FIELD_STRAND_EXT] : $ext = [];
+            $value = $data[self::FIELD_STRAND] ?? null;
+            $ext = (isset($data[self::FIELD_STRAND_EXT]) && is_array($data[self::FIELD_STRAND_EXT])) ? $data[self::FIELD_STRAND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRStrandType) {
                     $this->setStrand($value);
@@ -322,8 +322,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_WINDOW_START]) || isset($data[self::FIELD_WINDOW_START_EXT])) {
-            $value = isset($data[self::FIELD_WINDOW_START]) ? $data[self::FIELD_WINDOW_START] : null;
-            $ext = (isset($data[self::FIELD_WINDOW_START_EXT]) && is_array($data[self::FIELD_WINDOW_START_EXT])) ? $ext = $data[self::FIELD_WINDOW_START_EXT] : $ext = [];
+            $value = $data[self::FIELD_WINDOW_START] ?? null;
+            $ext = (isset($data[self::FIELD_WINDOW_START_EXT]) && is_array($data[self::FIELD_WINDOW_START_EXT])) ? $data[self::FIELD_WINDOW_START_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setWindowStart($value);
@@ -337,8 +337,8 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_WINDOW_END]) || isset($data[self::FIELD_WINDOW_END_EXT])) {
-            $value = isset($data[self::FIELD_WINDOW_END]) ? $data[self::FIELD_WINDOW_END] : null;
-            $ext = (isset($data[self::FIELD_WINDOW_END_EXT]) && is_array($data[self::FIELD_WINDOW_END_EXT])) ? $ext = $data[self::FIELD_WINDOW_END_EXT] : $ext = [];
+            $value = $data[self::FIELD_WINDOW_END] ?? null;
+            $ext = (isset($data[self::FIELD_WINDOW_END_EXT]) && is_array($data[self::FIELD_WINDOW_END_EXT])) ? $data[self::FIELD_WINDOW_END_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setWindowEnd($value);
@@ -353,11 +353,17 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -380,7 +386,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getChromosome()
+    public function getChromosome(): ?FHIRCodeableConcept
     {
         return $this->chromosome;
     }
@@ -399,7 +405,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $chromosome
      * @return static
      */
-    public function setChromosome(FHIRCodeableConcept $chromosome = null)
+    public function setChromosome(?FHIRCodeableConcept $chromosome = null): object
     {
         $this->_trackValueSet($this->chromosome, $chromosome);
         $this->chromosome = $chromosome;
@@ -415,9 +421,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * 37'. Version number must be included if a versioned release of a primary build
      * was used.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getGenomeBuild()
+    public function getGenomeBuild(): ?FHIRString
     {
         return $this->genomeBuild;
     }
@@ -431,10 +437,10 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * 37'. Version number must be included if a versioned release of a primary build
      * was used.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $genomeBuild
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $genomeBuild
      * @return static
      */
-    public function setGenomeBuild($genomeBuild = null)
+    public function setGenomeBuild($genomeBuild = null): object
     {
         if (null !== $genomeBuild && !($genomeBuild instanceof FHIRString)) {
             $genomeBuild = new FHIRString($genomeBuild);
@@ -454,7 +460,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIROrientationType
      */
-    public function getOrientation()
+    public function getOrientation(): ?FHIROrientationType
     {
         return $this->orientation;
     }
@@ -470,7 +476,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIROrientationType $orientation
      * @return static
      */
-    public function setOrientation(FHIROrientationType $orientation = null)
+    public function setOrientation(?FHIROrientationType $orientation = null): object
     {
         $this->_trackValueSet($this->orientation, $orientation);
         $this->orientation = $orientation;
@@ -490,7 +496,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getReferenceSeqId()
+    public function getReferenceSeqId(): ?FHIRCodeableConcept
     {
         return $this->referenceSeqId;
     }
@@ -509,7 +515,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $referenceSeqId
      * @return static
      */
-    public function setReferenceSeqId(FHIRCodeableConcept $referenceSeqId = null)
+    public function setReferenceSeqId(?FHIRCodeableConcept $referenceSeqId = null): object
     {
         $this->_trackValueSet($this->referenceSeqId, $referenceSeqId);
         $this->referenceSeqId = $referenceSeqId;
@@ -525,7 +531,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getReferenceSeqPointer()
+    public function getReferenceSeqPointer(): ?FHIRReference
     {
         return $this->referenceSeqPointer;
     }
@@ -540,7 +546,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $referenceSeqPointer
      * @return static
      */
-    public function setReferenceSeqPointer(FHIRReference $referenceSeqPointer = null)
+    public function setReferenceSeqPointer(?FHIRReference $referenceSeqPointer = null): object
     {
         $this->_trackValueSet($this->referenceSeqPointer, $referenceSeqPointer);
         $this->referenceSeqPointer = $referenceSeqPointer;
@@ -554,9 +560,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * A string like "ACGT".
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getReferenceSeqString()
+    public function getReferenceSeqString(): ?FHIRString
     {
         return $this->referenceSeqString;
     }
@@ -568,10 +574,10 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * A string like "ACGT".
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $referenceSeqString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $referenceSeqString
      * @return static
      */
-    public function setReferenceSeqString($referenceSeqString = null)
+    public function setReferenceSeqString($referenceSeqString = null): object
     {
         if (null !== $referenceSeqString && !($referenceSeqString instanceof FHIRString)) {
             $referenceSeqString = new FHIRString($referenceSeqString);
@@ -591,7 +597,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRStrandType
      */
-    public function getStrand()
+    public function getStrand(): ?FHIRStrandType
     {
         return $this->strand;
     }
@@ -607,7 +613,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRStrandType $strand
      * @return static
      */
-    public function setStrand(FHIRStrandType $strand = null)
+    public function setStrand(?FHIRStrandType $strand = null): object
     {
         $this->_trackValueSet($this->strand, $strand);
         $this->strand = $strand;
@@ -622,9 +628,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * Start position of the window on the reference sequence. If the coordinate system
      * is either 0-based or 1-based, then start position is inclusive.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getWindowStart()
+    public function getWindowStart(): ?FHIRInteger
     {
         return $this->windowStart;
     }
@@ -637,10 +643,10 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * Start position of the window on the reference sequence. If the coordinate system
      * is either 0-based or 1-based, then start position is inclusive.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $windowStart
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $windowStart
      * @return static
      */
-    public function setWindowStart($windowStart = null)
+    public function setWindowStart($windowStart = null): object
     {
         if (null !== $windowStart && !($windowStart instanceof FHIRInteger)) {
             $windowStart = new FHIRInteger($windowStart);
@@ -660,9 +666,9 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getWindowEnd()
+    public function getWindowEnd(): ?FHIRInteger
     {
         return $this->windowEnd;
     }
@@ -677,10 +683,10 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * coordinate system is 1-base, then end is inclusive and includes the last
      * position.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $windowEnd
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $windowEnd
      * @return static
      */
-    public function setWindowEnd($windowEnd = null)
+    public function setWindowEnd($windowEnd = null): object
     {
         if (null !== $windowEnd && !($windowEnd instanceof FHIRInteger)) {
             $windowEnd = new FHIRInteger($windowEnd);
@@ -909,15 +915,15 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceReferenceSeq
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMolecularSequence\FHIRMolecularSequenceReferenceSeq    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMolecularSequenceReferenceSeq::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -937,7 +943,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1021,7 +1027,7 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1079,80 +1085,83 @@ class FHIRMolecularSequenceReferenceSeq extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getChromosome())) {
-            $a[self::FIELD_CHROMOSOME] = $v;
+            $out->{self::FIELD_CHROMOSOME} = $v;
         }
         if (null !== ($v = $this->getGenomeBuild())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GENOME_BUILD] = $val;
+                $out->{self::FIELD_GENOME_BUILD} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GENOME_BUILD_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GENOME_BUILD_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOrientation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ORIENTATION] = $val;
+                $out->{self::FIELD_ORIENTATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIROrientationType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ORIENTATION_EXT] = $ext;
+            unset($ext->{FHIROrientationType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ORIENTATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReferenceSeqId())) {
-            $a[self::FIELD_REFERENCE_SEQ_ID] = $v;
+            $out->{self::FIELD_REFERENCE_SEQ_ID} = $v;
         }
         if (null !== ($v = $this->getReferenceSeqPointer())) {
-            $a[self::FIELD_REFERENCE_SEQ_POINTER] = $v;
+            $out->{self::FIELD_REFERENCE_SEQ_POINTER} = $v;
         }
         if (null !== ($v = $this->getReferenceSeqString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REFERENCE_SEQ_STRING] = $val;
+                $out->{self::FIELD_REFERENCE_SEQ_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REFERENCE_SEQ_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REFERENCE_SEQ_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStrand())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STRAND] = $val;
+                $out->{self::FIELD_STRAND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRStrandType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STRAND_EXT] = $ext;
+            unset($ext->{FHIRStrandType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STRAND_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWindowStart())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WINDOW_START] = $val;
+                $out->{self::FIELD_WINDOW_START} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WINDOW_START_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WINDOW_START_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWindowEnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WINDOW_END] = $val;
+                $out->{self::FIELD_WINDOW_END} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WINDOW_END_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WINDOW_END_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

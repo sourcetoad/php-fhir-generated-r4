@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,9 +102,9 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * Date of an accident event related to the products and services contained in the
      * claim.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $date = null;
+    protected ?FHIRDate $date = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -118,7 +118,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * An address expressed using postal conventions (as opposed to GPS or other
@@ -133,7 +133,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAddress
      */
-    protected $locationAddress = null;
+    protected ?FHIRAddress $locationAddress = null;
 
     /**
      * A reference from one resource to another.
@@ -144,13 +144,13 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $locationReference = null;
+    protected ?FHIRReference $locationReference = null;
 
     /**
      * Validation map for fields in type Claim.Accident
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRClaimAccident Constructor
@@ -169,8 +169,8 @@ class FHIRClaimAccident extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setDate($value);
@@ -206,11 +206,17 @@ class FHIRClaimAccident extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -229,9 +235,9 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * Date of an accident event related to the products and services contained in the
      * claim.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getDate()
+    public function getDate(): ?FHIRDate
     {
         return $this->date;
     }
@@ -245,10 +251,10 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * Date of an accident event related to the products and services contained in the
      * claim.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $date
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDate)) {
             $date = new FHIRDate($date);
@@ -270,7 +276,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -288,7 +294,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -308,7 +314,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAddress
      */
-    public function getLocationAddress()
+    public function getLocationAddress(): ?FHIRAddress
     {
         return $this->locationAddress;
     }
@@ -327,7 +333,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAddress $locationAddress
      * @return static
      */
-    public function setLocationAddress(FHIRAddress $locationAddress = null)
+    public function setLocationAddress(?FHIRAddress $locationAddress = null): object
     {
         $this->_trackValueSet($this->locationAddress, $locationAddress);
         $this->locationAddress = $locationAddress;
@@ -343,7 +349,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLocationReference()
+    public function getLocationReference(): ?FHIRReference
     {
         return $this->locationReference;
     }
@@ -358,7 +364,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $locationReference
      * @return static
      */
-    public function setLocationReference(FHIRReference $locationReference = null)
+    public function setLocationReference(?FHIRReference $locationReference = null): object
     {
         $this->_trackValueSet($this->locationReference, $locationReference);
         $this->locationReference = $locationReference;
@@ -499,15 +505,15 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim\FHIRClaimAccident
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRClaim\FHIRClaimAccident    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRClaimAccident::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -527,7 +533,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -574,7 +580,7 @@ class FHIRClaimAccident extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -607,30 +613,33 @@ class FHIRClaimAccident extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getLocationAddress())) {
-            $a[self::FIELD_LOCATION_ADDRESS] = $v;
+            $out->{self::FIELD_LOCATION_ADDRESS} = $v;
         }
         if (null !== ($v = $this->getLocationReference())) {
-            $a[self::FIELD_LOCATION_REFERENCE] = $v;
+            $out->{self::FIELD_LOCATION_REFERENCE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

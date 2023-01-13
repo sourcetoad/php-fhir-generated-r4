@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -118,7 +118,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -130,7 +130,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $intendedUse = null;
+    protected ?FHIRCodeableConcept $intendedUse = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -142,7 +142,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $indicationCodeableConcept = null;
+    protected ?FHIRCodeableConcept $indicationCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -153,7 +153,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $indicationReference = null;
+    protected ?FHIRReference $indicationReference = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -165,7 +165,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $status = null;
+    protected ?FHIRCodeableConcept $status = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -177,9 +177,9 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * Date when the designation was granted.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -191,13 +191,13 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $species = null;
+    protected ?FHIRCodeableConcept $species = null;
 
     /**
      * Validation map for fields in type MedicinalProduct.SpecialDesignation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductSpecialDesignation Constructor
@@ -269,8 +269,8 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -292,11 +292,17 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -316,7 +322,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -332,7 +338,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -350,7 +356,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -379,7 +385,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -395,7 +401,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -412,7 +418,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIntendedUse()
+    public function getIntendedUse(): ?FHIRCodeableConcept
     {
         return $this->intendedUse;
     }
@@ -428,7 +434,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $intendedUse
      * @return static
      */
-    public function setIntendedUse(FHIRCodeableConcept $intendedUse = null)
+    public function setIntendedUse(?FHIRCodeableConcept $intendedUse = null): object
     {
         $this->_trackValueSet($this->intendedUse, $intendedUse);
         $this->intendedUse = $intendedUse;
@@ -445,7 +451,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getIndicationCodeableConcept()
+    public function getIndicationCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->indicationCodeableConcept;
     }
@@ -461,7 +467,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $indicationCodeableConcept
      * @return static
      */
-    public function setIndicationCodeableConcept(FHIRCodeableConcept $indicationCodeableConcept = null)
+    public function setIndicationCodeableConcept(?FHIRCodeableConcept $indicationCodeableConcept = null): object
     {
         $this->_trackValueSet($this->indicationCodeableConcept, $indicationCodeableConcept);
         $this->indicationCodeableConcept = $indicationCodeableConcept;
@@ -477,7 +483,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getIndicationReference()
+    public function getIndicationReference(): ?FHIRReference
     {
         return $this->indicationReference;
     }
@@ -492,7 +498,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $indicationReference
      * @return static
      */
-    public function setIndicationReference(FHIRReference $indicationReference = null)
+    public function setIndicationReference(?FHIRReference $indicationReference = null): object
     {
         $this->_trackValueSet($this->indicationReference, $indicationReference);
         $this->indicationReference = $indicationReference;
@@ -509,7 +515,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRCodeableConcept
     {
         return $this->status;
     }
@@ -525,7 +531,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $status
      * @return static
      */
-    public function setStatus(FHIRCodeableConcept $status = null)
+    public function setStatus(?FHIRCodeableConcept $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -542,9 +548,9 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * Date when the designation was granted.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -559,10 +565,10 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * Date when the designation was granted.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -582,7 +588,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSpecies()
+    public function getSpecies(): ?FHIRCodeableConcept
     {
         return $this->species;
     }
@@ -598,7 +604,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $species
      * @return static
      */
-    public function setSpecies(FHIRCodeableConcept $species = null)
+    public function setSpecies(?FHIRCodeableConcept $species = null): object
     {
         $this->_trackValueSet($this->species, $species);
         $this->species = $species;
@@ -809,15 +815,15 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductSpecialDesignation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProduct\FHIRMedicinalProductSpecialDesignation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductSpecialDesignation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -837,7 +843,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -892,7 +898,7 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -950,48 +956,51 @@ class FHIRMedicinalProductSpecialDesignation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getIntendedUse())) {
-            $a[self::FIELD_INTENDED_USE] = $v;
+            $out->{self::FIELD_INTENDED_USE} = $v;
         }
         if (null !== ($v = $this->getIndicationCodeableConcept())) {
-            $a[self::FIELD_INDICATION_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_INDICATION_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getIndicationReference())) {
-            $a[self::FIELD_INDICATION_REFERENCE] = $v;
+            $out->{self::FIELD_INDICATION_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getStatus())) {
-            $a[self::FIELD_STATUS] = $v;
+            $out->{self::FIELD_STATUS} = $v;
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSpecies())) {
-            $a[self::FIELD_SPECIES] = $v;
+            $out->{self::FIELD_SPECIES} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

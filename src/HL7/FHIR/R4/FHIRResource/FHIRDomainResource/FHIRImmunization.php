@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A set of codes indicating the current status of an Immunization.
@@ -161,7 +161,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRImmunizationStatusCodes
      */
-    protected $status = null;
+    protected ?FHIRImmunizationStatusCodes $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -173,7 +173,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $statusReason = null;
+    protected ?FHIRCodeableConcept $statusReason = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -185,7 +185,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $vaccineCode = null;
+    protected ?FHIRCodeableConcept $vaccineCode = null;
 
     /**
      * A reference from one resource to another.
@@ -196,7 +196,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A reference from one resource to another.
@@ -208,7 +208,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $encounter = null;
+    protected ?FHIRReference $encounter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -220,9 +220,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $occurrenceDateTime = null;
+    protected ?FHIRDateTime $occurrenceDateTime = null;
 
     /**
      * A sequence of Unicode characters
@@ -231,9 +231,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $occurrenceString = null;
+    protected ?FHIRString $occurrenceString = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -246,9 +246,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The date the occurrence of the immunization was first captured in the record -
      * potentially significantly after the occurrence of the event.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $recorded = null;
+    protected ?FHIRDateTime $recorded = null;
 
     /**
      * Value of "true" or "false"
@@ -258,9 +258,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * person who administered the vaccine. This reflects the context under which the
      * data was originally recorded.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $primarySource = null;
+    protected ?FHIRBoolean $primarySource = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -273,7 +273,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $reportOrigin = null;
+    protected ?FHIRCodeableConcept $reportOrigin = null;
 
     /**
      * A reference from one resource to another.
@@ -284,7 +284,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $location = null;
+    protected ?FHIRReference $location = null;
 
     /**
      * A reference from one resource to another.
@@ -295,7 +295,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $manufacturer = null;
+    protected ?FHIRReference $manufacturer = null;
 
     /**
      * A sequence of Unicode characters
@@ -304,9 +304,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Lot number of the vaccine product.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $lotNumber = null;
+    protected ?FHIRString $lotNumber = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -316,9 +316,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine batch expires.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $expirationDate = null;
+    protected ?FHIRDate $expirationDate = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -330,7 +330,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $site = null;
+    protected ?FHIRCodeableConcept $site = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -342,7 +342,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $route = null;
+    protected ?FHIRCodeableConcept $route = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -355,7 +355,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $doseQuantity = null;
+    protected ?FHIRQuantity $doseQuantity = null;
 
     /**
      * Describes the event of a patient being administered a vaccine or a record of an
@@ -365,7 +365,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationPerformer[]
      */
-    protected $performer = [];
+    protected ?array $performer = [];
 
     /**
      * A text note which also contains information about who made the statement and
@@ -378,7 +378,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -390,7 +390,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -402,7 +402,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * Value of "true" or "false"
@@ -411,9 +411,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Indication if a dose is considered to be subpotent. By default, a dose should be
      * considered to be potent.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $isSubpotent = null;
+    protected ?FHIRBoolean $isSubpotent = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -425,7 +425,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $subpotentReason = [];
+    protected ?array $subpotentReason = [];
 
     /**
      * Describes the event of a patient being administered a vaccine or a record of an
@@ -436,7 +436,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationEducation[]
      */
-    protected $education = [];
+    protected ?array $education = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -448,7 +448,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $programEligibility = [];
+    protected ?array $programEligibility = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -463,7 +463,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $fundingSource = null;
+    protected ?FHIRCodeableConcept $fundingSource = null;
 
     /**
      * Describes the event of a patient being administered a vaccine or a record of an
@@ -474,7 +474,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationReaction[]
      */
-    protected $reaction = [];
+    protected ?array $reaction = [];
 
     /**
      * Describes the event of a patient being administered a vaccine or a record of an
@@ -485,13 +485,13 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationProtocolApplied[]
      */
-    protected $protocolApplied = [];
+    protected ?array $protocolApplied = [];
 
     /**
      * Validation map for fields in type Immunization
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRImmunization Constructor
@@ -528,8 +528,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRImmunizationStatusCodes) {
                     $this->setStatus($value);
@@ -571,8 +571,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_OCCURRENCE_DATE_TIME]) || isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_OCCURRENCE_DATE_TIME]) ? $data[self::FIELD_OCCURRENCE_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT]) && is_array($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_OCCURRENCE_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_OCCURRENCE_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT]) && is_array($data[self::FIELD_OCCURRENCE_DATE_TIME_EXT])) ? $data[self::FIELD_OCCURRENCE_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setOccurrenceDateTime($value);
@@ -586,8 +586,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_OCCURRENCE_STRING]) || isset($data[self::FIELD_OCCURRENCE_STRING_EXT])) {
-            $value = isset($data[self::FIELD_OCCURRENCE_STRING]) ? $data[self::FIELD_OCCURRENCE_STRING] : null;
-            $ext = (isset($data[self::FIELD_OCCURRENCE_STRING_EXT]) && is_array($data[self::FIELD_OCCURRENCE_STRING_EXT])) ? $ext = $data[self::FIELD_OCCURRENCE_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_OCCURRENCE_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_OCCURRENCE_STRING_EXT]) && is_array($data[self::FIELD_OCCURRENCE_STRING_EXT])) ? $data[self::FIELD_OCCURRENCE_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setOccurrenceString($value);
@@ -601,8 +601,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_RECORDED]) || isset($data[self::FIELD_RECORDED_EXT])) {
-            $value = isset($data[self::FIELD_RECORDED]) ? $data[self::FIELD_RECORDED] : null;
-            $ext = (isset($data[self::FIELD_RECORDED_EXT]) && is_array($data[self::FIELD_RECORDED_EXT])) ? $ext = $data[self::FIELD_RECORDED_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECORDED] ?? null;
+            $ext = (isset($data[self::FIELD_RECORDED_EXT]) && is_array($data[self::FIELD_RECORDED_EXT])) ? $data[self::FIELD_RECORDED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setRecorded($value);
@@ -616,8 +616,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_PRIMARY_SOURCE]) || isset($data[self::FIELD_PRIMARY_SOURCE_EXT])) {
-            $value = isset($data[self::FIELD_PRIMARY_SOURCE]) ? $data[self::FIELD_PRIMARY_SOURCE] : null;
-            $ext = (isset($data[self::FIELD_PRIMARY_SOURCE_EXT]) && is_array($data[self::FIELD_PRIMARY_SOURCE_EXT])) ? $ext = $data[self::FIELD_PRIMARY_SOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRIMARY_SOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_PRIMARY_SOURCE_EXT]) && is_array($data[self::FIELD_PRIMARY_SOURCE_EXT])) ? $data[self::FIELD_PRIMARY_SOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setPrimarySource($value);
@@ -652,8 +652,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_LOT_NUMBER]) || isset($data[self::FIELD_LOT_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_LOT_NUMBER]) ? $data[self::FIELD_LOT_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_LOT_NUMBER_EXT]) && is_array($data[self::FIELD_LOT_NUMBER_EXT])) ? $ext = $data[self::FIELD_LOT_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_LOT_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_LOT_NUMBER_EXT]) && is_array($data[self::FIELD_LOT_NUMBER_EXT])) ? $data[self::FIELD_LOT_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setLotNumber($value);
@@ -667,8 +667,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_EXPIRATION_DATE]) || isset($data[self::FIELD_EXPIRATION_DATE_EXT])) {
-            $value = isset($data[self::FIELD_EXPIRATION_DATE]) ? $data[self::FIELD_EXPIRATION_DATE] : null;
-            $ext = (isset($data[self::FIELD_EXPIRATION_DATE_EXT]) && is_array($data[self::FIELD_EXPIRATION_DATE_EXT])) ? $ext = $data[self::FIELD_EXPIRATION_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPIRATION_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_EXPIRATION_DATE_EXT]) && is_array($data[self::FIELD_EXPIRATION_DATE_EXT])) ? $data[self::FIELD_EXPIRATION_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setExpirationDate($value);
@@ -775,8 +775,8 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_IS_SUBPOTENT]) || isset($data[self::FIELD_IS_SUBPOTENT_EXT])) {
-            $value = isset($data[self::FIELD_IS_SUBPOTENT]) ? $data[self::FIELD_IS_SUBPOTENT] : null;
-            $ext = (isset($data[self::FIELD_IS_SUBPOTENT_EXT]) && is_array($data[self::FIELD_IS_SUBPOTENT_EXT])) ? $ext = $data[self::FIELD_IS_SUBPOTENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_IS_SUBPOTENT] ?? null;
+            $ext = (isset($data[self::FIELD_IS_SUBPOTENT_EXT]) && is_array($data[self::FIELD_IS_SUBPOTENT_EXT])) ? $data[self::FIELD_IS_SUBPOTENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setIsSubpotent($value);
@@ -888,11 +888,17 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -901,6 +907,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<Immunization{$xmlns}></Immunization>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -917,7 +926,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -933,7 +942,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -951,7 +960,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -978,7 +987,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRImmunizationStatusCodes
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRImmunizationStatusCodes
     {
         return $this->status;
     }
@@ -992,7 +1001,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRImmunizationStatusCodes $status
      * @return static
      */
-    public function setStatus(FHIRImmunizationStatusCodes $status = null)
+    public function setStatus(?FHIRImmunizationStatusCodes $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1009,7 +1018,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStatusReason()
+    public function getStatusReason(): ?FHIRCodeableConcept
     {
         return $this->statusReason;
     }
@@ -1025,7 +1034,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $statusReason
      * @return static
      */
-    public function setStatusReason(FHIRCodeableConcept $statusReason = null)
+    public function setStatusReason(?FHIRCodeableConcept $statusReason = null): object
     {
         $this->_trackValueSet($this->statusReason, $statusReason);
         $this->statusReason = $statusReason;
@@ -1042,7 +1051,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getVaccineCode()
+    public function getVaccineCode(): ?FHIRCodeableConcept
     {
         return $this->vaccineCode;
     }
@@ -1058,7 +1067,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $vaccineCode
      * @return static
      */
-    public function setVaccineCode(FHIRCodeableConcept $vaccineCode = null)
+    public function setVaccineCode(?FHIRCodeableConcept $vaccineCode = null): object
     {
         $this->_trackValueSet($this->vaccineCode, $vaccineCode);
         $this->vaccineCode = $vaccineCode;
@@ -1074,7 +1083,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -1089,7 +1098,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -1106,7 +1115,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIRReference
     {
         return $this->encounter;
     }
@@ -1122,7 +1131,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function setEncounter(FHIRReference $encounter = null)
+    public function setEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueSet($this->encounter, $encounter);
         $this->encounter = $encounter;
@@ -1139,9 +1148,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getOccurrenceDateTime()
+    public function getOccurrenceDateTime(): ?FHIRDateTime
     {
         return $this->occurrenceDateTime;
     }
@@ -1156,10 +1165,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $occurrenceDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $occurrenceDateTime
      * @return static
      */
-    public function setOccurrenceDateTime($occurrenceDateTime = null)
+    public function setOccurrenceDateTime($occurrenceDateTime = null): object
     {
         if (null !== $occurrenceDateTime && !($occurrenceDateTime instanceof FHIRDateTime)) {
             $occurrenceDateTime = new FHIRDateTime($occurrenceDateTime);
@@ -1176,9 +1185,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getOccurrenceString()
+    public function getOccurrenceString(): ?FHIRString
     {
         return $this->occurrenceString;
     }
@@ -1190,10 +1199,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine administered or was to be administered.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $occurrenceString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $occurrenceString
      * @return static
      */
-    public function setOccurrenceString($occurrenceString = null)
+    public function setOccurrenceString($occurrenceString = null): object
     {
         if (null !== $occurrenceString && !($occurrenceString instanceof FHIRString)) {
             $occurrenceString = new FHIRString($occurrenceString);
@@ -1214,9 +1223,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The date the occurrence of the immunization was first captured in the record -
      * potentially significantly after the occurrence of the event.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getRecorded()
+    public function getRecorded(): ?FHIRDateTime
     {
         return $this->recorded;
     }
@@ -1232,10 +1241,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The date the occurrence of the immunization was first captured in the record -
      * potentially significantly after the occurrence of the event.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recorded
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $recorded
      * @return static
      */
-    public function setRecorded($recorded = null)
+    public function setRecorded($recorded = null): object
     {
         if (null !== $recorded && !($recorded instanceof FHIRDateTime)) {
             $recorded = new FHIRDateTime($recorded);
@@ -1253,9 +1262,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * person who administered the vaccine. This reflects the context under which the
      * data was originally recorded.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getPrimarySource()
+    public function getPrimarySource(): ?FHIRBoolean
     {
         return $this->primarySource;
     }
@@ -1268,10 +1277,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * person who administered the vaccine. This reflects the context under which the
      * data was originally recorded.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $primarySource
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $primarySource
      * @return static
      */
-    public function setPrimarySource($primarySource = null)
+    public function setPrimarySource($primarySource = null): object
     {
         if (null !== $primarySource && !($primarySource instanceof FHIRBoolean)) {
             $primarySource = new FHIRBoolean($primarySource);
@@ -1292,7 +1301,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getReportOrigin()
+    public function getReportOrigin(): ?FHIRCodeableConcept
     {
         return $this->reportOrigin;
     }
@@ -1309,7 +1318,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reportOrigin
      * @return static
      */
-    public function setReportOrigin(FHIRCodeableConcept $reportOrigin = null)
+    public function setReportOrigin(?FHIRCodeableConcept $reportOrigin = null): object
     {
         $this->_trackValueSet($this->reportOrigin, $reportOrigin);
         $this->reportOrigin = $reportOrigin;
@@ -1325,7 +1334,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRReference
     {
         return $this->location;
     }
@@ -1340,7 +1349,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $location
      * @return static
      */
-    public function setLocation(FHIRReference $location = null)
+    public function setLocation(?FHIRReference $location = null): object
     {
         $this->_trackValueSet($this->location, $location);
         $this->location = $location;
@@ -1356,7 +1365,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getManufacturer()
+    public function getManufacturer(): ?FHIRReference
     {
         return $this->manufacturer;
     }
@@ -1371,7 +1380,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $manufacturer
      * @return static
      */
-    public function setManufacturer(FHIRReference $manufacturer = null)
+    public function setManufacturer(?FHIRReference $manufacturer = null): object
     {
         $this->_trackValueSet($this->manufacturer, $manufacturer);
         $this->manufacturer = $manufacturer;
@@ -1385,9 +1394,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Lot number of the vaccine product.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getLotNumber()
+    public function getLotNumber(): ?FHIRString
     {
         return $this->lotNumber;
     }
@@ -1399,10 +1408,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Lot number of the vaccine product.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $lotNumber
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $lotNumber
      * @return static
      */
-    public function setLotNumber($lotNumber = null)
+    public function setLotNumber($lotNumber = null): object
     {
         if (null !== $lotNumber && !($lotNumber instanceof FHIRString)) {
             $lotNumber = new FHIRString($lotNumber);
@@ -1420,9 +1429,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine batch expires.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): ?FHIRDate
     {
         return $this->expirationDate;
     }
@@ -1435,10 +1444,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * Date vaccine batch expires.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $expirationDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $expirationDate
      * @return static
      */
-    public function setExpirationDate($expirationDate = null)
+    public function setExpirationDate($expirationDate = null): object
     {
         if (null !== $expirationDate && !($expirationDate instanceof FHIRDate)) {
             $expirationDate = new FHIRDate($expirationDate);
@@ -1458,7 +1467,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSite()
+    public function getSite(): ?FHIRCodeableConcept
     {
         return $this->site;
     }
@@ -1474,7 +1483,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $site
      * @return static
      */
-    public function setSite(FHIRCodeableConcept $site = null)
+    public function setSite(?FHIRCodeableConcept $site = null): object
     {
         $this->_trackValueSet($this->site, $site);
         $this->site = $site;
@@ -1491,7 +1500,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRoute()
+    public function getRoute(): ?FHIRCodeableConcept
     {
         return $this->route;
     }
@@ -1507,7 +1516,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $route
      * @return static
      */
-    public function setRoute(FHIRCodeableConcept $route = null)
+    public function setRoute(?FHIRCodeableConcept $route = null): object
     {
         $this->_trackValueSet($this->route, $route);
         $this->route = $route;
@@ -1525,7 +1534,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getDoseQuantity()
+    public function getDoseQuantity(): ?FHIRQuantity
     {
         return $this->doseQuantity;
     }
@@ -1542,7 +1551,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $doseQuantity
      * @return static
      */
-    public function setDoseQuantity(FHIRQuantity $doseQuantity = null)
+    public function setDoseQuantity(?FHIRQuantity $doseQuantity = null): object
     {
         $this->_trackValueSet($this->doseQuantity, $doseQuantity);
         $this->doseQuantity = $doseQuantity;
@@ -1557,7 +1566,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationPerformer[]
      */
-    public function getPerformer()
+    public function getPerformer(): ?array
     {
         return $this->performer;
     }
@@ -1571,7 +1580,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationPerformer $performer
      * @return static
      */
-    public function addPerformer(FHIRImmunizationPerformer $performer = null)
+    public function addPerformer(?FHIRImmunizationPerformer $performer = null): object
     {
         $this->_trackValueAdded();
         $this->performer[] = $performer;
@@ -1587,7 +1596,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationPerformer[] $performer
      * @return static
      */
-    public function setPerformer(array $performer = [])
+    public function setPerformer(array $performer = []): object
     {
         if ([] !== $this->performer) {
             $this->_trackValuesRemoved(count($this->performer));
@@ -1617,7 +1626,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1634,7 +1643,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1653,7 +1662,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1682,7 +1691,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1698,7 +1707,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1716,7 +1725,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1745,7 +1754,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1761,7 +1770,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1779,7 +1788,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1805,9 +1814,9 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Indication if a dose is considered to be subpotent. By default, a dose should be
      * considered to be potent.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getIsSubpotent()
+    public function getIsSubpotent(): ?FHIRBoolean
     {
         return $this->isSubpotent;
     }
@@ -1819,10 +1828,10 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * Indication if a dose is considered to be subpotent. By default, a dose should be
      * considered to be potent.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isSubpotent
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isSubpotent
      * @return static
      */
-    public function setIsSubpotent($isSubpotent = null)
+    public function setIsSubpotent($isSubpotent = null): object
     {
         if (null !== $isSubpotent && !($isSubpotent instanceof FHIRBoolean)) {
             $isSubpotent = new FHIRBoolean($isSubpotent);
@@ -1842,7 +1851,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getSubpotentReason()
+    public function getSubpotentReason(): ?array
     {
         return $this->subpotentReason;
     }
@@ -1858,7 +1867,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $subpotentReason
      * @return static
      */
-    public function addSubpotentReason(FHIRCodeableConcept $subpotentReason = null)
+    public function addSubpotentReason(?FHIRCodeableConcept $subpotentReason = null): object
     {
         $this->_trackValueAdded();
         $this->subpotentReason[] = $subpotentReason;
@@ -1876,7 +1885,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $subpotentReason
      * @return static
      */
-    public function setSubpotentReason(array $subpotentReason = [])
+    public function setSubpotentReason(array $subpotentReason = []): object
     {
         if ([] !== $this->subpotentReason) {
             $this->_trackValuesRemoved(count($this->subpotentReason));
@@ -1904,7 +1913,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationEducation[]
      */
-    public function getEducation()
+    public function getEducation(): ?array
     {
         return $this->education;
     }
@@ -1919,7 +1928,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationEducation $education
      * @return static
      */
-    public function addEducation(FHIRImmunizationEducation $education = null)
+    public function addEducation(?FHIRImmunizationEducation $education = null): object
     {
         $this->_trackValueAdded();
         $this->education[] = $education;
@@ -1936,7 +1945,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationEducation[] $education
      * @return static
      */
-    public function setEducation(array $education = [])
+    public function setEducation(array $education = []): object
     {
         if ([] !== $this->education) {
             $this->_trackValuesRemoved(count($this->education));
@@ -1965,7 +1974,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getProgramEligibility()
+    public function getProgramEligibility(): ?array
     {
         return $this->programEligibility;
     }
@@ -1981,7 +1990,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $programEligibility
      * @return static
      */
-    public function addProgramEligibility(FHIRCodeableConcept $programEligibility = null)
+    public function addProgramEligibility(?FHIRCodeableConcept $programEligibility = null): object
     {
         $this->_trackValueAdded();
         $this->programEligibility[] = $programEligibility;
@@ -1999,7 +2008,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $programEligibility
      * @return static
      */
-    public function setProgramEligibility(array $programEligibility = [])
+    public function setProgramEligibility(array $programEligibility = []): object
     {
         if ([] !== $this->programEligibility) {
             $this->_trackValuesRemoved(count($this->programEligibility));
@@ -2031,7 +2040,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getFundingSource()
+    public function getFundingSource(): ?FHIRCodeableConcept
     {
         return $this->fundingSource;
     }
@@ -2050,7 +2059,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $fundingSource
      * @return static
      */
-    public function setFundingSource(FHIRCodeableConcept $fundingSource = null)
+    public function setFundingSource(?FHIRCodeableConcept $fundingSource = null): object
     {
         $this->_trackValueSet($this->fundingSource, $fundingSource);
         $this->fundingSource = $fundingSource;
@@ -2066,7 +2075,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationReaction[]
      */
-    public function getReaction()
+    public function getReaction(): ?array
     {
         return $this->reaction;
     }
@@ -2081,7 +2090,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationReaction $reaction
      * @return static
      */
-    public function addReaction(FHIRImmunizationReaction $reaction = null)
+    public function addReaction(?FHIRImmunizationReaction $reaction = null): object
     {
         $this->_trackValueAdded();
         $this->reaction[] = $reaction;
@@ -2098,7 +2107,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationReaction[] $reaction
      * @return static
      */
-    public function setReaction(array $reaction = [])
+    public function setReaction(array $reaction = []): object
     {
         if ([] !== $this->reaction) {
             $this->_trackValuesRemoved(count($this->reaction));
@@ -2126,7 +2135,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationProtocolApplied[]
      */
-    public function getProtocolApplied()
+    public function getProtocolApplied(): ?array
     {
         return $this->protocolApplied;
     }
@@ -2141,7 +2150,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationProtocolApplied $protocolApplied
      * @return static
      */
-    public function addProtocolApplied(FHIRImmunizationProtocolApplied $protocolApplied = null)
+    public function addProtocolApplied(?FHIRImmunizationProtocolApplied $protocolApplied = null): object
     {
         $this->_trackValueAdded();
         $this->protocolApplied[] = $protocolApplied;
@@ -2158,7 +2167,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImmunization\FHIRImmunizationProtocolApplied[] $protocolApplied
      * @return static
      */
-    public function setProtocolApplied(array $protocolApplied = [])
+    public function setProtocolApplied(array $protocolApplied = []): object
     {
         if ([] !== $this->protocolApplied) {
             $this->_trackValuesRemoved(count($this->protocolApplied));
@@ -2816,15 +2825,15 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunization
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunization    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImmunization::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2844,7 +2853,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -3028,7 +3037,7 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -3236,214 +3245,219 @@ class FHIRImmunization extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRImmunizationStatusCodes::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRImmunizationStatusCodes::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatusReason())) {
-            $a[self::FIELD_STATUS_REASON] = $v;
+            $out->{self::FIELD_STATUS_REASON} = $v;
         }
         if (null !== ($v = $this->getVaccineCode())) {
-            $a[self::FIELD_VACCINE_CODE] = $v;
+            $out->{self::FIELD_VACCINE_CODE} = $v;
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = $v;
+            $out->{self::FIELD_ENCOUNTER} = $v;
         }
         if (null !== ($v = $this->getOccurrenceDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OCCURRENCE_DATE_TIME] = $val;
+                $out->{self::FIELD_OCCURRENCE_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OCCURRENCE_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OCCURRENCE_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOccurrenceString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OCCURRENCE_STRING] = $val;
+                $out->{self::FIELD_OCCURRENCE_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OCCURRENCE_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OCCURRENCE_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRecorded())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECORDED] = $val;
+                $out->{self::FIELD_RECORDED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECORDED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECORDED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPrimarySource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRIMARY_SOURCE] = $val;
+                $out->{self::FIELD_PRIMARY_SOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRIMARY_SOURCE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRIMARY_SOURCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReportOrigin())) {
-            $a[self::FIELD_REPORT_ORIGIN] = $v;
+            $out->{self::FIELD_REPORT_ORIGIN} = $v;
         }
         if (null !== ($v = $this->getLocation())) {
-            $a[self::FIELD_LOCATION] = $v;
+            $out->{self::FIELD_LOCATION} = $v;
         }
         if (null !== ($v = $this->getManufacturer())) {
-            $a[self::FIELD_MANUFACTURER] = $v;
+            $out->{self::FIELD_MANUFACTURER} = $v;
         }
         if (null !== ($v = $this->getLotNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LOT_NUMBER] = $val;
+                $out->{self::FIELD_LOT_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LOT_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LOT_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExpirationDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPIRATION_DATE] = $val;
+                $out->{self::FIELD_EXPIRATION_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPIRATION_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPIRATION_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSite())) {
-            $a[self::FIELD_SITE] = $v;
+            $out->{self::FIELD_SITE} = $v;
         }
         if (null !== ($v = $this->getRoute())) {
-            $a[self::FIELD_ROUTE] = $v;
+            $out->{self::FIELD_ROUTE} = $v;
         }
         if (null !== ($v = $this->getDoseQuantity())) {
-            $a[self::FIELD_DOSE_QUANTITY] = $v;
+            $out->{self::FIELD_DOSE_QUANTITY} = $v;
         }
         if ([] !== ($vs = $this->getPerformer())) {
-            $a[self::FIELD_PERFORMER] = [];
+            $out->{self::FIELD_PERFORMER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PERFORMER][] = $v;
+                $out->{self::FIELD_PERFORMER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getIsSubpotent())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IS_SUBPOTENT] = $val;
+                $out->{self::FIELD_IS_SUBPOTENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IS_SUBPOTENT_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IS_SUBPOTENT_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSubpotentReason())) {
-            $a[self::FIELD_SUBPOTENT_REASON] = [];
+            $out->{self::FIELD_SUBPOTENT_REASON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBPOTENT_REASON][] = $v;
+                $out->{self::FIELD_SUBPOTENT_REASON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEducation())) {
-            $a[self::FIELD_EDUCATION] = [];
+            $out->{self::FIELD_EDUCATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_EDUCATION][] = $v;
+                $out->{self::FIELD_EDUCATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProgramEligibility())) {
-            $a[self::FIELD_PROGRAM_ELIGIBILITY] = [];
+            $out->{self::FIELD_PROGRAM_ELIGIBILITY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROGRAM_ELIGIBILITY][] = $v;
+                $out->{self::FIELD_PROGRAM_ELIGIBILITY}[] = $v;
             }
         }
         if (null !== ($v = $this->getFundingSource())) {
-            $a[self::FIELD_FUNDING_SOURCE] = $v;
+            $out->{self::FIELD_FUNDING_SOURCE} = $v;
         }
         if ([] !== ($vs = $this->getReaction())) {
-            $a[self::FIELD_REACTION] = [];
+            $out->{self::FIELD_REACTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REACTION][] = $v;
+                $out->{self::FIELD_REACTION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProtocolApplied())) {
-            $a[self::FIELD_PROTOCOL_APPLIED] = [];
+            $out->{self::FIELD_PROTOCOL_APPLIED} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROTOCOL_APPLIED][] = $v;
+                $out->{self::FIELD_PROTOCOL_APPLIED}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

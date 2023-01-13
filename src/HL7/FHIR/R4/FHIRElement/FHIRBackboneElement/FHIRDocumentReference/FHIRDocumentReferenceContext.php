@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentReference;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentReference;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $encounter = [];
+    protected ?array $encounter = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -121,7 +121,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $event = [];
+    protected ?array $event = [];
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -133,7 +133,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -145,7 +145,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $facilityType = null;
+    protected ?FHIRCodeableConcept $facilityType = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -158,7 +158,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $practiceSetting = null;
+    protected ?FHIRCodeableConcept $practiceSetting = null;
 
     /**
      * A reference from one resource to another.
@@ -170,7 +170,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $sourcePatientInfo = null;
+    protected ?FHIRReference $sourcePatientInfo = null;
 
     /**
      * A reference from one resource to another.
@@ -181,13 +181,13 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $related = [];
+    protected ?array $related = [];
 
     /**
      * Validation map for fields in type DocumentReference.Context
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDocumentReferenceContext Constructor
@@ -289,11 +289,17 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -313,7 +319,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEncounter()
+    public function getEncounter(): ?array
     {
         return $this->encounter;
     }
@@ -329,7 +335,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function addEncounter(FHIRReference $encounter = null)
+    public function addEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueAdded();
         $this->encounter[] = $encounter;
@@ -347,7 +353,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $encounter
      * @return static
      */
-    public function setEncounter(array $encounter = [])
+    public function setEncounter(array $encounter = []): object
     {
         if ([] !== $this->encounter) {
             $this->_trackValuesRemoved(count($this->encounter));
@@ -379,7 +385,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getEvent()
+    public function getEvent(): ?array
     {
         return $this->event;
     }
@@ -398,7 +404,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $event
      * @return static
      */
-    public function addEvent(FHIRCodeableConcept $event = null)
+    public function addEvent(?FHIRCodeableConcept $event = null): object
     {
         $this->_trackValueAdded();
         $this->event[] = $event;
@@ -419,7 +425,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $event
      * @return static
      */
-    public function setEvent(array $event = [])
+    public function setEvent(array $event = []): object
     {
         if ([] !== $this->event) {
             $this->_trackValuesRemoved(count($this->event));
@@ -448,7 +454,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -464,7 +470,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -481,7 +487,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getFacilityType()
+    public function getFacilityType(): ?FHIRCodeableConcept
     {
         return $this->facilityType;
     }
@@ -497,7 +503,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $facilityType
      * @return static
      */
-    public function setFacilityType(FHIRCodeableConcept $facilityType = null)
+    public function setFacilityType(?FHIRCodeableConcept $facilityType = null): object
     {
         $this->_trackValueSet($this->facilityType, $facilityType);
         $this->facilityType = $facilityType;
@@ -515,7 +521,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getPracticeSetting()
+    public function getPracticeSetting(): ?FHIRCodeableConcept
     {
         return $this->practiceSetting;
     }
@@ -532,7 +538,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $practiceSetting
      * @return static
      */
-    public function setPracticeSetting(FHIRCodeableConcept $practiceSetting = null)
+    public function setPracticeSetting(?FHIRCodeableConcept $practiceSetting = null): object
     {
         $this->_trackValueSet($this->practiceSetting, $practiceSetting);
         $this->practiceSetting = $practiceSetting;
@@ -549,7 +555,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSourcePatientInfo()
+    public function getSourcePatientInfo(): ?FHIRReference
     {
         return $this->sourcePatientInfo;
     }
@@ -565,7 +571,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $sourcePatientInfo
      * @return static
      */
-    public function setSourcePatientInfo(FHIRReference $sourcePatientInfo = null)
+    public function setSourcePatientInfo(?FHIRReference $sourcePatientInfo = null): object
     {
         $this->_trackValueSet($this->sourcePatientInfo, $sourcePatientInfo);
         $this->sourcePatientInfo = $sourcePatientInfo;
@@ -581,7 +587,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getRelated()
+    public function getRelated(): ?array
     {
         return $this->related;
     }
@@ -596,7 +602,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $related
      * @return static
      */
-    public function addRelated(FHIRReference $related = null)
+    public function addRelated(?FHIRReference $related = null): object
     {
         $this->_trackValueAdded();
         $this->related[] = $related;
@@ -613,7 +619,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $related
      * @return static
      */
-    public function setRelated(array $related = [])
+    public function setRelated(array $related = []): object
     {
         if ([] !== $this->related) {
             $this->_trackValuesRemoved(count($this->related));
@@ -823,15 +829,15 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentReference\FHIRDocumentReferenceContext
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRDocumentReference\FHIRDocumentReferenceContext    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDocumentReferenceContext::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -851,7 +857,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -895,7 +901,7 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -958,50 +964,53 @@ class FHIRDocumentReferenceContext extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = [];
+            $out->{self::FIELD_ENCOUNTER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENCOUNTER][] = $v;
+                $out->{self::FIELD_ENCOUNTER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getEvent())) {
-            $a[self::FIELD_EVENT] = [];
+            $out->{self::FIELD_EVENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_EVENT][] = $v;
+                $out->{self::FIELD_EVENT}[] = $v;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if (null !== ($v = $this->getFacilityType())) {
-            $a[self::FIELD_FACILITY_TYPE] = $v;
+            $out->{self::FIELD_FACILITY_TYPE} = $v;
         }
         if (null !== ($v = $this->getPracticeSetting())) {
-            $a[self::FIELD_PRACTICE_SETTING] = $v;
+            $out->{self::FIELD_PRACTICE_SETTING} = $v;
         }
         if (null !== ($v = $this->getSourcePatientInfo())) {
-            $a[self::FIELD_SOURCE_PATIENT_INFO] = $v;
+            $out->{self::FIELD_SOURCE_PATIENT_INFO} = $v;
         }
         if ([] !== ($vs = $this->getRelated())) {
-            $a[self::FIELD_RELATED] = [];
+            $out->{self::FIELD_RELATED} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELATED][] = $v;
+                $out->{self::FIELD_RELATED}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,9 +109,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * identifier as long as those factors remain the same, and the expansion is the
      * same, but are not required to do so. This is a business identifier.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $identifier = null;
+    protected ?FHIRUri $identifier = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -123,9 +123,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * The time at which the expansion was produced by the expanding system.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $timestamp = null;
+    protected ?FHIRDateTime $timestamp = null;
 
     /**
      * A whole number
@@ -136,9 +136,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * this resource is less than the stated number, then the server can return more
      * using the offset parameter.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $total = null;
+    protected ?FHIRInteger $total = null;
 
     /**
      * A whole number
@@ -149,9 +149,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * resource is a partial view into the expansion. If paging is not being used, this
      * element SHALL NOT be present.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $offset = null;
+    protected ?FHIRInteger $offset = null;
 
     /**
      * A ValueSet resource instance specifies a set of codes drawn from one or more
@@ -165,7 +165,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetParameter[]
      */
-    protected $parameter = [];
+    protected ?array $parameter = [];
 
     /**
      * A ValueSet resource instance specifies a set of codes drawn from one or more
@@ -177,13 +177,13 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[]
      */
-    protected $contains = [];
+    protected ?array $contains = [];
 
     /**
      * Validation map for fields in type ValueSet.Expansion
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRValueSetExpansion Constructor
@@ -202,8 +202,8 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_IDENTIFIER]) || isset($data[self::FIELD_IDENTIFIER_EXT])) {
-            $value = isset($data[self::FIELD_IDENTIFIER]) ? $data[self::FIELD_IDENTIFIER] : null;
-            $ext = (isset($data[self::FIELD_IDENTIFIER_EXT]) && is_array($data[self::FIELD_IDENTIFIER_EXT])) ? $ext = $data[self::FIELD_IDENTIFIER_EXT] : $ext = [];
+            $value = $data[self::FIELD_IDENTIFIER] ?? null;
+            $ext = (isset($data[self::FIELD_IDENTIFIER_EXT]) && is_array($data[self::FIELD_IDENTIFIER_EXT])) ? $data[self::FIELD_IDENTIFIER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setIdentifier($value);
@@ -217,8 +217,8 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TIMESTAMP]) || isset($data[self::FIELD_TIMESTAMP_EXT])) {
-            $value = isset($data[self::FIELD_TIMESTAMP]) ? $data[self::FIELD_TIMESTAMP] : null;
-            $ext = (isset($data[self::FIELD_TIMESTAMP_EXT]) && is_array($data[self::FIELD_TIMESTAMP_EXT])) ? $ext = $data[self::FIELD_TIMESTAMP_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMESTAMP] ?? null;
+            $ext = (isset($data[self::FIELD_TIMESTAMP_EXT]) && is_array($data[self::FIELD_TIMESTAMP_EXT])) ? $data[self::FIELD_TIMESTAMP_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTimestamp($value);
@@ -232,8 +232,8 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TOTAL]) || isset($data[self::FIELD_TOTAL_EXT])) {
-            $value = isset($data[self::FIELD_TOTAL]) ? $data[self::FIELD_TOTAL] : null;
-            $ext = (isset($data[self::FIELD_TOTAL_EXT]) && is_array($data[self::FIELD_TOTAL_EXT])) ? $ext = $data[self::FIELD_TOTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_TOTAL] ?? null;
+            $ext = (isset($data[self::FIELD_TOTAL_EXT]) && is_array($data[self::FIELD_TOTAL_EXT])) ? $data[self::FIELD_TOTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setTotal($value);
@@ -247,8 +247,8 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OFFSET]) || isset($data[self::FIELD_OFFSET_EXT])) {
-            $value = isset($data[self::FIELD_OFFSET]) ? $data[self::FIELD_OFFSET] : null;
-            $ext = (isset($data[self::FIELD_OFFSET_EXT]) && is_array($data[self::FIELD_OFFSET_EXT])) ? $ext = $data[self::FIELD_OFFSET_EXT] : $ext = [];
+            $value = $data[self::FIELD_OFFSET] ?? null;
+            $ext = (isset($data[self::FIELD_OFFSET_EXT]) && is_array($data[self::FIELD_OFFSET_EXT])) ? $data[self::FIELD_OFFSET_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setOffset($value);
@@ -299,11 +299,17 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -324,9 +330,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * identifier as long as those factors remain the same, and the expansion is the
      * same, but are not required to do so. This is a business identifier.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?FHIRUri
     {
         return $this->identifier;
     }
@@ -342,10 +348,10 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * identifier as long as those factors remain the same, and the expansion is the
      * same, but are not required to do so. This is a business identifier.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $identifier
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $identifier
      * @return static
      */
-    public function setIdentifier($identifier = null)
+    public function setIdentifier($identifier = null): object
     {
         if (null !== $identifier && !($identifier instanceof FHIRUri)) {
             $identifier = new FHIRUri($identifier);
@@ -365,9 +371,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * The time at which the expansion was produced by the expanding system.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTimestamp()
+    public function getTimestamp(): ?FHIRDateTime
     {
         return $this->timestamp;
     }
@@ -382,10 +388,10 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * The time at which the expansion was produced by the expanding system.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timestamp
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timestamp
      * @return static
      */
-    public function setTimestamp($timestamp = null)
+    public function setTimestamp($timestamp = null): object
     {
         if (null !== $timestamp && !($timestamp instanceof FHIRDateTime)) {
             $timestamp = new FHIRDateTime($timestamp);
@@ -404,9 +410,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * this resource is less than the stated number, then the server can return more
      * using the offset parameter.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getTotal()
+    public function getTotal(): ?FHIRInteger
     {
         return $this->total;
     }
@@ -420,10 +426,10 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * this resource is less than the stated number, then the server can return more
      * using the offset parameter.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $total
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $total
      * @return static
      */
-    public function setTotal($total = null)
+    public function setTotal($total = null): object
     {
         if (null !== $total && !($total instanceof FHIRInteger)) {
             $total = new FHIRInteger($total);
@@ -442,9 +448,9 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * resource is a partial view into the expansion. If paging is not being used, this
      * element SHALL NOT be present.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getOffset()
+    public function getOffset(): ?FHIRInteger
     {
         return $this->offset;
     }
@@ -458,10 +464,10 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * resource is a partial view into the expansion. If paging is not being used, this
      * element SHALL NOT be present.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $offset
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $offset
      * @return static
      */
-    public function setOffset($offset = null)
+    public function setOffset($offset = null): object
     {
         if (null !== $offset && !($offset instanceof FHIRInteger)) {
             $offset = new FHIRInteger($offset);
@@ -483,7 +489,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetParameter[]
      */
-    public function getParameter()
+    public function getParameter(): ?array
     {
         return $this->parameter;
     }
@@ -501,7 +507,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetParameter $parameter
      * @return static
      */
-    public function addParameter(FHIRValueSetParameter $parameter = null)
+    public function addParameter(?FHIRValueSetParameter $parameter = null): object
     {
         $this->_trackValueAdded();
         $this->parameter[] = $parameter;
@@ -521,7 +527,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetParameter[] $parameter
      * @return static
      */
-    public function setParameter(array $parameter = [])
+    public function setParameter(array $parameter = []): object
     {
         if ([] !== $this->parameter) {
             $this->_trackValuesRemoved(count($this->parameter));
@@ -550,7 +556,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[]
      */
-    public function getContains()
+    public function getContains(): ?array
     {
         return $this->contains;
     }
@@ -566,7 +572,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains $contains
      * @return static
      */
-    public function addContains(FHIRValueSetContains $contains = null)
+    public function addContains(?FHIRValueSetContains $contains = null): object
     {
         $this->_trackValueAdded();
         $this->contains[] = $contains;
@@ -584,7 +590,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[] $contains
      * @return static
      */
-    public function setContains(array $contains = [])
+    public function setContains(array $contains = []): object
     {
         if ([] !== $this->contains) {
             $this->_trackValuesRemoved(count($this->contains));
@@ -775,15 +781,15 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetExpansion
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetExpansion    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRValueSetExpansion::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -803,7 +809,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -881,7 +887,7 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -934,69 +940,72 @@ class FHIRValueSetExpansion extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getIdentifier())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IDENTIFIER] = $val;
+                $out->{self::FIELD_IDENTIFIER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IDENTIFIER_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IDENTIFIER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimestamp())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMESTAMP] = $val;
+                $out->{self::FIELD_TIMESTAMP} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMESTAMP_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMESTAMP_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTotal())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TOTAL] = $val;
+                $out->{self::FIELD_TOTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TOTAL_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TOTAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOffset())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OFFSET] = $val;
+                $out->{self::FIELD_OFFSET} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OFFSET_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OFFSET_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getParameter())) {
-            $a[self::FIELD_PARAMETER] = [];
+            $out->{self::FIELD_PARAMETER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARAMETER][] = $v;
+                $out->{self::FIELD_PARAMETER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getContains())) {
-            $a[self::FIELD_CONTAINS] = [];
+            $out->{self::FIELD_CONTAINS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTAINS][] = $v;
+                $out->{self::FIELD_CONTAINS}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

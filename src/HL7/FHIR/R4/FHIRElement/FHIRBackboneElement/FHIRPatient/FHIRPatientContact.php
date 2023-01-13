@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,7 +108,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $relationship = [];
+    protected ?array $relationship = [];
 
     /**
      * A human's name with the ability to identify parts and usage.
@@ -119,7 +119,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName
      */
-    protected $name = null;
+    protected ?FHIRHumanName $name = null;
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -131,7 +131,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $telecom = [];
+    protected ?array $telecom = [];
 
     /**
      * An address expressed using postal conventions (as opposed to GPS or other
@@ -146,7 +146,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAddress
      */
-    protected $address = null;
+    protected ?FHIRAddress $address = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -156,7 +156,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender
      */
-    protected $gender = null;
+    protected ?FHIRAdministrativeGender $gender = null;
 
     /**
      * A reference from one resource to another.
@@ -168,7 +168,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $organization = null;
+    protected ?FHIRReference $organization = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -180,13 +180,13 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * Validation map for fields in type Patient.Contact
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPatientContact Constructor
@@ -255,8 +255,8 @@ class FHIRPatientContact extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_GENDER]) || isset($data[self::FIELD_GENDER_EXT])) {
-            $value = isset($data[self::FIELD_GENDER]) ? $data[self::FIELD_GENDER] : null;
-            $ext = (isset($data[self::FIELD_GENDER_EXT]) && is_array($data[self::FIELD_GENDER_EXT])) ? $ext = $data[self::FIELD_GENDER_EXT] : $ext = [];
+            $value = $data[self::FIELD_GENDER] ?? null;
+            $ext = (isset($data[self::FIELD_GENDER_EXT]) && is_array($data[self::FIELD_GENDER_EXT])) ? $data[self::FIELD_GENDER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAdministrativeGender) {
                     $this->setGender($value);
@@ -285,11 +285,17 @@ class FHIRPatientContact extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -309,7 +315,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getRelationship()
+    public function getRelationship(): ?array
     {
         return $this->relationship;
     }
@@ -325,7 +331,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $relationship
      * @return static
      */
-    public function addRelationship(FHIRCodeableConcept $relationship = null)
+    public function addRelationship(?FHIRCodeableConcept $relationship = null): object
     {
         $this->_trackValueAdded();
         $this->relationship[] = $relationship;
@@ -343,7 +349,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $relationship
      * @return static
      */
-    public function setRelationship(array $relationship = [])
+    public function setRelationship(array $relationship = []): object
     {
         if ([] !== $this->relationship) {
             $this->_trackValuesRemoved(count($this->relationship));
@@ -371,7 +377,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName
      */
-    public function getName()
+    public function getName(): ?FHIRHumanName
     {
         return $this->name;
     }
@@ -386,7 +392,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRHumanName $name
      * @return static
      */
-    public function setName(FHIRHumanName $name = null)
+    public function setName(?FHIRHumanName $name = null): object
     {
         $this->_trackValueSet($this->name, $name);
         $this->name = $name;
@@ -403,7 +409,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getTelecom()
+    public function getTelecom(): ?array
     {
         return $this->telecom;
     }
@@ -419,7 +425,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $telecom
      * @return static
      */
-    public function addTelecom(FHIRContactPoint $telecom = null)
+    public function addTelecom(?FHIRContactPoint $telecom = null): object
     {
         $this->_trackValueAdded();
         $this->telecom[] = $telecom;
@@ -437,7 +443,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $telecom
      * @return static
      */
-    public function setTelecom(array $telecom = [])
+    public function setTelecom(array $telecom = []): object
     {
         if ([] !== $this->telecom) {
             $this->_trackValuesRemoved(count($this->telecom));
@@ -469,7 +475,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAddress
      */
-    public function getAddress()
+    public function getAddress(): ?FHIRAddress
     {
         return $this->address;
     }
@@ -488,7 +494,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAddress $address
      * @return static
      */
-    public function setAddress(FHIRAddress $address = null)
+    public function setAddress(?FHIRAddress $address = null): object
     {
         $this->_trackValueSet($this->address, $address);
         $this->address = $address;
@@ -503,7 +509,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender
      */
-    public function getGender()
+    public function getGender(): ?FHIRAdministrativeGender
     {
         return $this->gender;
     }
@@ -517,7 +523,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAdministrativeGender $gender
      * @return static
      */
-    public function setGender(FHIRAdministrativeGender $gender = null)
+    public function setGender(?FHIRAdministrativeGender $gender = null): object
     {
         $this->_trackValueSet($this->gender, $gender);
         $this->gender = $gender;
@@ -534,7 +540,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOrganization()
+    public function getOrganization(): ?FHIRReference
     {
         return $this->organization;
     }
@@ -550,7 +556,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $organization
      * @return static
      */
-    public function setOrganization(FHIRReference $organization = null)
+    public function setOrganization(?FHIRReference $organization = null): object
     {
         $this->_trackValueSet($this->organization, $organization);
         $this->organization = $organization;
@@ -567,7 +573,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -583,7 +589,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -779,15 +785,15 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPatient\FHIRPatientContact    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPatientContact::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -807,7 +813,7 @@ class FHIRPatientContact extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -851,7 +857,7 @@ class FHIRPatientContact extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -909,51 +915,54 @@ class FHIRPatientContact extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getRelationship())) {
-            $a[self::FIELD_RELATIONSHIP] = [];
+            $out->{self::FIELD_RELATIONSHIP} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_RELATIONSHIP][] = $v;
+                $out->{self::FIELD_RELATIONSHIP}[] = $v;
             }
         }
         if (null !== ($v = $this->getName())) {
-            $a[self::FIELD_NAME] = $v;
+            $out->{self::FIELD_NAME} = $v;
         }
         if ([] !== ($vs = $this->getTelecom())) {
-            $a[self::FIELD_TELECOM] = [];
+            $out->{self::FIELD_TELECOM} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TELECOM][] = $v;
+                $out->{self::FIELD_TELECOM}[] = $v;
             }
         }
         if (null !== ($v = $this->getAddress())) {
-            $a[self::FIELD_ADDRESS] = $v;
+            $out->{self::FIELD_ADDRESS} = $v;
         }
         if (null !== ($v = $this->getGender())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GENDER] = $val;
+                $out->{self::FIELD_GENDER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAdministrativeGender::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GENDER_EXT] = $ext;
+            unset($ext->{FHIRAdministrativeGender::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GENDER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOrganization())) {
-            $a[self::FIELD_ORGANIZATION] = $v;
+            $out->{self::FIELD_ORGANIZATION} = $v;
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * The logical id of the resource, as used in the URL for the resource. Once
      * assigned, this value never changes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $id = null;
+    protected ?FHIRId $id = null;
 
     /**
      * The metadata about a resource. This is content in the resource that is
@@ -121,7 +121,7 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMeta
      */
-    protected $meta = null;
+    protected ?FHIRMeta $meta = null;
 
     /**
      * String of characters used to identify a name or a resource
@@ -133,9 +133,9 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * this is a reference to an implementation guide that defines the special rules
      * along with other profiles etc.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $implicitRules = null;
+    protected ?FHIRUri $implicitRules = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -145,15 +145,15 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      *
      * The base language in which the resource is written.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $language = null;
+    protected ?FHIRCode $language = null;
 
     /**
      * Validation map for fields in type Resource
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRResource Constructor
@@ -178,8 +178,8 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
             }
         }
         if (isset($data[self::FIELD_ID]) || isset($data[self::FIELD_ID_EXT])) {
-            $value = isset($data[self::FIELD_ID]) ? $data[self::FIELD_ID] : null;
-            $ext = (isset($data[self::FIELD_ID_EXT]) && is_array($data[self::FIELD_ID_EXT])) ? $ext = $data[self::FIELD_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_ID] ?? null;
+            $ext = (isset($data[self::FIELD_ID_EXT]) && is_array($data[self::FIELD_ID_EXT])) ? $data[self::FIELD_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setId($value);
@@ -200,8 +200,8 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
             }
         }
         if (isset($data[self::FIELD_IMPLICIT_RULES]) || isset($data[self::FIELD_IMPLICIT_RULES_EXT])) {
-            $value = isset($data[self::FIELD_IMPLICIT_RULES]) ? $data[self::FIELD_IMPLICIT_RULES] : null;
-            $ext = (isset($data[self::FIELD_IMPLICIT_RULES_EXT]) && is_array($data[self::FIELD_IMPLICIT_RULES_EXT])) ? $ext = $data[self::FIELD_IMPLICIT_RULES_EXT] : $ext = [];
+            $value = $data[self::FIELD_IMPLICIT_RULES] ?? null;
+            $ext = (isset($data[self::FIELD_IMPLICIT_RULES_EXT]) && is_array($data[self::FIELD_IMPLICIT_RULES_EXT])) ? $data[self::FIELD_IMPLICIT_RULES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setImplicitRules($value);
@@ -215,8 +215,8 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
             }
         }
         if (isset($data[self::FIELD_LANGUAGE]) || isset($data[self::FIELD_LANGUAGE_EXT])) {
-            $value = isset($data[self::FIELD_LANGUAGE]) ? $data[self::FIELD_LANGUAGE] : null;
-            $ext = (isset($data[self::FIELD_LANGUAGE_EXT]) && is_array($data[self::FIELD_LANGUAGE_EXT])) ? $ext = $data[self::FIELD_LANGUAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_LANGUAGE] ?? null;
+            $ext = (isset($data[self::FIELD_LANGUAGE_EXT]) && is_array($data[self::FIELD_LANGUAGE_EXT])) ? $data[self::FIELD_LANGUAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setLanguage($value);
@@ -231,11 +231,17 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -245,13 +251,16 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -272,9 +281,9 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * The logical id of the resource, as used in the URL for the resource. Once
      * assigned, this value never changes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getId()
+    public function getId(): ?FHIRId
     {
         return $this->id;
     }
@@ -290,10 +299,10 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * The logical id of the resource, as used in the URL for the resource. Once
      * assigned, this value never changes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $id
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $id
      * @return static
      */
-    public function setId($id = null)
+    public function setId($id = null): object
     {
         if (null !== $id && !($id instanceof FHIRId)) {
             $id = new FHIRId($id);
@@ -316,7 +325,7 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMeta
      */
-    public function getMeta()
+    public function getMeta(): ?FHIRMeta
     {
         return $this->meta;
     }
@@ -335,7 +344,7 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMeta $meta
      * @return static
      */
-    public function setMeta(FHIRMeta $meta = null)
+    public function setMeta(?FHIRMeta $meta = null): object
     {
         $this->_trackValueSet($this->meta, $meta);
         $this->meta = $meta;
@@ -352,9 +361,9 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * this is a reference to an implementation guide that defines the special rules
      * along with other profiles etc.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getImplicitRules()
+    public function getImplicitRules(): ?FHIRUri
     {
         return $this->implicitRules;
     }
@@ -369,10 +378,10 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * this is a reference to an implementation guide that defines the special rules
      * along with other profiles etc.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $implicitRules
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $implicitRules
      * @return static
      */
-    public function setImplicitRules($implicitRules = null)
+    public function setImplicitRules($implicitRules = null): object
     {
         if (null !== $implicitRules && !($implicitRules instanceof FHIRUri)) {
             $implicitRules = new FHIRUri($implicitRules);
@@ -390,9 +399,9 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      *
      * The base language in which the resource is written.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getLanguage()
+    public function getLanguage(): ?FHIRCode
     {
         return $this->language;
     }
@@ -405,10 +414,10 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      *
      * The base language in which the resource is written.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $language
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $language
      * @return static
      */
-    public function setLanguage($language = null)
+    public function setLanguage($language = null): object
     {
         if (null !== $language && !($language instanceof FHIRCode)) {
             $language = new FHIRCode($language);
@@ -468,15 +477,15 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRResource::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -496,7 +505,7 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -546,7 +555,7 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -578,50 +587,53 @@ class FHIRResource implements PHPFHIRCommentContainerInterface, PHPFHIRTypeInter
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = [];
+        $out = new \stdClass();
         if ([] !== ($vs = $this->_getFHIRComments())) {
-            $a[PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS] = $vs;
+            $out->{PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS} = $vs;
         }
         if (null !== ($v = $this->getId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ID] = $val;
+                $out->{self::FIELD_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMeta())) {
-            $a[self::FIELD_META] = $v;
+            $out->{self::FIELD_META} = $v;
         }
         if (null !== ($v = $this->getImplicitRules())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IMPLICIT_RULES] = $val;
+                $out->{self::FIELD_IMPLICIT_RULES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IMPLICIT_RULES_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IMPLICIT_RULES_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getLanguage())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LANGUAGE] = $val;
+                $out->{self::FIELD_LANGUAGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LANGUAGE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LANGUAGE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->_getFHIRComments())) {
-            $a[PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS] = $vs;
+            $out->{PHPFHIRConstants::JSON_FIELD_FHIR_COMMENTS} = $vs;
         }
-        return $a;
+
+        return $out;
     }
 
 

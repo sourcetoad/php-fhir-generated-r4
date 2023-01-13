@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesi
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,9 +101,9 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * Human-readable summary of results by exposure state.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * Whether the results by exposure is describing the results for the primary
@@ -114,7 +114,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExposureState
      */
-    protected $exposureState = null;
+    protected ?FHIRExposureState $exposureState = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -126,7 +126,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $variantState = null;
+    protected ?FHIRCodeableConcept $variantState = null;
 
     /**
      * A reference from one resource to another.
@@ -137,13 +137,13 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $riskEvidenceSynthesis = null;
+    protected ?FHIRReference $riskEvidenceSynthesis = null;
 
     /**
      * Validation map for fields in type EffectEvidenceSynthesis.ResultsByExposure
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIREffectEvidenceSynthesisResultsByExposure Constructor
@@ -162,8 +162,8 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -177,8 +177,8 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXPOSURE_STATE]) || isset($data[self::FIELD_EXPOSURE_STATE_EXT])) {
-            $value = isset($data[self::FIELD_EXPOSURE_STATE]) ? $data[self::FIELD_EXPOSURE_STATE] : null;
-            $ext = (isset($data[self::FIELD_EXPOSURE_STATE_EXT]) && is_array($data[self::FIELD_EXPOSURE_STATE_EXT])) ? $ext = $data[self::FIELD_EXPOSURE_STATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPOSURE_STATE] ?? null;
+            $ext = (isset($data[self::FIELD_EXPOSURE_STATE_EXT]) && is_array($data[self::FIELD_EXPOSURE_STATE_EXT])) ? $data[self::FIELD_EXPOSURE_STATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRExposureState) {
                     $this->setExposureState($value);
@@ -207,11 +207,17 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -228,9 +234,9 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * Human-readable summary of results by exposure state.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -242,10 +248,10 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * Human-readable summary of results by exposure state.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -264,7 +270,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExposureState
      */
-    public function getExposureState()
+    public function getExposureState(): ?FHIRExposureState
     {
         return $this->exposureState;
     }
@@ -279,7 +285,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExposureState $exposureState
      * @return static
      */
-    public function setExposureState(FHIRExposureState $exposureState = null)
+    public function setExposureState(?FHIRExposureState $exposureState = null): object
     {
         $this->_trackValueSet($this->exposureState, $exposureState);
         $this->exposureState = $exposureState;
@@ -296,7 +302,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getVariantState()
+    public function getVariantState(): ?FHIRCodeableConcept
     {
         return $this->variantState;
     }
@@ -312,7 +318,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $variantState
      * @return static
      */
-    public function setVariantState(FHIRCodeableConcept $variantState = null)
+    public function setVariantState(?FHIRCodeableConcept $variantState = null): object
     {
         $this->_trackValueSet($this->variantState, $variantState);
         $this->variantState = $variantState;
@@ -328,7 +334,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getRiskEvidenceSynthesis()
+    public function getRiskEvidenceSynthesis(): ?FHIRReference
     {
         return $this->riskEvidenceSynthesis;
     }
@@ -343,7 +349,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $riskEvidenceSynthesis
      * @return static
      */
-    public function setRiskEvidenceSynthesis(FHIRReference $riskEvidenceSynthesis = null)
+    public function setRiskEvidenceSynthesis(?FHIRReference $riskEvidenceSynthesis = null): object
     {
         $this->_trackValueSet($this->riskEvidenceSynthesis, $riskEvidenceSynthesis);
         $this->riskEvidenceSynthesis = $riskEvidenceSynthesis;
@@ -484,15 +490,15 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis\FHIREffectEvidenceSynthesisResultsByExposure
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIREffectEvidenceSynthesis\FHIREffectEvidenceSynthesisResultsByExposure    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIREffectEvidenceSynthesisResultsByExposure::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -512,7 +518,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -559,7 +565,7 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -592,37 +598,40 @@ class FHIREffectEvidenceSynthesisResultsByExposure extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExposureState())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPOSURE_STATE] = $val;
+                $out->{self::FIELD_EXPOSURE_STATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRExposureState::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPOSURE_STATE_EXT] = $ext;
+            unset($ext->{FHIRExposureState::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPOSURE_STATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVariantState())) {
-            $a[self::FIELD_VARIANT_STATE] = $v;
+            $out->{self::FIELD_VARIANT_STATE} = $v;
         }
         if (null !== ($v = $this->getRiskEvidenceSynthesis())) {
-            $a[self::FIELD_RISK_EVIDENCE_SYNTHESIS] = $v;
+            $out->{self::FIELD_RISK_EVIDENCE_SYNTHESIS} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

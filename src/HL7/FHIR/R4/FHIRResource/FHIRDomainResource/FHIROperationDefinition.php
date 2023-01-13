@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -162,9 +162,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the operation definition is stored on different
      * servers.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $url = null;
+    protected ?FHIRUri $url = null;
 
     /**
      * A sequence of Unicode characters
@@ -178,9 +178,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A sequence of Unicode characters
@@ -191,9 +191,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -202,9 +202,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the operation definition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $title = null;
+    protected ?FHIRString $title = null;
 
     /**
      * If the element is present, it must have either a \@value, an \@id, or extensions
@@ -214,7 +214,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    protected $status = null;
+    protected ?FHIRPublicationStatus $status = null;
 
     /**
      * Whether an operation is a normal operation or a query.
@@ -224,7 +224,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIROperationKind
      */
-    protected $kind = null;
+    protected ?FHIROperationKind $kind = null;
 
     /**
      * Value of "true" or "false"
@@ -234,9 +234,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $experimental = null;
+    protected ?FHIRBoolean $experimental = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -251,9 +251,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the operation definition changes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -263,9 +263,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the operation
      * definition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $publisher = null;
+    protected ?FHIRString $publisher = null;
 
     /**
      * Specifies contact information for a person or organization.
@@ -277,7 +277,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -291,9 +291,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * A free text natural language description of the operation definition from a
      * consumer's perspective.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $description = null;
+    protected ?FHIRMarkdown $description = null;
 
     /**
      * Specifies clinical/business/etc. metadata that can be used to retrieve, index
@@ -311,7 +311,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    protected $useContext = [];
+    protected ?array $useContext = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -324,7 +324,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -338,9 +338,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this operation definition is needed and why it has been
      * designed as it has.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $purpose = null;
+    protected ?FHIRMarkdown $purpose = null;
 
     /**
      * Value of "true" or "false"
@@ -349,9 +349,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Whether the operation affects state. Side effects such as producing audit trail
      * entries do not count as 'affecting state'.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $affectsState = null;
+    protected ?FHIRBoolean $affectsState = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -361,9 +361,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The name used to invoke the operation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -376,9 +376,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Additional information about how to use this operation or named query.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $comment = null;
+    protected ?FHIRMarkdown $comment = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -388,9 +388,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Indicates that this operation definition is a constraining profile on the base.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $base = null;
+    protected ?FHIRCanonical $base = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -400,9 +400,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The types on which this operation can be executed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    protected $resource = [];
+    protected ?array $resource = [];
 
     /**
      * Value of "true" or "false"
@@ -411,9 +411,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation or named query can be invoked at the system
      * level (e.g. without needing to choose a resource type for the context).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $system = null;
+    protected ?FHIRBoolean $system = null;
 
     /**
      * Value of "true" or "false"
@@ -423,9 +423,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * type level for any given resource type level (e.g. without needing to choose a
      * specific resource id for the context).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $type = null;
+    protected ?FHIRBoolean $type = null;
 
     /**
      * Value of "true" or "false"
@@ -434,9 +434,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation can be invoked on a particular instance of one
      * of the given types.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $instance = null;
+    protected ?FHIRBoolean $instance = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -448,9 +448,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource as a whole.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $inputProfile = null;
+    protected ?FHIRCanonical $inputProfile = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -462,9 +462,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    protected $outputProfile = null;
+    protected ?FHIRCanonical $outputProfile = null;
 
     /**
      * A formal computable definition of an operation (on the RESTful interface) or a
@@ -474,7 +474,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionParameter[]
      */
-    protected $parameter = [];
+    protected ?array $parameter = [];
 
     /**
      * A formal computable definition of an operation (on the RESTful interface) or a
@@ -486,13 +486,13 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionOverload[]
      */
-    protected $overload = [];
+    protected ?array $overload = [];
 
     /**
      * Validation map for fields in type OperationDefinition
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIROperationDefinition Constructor
@@ -511,8 +511,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_URL]) || isset($data[self::FIELD_URL_EXT])) {
-            $value = isset($data[self::FIELD_URL]) ? $data[self::FIELD_URL] : null;
-            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $ext = $data[self::FIELD_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_URL] ?? null;
+            $ext = (isset($data[self::FIELD_URL_EXT]) && is_array($data[self::FIELD_URL_EXT])) ? $data[self::FIELD_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setUrl($value);
@@ -526,8 +526,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -541,8 +541,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -556,8 +556,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_TITLE]) || isset($data[self::FIELD_TITLE_EXT])) {
-            $value = isset($data[self::FIELD_TITLE]) ? $data[self::FIELD_TITLE] : null;
-            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $ext = $data[self::FIELD_TITLE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TITLE] ?? null;
+            $ext = (isset($data[self::FIELD_TITLE_EXT]) && is_array($data[self::FIELD_TITLE_EXT])) ? $data[self::FIELD_TITLE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setTitle($value);
@@ -571,8 +571,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPublicationStatus) {
                     $this->setStatus($value);
@@ -586,8 +586,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_KIND]) || isset($data[self::FIELD_KIND_EXT])) {
-            $value = isset($data[self::FIELD_KIND]) ? $data[self::FIELD_KIND] : null;
-            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $ext = $data[self::FIELD_KIND_EXT] : $ext = [];
+            $value = $data[self::FIELD_KIND] ?? null;
+            $ext = (isset($data[self::FIELD_KIND_EXT]) && is_array($data[self::FIELD_KIND_EXT])) ? $data[self::FIELD_KIND_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIROperationKind) {
                     $this->setKind($value);
@@ -601,8 +601,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_EXPERIMENTAL]) || isset($data[self::FIELD_EXPERIMENTAL_EXT])) {
-            $value = isset($data[self::FIELD_EXPERIMENTAL]) ? $data[self::FIELD_EXPERIMENTAL] : null;
-            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $ext = $data[self::FIELD_EXPERIMENTAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPERIMENTAL] ?? null;
+            $ext = (isset($data[self::FIELD_EXPERIMENTAL_EXT]) && is_array($data[self::FIELD_EXPERIMENTAL_EXT])) ? $data[self::FIELD_EXPERIMENTAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setExperimental($value);
@@ -616,8 +616,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -631,8 +631,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_PUBLISHER]) || isset($data[self::FIELD_PUBLISHER_EXT])) {
-            $value = isset($data[self::FIELD_PUBLISHER]) ? $data[self::FIELD_PUBLISHER] : null;
-            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $ext = $data[self::FIELD_PUBLISHER_EXT] : $ext = [];
+            $value = $data[self::FIELD_PUBLISHER] ?? null;
+            $ext = (isset($data[self::FIELD_PUBLISHER_EXT]) && is_array($data[self::FIELD_PUBLISHER_EXT])) ? $data[self::FIELD_PUBLISHER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPublisher($value);
@@ -664,8 +664,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setDescription($value);
@@ -715,8 +715,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_PURPOSE]) || isset($data[self::FIELD_PURPOSE_EXT])) {
-            $value = isset($data[self::FIELD_PURPOSE]) ? $data[self::FIELD_PURPOSE] : null;
-            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $ext = $data[self::FIELD_PURPOSE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PURPOSE] ?? null;
+            $ext = (isset($data[self::FIELD_PURPOSE_EXT]) && is_array($data[self::FIELD_PURPOSE_EXT])) ? $data[self::FIELD_PURPOSE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setPurpose($value);
@@ -730,8 +730,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_AFFECTS_STATE]) || isset($data[self::FIELD_AFFECTS_STATE_EXT])) {
-            $value = isset($data[self::FIELD_AFFECTS_STATE]) ? $data[self::FIELD_AFFECTS_STATE] : null;
-            $ext = (isset($data[self::FIELD_AFFECTS_STATE_EXT]) && is_array($data[self::FIELD_AFFECTS_STATE_EXT])) ? $ext = $data[self::FIELD_AFFECTS_STATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_AFFECTS_STATE] ?? null;
+            $ext = (isset($data[self::FIELD_AFFECTS_STATE_EXT]) && is_array($data[self::FIELD_AFFECTS_STATE_EXT])) ? $data[self::FIELD_AFFECTS_STATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAffectsState($value);
@@ -745,8 +745,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -760,8 +760,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_COMMENT]) || isset($data[self::FIELD_COMMENT_EXT])) {
-            $value = isset($data[self::FIELD_COMMENT]) ? $data[self::FIELD_COMMENT] : null;
-            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $ext = $data[self::FIELD_COMMENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMMENT] ?? null;
+            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $data[self::FIELD_COMMENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setComment($value);
@@ -775,8 +775,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_BASE]) || isset($data[self::FIELD_BASE_EXT])) {
-            $value = isset($data[self::FIELD_BASE]) ? $data[self::FIELD_BASE] : null;
-            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $ext = $data[self::FIELD_BASE_EXT] : $ext = [];
+            $value = $data[self::FIELD_BASE] ?? null;
+            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $data[self::FIELD_BASE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setBase($value);
@@ -790,8 +790,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_RESOURCE]) || isset($data[self::FIELD_RESOURCE_EXT])) {
-            $value = isset($data[self::FIELD_RESOURCE]) ? $data[self::FIELD_RESOURCE] : null;
-            $ext = (isset($data[self::FIELD_RESOURCE_EXT]) && is_array($data[self::FIELD_RESOURCE_EXT])) ? $ext = $data[self::FIELD_RESOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_RESOURCE_EXT]) && is_array($data[self::FIELD_RESOURCE_EXT])) ? $data[self::FIELD_RESOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->addResource($value);
@@ -820,8 +820,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setSystem($value);
@@ -835,8 +835,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setType($value);
@@ -850,8 +850,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_INSTANCE]) || isset($data[self::FIELD_INSTANCE_EXT])) {
-            $value = isset($data[self::FIELD_INSTANCE]) ? $data[self::FIELD_INSTANCE] : null;
-            $ext = (isset($data[self::FIELD_INSTANCE_EXT]) && is_array($data[self::FIELD_INSTANCE_EXT])) ? $ext = $data[self::FIELD_INSTANCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANCE] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANCE_EXT]) && is_array($data[self::FIELD_INSTANCE_EXT])) ? $data[self::FIELD_INSTANCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setInstance($value);
@@ -865,8 +865,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_INPUT_PROFILE]) || isset($data[self::FIELD_INPUT_PROFILE_EXT])) {
-            $value = isset($data[self::FIELD_INPUT_PROFILE]) ? $data[self::FIELD_INPUT_PROFILE] : null;
-            $ext = (isset($data[self::FIELD_INPUT_PROFILE_EXT]) && is_array($data[self::FIELD_INPUT_PROFILE_EXT])) ? $ext = $data[self::FIELD_INPUT_PROFILE_EXT] : $ext = [];
+            $value = $data[self::FIELD_INPUT_PROFILE] ?? null;
+            $ext = (isset($data[self::FIELD_INPUT_PROFILE_EXT]) && is_array($data[self::FIELD_INPUT_PROFILE_EXT])) ? $data[self::FIELD_INPUT_PROFILE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setInputProfile($value);
@@ -880,8 +880,8 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_OUTPUT_PROFILE]) || isset($data[self::FIELD_OUTPUT_PROFILE_EXT])) {
-            $value = isset($data[self::FIELD_OUTPUT_PROFILE]) ? $data[self::FIELD_OUTPUT_PROFILE] : null;
-            $ext = (isset($data[self::FIELD_OUTPUT_PROFILE_EXT]) && is_array($data[self::FIELD_OUTPUT_PROFILE_EXT])) ? $ext = $data[self::FIELD_OUTPUT_PROFILE_EXT] : $ext = [];
+            $value = $data[self::FIELD_OUTPUT_PROFILE] ?? null;
+            $ext = (isset($data[self::FIELD_OUTPUT_PROFILE_EXT]) && is_array($data[self::FIELD_OUTPUT_PROFILE_EXT])) ? $data[self::FIELD_OUTPUT_PROFILE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->setOutputProfile($value);
@@ -932,11 +932,17 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -945,6 +951,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
         }
         return "<OperationDefinition{$xmlns}></OperationDefinition>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -964,9 +973,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the operation definition is stored on different
      * servers.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getUrl()
+    public function getUrl(): ?FHIRUri
     {
         return $this->url;
     }
@@ -984,10 +993,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * It SHALL remain the same when the operation definition is stored on different
      * servers.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $url
      * @return static
      */
-    public function setUrl($url = null)
+    public function setUrl($url = null): object
     {
         if (null !== $url && !($url instanceof FHIRUri)) {
             $url = new FHIRUri($url);
@@ -1009,9 +1018,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -1028,10 +1037,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * managed version is not available. There is also no expectation that versions can
      * be placed in a lexicographical sequence.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -1050,9 +1059,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -1066,10 +1075,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * be usable as an identifier for the module by machine processing applications
      * such as code generation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -1086,9 +1095,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the operation definition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getTitle()
+    public function getTitle(): ?FHIRString
     {
         return $this->title;
     }
@@ -1100,10 +1109,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * A short, descriptive, user-friendly title for the operation definition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $title
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $title
      * @return static
      */
-    public function setTitle($title = null)
+    public function setTitle($title = null): object
     {
         if (null !== $title && !($title instanceof FHIRString)) {
             $title = new FHIRString($title);
@@ -1121,7 +1130,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRPublicationStatus
     {
         return $this->status;
     }
@@ -1135,7 +1144,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPublicationStatus $status
      * @return static
      */
-    public function setStatus(FHIRPublicationStatus $status = null)
+    public function setStatus(?FHIRPublicationStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1150,7 +1159,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIROperationKind
      */
-    public function getKind()
+    public function getKind(): ?FHIROperationKind
     {
         return $this->kind;
     }
@@ -1164,7 +1173,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIROperationKind $kind
      * @return static
      */
-    public function setKind(FHIROperationKind $kind = null)
+    public function setKind(?FHIROperationKind $kind = null): object
     {
         $this->_trackValueSet($this->kind, $kind);
         $this->kind = $kind;
@@ -1179,9 +1188,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getExperimental()
+    public function getExperimental(): ?FHIRBoolean
     {
         return $this->experimental;
     }
@@ -1194,10 +1203,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * testing purposes (or education/evaluation/marketing) and is not intended to be
      * used for genuine usage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $experimental
      * @return static
      */
-    public function setExperimental($experimental = null)
+    public function setExperimental($experimental = null): object
     {
         if (null !== $experimental && !($experimental instanceof FHIRBoolean)) {
             $experimental = new FHIRBoolean($experimental);
@@ -1220,9 +1229,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the operation definition changes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -1240,10 +1249,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * status code changes. In addition, it should change when the substantive content
      * of the operation definition changes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -1261,9 +1270,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the operation
      * definition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPublisher()
+    public function getPublisher(): ?FHIRString
     {
         return $this->publisher;
     }
@@ -1276,10 +1285,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * The name of the organization or individual that published the operation
      * definition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $publisher
      * @return static
      */
-    public function setPublisher($publisher = null)
+    public function setPublisher($publisher = null): object
     {
         if (null !== $publisher && !($publisher instanceof FHIRString)) {
             $publisher = new FHIRString($publisher);
@@ -1299,7 +1308,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -1315,7 +1324,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactDetail $contact
      * @return static
      */
-    public function addContact(FHIRContactDetail $contact = null)
+    public function addContact(?FHIRContactDetail $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -1333,7 +1342,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactDetail[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -1364,9 +1373,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * A free text natural language description of the operation definition from a
      * consumer's perspective.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRMarkdown
     {
         return $this->description;
     }
@@ -1383,10 +1392,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * A free text natural language description of the operation definition from a
      * consumer's perspective.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRMarkdown)) {
             $description = new FHIRMarkdown($description);
@@ -1412,7 +1421,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext[]
      */
-    public function getUseContext()
+    public function getUseContext(): ?array
     {
         return $this->useContext;
     }
@@ -1434,7 +1443,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUsageContext $useContext
      * @return static
      */
-    public function addUseContext(FHIRUsageContext $useContext = null)
+    public function addUseContext(?FHIRUsageContext $useContext = null): object
     {
         $this->_trackValueAdded();
         $this->useContext[] = $useContext;
@@ -1458,7 +1467,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUsageContext[] $useContext
      * @return static
      */
-    public function setUseContext(array $useContext = [])
+    public function setUseContext(array $useContext = []): object
     {
         if ([] !== $this->useContext) {
             $this->_trackValuesRemoved(count($this->useContext));
@@ -1488,7 +1497,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -1505,7 +1514,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -1524,7 +1533,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -1555,9 +1564,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this operation definition is needed and why it has been
      * designed as it has.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getPurpose()
+    public function getPurpose(): ?FHIRMarkdown
     {
         return $this->purpose;
     }
@@ -1574,10 +1583,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Explanation of why this operation definition is needed and why it has been
      * designed as it has.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $purpose
      * @return static
      */
-    public function setPurpose($purpose = null)
+    public function setPurpose($purpose = null): object
     {
         if (null !== $purpose && !($purpose instanceof FHIRMarkdown)) {
             $purpose = new FHIRMarkdown($purpose);
@@ -1594,9 +1603,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Whether the operation affects state. Side effects such as producing audit trail
      * entries do not count as 'affecting state'.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAffectsState()
+    public function getAffectsState(): ?FHIRBoolean
     {
         return $this->affectsState;
     }
@@ -1608,10 +1617,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Whether the operation affects state. Side effects such as producing audit trail
      * entries do not count as 'affecting state'.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $affectsState
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $affectsState
      * @return static
      */
-    public function setAffectsState($affectsState = null)
+    public function setAffectsState($affectsState = null): object
     {
         if (null !== $affectsState && !($affectsState instanceof FHIRBoolean)) {
             $affectsState = new FHIRBoolean($affectsState);
@@ -1629,9 +1638,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The name used to invoke the operation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -1644,10 +1653,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The name used to invoke the operation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -1668,9 +1677,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Additional information about how to use this operation or named query.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getComment()
+    public function getComment(): ?FHIRMarkdown
     {
         return $this->comment;
     }
@@ -1686,10 +1695,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Additional information about how to use this operation or named query.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $comment
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $comment
      * @return static
      */
-    public function setComment($comment = null)
+    public function setComment($comment = null): object
     {
         if (null !== $comment && !($comment instanceof FHIRMarkdown)) {
             $comment = new FHIRMarkdown($comment);
@@ -1707,9 +1716,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Indicates that this operation definition is a constraining profile on the base.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getBase()
+    public function getBase(): ?FHIRCanonical
     {
         return $this->base;
     }
@@ -1722,10 +1731,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * Indicates that this operation definition is a constraining profile on the base.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $base
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $base
      * @return static
      */
-    public function setBase($base = null)
+    public function setBase($base = null): object
     {
         if (null !== $base && !($base instanceof FHIRCanonical)) {
             $base = new FHIRCanonical($base);
@@ -1743,9 +1752,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The types on which this operation can be executed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[]
      */
-    public function getResource()
+    public function getResource(): ?array
     {
         return $this->resource;
     }
@@ -1758,10 +1767,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * The types on which this operation can be executed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $resource
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCode[] $resource
      * @return static
      */
-    public function addResource($resource = null)
+    public function addResource($resource = null): object
     {
         if (null !== $resource && !($resource instanceof FHIRCode)) {
             $resource = new FHIRCode($resource);
@@ -1782,7 +1791,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCode[] $resource
      * @return static
      */
-    public function setResource(array $resource = [])
+    public function setResource(array $resource = []): object
     {
         if ([] !== $this->resource) {
             $this->_trackValuesRemoved(count($this->resource));
@@ -1808,9 +1817,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation or named query can be invoked at the system
      * level (e.g. without needing to choose a resource type for the context).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRBoolean
     {
         return $this->system;
     }
@@ -1822,10 +1831,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation or named query can be invoked at the system
      * level (e.g. without needing to choose a resource type for the context).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $system
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRBoolean)) {
             $system = new FHIRBoolean($system);
@@ -1843,9 +1852,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * type level for any given resource type level (e.g. without needing to choose a
      * specific resource id for the context).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getType()
+    public function getType(): ?FHIRBoolean
     {
         return $this->type;
     }
@@ -1858,10 +1867,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * type level for any given resource type level (e.g. without needing to choose a
      * specific resource id for the context).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $type
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $type
      * @return static
      */
-    public function setType($type = null)
+    public function setType($type = null): object
     {
         if (null !== $type && !($type instanceof FHIRBoolean)) {
             $type = new FHIRBoolean($type);
@@ -1878,9 +1887,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation can be invoked on a particular instance of one
      * of the given types.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getInstance()
+    public function getInstance(): ?FHIRBoolean
     {
         return $this->instance;
     }
@@ -1892,10 +1901,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * Indicates whether this operation can be invoked on a particular instance of one
      * of the given types.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $instance
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $instance
      * @return static
      */
-    public function setInstance($instance = null)
+    public function setInstance($instance = null): object
     {
         if (null !== $instance && !($instance instanceof FHIRBoolean)) {
             $instance = new FHIRBoolean($instance);
@@ -1915,9 +1924,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource as a whole.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getInputProfile()
+    public function getInputProfile(): ?FHIRCanonical
     {
         return $this->inputProfile;
     }
@@ -1932,10 +1941,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource as a whole.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $inputProfile
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $inputProfile
      * @return static
      */
-    public function setInputProfile($inputProfile = null)
+    public function setInputProfile($inputProfile = null): object
     {
         if (null !== $inputProfile && !($inputProfile instanceof FHIRCanonical)) {
             $inputProfile = new FHIRCanonical($inputProfile);
@@ -1955,9 +1964,9 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical
      */
-    public function getOutputProfile()
+    public function getOutputProfile(): ?FHIRCanonical
     {
         return $this->outputProfile;
     }
@@ -1972,10 +1981,10 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * covers all the parameters. The profile is a constraint on the parameters
      * resource.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $outputProfile
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $outputProfile
      * @return static
      */
-    public function setOutputProfile($outputProfile = null)
+    public function setOutputProfile($outputProfile = null): object
     {
         if (null !== $outputProfile && !($outputProfile instanceof FHIRCanonical)) {
             $outputProfile = new FHIRCanonical($outputProfile);
@@ -1993,7 +2002,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionParameter[]
      */
-    public function getParameter()
+    public function getParameter(): ?array
     {
         return $this->parameter;
     }
@@ -2007,7 +2016,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionParameter $parameter
      * @return static
      */
-    public function addParameter(FHIROperationDefinitionParameter $parameter = null)
+    public function addParameter(?FHIROperationDefinitionParameter $parameter = null): object
     {
         $this->_trackValueAdded();
         $this->parameter[] = $parameter;
@@ -2023,7 +2032,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionParameter[] $parameter
      * @return static
      */
-    public function setParameter(array $parameter = [])
+    public function setParameter(array $parameter = []): object
     {
         if ([] !== $this->parameter) {
             $this->_trackValuesRemoved(count($this->parameter));
@@ -2052,7 +2061,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionOverload[]
      */
-    public function getOverload()
+    public function getOverload(): ?array
     {
         return $this->overload;
     }
@@ -2068,7 +2077,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionOverload $overload
      * @return static
      */
-    public function addOverload(FHIROperationDefinitionOverload $overload = null)
+    public function addOverload(?FHIROperationDefinitionOverload $overload = null): object
     {
         $this->_trackValueAdded();
         $this->overload[] = $overload;
@@ -2086,7 +2095,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionOverload[] $overload
      * @return static
      */
-    public function setOverload(array $overload = [])
+    public function setOverload(array $overload = []): object
     {
         if ([] !== $this->overload) {
             $this->_trackValuesRemoved(count($this->overload));
@@ -2685,15 +2694,15 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationDefinition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationDefinition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIROperationDefinition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2713,7 +2722,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2999,7 +3008,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -3172,185 +3181,187 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_URL] = $val;
+                $out->{self::FIELD_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTitle())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TITLE] = $val;
+                $out->{self::FIELD_TITLE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TITLE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TITLE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPublicationStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRPublicationStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getKind())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_KIND] = $val;
+                $out->{self::FIELD_KIND} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIROperationKind::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_KIND_EXT] = $ext;
+            unset($ext->{FHIROperationKind::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_KIND_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExperimental())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPERIMENTAL] = $val;
+                $out->{self::FIELD_EXPERIMENTAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPERIMENTAL_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPERIMENTAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPublisher())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PUBLISHER] = $val;
+                $out->{self::FIELD_PUBLISHER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PUBLISHER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PUBLISHER_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getUseContext())) {
-            $a[self::FIELD_USE_CONTEXT] = [];
+            $out->{self::FIELD_USE_CONTEXT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_USE_CONTEXT][] = $v;
+                $out->{self::FIELD_USE_CONTEXT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getPurpose())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PURPOSE] = $val;
+                $out->{self::FIELD_PURPOSE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PURPOSE_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PURPOSE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAffectsState())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AFFECTS_STATE] = $val;
+                $out->{self::FIELD_AFFECTS_STATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AFFECTS_STATE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AFFECTS_STATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getComment())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMMENT] = $val;
+                $out->{self::FIELD_COMMENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMMENT_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMMENT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getBase())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_BASE] = $val;
+                $out->{self::FIELD_BASE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_BASE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BASE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getResource())) {
@@ -3362,7 +3373,7 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCode::FIELD_VALUE]);
+                unset($ext->{FHIRCode::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3371,81 +3382,84 @@ class FHIROperationDefinition extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_RESOURCE] = $vals;
+                $out->{self::FIELD_RESOURCE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_RESOURCE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESOURCE_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInstance())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INSTANCE] = $val;
+                $out->{self::FIELD_INSTANCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INSTANCE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInputProfile())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INPUT_PROFILE] = $val;
+                $out->{self::FIELD_INPUT_PROFILE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INPUT_PROFILE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INPUT_PROFILE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOutputProfile())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OUTPUT_PROFILE] = $val;
+                $out->{self::FIELD_OUTPUT_PROFILE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCanonical::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OUTPUT_PROFILE_EXT] = $ext;
+            unset($ext->{FHIRCanonical::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OUTPUT_PROFILE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getParameter())) {
-            $a[self::FIELD_PARAMETER] = [];
+            $out->{self::FIELD_PARAMETER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARAMETER][] = $v;
+                $out->{self::FIELD_PARAMETER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getOverload())) {
-            $a[self::FIELD_OVERLOAD] = [];
+            $out->{self::FIELD_OVERLOAD} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_OVERLOAD][] = $v;
+                $out->{self::FIELD_OVERLOAD}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

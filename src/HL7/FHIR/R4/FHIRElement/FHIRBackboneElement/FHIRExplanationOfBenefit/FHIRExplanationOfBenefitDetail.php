@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -115,9 +115,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * A claim detail line. Either a simple (a product or service) or a 'group' of
      * sub-details which are simple items.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $sequence = null;
+    protected ?FHIRPositiveInt $sequence = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -129,7 +129,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $revenue = null;
+    protected ?FHIRCodeableConcept $revenue = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -142,7 +142,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -156,7 +156,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $productOrService = null;
+    protected ?FHIRCodeableConcept $productOrService = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -169,7 +169,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $modifier = [];
+    protected ?array $modifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -181,7 +181,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $programCode = [];
+    protected ?array $programCode = [];
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -194,7 +194,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -206,7 +206,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $unitPrice = null;
+    protected ?FHIRMoney $unitPrice = null;
 
     /**
      * A rational number with implicit precision
@@ -218,9 +218,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * of services delivered and/or goods received. The concept of a Factor allows for
      * a discount or surcharge multiplier to be applied to a monetary amount.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $factor = null;
+    protected ?FHIRDecimal $factor = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -232,7 +232,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $net = null;
+    protected ?FHIRMoney $net = null;
 
     /**
      * A reference from one resource to another.
@@ -243,7 +243,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $udi = [];
+    protected ?array $udi = [];
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -253,9 +253,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * The numbers associated with notes below which apply to the adjudication of this
      * item.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[]
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[]
      */
-    protected $noteNumber = [];
+    protected ?array $noteNumber = [];
 
     /**
      * This resource provides: the claim details; adjudication details from the
@@ -266,7 +266,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication[]
      */
-    protected $adjudication = [];
+    protected ?array $adjudication = [];
 
     /**
      * This resource provides: the claim details; adjudication details from the
@@ -277,13 +277,13 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitSubDetail[]
      */
-    protected $subDetail = [];
+    protected ?array $subDetail = [];
 
     /**
      * Validation map for fields in type ExplanationOfBenefit.Detail
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRExplanationOfBenefitDetail Constructor
@@ -302,8 +302,8 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SEQUENCE]) || isset($data[self::FIELD_SEQUENCE_EXT])) {
-            $value = isset($data[self::FIELD_SEQUENCE]) ? $data[self::FIELD_SEQUENCE] : null;
-            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $ext = $data[self::FIELD_SEQUENCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEQUENCE] ?? null;
+            $ext = (isset($data[self::FIELD_SEQUENCE_EXT]) && is_array($data[self::FIELD_SEQUENCE_EXT])) ? $data[self::FIELD_SEQUENCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setSequence($value);
@@ -388,8 +388,8 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_FACTOR]) || isset($data[self::FIELD_FACTOR_EXT])) {
-            $value = isset($data[self::FIELD_FACTOR]) ? $data[self::FIELD_FACTOR] : null;
-            $ext = (isset($data[self::FIELD_FACTOR_EXT]) && is_array($data[self::FIELD_FACTOR_EXT])) ? $ext = $data[self::FIELD_FACTOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_FACTOR] ?? null;
+            $ext = (isset($data[self::FIELD_FACTOR_EXT]) && is_array($data[self::FIELD_FACTOR_EXT])) ? $data[self::FIELD_FACTOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setFactor($value);
@@ -428,8 +428,8 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NOTE_NUMBER]) || isset($data[self::FIELD_NOTE_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_NOTE_NUMBER]) ? $data[self::FIELD_NOTE_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_NOTE_NUMBER_EXT]) && is_array($data[self::FIELD_NOTE_NUMBER_EXT])) ? $ext = $data[self::FIELD_NOTE_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_NOTE_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_NOTE_NUMBER_EXT]) && is_array($data[self::FIELD_NOTE_NUMBER_EXT])) ? $data[self::FIELD_NOTE_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->addNoteNumber($value);
@@ -495,11 +495,17 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -517,9 +523,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * A claim detail line. Either a simple (a product or service) or a 'group' of
      * sub-details which are simple items.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getSequence()
+    public function getSequence(): ?FHIRPositiveInt
     {
         return $this->sequence;
     }
@@ -532,10 +538,10 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * A claim detail line. Either a simple (a product or service) or a 'group' of
      * sub-details which are simple items.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $sequence
      * @return static
      */
-    public function setSequence($sequence = null)
+    public function setSequence($sequence = null): object
     {
         if (null !== $sequence && !($sequence instanceof FHIRPositiveInt)) {
             $sequence = new FHIRPositiveInt($sequence);
@@ -555,7 +561,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRevenue()
+    public function getRevenue(): ?FHIRCodeableConcept
     {
         return $this->revenue;
     }
@@ -571,7 +577,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $revenue
      * @return static
      */
-    public function setRevenue(FHIRCodeableConcept $revenue = null)
+    public function setRevenue(?FHIRCodeableConcept $revenue = null): object
     {
         $this->_trackValueSet($this->revenue, $revenue);
         $this->revenue = $revenue;
@@ -589,7 +595,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -606,7 +612,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -625,7 +631,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getProductOrService()
+    public function getProductOrService(): ?FHIRCodeableConcept
     {
         return $this->productOrService;
     }
@@ -643,7 +649,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $productOrService
      * @return static
      */
-    public function setProductOrService(FHIRCodeableConcept $productOrService = null)
+    public function setProductOrService(?FHIRCodeableConcept $productOrService = null): object
     {
         $this->_trackValueSet($this->productOrService, $productOrService);
         $this->productOrService = $productOrService;
@@ -661,7 +667,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getModifier()
+    public function getModifier(): ?array
     {
         return $this->modifier;
     }
@@ -678,7 +684,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $modifier
      * @return static
      */
-    public function addModifier(FHIRCodeableConcept $modifier = null)
+    public function addModifier(?FHIRCodeableConcept $modifier = null): object
     {
         $this->_trackValueAdded();
         $this->modifier[] = $modifier;
@@ -697,7 +703,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $modifier
      * @return static
      */
-    public function setModifier(array $modifier = [])
+    public function setModifier(array $modifier = []): object
     {
         if ([] !== $this->modifier) {
             $this->_trackValuesRemoved(count($this->modifier));
@@ -726,7 +732,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getProgramCode()
+    public function getProgramCode(): ?array
     {
         return $this->programCode;
     }
@@ -742,7 +748,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $programCode
      * @return static
      */
-    public function addProgramCode(FHIRCodeableConcept $programCode = null)
+    public function addProgramCode(?FHIRCodeableConcept $programCode = null): object
     {
         $this->_trackValueAdded();
         $this->programCode[] = $programCode;
@@ -760,7 +766,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $programCode
      * @return static
      */
-    public function setProgramCode(array $programCode = [])
+    public function setProgramCode(array $programCode = []): object
     {
         if ([] !== $this->programCode) {
             $this->_trackValuesRemoved(count($this->programCode));
@@ -790,7 +796,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -807,7 +813,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -824,7 +830,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getUnitPrice()
+    public function getUnitPrice(): ?FHIRMoney
     {
         return $this->unitPrice;
     }
@@ -840,7 +846,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $unitPrice
      * @return static
      */
-    public function setUnitPrice(FHIRMoney $unitPrice = null)
+    public function setUnitPrice(?FHIRMoney $unitPrice = null): object
     {
         $this->_trackValueSet($this->unitPrice, $unitPrice);
         $this->unitPrice = $unitPrice;
@@ -857,9 +863,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * of services delivered and/or goods received. The concept of a Factor allows for
      * a discount or surcharge multiplier to be applied to a monetary amount.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getFactor()
+    public function getFactor(): ?FHIRDecimal
     {
         return $this->factor;
     }
@@ -874,10 +880,10 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * of services delivered and/or goods received. The concept of a Factor allows for
      * a discount or surcharge multiplier to be applied to a monetary amount.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $factor
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $factor
      * @return static
      */
-    public function setFactor($factor = null)
+    public function setFactor($factor = null): object
     {
         if (null !== $factor && !($factor instanceof FHIRDecimal)) {
             $factor = new FHIRDecimal($factor);
@@ -897,7 +903,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getNet()
+    public function getNet(): ?FHIRMoney
     {
         return $this->net;
     }
@@ -913,7 +919,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $net
      * @return static
      */
-    public function setNet(FHIRMoney $net = null)
+    public function setNet(?FHIRMoney $net = null): object
     {
         $this->_trackValueSet($this->net, $net);
         $this->net = $net;
@@ -929,7 +935,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getUdi()
+    public function getUdi(): ?array
     {
         return $this->udi;
     }
@@ -944,7 +950,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $udi
      * @return static
      */
-    public function addUdi(FHIRReference $udi = null)
+    public function addUdi(?FHIRReference $udi = null): object
     {
         $this->_trackValueAdded();
         $this->udi[] = $udi;
@@ -961,7 +967,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $udi
      * @return static
      */
-    public function setUdi(array $udi = [])
+    public function setUdi(array $udi = []): object
     {
         if ([] !== $this->udi) {
             $this->_trackValuesRemoved(count($this->udi));
@@ -988,9 +994,9 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * The numbers associated with notes below which apply to the adjudication of this
      * item.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[]
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[]
      */
-    public function getNoteNumber()
+    public function getNoteNumber(): ?array
     {
         return $this->noteNumber;
     }
@@ -1003,10 +1009,10 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * The numbers associated with notes below which apply to the adjudication of this
      * item.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $noteNumber
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[] $noteNumber
      * @return static
      */
-    public function addNoteNumber($noteNumber = null)
+    public function addNoteNumber($noteNumber = null): object
     {
         if (null !== $noteNumber && !($noteNumber instanceof FHIRPositiveInt)) {
             $noteNumber = new FHIRPositiveInt($noteNumber);
@@ -1027,7 +1033,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRPositiveInt[] $noteNumber
      * @return static
      */
-    public function setNoteNumber(array $noteNumber = [])
+    public function setNoteNumber(array $noteNumber = []): object
     {
         if ([] !== $this->noteNumber) {
             $this->_trackValuesRemoved(count($this->noteNumber));
@@ -1055,7 +1061,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication[]
      */
-    public function getAdjudication()
+    public function getAdjudication(): ?array
     {
         return $this->adjudication;
     }
@@ -1070,7 +1076,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication $adjudication
      * @return static
      */
-    public function addAdjudication(FHIRExplanationOfBenefitAdjudication $adjudication = null)
+    public function addAdjudication(?FHIRExplanationOfBenefitAdjudication $adjudication = null): object
     {
         $this->_trackValueAdded();
         $this->adjudication[] = $adjudication;
@@ -1087,7 +1093,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitAdjudication[] $adjudication
      * @return static
      */
-    public function setAdjudication(array $adjudication = [])
+    public function setAdjudication(array $adjudication = []): object
     {
         if ([] !== $this->adjudication) {
             $this->_trackValuesRemoved(count($this->adjudication));
@@ -1115,7 +1121,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitSubDetail[]
      */
-    public function getSubDetail()
+    public function getSubDetail(): ?array
     {
         return $this->subDetail;
     }
@@ -1130,7 +1136,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitSubDetail $subDetail
      * @return static
      */
-    public function addSubDetail(FHIRExplanationOfBenefitSubDetail $subDetail = null)
+    public function addSubDetail(?FHIRExplanationOfBenefitSubDetail $subDetail = null): object
     {
         $this->_trackValueAdded();
         $this->subDetail[] = $subDetail;
@@ -1147,7 +1153,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitSubDetail[] $subDetail
      * @return static
      */
-    public function setSubDetail(array $subDetail = [])
+    public function setSubDetail(array $subDetail = []): object
     {
         if ([] !== $this->subDetail) {
             $this->_trackValuesRemoved(count($this->subDetail));
@@ -1482,15 +1488,15 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitDetail
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExplanationOfBenefit\FHIRExplanationOfBenefitDetail    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRExplanationOfBenefitDetail::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1510,7 +1516,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1595,7 +1601,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1708,73 +1714,75 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequence())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEQUENCE] = $val;
+                $out->{self::FIELD_SEQUENCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEQUENCE_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEQUENCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRevenue())) {
-            $a[self::FIELD_REVENUE] = $v;
+            $out->{self::FIELD_REVENUE} = $v;
         }
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getProductOrService())) {
-            $a[self::FIELD_PRODUCT_OR_SERVICE] = $v;
+            $out->{self::FIELD_PRODUCT_OR_SERVICE} = $v;
         }
         if ([] !== ($vs = $this->getModifier())) {
-            $a[self::FIELD_MODIFIER] = [];
+            $out->{self::FIELD_MODIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_MODIFIER][] = $v;
+                $out->{self::FIELD_MODIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProgramCode())) {
-            $a[self::FIELD_PROGRAM_CODE] = [];
+            $out->{self::FIELD_PROGRAM_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROGRAM_CODE][] = $v;
+                $out->{self::FIELD_PROGRAM_CODE}[] = $v;
             }
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getUnitPrice())) {
-            $a[self::FIELD_UNIT_PRICE] = $v;
+            $out->{self::FIELD_UNIT_PRICE} = $v;
         }
         if (null !== ($v = $this->getFactor())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_FACTOR] = $val;
+                $out->{self::FIELD_FACTOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_FACTOR_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FACTOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNet())) {
-            $a[self::FIELD_NET] = $v;
+            $out->{self::FIELD_NET} = $v;
         }
         if ([] !== ($vs = $this->getUdi())) {
-            $a[self::FIELD_UDI] = [];
+            $out->{self::FIELD_UDI} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_UDI][] = $v;
+                $out->{self::FIELD_UDI}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNoteNumber())) {
@@ -1786,7 +1794,7 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRPositiveInt::FIELD_VALUE]);
+                unset($ext->{FHIRPositiveInt::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1795,31 +1803,32 @@ class FHIRExplanationOfBenefitDetail extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_NOTE_NUMBER] = $vals;
+                $out->{self::FIELD_NOTE_NUMBER} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_NOTE_NUMBER_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NOTE_NUMBER_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getAdjudication())) {
-            $a[self::FIELD_ADJUDICATION] = [];
+            $out->{self::FIELD_ADJUDICATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADJUDICATION][] = $v;
+                $out->{self::FIELD_ADJUDICATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSubDetail())) {
-            $a[self::FIELD_SUB_DETAIL] = [];
+            $out->{self::FIELD_SUB_DETAIL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUB_DETAIL][] = $v;
+                $out->{self::FIELD_SUB_DETAIL}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

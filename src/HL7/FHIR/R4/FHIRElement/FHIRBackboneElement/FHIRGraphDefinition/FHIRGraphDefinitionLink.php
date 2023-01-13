@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * A FHIR expression that identifies one of FHIR References to other resources.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $path = null;
+    protected ?FHIRString $path = null;
 
     /**
      * A sequence of Unicode characters
@@ -115,9 +115,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Which slice (if profiled).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $sliceName = null;
+    protected ?FHIRString $sliceName = null;
 
     /**
      * A whole number
@@ -126,9 +126,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Minimum occurrences for this link.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $min = null;
+    protected ?FHIRInteger $min = null;
 
     /**
      * A sequence of Unicode characters
@@ -137,9 +137,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Maximum occurrences for this link.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $max = null;
+    protected ?FHIRString $max = null;
 
     /**
      * A sequence of Unicode characters
@@ -148,9 +148,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Information about why this link is of interest in this graph definition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A formal computable definition of a graph of resources - that is, a coherent set
@@ -161,13 +161,13 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionTarget[]
      */
-    protected $target = [];
+    protected ?array $target = [];
 
     /**
      * Validation map for fields in type GraphDefinition.Link
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRGraphDefinitionLink Constructor
@@ -186,8 +186,8 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_PATH]) || isset($data[self::FIELD_PATH_EXT])) {
-            $value = isset($data[self::FIELD_PATH]) ? $data[self::FIELD_PATH] : null;
-            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $ext = $data[self::FIELD_PATH_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATH] ?? null;
+            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $data[self::FIELD_PATH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPath($value);
@@ -201,8 +201,8 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SLICE_NAME]) || isset($data[self::FIELD_SLICE_NAME_EXT])) {
-            $value = isset($data[self::FIELD_SLICE_NAME]) ? $data[self::FIELD_SLICE_NAME] : null;
-            $ext = (isset($data[self::FIELD_SLICE_NAME_EXT]) && is_array($data[self::FIELD_SLICE_NAME_EXT])) ? $ext = $data[self::FIELD_SLICE_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_SLICE_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_SLICE_NAME_EXT]) && is_array($data[self::FIELD_SLICE_NAME_EXT])) ? $data[self::FIELD_SLICE_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSliceName($value);
@@ -216,8 +216,8 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MIN]) || isset($data[self::FIELD_MIN_EXT])) {
-            $value = isset($data[self::FIELD_MIN]) ? $data[self::FIELD_MIN] : null;
-            $ext = (isset($data[self::FIELD_MIN_EXT]) && is_array($data[self::FIELD_MIN_EXT])) ? $ext = $data[self::FIELD_MIN_EXT] : $ext = [];
+            $value = $data[self::FIELD_MIN] ?? null;
+            $ext = (isset($data[self::FIELD_MIN_EXT]) && is_array($data[self::FIELD_MIN_EXT])) ? $data[self::FIELD_MIN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setMin($value);
@@ -231,8 +231,8 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MAX]) || isset($data[self::FIELD_MAX_EXT])) {
-            $value = isset($data[self::FIELD_MAX]) ? $data[self::FIELD_MAX] : null;
-            $ext = (isset($data[self::FIELD_MAX_EXT]) && is_array($data[self::FIELD_MAX_EXT])) ? $ext = $data[self::FIELD_MAX_EXT] : $ext = [];
+            $value = $data[self::FIELD_MAX] ?? null;
+            $ext = (isset($data[self::FIELD_MAX_EXT]) && is_array($data[self::FIELD_MAX_EXT])) ? $data[self::FIELD_MAX_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setMax($value);
@@ -246,8 +246,8 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -280,11 +280,17 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -301,9 +307,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * A FHIR expression that identifies one of FHIR References to other resources.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPath()
+    public function getPath(): ?FHIRString
     {
         return $this->path;
     }
@@ -315,10 +321,10 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * A FHIR expression that identifies one of FHIR References to other resources.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $path
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $path
      * @return static
      */
-    public function setPath($path = null)
+    public function setPath($path = null): object
     {
         if (null !== $path && !($path instanceof FHIRString)) {
             $path = new FHIRString($path);
@@ -335,9 +341,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Which slice (if profiled).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSliceName()
+    public function getSliceName(): ?FHIRString
     {
         return $this->sliceName;
     }
@@ -349,10 +355,10 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Which slice (if profiled).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $sliceName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $sliceName
      * @return static
      */
-    public function setSliceName($sliceName = null)
+    public function setSliceName($sliceName = null): object
     {
         if (null !== $sliceName && !($sliceName instanceof FHIRString)) {
             $sliceName = new FHIRString($sliceName);
@@ -369,9 +375,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Minimum occurrences for this link.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getMin()
+    public function getMin(): ?FHIRInteger
     {
         return $this->min;
     }
@@ -383,10 +389,10 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Minimum occurrences for this link.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $min
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $min
      * @return static
      */
-    public function setMin($min = null)
+    public function setMin($min = null): object
     {
         if (null !== $min && !($min instanceof FHIRInteger)) {
             $min = new FHIRInteger($min);
@@ -403,9 +409,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Maximum occurrences for this link.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getMax()
+    public function getMax(): ?FHIRString
     {
         return $this->max;
     }
@@ -417,10 +423,10 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Maximum occurrences for this link.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $max
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $max
      * @return static
      */
-    public function setMax($max = null)
+    public function setMax($max = null): object
     {
         if (null !== $max && !($max instanceof FHIRString)) {
             $max = new FHIRString($max);
@@ -437,9 +443,9 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Information about why this link is of interest in this graph definition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -451,10 +457,10 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * Information about why this link is of interest in this graph definition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -473,7 +479,7 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionTarget[]
      */
-    public function getTarget()
+    public function getTarget(): ?array
     {
         return $this->target;
     }
@@ -488,7 +494,7 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionTarget $target
      * @return static
      */
-    public function addTarget(FHIRGraphDefinitionTarget $target = null)
+    public function addTarget(?FHIRGraphDefinitionTarget $target = null): object
     {
         $this->_trackValueAdded();
         $this->target[] = $target;
@@ -505,7 +511,7 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionTarget[] $target
      * @return static
      */
-    public function setTarget(array $target = [])
+    public function setTarget(array $target = []): object
     {
         if ([] !== $this->target) {
             $this->_trackValuesRemoved(count($this->target));
@@ -694,15 +700,15 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionLink
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRGraphDefinition\FHIRGraphDefinitionLink    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRGraphDefinitionLink::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -722,7 +728,7 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -809,7 +815,7 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -857,70 +863,73 @@ class FHIRGraphDefinitionLink extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getPath())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PATH] = $val;
+                $out->{self::FIELD_PATH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PATH_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSliceName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SLICE_NAME] = $val;
+                $out->{self::FIELD_SLICE_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SLICE_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SLICE_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMin())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MIN] = $val;
+                $out->{self::FIELD_MIN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MIN_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MIN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMax())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MAX] = $val;
+                $out->{self::FIELD_MAX} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MAX_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MAX_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getTarget())) {
-            $a[self::FIELD_TARGET] = [];
+            $out->{self::FIELD_TARGET} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TARGET][] = $v;
+                $out->{self::FIELD_TARGET}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

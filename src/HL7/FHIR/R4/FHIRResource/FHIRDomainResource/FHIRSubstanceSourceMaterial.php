@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -134,7 +134,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sourceMaterialClass = null;
+    protected ?FHIRCodeableConcept $sourceMaterialClass = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -148,7 +148,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sourceMaterialType = null;
+    protected ?FHIRCodeableConcept $sourceMaterialType = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -160,7 +160,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sourceMaterialState = null;
+    protected ?FHIRCodeableConcept $sourceMaterialState = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -173,7 +173,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    protected $organismId = null;
+    protected ?FHIRIdentifier $organismId = null;
 
     /**
      * A sequence of Unicode characters
@@ -183,9 +183,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The organism accepted Scientific name shall be provided based on the organism
      * taxonomy.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $organismName = null;
+    protected ?FHIRString $organismName = null;
 
     /**
      * An identifier - identifies some entity uniquely and unambiguously. Typically
@@ -198,7 +198,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $parentSubstanceId = [];
+    protected ?array $parentSubstanceId = [];
 
     /**
      * A sequence of Unicode characters
@@ -207,9 +207,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * The parent substance of the Herbal Drug, or Herbal preparation.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $parentSubstanceName = [];
+    protected ?array $parentSubstanceName = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -225,7 +225,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $countryOfOrigin = [];
+    protected ?array $countryOfOrigin = [];
 
     /**
      * A sequence of Unicode characters
@@ -235,9 +235,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The place/region where the plant is harvested or the places/regions where the
      * animal source material has its habitat.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $geographicalLocation = [];
+    protected ?array $geographicalLocation = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -251,7 +251,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $developmentStage = null;
+    protected ?FHIRCodeableConcept $developmentStage = null;
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -279,7 +279,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialFractionDescription[]
      */
-    protected $fractionDescription = [];
+    protected ?array $fractionDescription = [];
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -303,7 +303,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganism
      */
-    protected $organism = null;
+    protected ?FHIRSubstanceSourceMaterialOrganism $organism = null;
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -324,13 +324,13 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialPartDescription[]
      */
-    protected $partDescription = [];
+    protected ?array $partDescription = [];
 
     /**
      * Validation map for fields in type SubstanceSourceMaterial
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceSourceMaterial Constructor
@@ -377,8 +377,8 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
             }
         }
         if (isset($data[self::FIELD_ORGANISM_NAME]) || isset($data[self::FIELD_ORGANISM_NAME_EXT])) {
-            $value = isset($data[self::FIELD_ORGANISM_NAME]) ? $data[self::FIELD_ORGANISM_NAME] : null;
-            $ext = (isset($data[self::FIELD_ORGANISM_NAME_EXT]) && is_array($data[self::FIELD_ORGANISM_NAME_EXT])) ? $ext = $data[self::FIELD_ORGANISM_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_ORGANISM_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_ORGANISM_NAME_EXT]) && is_array($data[self::FIELD_ORGANISM_NAME_EXT])) ? $data[self::FIELD_ORGANISM_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setOrganismName($value);
@@ -410,8 +410,8 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
             }
         }
         if (isset($data[self::FIELD_PARENT_SUBSTANCE_NAME]) || isset($data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT])) {
-            $value = isset($data[self::FIELD_PARENT_SUBSTANCE_NAME]) ? $data[self::FIELD_PARENT_SUBSTANCE_NAME] : null;
-            $ext = (isset($data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT]) && is_array($data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT])) ? $ext = $data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_PARENT_SUBSTANCE_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT]) && is_array($data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT])) ? $data[self::FIELD_PARENT_SUBSTANCE_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addParentSubstanceName($value);
@@ -458,8 +458,8 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
             }
         }
         if (isset($data[self::FIELD_GEOGRAPHICAL_LOCATION]) || isset($data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT])) {
-            $value = isset($data[self::FIELD_GEOGRAPHICAL_LOCATION]) ? $data[self::FIELD_GEOGRAPHICAL_LOCATION] : null;
-            $ext = (isset($data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT]) && is_array($data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT])) ? $ext = $data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_GEOGRAPHICAL_LOCATION] ?? null;
+            $ext = (isset($data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT]) && is_array($data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT])) ? $data[self::FIELD_GEOGRAPHICAL_LOCATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addGeographicalLocation($value);
@@ -539,11 +539,17 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -552,6 +558,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
         }
         return "<SubstanceSourceMaterial{$xmlns}></SubstanceSourceMaterial>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -569,7 +578,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSourceMaterialClass()
+    public function getSourceMaterialClass(): ?FHIRCodeableConcept
     {
         return $this->sourceMaterialClass;
     }
@@ -586,7 +595,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sourceMaterialClass
      * @return static
      */
-    public function setSourceMaterialClass(FHIRCodeableConcept $sourceMaterialClass = null)
+    public function setSourceMaterialClass(?FHIRCodeableConcept $sourceMaterialClass = null): object
     {
         $this->_trackValueSet($this->sourceMaterialClass, $sourceMaterialClass);
         $this->sourceMaterialClass = $sourceMaterialClass;
@@ -605,7 +614,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSourceMaterialType()
+    public function getSourceMaterialType(): ?FHIRCodeableConcept
     {
         return $this->sourceMaterialType;
     }
@@ -623,7 +632,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sourceMaterialType
      * @return static
      */
-    public function setSourceMaterialType(FHIRCodeableConcept $sourceMaterialType = null)
+    public function setSourceMaterialType(?FHIRCodeableConcept $sourceMaterialType = null): object
     {
         $this->_trackValueSet($this->sourceMaterialType, $sourceMaterialType);
         $this->sourceMaterialType = $sourceMaterialType;
@@ -640,7 +649,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSourceMaterialState()
+    public function getSourceMaterialState(): ?FHIRCodeableConcept
     {
         return $this->sourceMaterialState;
     }
@@ -656,7 +665,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sourceMaterialState
      * @return static
      */
-    public function setSourceMaterialState(FHIRCodeableConcept $sourceMaterialState = null)
+    public function setSourceMaterialState(?FHIRCodeableConcept $sourceMaterialState = null): object
     {
         $this->_trackValueSet($this->sourceMaterialState, $sourceMaterialState);
         $this->sourceMaterialState = $sourceMaterialState;
@@ -674,7 +683,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier
      */
-    public function getOrganismId()
+    public function getOrganismId(): ?FHIRIdentifier
     {
         return $this->organismId;
     }
@@ -691,7 +700,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $organismId
      * @return static
      */
-    public function setOrganismId(FHIRIdentifier $organismId = null)
+    public function setOrganismId(?FHIRIdentifier $organismId = null): object
     {
         $this->_trackValueSet($this->organismId, $organismId);
         $this->organismId = $organismId;
@@ -706,9 +715,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The organism accepted Scientific name shall be provided based on the organism
      * taxonomy.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getOrganismName()
+    public function getOrganismName(): ?FHIRString
     {
         return $this->organismName;
     }
@@ -721,10 +730,10 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The organism accepted Scientific name shall be provided based on the organism
      * taxonomy.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $organismName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $organismName
      * @return static
      */
-    public function setOrganismName($organismName = null)
+    public function setOrganismName($organismName = null): object
     {
         if (null !== $organismName && !($organismName instanceof FHIRString)) {
             $organismName = new FHIRString($organismName);
@@ -745,7 +754,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getParentSubstanceId()
+    public function getParentSubstanceId(): ?array
     {
         return $this->parentSubstanceId;
     }
@@ -762,7 +771,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $parentSubstanceId
      * @return static
      */
-    public function addParentSubstanceId(FHIRIdentifier $parentSubstanceId = null)
+    public function addParentSubstanceId(?FHIRIdentifier $parentSubstanceId = null): object
     {
         $this->_trackValueAdded();
         $this->parentSubstanceId[] = $parentSubstanceId;
@@ -781,7 +790,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $parentSubstanceId
      * @return static
      */
-    public function setParentSubstanceId(array $parentSubstanceId = [])
+    public function setParentSubstanceId(array $parentSubstanceId = []): object
     {
         if ([] !== $this->parentSubstanceId) {
             $this->_trackValuesRemoved(count($this->parentSubstanceId));
@@ -807,9 +816,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * The parent substance of the Herbal Drug, or Herbal preparation.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getParentSubstanceName()
+    public function getParentSubstanceName(): ?array
     {
         return $this->parentSubstanceName;
     }
@@ -821,10 +830,10 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * The parent substance of the Herbal Drug, or Herbal preparation.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $parentSubstanceName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $parentSubstanceName
      * @return static
      */
-    public function addParentSubstanceName($parentSubstanceName = null)
+    public function addParentSubstanceName($parentSubstanceName = null): object
     {
         if (null !== $parentSubstanceName && !($parentSubstanceName instanceof FHIRString)) {
             $parentSubstanceName = new FHIRString($parentSubstanceName);
@@ -844,7 +853,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $parentSubstanceName
      * @return static
      */
-    public function setParentSubstanceName(array $parentSubstanceName = [])
+    public function setParentSubstanceName(array $parentSubstanceName = []): object
     {
         if ([] !== $this->parentSubstanceName) {
             $this->_trackValuesRemoved(count($this->parentSubstanceName));
@@ -877,7 +886,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCountryOfOrigin()
+    public function getCountryOfOrigin(): ?array
     {
         return $this->countryOfOrigin;
     }
@@ -897,7 +906,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $countryOfOrigin
      * @return static
      */
-    public function addCountryOfOrigin(FHIRCodeableConcept $countryOfOrigin = null)
+    public function addCountryOfOrigin(?FHIRCodeableConcept $countryOfOrigin = null): object
     {
         $this->_trackValueAdded();
         $this->countryOfOrigin[] = $countryOfOrigin;
@@ -919,7 +928,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $countryOfOrigin
      * @return static
      */
-    public function setCountryOfOrigin(array $countryOfOrigin = [])
+    public function setCountryOfOrigin(array $countryOfOrigin = []): object
     {
         if ([] !== $this->countryOfOrigin) {
             $this->_trackValuesRemoved(count($this->countryOfOrigin));
@@ -946,9 +955,9 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The place/region where the plant is harvested or the places/regions where the
      * animal source material has its habitat.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getGeographicalLocation()
+    public function getGeographicalLocation(): ?array
     {
         return $this->geographicalLocation;
     }
@@ -961,10 +970,10 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * The place/region where the plant is harvested or the places/regions where the
      * animal source material has its habitat.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $geographicalLocation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $geographicalLocation
      * @return static
      */
-    public function addGeographicalLocation($geographicalLocation = null)
+    public function addGeographicalLocation($geographicalLocation = null): object
     {
         if (null !== $geographicalLocation && !($geographicalLocation instanceof FHIRString)) {
             $geographicalLocation = new FHIRString($geographicalLocation);
@@ -985,7 +994,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $geographicalLocation
      * @return static
      */
-    public function setGeographicalLocation(array $geographicalLocation = [])
+    public function setGeographicalLocation(array $geographicalLocation = []): object
     {
         if ([] !== $this->geographicalLocation) {
             $this->_trackValuesRemoved(count($this->geographicalLocation));
@@ -1016,7 +1025,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDevelopmentStage()
+    public function getDevelopmentStage(): ?FHIRCodeableConcept
     {
         return $this->developmentStage;
     }
@@ -1034,7 +1043,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $developmentStage
      * @return static
      */
-    public function setDevelopmentStage(FHIRCodeableConcept $developmentStage = null)
+    public function setDevelopmentStage(?FHIRCodeableConcept $developmentStage = null): object
     {
         $this->_trackValueSet($this->developmentStage, $developmentStage);
         $this->developmentStage = $developmentStage;
@@ -1067,7 +1076,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialFractionDescription[]
      */
-    public function getFractionDescription()
+    public function getFractionDescription(): ?array
     {
         return $this->fractionDescription;
     }
@@ -1099,7 +1108,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialFractionDescription $fractionDescription
      * @return static
      */
-    public function addFractionDescription(FHIRSubstanceSourceMaterialFractionDescription $fractionDescription = null)
+    public function addFractionDescription(?FHIRSubstanceSourceMaterialFractionDescription $fractionDescription = null): object
     {
         $this->_trackValueAdded();
         $this->fractionDescription[] = $fractionDescription;
@@ -1133,7 +1142,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialFractionDescription[] $fractionDescription
      * @return static
      */
-    public function setFractionDescription(array $fractionDescription = [])
+    public function setFractionDescription(array $fractionDescription = []): object
     {
         if ([] !== $this->fractionDescription) {
             $this->_trackValuesRemoved(count($this->fractionDescription));
@@ -1174,7 +1183,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganism
      */
-    public function getOrganism()
+    public function getOrganism(): ?FHIRSubstanceSourceMaterialOrganism
     {
         return $this->organism;
     }
@@ -1202,7 +1211,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialOrganism $organism
      * @return static
      */
-    public function setOrganism(FHIRSubstanceSourceMaterialOrganism $organism = null)
+    public function setOrganism(?FHIRSubstanceSourceMaterialOrganism $organism = null): object
     {
         $this->_trackValueSet($this->organism, $organism);
         $this->organism = $organism;
@@ -1228,7 +1237,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialPartDescription[]
      */
-    public function getPartDescription()
+    public function getPartDescription(): ?array
     {
         return $this->partDescription;
     }
@@ -1253,7 +1262,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialPartDescription $partDescription
      * @return static
      */
-    public function addPartDescription(FHIRSubstanceSourceMaterialPartDescription $partDescription = null)
+    public function addPartDescription(?FHIRSubstanceSourceMaterialPartDescription $partDescription = null): object
     {
         $this->_trackValueAdded();
         $this->partDescription[] = $partDescription;
@@ -1280,7 +1289,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceSourceMaterial\FHIRSubstanceSourceMaterialPartDescription[] $partDescription
      * @return static
      */
-    public function setPartDescription(array $partDescription = [])
+    public function setPartDescription(array $partDescription = []): object
     {
         if ([] !== $this->partDescription) {
             $this->_trackValuesRemoved(count($this->partDescription));
@@ -1658,15 +1667,15 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSourceMaterial
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSourceMaterial    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceSourceMaterial::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1686,7 +1695,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1802,7 +1811,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1910,39 +1919,41 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSourceMaterialClass())) {
-            $a[self::FIELD_SOURCE_MATERIAL_CLASS] = $v;
+            $out->{self::FIELD_SOURCE_MATERIAL_CLASS} = $v;
         }
         if (null !== ($v = $this->getSourceMaterialType())) {
-            $a[self::FIELD_SOURCE_MATERIAL_TYPE] = $v;
+            $out->{self::FIELD_SOURCE_MATERIAL_TYPE} = $v;
         }
         if (null !== ($v = $this->getSourceMaterialState())) {
-            $a[self::FIELD_SOURCE_MATERIAL_STATE] = $v;
+            $out->{self::FIELD_SOURCE_MATERIAL_STATE} = $v;
         }
         if (null !== ($v = $this->getOrganismId())) {
-            $a[self::FIELD_ORGANISM_ID] = $v;
+            $out->{self::FIELD_ORGANISM_ID} = $v;
         }
         if (null !== ($v = $this->getOrganismName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ORGANISM_NAME] = $val;
+                $out->{self::FIELD_ORGANISM_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ORGANISM_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ORGANISM_NAME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getParentSubstanceId())) {
-            $a[self::FIELD_PARENT_SUBSTANCE_ID] = [];
+            $out->{self::FIELD_PARENT_SUBSTANCE_ID} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARENT_SUBSTANCE_ID][] = $v;
+                $out->{self::FIELD_PARENT_SUBSTANCE_ID}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getParentSubstanceName())) {
@@ -1954,7 +1965,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1963,19 +1974,19 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PARENT_SUBSTANCE_NAME] = $vals;
+                $out->{self::FIELD_PARENT_SUBSTANCE_NAME} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PARENT_SUBSTANCE_NAME_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PARENT_SUBSTANCE_NAME_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getCountryOfOrigin())) {
-            $a[self::FIELD_COUNTRY_OF_ORIGIN] = [];
+            $out->{self::FIELD_COUNTRY_OF_ORIGIN} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_COUNTRY_OF_ORIGIN][] = $v;
+                $out->{self::FIELD_COUNTRY_OF_ORIGIN}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getGeographicalLocation())) {
@@ -1987,7 +1998,7 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1996,37 +2007,40 @@ class FHIRSubstanceSourceMaterial extends FHIRDomainResource implements PHPFHIRC
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_GEOGRAPHICAL_LOCATION] = $vals;
+                $out->{self::FIELD_GEOGRAPHICAL_LOCATION} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_GEOGRAPHICAL_LOCATION_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GEOGRAPHICAL_LOCATION_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getDevelopmentStage())) {
-            $a[self::FIELD_DEVELOPMENT_STAGE] = $v;
+            $out->{self::FIELD_DEVELOPMENT_STAGE} = $v;
         }
         if ([] !== ($vs = $this->getFractionDescription())) {
-            $a[self::FIELD_FRACTION_DESCRIPTION] = [];
+            $out->{self::FIELD_FRACTION_DESCRIPTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_FRACTION_DESCRIPTION][] = $v;
+                $out->{self::FIELD_FRACTION_DESCRIPTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getOrganism())) {
-            $a[self::FIELD_ORGANISM] = $v;
+            $out->{self::FIELD_ORGANISM} = $v;
         }
         if ([] !== ($vs = $this->getPartDescription())) {
-            $a[self::FIELD_PART_DESCRIPTION] = [];
+            $out->{self::FIELD_PART_DESCRIPTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PART_DESCRIPTION][] = $v;
+                $out->{self::FIELD_PART_DESCRIPTION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

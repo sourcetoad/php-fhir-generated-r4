@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTriggerType
      */
-    protected $type = null;
+    protected ?FHIRTriggerType $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -116,9 +116,9 @@ class FHIRTriggerDefinition extends FHIRElement
      * event formally (e.g. from a trigger registry), or a simple relative URI that
      * identifies the event in a local context.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -133,7 +133,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    protected $timingTiming = null;
+    protected ?FHIRTiming $timingTiming = null;
 
     /**
      * A reference from one resource to another.
@@ -144,7 +144,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $timingReference = null;
+    protected ?FHIRReference $timingReference = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -154,9 +154,9 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $timingDate = null;
+    protected ?FHIRDate $timingDate = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -168,9 +168,9 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $timingDateTime = null;
+    protected ?FHIRDateTime $timingDateTime = null;
 
     /**
      * Describes a required data item for evaluation in terms of the type of data, and
@@ -183,7 +183,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement[]
      */
-    protected $data = [];
+    protected ?array $data = [];
 
     /**
      * A expression that is evaluated in a specified context and returns a value. The
@@ -197,13 +197,13 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    protected $condition = null;
+    protected ?FHIRExpression $condition = null;
 
     /**
      * Validation map for fields in type TriggerDefinition
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTriggerDefinition Constructor
@@ -222,8 +222,8 @@ class FHIRTriggerDefinition extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTriggerType) {
                     $this->setType($value);
@@ -237,8 +237,8 @@ class FHIRTriggerDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -266,8 +266,8 @@ class FHIRTriggerDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TIMING_DATE]) || isset($data[self::FIELD_TIMING_DATE_EXT])) {
-            $value = isset($data[self::FIELD_TIMING_DATE]) ? $data[self::FIELD_TIMING_DATE] : null;
-            $ext = (isset($data[self::FIELD_TIMING_DATE_EXT]) && is_array($data[self::FIELD_TIMING_DATE_EXT])) ? $ext = $data[self::FIELD_TIMING_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMING_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_TIMING_DATE_EXT]) && is_array($data[self::FIELD_TIMING_DATE_EXT])) ? $data[self::FIELD_TIMING_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setTimingDate($value);
@@ -281,8 +281,8 @@ class FHIRTriggerDefinition extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TIMING_DATE_TIME]) || isset($data[self::FIELD_TIMING_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_TIMING_DATE_TIME]) ? $data[self::FIELD_TIMING_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_TIMING_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_TIMING_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_TIMING_DATE_TIME_EXT]) && is_array($data[self::FIELD_TIMING_DATE_TIME_EXT])) ? $data[self::FIELD_TIMING_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setTimingDateTime($value);
@@ -322,11 +322,17 @@ class FHIRTriggerDefinition extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -344,7 +350,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTriggerType
      */
-    public function getType()
+    public function getType(): ?FHIRTriggerType
     {
         return $this->type;
     }
@@ -358,7 +364,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTriggerType $type
      * @return static
      */
-    public function setType(FHIRTriggerType $type = null)
+    public function setType(?FHIRTriggerType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -374,9 +380,9 @@ class FHIRTriggerDefinition extends FHIRElement
      * event formally (e.g. from a trigger registry), or a simple relative URI that
      * identifies the event in a local context.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -390,10 +396,10 @@ class FHIRTriggerDefinition extends FHIRElement
      * event formally (e.g. from a trigger registry), or a simple relative URI that
      * identifies the event in a local context.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -416,7 +422,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming
      */
-    public function getTimingTiming()
+    public function getTimingTiming(): ?FHIRTiming
     {
         return $this->timingTiming;
     }
@@ -435,7 +441,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $timingTiming
      * @return static
      */
-    public function setTimingTiming(FHIRTiming $timingTiming = null)
+    public function setTimingTiming(?FHIRTiming $timingTiming = null): object
     {
         $this->_trackValueSet($this->timingTiming, $timingTiming);
         $this->timingTiming = $timingTiming;
@@ -451,7 +457,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getTimingReference()
+    public function getTimingReference(): ?FHIRReference
     {
         return $this->timingReference;
     }
@@ -466,7 +472,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $timingReference
      * @return static
      */
-    public function setTimingReference(FHIRReference $timingReference = null)
+    public function setTimingReference(?FHIRReference $timingReference = null): object
     {
         $this->_trackValueSet($this->timingReference, $timingReference);
         $this->timingReference = $timingReference;
@@ -481,9 +487,9 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getTimingDate()
+    public function getTimingDate(): ?FHIRDate
     {
         return $this->timingDate;
     }
@@ -496,10 +502,10 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $timingDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $timingDate
      * @return static
      */
-    public function setTimingDate($timingDate = null)
+    public function setTimingDate($timingDate = null): object
     {
         if (null !== $timingDate && !($timingDate instanceof FHIRDate)) {
             $timingDate = new FHIRDate($timingDate);
@@ -519,9 +525,9 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getTimingDateTime()
+    public function getTimingDateTime(): ?FHIRDateTime
     {
         return $this->timingDateTime;
     }
@@ -536,10 +542,10 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * The timing of the event (if this is a periodic trigger).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $timingDateTime
      * @return static
      */
-    public function setTimingDateTime($timingDateTime = null)
+    public function setTimingDateTime($timingDateTime = null): object
     {
         if (null !== $timingDateTime && !($timingDateTime instanceof FHIRDateTime)) {
             $timingDateTime = new FHIRDateTime($timingDateTime);
@@ -560,7 +566,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement[]
      */
-    public function getData()
+    public function getData(): ?array
     {
         return $this->data;
     }
@@ -577,7 +583,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement $data
      * @return static
      */
-    public function addData(FHIRDataRequirement $data = null)
+    public function addData(?FHIRDataRequirement $data = null): object
     {
         $this->_trackValueAdded();
         $this->data[] = $data;
@@ -596,7 +602,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDataRequirement[] $data
      * @return static
      */
-    public function setData(array $data = [])
+    public function setData(array $data = []): object
     {
         if ([] !== $this->data) {
             $this->_trackValuesRemoved(count($this->data));
@@ -627,7 +633,7 @@ class FHIRTriggerDefinition extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRExpression
      */
-    public function getCondition()
+    public function getCondition(): ?FHIRExpression
     {
         return $this->condition;
     }
@@ -645,7 +651,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRExpression $condition
      * @return static
      */
-    public function setCondition(FHIRExpression $condition = null)
+    public function setCondition(?FHIRExpression $condition = null): object
     {
         $this->_trackValueSet($this->condition, $condition);
         $this->condition = $condition;
@@ -844,15 +850,15 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTriggerDefinition
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRTriggerDefinition    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTriggerDefinition::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -872,7 +878,7 @@ class FHIRTriggerDefinition extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -943,7 +949,7 @@ class FHIRTriggerDefinition extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1001,69 +1007,72 @@ class FHIRTriggerDefinition extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTriggerType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRTriggerType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimingTiming())) {
-            $a[self::FIELD_TIMING_TIMING] = $v;
+            $out->{self::FIELD_TIMING_TIMING} = $v;
         }
         if (null !== ($v = $this->getTimingReference())) {
-            $a[self::FIELD_TIMING_REFERENCE] = $v;
+            $out->{self::FIELD_TIMING_REFERENCE} = $v;
         }
         if (null !== ($v = $this->getTimingDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMING_DATE] = $val;
+                $out->{self::FIELD_TIMING_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMING_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMING_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTimingDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TIMING_DATE_TIME] = $val;
+                $out->{self::FIELD_TIMING_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TIMING_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TIMING_DATE_TIME_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getData())) {
-            $a[self::FIELD_DATA] = [];
+            $out->{self::FIELD_DATA} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DATA][] = $v;
+                $out->{self::FIELD_DATA}[] = $v;
             }
         }
         if (null !== ($v = $this->getCondition())) {
-            $a[self::FIELD_CONDITION] = $v;
+            $out->{self::FIELD_CONDITION} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

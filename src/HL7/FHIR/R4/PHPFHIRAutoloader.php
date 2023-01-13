@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,8 +106,6 @@ if (!class_exists('\HL7\FHIR\R4\PHPFHIRResponseParser', false)) {
  */
 abstract class PHPFHIRAutoloader
 {
-    private const _ROOT_DIR = __DIR__;
-
     /** @var array */
     private const _CLASS_MAP = [
         'HL7\FHIR\R4\FHIRBase64BinaryPrimitive' => 'FHIRBase64BinaryPrimitive.php',
@@ -1073,7 +1071,6 @@ abstract class PHPFHIRAutoloader
         'HL7\FHIR\R4\FHIRMarkdownPrimitive' => 'FHIRMarkdownPrimitive.php',
         'HL7\FHIR\R4\FHIROidPrimitive' => 'FHIROidPrimitive.php',
         'HL7\FHIR\R4\FHIRPositiveIntPrimitive' => 'FHIRPositiveIntPrimitive.php',
-        'HL7\FHIR\R4\FHIRRaw' => 'FHIRRaw.php',
         'HL7\FHIR\R4\FHIRResource' => 'FHIRResource.php',
         'HL7\FHIR\R4\FHIRResourceContainer' => 'FHIRResourceContainer.php',
         'HL7\FHIR\R4\FHIRResource\FHIRBinary' => 'FHIRResource/FHIRBinary.php',
@@ -1230,16 +1227,17 @@ abstract class PHPFHIRAutoloader
         'HL7\FHIR\R4\FHIRUriPrimitive' => 'FHIRUriPrimitive.php',
         'HL7\FHIR\R4\FHIRUrlPrimitive' => 'FHIRUrlPrimitive.php',
         'HL7\FHIR\R4\FHIRUuidPrimitive' => 'FHIRUuidPrimitive.php',
+        'HL7\FHIR\R4\FHIRXHTML' => 'FHIRXHTML.php',
     ];
 
     /** @var bool */
-    private static $_registered = false;
+    private static bool $_registered = false;
 
     /**
      * @return bool
      * @throws \Exception
      */
-    public static function register()
+    public static function register(): bool
     {
         if (self::$_registered) {
             return self::$_registered;
@@ -1250,7 +1248,7 @@ abstract class PHPFHIRAutoloader
     /**
      * @return bool
      */
-    public static function unregister()
+    public static function unregister(): bool
     {
         if (self::$_registered) {
             if (spl_autoload_unregister([__CLASS__, 'loadClass'])) {
@@ -1267,10 +1265,10 @@ abstract class PHPFHIRAutoloader
      * @param string $class
      * @return bool|null
      */
-    public static function loadClass($class)
+    public static function loadClass(string $class): ?bool
     {
         if (isset(self::_CLASS_MAP[$class])) {
-            return (bool)require self::_ROOT_DIR . DIRECTORY_SEPARATOR . self::_CLASS_MAP[$class];
+            return (bool)require __DIR__ . DIRECTORY_SEPARATOR . self::_CLASS_MAP[$class];
         }
         return null;
     }

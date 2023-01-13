@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,9 +96,9 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The name of the parameter or dot-separated path of parameter names pointing to
      * the resource parameter that is expected to contain a reference to this resource.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $source = null;
+    protected ?FHIRString $source = null;
 
     /**
      * A sequence of Unicode characters
@@ -108,15 +108,15 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The id of the element in the referencing resource that is expected to resolve to
      * this resource.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $sourceId = null;
+    protected ?FHIRString $sourceId = null;
 
     /**
      * Validation map for fields in type OperationDefinition.ReferencedFrom
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIROperationDefinitionReferencedFrom Constructor
@@ -135,8 +135,8 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SOURCE]) || isset($data[self::FIELD_SOURCE_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE]) ? $data[self::FIELD_SOURCE] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $ext = $data[self::FIELD_SOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_EXT]) && is_array($data[self::FIELD_SOURCE_EXT])) ? $data[self::FIELD_SOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSource($value);
@@ -150,8 +150,8 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SOURCE_ID]) || isset($data[self::FIELD_SOURCE_ID_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE_ID]) ? $data[self::FIELD_SOURCE_ID] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_ID_EXT]) && is_array($data[self::FIELD_SOURCE_ID_EXT])) ? $ext = $data[self::FIELD_SOURCE_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE_ID] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_ID_EXT]) && is_array($data[self::FIELD_SOURCE_ID_EXT])) ? $data[self::FIELD_SOURCE_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSourceId($value);
@@ -166,11 +166,17 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -188,9 +194,9 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The name of the parameter or dot-separated path of parameter names pointing to
      * the resource parameter that is expected to contain a reference to this resource.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSource()
+    public function getSource(): ?FHIRString
     {
         return $this->source;
     }
@@ -203,10 +209,10 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The name of the parameter or dot-separated path of parameter names pointing to
      * the resource parameter that is expected to contain a reference to this resource.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $source
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $source
      * @return static
      */
-    public function setSource($source = null)
+    public function setSource($source = null): object
     {
         if (null !== $source && !($source instanceof FHIRString)) {
             $source = new FHIRString($source);
@@ -224,9 +230,9 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The id of the element in the referencing resource that is expected to resolve to
      * this resource.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSourceId()
+    public function getSourceId(): ?FHIRString
     {
         return $this->sourceId;
     }
@@ -239,10 +245,10 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * The id of the element in the referencing resource that is expected to resolve to
      * this resource.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $sourceId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $sourceId
      * @return static
      */
-    public function setSourceId($sourceId = null)
+    public function setSourceId($sourceId = null): object
     {
         if (null !== $sourceId && !($sourceId instanceof FHIRString)) {
             $sourceId = new FHIRString($sourceId);
@@ -352,15 +358,15 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionReferencedFrom
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationDefinition\FHIROperationDefinitionReferencedFrom    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIROperationDefinitionReferencedFrom::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -380,7 +386,7 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -432,7 +438,7 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -455,31 +461,34 @@ class FHIROperationDefinitionReferencedFrom extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE] = $val;
+                $out->{self::FIELD_SOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSourceId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE_ID] = $val;
+                $out->{self::FIELD_SOURCE_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_ID_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

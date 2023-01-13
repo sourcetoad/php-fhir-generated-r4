@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $temperatureQualifier = null;
+    protected ?FHIRCodeableConcept $temperatureQualifier = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -114,7 +114,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $temperatureRange = null;
+    protected ?FHIRRange $temperatureRange = null;
 
     /**
      * A length of time.
@@ -125,7 +125,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $maxDuration = null;
+    protected ?FHIRDuration $maxDuration = null;
 
     /**
      * A sequence of Unicode characters
@@ -135,15 +135,15 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * Additional textual instructions for the preservation or transport of the
      * specimen. For instance, 'Protect from light exposure'.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $instruction = null;
+    protected ?FHIRString $instruction = null;
 
     /**
      * Validation map for fields in type SpecimenDefinition.Handling
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSpecimenDefinitionHandling Constructor
@@ -183,8 +183,8 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INSTRUCTION]) || isset($data[self::FIELD_INSTRUCTION_EXT])) {
-            $value = isset($data[self::FIELD_INSTRUCTION]) ? $data[self::FIELD_INSTRUCTION] : null;
-            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $ext = $data[self::FIELD_INSTRUCTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTRUCTION] ?? null;
+            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $data[self::FIELD_INSTRUCTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setInstruction($value);
@@ -199,11 +199,17 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -225,7 +231,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getTemperatureQualifier()
+    public function getTemperatureQualifier(): ?FHIRCodeableConcept
     {
         return $this->temperatureQualifier;
     }
@@ -243,7 +249,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $temperatureQualifier
      * @return static
      */
-    public function setTemperatureQualifier(FHIRCodeableConcept $temperatureQualifier = null)
+    public function setTemperatureQualifier(?FHIRCodeableConcept $temperatureQualifier = null): object
     {
         $this->_trackValueSet($this->temperatureQualifier, $temperatureQualifier);
         $this->temperatureQualifier = $temperatureQualifier;
@@ -259,7 +265,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getTemperatureRange()
+    public function getTemperatureRange(): ?FHIRRange
     {
         return $this->temperatureRange;
     }
@@ -274,7 +280,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $temperatureRange
      * @return static
      */
-    public function setTemperatureRange(FHIRRange $temperatureRange = null)
+    public function setTemperatureRange(?FHIRRange $temperatureRange = null): object
     {
         $this->_trackValueSet($this->temperatureRange, $temperatureRange);
         $this->temperatureRange = $temperatureRange;
@@ -290,7 +296,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getMaxDuration()
+    public function getMaxDuration(): ?FHIRDuration
     {
         return $this->maxDuration;
     }
@@ -305,7 +311,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $maxDuration
      * @return static
      */
-    public function setMaxDuration(FHIRDuration $maxDuration = null)
+    public function setMaxDuration(?FHIRDuration $maxDuration = null): object
     {
         $this->_trackValueSet($this->maxDuration, $maxDuration);
         $this->maxDuration = $maxDuration;
@@ -320,9 +326,9 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * Additional textual instructions for the preservation or transport of the
      * specimen. For instance, 'Protect from light exposure'.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getInstruction()
+    public function getInstruction(): ?FHIRString
     {
         return $this->instruction;
     }
@@ -335,10 +341,10 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * Additional textual instructions for the preservation or transport of the
      * specimen. For instance, 'Protect from light exposure'.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
      * @return static
      */
-    public function setInstruction($instruction = null)
+    public function setInstruction($instruction = null): object
     {
         if (null !== $instruction && !($instruction instanceof FHIRString)) {
             $instruction = new FHIRString($instruction);
@@ -482,15 +488,15 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionHandling
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionHandling    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSpecimenDefinitionHandling::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -510,7 +516,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -557,7 +563,7 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -590,30 +596,33 @@ class FHIRSpecimenDefinitionHandling extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getTemperatureQualifier())) {
-            $a[self::FIELD_TEMPERATURE_QUALIFIER] = $v;
+            $out->{self::FIELD_TEMPERATURE_QUALIFIER} = $v;
         }
         if (null !== ($v = $this->getTemperatureRange())) {
-            $a[self::FIELD_TEMPERATURE_RANGE] = $v;
+            $out->{self::FIELD_TEMPERATURE_RANGE} = $v;
         }
         if (null !== ($v = $this->getMaxDuration())) {
-            $a[self::FIELD_MAX_DURATION] = $v;
+            $out->{self::FIELD_MAX_DURATION} = $v;
         }
         if (null !== ($v = $this->getInstruction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INSTRUCTION] = $val;
+                $out->{self::FIELD_INSTRUCTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INSTRUCTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTRUCTION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

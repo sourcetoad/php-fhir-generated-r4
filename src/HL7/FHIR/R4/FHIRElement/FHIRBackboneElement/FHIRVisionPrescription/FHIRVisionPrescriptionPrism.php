@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVisionPrescription;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVisionPrescription;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,9 +97,9 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      *
      * Amount of prism to compensate for eye alignment in fractional units.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $amount = null;
+    protected ?FHIRDecimal $amount = null;
 
     /**
      * A coded concept listing the base codes.
@@ -109,13 +109,13 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRVisionBase
      */
-    protected $base = null;
+    protected ?FHIRVisionBase $base = null;
 
     /**
      * Validation map for fields in type VisionPrescription.Prism
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRVisionPrescriptionPrism Constructor
@@ -134,8 +134,8 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_AMOUNT]) || isset($data[self::FIELD_AMOUNT_EXT])) {
-            $value = isset($data[self::FIELD_AMOUNT]) ? $data[self::FIELD_AMOUNT] : null;
-            $ext = (isset($data[self::FIELD_AMOUNT_EXT]) && is_array($data[self::FIELD_AMOUNT_EXT])) ? $ext = $data[self::FIELD_AMOUNT_EXT] : $ext = [];
+            $value = $data[self::FIELD_AMOUNT] ?? null;
+            $ext = (isset($data[self::FIELD_AMOUNT_EXT]) && is_array($data[self::FIELD_AMOUNT_EXT])) ? $data[self::FIELD_AMOUNT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setAmount($value);
@@ -149,8 +149,8 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_BASE]) || isset($data[self::FIELD_BASE_EXT])) {
-            $value = isset($data[self::FIELD_BASE]) ? $data[self::FIELD_BASE] : null;
-            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $ext = $data[self::FIELD_BASE_EXT] : $ext = [];
+            $value = $data[self::FIELD_BASE] ?? null;
+            $ext = (isset($data[self::FIELD_BASE_EXT]) && is_array($data[self::FIELD_BASE_EXT])) ? $data[self::FIELD_BASE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRVisionBase) {
                     $this->setBase($value);
@@ -165,11 +165,17 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -187,9 +193,9 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      *
      * Amount of prism to compensate for eye alignment in fractional units.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getAmount()
+    public function getAmount(): ?FHIRDecimal
     {
         return $this->amount;
     }
@@ -202,10 +208,10 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      *
      * Amount of prism to compensate for eye alignment in fractional units.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $amount
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $amount
      * @return static
      */
-    public function setAmount($amount = null)
+    public function setAmount($amount = null): object
     {
         if (null !== $amount && !($amount instanceof FHIRDecimal)) {
             $amount = new FHIRDecimal($amount);
@@ -223,7 +229,7 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRVisionBase
      */
-    public function getBase()
+    public function getBase(): ?FHIRVisionBase
     {
         return $this->base;
     }
@@ -237,7 +243,7 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRVisionBase $base
      * @return static
      */
-    public function setBase(FHIRVisionBase $base = null)
+    public function setBase(?FHIRVisionBase $base = null): object
     {
         $this->_trackValueSet($this->base, $base);
         $this->base = $base;
@@ -344,15 +350,15 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVisionPrescription\FHIRVisionPrescriptionPrism
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVisionPrescription\FHIRVisionPrescriptionPrism    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRVisionPrescriptionPrism::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -372,7 +378,7 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -415,7 +421,7 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -438,31 +444,34 @@ class FHIRVisionPrescriptionPrism extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getAmount())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AMOUNT] = $val;
+                $out->{self::FIELD_AMOUNT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AMOUNT_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AMOUNT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getBase())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_BASE] = $val;
+                $out->{self::FIELD_BASE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRVisionBase::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_BASE_EXT] = $ext;
+            unset($ext->{FHIRVisionBase::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BASE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

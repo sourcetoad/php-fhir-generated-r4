@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstancePolymer;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstancePolymer;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $material = null;
+    protected ?FHIRCodeableConcept $material = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -112,7 +112,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * Value of "true" or "false"
@@ -120,9 +120,9 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * Todo.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $isDefining = null;
+    protected ?FHIRBoolean $isDefining = null;
 
     /**
      * Chemical substances are a single substance type whose primary defining element
@@ -138,13 +138,13 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount
      */
-    protected $amount = null;
+    protected ?FHIRSubstanceAmount $amount = null;
 
     /**
      * Validation map for fields in type SubstancePolymer.StartingMaterial
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstancePolymerStartingMaterial Constructor
@@ -177,8 +177,8 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_IS_DEFINING]) || isset($data[self::FIELD_IS_DEFINING_EXT])) {
-            $value = isset($data[self::FIELD_IS_DEFINING]) ? $data[self::FIELD_IS_DEFINING] : null;
-            $ext = (isset($data[self::FIELD_IS_DEFINING_EXT]) && is_array($data[self::FIELD_IS_DEFINING_EXT])) ? $ext = $data[self::FIELD_IS_DEFINING_EXT] : $ext = [];
+            $value = $data[self::FIELD_IS_DEFINING] ?? null;
+            $ext = (isset($data[self::FIELD_IS_DEFINING_EXT]) && is_array($data[self::FIELD_IS_DEFINING_EXT])) ? $data[self::FIELD_IS_DEFINING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setIsDefining($value);
@@ -200,11 +200,17 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -224,7 +230,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMaterial()
+    public function getMaterial(): ?FHIRCodeableConcept
     {
         return $this->material;
     }
@@ -240,7 +246,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $material
      * @return static
      */
-    public function setMaterial(FHIRCodeableConcept $material = null)
+    public function setMaterial(?FHIRCodeableConcept $material = null): object
     {
         $this->_trackValueSet($this->material, $material);
         $this->material = $material;
@@ -257,7 +263,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -273,7 +279,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -286,9 +292,9 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * Todo.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getIsDefining()
+    public function getIsDefining(): ?FHIRBoolean
     {
         return $this->isDefining;
     }
@@ -299,10 +305,10 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * Todo.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isDefining
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $isDefining
      * @return static
      */
-    public function setIsDefining($isDefining = null)
+    public function setIsDefining($isDefining = null): object
     {
         if (null !== $isDefining && !($isDefining instanceof FHIRBoolean)) {
             $isDefining = new FHIRBoolean($isDefining);
@@ -326,7 +332,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount
      */
-    public function getAmount()
+    public function getAmount(): ?FHIRSubstanceAmount
     {
         return $this->amount;
     }
@@ -346,7 +352,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceAmount $amount
      * @return static
      */
-    public function setAmount(FHIRSubstanceAmount $amount = null)
+    public function setAmount(?FHIRSubstanceAmount $amount = null): object
     {
         $this->_trackValueSet($this->amount, $amount);
         $this->amount = $amount;
@@ -487,15 +493,15 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstancePolymer\FHIRSubstancePolymerStartingMaterial
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstancePolymer\FHIRSubstancePolymerStartingMaterial    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstancePolymerStartingMaterial::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -515,7 +521,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -562,7 +568,7 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -595,30 +601,33 @@ class FHIRSubstancePolymerStartingMaterial extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getMaterial())) {
-            $a[self::FIELD_MATERIAL] = $v;
+            $out->{self::FIELD_MATERIAL} = $v;
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getIsDefining())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_IS_DEFINING] = $val;
+                $out->{self::FIELD_IS_DEFINING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_IS_DEFINING_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_IS_DEFINING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAmount())) {
-            $a[self::FIELD_AMOUNT] = $v;
+            $out->{self::FIELD_AMOUNT} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

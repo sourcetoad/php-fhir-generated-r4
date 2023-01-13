@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,7 +107,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $material = null;
+    protected ?FHIRCodeableConcept $material = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -119,7 +119,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -131,7 +131,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $cap = null;
+    protected ?FHIRCodeableConcept $cap = null;
 
     /**
      * A sequence of Unicode characters
@@ -140,9 +140,9 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The textual description of the kind of container.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -155,7 +155,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $capacity = null;
+    protected ?FHIRQuantity $capacity = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -168,7 +168,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $minimumVolumeQuantity = null;
+    protected ?FHIRQuantity $minimumVolumeQuantity = null;
 
     /**
      * A sequence of Unicode characters
@@ -177,9 +177,9 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The minimum volume to be conditioned in the container.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $minimumVolumeString = null;
+    protected ?FHIRString $minimumVolumeString = null;
 
     /**
      * A kind of specimen with associated set of requirements.
@@ -189,7 +189,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionAdditive[]
      */
-    protected $additive = [];
+    protected ?array $additive = [];
 
     /**
      * A sequence of Unicode characters
@@ -199,15 +199,15 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * Special processing that should be applied to the container for this kind of
      * specimen.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $preparation = null;
+    protected ?FHIRString $preparation = null;
 
     /**
      * Validation map for fields in type SpecimenDefinition.Container
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSpecimenDefinitionContainer Constructor
@@ -247,8 +247,8 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -276,8 +276,8 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MINIMUM_VOLUME_STRING]) || isset($data[self::FIELD_MINIMUM_VOLUME_STRING_EXT])) {
-            $value = isset($data[self::FIELD_MINIMUM_VOLUME_STRING]) ? $data[self::FIELD_MINIMUM_VOLUME_STRING] : null;
-            $ext = (isset($data[self::FIELD_MINIMUM_VOLUME_STRING_EXT]) && is_array($data[self::FIELD_MINIMUM_VOLUME_STRING_EXT])) ? $ext = $data[self::FIELD_MINIMUM_VOLUME_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_MINIMUM_VOLUME_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_MINIMUM_VOLUME_STRING_EXT]) && is_array($data[self::FIELD_MINIMUM_VOLUME_STRING_EXT])) ? $data[self::FIELD_MINIMUM_VOLUME_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setMinimumVolumeString($value);
@@ -309,8 +309,8 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PREPARATION]) || isset($data[self::FIELD_PREPARATION_EXT])) {
-            $value = isset($data[self::FIELD_PREPARATION]) ? $data[self::FIELD_PREPARATION] : null;
-            $ext = (isset($data[self::FIELD_PREPARATION_EXT]) && is_array($data[self::FIELD_PREPARATION_EXT])) ? $ext = $data[self::FIELD_PREPARATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_PREPARATION] ?? null;
+            $ext = (isset($data[self::FIELD_PREPARATION_EXT]) && is_array($data[self::FIELD_PREPARATION_EXT])) ? $data[self::FIELD_PREPARATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPreparation($value);
@@ -325,11 +325,17 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -349,7 +355,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getMaterial()
+    public function getMaterial(): ?FHIRCodeableConcept
     {
         return $this->material;
     }
@@ -365,7 +371,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $material
      * @return static
      */
-    public function setMaterial(FHIRCodeableConcept $material = null)
+    public function setMaterial(?FHIRCodeableConcept $material = null): object
     {
         $this->_trackValueSet($this->material, $material);
         $this->material = $material;
@@ -382,7 +388,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -398,7 +404,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -415,7 +421,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCap()
+    public function getCap(): ?FHIRCodeableConcept
     {
         return $this->cap;
     }
@@ -431,7 +437,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $cap
      * @return static
      */
-    public function setCap(FHIRCodeableConcept $cap = null)
+    public function setCap(?FHIRCodeableConcept $cap = null): object
     {
         $this->_trackValueSet($this->cap, $cap);
         $this->cap = $cap;
@@ -445,9 +451,9 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The textual description of the kind of container.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -459,10 +465,10 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The textual description of the kind of container.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -483,7 +489,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getCapacity()
+    public function getCapacity(): ?FHIRQuantity
     {
         return $this->capacity;
     }
@@ -500,7 +506,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $capacity
      * @return static
      */
-    public function setCapacity(FHIRQuantity $capacity = null)
+    public function setCapacity(?FHIRQuantity $capacity = null): object
     {
         $this->_trackValueSet($this->capacity, $capacity);
         $this->capacity = $capacity;
@@ -518,7 +524,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getMinimumVolumeQuantity()
+    public function getMinimumVolumeQuantity(): ?FHIRQuantity
     {
         return $this->minimumVolumeQuantity;
     }
@@ -535,7 +541,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $minimumVolumeQuantity
      * @return static
      */
-    public function setMinimumVolumeQuantity(FHIRQuantity $minimumVolumeQuantity = null)
+    public function setMinimumVolumeQuantity(?FHIRQuantity $minimumVolumeQuantity = null): object
     {
         $this->_trackValueSet($this->minimumVolumeQuantity, $minimumVolumeQuantity);
         $this->minimumVolumeQuantity = $minimumVolumeQuantity;
@@ -549,9 +555,9 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The minimum volume to be conditioned in the container.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getMinimumVolumeString()
+    public function getMinimumVolumeString(): ?FHIRString
     {
         return $this->minimumVolumeString;
     }
@@ -563,10 +569,10 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * The minimum volume to be conditioned in the container.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $minimumVolumeString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $minimumVolumeString
      * @return static
      */
-    public function setMinimumVolumeString($minimumVolumeString = null)
+    public function setMinimumVolumeString($minimumVolumeString = null): object
     {
         if (null !== $minimumVolumeString && !($minimumVolumeString instanceof FHIRString)) {
             $minimumVolumeString = new FHIRString($minimumVolumeString);
@@ -584,7 +590,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionAdditive[]
      */
-    public function getAdditive()
+    public function getAdditive(): ?array
     {
         return $this->additive;
     }
@@ -598,7 +604,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionAdditive $additive
      * @return static
      */
-    public function addAdditive(FHIRSpecimenDefinitionAdditive $additive = null)
+    public function addAdditive(?FHIRSpecimenDefinitionAdditive $additive = null): object
     {
         $this->_trackValueAdded();
         $this->additive[] = $additive;
@@ -614,7 +620,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionAdditive[] $additive
      * @return static
      */
-    public function setAdditive(array $additive = [])
+    public function setAdditive(array $additive = []): object
     {
         if ([] !== $this->additive) {
             $this->_trackValuesRemoved(count($this->additive));
@@ -641,9 +647,9 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * Special processing that should be applied to the container for this kind of
      * specimen.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPreparation()
+    public function getPreparation(): ?FHIRString
     {
         return $this->preparation;
     }
@@ -656,10 +662,10 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * Special processing that should be applied to the container for this kind of
      * specimen.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $preparation
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $preparation
      * @return static
      */
-    public function setPreparation($preparation = null)
+    public function setPreparation($preparation = null): object
     {
         if (null !== $preparation && !($preparation instanceof FHIRString)) {
             $preparation = new FHIRString($preparation);
@@ -890,15 +896,15 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionContainer
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSpecimenDefinition\FHIRSpecimenDefinitionContainer    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSpecimenDefinitionContainer::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -918,7 +924,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -993,7 +999,7 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1056,65 +1062,68 @@ class FHIRSpecimenDefinitionContainer extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getMaterial())) {
-            $a[self::FIELD_MATERIAL] = $v;
+            $out->{self::FIELD_MATERIAL} = $v;
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getCap())) {
-            $a[self::FIELD_CAP] = $v;
+            $out->{self::FIELD_CAP} = $v;
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCapacity())) {
-            $a[self::FIELD_CAPACITY] = $v;
+            $out->{self::FIELD_CAPACITY} = $v;
         }
         if (null !== ($v = $this->getMinimumVolumeQuantity())) {
-            $a[self::FIELD_MINIMUM_VOLUME_QUANTITY] = $v;
+            $out->{self::FIELD_MINIMUM_VOLUME_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getMinimumVolumeString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MINIMUM_VOLUME_STRING] = $val;
+                $out->{self::FIELD_MINIMUM_VOLUME_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MINIMUM_VOLUME_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MINIMUM_VOLUME_STRING_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getAdditive())) {
-            $a[self::FIELD_ADDITIVE] = [];
+            $out->{self::FIELD_ADDITIVE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDITIVE][] = $v;
+                $out->{self::FIELD_ADDITIVE}[] = $v;
             }
         }
         if (null !== ($v = $this->getPreparation())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PREPARATION] = $val;
+                $out->{self::FIELD_PREPARATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PREPARATION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PREPARATION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

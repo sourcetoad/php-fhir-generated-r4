@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,7 +119,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSubscriptionStatus
      */
-    protected $status = null;
+    protected ?FHIRSubscriptionStatus $status = null;
 
     /**
      * Details for all kinds of technology mediated contact points for a person or
@@ -132,7 +132,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    protected $contact = [];
+    protected ?array $contact = [];
 
     /**
      * An instant in time - known at least to the second
@@ -144,9 +144,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The time for the server to turn the subscription off.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $end = null;
+    protected ?FHIRInstant $end = null;
 
     /**
      * A sequence of Unicode characters
@@ -155,9 +155,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A description of why this subscription is defined.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $reason = null;
+    protected ?FHIRString $reason = null;
 
     /**
      * A sequence of Unicode characters
@@ -167,9 +167,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The rules that the server should use to determine when to generate notifications
      * for this subscription.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $criteria = null;
+    protected ?FHIRString $criteria = null;
 
     /**
      * A sequence of Unicode characters
@@ -179,9 +179,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A record of the last error that occurred when the server processed a
      * notification.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $error = null;
+    protected ?FHIRString $error = null;
 
     /**
      * The subscription resource is used to define a push-based subscription from a
@@ -195,13 +195,13 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubscription\FHIRSubscriptionChannel
      */
-    protected $channel = null;
+    protected ?FHIRSubscriptionChannel $channel = null;
 
     /**
      * Validation map for fields in type Subscription
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubscription Constructor
@@ -220,8 +220,8 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRSubscriptionStatus) {
                     $this->setStatus($value);
@@ -253,8 +253,8 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_END]) || isset($data[self::FIELD_END_EXT])) {
-            $value = isset($data[self::FIELD_END]) ? $data[self::FIELD_END] : null;
-            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $ext = $data[self::FIELD_END_EXT] : $ext = [];
+            $value = $data[self::FIELD_END] ?? null;
+            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $data[self::FIELD_END_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setEnd($value);
@@ -268,8 +268,8 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_REASON]) || isset($data[self::FIELD_REASON_EXT])) {
-            $value = isset($data[self::FIELD_REASON]) ? $data[self::FIELD_REASON] : null;
-            $ext = (isset($data[self::FIELD_REASON_EXT]) && is_array($data[self::FIELD_REASON_EXT])) ? $ext = $data[self::FIELD_REASON_EXT] : $ext = [];
+            $value = $data[self::FIELD_REASON] ?? null;
+            $ext = (isset($data[self::FIELD_REASON_EXT]) && is_array($data[self::FIELD_REASON_EXT])) ? $data[self::FIELD_REASON_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setReason($value);
@@ -283,8 +283,8 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_CRITERIA]) || isset($data[self::FIELD_CRITERIA_EXT])) {
-            $value = isset($data[self::FIELD_CRITERIA]) ? $data[self::FIELD_CRITERIA] : null;
-            $ext = (isset($data[self::FIELD_CRITERIA_EXT]) && is_array($data[self::FIELD_CRITERIA_EXT])) ? $ext = $data[self::FIELD_CRITERIA_EXT] : $ext = [];
+            $value = $data[self::FIELD_CRITERIA] ?? null;
+            $ext = (isset($data[self::FIELD_CRITERIA_EXT]) && is_array($data[self::FIELD_CRITERIA_EXT])) ? $data[self::FIELD_CRITERIA_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCriteria($value);
@@ -298,8 +298,8 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
             }
         }
         if (isset($data[self::FIELD_ERROR]) || isset($data[self::FIELD_ERROR_EXT])) {
-            $value = isset($data[self::FIELD_ERROR]) ? $data[self::FIELD_ERROR] : null;
-            $ext = (isset($data[self::FIELD_ERROR_EXT]) && is_array($data[self::FIELD_ERROR_EXT])) ? $ext = $data[self::FIELD_ERROR_EXT] : $ext = [];
+            $value = $data[self::FIELD_ERROR] ?? null;
+            $ext = (isset($data[self::FIELD_ERROR_EXT]) && is_array($data[self::FIELD_ERROR_EXT])) ? $data[self::FIELD_ERROR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setError($value);
@@ -321,11 +321,17 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -334,6 +340,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
         }
         return "<Subscription{$xmlns}></Subscription>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -349,7 +358,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSubscriptionStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRSubscriptionStatus
     {
         return $this->status;
     }
@@ -364,7 +373,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSubscriptionStatus $status
      * @return static
      */
-    public function setStatus(FHIRSubscriptionStatus $status = null)
+    public function setStatus(?FHIRSubscriptionStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -382,7 +391,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint[]
      */
-    public function getContact()
+    public function getContact(): ?array
     {
         return $this->contact;
     }
@@ -399,7 +408,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRContactPoint $contact
      * @return static
      */
-    public function addContact(FHIRContactPoint $contact = null)
+    public function addContact(?FHIRContactPoint $contact = null): object
     {
         $this->_trackValueAdded();
         $this->contact[] = $contact;
@@ -418,7 +427,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param \HL7\FHIR\R4\FHIRElement\FHIRContactPoint[] $contact
      * @return static
      */
-    public function setContact(array $contact = [])
+    public function setContact(array $contact = []): object
     {
         if ([] !== $this->contact) {
             $this->_trackValuesRemoved(count($this->contact));
@@ -447,9 +456,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The time for the server to turn the subscription off.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getEnd()
+    public function getEnd(): ?FHIRInstant
     {
         return $this->end;
     }
@@ -464,10 +473,10 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * The time for the server to turn the subscription off.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $end
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $end
      * @return static
      */
-    public function setEnd($end = null)
+    public function setEnd($end = null): object
     {
         if (null !== $end && !($end instanceof FHIRInstant)) {
             $end = new FHIRInstant($end);
@@ -484,9 +493,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A description of why this subscription is defined.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getReason()
+    public function getReason(): ?FHIRString
     {
         return $this->reason;
     }
@@ -498,10 +507,10 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * A description of why this subscription is defined.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $reason
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $reason
      * @return static
      */
-    public function setReason($reason = null)
+    public function setReason($reason = null): object
     {
         if (null !== $reason && !($reason instanceof FHIRString)) {
             $reason = new FHIRString($reason);
@@ -519,9 +528,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The rules that the server should use to determine when to generate notifications
      * for this subscription.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCriteria()
+    public function getCriteria(): ?FHIRString
     {
         return $this->criteria;
     }
@@ -534,10 +543,10 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * The rules that the server should use to determine when to generate notifications
      * for this subscription.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $criteria
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $criteria
      * @return static
      */
-    public function setCriteria($criteria = null)
+    public function setCriteria($criteria = null): object
     {
         if (null !== $criteria && !($criteria instanceof FHIRString)) {
             $criteria = new FHIRString($criteria);
@@ -555,9 +564,9 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A record of the last error that occurred when the server processed a
      * notification.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getError()
+    public function getError(): ?FHIRString
     {
         return $this->error;
     }
@@ -570,10 +579,10 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * A record of the last error that occurred when the server processed a
      * notification.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $error
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $error
      * @return static
      */
-    public function setError($error = null)
+    public function setError($error = null): object
     {
         if (null !== $error && !($error instanceof FHIRString)) {
             $error = new FHIRString($error);
@@ -595,7 +604,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubscription\FHIRSubscriptionChannel
      */
-    public function getChannel()
+    public function getChannel(): ?FHIRSubscriptionChannel
     {
         return $this->channel;
     }
@@ -613,7 +622,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubscription\FHIRSubscriptionChannel $channel
      * @return static
      */
-    public function setChannel(FHIRSubscriptionChannel $channel = null)
+    public function setChannel(?FHIRSubscriptionChannel $channel = null): object
     {
         $this->_trackValueSet($this->channel, $channel);
         $this->channel = $channel;
@@ -867,15 +876,15 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubscription
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubscription    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubscription::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -895,7 +904,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1008,7 +1017,7 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1061,73 +1070,78 @@ class FHIRSubscription extends FHIRDomainResource implements PHPFHIRContainedTyp
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRSubscriptionStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRSubscriptionStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getContact())) {
-            $a[self::FIELD_CONTACT] = [];
+            $out->{self::FIELD_CONTACT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTACT][] = $v;
+                $out->{self::FIELD_CONTACT}[] = $v;
             }
         }
         if (null !== ($v = $this->getEnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_END] = $val;
+                $out->{self::FIELD_END} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_END_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_END_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReason())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REASON] = $val;
+                $out->{self::FIELD_REASON} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REASON_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REASON_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCriteria())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CRITERIA] = $val;
+                $out->{self::FIELD_CRITERIA} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CRITERIA_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CRITERIA_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getError())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ERROR] = $val;
+                $out->{self::FIELD_ERROR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ERROR_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ERROR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getChannel())) {
-            $a[self::FIELD_CHANNEL] = $v;
+            $out->{self::FIELD_CHANNEL} = $v;
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

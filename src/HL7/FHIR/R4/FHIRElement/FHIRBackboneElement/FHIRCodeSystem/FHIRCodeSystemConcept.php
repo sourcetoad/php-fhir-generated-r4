@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A code - a text symbol - that uniquely identifies the concept within the code
      * system.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -116,9 +116,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A human readable string that is the recommended default way to present this
      * concept to a user.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $display = null;
+    protected ?FHIRString $display = null;
 
     /**
      * A sequence of Unicode characters
@@ -130,9 +130,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * However, they are highly recommended, as without them there is no formal meaning
      * associated with the concept.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $definition = null;
+    protected ?FHIRString $definition = null;
 
     /**
      * The CodeSystem resource is used to declare the existence of and describe a code
@@ -144,7 +144,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemDesignation[]
      */
-    protected $designation = [];
+    protected ?array $designation = [];
 
     /**
      * The CodeSystem resource is used to declare the existence of and describe a code
@@ -155,7 +155,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemProperty1[]
      */
-    protected $property = [];
+    protected ?array $property = [];
 
     /**
      * The CodeSystem resource is used to declare the existence of and describe a code
@@ -168,13 +168,13 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept[]
      */
-    protected $concept = [];
+    protected ?array $concept = [];
 
     /**
      * Validation map for fields in type CodeSystem.Concept
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRCodeSystemConcept Constructor
@@ -193,8 +193,8 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -208,8 +208,8 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DISPLAY]) || isset($data[self::FIELD_DISPLAY_EXT])) {
-            $value = isset($data[self::FIELD_DISPLAY]) ? $data[self::FIELD_DISPLAY] : null;
-            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $ext = $data[self::FIELD_DISPLAY_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISPLAY] ?? null;
+            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $data[self::FIELD_DISPLAY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDisplay($value);
@@ -223,8 +223,8 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DEFINITION]) || isset($data[self::FIELD_DEFINITION_EXT])) {
-            $value = isset($data[self::FIELD_DEFINITION]) ? $data[self::FIELD_DEFINITION] : null;
-            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $ext = $data[self::FIELD_DEFINITION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DEFINITION] ?? null;
+            $ext = (isset($data[self::FIELD_DEFINITION_EXT]) && is_array($data[self::FIELD_DEFINITION_EXT])) ? $data[self::FIELD_DEFINITION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDefinition($value);
@@ -293,11 +293,17 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -316,9 +322,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A code - a text symbol - that uniquely identifies the concept within the code
      * system.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -332,10 +338,10 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A code - a text symbol - that uniquely identifies the concept within the code
      * system.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -353,9 +359,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A human readable string that is the recommended default way to present this
      * concept to a user.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDisplay()
+    public function getDisplay(): ?FHIRString
     {
         return $this->display;
     }
@@ -368,10 +374,10 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * A human readable string that is the recommended default way to present this
      * concept to a user.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $display
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $display
      * @return static
      */
-    public function setDisplay($display = null)
+    public function setDisplay($display = null): object
     {
         if (null !== $display && !($display instanceof FHIRString)) {
             $display = new FHIRString($display);
@@ -391,9 +397,9 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * However, they are highly recommended, as without them there is no formal meaning
      * associated with the concept.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDefinition()
+    public function getDefinition(): ?FHIRString
     {
         return $this->definition;
     }
@@ -408,10 +414,10 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * However, they are highly recommended, as without them there is no formal meaning
      * associated with the concept.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $definition
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $definition
      * @return static
      */
-    public function setDefinition($definition = null)
+    public function setDefinition($definition = null): object
     {
         if (null !== $definition && !($definition instanceof FHIRString)) {
             $definition = new FHIRString($definition);
@@ -431,7 +437,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemDesignation[]
      */
-    public function getDesignation()
+    public function getDesignation(): ?array
     {
         return $this->designation;
     }
@@ -447,7 +453,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemDesignation $designation
      * @return static
      */
-    public function addDesignation(FHIRCodeSystemDesignation $designation = null)
+    public function addDesignation(?FHIRCodeSystemDesignation $designation = null): object
     {
         $this->_trackValueAdded();
         $this->designation[] = $designation;
@@ -465,7 +471,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemDesignation[] $designation
      * @return static
      */
-    public function setDesignation(array $designation = [])
+    public function setDesignation(array $designation = []): object
     {
         if ([] !== $this->designation) {
             $this->_trackValuesRemoved(count($this->designation));
@@ -493,7 +499,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemProperty1[]
      */
-    public function getProperty()
+    public function getProperty(): ?array
     {
         return $this->property;
     }
@@ -508,7 +514,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemProperty1 $property
      * @return static
      */
-    public function addProperty(FHIRCodeSystemProperty1 $property = null)
+    public function addProperty(?FHIRCodeSystemProperty1 $property = null): object
     {
         $this->_trackValueAdded();
         $this->property[] = $property;
@@ -525,7 +531,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemProperty1[] $property
      * @return static
      */
-    public function setProperty(array $property = [])
+    public function setProperty(array $property = []): object
     {
         if ([] !== $this->property) {
             $this->_trackValuesRemoved(count($this->property));
@@ -555,7 +561,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept[]
      */
-    public function getConcept()
+    public function getConcept(): ?array
     {
         return $this->concept;
     }
@@ -572,7 +578,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept $concept
      * @return static
      */
-    public function addConcept(FHIRCodeSystemConcept $concept = null)
+    public function addConcept(?FHIRCodeSystemConcept $concept = null): object
     {
         $this->_trackValueAdded();
         $this->concept[] = $concept;
@@ -591,7 +597,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept[] $concept
      * @return static
      */
-    public function setConcept(array $concept = [])
+    public function setConcept(array $concept = []): object
     {
         if ([] !== $this->concept) {
             $this->_trackValuesRemoved(count($this->concept));
@@ -784,15 +790,15 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRCodeSystem\FHIRCodeSystemConcept    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRCodeSystemConcept::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -812,7 +818,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -881,7 +887,7 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -939,68 +945,71 @@ class FHIRCodeSystemConcept extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDisplay())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISPLAY] = $val;
+                $out->{self::FIELD_DISPLAY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISPLAY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISPLAY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDefinition())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DEFINITION] = $val;
+                $out->{self::FIELD_DEFINITION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DEFINITION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DEFINITION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDesignation())) {
-            $a[self::FIELD_DESIGNATION] = [];
+            $out->{self::FIELD_DESIGNATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DESIGNATION][] = $v;
+                $out->{self::FIELD_DESIGNATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProperty())) {
-            $a[self::FIELD_PROPERTY] = [];
+            $out->{self::FIELD_PROPERTY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROPERTY][] = $v;
+                $out->{self::FIELD_PROPERTY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getConcept())) {
-            $a[self::FIELD_CONCEPT] = [];
+            $out->{self::FIELD_CONCEPT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONCEPT][] = $v;
+                $out->{self::FIELD_CONCEPT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskAssessment;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskAssessment;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $outcome = null;
+    protected ?FHIRCodeableConcept $outcome = null;
 
     /**
      * A rational number with implicit precision
@@ -120,9 +120,9 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Indicates how likely the outcome is (in the specified timeframe).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $probabilityDecimal = null;
+    protected ?FHIRDecimal $probabilityDecimal = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -133,7 +133,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $probabilityRange = null;
+    protected ?FHIRRange $probabilityRange = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -146,7 +146,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $qualitativeRisk = null;
+    protected ?FHIRCodeableConcept $qualitativeRisk = null;
 
     /**
      * A rational number with implicit precision
@@ -159,9 +159,9 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * greater than 1 = higher risk than the population, numbers less than 1 = lower
      * risk.).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $relativeRisk = null;
+    protected ?FHIRDecimal $relativeRisk = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -173,7 +173,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $whenPeriod = null;
+    protected ?FHIRPeriod $whenPeriod = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -185,7 +185,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $whenRange = null;
+    protected ?FHIRRange $whenRange = null;
 
     /**
      * A sequence of Unicode characters
@@ -194,15 +194,15 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Additional information explaining the basis for the prediction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $rationale = null;
+    protected ?FHIRString $rationale = null;
 
     /**
      * Validation map for fields in type RiskAssessment.Prediction
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRRiskAssessmentPrediction Constructor
@@ -228,8 +228,8 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PROBABILITY_DECIMAL]) || isset($data[self::FIELD_PROBABILITY_DECIMAL_EXT])) {
-            $value = isset($data[self::FIELD_PROBABILITY_DECIMAL]) ? $data[self::FIELD_PROBABILITY_DECIMAL] : null;
-            $ext = (isset($data[self::FIELD_PROBABILITY_DECIMAL_EXT]) && is_array($data[self::FIELD_PROBABILITY_DECIMAL_EXT])) ? $ext = $data[self::FIELD_PROBABILITY_DECIMAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROBABILITY_DECIMAL] ?? null;
+            $ext = (isset($data[self::FIELD_PROBABILITY_DECIMAL_EXT]) && is_array($data[self::FIELD_PROBABILITY_DECIMAL_EXT])) ? $data[self::FIELD_PROBABILITY_DECIMAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setProbabilityDecimal($value);
@@ -257,8 +257,8 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RELATIVE_RISK]) || isset($data[self::FIELD_RELATIVE_RISK_EXT])) {
-            $value = isset($data[self::FIELD_RELATIVE_RISK]) ? $data[self::FIELD_RELATIVE_RISK] : null;
-            $ext = (isset($data[self::FIELD_RELATIVE_RISK_EXT]) && is_array($data[self::FIELD_RELATIVE_RISK_EXT])) ? $ext = $data[self::FIELD_RELATIVE_RISK_EXT] : $ext = [];
+            $value = $data[self::FIELD_RELATIVE_RISK] ?? null;
+            $ext = (isset($data[self::FIELD_RELATIVE_RISK_EXT]) && is_array($data[self::FIELD_RELATIVE_RISK_EXT])) ? $data[self::FIELD_RELATIVE_RISK_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setRelativeRisk($value);
@@ -286,8 +286,8 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RATIONALE]) || isset($data[self::FIELD_RATIONALE_EXT])) {
-            $value = isset($data[self::FIELD_RATIONALE]) ? $data[self::FIELD_RATIONALE] : null;
-            $ext = (isset($data[self::FIELD_RATIONALE_EXT]) && is_array($data[self::FIELD_RATIONALE_EXT])) ? $ext = $data[self::FIELD_RATIONALE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RATIONALE] ?? null;
+            $ext = (isset($data[self::FIELD_RATIONALE_EXT]) && is_array($data[self::FIELD_RATIONALE_EXT])) ? $data[self::FIELD_RATIONALE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setRationale($value);
@@ -302,11 +302,17 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -327,7 +333,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getOutcome()
+    public function getOutcome(): ?FHIRCodeableConcept
     {
         return $this->outcome;
     }
@@ -344,7 +350,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $outcome
      * @return static
      */
-    public function setOutcome(FHIRCodeableConcept $outcome = null)
+    public function setOutcome(?FHIRCodeableConcept $outcome = null): object
     {
         $this->_trackValueSet($this->outcome, $outcome);
         $this->outcome = $outcome;
@@ -359,9 +365,9 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Indicates how likely the outcome is (in the specified timeframe).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getProbabilityDecimal()
+    public function getProbabilityDecimal(): ?FHIRDecimal
     {
         return $this->probabilityDecimal;
     }
@@ -374,10 +380,10 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Indicates how likely the outcome is (in the specified timeframe).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $probabilityDecimal
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $probabilityDecimal
      * @return static
      */
-    public function setProbabilityDecimal($probabilityDecimal = null)
+    public function setProbabilityDecimal($probabilityDecimal = null): object
     {
         if (null !== $probabilityDecimal && !($probabilityDecimal instanceof FHIRDecimal)) {
             $probabilityDecimal = new FHIRDecimal($probabilityDecimal);
@@ -396,7 +402,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getProbabilityRange()
+    public function getProbabilityRange(): ?FHIRRange
     {
         return $this->probabilityRange;
     }
@@ -411,7 +417,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $probabilityRange
      * @return static
      */
-    public function setProbabilityRange(FHIRRange $probabilityRange = null)
+    public function setProbabilityRange(?FHIRRange $probabilityRange = null): object
     {
         $this->_trackValueSet($this->probabilityRange, $probabilityRange);
         $this->probabilityRange = $probabilityRange;
@@ -429,7 +435,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getQualitativeRisk()
+    public function getQualitativeRisk(): ?FHIRCodeableConcept
     {
         return $this->qualitativeRisk;
     }
@@ -446,7 +452,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $qualitativeRisk
      * @return static
      */
-    public function setQualitativeRisk(FHIRCodeableConcept $qualitativeRisk = null)
+    public function setQualitativeRisk(?FHIRCodeableConcept $qualitativeRisk = null): object
     {
         $this->_trackValueSet($this->qualitativeRisk, $qualitativeRisk);
         $this->qualitativeRisk = $qualitativeRisk;
@@ -464,9 +470,9 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * greater than 1 = higher risk than the population, numbers less than 1 = lower
      * risk.).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getRelativeRisk()
+    public function getRelativeRisk(): ?FHIRDecimal
     {
         return $this->relativeRisk;
     }
@@ -482,10 +488,10 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * greater than 1 = higher risk than the population, numbers less than 1 = lower
      * risk.).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $relativeRisk
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $relativeRisk
      * @return static
      */
-    public function setRelativeRisk($relativeRisk = null)
+    public function setRelativeRisk($relativeRisk = null): object
     {
         if (null !== $relativeRisk && !($relativeRisk instanceof FHIRDecimal)) {
             $relativeRisk = new FHIRDecimal($relativeRisk);
@@ -505,7 +511,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getWhenPeriod()
+    public function getWhenPeriod(): ?FHIRPeriod
     {
         return $this->whenPeriod;
     }
@@ -521,7 +527,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $whenPeriod
      * @return static
      */
-    public function setWhenPeriod(FHIRPeriod $whenPeriod = null)
+    public function setWhenPeriod(?FHIRPeriod $whenPeriod = null): object
     {
         $this->_trackValueSet($this->whenPeriod, $whenPeriod);
         $this->whenPeriod = $whenPeriod;
@@ -538,7 +544,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getWhenRange()
+    public function getWhenRange(): ?FHIRRange
     {
         return $this->whenRange;
     }
@@ -554,7 +560,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $whenRange
      * @return static
      */
-    public function setWhenRange(FHIRRange $whenRange = null)
+    public function setWhenRange(?FHIRRange $whenRange = null): object
     {
         $this->_trackValueSet($this->whenRange, $whenRange);
         $this->whenRange = $whenRange;
@@ -568,9 +574,9 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Additional information explaining the basis for the prediction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getRationale()
+    public function getRationale(): ?FHIRString
     {
         return $this->rationale;
     }
@@ -582,10 +588,10 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      *
      * Additional information explaining the basis for the prediction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $rationale
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $rationale
      * @return static
      */
-    public function setRationale($rationale = null)
+    public function setRationale($rationale = null): object
     {
         if (null !== $rationale && !($rationale instanceof FHIRString)) {
             $rationale = new FHIRString($rationale);
@@ -797,15 +803,15 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskAssessment\FHIRRiskAssessmentPrediction
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRRiskAssessment\FHIRRiskAssessmentPrediction    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRRiskAssessmentPrediction::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -825,7 +831,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -898,7 +904,7 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -951,56 +957,59 @@ class FHIRRiskAssessmentPrediction extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getOutcome())) {
-            $a[self::FIELD_OUTCOME] = $v;
+            $out->{self::FIELD_OUTCOME} = $v;
         }
         if (null !== ($v = $this->getProbabilityDecimal())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PROBABILITY_DECIMAL] = $val;
+                $out->{self::FIELD_PROBABILITY_DECIMAL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PROBABILITY_DECIMAL_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROBABILITY_DECIMAL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProbabilityRange())) {
-            $a[self::FIELD_PROBABILITY_RANGE] = $v;
+            $out->{self::FIELD_PROBABILITY_RANGE} = $v;
         }
         if (null !== ($v = $this->getQualitativeRisk())) {
-            $a[self::FIELD_QUALITATIVE_RISK] = $v;
+            $out->{self::FIELD_QUALITATIVE_RISK} = $v;
         }
         if (null !== ($v = $this->getRelativeRisk())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RELATIVE_RISK] = $val;
+                $out->{self::FIELD_RELATIVE_RISK} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RELATIVE_RISK_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RELATIVE_RISK_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWhenPeriod())) {
-            $a[self::FIELD_WHEN_PERIOD] = $v;
+            $out->{self::FIELD_WHEN_PERIOD} = $v;
         }
         if (null !== ($v = $this->getWhenRange())) {
-            $a[self::FIELD_WHEN_RANGE] = $v;
+            $out->{self::FIELD_WHEN_RANGE} = $v;
         }
         if (null !== ($v = $this->getRationale())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RATIONALE] = $val;
+                $out->{self::FIELD_RATIONALE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RATIONALE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RATIONALE_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

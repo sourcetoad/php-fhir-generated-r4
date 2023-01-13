@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,9 +111,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * An absolute URI which is the code system in which the code for this item in the
      * expansion is defined.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $system = null;
+    protected ?FHIRUri $system = null;
 
     /**
      * Value of "true" or "false"
@@ -122,9 +122,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * If true, this entry is included in the expansion for navigational purposes, and
      * the user cannot select the code directly as a proper value.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $abstract = null;
+    protected ?FHIRBoolean $abstract = null;
 
     /**
      * Value of "true" or "false"
@@ -135,9 +135,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * for understanding legacy data. It might not be known or specified whether an
      * concept is inactive (and it may depend on the context of use).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $inactive = null;
+    protected ?FHIRBoolean $inactive = null;
 
     /**
      * A sequence of Unicode characters
@@ -150,9 +150,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $version = null;
+    protected ?FHIRString $version = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -164,9 +164,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * entry in the hierarchy is a place holder (abstract) and does not represent a
      * valid code in the value set.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $code = null;
+    protected ?FHIRCode $code = null;
 
     /**
      * A sequence of Unicode characters
@@ -175,9 +175,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * The recommended display for this item in the expansion.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $display = null;
+    protected ?FHIRString $display = null;
 
     /**
      * A ValueSet resource instance specifies a set of codes drawn from one or more
@@ -191,7 +191,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetDesignation[]
      */
-    protected $designation = [];
+    protected ?array $designation = [];
 
     /**
      * A ValueSet resource instance specifies a set of codes drawn from one or more
@@ -203,13 +203,13 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[]
      */
-    protected $contains = [];
+    protected ?array $contains = [];
 
     /**
      * Validation map for fields in type ValueSet.Contains
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRValueSetContains Constructor
@@ -228,8 +228,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SYSTEM]) || isset($data[self::FIELD_SYSTEM_EXT])) {
-            $value = isset($data[self::FIELD_SYSTEM]) ? $data[self::FIELD_SYSTEM] : null;
-            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $ext = $data[self::FIELD_SYSTEM_EXT] : $ext = [];
+            $value = $data[self::FIELD_SYSTEM] ?? null;
+            $ext = (isset($data[self::FIELD_SYSTEM_EXT]) && is_array($data[self::FIELD_SYSTEM_EXT])) ? $data[self::FIELD_SYSTEM_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setSystem($value);
@@ -243,8 +243,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_ABSTRACT]) || isset($data[self::FIELD_ABSTRACT_EXT])) {
-            $value = isset($data[self::FIELD_ABSTRACT]) ? $data[self::FIELD_ABSTRACT] : null;
-            $ext = (isset($data[self::FIELD_ABSTRACT_EXT]) && is_array($data[self::FIELD_ABSTRACT_EXT])) ? $ext = $data[self::FIELD_ABSTRACT_EXT] : $ext = [];
+            $value = $data[self::FIELD_ABSTRACT] ?? null;
+            $ext = (isset($data[self::FIELD_ABSTRACT_EXT]) && is_array($data[self::FIELD_ABSTRACT_EXT])) ? $data[self::FIELD_ABSTRACT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setAbstract($value);
@@ -258,8 +258,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INACTIVE]) || isset($data[self::FIELD_INACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_INACTIVE]) ? $data[self::FIELD_INACTIVE] : null;
-            $ext = (isset($data[self::FIELD_INACTIVE_EXT]) && is_array($data[self::FIELD_INACTIVE_EXT])) ? $ext = $data[self::FIELD_INACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_INACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_INACTIVE_EXT]) && is_array($data[self::FIELD_INACTIVE_EXT])) ? $data[self::FIELD_INACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setInactive($value);
@@ -273,8 +273,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VERSION]) || isset($data[self::FIELD_VERSION_EXT])) {
-            $value = isset($data[self::FIELD_VERSION]) ? $data[self::FIELD_VERSION] : null;
-            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $ext = $data[self::FIELD_VERSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_VERSION] ?? null;
+            $ext = (isset($data[self::FIELD_VERSION_EXT]) && is_array($data[self::FIELD_VERSION_EXT])) ? $data[self::FIELD_VERSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setVersion($value);
@@ -288,8 +288,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setCode($value);
@@ -303,8 +303,8 @@ class FHIRValueSetContains extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DISPLAY]) || isset($data[self::FIELD_DISPLAY_EXT])) {
-            $value = isset($data[self::FIELD_DISPLAY]) ? $data[self::FIELD_DISPLAY] : null;
-            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $ext = $data[self::FIELD_DISPLAY_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISPLAY] ?? null;
+            $ext = (isset($data[self::FIELD_DISPLAY_EXT]) && is_array($data[self::FIELD_DISPLAY_EXT])) ? $data[self::FIELD_DISPLAY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDisplay($value);
@@ -355,11 +355,17 @@ class FHIRValueSetContains extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -377,9 +383,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * An absolute URI which is the code system in which the code for this item in the
      * expansion is defined.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getSystem()
+    public function getSystem(): ?FHIRUri
     {
         return $this->system;
     }
@@ -392,10 +398,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * An absolute URI which is the code system in which the code for this item in the
      * expansion is defined.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $system
      * @return static
      */
-    public function setSystem($system = null)
+    public function setSystem($system = null): object
     {
         if (null !== $system && !($system instanceof FHIRUri)) {
             $system = new FHIRUri($system);
@@ -412,9 +418,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * If true, this entry is included in the expansion for navigational purposes, and
      * the user cannot select the code directly as a proper value.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getAbstract()
+    public function getAbstract(): ?FHIRBoolean
     {
         return $this->abstract;
     }
@@ -426,10 +432,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * If true, this entry is included in the expansion for navigational purposes, and
      * the user cannot select the code directly as a proper value.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $abstract
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $abstract
      * @return static
      */
-    public function setAbstract($abstract = null)
+    public function setAbstract($abstract = null): object
     {
         if (null !== $abstract && !($abstract instanceof FHIRBoolean)) {
             $abstract = new FHIRBoolean($abstract);
@@ -448,9 +454,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * for understanding legacy data. It might not be known or specified whether an
      * concept is inactive (and it may depend on the context of use).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getInactive()
+    public function getInactive(): ?FHIRBoolean
     {
         return $this->inactive;
     }
@@ -464,10 +470,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * for understanding legacy data. It might not be known or specified whether an
      * concept is inactive (and it may depend on the context of use).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $inactive
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $inactive
      * @return static
      */
-    public function setInactive($inactive = null)
+    public function setInactive($inactive = null): object
     {
         if (null !== $inactive && !($inactive instanceof FHIRBoolean)) {
             $inactive = new FHIRBoolean($inactive);
@@ -488,9 +494,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getVersion()
+    public function getVersion(): ?FHIRString
     {
         return $this->version;
     }
@@ -506,10 +512,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * be assured, and when the meaning is not guaranteed to be consistent, the version
      * SHOULD be exchanged.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $version
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $version
      * @return static
      */
-    public function setVersion($version = null)
+    public function setVersion($version = null): object
     {
         if (null !== $version && !($version instanceof FHIRString)) {
             $version = new FHIRString($version);
@@ -529,9 +535,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * entry in the hierarchy is a place holder (abstract) and does not represent a
      * valid code in the value set.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getCode()
+    public function getCode(): ?FHIRCode
     {
         return $this->code;
     }
@@ -546,10 +552,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * entry in the hierarchy is a place holder (abstract) and does not represent a
      * valid code in the value set.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $code
      * @return static
      */
-    public function setCode($code = null)
+    public function setCode($code = null): object
     {
         if (null !== $code && !($code instanceof FHIRCode)) {
             $code = new FHIRCode($code);
@@ -566,9 +572,9 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * The recommended display for this item in the expansion.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDisplay()
+    public function getDisplay(): ?FHIRString
     {
         return $this->display;
     }
@@ -580,10 +586,10 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * The recommended display for this item in the expansion.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $display
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $display
      * @return static
      */
-    public function setDisplay($display = null)
+    public function setDisplay($display = null): object
     {
         if (null !== $display && !($display instanceof FHIRString)) {
             $display = new FHIRString($display);
@@ -605,7 +611,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetDesignation[]
      */
-    public function getDesignation()
+    public function getDesignation(): ?array
     {
         return $this->designation;
     }
@@ -623,7 +629,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetDesignation $designation
      * @return static
      */
-    public function addDesignation(FHIRValueSetDesignation $designation = null)
+    public function addDesignation(?FHIRValueSetDesignation $designation = null): object
     {
         $this->_trackValueAdded();
         $this->designation[] = $designation;
@@ -643,7 +649,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetDesignation[] $designation
      * @return static
      */
-    public function setDesignation(array $designation = [])
+    public function setDesignation(array $designation = []): object
     {
         if ([] !== $this->designation) {
             $this->_trackValuesRemoved(count($this->designation));
@@ -672,7 +678,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[]
      */
-    public function getContains()
+    public function getContains(): ?array
     {
         return $this->contains;
     }
@@ -688,7 +694,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains $contains
      * @return static
      */
-    public function addContains(FHIRValueSetContains $contains = null)
+    public function addContains(?FHIRValueSetContains $contains = null): object
     {
         $this->_trackValueAdded();
         $this->contains[] = $contains;
@@ -706,7 +712,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains[] $contains
      * @return static
      */
-    public function setContains(array $contains = [])
+    public function setContains(array $contains = []): object
     {
         if ([] !== $this->contains) {
             $this->_trackValuesRemoved(count($this->contains));
@@ -931,15 +937,15 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRValueSet\FHIRValueSetContains    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRValueSetContains::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -959,7 +965,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1059,7 +1065,7 @@ class FHIRValueSetContains extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1122,89 +1128,92 @@ class FHIRValueSetContains extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSystem())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SYSTEM] = $val;
+                $out->{self::FIELD_SYSTEM} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SYSTEM_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SYSTEM_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAbstract())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ABSTRACT] = $val;
+                $out->{self::FIELD_ABSTRACT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ABSTRACT_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ABSTRACT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInactive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INACTIVE] = $val;
+                $out->{self::FIELD_INACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getVersion())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VERSION] = $val;
+                $out->{self::FIELD_VERSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VERSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VERSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDisplay())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DISPLAY] = $val;
+                $out->{self::FIELD_DISPLAY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DISPLAY_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISPLAY_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDesignation())) {
-            $a[self::FIELD_DESIGNATION] = [];
+            $out->{self::FIELD_DESIGNATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DESIGNATION][] = $v;
+                $out->{self::FIELD_DESIGNATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getContains())) {
-            $a[self::FIELD_CONTAINS] = [];
+            $out->{self::FIELD_CONTAINS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONTAINS][] = $v;
+                $out->{self::FIELD_CONTAINS}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

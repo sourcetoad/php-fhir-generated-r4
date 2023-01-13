@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $ageRange = null;
+    protected ?FHIRRange $ageRange = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -112,7 +112,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $ageCodeableConcept = null;
+    protected ?FHIRCodeableConcept $ageCodeableConcept = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -124,7 +124,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $gender = null;
+    protected ?FHIRCodeableConcept $gender = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -136,7 +136,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $race = null;
+    protected ?FHIRCodeableConcept $race = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -149,13 +149,13 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $physiologicalCondition = null;
+    protected ?FHIRCodeableConcept $physiologicalCondition = null;
 
     /**
      * Validation map for fields in type Population
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPopulation Constructor
@@ -210,11 +210,17 @@ class FHIRPopulation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -233,7 +239,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getAgeRange()
+    public function getAgeRange(): ?FHIRRange
     {
         return $this->ageRange;
     }
@@ -248,7 +254,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $ageRange
      * @return static
      */
-    public function setAgeRange(FHIRRange $ageRange = null)
+    public function setAgeRange(?FHIRRange $ageRange = null): object
     {
         $this->_trackValueSet($this->ageRange, $ageRange);
         $this->ageRange = $ageRange;
@@ -265,7 +271,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getAgeCodeableConcept()
+    public function getAgeCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->ageCodeableConcept;
     }
@@ -281,7 +287,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $ageCodeableConcept
      * @return static
      */
-    public function setAgeCodeableConcept(FHIRCodeableConcept $ageCodeableConcept = null)
+    public function setAgeCodeableConcept(?FHIRCodeableConcept $ageCodeableConcept = null): object
     {
         $this->_trackValueSet($this->ageCodeableConcept, $ageCodeableConcept);
         $this->ageCodeableConcept = $ageCodeableConcept;
@@ -298,7 +304,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getGender()
+    public function getGender(): ?FHIRCodeableConcept
     {
         return $this->gender;
     }
@@ -314,7 +320,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $gender
      * @return static
      */
-    public function setGender(FHIRCodeableConcept $gender = null)
+    public function setGender(?FHIRCodeableConcept $gender = null): object
     {
         $this->_trackValueSet($this->gender, $gender);
         $this->gender = $gender;
@@ -331,7 +337,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRace()
+    public function getRace(): ?FHIRCodeableConcept
     {
         return $this->race;
     }
@@ -347,7 +353,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $race
      * @return static
      */
-    public function setRace(FHIRCodeableConcept $race = null)
+    public function setRace(?FHIRCodeableConcept $race = null): object
     {
         $this->_trackValueSet($this->race, $race);
         $this->race = $race;
@@ -365,7 +371,7 @@ class FHIRPopulation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getPhysiologicalCondition()
+    public function getPhysiologicalCondition(): ?FHIRCodeableConcept
     {
         return $this->physiologicalCondition;
     }
@@ -382,7 +388,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $physiologicalCondition
      * @return static
      */
-    public function setPhysiologicalCondition(FHIRCodeableConcept $physiologicalCondition = null)
+    public function setPhysiologicalCondition(?FHIRCodeableConcept $physiologicalCondition = null): object
     {
         $this->_trackValueSet($this->physiologicalCondition, $physiologicalCondition);
         $this->physiologicalCondition = $physiologicalCondition;
@@ -540,15 +546,15 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPopulation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPopulation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -568,7 +574,7 @@ class FHIRPopulation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -608,7 +614,7 @@ class FHIRPopulation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -646,26 +652,29 @@ class FHIRPopulation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getAgeRange())) {
-            $a[self::FIELD_AGE_RANGE] = $v;
+            $out->{self::FIELD_AGE_RANGE} = $v;
         }
         if (null !== ($v = $this->getAgeCodeableConcept())) {
-            $a[self::FIELD_AGE_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_AGE_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getGender())) {
-            $a[self::FIELD_GENDER] = $v;
+            $out->{self::FIELD_GENDER} = $v;
         }
         if (null !== ($v = $this->getRace())) {
-            $a[self::FIELD_RACE] = $v;
+            $out->{self::FIELD_RACE} = $v;
         }
         if (null !== ($v = $this->getPhysiologicalCondition())) {
-            $a[self::FIELD_PHYSIOLOGICAL_CONDITION] = $v;
+            $out->{self::FIELD_PHYSIOLOGICAL_CONDITION} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

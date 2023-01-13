@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedPro
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,9 +101,9 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Description of storage.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A rational number with implicit precision
@@ -113,9 +113,9 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Storage temperature.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $temperature = null;
+    protected ?FHIRDecimal $temperature = null;
 
     /**
      * BiologicallyDerived Product Storage Scale.
@@ -125,7 +125,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBiologicallyDerivedProductStorageScale
      */
-    protected $scale = null;
+    protected ?FHIRBiologicallyDerivedProductStorageScale $scale = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -136,13 +136,13 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $duration = null;
+    protected ?FHIRPeriod $duration = null;
 
     /**
      * Validation map for fields in type BiologicallyDerivedProduct.Storage
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRBiologicallyDerivedProductStorage Constructor
@@ -161,8 +161,8 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -176,8 +176,8 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TEMPERATURE]) || isset($data[self::FIELD_TEMPERATURE_EXT])) {
-            $value = isset($data[self::FIELD_TEMPERATURE]) ? $data[self::FIELD_TEMPERATURE] : null;
-            $ext = (isset($data[self::FIELD_TEMPERATURE_EXT]) && is_array($data[self::FIELD_TEMPERATURE_EXT])) ? $ext = $data[self::FIELD_TEMPERATURE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TEMPERATURE] ?? null;
+            $ext = (isset($data[self::FIELD_TEMPERATURE_EXT]) && is_array($data[self::FIELD_TEMPERATURE_EXT])) ? $data[self::FIELD_TEMPERATURE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setTemperature($value);
@@ -191,8 +191,8 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SCALE]) || isset($data[self::FIELD_SCALE_EXT])) {
-            $value = isset($data[self::FIELD_SCALE]) ? $data[self::FIELD_SCALE] : null;
-            $ext = (isset($data[self::FIELD_SCALE_EXT]) && is_array($data[self::FIELD_SCALE_EXT])) ? $ext = $data[self::FIELD_SCALE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SCALE] ?? null;
+            $ext = (isset($data[self::FIELD_SCALE_EXT]) && is_array($data[self::FIELD_SCALE_EXT])) ? $data[self::FIELD_SCALE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBiologicallyDerivedProductStorageScale) {
                     $this->setScale($value);
@@ -214,11 +214,17 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -235,9 +241,9 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Description of storage.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -249,10 +255,10 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Description of storage.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -270,9 +276,9 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Storage temperature.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getTemperature()
+    public function getTemperature(): ?FHIRDecimal
     {
         return $this->temperature;
     }
@@ -285,10 +291,10 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * Storage temperature.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $temperature
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $temperature
      * @return static
      */
-    public function setTemperature($temperature = null)
+    public function setTemperature($temperature = null): object
     {
         if (null !== $temperature && !($temperature instanceof FHIRDecimal)) {
             $temperature = new FHIRDecimal($temperature);
@@ -306,7 +312,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBiologicallyDerivedProductStorageScale
      */
-    public function getScale()
+    public function getScale(): ?FHIRBiologicallyDerivedProductStorageScale
     {
         return $this->scale;
     }
@@ -320,7 +326,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBiologicallyDerivedProductStorageScale $scale
      * @return static
      */
-    public function setScale(FHIRBiologicallyDerivedProductStorageScale $scale = null)
+    public function setScale(?FHIRBiologicallyDerivedProductStorageScale $scale = null): object
     {
         $this->_trackValueSet($this->scale, $scale);
         $this->scale = $scale;
@@ -336,7 +342,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getDuration()
+    public function getDuration(): ?FHIRPeriod
     {
         return $this->duration;
     }
@@ -351,7 +357,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $duration
      * @return static
      */
-    public function setDuration(FHIRPeriod $duration = null)
+    public function setDuration(?FHIRPeriod $duration = null): object
     {
         $this->_trackValueSet($this->duration, $duration);
         $this->duration = $duration;
@@ -492,15 +498,15 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct\FHIRBiologicallyDerivedProductStorage
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBiologicallyDerivedProduct\FHIRBiologicallyDerivedProductStorage    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBiologicallyDerivedProductStorage::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -520,7 +526,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -576,7 +582,7 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -609,44 +615,47 @@ class FHIRBiologicallyDerivedProductStorage extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getTemperature())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TEMPERATURE] = $val;
+                $out->{self::FIELD_TEMPERATURE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TEMPERATURE_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TEMPERATURE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getScale())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SCALE] = $val;
+                $out->{self::FIELD_SCALE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBiologicallyDerivedProductStorageScale::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SCALE_EXT] = $ext;
+            unset($ext->{FHIRBiologicallyDerivedProductStorageScale::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SCALE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDuration())) {
-            $a[self::FIELD_DURATION] = $v;
+            $out->{self::FIELD_DURATION} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

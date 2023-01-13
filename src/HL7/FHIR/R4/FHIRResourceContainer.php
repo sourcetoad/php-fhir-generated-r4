@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -379,7 +379,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAccount
      */
-    protected $Account = null;
+    protected ?FHIRAccount $Account = null;
 
     /**
      * This resource allows for the definition of some activity to be performed,
@@ -388,7 +388,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRActivityDefinition
      */
-    protected $ActivityDefinition = null;
+    protected ?FHIRActivityDefinition $ActivityDefinition = null;
 
     /**
      * Actual or potential/avoided event causing unintended physical injury resulting
@@ -399,7 +399,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAdverseEvent
      */
-    protected $AdverseEvent = null;
+    protected ?FHIRAdverseEvent $AdverseEvent = null;
 
     /**
      * Risk of harmful or undesirable, physiological response which is unique to an
@@ -408,7 +408,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAllergyIntolerance
      */
-    protected $AllergyIntolerance = null;
+    protected ?FHIRAllergyIntolerance $AllergyIntolerance = null;
 
     /**
      * A booking of a healthcare event among patient(s), practitioner(s), related
@@ -418,7 +418,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointment
      */
-    protected $Appointment = null;
+    protected ?FHIRAppointment $Appointment = null;
 
     /**
      * A reply to an appointment request for a patient and/or practitioner(s), such as
@@ -427,7 +427,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointmentResponse
      */
-    protected $AppointmentResponse = null;
+    protected ?FHIRAppointmentResponse $AppointmentResponse = null;
 
     /**
      * A record of an event made for purposes of maintaining a security log. Typical
@@ -437,7 +437,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAuditEvent
      */
-    protected $AuditEvent = null;
+    protected ?FHIRAuditEvent $AuditEvent = null;
 
     /**
      * Basic is used for handling concepts not yet defined in FHIR, narrative-only
@@ -447,7 +447,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBasic
      */
-    protected $Basic = null;
+    protected ?FHIRBasic $Basic = null;
 
     /**
      * A resource that represents the data of a single raw artifact as digital content
@@ -457,7 +457,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRBinary
      */
-    protected $Binary = null;
+    protected ?FHIRBinary $Binary = null;
 
     /**
      * A material substance originating from a biological entity intended to be
@@ -466,7 +466,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBiologicallyDerivedProduct
      */
-    protected $BiologicallyDerivedProduct = null;
+    protected ?FHIRBiologicallyDerivedProduct $BiologicallyDerivedProduct = null;
 
     /**
      * Record details about an anatomical structure. This resource may be used when a
@@ -475,7 +475,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBodyStructure
      */
-    protected $BodyStructure = null;
+    protected ?FHIRBodyStructure $BodyStructure = null;
 
     /**
      * A container for a collection of resources.
@@ -483,7 +483,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRBundle
      */
-    protected $Bundle = null;
+    protected ?FHIRBundle $Bundle = null;
 
     /**
      * A Capability Statement documents a set of capabilities (behaviors) of a FHIR
@@ -494,7 +494,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement
      */
-    protected $CapabilityStatement = null;
+    protected ?FHIRCapabilityStatement $CapabilityStatement = null;
 
     /**
      * Describes the intention of how one or more practitioners intend to deliver care
@@ -504,7 +504,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCarePlan
      */
-    protected $CarePlan = null;
+    protected ?FHIRCarePlan $CarePlan = null;
 
     /**
      * The Care Team includes all the people and organizations who plan to participate
@@ -513,7 +513,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCareTeam
      */
-    protected $CareTeam = null;
+    protected ?FHIRCareTeam $CareTeam = null;
 
     /**
      * Catalog entries are wrappers that contextualize items included in a catalog.
@@ -521,7 +521,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCatalogEntry
      */
-    protected $CatalogEntry = null;
+    protected ?FHIRCatalogEntry $CatalogEntry = null;
 
     /**
      * The resource ChargeItem describes the provision of healthcare provider products
@@ -533,7 +533,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItem
      */
-    protected $ChargeItem = null;
+    protected ?FHIRChargeItem $ChargeItem = null;
 
     /**
      * The ChargeItemDefinition resource provides the properties that apply to the
@@ -544,7 +544,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItemDefinition
      */
-    protected $ChargeItemDefinition = null;
+    protected ?FHIRChargeItemDefinition $ChargeItemDefinition = null;
 
     /**
      * A provider issued list of professional services and products which have been
@@ -554,7 +554,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaim
      */
-    protected $Claim = null;
+    protected ?FHIRClaim $Claim = null;
 
     /**
      * This resource provides the adjudication details from the processing of a Claim
@@ -563,7 +563,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaimResponse
      */
-    protected $ClaimResponse = null;
+    protected ?FHIRClaimResponse $ClaimResponse = null;
 
     /**
      * A record of a clinical assessment performed to determine what problem(s) may
@@ -577,7 +577,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClinicalImpression
      */
-    protected $ClinicalImpression = null;
+    protected ?FHIRClinicalImpression $ClinicalImpression = null;
 
     /**
      * The CodeSystem resource is used to declare the existence of and describe a code
@@ -587,7 +587,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCodeSystem
      */
-    protected $CodeSystem = null;
+    protected ?FHIRCodeSystem $CodeSystem = null;
 
     /**
      * An occurrence of information being transmitted; e.g. an alert that was sent to a
@@ -597,7 +597,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunication
      */
-    protected $Communication = null;
+    protected ?FHIRCommunication $Communication = null;
 
     /**
      * A request to convey information; e.g. the CDS system proposes that an alert be
@@ -607,7 +607,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunicationRequest
      */
-    protected $CommunicationRequest = null;
+    protected ?FHIRCommunicationRequest $CommunicationRequest = null;
 
     /**
      * A compartment definition that defines how resources are accessed on a server.
@@ -615,7 +615,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCompartmentDefinition
      */
-    protected $CompartmentDefinition = null;
+    protected ?FHIRCompartmentDefinition $CompartmentDefinition = null;
 
     /**
      * A set of healthcare-related information that is assembled together into a single
@@ -631,7 +631,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRComposition
      */
-    protected $Composition = null;
+    protected ?FHIRComposition $Composition = null;
 
     /**
      * A statement of relationships from one set of concepts to one or more other
@@ -641,7 +641,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConceptMap
      */
-    protected $ConceptMap = null;
+    protected ?FHIRConceptMap $ConceptMap = null;
 
     /**
      * A clinical condition, problem, diagnosis, or other event, situation, issue, or
@@ -650,7 +650,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCondition
      */
-    protected $Condition = null;
+    protected ?FHIRCondition $Condition = null;
 
     /**
      * A record of a healthcare consumer’s choices, which permits or denies
@@ -660,7 +660,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConsent
      */
-    protected $Consent = null;
+    protected ?FHIRConsent $Consent = null;
 
     /**
      * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a
@@ -669,7 +669,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRContract
      */
-    protected $Contract = null;
+    protected ?FHIRContract $Contract = null;
 
     /**
      * Financial instrument which may be used to reimburse or pay for health care
@@ -678,7 +678,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverage
      */
-    protected $Coverage = null;
+    protected ?FHIRCoverage $Coverage = null;
 
     /**
      * The CoverageEligibilityRequest provides patient and insurance coverage
@@ -690,7 +690,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityRequest
      */
-    protected $CoverageEligibilityRequest = null;
+    protected ?FHIRCoverageEligibilityRequest $CoverageEligibilityRequest = null;
 
     /**
      * This resource provides eligibility and plan details from the processing of an
@@ -699,7 +699,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityResponse
      */
-    protected $CoverageEligibilityResponse = null;
+    protected ?FHIRCoverageEligibilityResponse $CoverageEligibilityResponse = null;
 
     /**
      * Indicates an actual or potential clinical issue with or between one or more
@@ -709,7 +709,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDetectedIssue
      */
-    protected $DetectedIssue = null;
+    protected ?FHIRDetectedIssue $DetectedIssue = null;
 
     /**
      * A type of a manufactured item that is used in the provision of healthcare
@@ -719,7 +719,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDevice
      */
-    protected $Device = null;
+    protected ?FHIRDevice $Device = null;
 
     /**
      * The characteristics, operational status and capabilities of a medical-related
@@ -728,7 +728,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceDefinition
      */
-    protected $DeviceDefinition = null;
+    protected ?FHIRDeviceDefinition $DeviceDefinition = null;
 
     /**
      * Describes a measurement, calculation or setting capability of a medical device.
@@ -736,7 +736,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceMetric
      */
-    protected $DeviceMetric = null;
+    protected ?FHIRDeviceMetric $DeviceMetric = null;
 
     /**
      * Represents a request for a patient to employ a medical device. The device may be
@@ -745,7 +745,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceRequest
      */
-    protected $DeviceRequest = null;
+    protected ?FHIRDeviceRequest $DeviceRequest = null;
 
     /**
      * A record of a device being used by a patient where the record is the result of a
@@ -754,7 +754,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceUseStatement
      */
-    protected $DeviceUseStatement = null;
+    protected ?FHIRDeviceUseStatement $DeviceUseStatement = null;
 
     /**
      * The findings and interpretation of diagnostic tests performed on patients,
@@ -766,7 +766,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDiagnosticReport
      */
-    protected $DiagnosticReport = null;
+    protected ?FHIRDiagnosticReport $DiagnosticReport = null;
 
     /**
      * A collection of documents compiled for a purpose together with metadata that
@@ -775,7 +775,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentManifest
      */
-    protected $DocumentManifest = null;
+    protected ?FHIRDocumentManifest $DocumentManifest = null;
 
     /**
      * A reference to a document of any kind for any purpose. Provides metadata about
@@ -787,7 +787,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentReference
      */
-    protected $DocumentReference = null;
+    protected ?FHIRDocumentReference $DocumentReference = null;
 
     /**
      * The EffectEvidenceSynthesis resource describes the difference in an outcome
@@ -797,7 +797,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREffectEvidenceSynthesis
      */
-    protected $EffectEvidenceSynthesis = null;
+    protected ?FHIREffectEvidenceSynthesis $EffectEvidenceSynthesis = null;
 
     /**
      * An interaction between a patient and healthcare provider(s) for the purpose of
@@ -806,7 +806,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREncounter
      */
-    protected $Encounter = null;
+    protected ?FHIREncounter $Encounter = null;
 
     /**
      * The technical details of an endpoint that can be used for electronic services,
@@ -816,7 +816,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREndpoint
      */
-    protected $Endpoint = null;
+    protected ?FHIREndpoint $Endpoint = null;
 
     /**
      * This resource provides the insurance enrollment details to the insurer regarding
@@ -825,7 +825,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentRequest
      */
-    protected $EnrollmentRequest = null;
+    protected ?FHIREnrollmentRequest $EnrollmentRequest = null;
 
     /**
      * This resource provides enrollment and plan details from the processing of an
@@ -834,7 +834,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentResponse
      */
-    protected $EnrollmentResponse = null;
+    protected ?FHIREnrollmentResponse $EnrollmentResponse = null;
 
     /**
      * An association between a patient and an organization / healthcare provider(s)
@@ -844,7 +844,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREpisodeOfCare
      */
-    protected $EpisodeOfCare = null;
+    protected ?FHIREpisodeOfCare $EpisodeOfCare = null;
 
     /**
      * The EventDefinition resource provides a reusable description of when a
@@ -853,7 +853,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREventDefinition
      */
-    protected $EventDefinition = null;
+    protected ?FHIREventDefinition $EventDefinition = null;
 
     /**
      * The Evidence resource describes the conditional state (population and any
@@ -863,7 +863,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidence
      */
-    protected $Evidence = null;
+    protected ?FHIREvidence $Evidence = null;
 
     /**
      * The EvidenceVariable resource describes a "PICO" element that knowledge
@@ -872,7 +872,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidenceVariable
      */
-    protected $EvidenceVariable = null;
+    protected ?FHIREvidenceVariable $EvidenceVariable = null;
 
     /**
      * Example of workflow instance.
@@ -880,7 +880,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExampleScenario
      */
-    protected $ExampleScenario = null;
+    protected ?FHIRExampleScenario $ExampleScenario = null;
 
     /**
      * This resource provides: the claim details; adjudication details from the
@@ -890,7 +890,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExplanationOfBenefit
      */
-    protected $ExplanationOfBenefit = null;
+    protected ?FHIRExplanationOfBenefit $ExplanationOfBenefit = null;
 
     /**
      * Significant health conditions for a person related to the patient relevant in
@@ -899,7 +899,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFamilyMemberHistory
      */
-    protected $FamilyMemberHistory = null;
+    protected ?FHIRFamilyMemberHistory $FamilyMemberHistory = null;
 
     /**
      * Prospective warnings of potential issues when providing care to the patient.
@@ -907,7 +907,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFlag
      */
-    protected $Flag = null;
+    protected ?FHIRFlag $Flag = null;
 
     /**
      * Describes the intended objective(s) for a patient, group or organization care,
@@ -917,7 +917,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGoal
      */
-    protected $Goal = null;
+    protected ?FHIRGoal $Goal = null;
 
     /**
      * A formal computable definition of a graph of resources - that is, a coherent set
@@ -927,7 +927,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGraphDefinition
      */
-    protected $GraphDefinition = null;
+    protected ?FHIRGraphDefinition $GraphDefinition = null;
 
     /**
      * Represents a defined collection of entities that may be discussed or acted upon
@@ -938,7 +938,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGroup
      */
-    protected $Group = null;
+    protected ?FHIRGroup $Group = null;
 
     /**
      * A guidance response is the formal response to a guidance request, including any
@@ -948,7 +948,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGuidanceResponse
      */
-    protected $GuidanceResponse = null;
+    protected ?FHIRGuidanceResponse $GuidanceResponse = null;
 
     /**
      * The details of a healthcare service available at a location.
@@ -956,7 +956,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService
      */
-    protected $HealthcareService = null;
+    protected ?FHIRHealthcareService $HealthcareService = null;
 
     /**
      * Representation of the content produced in a DICOM imaging study. A study
@@ -968,7 +968,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImagingStudy
      */
-    protected $ImagingStudy = null;
+    protected ?FHIRImagingStudy $ImagingStudy = null;
 
     /**
      * Describes the event of a patient being administered a vaccine or a record of an
@@ -977,7 +977,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunization
      */
-    protected $Immunization = null;
+    protected ?FHIRImmunization $Immunization = null;
 
     /**
      * Describes a comparison of an immunization event against published
@@ -987,7 +987,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationEvaluation
      */
-    protected $ImmunizationEvaluation = null;
+    protected ?FHIRImmunizationEvaluation $ImmunizationEvaluation = null;
 
     /**
      * A patient's point-in-time set of recommendations (i.e. forecasting) according to
@@ -996,7 +996,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationRecommendation
      */
-    protected $ImmunizationRecommendation = null;
+    protected ?FHIRImmunizationRecommendation $ImmunizationRecommendation = null;
 
     /**
      * A set of rules of how a particular interoperability or standards problem is
@@ -1007,7 +1007,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImplementationGuide
      */
-    protected $ImplementationGuide = null;
+    protected ?FHIRImplementationGuide $ImplementationGuide = null;
 
     /**
      * Details of a Health Insurance product/plan provided by an organization.
@@ -1015,7 +1015,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInsurancePlan
      */
-    protected $InsurancePlan = null;
+    protected ?FHIRInsurancePlan $InsurancePlan = null;
 
     /**
      * Invoice containing collected ChargeItems from an Account with calculated
@@ -1024,7 +1024,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInvoice
      */
-    protected $Invoice = null;
+    protected ?FHIRInvoice $Invoice = null;
 
     /**
      * The Library resource is a general-purpose container for knowledge asset
@@ -1035,7 +1035,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLibrary
      */
-    protected $Library = null;
+    protected ?FHIRLibrary $Library = null;
 
     /**
      * Identifies two or more records (resource instances) that refer to the same
@@ -1044,7 +1044,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLinkage
      */
-    protected $Linkage = null;
+    protected ?FHIRLinkage $Linkage = null;
 
     /**
      * A list is a curated collection of resources.
@@ -1052,7 +1052,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRList
      */
-    protected $List = null;
+    protected ?FHIRList $List = null;
 
     /**
      * Details and position information for a physical place where services are
@@ -1062,7 +1062,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLocation
      */
-    protected $Location = null;
+    protected ?FHIRLocation $Location = null;
 
     /**
      * The Measure resource provides the definition of a quality measure.
@@ -1070,7 +1070,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasure
      */
-    protected $Measure = null;
+    protected ?FHIRMeasure $Measure = null;
 
     /**
      * The MeasureReport resource contains the results of the calculation of a measure;
@@ -1079,7 +1079,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasureReport
      */
-    protected $MeasureReport = null;
+    protected ?FHIRMeasureReport $MeasureReport = null;
 
     /**
      * A photo, video, or audio recording acquired or used in healthcare. The actual
@@ -1088,7 +1088,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedia
      */
-    protected $Media = null;
+    protected ?FHIRMedia $Media = null;
 
     /**
      * This resource is primarily used for the identification and definition of a
@@ -1098,7 +1098,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedication
      */
-    protected $Medication = null;
+    protected ?FHIRMedication $Medication = null;
 
     /**
      * Describes the event of a patient consuming or otherwise being administered a
@@ -1110,7 +1110,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationAdministration
      */
-    protected $MedicationAdministration = null;
+    protected ?FHIRMedicationAdministration $MedicationAdministration = null;
 
     /**
      * Indicates that a medication product is to be or has been dispensed for a named
@@ -1121,7 +1121,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationDispense
      */
-    protected $MedicationDispense = null;
+    protected ?FHIRMedicationDispense $MedicationDispense = null;
 
     /**
      * Information about a medication that is used to support knowledge.
@@ -1129,7 +1129,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationKnowledge
      */
-    protected $MedicationKnowledge = null;
+    protected ?FHIRMedicationKnowledge $MedicationKnowledge = null;
 
     /**
      * An order or request for both supply of the medication and the instructions for
@@ -1141,7 +1141,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationRequest
      */
-    protected $MedicationRequest = null;
+    protected ?FHIRMedicationRequest $MedicationRequest = null;
 
     /**
      * A record of a medication that is being consumed by a patient. A
@@ -1168,7 +1168,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationStatement
      */
-    protected $MedicationStatement = null;
+    protected ?FHIRMedicationStatement $MedicationStatement = null;
 
     /**
      * Detailed definition of a medicinal product, typically for uses other than direct
@@ -1177,7 +1177,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProduct
      */
-    protected $MedicinalProduct = null;
+    protected ?FHIRMedicinalProduct $MedicinalProduct = null;
 
     /**
      * The regulatory authorization of a medicinal product.
@@ -1185,7 +1185,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductAuthorization
      */
-    protected $MedicinalProductAuthorization = null;
+    protected ?FHIRMedicinalProductAuthorization $MedicinalProductAuthorization = null;
 
     /**
      * The clinical particulars - indications, contraindications etc. of a medicinal
@@ -1194,7 +1194,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductContraindication
      */
-    protected $MedicinalProductContraindication = null;
+    protected ?FHIRMedicinalProductContraindication $MedicinalProductContraindication = null;
 
     /**
      * Indication for the Medicinal Product.
@@ -1202,7 +1202,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIndication
      */
-    protected $MedicinalProductIndication = null;
+    protected ?FHIRMedicinalProductIndication $MedicinalProductIndication = null;
 
     /**
      * An ingredient of a manufactured item or pharmaceutical product.
@@ -1210,7 +1210,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIngredient
      */
-    protected $MedicinalProductIngredient = null;
+    protected ?FHIRMedicinalProductIngredient $MedicinalProductIngredient = null;
 
     /**
      * The interactions of the medicinal product with other medicinal products, or
@@ -1219,7 +1219,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductInteraction
      */
-    protected $MedicinalProductInteraction = null;
+    protected ?FHIRMedicinalProductInteraction $MedicinalProductInteraction = null;
 
     /**
      * The manufactured item as contained in the packaged medicinal product.
@@ -1227,7 +1227,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductManufactured
      */
-    protected $MedicinalProductManufactured = null;
+    protected ?FHIRMedicinalProductManufactured $MedicinalProductManufactured = null;
 
     /**
      * A medicinal product in a container or package.
@@ -1235,7 +1235,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPackaged
      */
-    protected $MedicinalProductPackaged = null;
+    protected ?FHIRMedicinalProductPackaged $MedicinalProductPackaged = null;
 
     /**
      * A pharmaceutical product described in terms of its composition and dose form.
@@ -1243,7 +1243,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPharmaceutical
      */
-    protected $MedicinalProductPharmaceutical = null;
+    protected ?FHIRMedicinalProductPharmaceutical $MedicinalProductPharmaceutical = null;
 
     /**
      * Describe the undesirable effects of the medicinal product.
@@ -1251,7 +1251,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductUndesirableEffect
      */
-    protected $MedicinalProductUndesirableEffect = null;
+    protected ?FHIRMedicinalProductUndesirableEffect $MedicinalProductUndesirableEffect = null;
 
     /**
      * Defines the characteristics of a message that can be shared between systems,
@@ -1261,7 +1261,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageDefinition
      */
-    protected $MessageDefinition = null;
+    protected ?FHIRMessageDefinition $MessageDefinition = null;
 
     /**
      * The header for a message exchange that is either requesting or responding to an
@@ -1272,7 +1272,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageHeader
      */
-    protected $MessageHeader = null;
+    protected ?FHIRMessageHeader $MessageHeader = null;
 
     /**
      * Raw data describing a biological sequence.
@@ -1280,7 +1280,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMolecularSequence
      */
-    protected $MolecularSequence = null;
+    protected ?FHIRMolecularSequence $MolecularSequence = null;
 
     /**
      * A curated namespace that issues unique symbols within that namespace for the
@@ -1290,7 +1290,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNamingSystem
      */
-    protected $NamingSystem = null;
+    protected ?FHIRNamingSystem $NamingSystem = null;
 
     /**
      * A request to supply a diet, formula feeding (enteral) or oral nutritional
@@ -1299,7 +1299,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNutritionOrder
      */
-    protected $NutritionOrder = null;
+    protected ?FHIRNutritionOrder $NutritionOrder = null;
 
     /**
      * Measurements and simple assertions made about a patient, device or other
@@ -1308,7 +1308,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservation
      */
-    protected $Observation = null;
+    protected ?FHIRObservation $Observation = null;
 
     /**
      * Set of definitional characteristics for a kind of observation or measurement
@@ -1317,7 +1317,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservationDefinition
      */
-    protected $ObservationDefinition = null;
+    protected ?FHIRObservationDefinition $ObservationDefinition = null;
 
     /**
      * A formal computable definition of an operation (on the RESTful interface) or a
@@ -1326,7 +1326,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationDefinition
      */
-    protected $OperationDefinition = null;
+    protected ?FHIROperationDefinition $OperationDefinition = null;
 
     /**
      * A collection of error, warning, or information messages that result from a
@@ -1335,7 +1335,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationOutcome
      */
-    protected $OperationOutcome = null;
+    protected ?FHIROperationOutcome $OperationOutcome = null;
 
     /**
      * A formally or informally recognized grouping of people or organizations formed
@@ -1346,7 +1346,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganization
      */
-    protected $Organization = null;
+    protected ?FHIROrganization $Organization = null;
 
     /**
      * Defines an affiliation/assotiation/relationship between 2 distinct oganizations,
@@ -1355,7 +1355,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganizationAffiliation
      */
-    protected $OrganizationAffiliation = null;
+    protected ?FHIROrganizationAffiliation $OrganizationAffiliation = null;
 
     /**
      * Demographics and other administrative information about an individual or animal
@@ -1364,7 +1364,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPatient
      */
-    protected $Patient = null;
+    protected ?FHIRPatient $Patient = null;
 
     /**
      * This resource provides the status of the payment for goods and services
@@ -1373,7 +1373,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentNotice
      */
-    protected $PaymentNotice = null;
+    protected ?FHIRPaymentNotice $PaymentNotice = null;
 
     /**
      * This resource provides the details including amount of a payment and allocates
@@ -1382,7 +1382,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentReconciliation
      */
-    protected $PaymentReconciliation = null;
+    protected ?FHIRPaymentReconciliation $PaymentReconciliation = null;
 
     /**
      * Demographics and administrative information about a person independent of a
@@ -1391,7 +1391,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPerson
      */
-    protected $Person = null;
+    protected ?FHIRPerson $Person = null;
 
     /**
      * This resource allows for the definition of various types of plans as a sharable,
@@ -1402,7 +1402,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPlanDefinition
      */
-    protected $PlanDefinition = null;
+    protected ?FHIRPlanDefinition $PlanDefinition = null;
 
     /**
      * A person who is directly or indirectly involved in the provisioning of
@@ -1411,7 +1411,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner
      */
-    protected $Practitioner = null;
+    protected ?FHIRPractitioner $Practitioner = null;
 
     /**
      * A specific set of Roles/Locations/specialties/services that a practitioner may
@@ -1420,7 +1420,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole
      */
-    protected $PractitionerRole = null;
+    protected ?FHIRPractitionerRole $PractitionerRole = null;
 
     /**
      * An action that is or was performed on or for a patient. This can be a physical
@@ -1430,7 +1430,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProcedure
      */
-    protected $Procedure = null;
+    protected ?FHIRProcedure $Procedure = null;
 
     /**
      * Provenance of a resource is a record that describes entities and processes
@@ -1446,7 +1446,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProvenance
      */
-    protected $Provenance = null;
+    protected ?FHIRProvenance $Provenance = null;
 
     /**
      * A structured set of questions intended to guide the collection of answers from
@@ -1456,7 +1456,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaire
      */
-    protected $Questionnaire = null;
+    protected ?FHIRQuestionnaire $Questionnaire = null;
 
     /**
      * A structured set of questions and their answers. The questions are ordered and
@@ -1466,7 +1466,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaireResponse
      */
-    protected $QuestionnaireResponse = null;
+    protected ?FHIRQuestionnaireResponse $QuestionnaireResponse = null;
 
     /**
      * Information about a person that is involved in the care for a patient, but who
@@ -1476,7 +1476,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRelatedPerson
      */
-    protected $RelatedPerson = null;
+    protected ?FHIRRelatedPerson $RelatedPerson = null;
 
     /**
      * A group of related requests that can be used to capture intended activities that
@@ -1485,7 +1485,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRequestGroup
      */
-    protected $RequestGroup = null;
+    protected ?FHIRRequestGroup $RequestGroup = null;
 
     /**
      * The ResearchDefinition resource describes the conditional state (population and
@@ -1495,7 +1495,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchDefinition
      */
-    protected $ResearchDefinition = null;
+    protected ?FHIRResearchDefinition $ResearchDefinition = null;
 
     /**
      * The ResearchElementDefinition resource describes a "PICO" element that knowledge
@@ -1504,7 +1504,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchElementDefinition
      */
-    protected $ResearchElementDefinition = null;
+    protected ?FHIRResearchElementDefinition $ResearchElementDefinition = null;
 
     /**
      * A process where a researcher or organization plans and then executes a series of
@@ -1517,7 +1517,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchStudy
      */
-    protected $ResearchStudy = null;
+    protected ?FHIRResearchStudy $ResearchStudy = null;
 
     /**
      * A physical entity which is the primary unit of operational and/or administrative
@@ -1526,7 +1526,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchSubject
      */
-    protected $ResearchSubject = null;
+    protected ?FHIRResearchSubject $ResearchSubject = null;
 
     /**
      * An assessment of the likely outcome(s) for a patient or other subject as well as
@@ -1535,7 +1535,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskAssessment
      */
-    protected $RiskAssessment = null;
+    protected ?FHIRRiskAssessment $RiskAssessment = null;
 
     /**
      * The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a
@@ -1545,7 +1545,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskEvidenceSynthesis
      */
-    protected $RiskEvidenceSynthesis = null;
+    protected ?FHIRRiskEvidenceSynthesis $RiskEvidenceSynthesis = null;
 
     /**
      * A container for slots of time that may be available for booking appointments.
@@ -1553,7 +1553,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSchedule
      */
-    protected $Schedule = null;
+    protected ?FHIRSchedule $Schedule = null;
 
     /**
      * A search parameter that defines a named search item that can be used to
@@ -1562,7 +1562,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSearchParameter
      */
-    protected $SearchParameter = null;
+    protected ?FHIRSearchParameter $SearchParameter = null;
 
     /**
      * A record of a request for service such as diagnostic investigations, treatments,
@@ -1571,7 +1571,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRServiceRequest
      */
-    protected $ServiceRequest = null;
+    protected ?FHIRServiceRequest $ServiceRequest = null;
 
     /**
      * A slot of time on a schedule that may be available for booking appointments.
@@ -1579,7 +1579,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSlot
      */
-    protected $Slot = null;
+    protected ?FHIRSlot $Slot = null;
 
     /**
      * A sample to be used for analysis.
@@ -1587,7 +1587,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimen
      */
-    protected $Specimen = null;
+    protected ?FHIRSpecimen $Specimen = null;
 
     /**
      * A kind of specimen with associated set of requirements.
@@ -1595,7 +1595,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimenDefinition
      */
-    protected $SpecimenDefinition = null;
+    protected ?FHIRSpecimenDefinition $SpecimenDefinition = null;
 
     /**
      * A definition of a FHIR structure. This resource is used to describe the
@@ -1605,7 +1605,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureDefinition
      */
-    protected $StructureDefinition = null;
+    protected ?FHIRStructureDefinition $StructureDefinition = null;
 
     /**
      * A Map of relationships between 2 structures that can be used to transform data.
@@ -1613,7 +1613,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureMap
      */
-    protected $StructureMap = null;
+    protected ?FHIRStructureMap $StructureMap = null;
 
     /**
      * The subscription resource is used to define a push-based subscription from a
@@ -1625,7 +1625,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubscription
      */
-    protected $Subscription = null;
+    protected ?FHIRSubscription $Subscription = null;
 
     /**
      * A homogeneous material with a definite composition.
@@ -1633,7 +1633,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstance
      */
-    protected $Substance = null;
+    protected ?FHIRSubstance $Substance = null;
 
     /**
      * Nucleic acids are defined by three distinct elements: the base, sugar and
@@ -1644,7 +1644,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceNucleicAcid
      */
-    protected $SubstanceNucleicAcid = null;
+    protected ?FHIRSubstanceNucleicAcid $SubstanceNucleicAcid = null;
 
     /**
      * Todo.
@@ -1652,7 +1652,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstancePolymer
      */
-    protected $SubstancePolymer = null;
+    protected ?FHIRSubstancePolymer $SubstancePolymer = null;
 
     /**
      * A SubstanceProtein is defined as a single unit of a linear amino acid sequence,
@@ -1667,7 +1667,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceProtein
      */
-    protected $SubstanceProtein = null;
+    protected ?FHIRSubstanceProtein $SubstanceProtein = null;
 
     /**
      * Todo.
@@ -1675,7 +1675,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceReferenceInformation
      */
-    protected $SubstanceReferenceInformation = null;
+    protected ?FHIRSubstanceReferenceInformation $SubstanceReferenceInformation = null;
 
     /**
      * Source material shall capture information on the taxonomic and anatomical
@@ -1695,7 +1695,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSourceMaterial
      */
-    protected $SubstanceSourceMaterial = null;
+    protected ?FHIRSubstanceSourceMaterial $SubstanceSourceMaterial = null;
 
     /**
      * The detailed description of a substance, typically at a level beyond what is
@@ -1704,7 +1704,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSpecification
      */
-    protected $SubstanceSpecification = null;
+    protected ?FHIRSubstanceSpecification $SubstanceSpecification = null;
 
     /**
      * Record of delivery of what is supplied.
@@ -1712,7 +1712,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyDelivery
      */
-    protected $SupplyDelivery = null;
+    protected ?FHIRSupplyDelivery $SupplyDelivery = null;
 
     /**
      * A record of a request for a medication, substance or device used in the
@@ -1721,7 +1721,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyRequest
      */
-    protected $SupplyRequest = null;
+    protected ?FHIRSupplyRequest $SupplyRequest = null;
 
     /**
      * A task to be performed.
@@ -1729,7 +1729,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTask
      */
-    protected $Task = null;
+    protected ?FHIRTask $Task = null;
 
     /**
      * A TerminologyCapabilities resource documents a set of capabilities (behaviors)
@@ -1739,7 +1739,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTerminologyCapabilities
      */
-    protected $TerminologyCapabilities = null;
+    protected ?FHIRTerminologyCapabilities $TerminologyCapabilities = null;
 
     /**
      * A summary of information based on the results of executing a TestScript.
@@ -1747,7 +1747,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestReport
      */
-    protected $TestReport = null;
+    protected ?FHIRTestReport $TestReport = null;
 
     /**
      * A structured set of tests against a FHIR server or client implementation to
@@ -1756,7 +1756,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestScript
      */
-    protected $TestScript = null;
+    protected ?FHIRTestScript $TestScript = null;
 
     /**
      * A ValueSet resource instance specifies a set of codes drawn from one or more
@@ -1767,7 +1767,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRValueSet
      */
-    protected $ValueSet = null;
+    protected ?FHIRValueSet $ValueSet = null;
 
     /**
      * Describes validation requirements, source(s), status and dates for one or more
@@ -1776,7 +1776,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVerificationResult
      */
-    protected $VerificationResult = null;
+    protected ?FHIRVerificationResult $VerificationResult = null;
 
     /**
      * An authorization for the provision of glasses and/or contact lenses to a
@@ -1785,7 +1785,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVisionPrescription
      */
-    protected $VisionPrescription = null;
+    protected ?FHIRVisionPrescription $VisionPrescription = null;
 
     /**
      * This resource is a non-persisted resource used to pass information into and back
@@ -1795,13 +1795,13 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @var null|\HL7\FHIR\R4\FHIRResource\FHIRParameters
      */
-    protected $Parameters = null;
+    protected ?FHIRParameters $Parameters = null;
 
     /**
      * Validation map for fields in type ResourceContainer
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRResourceContainer Constructor
@@ -2849,11 +2849,17 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -2863,13 +2869,16 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -2886,7 +2895,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAccount
      */
-    public function getAccount()
+    public function getAccount(): ?FHIRAccount
     {
         return $this->Account;
     }
@@ -2899,7 +2908,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAccount $Account
      * @return static
      */
-    public function setAccount(FHIRAccount $Account = null)
+    public function setAccount(?FHIRAccount $Account = null): object
     {
         $this->_trackValueSet($this->Account, $Account);
         $this->Account = $Account;
@@ -2913,7 +2922,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRActivityDefinition
      */
-    public function getActivityDefinition()
+    public function getActivityDefinition(): ?FHIRActivityDefinition
     {
         return $this->ActivityDefinition;
     }
@@ -2926,7 +2935,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRActivityDefinition $ActivityDefinition
      * @return static
      */
-    public function setActivityDefinition(FHIRActivityDefinition $ActivityDefinition = null)
+    public function setActivityDefinition(?FHIRActivityDefinition $ActivityDefinition = null): object
     {
         $this->_trackValueSet($this->ActivityDefinition, $ActivityDefinition);
         $this->ActivityDefinition = $ActivityDefinition;
@@ -2942,7 +2951,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAdverseEvent
      */
-    public function getAdverseEvent()
+    public function getAdverseEvent(): ?FHIRAdverseEvent
     {
         return $this->AdverseEvent;
     }
@@ -2957,7 +2966,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAdverseEvent $AdverseEvent
      * @return static
      */
-    public function setAdverseEvent(FHIRAdverseEvent $AdverseEvent = null)
+    public function setAdverseEvent(?FHIRAdverseEvent $AdverseEvent = null): object
     {
         $this->_trackValueSet($this->AdverseEvent, $AdverseEvent);
         $this->AdverseEvent = $AdverseEvent;
@@ -2971,7 +2980,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAllergyIntolerance
      */
-    public function getAllergyIntolerance()
+    public function getAllergyIntolerance(): ?FHIRAllergyIntolerance
     {
         return $this->AllergyIntolerance;
     }
@@ -2984,7 +2993,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAllergyIntolerance $AllergyIntolerance
      * @return static
      */
-    public function setAllergyIntolerance(FHIRAllergyIntolerance $AllergyIntolerance = null)
+    public function setAllergyIntolerance(?FHIRAllergyIntolerance $AllergyIntolerance = null): object
     {
         $this->_trackValueSet($this->AllergyIntolerance, $AllergyIntolerance);
         $this->AllergyIntolerance = $AllergyIntolerance;
@@ -2999,7 +3008,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointment
      */
-    public function getAppointment()
+    public function getAppointment(): ?FHIRAppointment
     {
         return $this->Appointment;
     }
@@ -3013,7 +3022,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointment $Appointment
      * @return static
      */
-    public function setAppointment(FHIRAppointment $Appointment = null)
+    public function setAppointment(?FHIRAppointment $Appointment = null): object
     {
         $this->_trackValueSet($this->Appointment, $Appointment);
         $this->Appointment = $Appointment;
@@ -3027,7 +3036,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointmentResponse
      */
-    public function getAppointmentResponse()
+    public function getAppointmentResponse(): ?FHIRAppointmentResponse
     {
         return $this->AppointmentResponse;
     }
@@ -3040,7 +3049,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointmentResponse $AppointmentResponse
      * @return static
      */
-    public function setAppointmentResponse(FHIRAppointmentResponse $AppointmentResponse = null)
+    public function setAppointmentResponse(?FHIRAppointmentResponse $AppointmentResponse = null): object
     {
         $this->_trackValueSet($this->AppointmentResponse, $AppointmentResponse);
         $this->AppointmentResponse = $AppointmentResponse;
@@ -3055,7 +3064,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAuditEvent
      */
-    public function getAuditEvent()
+    public function getAuditEvent(): ?FHIRAuditEvent
     {
         return $this->AuditEvent;
     }
@@ -3069,7 +3078,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAuditEvent $AuditEvent
      * @return static
      */
-    public function setAuditEvent(FHIRAuditEvent $AuditEvent = null)
+    public function setAuditEvent(?FHIRAuditEvent $AuditEvent = null): object
     {
         $this->_trackValueSet($this->AuditEvent, $AuditEvent);
         $this->AuditEvent = $AuditEvent;
@@ -3084,7 +3093,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBasic
      */
-    public function getBasic()
+    public function getBasic(): ?FHIRBasic
     {
         return $this->Basic;
     }
@@ -3098,7 +3107,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBasic $Basic
      * @return static
      */
-    public function setBasic(FHIRBasic $Basic = null)
+    public function setBasic(?FHIRBasic $Basic = null): object
     {
         $this->_trackValueSet($this->Basic, $Basic);
         $this->Basic = $Basic;
@@ -3113,7 +3122,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRBinary
      */
-    public function getBinary()
+    public function getBinary(): ?FHIRBinary
     {
         return $this->Binary;
     }
@@ -3127,7 +3136,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRBinary $Binary
      * @return static
      */
-    public function setBinary(FHIRBinary $Binary = null)
+    public function setBinary(?FHIRBinary $Binary = null): object
     {
         $this->_trackValueSet($this->Binary, $Binary);
         $this->Binary = $Binary;
@@ -3141,7 +3150,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBiologicallyDerivedProduct
      */
-    public function getBiologicallyDerivedProduct()
+    public function getBiologicallyDerivedProduct(): ?FHIRBiologicallyDerivedProduct
     {
         return $this->BiologicallyDerivedProduct;
     }
@@ -3154,7 +3163,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBiologicallyDerivedProduct $BiologicallyDerivedProduct
      * @return static
      */
-    public function setBiologicallyDerivedProduct(FHIRBiologicallyDerivedProduct $BiologicallyDerivedProduct = null)
+    public function setBiologicallyDerivedProduct(?FHIRBiologicallyDerivedProduct $BiologicallyDerivedProduct = null): object
     {
         $this->_trackValueSet($this->BiologicallyDerivedProduct, $BiologicallyDerivedProduct);
         $this->BiologicallyDerivedProduct = $BiologicallyDerivedProduct;
@@ -3168,7 +3177,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBodyStructure
      */
-    public function getBodyStructure()
+    public function getBodyStructure(): ?FHIRBodyStructure
     {
         return $this->BodyStructure;
     }
@@ -3181,7 +3190,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRBodyStructure $BodyStructure
      * @return static
      */
-    public function setBodyStructure(FHIRBodyStructure $BodyStructure = null)
+    public function setBodyStructure(?FHIRBodyStructure $BodyStructure = null): object
     {
         $this->_trackValueSet($this->BodyStructure, $BodyStructure);
         $this->BodyStructure = $BodyStructure;
@@ -3194,7 +3203,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRBundle
      */
-    public function getBundle()
+    public function getBundle(): ?FHIRBundle
     {
         return $this->Bundle;
     }
@@ -3206,7 +3215,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRBundle $Bundle
      * @return static
      */
-    public function setBundle(FHIRBundle $Bundle = null)
+    public function setBundle(?FHIRBundle $Bundle = null): object
     {
         $this->_trackValueSet($this->Bundle, $Bundle);
         $this->Bundle = $Bundle;
@@ -3222,7 +3231,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement
      */
-    public function getCapabilityStatement()
+    public function getCapabilityStatement(): ?FHIRCapabilityStatement
     {
         return $this->CapabilityStatement;
     }
@@ -3237,7 +3246,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement $CapabilityStatement
      * @return static
      */
-    public function setCapabilityStatement(FHIRCapabilityStatement $CapabilityStatement = null)
+    public function setCapabilityStatement(?FHIRCapabilityStatement $CapabilityStatement = null): object
     {
         $this->_trackValueSet($this->CapabilityStatement, $CapabilityStatement);
         $this->CapabilityStatement = $CapabilityStatement;
@@ -3252,7 +3261,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCarePlan
      */
-    public function getCarePlan()
+    public function getCarePlan(): ?FHIRCarePlan
     {
         return $this->CarePlan;
     }
@@ -3266,7 +3275,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCarePlan $CarePlan
      * @return static
      */
-    public function setCarePlan(FHIRCarePlan $CarePlan = null)
+    public function setCarePlan(?FHIRCarePlan $CarePlan = null): object
     {
         $this->_trackValueSet($this->CarePlan, $CarePlan);
         $this->CarePlan = $CarePlan;
@@ -3280,7 +3289,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCareTeam
      */
-    public function getCareTeam()
+    public function getCareTeam(): ?FHIRCareTeam
     {
         return $this->CareTeam;
     }
@@ -3293,7 +3302,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCareTeam $CareTeam
      * @return static
      */
-    public function setCareTeam(FHIRCareTeam $CareTeam = null)
+    public function setCareTeam(?FHIRCareTeam $CareTeam = null): object
     {
         $this->_trackValueSet($this->CareTeam, $CareTeam);
         $this->CareTeam = $CareTeam;
@@ -3306,7 +3315,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCatalogEntry
      */
-    public function getCatalogEntry()
+    public function getCatalogEntry(): ?FHIRCatalogEntry
     {
         return $this->CatalogEntry;
     }
@@ -3318,7 +3327,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCatalogEntry $CatalogEntry
      * @return static
      */
-    public function setCatalogEntry(FHIRCatalogEntry $CatalogEntry = null)
+    public function setCatalogEntry(?FHIRCatalogEntry $CatalogEntry = null): object
     {
         $this->_trackValueSet($this->CatalogEntry, $CatalogEntry);
         $this->CatalogEntry = $CatalogEntry;
@@ -3335,7 +3344,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItem
      */
-    public function getChargeItem()
+    public function getChargeItem(): ?FHIRChargeItem
     {
         return $this->ChargeItem;
     }
@@ -3351,7 +3360,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItem $ChargeItem
      * @return static
      */
-    public function setChargeItem(FHIRChargeItem $ChargeItem = null)
+    public function setChargeItem(?FHIRChargeItem $ChargeItem = null): object
     {
         $this->_trackValueSet($this->ChargeItem, $ChargeItem);
         $this->ChargeItem = $ChargeItem;
@@ -3367,7 +3376,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItemDefinition
      */
-    public function getChargeItemDefinition()
+    public function getChargeItemDefinition(): ?FHIRChargeItemDefinition
     {
         return $this->ChargeItemDefinition;
     }
@@ -3382,7 +3391,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRChargeItemDefinition $ChargeItemDefinition
      * @return static
      */
-    public function setChargeItemDefinition(FHIRChargeItemDefinition $ChargeItemDefinition = null)
+    public function setChargeItemDefinition(?FHIRChargeItemDefinition $ChargeItemDefinition = null): object
     {
         $this->_trackValueSet($this->ChargeItemDefinition, $ChargeItemDefinition);
         $this->ChargeItemDefinition = $ChargeItemDefinition;
@@ -3397,7 +3406,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaim
      */
-    public function getClaim()
+    public function getClaim(): ?FHIRClaim
     {
         return $this->Claim;
     }
@@ -3411,7 +3420,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaim $Claim
      * @return static
      */
-    public function setClaim(FHIRClaim $Claim = null)
+    public function setClaim(?FHIRClaim $Claim = null): object
     {
         $this->_trackValueSet($this->Claim, $Claim);
         $this->Claim = $Claim;
@@ -3425,7 +3434,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaimResponse
      */
-    public function getClaimResponse()
+    public function getClaimResponse(): ?FHIRClaimResponse
     {
         return $this->ClaimResponse;
     }
@@ -3438,7 +3447,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClaimResponse $ClaimResponse
      * @return static
      */
-    public function setClaimResponse(FHIRClaimResponse $ClaimResponse = null)
+    public function setClaimResponse(?FHIRClaimResponse $ClaimResponse = null): object
     {
         $this->_trackValueSet($this->ClaimResponse, $ClaimResponse);
         $this->ClaimResponse = $ClaimResponse;
@@ -3457,7 +3466,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClinicalImpression
      */
-    public function getClinicalImpression()
+    public function getClinicalImpression(): ?FHIRClinicalImpression
     {
         return $this->ClinicalImpression;
     }
@@ -3475,7 +3484,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRClinicalImpression $ClinicalImpression
      * @return static
      */
-    public function setClinicalImpression(FHIRClinicalImpression $ClinicalImpression = null)
+    public function setClinicalImpression(?FHIRClinicalImpression $ClinicalImpression = null): object
     {
         $this->_trackValueSet($this->ClinicalImpression, $ClinicalImpression);
         $this->ClinicalImpression = $ClinicalImpression;
@@ -3490,7 +3499,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCodeSystem
      */
-    public function getCodeSystem()
+    public function getCodeSystem(): ?FHIRCodeSystem
     {
         return $this->CodeSystem;
     }
@@ -3504,7 +3513,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCodeSystem $CodeSystem
      * @return static
      */
-    public function setCodeSystem(FHIRCodeSystem $CodeSystem = null)
+    public function setCodeSystem(?FHIRCodeSystem $CodeSystem = null): object
     {
         $this->_trackValueSet($this->CodeSystem, $CodeSystem);
         $this->CodeSystem = $CodeSystem;
@@ -3519,7 +3528,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunication
      */
-    public function getCommunication()
+    public function getCommunication(): ?FHIRCommunication
     {
         return $this->Communication;
     }
@@ -3533,7 +3542,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunication $Communication
      * @return static
      */
-    public function setCommunication(FHIRCommunication $Communication = null)
+    public function setCommunication(?FHIRCommunication $Communication = null): object
     {
         $this->_trackValueSet($this->Communication, $Communication);
         $this->Communication = $Communication;
@@ -3548,7 +3557,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunicationRequest
      */
-    public function getCommunicationRequest()
+    public function getCommunicationRequest(): ?FHIRCommunicationRequest
     {
         return $this->CommunicationRequest;
     }
@@ -3562,7 +3571,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCommunicationRequest $CommunicationRequest
      * @return static
      */
-    public function setCommunicationRequest(FHIRCommunicationRequest $CommunicationRequest = null)
+    public function setCommunicationRequest(?FHIRCommunicationRequest $CommunicationRequest = null): object
     {
         $this->_trackValueSet($this->CommunicationRequest, $CommunicationRequest);
         $this->CommunicationRequest = $CommunicationRequest;
@@ -3575,7 +3584,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCompartmentDefinition
      */
-    public function getCompartmentDefinition()
+    public function getCompartmentDefinition(): ?FHIRCompartmentDefinition
     {
         return $this->CompartmentDefinition;
     }
@@ -3587,7 +3596,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCompartmentDefinition $CompartmentDefinition
      * @return static
      */
-    public function setCompartmentDefinition(FHIRCompartmentDefinition $CompartmentDefinition = null)
+    public function setCompartmentDefinition(?FHIRCompartmentDefinition $CompartmentDefinition = null): object
     {
         $this->_trackValueSet($this->CompartmentDefinition, $CompartmentDefinition);
         $this->CompartmentDefinition = $CompartmentDefinition;
@@ -3608,7 +3617,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRComposition
      */
-    public function getComposition()
+    public function getComposition(): ?FHIRComposition
     {
         return $this->Composition;
     }
@@ -3628,7 +3637,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRComposition $Composition
      * @return static
      */
-    public function setComposition(FHIRComposition $Composition = null)
+    public function setComposition(?FHIRComposition $Composition = null): object
     {
         $this->_trackValueSet($this->Composition, $Composition);
         $this->Composition = $Composition;
@@ -3643,7 +3652,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConceptMap
      */
-    public function getConceptMap()
+    public function getConceptMap(): ?FHIRConceptMap
     {
         return $this->ConceptMap;
     }
@@ -3657,7 +3666,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConceptMap $ConceptMap
      * @return static
      */
-    public function setConceptMap(FHIRConceptMap $ConceptMap = null)
+    public function setConceptMap(?FHIRConceptMap $ConceptMap = null): object
     {
         $this->_trackValueSet($this->ConceptMap, $ConceptMap);
         $this->ConceptMap = $ConceptMap;
@@ -3671,7 +3680,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCondition
      */
-    public function getCondition()
+    public function getCondition(): ?FHIRCondition
     {
         return $this->Condition;
     }
@@ -3684,7 +3693,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCondition $Condition
      * @return static
      */
-    public function setCondition(FHIRCondition $Condition = null)
+    public function setCondition(?FHIRCondition $Condition = null): object
     {
         $this->_trackValueSet($this->Condition, $Condition);
         $this->Condition = $Condition;
@@ -3699,7 +3708,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConsent
      */
-    public function getConsent()
+    public function getConsent(): ?FHIRConsent
     {
         return $this->Consent;
     }
@@ -3713,7 +3722,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRConsent $Consent
      * @return static
      */
-    public function setConsent(FHIRConsent $Consent = null)
+    public function setConsent(?FHIRConsent $Consent = null): object
     {
         $this->_trackValueSet($this->Consent, $Consent);
         $this->Consent = $Consent;
@@ -3727,7 +3736,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRContract
      */
-    public function getContract()
+    public function getContract(): ?FHIRContract
     {
         return $this->Contract;
     }
@@ -3740,7 +3749,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRContract $Contract
      * @return static
      */
-    public function setContract(FHIRContract $Contract = null)
+    public function setContract(?FHIRContract $Contract = null): object
     {
         $this->_trackValueSet($this->Contract, $Contract);
         $this->Contract = $Contract;
@@ -3754,7 +3763,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverage
      */
-    public function getCoverage()
+    public function getCoverage(): ?FHIRCoverage
     {
         return $this->Coverage;
     }
@@ -3767,7 +3776,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverage $Coverage
      * @return static
      */
-    public function setCoverage(FHIRCoverage $Coverage = null)
+    public function setCoverage(?FHIRCoverage $Coverage = null): object
     {
         $this->_trackValueSet($this->Coverage, $Coverage);
         $this->Coverage = $Coverage;
@@ -3784,7 +3793,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityRequest
      */
-    public function getCoverageEligibilityRequest()
+    public function getCoverageEligibilityRequest(): ?FHIRCoverageEligibilityRequest
     {
         return $this->CoverageEligibilityRequest;
     }
@@ -3800,7 +3809,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityRequest $CoverageEligibilityRequest
      * @return static
      */
-    public function setCoverageEligibilityRequest(FHIRCoverageEligibilityRequest $CoverageEligibilityRequest = null)
+    public function setCoverageEligibilityRequest(?FHIRCoverageEligibilityRequest $CoverageEligibilityRequest = null): object
     {
         $this->_trackValueSet($this->CoverageEligibilityRequest, $CoverageEligibilityRequest);
         $this->CoverageEligibilityRequest = $CoverageEligibilityRequest;
@@ -3814,7 +3823,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityResponse
      */
-    public function getCoverageEligibilityResponse()
+    public function getCoverageEligibilityResponse(): ?FHIRCoverageEligibilityResponse
     {
         return $this->CoverageEligibilityResponse;
     }
@@ -3827,7 +3836,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRCoverageEligibilityResponse $CoverageEligibilityResponse
      * @return static
      */
-    public function setCoverageEligibilityResponse(FHIRCoverageEligibilityResponse $CoverageEligibilityResponse = null)
+    public function setCoverageEligibilityResponse(?FHIRCoverageEligibilityResponse $CoverageEligibilityResponse = null): object
     {
         $this->_trackValueSet($this->CoverageEligibilityResponse, $CoverageEligibilityResponse);
         $this->CoverageEligibilityResponse = $CoverageEligibilityResponse;
@@ -3842,7 +3851,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDetectedIssue
      */
-    public function getDetectedIssue()
+    public function getDetectedIssue(): ?FHIRDetectedIssue
     {
         return $this->DetectedIssue;
     }
@@ -3856,7 +3865,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDetectedIssue $DetectedIssue
      * @return static
      */
-    public function setDetectedIssue(FHIRDetectedIssue $DetectedIssue = null)
+    public function setDetectedIssue(?FHIRDetectedIssue $DetectedIssue = null): object
     {
         $this->_trackValueSet($this->DetectedIssue, $DetectedIssue);
         $this->DetectedIssue = $DetectedIssue;
@@ -3871,7 +3880,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDevice
      */
-    public function getDevice()
+    public function getDevice(): ?FHIRDevice
     {
         return $this->Device;
     }
@@ -3885,7 +3894,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDevice $Device
      * @return static
      */
-    public function setDevice(FHIRDevice $Device = null)
+    public function setDevice(?FHIRDevice $Device = null): object
     {
         $this->_trackValueSet($this->Device, $Device);
         $this->Device = $Device;
@@ -3899,7 +3908,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceDefinition
      */
-    public function getDeviceDefinition()
+    public function getDeviceDefinition(): ?FHIRDeviceDefinition
     {
         return $this->DeviceDefinition;
     }
@@ -3912,7 +3921,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceDefinition $DeviceDefinition
      * @return static
      */
-    public function setDeviceDefinition(FHIRDeviceDefinition $DeviceDefinition = null)
+    public function setDeviceDefinition(?FHIRDeviceDefinition $DeviceDefinition = null): object
     {
         $this->_trackValueSet($this->DeviceDefinition, $DeviceDefinition);
         $this->DeviceDefinition = $DeviceDefinition;
@@ -3925,7 +3934,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceMetric
      */
-    public function getDeviceMetric()
+    public function getDeviceMetric(): ?FHIRDeviceMetric
     {
         return $this->DeviceMetric;
     }
@@ -3937,7 +3946,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceMetric $DeviceMetric
      * @return static
      */
-    public function setDeviceMetric(FHIRDeviceMetric $DeviceMetric = null)
+    public function setDeviceMetric(?FHIRDeviceMetric $DeviceMetric = null): object
     {
         $this->_trackValueSet($this->DeviceMetric, $DeviceMetric);
         $this->DeviceMetric = $DeviceMetric;
@@ -3951,7 +3960,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceRequest
      */
-    public function getDeviceRequest()
+    public function getDeviceRequest(): ?FHIRDeviceRequest
     {
         return $this->DeviceRequest;
     }
@@ -3964,7 +3973,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceRequest $DeviceRequest
      * @return static
      */
-    public function setDeviceRequest(FHIRDeviceRequest $DeviceRequest = null)
+    public function setDeviceRequest(?FHIRDeviceRequest $DeviceRequest = null): object
     {
         $this->_trackValueSet($this->DeviceRequest, $DeviceRequest);
         $this->DeviceRequest = $DeviceRequest;
@@ -3978,7 +3987,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceUseStatement
      */
-    public function getDeviceUseStatement()
+    public function getDeviceUseStatement(): ?FHIRDeviceUseStatement
     {
         return $this->DeviceUseStatement;
     }
@@ -3991,7 +4000,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDeviceUseStatement $DeviceUseStatement
      * @return static
      */
-    public function setDeviceUseStatement(FHIRDeviceUseStatement $DeviceUseStatement = null)
+    public function setDeviceUseStatement(?FHIRDeviceUseStatement $DeviceUseStatement = null): object
     {
         $this->_trackValueSet($this->DeviceUseStatement, $DeviceUseStatement);
         $this->DeviceUseStatement = $DeviceUseStatement;
@@ -4008,7 +4017,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDiagnosticReport
      */
-    public function getDiagnosticReport()
+    public function getDiagnosticReport(): ?FHIRDiagnosticReport
     {
         return $this->DiagnosticReport;
     }
@@ -4024,7 +4033,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDiagnosticReport $DiagnosticReport
      * @return static
      */
-    public function setDiagnosticReport(FHIRDiagnosticReport $DiagnosticReport = null)
+    public function setDiagnosticReport(?FHIRDiagnosticReport $DiagnosticReport = null): object
     {
         $this->_trackValueSet($this->DiagnosticReport, $DiagnosticReport);
         $this->DiagnosticReport = $DiagnosticReport;
@@ -4038,7 +4047,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentManifest
      */
-    public function getDocumentManifest()
+    public function getDocumentManifest(): ?FHIRDocumentManifest
     {
         return $this->DocumentManifest;
     }
@@ -4051,7 +4060,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentManifest $DocumentManifest
      * @return static
      */
-    public function setDocumentManifest(FHIRDocumentManifest $DocumentManifest = null)
+    public function setDocumentManifest(?FHIRDocumentManifest $DocumentManifest = null): object
     {
         $this->_trackValueSet($this->DocumentManifest, $DocumentManifest);
         $this->DocumentManifest = $DocumentManifest;
@@ -4068,7 +4077,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentReference
      */
-    public function getDocumentReference()
+    public function getDocumentReference(): ?FHIRDocumentReference
     {
         return $this->DocumentReference;
     }
@@ -4084,7 +4093,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRDocumentReference $DocumentReference
      * @return static
      */
-    public function setDocumentReference(FHIRDocumentReference $DocumentReference = null)
+    public function setDocumentReference(?FHIRDocumentReference $DocumentReference = null): object
     {
         $this->_trackValueSet($this->DocumentReference, $DocumentReference);
         $this->DocumentReference = $DocumentReference;
@@ -4099,7 +4108,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREffectEvidenceSynthesis
      */
-    public function getEffectEvidenceSynthesis()
+    public function getEffectEvidenceSynthesis(): ?FHIREffectEvidenceSynthesis
     {
         return $this->EffectEvidenceSynthesis;
     }
@@ -4113,7 +4122,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREffectEvidenceSynthesis $EffectEvidenceSynthesis
      * @return static
      */
-    public function setEffectEvidenceSynthesis(FHIREffectEvidenceSynthesis $EffectEvidenceSynthesis = null)
+    public function setEffectEvidenceSynthesis(?FHIREffectEvidenceSynthesis $EffectEvidenceSynthesis = null): object
     {
         $this->_trackValueSet($this->EffectEvidenceSynthesis, $EffectEvidenceSynthesis);
         $this->EffectEvidenceSynthesis = $EffectEvidenceSynthesis;
@@ -4127,7 +4136,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREncounter
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIREncounter
     {
         return $this->Encounter;
     }
@@ -4140,7 +4149,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREncounter $Encounter
      * @return static
      */
-    public function setEncounter(FHIREncounter $Encounter = null)
+    public function setEncounter(?FHIREncounter $Encounter = null): object
     {
         $this->_trackValueSet($this->Encounter, $Encounter);
         $this->Encounter = $Encounter;
@@ -4155,7 +4164,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREndpoint
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?FHIREndpoint
     {
         return $this->Endpoint;
     }
@@ -4169,7 +4178,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREndpoint $Endpoint
      * @return static
      */
-    public function setEndpoint(FHIREndpoint $Endpoint = null)
+    public function setEndpoint(?FHIREndpoint $Endpoint = null): object
     {
         $this->_trackValueSet($this->Endpoint, $Endpoint);
         $this->Endpoint = $Endpoint;
@@ -4183,7 +4192,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentRequest
      */
-    public function getEnrollmentRequest()
+    public function getEnrollmentRequest(): ?FHIREnrollmentRequest
     {
         return $this->EnrollmentRequest;
     }
@@ -4196,7 +4205,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentRequest $EnrollmentRequest
      * @return static
      */
-    public function setEnrollmentRequest(FHIREnrollmentRequest $EnrollmentRequest = null)
+    public function setEnrollmentRequest(?FHIREnrollmentRequest $EnrollmentRequest = null): object
     {
         $this->_trackValueSet($this->EnrollmentRequest, $EnrollmentRequest);
         $this->EnrollmentRequest = $EnrollmentRequest;
@@ -4210,7 +4219,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentResponse
      */
-    public function getEnrollmentResponse()
+    public function getEnrollmentResponse(): ?FHIREnrollmentResponse
     {
         return $this->EnrollmentResponse;
     }
@@ -4223,7 +4232,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREnrollmentResponse $EnrollmentResponse
      * @return static
      */
-    public function setEnrollmentResponse(FHIREnrollmentResponse $EnrollmentResponse = null)
+    public function setEnrollmentResponse(?FHIREnrollmentResponse $EnrollmentResponse = null): object
     {
         $this->_trackValueSet($this->EnrollmentResponse, $EnrollmentResponse);
         $this->EnrollmentResponse = $EnrollmentResponse;
@@ -4238,7 +4247,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREpisodeOfCare
      */
-    public function getEpisodeOfCare()
+    public function getEpisodeOfCare(): ?FHIREpisodeOfCare
     {
         return $this->EpisodeOfCare;
     }
@@ -4252,7 +4261,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREpisodeOfCare $EpisodeOfCare
      * @return static
      */
-    public function setEpisodeOfCare(FHIREpisodeOfCare $EpisodeOfCare = null)
+    public function setEpisodeOfCare(?FHIREpisodeOfCare $EpisodeOfCare = null): object
     {
         $this->_trackValueSet($this->EpisodeOfCare, $EpisodeOfCare);
         $this->EpisodeOfCare = $EpisodeOfCare;
@@ -4266,7 +4275,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREventDefinition
      */
-    public function getEventDefinition()
+    public function getEventDefinition(): ?FHIREventDefinition
     {
         return $this->EventDefinition;
     }
@@ -4279,7 +4288,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREventDefinition $EventDefinition
      * @return static
      */
-    public function setEventDefinition(FHIREventDefinition $EventDefinition = null)
+    public function setEventDefinition(?FHIREventDefinition $EventDefinition = null): object
     {
         $this->_trackValueSet($this->EventDefinition, $EventDefinition);
         $this->EventDefinition = $EventDefinition;
@@ -4294,7 +4303,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidence
      */
-    public function getEvidence()
+    public function getEvidence(): ?FHIREvidence
     {
         return $this->Evidence;
     }
@@ -4308,7 +4317,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidence $Evidence
      * @return static
      */
-    public function setEvidence(FHIREvidence $Evidence = null)
+    public function setEvidence(?FHIREvidence $Evidence = null): object
     {
         $this->_trackValueSet($this->Evidence, $Evidence);
         $this->Evidence = $Evidence;
@@ -4322,7 +4331,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidenceVariable
      */
-    public function getEvidenceVariable()
+    public function getEvidenceVariable(): ?FHIREvidenceVariable
     {
         return $this->EvidenceVariable;
     }
@@ -4335,7 +4344,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIREvidenceVariable $EvidenceVariable
      * @return static
      */
-    public function setEvidenceVariable(FHIREvidenceVariable $EvidenceVariable = null)
+    public function setEvidenceVariable(?FHIREvidenceVariable $EvidenceVariable = null): object
     {
         $this->_trackValueSet($this->EvidenceVariable, $EvidenceVariable);
         $this->EvidenceVariable = $EvidenceVariable;
@@ -4348,7 +4357,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExampleScenario
      */
-    public function getExampleScenario()
+    public function getExampleScenario(): ?FHIRExampleScenario
     {
         return $this->ExampleScenario;
     }
@@ -4360,7 +4369,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExampleScenario $ExampleScenario
      * @return static
      */
-    public function setExampleScenario(FHIRExampleScenario $ExampleScenario = null)
+    public function setExampleScenario(?FHIRExampleScenario $ExampleScenario = null): object
     {
         $this->_trackValueSet($this->ExampleScenario, $ExampleScenario);
         $this->ExampleScenario = $ExampleScenario;
@@ -4375,7 +4384,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExplanationOfBenefit
      */
-    public function getExplanationOfBenefit()
+    public function getExplanationOfBenefit(): ?FHIRExplanationOfBenefit
     {
         return $this->ExplanationOfBenefit;
     }
@@ -4389,7 +4398,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRExplanationOfBenefit $ExplanationOfBenefit
      * @return static
      */
-    public function setExplanationOfBenefit(FHIRExplanationOfBenefit $ExplanationOfBenefit = null)
+    public function setExplanationOfBenefit(?FHIRExplanationOfBenefit $ExplanationOfBenefit = null): object
     {
         $this->_trackValueSet($this->ExplanationOfBenefit, $ExplanationOfBenefit);
         $this->ExplanationOfBenefit = $ExplanationOfBenefit;
@@ -4403,7 +4412,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFamilyMemberHistory
      */
-    public function getFamilyMemberHistory()
+    public function getFamilyMemberHistory(): ?FHIRFamilyMemberHistory
     {
         return $this->FamilyMemberHistory;
     }
@@ -4416,7 +4425,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFamilyMemberHistory $FamilyMemberHistory
      * @return static
      */
-    public function setFamilyMemberHistory(FHIRFamilyMemberHistory $FamilyMemberHistory = null)
+    public function setFamilyMemberHistory(?FHIRFamilyMemberHistory $FamilyMemberHistory = null): object
     {
         $this->_trackValueSet($this->FamilyMemberHistory, $FamilyMemberHistory);
         $this->FamilyMemberHistory = $FamilyMemberHistory;
@@ -4429,7 +4438,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFlag
      */
-    public function getFlag()
+    public function getFlag(): ?FHIRFlag
     {
         return $this->Flag;
     }
@@ -4441,7 +4450,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFlag $Flag
      * @return static
      */
-    public function setFlag(FHIRFlag $Flag = null)
+    public function setFlag(?FHIRFlag $Flag = null): object
     {
         $this->_trackValueSet($this->Flag, $Flag);
         $this->Flag = $Flag;
@@ -4456,7 +4465,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGoal
      */
-    public function getGoal()
+    public function getGoal(): ?FHIRGoal
     {
         return $this->Goal;
     }
@@ -4470,7 +4479,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGoal $Goal
      * @return static
      */
-    public function setGoal(FHIRGoal $Goal = null)
+    public function setGoal(?FHIRGoal $Goal = null): object
     {
         $this->_trackValueSet($this->Goal, $Goal);
         $this->Goal = $Goal;
@@ -4485,7 +4494,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGraphDefinition
      */
-    public function getGraphDefinition()
+    public function getGraphDefinition(): ?FHIRGraphDefinition
     {
         return $this->GraphDefinition;
     }
@@ -4499,7 +4508,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGraphDefinition $GraphDefinition
      * @return static
      */
-    public function setGraphDefinition(FHIRGraphDefinition $GraphDefinition = null)
+    public function setGraphDefinition(?FHIRGraphDefinition $GraphDefinition = null): object
     {
         $this->_trackValueSet($this->GraphDefinition, $GraphDefinition);
         $this->GraphDefinition = $GraphDefinition;
@@ -4515,7 +4524,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGroup
      */
-    public function getGroup()
+    public function getGroup(): ?FHIRGroup
     {
         return $this->Group;
     }
@@ -4530,7 +4539,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGroup $Group
      * @return static
      */
-    public function setGroup(FHIRGroup $Group = null)
+    public function setGroup(?FHIRGroup $Group = null): object
     {
         $this->_trackValueSet($this->Group, $Group);
         $this->Group = $Group;
@@ -4545,7 +4554,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGuidanceResponse
      */
-    public function getGuidanceResponse()
+    public function getGuidanceResponse(): ?FHIRGuidanceResponse
     {
         return $this->GuidanceResponse;
     }
@@ -4559,7 +4568,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRGuidanceResponse $GuidanceResponse
      * @return static
      */
-    public function setGuidanceResponse(FHIRGuidanceResponse $GuidanceResponse = null)
+    public function setGuidanceResponse(?FHIRGuidanceResponse $GuidanceResponse = null): object
     {
         $this->_trackValueSet($this->GuidanceResponse, $GuidanceResponse);
         $this->GuidanceResponse = $GuidanceResponse;
@@ -4572,7 +4581,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService
      */
-    public function getHealthcareService()
+    public function getHealthcareService(): ?FHIRHealthcareService
     {
         return $this->HealthcareService;
     }
@@ -4584,7 +4593,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService $HealthcareService
      * @return static
      */
-    public function setHealthcareService(FHIRHealthcareService $HealthcareService = null)
+    public function setHealthcareService(?FHIRHealthcareService $HealthcareService = null): object
     {
         $this->_trackValueSet($this->HealthcareService, $HealthcareService);
         $this->HealthcareService = $HealthcareService;
@@ -4601,7 +4610,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImagingStudy
      */
-    public function getImagingStudy()
+    public function getImagingStudy(): ?FHIRImagingStudy
     {
         return $this->ImagingStudy;
     }
@@ -4617,7 +4626,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImagingStudy $ImagingStudy
      * @return static
      */
-    public function setImagingStudy(FHIRImagingStudy $ImagingStudy = null)
+    public function setImagingStudy(?FHIRImagingStudy $ImagingStudy = null): object
     {
         $this->_trackValueSet($this->ImagingStudy, $ImagingStudy);
         $this->ImagingStudy = $ImagingStudy;
@@ -4631,7 +4640,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunization
      */
-    public function getImmunization()
+    public function getImmunization(): ?FHIRImmunization
     {
         return $this->Immunization;
     }
@@ -4644,7 +4653,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunization $Immunization
      * @return static
      */
-    public function setImmunization(FHIRImmunization $Immunization = null)
+    public function setImmunization(?FHIRImmunization $Immunization = null): object
     {
         $this->_trackValueSet($this->Immunization, $Immunization);
         $this->Immunization = $Immunization;
@@ -4659,7 +4668,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationEvaluation
      */
-    public function getImmunizationEvaluation()
+    public function getImmunizationEvaluation(): ?FHIRImmunizationEvaluation
     {
         return $this->ImmunizationEvaluation;
     }
@@ -4673,7 +4682,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationEvaluation $ImmunizationEvaluation
      * @return static
      */
-    public function setImmunizationEvaluation(FHIRImmunizationEvaluation $ImmunizationEvaluation = null)
+    public function setImmunizationEvaluation(?FHIRImmunizationEvaluation $ImmunizationEvaluation = null): object
     {
         $this->_trackValueSet($this->ImmunizationEvaluation, $ImmunizationEvaluation);
         $this->ImmunizationEvaluation = $ImmunizationEvaluation;
@@ -4687,7 +4696,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationRecommendation
      */
-    public function getImmunizationRecommendation()
+    public function getImmunizationRecommendation(): ?FHIRImmunizationRecommendation
     {
         return $this->ImmunizationRecommendation;
     }
@@ -4700,7 +4709,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImmunizationRecommendation $ImmunizationRecommendation
      * @return static
      */
-    public function setImmunizationRecommendation(FHIRImmunizationRecommendation $ImmunizationRecommendation = null)
+    public function setImmunizationRecommendation(?FHIRImmunizationRecommendation $ImmunizationRecommendation = null): object
     {
         $this->_trackValueSet($this->ImmunizationRecommendation, $ImmunizationRecommendation);
         $this->ImmunizationRecommendation = $ImmunizationRecommendation;
@@ -4716,7 +4725,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImplementationGuide
      */
-    public function getImplementationGuide()
+    public function getImplementationGuide(): ?FHIRImplementationGuide
     {
         return $this->ImplementationGuide;
     }
@@ -4731,7 +4740,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRImplementationGuide $ImplementationGuide
      * @return static
      */
-    public function setImplementationGuide(FHIRImplementationGuide $ImplementationGuide = null)
+    public function setImplementationGuide(?FHIRImplementationGuide $ImplementationGuide = null): object
     {
         $this->_trackValueSet($this->ImplementationGuide, $ImplementationGuide);
         $this->ImplementationGuide = $ImplementationGuide;
@@ -4744,7 +4753,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInsurancePlan
      */
-    public function getInsurancePlan()
+    public function getInsurancePlan(): ?FHIRInsurancePlan
     {
         return $this->InsurancePlan;
     }
@@ -4756,7 +4765,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInsurancePlan $InsurancePlan
      * @return static
      */
-    public function setInsurancePlan(FHIRInsurancePlan $InsurancePlan = null)
+    public function setInsurancePlan(?FHIRInsurancePlan $InsurancePlan = null): object
     {
         $this->_trackValueSet($this->InsurancePlan, $InsurancePlan);
         $this->InsurancePlan = $InsurancePlan;
@@ -4770,7 +4779,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInvoice
      */
-    public function getInvoice()
+    public function getInvoice(): ?FHIRInvoice
     {
         return $this->Invoice;
     }
@@ -4783,7 +4792,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRInvoice $Invoice
      * @return static
      */
-    public function setInvoice(FHIRInvoice $Invoice = null)
+    public function setInvoice(?FHIRInvoice $Invoice = null): object
     {
         $this->_trackValueSet($this->Invoice, $Invoice);
         $this->Invoice = $Invoice;
@@ -4799,7 +4808,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLibrary
      */
-    public function getLibrary()
+    public function getLibrary(): ?FHIRLibrary
     {
         return $this->Library;
     }
@@ -4814,7 +4823,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLibrary $Library
      * @return static
      */
-    public function setLibrary(FHIRLibrary $Library = null)
+    public function setLibrary(?FHIRLibrary $Library = null): object
     {
         $this->_trackValueSet($this->Library, $Library);
         $this->Library = $Library;
@@ -4828,7 +4837,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLinkage
      */
-    public function getLinkage()
+    public function getLinkage(): ?FHIRLinkage
     {
         return $this->Linkage;
     }
@@ -4841,7 +4850,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLinkage $Linkage
      * @return static
      */
-    public function setLinkage(FHIRLinkage $Linkage = null)
+    public function setLinkage(?FHIRLinkage $Linkage = null): object
     {
         $this->_trackValueSet($this->Linkage, $Linkage);
         $this->Linkage = $Linkage;
@@ -4854,7 +4863,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRList
      */
-    public function getList()
+    public function getList(): ?FHIRList
     {
         return $this->List;
     }
@@ -4866,7 +4875,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRList $List
      * @return static
      */
-    public function setList(FHIRList $List = null)
+    public function setList(?FHIRList $List = null): object
     {
         $this->_trackValueSet($this->List, $List);
         $this->List = $List;
@@ -4881,7 +4890,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLocation
      */
-    public function getLocation()
+    public function getLocation(): ?FHIRLocation
     {
         return $this->Location;
     }
@@ -4895,7 +4904,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRLocation $Location
      * @return static
      */
-    public function setLocation(FHIRLocation $Location = null)
+    public function setLocation(?FHIRLocation $Location = null): object
     {
         $this->_trackValueSet($this->Location, $Location);
         $this->Location = $Location;
@@ -4908,7 +4917,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasure
      */
-    public function getMeasure()
+    public function getMeasure(): ?FHIRMeasure
     {
         return $this->Measure;
     }
@@ -4920,7 +4929,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasure $Measure
      * @return static
      */
-    public function setMeasure(FHIRMeasure $Measure = null)
+    public function setMeasure(?FHIRMeasure $Measure = null): object
     {
         $this->_trackValueSet($this->Measure, $Measure);
         $this->Measure = $Measure;
@@ -4934,7 +4943,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasureReport
      */
-    public function getMeasureReport()
+    public function getMeasureReport(): ?FHIRMeasureReport
     {
         return $this->MeasureReport;
     }
@@ -4947,7 +4956,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMeasureReport $MeasureReport
      * @return static
      */
-    public function setMeasureReport(FHIRMeasureReport $MeasureReport = null)
+    public function setMeasureReport(?FHIRMeasureReport $MeasureReport = null): object
     {
         $this->_trackValueSet($this->MeasureReport, $MeasureReport);
         $this->MeasureReport = $MeasureReport;
@@ -4961,7 +4970,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedia
      */
-    public function getMedia()
+    public function getMedia(): ?FHIRMedia
     {
         return $this->Media;
     }
@@ -4974,7 +4983,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedia $Media
      * @return static
      */
-    public function setMedia(FHIRMedia $Media = null)
+    public function setMedia(?FHIRMedia $Media = null): object
     {
         $this->_trackValueSet($this->Media, $Media);
         $this->Media = $Media;
@@ -4989,7 +4998,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedication
      */
-    public function getMedication()
+    public function getMedication(): ?FHIRMedication
     {
         return $this->Medication;
     }
@@ -5003,7 +5012,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedication $Medication
      * @return static
      */
-    public function setMedication(FHIRMedication $Medication = null)
+    public function setMedication(?FHIRMedication $Medication = null): object
     {
         $this->_trackValueSet($this->Medication, $Medication);
         $this->Medication = $Medication;
@@ -5020,7 +5029,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationAdministration
      */
-    public function getMedicationAdministration()
+    public function getMedicationAdministration(): ?FHIRMedicationAdministration
     {
         return $this->MedicationAdministration;
     }
@@ -5036,7 +5045,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationAdministration $MedicationAdministration
      * @return static
      */
-    public function setMedicationAdministration(FHIRMedicationAdministration $MedicationAdministration = null)
+    public function setMedicationAdministration(?FHIRMedicationAdministration $MedicationAdministration = null): object
     {
         $this->_trackValueSet($this->MedicationAdministration, $MedicationAdministration);
         $this->MedicationAdministration = $MedicationAdministration;
@@ -5052,7 +5061,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationDispense
      */
-    public function getMedicationDispense()
+    public function getMedicationDispense(): ?FHIRMedicationDispense
     {
         return $this->MedicationDispense;
     }
@@ -5067,7 +5076,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationDispense $MedicationDispense
      * @return static
      */
-    public function setMedicationDispense(FHIRMedicationDispense $MedicationDispense = null)
+    public function setMedicationDispense(?FHIRMedicationDispense $MedicationDispense = null): object
     {
         $this->_trackValueSet($this->MedicationDispense, $MedicationDispense);
         $this->MedicationDispense = $MedicationDispense;
@@ -5080,7 +5089,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationKnowledge
      */
-    public function getMedicationKnowledge()
+    public function getMedicationKnowledge(): ?FHIRMedicationKnowledge
     {
         return $this->MedicationKnowledge;
     }
@@ -5092,7 +5101,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationKnowledge $MedicationKnowledge
      * @return static
      */
-    public function setMedicationKnowledge(FHIRMedicationKnowledge $MedicationKnowledge = null)
+    public function setMedicationKnowledge(?FHIRMedicationKnowledge $MedicationKnowledge = null): object
     {
         $this->_trackValueSet($this->MedicationKnowledge, $MedicationKnowledge);
         $this->MedicationKnowledge = $MedicationKnowledge;
@@ -5109,7 +5118,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationRequest
      */
-    public function getMedicationRequest()
+    public function getMedicationRequest(): ?FHIRMedicationRequest
     {
         return $this->MedicationRequest;
     }
@@ -5125,7 +5134,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationRequest $MedicationRequest
      * @return static
      */
-    public function setMedicationRequest(FHIRMedicationRequest $MedicationRequest = null)
+    public function setMedicationRequest(?FHIRMedicationRequest $MedicationRequest = null): object
     {
         $this->_trackValueSet($this->MedicationRequest, $MedicationRequest);
         $this->MedicationRequest = $MedicationRequest;
@@ -5157,7 +5166,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationStatement
      */
-    public function getMedicationStatement()
+    public function getMedicationStatement(): ?FHIRMedicationStatement
     {
         return $this->MedicationStatement;
     }
@@ -5188,7 +5197,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicationStatement $MedicationStatement
      * @return static
      */
-    public function setMedicationStatement(FHIRMedicationStatement $MedicationStatement = null)
+    public function setMedicationStatement(?FHIRMedicationStatement $MedicationStatement = null): object
     {
         $this->_trackValueSet($this->MedicationStatement, $MedicationStatement);
         $this->MedicationStatement = $MedicationStatement;
@@ -5202,7 +5211,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProduct
      */
-    public function getMedicinalProduct()
+    public function getMedicinalProduct(): ?FHIRMedicinalProduct
     {
         return $this->MedicinalProduct;
     }
@@ -5215,7 +5224,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProduct $MedicinalProduct
      * @return static
      */
-    public function setMedicinalProduct(FHIRMedicinalProduct $MedicinalProduct = null)
+    public function setMedicinalProduct(?FHIRMedicinalProduct $MedicinalProduct = null): object
     {
         $this->_trackValueSet($this->MedicinalProduct, $MedicinalProduct);
         $this->MedicinalProduct = $MedicinalProduct;
@@ -5228,7 +5237,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductAuthorization
      */
-    public function getMedicinalProductAuthorization()
+    public function getMedicinalProductAuthorization(): ?FHIRMedicinalProductAuthorization
     {
         return $this->MedicinalProductAuthorization;
     }
@@ -5240,7 +5249,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductAuthorization $MedicinalProductAuthorization
      * @return static
      */
-    public function setMedicinalProductAuthorization(FHIRMedicinalProductAuthorization $MedicinalProductAuthorization = null)
+    public function setMedicinalProductAuthorization(?FHIRMedicinalProductAuthorization $MedicinalProductAuthorization = null): object
     {
         $this->_trackValueSet($this->MedicinalProductAuthorization, $MedicinalProductAuthorization);
         $this->MedicinalProductAuthorization = $MedicinalProductAuthorization;
@@ -5254,7 +5263,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductContraindication
      */
-    public function getMedicinalProductContraindication()
+    public function getMedicinalProductContraindication(): ?FHIRMedicinalProductContraindication
     {
         return $this->MedicinalProductContraindication;
     }
@@ -5267,7 +5276,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductContraindication $MedicinalProductContraindication
      * @return static
      */
-    public function setMedicinalProductContraindication(FHIRMedicinalProductContraindication $MedicinalProductContraindication = null)
+    public function setMedicinalProductContraindication(?FHIRMedicinalProductContraindication $MedicinalProductContraindication = null): object
     {
         $this->_trackValueSet($this->MedicinalProductContraindication, $MedicinalProductContraindication);
         $this->MedicinalProductContraindication = $MedicinalProductContraindication;
@@ -5280,7 +5289,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIndication
      */
-    public function getMedicinalProductIndication()
+    public function getMedicinalProductIndication(): ?FHIRMedicinalProductIndication
     {
         return $this->MedicinalProductIndication;
     }
@@ -5292,7 +5301,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIndication $MedicinalProductIndication
      * @return static
      */
-    public function setMedicinalProductIndication(FHIRMedicinalProductIndication $MedicinalProductIndication = null)
+    public function setMedicinalProductIndication(?FHIRMedicinalProductIndication $MedicinalProductIndication = null): object
     {
         $this->_trackValueSet($this->MedicinalProductIndication, $MedicinalProductIndication);
         $this->MedicinalProductIndication = $MedicinalProductIndication;
@@ -5305,7 +5314,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIngredient
      */
-    public function getMedicinalProductIngredient()
+    public function getMedicinalProductIngredient(): ?FHIRMedicinalProductIngredient
     {
         return $this->MedicinalProductIngredient;
     }
@@ -5317,7 +5326,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductIngredient $MedicinalProductIngredient
      * @return static
      */
-    public function setMedicinalProductIngredient(FHIRMedicinalProductIngredient $MedicinalProductIngredient = null)
+    public function setMedicinalProductIngredient(?FHIRMedicinalProductIngredient $MedicinalProductIngredient = null): object
     {
         $this->_trackValueSet($this->MedicinalProductIngredient, $MedicinalProductIngredient);
         $this->MedicinalProductIngredient = $MedicinalProductIngredient;
@@ -5331,7 +5340,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductInteraction
      */
-    public function getMedicinalProductInteraction()
+    public function getMedicinalProductInteraction(): ?FHIRMedicinalProductInteraction
     {
         return $this->MedicinalProductInteraction;
     }
@@ -5344,7 +5353,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductInteraction $MedicinalProductInteraction
      * @return static
      */
-    public function setMedicinalProductInteraction(FHIRMedicinalProductInteraction $MedicinalProductInteraction = null)
+    public function setMedicinalProductInteraction(?FHIRMedicinalProductInteraction $MedicinalProductInteraction = null): object
     {
         $this->_trackValueSet($this->MedicinalProductInteraction, $MedicinalProductInteraction);
         $this->MedicinalProductInteraction = $MedicinalProductInteraction;
@@ -5357,7 +5366,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductManufactured
      */
-    public function getMedicinalProductManufactured()
+    public function getMedicinalProductManufactured(): ?FHIRMedicinalProductManufactured
     {
         return $this->MedicinalProductManufactured;
     }
@@ -5369,7 +5378,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductManufactured $MedicinalProductManufactured
      * @return static
      */
-    public function setMedicinalProductManufactured(FHIRMedicinalProductManufactured $MedicinalProductManufactured = null)
+    public function setMedicinalProductManufactured(?FHIRMedicinalProductManufactured $MedicinalProductManufactured = null): object
     {
         $this->_trackValueSet($this->MedicinalProductManufactured, $MedicinalProductManufactured);
         $this->MedicinalProductManufactured = $MedicinalProductManufactured;
@@ -5382,7 +5391,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPackaged
      */
-    public function getMedicinalProductPackaged()
+    public function getMedicinalProductPackaged(): ?FHIRMedicinalProductPackaged
     {
         return $this->MedicinalProductPackaged;
     }
@@ -5394,7 +5403,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPackaged $MedicinalProductPackaged
      * @return static
      */
-    public function setMedicinalProductPackaged(FHIRMedicinalProductPackaged $MedicinalProductPackaged = null)
+    public function setMedicinalProductPackaged(?FHIRMedicinalProductPackaged $MedicinalProductPackaged = null): object
     {
         $this->_trackValueSet($this->MedicinalProductPackaged, $MedicinalProductPackaged);
         $this->MedicinalProductPackaged = $MedicinalProductPackaged;
@@ -5407,7 +5416,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPharmaceutical
      */
-    public function getMedicinalProductPharmaceutical()
+    public function getMedicinalProductPharmaceutical(): ?FHIRMedicinalProductPharmaceutical
     {
         return $this->MedicinalProductPharmaceutical;
     }
@@ -5419,7 +5428,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductPharmaceutical $MedicinalProductPharmaceutical
      * @return static
      */
-    public function setMedicinalProductPharmaceutical(FHIRMedicinalProductPharmaceutical $MedicinalProductPharmaceutical = null)
+    public function setMedicinalProductPharmaceutical(?FHIRMedicinalProductPharmaceutical $MedicinalProductPharmaceutical = null): object
     {
         $this->_trackValueSet($this->MedicinalProductPharmaceutical, $MedicinalProductPharmaceutical);
         $this->MedicinalProductPharmaceutical = $MedicinalProductPharmaceutical;
@@ -5432,7 +5441,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductUndesirableEffect
      */
-    public function getMedicinalProductUndesirableEffect()
+    public function getMedicinalProductUndesirableEffect(): ?FHIRMedicinalProductUndesirableEffect
     {
         return $this->MedicinalProductUndesirableEffect;
     }
@@ -5444,7 +5453,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedicinalProductUndesirableEffect $MedicinalProductUndesirableEffect
      * @return static
      */
-    public function setMedicinalProductUndesirableEffect(FHIRMedicinalProductUndesirableEffect $MedicinalProductUndesirableEffect = null)
+    public function setMedicinalProductUndesirableEffect(?FHIRMedicinalProductUndesirableEffect $MedicinalProductUndesirableEffect = null): object
     {
         $this->_trackValueSet($this->MedicinalProductUndesirableEffect, $MedicinalProductUndesirableEffect);
         $this->MedicinalProductUndesirableEffect = $MedicinalProductUndesirableEffect;
@@ -5459,7 +5468,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageDefinition
      */
-    public function getMessageDefinition()
+    public function getMessageDefinition(): ?FHIRMessageDefinition
     {
         return $this->MessageDefinition;
     }
@@ -5473,7 +5482,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageDefinition $MessageDefinition
      * @return static
      */
-    public function setMessageDefinition(FHIRMessageDefinition $MessageDefinition = null)
+    public function setMessageDefinition(?FHIRMessageDefinition $MessageDefinition = null): object
     {
         $this->_trackValueSet($this->MessageDefinition, $MessageDefinition);
         $this->MessageDefinition = $MessageDefinition;
@@ -5489,7 +5498,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageHeader
      */
-    public function getMessageHeader()
+    public function getMessageHeader(): ?FHIRMessageHeader
     {
         return $this->MessageHeader;
     }
@@ -5504,7 +5513,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMessageHeader $MessageHeader
      * @return static
      */
-    public function setMessageHeader(FHIRMessageHeader $MessageHeader = null)
+    public function setMessageHeader(?FHIRMessageHeader $MessageHeader = null): object
     {
         $this->_trackValueSet($this->MessageHeader, $MessageHeader);
         $this->MessageHeader = $MessageHeader;
@@ -5517,7 +5526,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMolecularSequence
      */
-    public function getMolecularSequence()
+    public function getMolecularSequence(): ?FHIRMolecularSequence
     {
         return $this->MolecularSequence;
     }
@@ -5529,7 +5538,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMolecularSequence $MolecularSequence
      * @return static
      */
-    public function setMolecularSequence(FHIRMolecularSequence $MolecularSequence = null)
+    public function setMolecularSequence(?FHIRMolecularSequence $MolecularSequence = null): object
     {
         $this->_trackValueSet($this->MolecularSequence, $MolecularSequence);
         $this->MolecularSequence = $MolecularSequence;
@@ -5544,7 +5553,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNamingSystem
      */
-    public function getNamingSystem()
+    public function getNamingSystem(): ?FHIRNamingSystem
     {
         return $this->NamingSystem;
     }
@@ -5558,7 +5567,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNamingSystem $NamingSystem
      * @return static
      */
-    public function setNamingSystem(FHIRNamingSystem $NamingSystem = null)
+    public function setNamingSystem(?FHIRNamingSystem $NamingSystem = null): object
     {
         $this->_trackValueSet($this->NamingSystem, $NamingSystem);
         $this->NamingSystem = $NamingSystem;
@@ -5572,7 +5581,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNutritionOrder
      */
-    public function getNutritionOrder()
+    public function getNutritionOrder(): ?FHIRNutritionOrder
     {
         return $this->NutritionOrder;
     }
@@ -5585,7 +5594,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRNutritionOrder $NutritionOrder
      * @return static
      */
-    public function setNutritionOrder(FHIRNutritionOrder $NutritionOrder = null)
+    public function setNutritionOrder(?FHIRNutritionOrder $NutritionOrder = null): object
     {
         $this->_trackValueSet($this->NutritionOrder, $NutritionOrder);
         $this->NutritionOrder = $NutritionOrder;
@@ -5599,7 +5608,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservation
      */
-    public function getObservation()
+    public function getObservation(): ?FHIRObservation
     {
         return $this->Observation;
     }
@@ -5612,7 +5621,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservation $Observation
      * @return static
      */
-    public function setObservation(FHIRObservation $Observation = null)
+    public function setObservation(?FHIRObservation $Observation = null): object
     {
         $this->_trackValueSet($this->Observation, $Observation);
         $this->Observation = $Observation;
@@ -5626,7 +5635,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservationDefinition
      */
-    public function getObservationDefinition()
+    public function getObservationDefinition(): ?FHIRObservationDefinition
     {
         return $this->ObservationDefinition;
     }
@@ -5639,7 +5648,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRObservationDefinition $ObservationDefinition
      * @return static
      */
-    public function setObservationDefinition(FHIRObservationDefinition $ObservationDefinition = null)
+    public function setObservationDefinition(?FHIRObservationDefinition $ObservationDefinition = null): object
     {
         $this->_trackValueSet($this->ObservationDefinition, $ObservationDefinition);
         $this->ObservationDefinition = $ObservationDefinition;
@@ -5653,7 +5662,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationDefinition
      */
-    public function getOperationDefinition()
+    public function getOperationDefinition(): ?FHIROperationDefinition
     {
         return $this->OperationDefinition;
     }
@@ -5666,7 +5675,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationDefinition $OperationDefinition
      * @return static
      */
-    public function setOperationDefinition(FHIROperationDefinition $OperationDefinition = null)
+    public function setOperationDefinition(?FHIROperationDefinition $OperationDefinition = null): object
     {
         $this->_trackValueSet($this->OperationDefinition, $OperationDefinition);
         $this->OperationDefinition = $OperationDefinition;
@@ -5680,7 +5689,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationOutcome
      */
-    public function getOperationOutcome()
+    public function getOperationOutcome(): ?FHIROperationOutcome
     {
         return $this->OperationOutcome;
     }
@@ -5693,7 +5702,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROperationOutcome $OperationOutcome
      * @return static
      */
-    public function setOperationOutcome(FHIROperationOutcome $OperationOutcome = null)
+    public function setOperationOutcome(?FHIROperationOutcome $OperationOutcome = null): object
     {
         $this->_trackValueSet($this->OperationOutcome, $OperationOutcome);
         $this->OperationOutcome = $OperationOutcome;
@@ -5709,7 +5718,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganization
      */
-    public function getOrganization()
+    public function getOrganization(): ?FHIROrganization
     {
         return $this->Organization;
     }
@@ -5724,7 +5733,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganization $Organization
      * @return static
      */
-    public function setOrganization(FHIROrganization $Organization = null)
+    public function setOrganization(?FHIROrganization $Organization = null): object
     {
         $this->_trackValueSet($this->Organization, $Organization);
         $this->Organization = $Organization;
@@ -5738,7 +5747,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganizationAffiliation
      */
-    public function getOrganizationAffiliation()
+    public function getOrganizationAffiliation(): ?FHIROrganizationAffiliation
     {
         return $this->OrganizationAffiliation;
     }
@@ -5751,7 +5760,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIROrganizationAffiliation $OrganizationAffiliation
      * @return static
      */
-    public function setOrganizationAffiliation(FHIROrganizationAffiliation $OrganizationAffiliation = null)
+    public function setOrganizationAffiliation(?FHIROrganizationAffiliation $OrganizationAffiliation = null): object
     {
         $this->_trackValueSet($this->OrganizationAffiliation, $OrganizationAffiliation);
         $this->OrganizationAffiliation = $OrganizationAffiliation;
@@ -5765,7 +5774,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPatient
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRPatient
     {
         return $this->Patient;
     }
@@ -5778,7 +5787,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPatient $Patient
      * @return static
      */
-    public function setPatient(FHIRPatient $Patient = null)
+    public function setPatient(?FHIRPatient $Patient = null): object
     {
         $this->_trackValueSet($this->Patient, $Patient);
         $this->Patient = $Patient;
@@ -5792,7 +5801,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentNotice
      */
-    public function getPaymentNotice()
+    public function getPaymentNotice(): ?FHIRPaymentNotice
     {
         return $this->PaymentNotice;
     }
@@ -5805,7 +5814,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentNotice $PaymentNotice
      * @return static
      */
-    public function setPaymentNotice(FHIRPaymentNotice $PaymentNotice = null)
+    public function setPaymentNotice(?FHIRPaymentNotice $PaymentNotice = null): object
     {
         $this->_trackValueSet($this->PaymentNotice, $PaymentNotice);
         $this->PaymentNotice = $PaymentNotice;
@@ -5819,7 +5828,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentReconciliation
      */
-    public function getPaymentReconciliation()
+    public function getPaymentReconciliation(): ?FHIRPaymentReconciliation
     {
         return $this->PaymentReconciliation;
     }
@@ -5832,7 +5841,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPaymentReconciliation $PaymentReconciliation
      * @return static
      */
-    public function setPaymentReconciliation(FHIRPaymentReconciliation $PaymentReconciliation = null)
+    public function setPaymentReconciliation(?FHIRPaymentReconciliation $PaymentReconciliation = null): object
     {
         $this->_trackValueSet($this->PaymentReconciliation, $PaymentReconciliation);
         $this->PaymentReconciliation = $PaymentReconciliation;
@@ -5846,7 +5855,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPerson
      */
-    public function getPerson()
+    public function getPerson(): ?FHIRPerson
     {
         return $this->Person;
     }
@@ -5859,7 +5868,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPerson $Person
      * @return static
      */
-    public function setPerson(FHIRPerson $Person = null)
+    public function setPerson(?FHIRPerson $Person = null): object
     {
         $this->_trackValueSet($this->Person, $Person);
         $this->Person = $Person;
@@ -5875,7 +5884,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPlanDefinition
      */
-    public function getPlanDefinition()
+    public function getPlanDefinition(): ?FHIRPlanDefinition
     {
         return $this->PlanDefinition;
     }
@@ -5890,7 +5899,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPlanDefinition $PlanDefinition
      * @return static
      */
-    public function setPlanDefinition(FHIRPlanDefinition $PlanDefinition = null)
+    public function setPlanDefinition(?FHIRPlanDefinition $PlanDefinition = null): object
     {
         $this->_trackValueSet($this->PlanDefinition, $PlanDefinition);
         $this->PlanDefinition = $PlanDefinition;
@@ -5904,7 +5913,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner
      */
-    public function getPractitioner()
+    public function getPractitioner(): ?FHIRPractitioner
     {
         return $this->Practitioner;
     }
@@ -5917,7 +5926,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner $Practitioner
      * @return static
      */
-    public function setPractitioner(FHIRPractitioner $Practitioner = null)
+    public function setPractitioner(?FHIRPractitioner $Practitioner = null): object
     {
         $this->_trackValueSet($this->Practitioner, $Practitioner);
         $this->Practitioner = $Practitioner;
@@ -5931,7 +5940,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole
      */
-    public function getPractitionerRole()
+    public function getPractitionerRole(): ?FHIRPractitionerRole
     {
         return $this->PractitionerRole;
     }
@@ -5944,7 +5953,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole $PractitionerRole
      * @return static
      */
-    public function setPractitionerRole(FHIRPractitionerRole $PractitionerRole = null)
+    public function setPractitionerRole(?FHIRPractitionerRole $PractitionerRole = null): object
     {
         $this->_trackValueSet($this->PractitionerRole, $PractitionerRole);
         $this->PractitionerRole = $PractitionerRole;
@@ -5959,7 +5968,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProcedure
      */
-    public function getProcedure()
+    public function getProcedure(): ?FHIRProcedure
     {
         return $this->Procedure;
     }
@@ -5973,7 +5982,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProcedure $Procedure
      * @return static
      */
-    public function setProcedure(FHIRProcedure $Procedure = null)
+    public function setProcedure(?FHIRProcedure $Procedure = null): object
     {
         $this->_trackValueSet($this->Procedure, $Procedure);
         $this->Procedure = $Procedure;
@@ -5994,7 +6003,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProvenance
      */
-    public function getProvenance()
+    public function getProvenance(): ?FHIRProvenance
     {
         return $this->Provenance;
     }
@@ -6014,7 +6023,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRProvenance $Provenance
      * @return static
      */
-    public function setProvenance(FHIRProvenance $Provenance = null)
+    public function setProvenance(?FHIRProvenance $Provenance = null): object
     {
         $this->_trackValueSet($this->Provenance, $Provenance);
         $this->Provenance = $Provenance;
@@ -6029,7 +6038,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaire
      */
-    public function getQuestionnaire()
+    public function getQuestionnaire(): ?FHIRQuestionnaire
     {
         return $this->Questionnaire;
     }
@@ -6043,7 +6052,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaire $Questionnaire
      * @return static
      */
-    public function setQuestionnaire(FHIRQuestionnaire $Questionnaire = null)
+    public function setQuestionnaire(?FHIRQuestionnaire $Questionnaire = null): object
     {
         $this->_trackValueSet($this->Questionnaire, $Questionnaire);
         $this->Questionnaire = $Questionnaire;
@@ -6058,7 +6067,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaireResponse
      */
-    public function getQuestionnaireResponse()
+    public function getQuestionnaireResponse(): ?FHIRQuestionnaireResponse
     {
         return $this->QuestionnaireResponse;
     }
@@ -6072,7 +6081,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRQuestionnaireResponse $QuestionnaireResponse
      * @return static
      */
-    public function setQuestionnaireResponse(FHIRQuestionnaireResponse $QuestionnaireResponse = null)
+    public function setQuestionnaireResponse(?FHIRQuestionnaireResponse $QuestionnaireResponse = null): object
     {
         $this->_trackValueSet($this->QuestionnaireResponse, $QuestionnaireResponse);
         $this->QuestionnaireResponse = $QuestionnaireResponse;
@@ -6087,7 +6096,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRelatedPerson
      */
-    public function getRelatedPerson()
+    public function getRelatedPerson(): ?FHIRRelatedPerson
     {
         return $this->RelatedPerson;
     }
@@ -6101,7 +6110,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRelatedPerson $RelatedPerson
      * @return static
      */
-    public function setRelatedPerson(FHIRRelatedPerson $RelatedPerson = null)
+    public function setRelatedPerson(?FHIRRelatedPerson $RelatedPerson = null): object
     {
         $this->_trackValueSet($this->RelatedPerson, $RelatedPerson);
         $this->RelatedPerson = $RelatedPerson;
@@ -6115,7 +6124,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRequestGroup
      */
-    public function getRequestGroup()
+    public function getRequestGroup(): ?FHIRRequestGroup
     {
         return $this->RequestGroup;
     }
@@ -6128,7 +6137,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRequestGroup $RequestGroup
      * @return static
      */
-    public function setRequestGroup(FHIRRequestGroup $RequestGroup = null)
+    public function setRequestGroup(?FHIRRequestGroup $RequestGroup = null): object
     {
         $this->_trackValueSet($this->RequestGroup, $RequestGroup);
         $this->RequestGroup = $RequestGroup;
@@ -6143,7 +6152,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchDefinition
      */
-    public function getResearchDefinition()
+    public function getResearchDefinition(): ?FHIRResearchDefinition
     {
         return $this->ResearchDefinition;
     }
@@ -6157,7 +6166,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchDefinition $ResearchDefinition
      * @return static
      */
-    public function setResearchDefinition(FHIRResearchDefinition $ResearchDefinition = null)
+    public function setResearchDefinition(?FHIRResearchDefinition $ResearchDefinition = null): object
     {
         $this->_trackValueSet($this->ResearchDefinition, $ResearchDefinition);
         $this->ResearchDefinition = $ResearchDefinition;
@@ -6171,7 +6180,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchElementDefinition
      */
-    public function getResearchElementDefinition()
+    public function getResearchElementDefinition(): ?FHIRResearchElementDefinition
     {
         return $this->ResearchElementDefinition;
     }
@@ -6184,7 +6193,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchElementDefinition $ResearchElementDefinition
      * @return static
      */
-    public function setResearchElementDefinition(FHIRResearchElementDefinition $ResearchElementDefinition = null)
+    public function setResearchElementDefinition(?FHIRResearchElementDefinition $ResearchElementDefinition = null): object
     {
         $this->_trackValueSet($this->ResearchElementDefinition, $ResearchElementDefinition);
         $this->ResearchElementDefinition = $ResearchElementDefinition;
@@ -6202,7 +6211,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchStudy
      */
-    public function getResearchStudy()
+    public function getResearchStudy(): ?FHIRResearchStudy
     {
         return $this->ResearchStudy;
     }
@@ -6219,7 +6228,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchStudy $ResearchStudy
      * @return static
      */
-    public function setResearchStudy(FHIRResearchStudy $ResearchStudy = null)
+    public function setResearchStudy(?FHIRResearchStudy $ResearchStudy = null): object
     {
         $this->_trackValueSet($this->ResearchStudy, $ResearchStudy);
         $this->ResearchStudy = $ResearchStudy;
@@ -6233,7 +6242,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchSubject
      */
-    public function getResearchSubject()
+    public function getResearchSubject(): ?FHIRResearchSubject
     {
         return $this->ResearchSubject;
     }
@@ -6246,7 +6255,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRResearchSubject $ResearchSubject
      * @return static
      */
-    public function setResearchSubject(FHIRResearchSubject $ResearchSubject = null)
+    public function setResearchSubject(?FHIRResearchSubject $ResearchSubject = null): object
     {
         $this->_trackValueSet($this->ResearchSubject, $ResearchSubject);
         $this->ResearchSubject = $ResearchSubject;
@@ -6260,7 +6269,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskAssessment
      */
-    public function getRiskAssessment()
+    public function getRiskAssessment(): ?FHIRRiskAssessment
     {
         return $this->RiskAssessment;
     }
@@ -6273,7 +6282,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskAssessment $RiskAssessment
      * @return static
      */
-    public function setRiskAssessment(FHIRRiskAssessment $RiskAssessment = null)
+    public function setRiskAssessment(?FHIRRiskAssessment $RiskAssessment = null): object
     {
         $this->_trackValueSet($this->RiskAssessment, $RiskAssessment);
         $this->RiskAssessment = $RiskAssessment;
@@ -6288,7 +6297,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskEvidenceSynthesis
      */
-    public function getRiskEvidenceSynthesis()
+    public function getRiskEvidenceSynthesis(): ?FHIRRiskEvidenceSynthesis
     {
         return $this->RiskEvidenceSynthesis;
     }
@@ -6302,7 +6311,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRRiskEvidenceSynthesis $RiskEvidenceSynthesis
      * @return static
      */
-    public function setRiskEvidenceSynthesis(FHIRRiskEvidenceSynthesis $RiskEvidenceSynthesis = null)
+    public function setRiskEvidenceSynthesis(?FHIRRiskEvidenceSynthesis $RiskEvidenceSynthesis = null): object
     {
         $this->_trackValueSet($this->RiskEvidenceSynthesis, $RiskEvidenceSynthesis);
         $this->RiskEvidenceSynthesis = $RiskEvidenceSynthesis;
@@ -6315,7 +6324,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSchedule
      */
-    public function getSchedule()
+    public function getSchedule(): ?FHIRSchedule
     {
         return $this->Schedule;
     }
@@ -6327,7 +6336,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSchedule $Schedule
      * @return static
      */
-    public function setSchedule(FHIRSchedule $Schedule = null)
+    public function setSchedule(?FHIRSchedule $Schedule = null): object
     {
         $this->_trackValueSet($this->Schedule, $Schedule);
         $this->Schedule = $Schedule;
@@ -6341,7 +6350,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSearchParameter
      */
-    public function getSearchParameter()
+    public function getSearchParameter(): ?FHIRSearchParameter
     {
         return $this->SearchParameter;
     }
@@ -6354,7 +6363,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSearchParameter $SearchParameter
      * @return static
      */
-    public function setSearchParameter(FHIRSearchParameter $SearchParameter = null)
+    public function setSearchParameter(?FHIRSearchParameter $SearchParameter = null): object
     {
         $this->_trackValueSet($this->SearchParameter, $SearchParameter);
         $this->SearchParameter = $SearchParameter;
@@ -6368,7 +6377,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRServiceRequest
      */
-    public function getServiceRequest()
+    public function getServiceRequest(): ?FHIRServiceRequest
     {
         return $this->ServiceRequest;
     }
@@ -6381,7 +6390,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRServiceRequest $ServiceRequest
      * @return static
      */
-    public function setServiceRequest(FHIRServiceRequest $ServiceRequest = null)
+    public function setServiceRequest(?FHIRServiceRequest $ServiceRequest = null): object
     {
         $this->_trackValueSet($this->ServiceRequest, $ServiceRequest);
         $this->ServiceRequest = $ServiceRequest;
@@ -6394,7 +6403,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSlot
      */
-    public function getSlot()
+    public function getSlot(): ?FHIRSlot
     {
         return $this->Slot;
     }
@@ -6406,7 +6415,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSlot $Slot
      * @return static
      */
-    public function setSlot(FHIRSlot $Slot = null)
+    public function setSlot(?FHIRSlot $Slot = null): object
     {
         $this->_trackValueSet($this->Slot, $Slot);
         $this->Slot = $Slot;
@@ -6419,7 +6428,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimen
      */
-    public function getSpecimen()
+    public function getSpecimen(): ?FHIRSpecimen
     {
         return $this->Specimen;
     }
@@ -6431,7 +6440,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimen $Specimen
      * @return static
      */
-    public function setSpecimen(FHIRSpecimen $Specimen = null)
+    public function setSpecimen(?FHIRSpecimen $Specimen = null): object
     {
         $this->_trackValueSet($this->Specimen, $Specimen);
         $this->Specimen = $Specimen;
@@ -6444,7 +6453,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimenDefinition
      */
-    public function getSpecimenDefinition()
+    public function getSpecimenDefinition(): ?FHIRSpecimenDefinition
     {
         return $this->SpecimenDefinition;
     }
@@ -6456,7 +6465,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSpecimenDefinition $SpecimenDefinition
      * @return static
      */
-    public function setSpecimenDefinition(FHIRSpecimenDefinition $SpecimenDefinition = null)
+    public function setSpecimenDefinition(?FHIRSpecimenDefinition $SpecimenDefinition = null): object
     {
         $this->_trackValueSet($this->SpecimenDefinition, $SpecimenDefinition);
         $this->SpecimenDefinition = $SpecimenDefinition;
@@ -6471,7 +6480,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureDefinition
      */
-    public function getStructureDefinition()
+    public function getStructureDefinition(): ?FHIRStructureDefinition
     {
         return $this->StructureDefinition;
     }
@@ -6485,7 +6494,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureDefinition $StructureDefinition
      * @return static
      */
-    public function setStructureDefinition(FHIRStructureDefinition $StructureDefinition = null)
+    public function setStructureDefinition(?FHIRStructureDefinition $StructureDefinition = null): object
     {
         $this->_trackValueSet($this->StructureDefinition, $StructureDefinition);
         $this->StructureDefinition = $StructureDefinition;
@@ -6498,7 +6507,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureMap
      */
-    public function getStructureMap()
+    public function getStructureMap(): ?FHIRStructureMap
     {
         return $this->StructureMap;
     }
@@ -6510,7 +6519,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRStructureMap $StructureMap
      * @return static
      */
-    public function setStructureMap(FHIRStructureMap $StructureMap = null)
+    public function setStructureMap(?FHIRStructureMap $StructureMap = null): object
     {
         $this->_trackValueSet($this->StructureMap, $StructureMap);
         $this->StructureMap = $StructureMap;
@@ -6527,7 +6536,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubscription
      */
-    public function getSubscription()
+    public function getSubscription(): ?FHIRSubscription
     {
         return $this->Subscription;
     }
@@ -6543,7 +6552,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubscription $Subscription
      * @return static
      */
-    public function setSubscription(FHIRSubscription $Subscription = null)
+    public function setSubscription(?FHIRSubscription $Subscription = null): object
     {
         $this->_trackValueSet($this->Subscription, $Subscription);
         $this->Subscription = $Subscription;
@@ -6556,7 +6565,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstance
      */
-    public function getSubstance()
+    public function getSubstance(): ?FHIRSubstance
     {
         return $this->Substance;
     }
@@ -6568,7 +6577,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstance $Substance
      * @return static
      */
-    public function setSubstance(FHIRSubstance $Substance = null)
+    public function setSubstance(?FHIRSubstance $Substance = null): object
     {
         $this->_trackValueSet($this->Substance, $Substance);
         $this->Substance = $Substance;
@@ -6584,7 +6593,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceNucleicAcid
      */
-    public function getSubstanceNucleicAcid()
+    public function getSubstanceNucleicAcid(): ?FHIRSubstanceNucleicAcid
     {
         return $this->SubstanceNucleicAcid;
     }
@@ -6599,7 +6608,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceNucleicAcid $SubstanceNucleicAcid
      * @return static
      */
-    public function setSubstanceNucleicAcid(FHIRSubstanceNucleicAcid $SubstanceNucleicAcid = null)
+    public function setSubstanceNucleicAcid(?FHIRSubstanceNucleicAcid $SubstanceNucleicAcid = null): object
     {
         $this->_trackValueSet($this->SubstanceNucleicAcid, $SubstanceNucleicAcid);
         $this->SubstanceNucleicAcid = $SubstanceNucleicAcid;
@@ -6612,7 +6621,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstancePolymer
      */
-    public function getSubstancePolymer()
+    public function getSubstancePolymer(): ?FHIRSubstancePolymer
     {
         return $this->SubstancePolymer;
     }
@@ -6624,7 +6633,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstancePolymer $SubstancePolymer
      * @return static
      */
-    public function setSubstancePolymer(FHIRSubstancePolymer $SubstancePolymer = null)
+    public function setSubstancePolymer(?FHIRSubstancePolymer $SubstancePolymer = null): object
     {
         $this->_trackValueSet($this->SubstancePolymer, $SubstancePolymer);
         $this->SubstancePolymer = $SubstancePolymer;
@@ -6644,7 +6653,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceProtein
      */
-    public function getSubstanceProtein()
+    public function getSubstanceProtein(): ?FHIRSubstanceProtein
     {
         return $this->SubstanceProtein;
     }
@@ -6663,7 +6672,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceProtein $SubstanceProtein
      * @return static
      */
-    public function setSubstanceProtein(FHIRSubstanceProtein $SubstanceProtein = null)
+    public function setSubstanceProtein(?FHIRSubstanceProtein $SubstanceProtein = null): object
     {
         $this->_trackValueSet($this->SubstanceProtein, $SubstanceProtein);
         $this->SubstanceProtein = $SubstanceProtein;
@@ -6676,7 +6685,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceReferenceInformation
      */
-    public function getSubstanceReferenceInformation()
+    public function getSubstanceReferenceInformation(): ?FHIRSubstanceReferenceInformation
     {
         return $this->SubstanceReferenceInformation;
     }
@@ -6688,7 +6697,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceReferenceInformation $SubstanceReferenceInformation
      * @return static
      */
-    public function setSubstanceReferenceInformation(FHIRSubstanceReferenceInformation $SubstanceReferenceInformation = null)
+    public function setSubstanceReferenceInformation(?FHIRSubstanceReferenceInformation $SubstanceReferenceInformation = null): object
     {
         $this->_trackValueSet($this->SubstanceReferenceInformation, $SubstanceReferenceInformation);
         $this->SubstanceReferenceInformation = $SubstanceReferenceInformation;
@@ -6713,7 +6722,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSourceMaterial
      */
-    public function getSubstanceSourceMaterial()
+    public function getSubstanceSourceMaterial(): ?FHIRSubstanceSourceMaterial
     {
         return $this->SubstanceSourceMaterial;
     }
@@ -6737,7 +6746,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSourceMaterial $SubstanceSourceMaterial
      * @return static
      */
-    public function setSubstanceSourceMaterial(FHIRSubstanceSourceMaterial $SubstanceSourceMaterial = null)
+    public function setSubstanceSourceMaterial(?FHIRSubstanceSourceMaterial $SubstanceSourceMaterial = null): object
     {
         $this->_trackValueSet($this->SubstanceSourceMaterial, $SubstanceSourceMaterial);
         $this->SubstanceSourceMaterial = $SubstanceSourceMaterial;
@@ -6751,7 +6760,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSpecification
      */
-    public function getSubstanceSpecification()
+    public function getSubstanceSpecification(): ?FHIRSubstanceSpecification
     {
         return $this->SubstanceSpecification;
     }
@@ -6764,7 +6773,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceSpecification $SubstanceSpecification
      * @return static
      */
-    public function setSubstanceSpecification(FHIRSubstanceSpecification $SubstanceSpecification = null)
+    public function setSubstanceSpecification(?FHIRSubstanceSpecification $SubstanceSpecification = null): object
     {
         $this->_trackValueSet($this->SubstanceSpecification, $SubstanceSpecification);
         $this->SubstanceSpecification = $SubstanceSpecification;
@@ -6777,7 +6786,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyDelivery
      */
-    public function getSupplyDelivery()
+    public function getSupplyDelivery(): ?FHIRSupplyDelivery
     {
         return $this->SupplyDelivery;
     }
@@ -6789,7 +6798,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyDelivery $SupplyDelivery
      * @return static
      */
-    public function setSupplyDelivery(FHIRSupplyDelivery $SupplyDelivery = null)
+    public function setSupplyDelivery(?FHIRSupplyDelivery $SupplyDelivery = null): object
     {
         $this->_trackValueSet($this->SupplyDelivery, $SupplyDelivery);
         $this->SupplyDelivery = $SupplyDelivery;
@@ -6803,7 +6812,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyRequest
      */
-    public function getSupplyRequest()
+    public function getSupplyRequest(): ?FHIRSupplyRequest
     {
         return $this->SupplyRequest;
     }
@@ -6816,7 +6825,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSupplyRequest $SupplyRequest
      * @return static
      */
-    public function setSupplyRequest(FHIRSupplyRequest $SupplyRequest = null)
+    public function setSupplyRequest(?FHIRSupplyRequest $SupplyRequest = null): object
     {
         $this->_trackValueSet($this->SupplyRequest, $SupplyRequest);
         $this->SupplyRequest = $SupplyRequest;
@@ -6829,7 +6838,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTask
      */
-    public function getTask()
+    public function getTask(): ?FHIRTask
     {
         return $this->Task;
     }
@@ -6841,7 +6850,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTask $Task
      * @return static
      */
-    public function setTask(FHIRTask $Task = null)
+    public function setTask(?FHIRTask $Task = null): object
     {
         $this->_trackValueSet($this->Task, $Task);
         $this->Task = $Task;
@@ -6856,7 +6865,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTerminologyCapabilities
      */
-    public function getTerminologyCapabilities()
+    public function getTerminologyCapabilities(): ?FHIRTerminologyCapabilities
     {
         return $this->TerminologyCapabilities;
     }
@@ -6870,7 +6879,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTerminologyCapabilities $TerminologyCapabilities
      * @return static
      */
-    public function setTerminologyCapabilities(FHIRTerminologyCapabilities $TerminologyCapabilities = null)
+    public function setTerminologyCapabilities(?FHIRTerminologyCapabilities $TerminologyCapabilities = null): object
     {
         $this->_trackValueSet($this->TerminologyCapabilities, $TerminologyCapabilities);
         $this->TerminologyCapabilities = $TerminologyCapabilities;
@@ -6883,7 +6892,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestReport
      */
-    public function getTestReport()
+    public function getTestReport(): ?FHIRTestReport
     {
         return $this->TestReport;
     }
@@ -6895,7 +6904,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestReport $TestReport
      * @return static
      */
-    public function setTestReport(FHIRTestReport $TestReport = null)
+    public function setTestReport(?FHIRTestReport $TestReport = null): object
     {
         $this->_trackValueSet($this->TestReport, $TestReport);
         $this->TestReport = $TestReport;
@@ -6909,7 +6918,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestScript
      */
-    public function getTestScript()
+    public function getTestScript(): ?FHIRTestScript
     {
         return $this->TestScript;
     }
@@ -6922,7 +6931,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRTestScript $TestScript
      * @return static
      */
-    public function setTestScript(FHIRTestScript $TestScript = null)
+    public function setTestScript(?FHIRTestScript $TestScript = null): object
     {
         $this->_trackValueSet($this->TestScript, $TestScript);
         $this->TestScript = $TestScript;
@@ -6938,7 +6947,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRValueSet
      */
-    public function getValueSet()
+    public function getValueSet(): ?FHIRValueSet
     {
         return $this->ValueSet;
     }
@@ -6953,7 +6962,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRValueSet $ValueSet
      * @return static
      */
-    public function setValueSet(FHIRValueSet $ValueSet = null)
+    public function setValueSet(?FHIRValueSet $ValueSet = null): object
     {
         $this->_trackValueSet($this->ValueSet, $ValueSet);
         $this->ValueSet = $ValueSet;
@@ -6967,7 +6976,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVerificationResult
      */
-    public function getVerificationResult()
+    public function getVerificationResult(): ?FHIRVerificationResult
     {
         return $this->VerificationResult;
     }
@@ -6980,7 +6989,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVerificationResult $VerificationResult
      * @return static
      */
-    public function setVerificationResult(FHIRVerificationResult $VerificationResult = null)
+    public function setVerificationResult(?FHIRVerificationResult $VerificationResult = null): object
     {
         $this->_trackValueSet($this->VerificationResult, $VerificationResult);
         $this->VerificationResult = $VerificationResult;
@@ -6994,7 +7003,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVisionPrescription
      */
-    public function getVisionPrescription()
+    public function getVisionPrescription(): ?FHIRVisionPrescription
     {
         return $this->VisionPrescription;
     }
@@ -7007,7 +7016,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRVisionPrescription $VisionPrescription
      * @return static
      */
-    public function setVisionPrescription(FHIRVisionPrescription $VisionPrescription = null)
+    public function setVisionPrescription(?FHIRVisionPrescription $VisionPrescription = null): object
     {
         $this->_trackValueSet($this->VisionPrescription, $VisionPrescription);
         $this->VisionPrescription = $VisionPrescription;
@@ -7022,7 +7031,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      *
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRParameters
      */
-    public function getParameters()
+    public function getParameters(): ?FHIRParameters
     {
         return $this->Parameters;
     }
@@ -7036,7 +7045,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|\HL7\FHIR\R4\FHIRResource\FHIRParameters $Parameters
      * @return static
      */
-    public function setParameters(FHIRParameters $Parameters = null)
+    public function setParameters(?FHIRParameters $Parameters = null): object
     {
         $this->_trackValueSet($this->Parameters, $Parameters);
         $this->Parameters = $Parameters;
@@ -7803,15 +7812,15 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResourceContainer
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResourceContainer    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRResourceContainer::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -7831,7 +7840,7 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -8136,9 +8145,9 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
     /**
      * @param null|\DOMElement $element
      * @param null|int $libxmlOpts
-     * @return string|\DOMElement
+     * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null !== ($v = $this->getAccount())) {
             return $v->xmlSerialize($element, $libxmlOpts);
@@ -8586,7 +8595,10 @@ class FHIRResourceContainer implements PHPFHIRCommentContainerInterface, PHPFHIR
         return $element;
     }
 
-    public function jsonSerialize(): ?object
+    /**
+     * @return object|null
+     */
+    public function jsonSerialize()
     {
         if (null !== ($v = $this->getAccount())) {
             return $v;

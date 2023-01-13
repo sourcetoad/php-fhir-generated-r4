@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $type = [];
+    protected ?array $type = [];
 
     /**
      * Specifies an event that may occur multiple times. Timing schedules are used to
@@ -121,7 +121,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[]
      */
-    protected $schedule = [];
+    protected ?array $schedule = [];
 
     /**
      * A request to supply a diet, formula feeding (enteral) or oral nutritional
@@ -132,7 +132,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient[]
      */
-    protected $nutrient = [];
+    protected ?array $nutrient = [];
 
     /**
      * A request to supply a diet, formula feeding (enteral) or oral nutritional
@@ -143,7 +143,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderTexture[]
      */
-    protected $texture = [];
+    protected ?array $texture = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -156,7 +156,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $fluidConsistencyType = [];
+    protected ?array $fluidConsistencyType = [];
 
     /**
      * A sequence of Unicode characters
@@ -165,15 +165,15 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * Free text or additional instructions or information pertaining to the oral diet.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $instruction = null;
+    protected ?FHIRString $instruction = null;
 
     /**
      * Validation map for fields in type NutritionOrder.OralDiet
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRNutritionOrderOralDiet Constructor
@@ -282,8 +282,8 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INSTRUCTION]) || isset($data[self::FIELD_INSTRUCTION_EXT])) {
-            $value = isset($data[self::FIELD_INSTRUCTION]) ? $data[self::FIELD_INSTRUCTION] : null;
-            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $ext = $data[self::FIELD_INSTRUCTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTRUCTION] ?? null;
+            $ext = (isset($data[self::FIELD_INSTRUCTION_EXT]) && is_array($data[self::FIELD_INSTRUCTION_EXT])) ? $data[self::FIELD_INSTRUCTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setInstruction($value);
@@ -298,11 +298,17 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -323,7 +329,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getType()
+    public function getType(): ?array
     {
         return $this->type;
     }
@@ -340,7 +346,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function addType(FHIRCodeableConcept $type = null)
+    public function addType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueAdded();
         $this->type[] = $type;
@@ -359,7 +365,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $type
      * @return static
      */
-    public function setType(array $type = [])
+    public function setType(array $type = []): object
     {
         if ([] !== $this->type) {
             $this->_trackValuesRemoved(count($this->type));
@@ -393,7 +399,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[]
      */
-    public function getSchedule()
+    public function getSchedule(): ?array
     {
         return $this->schedule;
     }
@@ -414,7 +420,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming $schedule
      * @return static
      */
-    public function addSchedule(FHIRTiming $schedule = null)
+    public function addSchedule(?FHIRTiming $schedule = null): object
     {
         $this->_trackValueAdded();
         $this->schedule[] = $schedule;
@@ -437,7 +443,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTiming[] $schedule
      * @return static
      */
-    public function setSchedule(array $schedule = [])
+    public function setSchedule(array $schedule = []): object
     {
         if ([] !== $this->schedule) {
             $this->_trackValuesRemoved(count($this->schedule));
@@ -465,7 +471,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient[]
      */
-    public function getNutrient()
+    public function getNutrient(): ?array
     {
         return $this->nutrient;
     }
@@ -480,7 +486,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient $nutrient
      * @return static
      */
-    public function addNutrient(FHIRNutritionOrderNutrient $nutrient = null)
+    public function addNutrient(?FHIRNutritionOrderNutrient $nutrient = null): object
     {
         $this->_trackValueAdded();
         $this->nutrient[] = $nutrient;
@@ -497,7 +503,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderNutrient[] $nutrient
      * @return static
      */
-    public function setNutrient(array $nutrient = [])
+    public function setNutrient(array $nutrient = []): object
     {
         if ([] !== $this->nutrient) {
             $this->_trackValuesRemoved(count($this->nutrient));
@@ -525,7 +531,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderTexture[]
      */
-    public function getTexture()
+    public function getTexture(): ?array
     {
         return $this->texture;
     }
@@ -540,7 +546,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderTexture $texture
      * @return static
      */
-    public function addTexture(FHIRNutritionOrderTexture $texture = null)
+    public function addTexture(?FHIRNutritionOrderTexture $texture = null): object
     {
         $this->_trackValueAdded();
         $this->texture[] = $texture;
@@ -557,7 +563,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderTexture[] $texture
      * @return static
      */
-    public function setTexture(array $texture = [])
+    public function setTexture(array $texture = []): object
     {
         if ([] !== $this->texture) {
             $this->_trackValuesRemoved(count($this->texture));
@@ -587,7 +593,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getFluidConsistencyType()
+    public function getFluidConsistencyType(): ?array
     {
         return $this->fluidConsistencyType;
     }
@@ -604,7 +610,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $fluidConsistencyType
      * @return static
      */
-    public function addFluidConsistencyType(FHIRCodeableConcept $fluidConsistencyType = null)
+    public function addFluidConsistencyType(?FHIRCodeableConcept $fluidConsistencyType = null): object
     {
         $this->_trackValueAdded();
         $this->fluidConsistencyType[] = $fluidConsistencyType;
@@ -623,7 +629,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $fluidConsistencyType
      * @return static
      */
-    public function setFluidConsistencyType(array $fluidConsistencyType = [])
+    public function setFluidConsistencyType(array $fluidConsistencyType = []): object
     {
         if ([] !== $this->fluidConsistencyType) {
             $this->_trackValuesRemoved(count($this->fluidConsistencyType));
@@ -649,9 +655,9 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * Free text or additional instructions or information pertaining to the oral diet.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getInstruction()
+    public function getInstruction(): ?FHIRString
     {
         return $this->instruction;
     }
@@ -663,10 +669,10 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      *
      * Free text or additional instructions or information pertaining to the oral diet.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $instruction
      * @return static
      */
-    public function setInstruction($instruction = null)
+    public function setInstruction($instruction = null): object
     {
         if (null !== $instruction && !($instruction instanceof FHIRString)) {
             $instruction = new FHIRString($instruction);
@@ -854,15 +860,15 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderOralDiet
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRNutritionOrder\FHIRNutritionOrderOralDiet    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRNutritionOrderOralDiet::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -882,7 +888,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -933,7 +939,7 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1001,66 +1007,69 @@ class FHIRNutritionOrderOralDiet extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getType())) {
-            $a[self::FIELD_TYPE] = [];
+            $out->{self::FIELD_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TYPE][] = $v;
+                $out->{self::FIELD_TYPE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSchedule())) {
-            $a[self::FIELD_SCHEDULE] = [];
+            $out->{self::FIELD_SCHEDULE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SCHEDULE][] = $v;
+                $out->{self::FIELD_SCHEDULE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNutrient())) {
-            $a[self::FIELD_NUTRIENT] = [];
+            $out->{self::FIELD_NUTRIENT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NUTRIENT][] = $v;
+                $out->{self::FIELD_NUTRIENT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTexture())) {
-            $a[self::FIELD_TEXTURE] = [];
+            $out->{self::FIELD_TEXTURE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TEXTURE][] = $v;
+                $out->{self::FIELD_TEXTURE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getFluidConsistencyType())) {
-            $a[self::FIELD_FLUID_CONSISTENCY_TYPE] = [];
+            $out->{self::FIELD_FLUID_CONSISTENCY_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_FLUID_CONSISTENCY_TYPE][] = $v;
+                $out->{self::FIELD_FLUID_CONSISTENCY_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getInstruction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INSTRUCTION] = $val;
+                $out->{self::FIELD_INSTRUCTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INSTRUCTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTRUCTION_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

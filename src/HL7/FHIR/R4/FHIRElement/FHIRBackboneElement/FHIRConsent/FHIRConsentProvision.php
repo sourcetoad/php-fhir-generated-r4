@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRConsentProvisionType
      */
-    protected $type = null;
+    protected ?FHIRConsentProvisionType $type = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -121,7 +121,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $period = null;
+    protected ?FHIRPeriod $period = null;
 
     /**
      * A record of a healthcare consumer’s choices, which permits or denies
@@ -133,7 +133,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentActor[]
      */
-    protected $actor = [];
+    protected ?array $actor = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -145,7 +145,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $action = [];
+    protected ?array $action = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -157,7 +157,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $securityLabel = [];
+    protected ?array $securityLabel = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -169,7 +169,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $purpose = [];
+    protected ?array $purpose = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -182,7 +182,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $class = [];
+    protected ?array $class = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -194,7 +194,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $code = [];
+    protected ?array $code = [];
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -206,7 +206,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $dataPeriod = null;
+    protected ?FHIRPeriod $dataPeriod = null;
 
     /**
      * A record of a healthcare consumer’s choices, which permits or denies
@@ -217,7 +217,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentData[]
      */
-    protected $data = [];
+    protected ?array $data = [];
 
     /**
      * A record of a healthcare consumer’s choices, which permits or denies
@@ -228,13 +228,13 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision[]
      */
-    protected $provision = [];
+    protected ?array $provision = [];
 
     /**
      * Validation map for fields in type Consent.Provision
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRConsentProvision Constructor
@@ -253,8 +253,8 @@ class FHIRConsentProvision extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRConsentProvisionType) {
                     $this->setType($value);
@@ -427,11 +427,17 @@ class FHIRConsentProvision extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -451,7 +457,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRConsentProvisionType
      */
-    public function getType()
+    public function getType(): ?FHIRConsentProvisionType
     {
         return $this->type;
     }
@@ -467,7 +473,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRConsentProvisionType $type
      * @return static
      */
-    public function setType(FHIRConsentProvisionType $type = null)
+    public function setType(?FHIRConsentProvisionType $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -483,7 +489,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getPeriod()
+    public function getPeriod(): ?FHIRPeriod
     {
         return $this->period;
     }
@@ -498,7 +504,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $period
      * @return static
      */
-    public function setPeriod(FHIRPeriod $period = null)
+    public function setPeriod(?FHIRPeriod $period = null): object
     {
         $this->_trackValueSet($this->period, $period);
         $this->period = $period;
@@ -515,7 +521,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentActor[]
      */
-    public function getActor()
+    public function getActor(): ?array
     {
         return $this->actor;
     }
@@ -531,7 +537,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentActor $actor
      * @return static
      */
-    public function addActor(FHIRConsentActor $actor = null)
+    public function addActor(?FHIRConsentActor $actor = null): object
     {
         $this->_trackValueAdded();
         $this->actor[] = $actor;
@@ -549,7 +555,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentActor[] $actor
      * @return static
      */
-    public function setActor(array $actor = [])
+    public function setActor(array $actor = []): object
     {
         if ([] !== $this->actor) {
             $this->_trackValuesRemoved(count($this->actor));
@@ -578,7 +584,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAction()
+    public function getAction(): ?array
     {
         return $this->action;
     }
@@ -594,7 +600,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $action
      * @return static
      */
-    public function addAction(FHIRCodeableConcept $action = null)
+    public function addAction(?FHIRCodeableConcept $action = null): object
     {
         $this->_trackValueAdded();
         $this->action[] = $action;
@@ -612,7 +618,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $action
      * @return static
      */
-    public function setAction(array $action = [])
+    public function setAction(array $action = []): object
     {
         if ([] !== $this->action) {
             $this->_trackValuesRemoved(count($this->action));
@@ -641,7 +647,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getSecurityLabel()
+    public function getSecurityLabel(): ?array
     {
         return $this->securityLabel;
     }
@@ -657,7 +663,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $securityLabel
      * @return static
      */
-    public function addSecurityLabel(FHIRCoding $securityLabel = null)
+    public function addSecurityLabel(?FHIRCoding $securityLabel = null): object
     {
         $this->_trackValueAdded();
         $this->securityLabel[] = $securityLabel;
@@ -675,7 +681,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $securityLabel
      * @return static
      */
-    public function setSecurityLabel(array $securityLabel = [])
+    public function setSecurityLabel(array $securityLabel = []): object
     {
         if ([] !== $this->securityLabel) {
             $this->_trackValuesRemoved(count($this->securityLabel));
@@ -704,7 +710,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getPurpose()
+    public function getPurpose(): ?array
     {
         return $this->purpose;
     }
@@ -720,7 +726,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $purpose
      * @return static
      */
-    public function addPurpose(FHIRCoding $purpose = null)
+    public function addPurpose(?FHIRCoding $purpose = null): object
     {
         $this->_trackValueAdded();
         $this->purpose[] = $purpose;
@@ -738,7 +744,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $purpose
      * @return static
      */
-    public function setPurpose(array $purpose = [])
+    public function setPurpose(array $purpose = []): object
     {
         if ([] !== $this->purpose) {
             $this->_trackValuesRemoved(count($this->purpose));
@@ -768,7 +774,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getClass()
+    public function getClass(): ?array
     {
         return $this->class;
     }
@@ -785,7 +791,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $class
      * @return static
      */
-    public function addClass(FHIRCoding $class = null)
+    public function addClass(?FHIRCoding $class = null): object
     {
         $this->_trackValueAdded();
         $this->class[] = $class;
@@ -804,7 +810,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $class
      * @return static
      */
-    public function setClass(array $class = [])
+    public function setClass(array $class = []): object
     {
         if ([] !== $this->class) {
             $this->_trackValuesRemoved(count($this->class));
@@ -833,7 +839,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getCode()
+    public function getCode(): ?array
     {
         return $this->code;
     }
@@ -849,7 +855,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function addCode(FHIRCodeableConcept $code = null)
+    public function addCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueAdded();
         $this->code[] = $code;
@@ -867,7 +873,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $code
      * @return static
      */
-    public function setCode(array $code = [])
+    public function setCode(array $code = []): object
     {
         if ([] !== $this->code) {
             $this->_trackValuesRemoved(count($this->code));
@@ -896,7 +902,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getDataPeriod()
+    public function getDataPeriod(): ?FHIRPeriod
     {
         return $this->dataPeriod;
     }
@@ -912,7 +918,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $dataPeriod
      * @return static
      */
-    public function setDataPeriod(FHIRPeriod $dataPeriod = null)
+    public function setDataPeriod(?FHIRPeriod $dataPeriod = null): object
     {
         $this->_trackValueSet($this->dataPeriod, $dataPeriod);
         $this->dataPeriod = $dataPeriod;
@@ -928,7 +934,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentData[]
      */
-    public function getData()
+    public function getData(): ?array
     {
         return $this->data;
     }
@@ -943,7 +949,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentData $data
      * @return static
      */
-    public function addData(FHIRConsentData $data = null)
+    public function addData(?FHIRConsentData $data = null): object
     {
         $this->_trackValueAdded();
         $this->data[] = $data;
@@ -960,7 +966,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentData[] $data
      * @return static
      */
-    public function setData(array $data = [])
+    public function setData(array $data = []): object
     {
         if ([] !== $this->data) {
             $this->_trackValuesRemoved(count($this->data));
@@ -988,7 +994,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision[]
      */
-    public function getProvision()
+    public function getProvision(): ?array
     {
         return $this->provision;
     }
@@ -1003,7 +1009,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision $provision
      * @return static
      */
-    public function addProvision(FHIRConsentProvision $provision = null)
+    public function addProvision(?FHIRConsentProvision $provision = null): object
     {
         $this->_trackValueAdded();
         $this->provision[] = $provision;
@@ -1020,7 +1026,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision[] $provision
      * @return static
      */
-    public function setProvision(array $provision = [])
+    public function setProvision(array $provision = []): object
     {
         if ([] !== $this->provision) {
             $this->_trackValuesRemoved(count($this->provision));
@@ -1308,15 +1314,15 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRConsent\FHIRConsentProvision    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRConsentProvision::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1336,7 +1342,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1388,7 +1394,7 @@ class FHIRConsentProvision extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1496,99 +1502,102 @@ class FHIRConsentProvision extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRConsentProvisionType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRConsentProvisionType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPeriod())) {
-            $a[self::FIELD_PERIOD] = $v;
+            $out->{self::FIELD_PERIOD} = $v;
         }
         if ([] !== ($vs = $this->getActor())) {
-            $a[self::FIELD_ACTOR] = [];
+            $out->{self::FIELD_ACTOR} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ACTOR][] = $v;
+                $out->{self::FIELD_ACTOR}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getAction())) {
-            $a[self::FIELD_ACTION] = [];
+            $out->{self::FIELD_ACTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ACTION][] = $v;
+                $out->{self::FIELD_ACTION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSecurityLabel())) {
-            $a[self::FIELD_SECURITY_LABEL] = [];
+            $out->{self::FIELD_SECURITY_LABEL} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SECURITY_LABEL][] = $v;
+                $out->{self::FIELD_SECURITY_LABEL}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPurpose())) {
-            $a[self::FIELD_PURPOSE] = [];
+            $out->{self::FIELD_PURPOSE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PURPOSE][] = $v;
+                $out->{self::FIELD_PURPOSE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getClass())) {
-            $a[self::FIELD_CLASS] = [];
+            $out->{self::FIELD_CLASS} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CLASS][] = $v;
+                $out->{self::FIELD_CLASS}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCode())) {
-            $a[self::FIELD_CODE] = [];
+            $out->{self::FIELD_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CODE][] = $v;
+                $out->{self::FIELD_CODE}[] = $v;
             }
         }
         if (null !== ($v = $this->getDataPeriod())) {
-            $a[self::FIELD_DATA_PERIOD] = $v;
+            $out->{self::FIELD_DATA_PERIOD} = $v;
         }
         if ([] !== ($vs = $this->getData())) {
-            $a[self::FIELD_DATA] = [];
+            $out->{self::FIELD_DATA} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DATA][] = $v;
+                $out->{self::FIELD_DATA}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getProvision())) {
-            $a[self::FIELD_PROVISION] = [];
+            $out->{self::FIELD_PROVISION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PROVISION][] = $v;
+                $out->{self::FIELD_PROVISION}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

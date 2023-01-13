@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest\FHIRMedicationRequestInitialFill
      */
-    protected $initialFill = null;
+    protected ?FHIRMedicationRequestInitialFill $initialFill = null;
 
     /**
      * A length of time.
@@ -121,7 +121,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $dispenseInterval = null;
+    protected ?FHIRDuration $dispenseInterval = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -133,7 +133,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $validityPeriod = null;
+    protected ?FHIRPeriod $validityPeriod = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -148,9 +148,9 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * 120 tablets. A prescriber may explicitly say that zero refills are permitted
      * after the initial dispense.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $numberOfRepeatsAllowed = null;
+    protected ?FHIRUnsignedInt $numberOfRepeatsAllowed = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -163,7 +163,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $quantity = null;
+    protected ?FHIRQuantity $quantity = null;
 
     /**
      * A length of time.
@@ -175,7 +175,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $expectedSupplyDuration = null;
+    protected ?FHIRDuration $expectedSupplyDuration = null;
 
     /**
      * A reference from one resource to another.
@@ -186,13 +186,13 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $performer = null;
+    protected ?FHIRReference $performer = null;
 
     /**
      * Validation map for fields in type MedicationRequest.DispenseRequest
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicationRequestDispenseRequest Constructor
@@ -232,8 +232,8 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED]) || isset($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED]) ? $data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT]) && is_array($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT]) && is_array($data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT])) ? $data[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setNumberOfRepeatsAllowed($value);
@@ -269,11 +269,17 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -294,7 +300,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest\FHIRMedicationRequestInitialFill
      */
-    public function getInitialFill()
+    public function getInitialFill(): ?FHIRMedicationRequestInitialFill
     {
         return $this->initialFill;
     }
@@ -311,7 +317,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest\FHIRMedicationRequestInitialFill $initialFill
      * @return static
      */
-    public function setInitialFill(FHIRMedicationRequestInitialFill $initialFill = null)
+    public function setInitialFill(?FHIRMedicationRequestInitialFill $initialFill = null): object
     {
         $this->_trackValueSet($this->initialFill, $initialFill);
         $this->initialFill = $initialFill;
@@ -327,7 +333,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getDispenseInterval()
+    public function getDispenseInterval(): ?FHIRDuration
     {
         return $this->dispenseInterval;
     }
@@ -342,7 +348,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $dispenseInterval
      * @return static
      */
-    public function setDispenseInterval(FHIRDuration $dispenseInterval = null)
+    public function setDispenseInterval(?FHIRDuration $dispenseInterval = null): object
     {
         $this->_trackValueSet($this->dispenseInterval, $dispenseInterval);
         $this->dispenseInterval = $dispenseInterval;
@@ -359,7 +365,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getValidityPeriod()
+    public function getValidityPeriod(): ?FHIRPeriod
     {
         return $this->validityPeriod;
     }
@@ -375,7 +381,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $validityPeriod
      * @return static
      */
-    public function setValidityPeriod(FHIRPeriod $validityPeriod = null)
+    public function setValidityPeriod(?FHIRPeriod $validityPeriod = null): object
     {
         $this->_trackValueSet($this->validityPeriod, $validityPeriod);
         $this->validityPeriod = $validityPeriod;
@@ -395,9 +401,9 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * 120 tablets. A prescriber may explicitly say that zero refills are permitted
      * after the initial dispense.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getNumberOfRepeatsAllowed()
+    public function getNumberOfRepeatsAllowed(): ?FHIRUnsignedInt
     {
         return $this->numberOfRepeatsAllowed;
     }
@@ -415,10 +421,10 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * 120 tablets. A prescriber may explicitly say that zero refills are permitted
      * after the initial dispense.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfRepeatsAllowed
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfRepeatsAllowed
      * @return static
      */
-    public function setNumberOfRepeatsAllowed($numberOfRepeatsAllowed = null)
+    public function setNumberOfRepeatsAllowed($numberOfRepeatsAllowed = null): object
     {
         if (null !== $numberOfRepeatsAllowed && !($numberOfRepeatsAllowed instanceof FHIRUnsignedInt)) {
             $numberOfRepeatsAllowed = new FHIRUnsignedInt($numberOfRepeatsAllowed);
@@ -439,7 +445,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): ?FHIRQuantity
     {
         return $this->quantity;
     }
@@ -456,7 +462,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $quantity
      * @return static
      */
-    public function setQuantity(FHIRQuantity $quantity = null)
+    public function setQuantity(?FHIRQuantity $quantity = null): object
     {
         $this->_trackValueSet($this->quantity, $quantity);
         $this->quantity = $quantity;
@@ -473,7 +479,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getExpectedSupplyDuration()
+    public function getExpectedSupplyDuration(): ?FHIRDuration
     {
         return $this->expectedSupplyDuration;
     }
@@ -489,7 +495,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $expectedSupplyDuration
      * @return static
      */
-    public function setExpectedSupplyDuration(FHIRDuration $expectedSupplyDuration = null)
+    public function setExpectedSupplyDuration(?FHIRDuration $expectedSupplyDuration = null): object
     {
         $this->_trackValueSet($this->expectedSupplyDuration, $expectedSupplyDuration);
         $this->expectedSupplyDuration = $expectedSupplyDuration;
@@ -505,7 +511,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPerformer()
+    public function getPerformer(): ?FHIRReference
     {
         return $this->performer;
     }
@@ -520,7 +526,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $performer
      * @return static
      */
-    public function setPerformer(FHIRReference $performer = null)
+    public function setPerformer(?FHIRReference $performer = null): object
     {
         $this->_trackValueSet($this->performer, $performer);
         $this->performer = $performer;
@@ -712,15 +718,15 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest\FHIRMedicationRequestDispenseRequest
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationRequest\FHIRMedicationRequestDispenseRequest    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationRequestDispenseRequest::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -740,7 +746,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -793,7 +799,7 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -841,39 +847,42 @@ class FHIRMedicationRequestDispenseRequest extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getInitialFill())) {
-            $a[self::FIELD_INITIAL_FILL] = $v;
+            $out->{self::FIELD_INITIAL_FILL} = $v;
         }
         if (null !== ($v = $this->getDispenseInterval())) {
-            $a[self::FIELD_DISPENSE_INTERVAL] = $v;
+            $out->{self::FIELD_DISPENSE_INTERVAL} = $v;
         }
         if (null !== ($v = $this->getValidityPeriod())) {
-            $a[self::FIELD_VALIDITY_PERIOD] = $v;
+            $out->{self::FIELD_VALIDITY_PERIOD} = $v;
         }
         if (null !== ($v = $this->getNumberOfRepeatsAllowed())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_REPEATS_ALLOWED] = $val;
+                $out->{self::FIELD_NUMBER_OF_REPEATS_ALLOWED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_REPEATS_ALLOWED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getQuantity())) {
-            $a[self::FIELD_QUANTITY] = $v;
+            $out->{self::FIELD_QUANTITY} = $v;
         }
         if (null !== ($v = $this->getExpectedSupplyDuration())) {
-            $a[self::FIELD_EXPECTED_SUPPLY_DURATION] = $v;
+            $out->{self::FIELD_EXPECTED_SUPPLY_DURATION} = $v;
         }
         if (null !== ($v = $this->getPerformer())) {
-            $a[self::FIELD_PERFORMER] = $v;
+            $out->{self::FIELD_PERFORMER} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

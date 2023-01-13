@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,9 +119,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The DICOM Series Instance UID for the series.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $uid = null;
+    protected ?FHIRId $uid = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -130,9 +130,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The numeric identifier of this series in the study.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $number = null;
+    protected ?FHIRUnsignedInt $number = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -143,7 +143,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $modality = null;
+    protected ?FHIRCoding $modality = null;
 
     /**
      * A sequence of Unicode characters
@@ -152,9 +152,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * A description of the series.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -166,9 +166,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $numberOfInstances = null;
+    protected ?FHIRUnsignedInt $numberOfInstances = null;
 
     /**
      * A reference from one resource to another.
@@ -182,7 +182,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $endpoint = [];
+    protected ?array $endpoint = [];
 
     /**
      * A reference to a code defined by a terminology system.
@@ -197,7 +197,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $bodySite = null;
+    protected ?FHIRCoding $bodySite = null;
 
     /**
      * A reference to a code defined by a terminology system.
@@ -210,7 +210,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    protected $laterality = null;
+    protected ?FHIRCoding $laterality = null;
 
     /**
      * A reference from one resource to another.
@@ -221,7 +221,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $specimen = [];
+    protected ?array $specimen = [];
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -233,9 +233,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The date and time the series was started.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $started = null;
+    protected ?FHIRDateTime $started = null;
 
     /**
      * Representation of the content produced in a DICOM imaging study. A study
@@ -248,7 +248,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyPerformer[]
      */
-    protected $performer = [];
+    protected ?array $performer = [];
 
     /**
      * Representation of the content produced in a DICOM imaging study. A study
@@ -261,13 +261,13 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyInstance[]
      */
-    protected $instance = [];
+    protected ?array $instance = [];
 
     /**
      * Validation map for fields in type ImagingStudy.Series
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRImagingStudySeries Constructor
@@ -286,8 +286,8 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_UID]) || isset($data[self::FIELD_UID_EXT])) {
-            $value = isset($data[self::FIELD_UID]) ? $data[self::FIELD_UID] : null;
-            $ext = (isset($data[self::FIELD_UID_EXT]) && is_array($data[self::FIELD_UID_EXT])) ? $ext = $data[self::FIELD_UID_EXT] : $ext = [];
+            $value = $data[self::FIELD_UID] ?? null;
+            $ext = (isset($data[self::FIELD_UID_EXT]) && is_array($data[self::FIELD_UID_EXT])) ? $data[self::FIELD_UID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setUid($value);
@@ -301,8 +301,8 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NUMBER]) || isset($data[self::FIELD_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER]) ? $data[self::FIELD_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $ext = $data[self::FIELD_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $data[self::FIELD_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setNumber($value);
@@ -323,8 +323,8 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -338,8 +338,8 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_INSTANCES]) || isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_INSTANCES]) ? $data[self::FIELD_NUMBER_OF_INSTANCES] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_INSTANCES_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_INSTANCES] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_INSTANCES_EXT]) && is_array($data[self::FIELD_NUMBER_OF_INSTANCES_EXT])) ? $data[self::FIELD_NUMBER_OF_INSTANCES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setNumberOfInstances($value);
@@ -403,8 +403,8 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_STARTED]) || isset($data[self::FIELD_STARTED_EXT])) {
-            $value = isset($data[self::FIELD_STARTED]) ? $data[self::FIELD_STARTED] : null;
-            $ext = (isset($data[self::FIELD_STARTED_EXT]) && is_array($data[self::FIELD_STARTED_EXT])) ? $ext = $data[self::FIELD_STARTED_EXT] : $ext = [];
+            $value = $data[self::FIELD_STARTED] ?? null;
+            $ext = (isset($data[self::FIELD_STARTED_EXT]) && is_array($data[self::FIELD_STARTED_EXT])) ? $data[self::FIELD_STARTED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setStarted($value);
@@ -455,11 +455,17 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -479,9 +485,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The DICOM Series Instance UID for the series.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getUid()
+    public function getUid(): ?FHIRId
     {
         return $this->uid;
     }
@@ -496,10 +502,10 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The DICOM Series Instance UID for the series.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $uid
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $uid
      * @return static
      */
-    public function setUid($uid = null)
+    public function setUid($uid = null): object
     {
         if (null !== $uid && !($uid instanceof FHIRId)) {
             $uid = new FHIRId($uid);
@@ -516,9 +522,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The numeric identifier of this series in the study.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getNumber()
+    public function getNumber(): ?FHIRUnsignedInt
     {
         return $this->number;
     }
@@ -530,10 +536,10 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The numeric identifier of this series in the study.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $number
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $number
      * @return static
      */
-    public function setNumber($number = null)
+    public function setNumber($number = null): object
     {
         if (null !== $number && !($number instanceof FHIRUnsignedInt)) {
             $number = new FHIRUnsignedInt($number);
@@ -552,7 +558,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getModality()
+    public function getModality(): ?FHIRCoding
     {
         return $this->modality;
     }
@@ -567,7 +573,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $modality
      * @return static
      */
-    public function setModality(FHIRCoding $modality = null)
+    public function setModality(?FHIRCoding $modality = null): object
     {
         $this->_trackValueSet($this->modality, $modality);
         $this->modality = $modality;
@@ -581,9 +587,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * A description of the series.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -595,10 +601,10 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * A description of the series.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -618,9 +624,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getNumberOfInstances()
+    public function getNumberOfInstances(): ?FHIRUnsignedInt
     {
         return $this->numberOfInstances;
     }
@@ -635,10 +641,10 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * security, or other factors. This element should be present if any instance
      * elements are present.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfInstances
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $numberOfInstances
      * @return static
      */
-    public function setNumberOfInstances($numberOfInstances = null)
+    public function setNumberOfInstances($numberOfInstances = null): object
     {
         if (null !== $numberOfInstances && !($numberOfInstances instanceof FHIRUnsignedInt)) {
             $numberOfInstances = new FHIRUnsignedInt($numberOfInstances);
@@ -660,7 +666,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getEndpoint()
+    public function getEndpoint(): ?array
     {
         return $this->endpoint;
     }
@@ -678,7 +684,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $endpoint
      * @return static
      */
-    public function addEndpoint(FHIRReference $endpoint = null)
+    public function addEndpoint(?FHIRReference $endpoint = null): object
     {
         $this->_trackValueAdded();
         $this->endpoint[] = $endpoint;
@@ -698,7 +704,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $endpoint
      * @return static
      */
-    public function setEndpoint(array $endpoint = [])
+    public function setEndpoint(array $endpoint = []): object
     {
         if ([] !== $this->endpoint) {
             $this->_trackValuesRemoved(count($this->endpoint));
@@ -730,7 +736,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getBodySite()
+    public function getBodySite(): ?FHIRCoding
     {
         return $this->bodySite;
     }
@@ -749,7 +755,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $bodySite
      * @return static
      */
-    public function setBodySite(FHIRCoding $bodySite = null)
+    public function setBodySite(?FHIRCoding $bodySite = null): object
     {
         $this->_trackValueSet($this->bodySite, $bodySite);
         $this->bodySite = $bodySite;
@@ -767,7 +773,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding
      */
-    public function getLaterality()
+    public function getLaterality(): ?FHIRCoding
     {
         return $this->laterality;
     }
@@ -784,7 +790,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $laterality
      * @return static
      */
-    public function setLaterality(FHIRCoding $laterality = null)
+    public function setLaterality(?FHIRCoding $laterality = null): object
     {
         $this->_trackValueSet($this->laterality, $laterality);
         $this->laterality = $laterality;
@@ -800,7 +806,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSpecimen()
+    public function getSpecimen(): ?array
     {
         return $this->specimen;
     }
@@ -815,7 +821,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $specimen
      * @return static
      */
-    public function addSpecimen(FHIRReference $specimen = null)
+    public function addSpecimen(?FHIRReference $specimen = null): object
     {
         $this->_trackValueAdded();
         $this->specimen[] = $specimen;
@@ -832,7 +838,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $specimen
      * @return static
      */
-    public function setSpecimen(array $specimen = [])
+    public function setSpecimen(array $specimen = []): object
     {
         if ([] !== $this->specimen) {
             $this->_trackValuesRemoved(count($this->specimen));
@@ -861,9 +867,9 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The date and time the series was started.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getStarted()
+    public function getStarted(): ?FHIRDateTime
     {
         return $this->started;
     }
@@ -878,10 +884,10 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * The date and time the series was started.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $started
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $started
      * @return static
      */
-    public function setStarted($started = null)
+    public function setStarted($started = null): object
     {
         if (null !== $started && !($started instanceof FHIRDateTime)) {
             $started = new FHIRDateTime($started);
@@ -902,7 +908,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyPerformer[]
      */
-    public function getPerformer()
+    public function getPerformer(): ?array
     {
         return $this->performer;
     }
@@ -919,7 +925,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyPerformer $performer
      * @return static
      */
-    public function addPerformer(FHIRImagingStudyPerformer $performer = null)
+    public function addPerformer(?FHIRImagingStudyPerformer $performer = null): object
     {
         $this->_trackValueAdded();
         $this->performer[] = $performer;
@@ -938,7 +944,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyPerformer[] $performer
      * @return static
      */
-    public function setPerformer(array $performer = [])
+    public function setPerformer(array $performer = []): object
     {
         if ([] !== $this->performer) {
             $this->_trackValuesRemoved(count($this->performer));
@@ -968,7 +974,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyInstance[]
      */
-    public function getInstance()
+    public function getInstance(): ?array
     {
         return $this->instance;
     }
@@ -985,7 +991,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyInstance $instance
      * @return static
      */
-    public function addInstance(FHIRImagingStudyInstance $instance = null)
+    public function addInstance(?FHIRImagingStudyInstance $instance = null): object
     {
         $this->_trackValueAdded();
         $this->instance[] = $instance;
@@ -1004,7 +1010,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudyInstance[] $instance
      * @return static
      */
-    public function setInstance(array $instance = [])
+    public function setInstance(array $instance = []): object
     {
         if ([] !== $this->instance) {
             $this->_trackValuesRemoved(count($this->instance));
@@ -1301,15 +1307,15 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRImagingStudy\FHIRImagingStudySeries    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRImagingStudySeries::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1329,7 +1335,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1428,7 +1434,7 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1521,106 +1527,109 @@ class FHIRImagingStudySeries extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getUid())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_UID] = $val;
+                $out->{self::FIELD_UID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_UID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_UID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER] = $val;
+                $out->{self::FIELD_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getModality())) {
-            $a[self::FIELD_MODALITY] = $v;
+            $out->{self::FIELD_MODALITY} = $v;
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNumberOfInstances())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_INSTANCES] = $val;
+                $out->{self::FIELD_NUMBER_OF_INSTANCES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_INSTANCES_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_INSTANCES_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getEndpoint())) {
-            $a[self::FIELD_ENDPOINT] = [];
+            $out->{self::FIELD_ENDPOINT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ENDPOINT][] = $v;
+                $out->{self::FIELD_ENDPOINT}[] = $v;
             }
         }
         if (null !== ($v = $this->getBodySite())) {
-            $a[self::FIELD_BODY_SITE] = $v;
+            $out->{self::FIELD_BODY_SITE} = $v;
         }
         if (null !== ($v = $this->getLaterality())) {
-            $a[self::FIELD_LATERALITY] = $v;
+            $out->{self::FIELD_LATERALITY} = $v;
         }
         if ([] !== ($vs = $this->getSpecimen())) {
-            $a[self::FIELD_SPECIMEN] = [];
+            $out->{self::FIELD_SPECIMEN} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIMEN][] = $v;
+                $out->{self::FIELD_SPECIMEN}[] = $v;
             }
         }
         if (null !== ($v = $this->getStarted())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STARTED] = $val;
+                $out->{self::FIELD_STARTED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STARTED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STARTED_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getPerformer())) {
-            $a[self::FIELD_PERFORMER] = [];
+            $out->{self::FIELD_PERFORMER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PERFORMER][] = $v;
+                $out->{self::FIELD_PERFORMER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getInstance())) {
-            $a[self::FIELD_INSTANCE] = [];
+            $out->{self::FIELD_INSTANCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_INSTANCE][] = $v;
+                $out->{self::FIELD_INSTANCE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

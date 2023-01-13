@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -142,9 +142,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The label would be used for tracking/logging purposes by test engines.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $label = null;
+    protected ?FHIRString $label = null;
 
     /**
      * A sequence of Unicode characters
@@ -154,9 +154,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The description would be used by test engines for tracking and reporting
      * purposes.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * The type of direction to use for assertion.
@@ -166,7 +166,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionDirectionType
      */
-    protected $direction = null;
+    protected ?FHIRAssertionDirectionType $direction = null;
 
     /**
      * A sequence of Unicode characters
@@ -176,9 +176,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Id of the source fixture used as the contents to be evaluated by either the
      * "source/expression" or "sourceId/path" definition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $compareToSourceId = null;
+    protected ?FHIRString $compareToSourceId = null;
 
     /**
      * A sequence of Unicode characters
@@ -189,9 +189,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $compareToSourceExpression = null;
+    protected ?FHIRString $compareToSourceExpression = null;
 
     /**
      * A sequence of Unicode characters
@@ -202,9 +202,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $compareToSourcePath = null;
+    protected ?FHIRString $compareToSourcePath = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -215,9 +215,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The mime-type contents to compare against the request or response message
      * 'Content-Type' header.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $contentType = null;
+    protected ?FHIRCode $contentType = null;
 
     /**
      * A sequence of Unicode characters
@@ -227,9 +227,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The FHIRPath expression to be evaluated against the request or response message
      * contents - HTTP headers and payload.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $expression = null;
+    protected ?FHIRString $expression = null;
 
     /**
      * A sequence of Unicode characters
@@ -238,9 +238,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The HTTP header field name e.g. 'Location'.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $headerField = null;
+    protected ?FHIRString $headerField = null;
 
     /**
      * A sequence of Unicode characters
@@ -250,9 +250,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The ID of a fixture. Asserts that the response contains at a minimum the fixture
      * specified by minimumId.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $minimumId = null;
+    protected ?FHIRString $minimumId = null;
 
     /**
      * Value of "true" or "false"
@@ -261,9 +261,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution performs validation on the bundle navigation
      * links.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $navigationLinks = null;
+    protected ?FHIRBoolean $navigationLinks = null;
 
     /**
      * The type of operator to use for assertion.
@@ -274,7 +274,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionOperatorType
      */
-    protected $operator = null;
+    protected ?FHIRAssertionOperatorType $operator = null;
 
     /**
      * A sequence of Unicode characters
@@ -284,9 +284,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The XPath or JSONPath expression to be evaluated against the fixture
      * representing the response received from server.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $path = null;
+    protected ?FHIRString $path = null;
 
     /**
      * The allowable request method or HTTP operation codes.
@@ -297,7 +297,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRTestScriptRequestMethodCode
      */
-    protected $requestMethod = null;
+    protected ?FHIRTestScriptRequestMethodCode $requestMethod = null;
 
     /**
      * A sequence of Unicode characters
@@ -306,9 +306,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to use in a comparison against the request URL path string.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $requestURL = null;
+    protected ?FHIRString $requestURL = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -318,9 +318,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The type of the resource. See http://build.fhir.org/resourcelist.html.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $resource = null;
+    protected ?FHIRCode $resource = null;
 
     /**
      * The type of response code to use for assertion.
@@ -331,7 +331,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionResponseTypes
      */
-    protected $response = null;
+    protected ?FHIRAssertionResponseTypes $response = null;
 
     /**
      * A sequence of Unicode characters
@@ -340,9 +340,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value of the HTTP response code to be tested.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $responseCode = null;
+    protected ?FHIRString $responseCode = null;
 
     /**
      * Any combination of letters, numerals, "-" and ".", with a length limit of 64
@@ -354,9 +354,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * Fixture to evaluate the XPath/JSONPath expression or the headerField against.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $sourceId = null;
+    protected ?FHIRId $sourceId = null;
 
     /**
      * Any combination of letters, numerals, "-" and ".", with a length limit of 64
@@ -368,9 +368,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The ID of the Profile to validate against.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @var null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    protected $validateProfileId = null;
+    protected ?FHIRId $validateProfileId = null;
 
     /**
      * A sequence of Unicode characters
@@ -379,9 +379,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to compare to.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $value = null;
+    protected ?FHIRString $value = null;
 
     /**
      * Value of "true" or "false"
@@ -390,15 +390,15 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution will produce a warning only on error for this
      * assert.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $warningOnly = null;
+    protected ?FHIRBoolean $warningOnly = null;
 
     /**
      * Validation map for fields in type TestScript.Assert
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRTestScriptAssert Constructor
@@ -417,8 +417,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_LABEL]) || isset($data[self::FIELD_LABEL_EXT])) {
-            $value = isset($data[self::FIELD_LABEL]) ? $data[self::FIELD_LABEL] : null;
-            $ext = (isset($data[self::FIELD_LABEL_EXT]) && is_array($data[self::FIELD_LABEL_EXT])) ? $ext = $data[self::FIELD_LABEL_EXT] : $ext = [];
+            $value = $data[self::FIELD_LABEL] ?? null;
+            $ext = (isset($data[self::FIELD_LABEL_EXT]) && is_array($data[self::FIELD_LABEL_EXT])) ? $data[self::FIELD_LABEL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setLabel($value);
@@ -432,8 +432,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -447,8 +447,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DIRECTION]) || isset($data[self::FIELD_DIRECTION_EXT])) {
-            $value = isset($data[self::FIELD_DIRECTION]) ? $data[self::FIELD_DIRECTION] : null;
-            $ext = (isset($data[self::FIELD_DIRECTION_EXT]) && is_array($data[self::FIELD_DIRECTION_EXT])) ? $ext = $data[self::FIELD_DIRECTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DIRECTION] ?? null;
+            $ext = (isset($data[self::FIELD_DIRECTION_EXT]) && is_array($data[self::FIELD_DIRECTION_EXT])) ? $data[self::FIELD_DIRECTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAssertionDirectionType) {
                     $this->setDirection($value);
@@ -462,8 +462,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_COMPARE_TO_SOURCE_ID]) || isset($data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT])) {
-            $value = isset($data[self::FIELD_COMPARE_TO_SOURCE_ID]) ? $data[self::FIELD_COMPARE_TO_SOURCE_ID] : null;
-            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT])) ? $ext = $data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMPARE_TO_SOURCE_ID] ?? null;
+            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT])) ? $data[self::FIELD_COMPARE_TO_SOURCE_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCompareToSourceId($value);
@@ -477,8 +477,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION]) || isset($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT])) {
-            $value = isset($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION]) ? $data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION] : null;
-            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT])) ? $ext = $data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION] ?? null;
+            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT])) ? $data[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCompareToSourceExpression($value);
@@ -492,8 +492,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_COMPARE_TO_SOURCE_PATH]) || isset($data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT])) {
-            $value = isset($data[self::FIELD_COMPARE_TO_SOURCE_PATH]) ? $data[self::FIELD_COMPARE_TO_SOURCE_PATH] : null;
-            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT])) ? $ext = $data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMPARE_TO_SOURCE_PATH] ?? null;
+            $ext = (isset($data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT]) && is_array($data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT])) ? $data[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setCompareToSourcePath($value);
@@ -507,8 +507,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CONTENT_TYPE]) || isset($data[self::FIELD_CONTENT_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_CONTENT_TYPE]) ? $data[self::FIELD_CONTENT_TYPE] : null;
-            $ext = (isset($data[self::FIELD_CONTENT_TYPE_EXT]) && is_array($data[self::FIELD_CONTENT_TYPE_EXT])) ? $ext = $data[self::FIELD_CONTENT_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CONTENT_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_CONTENT_TYPE_EXT]) && is_array($data[self::FIELD_CONTENT_TYPE_EXT])) ? $data[self::FIELD_CONTENT_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setContentType($value);
@@ -522,8 +522,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXPRESSION]) || isset($data[self::FIELD_EXPRESSION_EXT])) {
-            $value = isset($data[self::FIELD_EXPRESSION]) ? $data[self::FIELD_EXPRESSION] : null;
-            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $ext = $data[self::FIELD_EXPRESSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPRESSION] ?? null;
+            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $data[self::FIELD_EXPRESSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setExpression($value);
@@ -537,8 +537,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_HEADER_FIELD]) || isset($data[self::FIELD_HEADER_FIELD_EXT])) {
-            $value = isset($data[self::FIELD_HEADER_FIELD]) ? $data[self::FIELD_HEADER_FIELD] : null;
-            $ext = (isset($data[self::FIELD_HEADER_FIELD_EXT]) && is_array($data[self::FIELD_HEADER_FIELD_EXT])) ? $ext = $data[self::FIELD_HEADER_FIELD_EXT] : $ext = [];
+            $value = $data[self::FIELD_HEADER_FIELD] ?? null;
+            $ext = (isset($data[self::FIELD_HEADER_FIELD_EXT]) && is_array($data[self::FIELD_HEADER_FIELD_EXT])) ? $data[self::FIELD_HEADER_FIELD_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setHeaderField($value);
@@ -552,8 +552,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_MINIMUM_ID]) || isset($data[self::FIELD_MINIMUM_ID_EXT])) {
-            $value = isset($data[self::FIELD_MINIMUM_ID]) ? $data[self::FIELD_MINIMUM_ID] : null;
-            $ext = (isset($data[self::FIELD_MINIMUM_ID_EXT]) && is_array($data[self::FIELD_MINIMUM_ID_EXT])) ? $ext = $data[self::FIELD_MINIMUM_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_MINIMUM_ID] ?? null;
+            $ext = (isset($data[self::FIELD_MINIMUM_ID_EXT]) && is_array($data[self::FIELD_MINIMUM_ID_EXT])) ? $data[self::FIELD_MINIMUM_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setMinimumId($value);
@@ -567,8 +567,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAVIGATION_LINKS]) || isset($data[self::FIELD_NAVIGATION_LINKS_EXT])) {
-            $value = isset($data[self::FIELD_NAVIGATION_LINKS]) ? $data[self::FIELD_NAVIGATION_LINKS] : null;
-            $ext = (isset($data[self::FIELD_NAVIGATION_LINKS_EXT]) && is_array($data[self::FIELD_NAVIGATION_LINKS_EXT])) ? $ext = $data[self::FIELD_NAVIGATION_LINKS_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAVIGATION_LINKS] ?? null;
+            $ext = (isset($data[self::FIELD_NAVIGATION_LINKS_EXT]) && is_array($data[self::FIELD_NAVIGATION_LINKS_EXT])) ? $data[self::FIELD_NAVIGATION_LINKS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setNavigationLinks($value);
@@ -582,8 +582,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_OPERATOR]) || isset($data[self::FIELD_OPERATOR_EXT])) {
-            $value = isset($data[self::FIELD_OPERATOR]) ? $data[self::FIELD_OPERATOR] : null;
-            $ext = (isset($data[self::FIELD_OPERATOR_EXT]) && is_array($data[self::FIELD_OPERATOR_EXT])) ? $ext = $data[self::FIELD_OPERATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_OPERATOR] ?? null;
+            $ext = (isset($data[self::FIELD_OPERATOR_EXT]) && is_array($data[self::FIELD_OPERATOR_EXT])) ? $data[self::FIELD_OPERATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAssertionOperatorType) {
                     $this->setOperator($value);
@@ -597,8 +597,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PATH]) || isset($data[self::FIELD_PATH_EXT])) {
-            $value = isset($data[self::FIELD_PATH]) ? $data[self::FIELD_PATH] : null;
-            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $ext = $data[self::FIELD_PATH_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATH] ?? null;
+            $ext = (isset($data[self::FIELD_PATH_EXT]) && is_array($data[self::FIELD_PATH_EXT])) ? $data[self::FIELD_PATH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPath($value);
@@ -612,8 +612,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REQUEST_METHOD]) || isset($data[self::FIELD_REQUEST_METHOD_EXT])) {
-            $value = isset($data[self::FIELD_REQUEST_METHOD]) ? $data[self::FIELD_REQUEST_METHOD] : null;
-            $ext = (isset($data[self::FIELD_REQUEST_METHOD_EXT]) && is_array($data[self::FIELD_REQUEST_METHOD_EXT])) ? $ext = $data[self::FIELD_REQUEST_METHOD_EXT] : $ext = [];
+            $value = $data[self::FIELD_REQUEST_METHOD] ?? null;
+            $ext = (isset($data[self::FIELD_REQUEST_METHOD_EXT]) && is_array($data[self::FIELD_REQUEST_METHOD_EXT])) ? $data[self::FIELD_REQUEST_METHOD_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRTestScriptRequestMethodCode) {
                     $this->setRequestMethod($value);
@@ -627,8 +627,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_REQUEST_URL]) || isset($data[self::FIELD_REQUEST_URL_EXT])) {
-            $value = isset($data[self::FIELD_REQUEST_URL]) ? $data[self::FIELD_REQUEST_URL] : null;
-            $ext = (isset($data[self::FIELD_REQUEST_URL_EXT]) && is_array($data[self::FIELD_REQUEST_URL_EXT])) ? $ext = $data[self::FIELD_REQUEST_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_REQUEST_URL] ?? null;
+            $ext = (isset($data[self::FIELD_REQUEST_URL_EXT]) && is_array($data[self::FIELD_REQUEST_URL_EXT])) ? $data[self::FIELD_REQUEST_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setRequestURL($value);
@@ -642,8 +642,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESOURCE]) || isset($data[self::FIELD_RESOURCE_EXT])) {
-            $value = isset($data[self::FIELD_RESOURCE]) ? $data[self::FIELD_RESOURCE] : null;
-            $ext = (isset($data[self::FIELD_RESOURCE_EXT]) && is_array($data[self::FIELD_RESOURCE_EXT])) ? $ext = $data[self::FIELD_RESOURCE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESOURCE] ?? null;
+            $ext = (isset($data[self::FIELD_RESOURCE_EXT]) && is_array($data[self::FIELD_RESOURCE_EXT])) ? $data[self::FIELD_RESOURCE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setResource($value);
@@ -657,8 +657,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESPONSE]) || isset($data[self::FIELD_RESPONSE_EXT])) {
-            $value = isset($data[self::FIELD_RESPONSE]) ? $data[self::FIELD_RESPONSE] : null;
-            $ext = (isset($data[self::FIELD_RESPONSE_EXT]) && is_array($data[self::FIELD_RESPONSE_EXT])) ? $ext = $data[self::FIELD_RESPONSE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESPONSE] ?? null;
+            $ext = (isset($data[self::FIELD_RESPONSE_EXT]) && is_array($data[self::FIELD_RESPONSE_EXT])) ? $data[self::FIELD_RESPONSE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAssertionResponseTypes) {
                     $this->setResponse($value);
@@ -672,8 +672,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RESPONSE_CODE]) || isset($data[self::FIELD_RESPONSE_CODE_EXT])) {
-            $value = isset($data[self::FIELD_RESPONSE_CODE]) ? $data[self::FIELD_RESPONSE_CODE] : null;
-            $ext = (isset($data[self::FIELD_RESPONSE_CODE_EXT]) && is_array($data[self::FIELD_RESPONSE_CODE_EXT])) ? $ext = $data[self::FIELD_RESPONSE_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RESPONSE_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_RESPONSE_CODE_EXT]) && is_array($data[self::FIELD_RESPONSE_CODE_EXT])) ? $data[self::FIELD_RESPONSE_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setResponseCode($value);
@@ -687,8 +687,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SOURCE_ID]) || isset($data[self::FIELD_SOURCE_ID_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE_ID]) ? $data[self::FIELD_SOURCE_ID] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_ID_EXT]) && is_array($data[self::FIELD_SOURCE_ID_EXT])) ? $ext = $data[self::FIELD_SOURCE_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE_ID] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_ID_EXT]) && is_array($data[self::FIELD_SOURCE_ID_EXT])) ? $data[self::FIELD_SOURCE_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setSourceId($value);
@@ -702,8 +702,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VALIDATE_PROFILE_ID]) || isset($data[self::FIELD_VALIDATE_PROFILE_ID_EXT])) {
-            $value = isset($data[self::FIELD_VALIDATE_PROFILE_ID]) ? $data[self::FIELD_VALIDATE_PROFILE_ID] : null;
-            $ext = (isset($data[self::FIELD_VALIDATE_PROFILE_ID_EXT]) && is_array($data[self::FIELD_VALIDATE_PROFILE_ID_EXT])) ? $ext = $data[self::FIELD_VALIDATE_PROFILE_ID_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALIDATE_PROFILE_ID] ?? null;
+            $ext = (isset($data[self::FIELD_VALIDATE_PROFILE_ID_EXT]) && is_array($data[self::FIELD_VALIDATE_PROFILE_ID_EXT])) ? $data[self::FIELD_VALIDATE_PROFILE_ID_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRId) {
                     $this->setValidateProfileId($value);
@@ -717,8 +717,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_VALUE]) || isset($data[self::FIELD_VALUE_EXT])) {
-            $value = isset($data[self::FIELD_VALUE]) ? $data[self::FIELD_VALUE] : null;
-            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $ext = $data[self::FIELD_VALUE_EXT] : $ext = [];
+            $value = $data[self::FIELD_VALUE] ?? null;
+            $ext = (isset($data[self::FIELD_VALUE_EXT]) && is_array($data[self::FIELD_VALUE_EXT])) ? $data[self::FIELD_VALUE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setValue($value);
@@ -732,8 +732,8 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_WARNING_ONLY]) || isset($data[self::FIELD_WARNING_ONLY_EXT])) {
-            $value = isset($data[self::FIELD_WARNING_ONLY]) ? $data[self::FIELD_WARNING_ONLY] : null;
-            $ext = (isset($data[self::FIELD_WARNING_ONLY_EXT]) && is_array($data[self::FIELD_WARNING_ONLY_EXT])) ? $ext = $data[self::FIELD_WARNING_ONLY_EXT] : $ext = [];
+            $value = $data[self::FIELD_WARNING_ONLY] ?? null;
+            $ext = (isset($data[self::FIELD_WARNING_ONLY_EXT]) && is_array($data[self::FIELD_WARNING_ONLY_EXT])) ? $data[self::FIELD_WARNING_ONLY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setWarningOnly($value);
@@ -748,11 +748,17 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -769,9 +775,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The label would be used for tracking/logging purposes by test engines.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getLabel()
+    public function getLabel(): ?FHIRString
     {
         return $this->label;
     }
@@ -783,10 +789,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The label would be used for tracking/logging purposes by test engines.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $label
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $label
      * @return static
      */
-    public function setLabel($label = null)
+    public function setLabel($label = null): object
     {
         if (null !== $label && !($label instanceof FHIRString)) {
             $label = new FHIRString($label);
@@ -804,9 +810,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The description would be used by test engines for tracking and reporting
      * purposes.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -819,10 +825,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The description would be used by test engines for tracking and reporting
      * purposes.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -840,7 +846,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionDirectionType
      */
-    public function getDirection()
+    public function getDirection(): ?FHIRAssertionDirectionType
     {
         return $this->direction;
     }
@@ -854,7 +860,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionDirectionType $direction
      * @return static
      */
-    public function setDirection(FHIRAssertionDirectionType $direction = null)
+    public function setDirection(?FHIRAssertionDirectionType $direction = null): object
     {
         $this->_trackValueSet($this->direction, $direction);
         $this->direction = $direction;
@@ -869,9 +875,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Id of the source fixture used as the contents to be evaluated by either the
      * "source/expression" or "sourceId/path" definition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCompareToSourceId()
+    public function getCompareToSourceId(): ?FHIRString
     {
         return $this->compareToSourceId;
     }
@@ -884,10 +890,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Id of the source fixture used as the contents to be evaluated by either the
      * "source/expression" or "sourceId/path" definition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourceId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourceId
      * @return static
      */
-    public function setCompareToSourceId($compareToSourceId = null)
+    public function setCompareToSourceId($compareToSourceId = null): object
     {
         if (null !== $compareToSourceId && !($compareToSourceId instanceof FHIRString)) {
             $compareToSourceId = new FHIRString($compareToSourceId);
@@ -906,9 +912,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCompareToSourceExpression()
+    public function getCompareToSourceExpression(): ?FHIRString
     {
         return $this->compareToSourceExpression;
     }
@@ -922,10 +928,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourceExpression
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourceExpression
      * @return static
      */
-    public function setCompareToSourceExpression($compareToSourceExpression = null)
+    public function setCompareToSourceExpression($compareToSourceExpression = null): object
     {
         if (null !== $compareToSourceExpression && !($compareToSourceExpression instanceof FHIRString)) {
             $compareToSourceExpression = new FHIRString($compareToSourceExpression);
@@ -944,9 +950,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getCompareToSourcePath()
+    public function getCompareToSourcePath(): ?FHIRString
     {
         return $this->compareToSourcePath;
     }
@@ -960,10 +966,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * compareToSourceId is defined, either compareToSourceExpression or
      * compareToSourcePath must be defined, but not both.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourcePath
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $compareToSourcePath
      * @return static
      */
-    public function setCompareToSourcePath($compareToSourcePath = null)
+    public function setCompareToSourcePath($compareToSourcePath = null): object
     {
         if (null !== $compareToSourcePath && !($compareToSourcePath instanceof FHIRString)) {
             $compareToSourcePath = new FHIRString($compareToSourcePath);
@@ -982,9 +988,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The mime-type contents to compare against the request or response message
      * 'Content-Type' header.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getContentType()
+    public function getContentType(): ?FHIRCode
     {
         return $this->contentType;
     }
@@ -998,10 +1004,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The mime-type contents to compare against the request or response message
      * 'Content-Type' header.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $contentType
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $contentType
      * @return static
      */
-    public function setContentType($contentType = null)
+    public function setContentType($contentType = null): object
     {
         if (null !== $contentType && !($contentType instanceof FHIRCode)) {
             $contentType = new FHIRCode($contentType);
@@ -1019,9 +1025,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The FHIRPath expression to be evaluated against the request or response message
      * contents - HTTP headers and payload.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getExpression()
+    public function getExpression(): ?FHIRString
     {
         return $this->expression;
     }
@@ -1034,10 +1040,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The FHIRPath expression to be evaluated against the request or response message
      * contents - HTTP headers and payload.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $expression
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $expression
      * @return static
      */
-    public function setExpression($expression = null)
+    public function setExpression($expression = null): object
     {
         if (null !== $expression && !($expression instanceof FHIRString)) {
             $expression = new FHIRString($expression);
@@ -1054,9 +1060,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The HTTP header field name e.g. 'Location'.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getHeaderField()
+    public function getHeaderField(): ?FHIRString
     {
         return $this->headerField;
     }
@@ -1068,10 +1074,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The HTTP header field name e.g. 'Location'.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $headerField
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $headerField
      * @return static
      */
-    public function setHeaderField($headerField = null)
+    public function setHeaderField($headerField = null): object
     {
         if (null !== $headerField && !($headerField instanceof FHIRString)) {
             $headerField = new FHIRString($headerField);
@@ -1089,9 +1095,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The ID of a fixture. Asserts that the response contains at a minimum the fixture
      * specified by minimumId.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getMinimumId()
+    public function getMinimumId(): ?FHIRString
     {
         return $this->minimumId;
     }
@@ -1104,10 +1110,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The ID of a fixture. Asserts that the response contains at a minimum the fixture
      * specified by minimumId.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $minimumId
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $minimumId
      * @return static
      */
-    public function setMinimumId($minimumId = null)
+    public function setMinimumId($minimumId = null): object
     {
         if (null !== $minimumId && !($minimumId instanceof FHIRString)) {
             $minimumId = new FHIRString($minimumId);
@@ -1124,9 +1130,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution performs validation on the bundle navigation
      * links.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getNavigationLinks()
+    public function getNavigationLinks(): ?FHIRBoolean
     {
         return $this->navigationLinks;
     }
@@ -1138,10 +1144,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution performs validation on the bundle navigation
      * links.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $navigationLinks
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $navigationLinks
      * @return static
      */
-    public function setNavigationLinks($navigationLinks = null)
+    public function setNavigationLinks($navigationLinks = null): object
     {
         if (null !== $navigationLinks && !($navigationLinks instanceof FHIRBoolean)) {
             $navigationLinks = new FHIRBoolean($navigationLinks);
@@ -1160,7 +1166,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionOperatorType
      */
-    public function getOperator()
+    public function getOperator(): ?FHIRAssertionOperatorType
     {
         return $this->operator;
     }
@@ -1175,7 +1181,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionOperatorType $operator
      * @return static
      */
-    public function setOperator(FHIRAssertionOperatorType $operator = null)
+    public function setOperator(?FHIRAssertionOperatorType $operator = null): object
     {
         $this->_trackValueSet($this->operator, $operator);
         $this->operator = $operator;
@@ -1190,9 +1196,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The XPath or JSONPath expression to be evaluated against the fixture
      * representing the response received from server.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPath()
+    public function getPath(): ?FHIRString
     {
         return $this->path;
     }
@@ -1205,10 +1211,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * The XPath or JSONPath expression to be evaluated against the fixture
      * representing the response received from server.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $path
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $path
      * @return static
      */
-    public function setPath($path = null)
+    public function setPath($path = null): object
     {
         if (null !== $path && !($path instanceof FHIRString)) {
             $path = new FHIRString($path);
@@ -1227,7 +1233,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRTestScriptRequestMethodCode
      */
-    public function getRequestMethod()
+    public function getRequestMethod(): ?FHIRTestScriptRequestMethodCode
     {
         return $this->requestMethod;
     }
@@ -1242,7 +1248,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRTestScriptRequestMethodCode $requestMethod
      * @return static
      */
-    public function setRequestMethod(FHIRTestScriptRequestMethodCode $requestMethod = null)
+    public function setRequestMethod(?FHIRTestScriptRequestMethodCode $requestMethod = null): object
     {
         $this->_trackValueSet($this->requestMethod, $requestMethod);
         $this->requestMethod = $requestMethod;
@@ -1256,9 +1262,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to use in a comparison against the request URL path string.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getRequestURL()
+    public function getRequestURL(): ?FHIRString
     {
         return $this->requestURL;
     }
@@ -1270,10 +1276,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to use in a comparison against the request URL path string.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $requestURL
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $requestURL
      * @return static
      */
-    public function setRequestURL($requestURL = null)
+    public function setRequestURL($requestURL = null): object
     {
         if (null !== $requestURL && !($requestURL instanceof FHIRString)) {
             $requestURL = new FHIRString($requestURL);
@@ -1291,9 +1297,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The type of the resource. See http://build.fhir.org/resourcelist.html.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getResource()
+    public function getResource(): ?FHIRCode
     {
         return $this->resource;
     }
@@ -1306,10 +1312,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The type of the resource. See http://build.fhir.org/resourcelist.html.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $resource
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $resource
      * @return static
      */
-    public function setResource($resource = null)
+    public function setResource($resource = null): object
     {
         if (null !== $resource && !($resource instanceof FHIRCode)) {
             $resource = new FHIRCode($resource);
@@ -1328,7 +1334,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionResponseTypes
      */
-    public function getResponse()
+    public function getResponse(): ?FHIRAssertionResponseTypes
     {
         return $this->response;
     }
@@ -1343,7 +1349,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAssertionResponseTypes $response
      * @return static
      */
-    public function setResponse(FHIRAssertionResponseTypes $response = null)
+    public function setResponse(?FHIRAssertionResponseTypes $response = null): object
     {
         $this->_trackValueSet($this->response, $response);
         $this->response = $response;
@@ -1357,9 +1363,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value of the HTTP response code to be tested.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getResponseCode()
+    public function getResponseCode(): ?FHIRString
     {
         return $this->responseCode;
     }
@@ -1371,10 +1377,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value of the HTTP response code to be tested.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $responseCode
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $responseCode
      * @return static
      */
-    public function setResponseCode($responseCode = null)
+    public function setResponseCode($responseCode = null): object
     {
         if (null !== $responseCode && !($responseCode instanceof FHIRString)) {
             $responseCode = new FHIRString($responseCode);
@@ -1394,9 +1400,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * Fixture to evaluate the XPath/JSONPath expression or the headerField against.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getSourceId()
+    public function getSourceId(): ?FHIRId
     {
         return $this->sourceId;
     }
@@ -1411,10 +1417,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * Fixture to evaluate the XPath/JSONPath expression or the headerField against.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $sourceId
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $sourceId
      * @return static
      */
-    public function setSourceId($sourceId = null)
+    public function setSourceId($sourceId = null): object
     {
         if (null !== $sourceId && !($sourceId instanceof FHIRId)) {
             $sourceId = new FHIRId($sourceId);
@@ -1434,9 +1440,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The ID of the Profile to validate against.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRId
+     * @return null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId
      */
-    public function getValidateProfileId()
+    public function getValidateProfileId(): ?FHIRId
     {
         return $this->validateProfileId;
     }
@@ -1451,10 +1457,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The ID of the Profile to validate against.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRId $validateProfileId
+     * @param null|\HL7\FHIR\R4\FHIRIdPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRId $validateProfileId
      * @return static
      */
-    public function setValidateProfileId($validateProfileId = null)
+    public function setValidateProfileId($validateProfileId = null): object
     {
         if (null !== $validateProfileId && !($validateProfileId instanceof FHIRId)) {
             $validateProfileId = new FHIRId($validateProfileId);
@@ -1471,9 +1477,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to compare to.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getValue()
+    public function getValue(): ?FHIRString
     {
         return $this->value;
     }
@@ -1485,10 +1491,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      *
      * The value to compare to.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $value
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null !== $value && !($value instanceof FHIRString)) {
             $value = new FHIRString($value);
@@ -1505,9 +1511,9 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution will produce a warning only on error for this
      * assert.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getWarningOnly()
+    public function getWarningOnly(): ?FHIRBoolean
     {
         return $this->warningOnly;
     }
@@ -1519,10 +1525,10 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * Whether or not the test execution will produce a warning only on error for this
      * assert.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $warningOnly
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $warningOnly
      * @return static
      */
-    public function setWarningOnly($warningOnly = null)
+    public function setWarningOnly($warningOnly = null): object
     {
         if (null !== $warningOnly && !($warningOnly instanceof FHIRBoolean)) {
             $warningOnly = new FHIRBoolean($warningOnly);
@@ -1972,15 +1978,15 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAssert
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRTestScript\FHIRTestScriptAssert    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRTestScriptAssert::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2000,7 +2006,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2236,7 +2242,7 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2359,231 +2365,234 @@ class FHIRTestScriptAssert extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getLabel())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LABEL] = $val;
+                $out->{self::FIELD_LABEL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LABEL_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LABEL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDirection())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DIRECTION] = $val;
+                $out->{self::FIELD_DIRECTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAssertionDirectionType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DIRECTION_EXT] = $ext;
+            unset($ext->{FHIRAssertionDirectionType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DIRECTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCompareToSourceId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_ID] = $val;
+                $out->{self::FIELD_COMPARE_TO_SOURCE_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMPARE_TO_SOURCE_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCompareToSourceExpression())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION] = $val;
+                $out->{self::FIELD_COMPARE_TO_SOURCE_EXPRESSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMPARE_TO_SOURCE_EXPRESSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCompareToSourcePath())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_PATH] = $val;
+                $out->{self::FIELD_COMPARE_TO_SOURCE_PATH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMPARE_TO_SOURCE_PATH_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMPARE_TO_SOURCE_PATH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getContentType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CONTENT_TYPE] = $val;
+                $out->{self::FIELD_CONTENT_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CONTENT_TYPE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CONTENT_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getExpression())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_EXPRESSION] = $val;
+                $out->{self::FIELD_EXPRESSION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_EXPRESSION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPRESSION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getHeaderField())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_HEADER_FIELD] = $val;
+                $out->{self::FIELD_HEADER_FIELD} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_HEADER_FIELD_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_HEADER_FIELD_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMinimumId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MINIMUM_ID] = $val;
+                $out->{self::FIELD_MINIMUM_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MINIMUM_ID_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MINIMUM_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getNavigationLinks())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAVIGATION_LINKS] = $val;
+                $out->{self::FIELD_NAVIGATION_LINKS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAVIGATION_LINKS_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAVIGATION_LINKS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOperator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_OPERATOR] = $val;
+                $out->{self::FIELD_OPERATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAssertionOperatorType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_OPERATOR_EXT] = $ext;
+            unset($ext->{FHIRAssertionOperatorType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_OPERATOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPath())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PATH] = $val;
+                $out->{self::FIELD_PATH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PATH_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRequestMethod())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REQUEST_METHOD] = $val;
+                $out->{self::FIELD_REQUEST_METHOD} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRTestScriptRequestMethodCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REQUEST_METHOD_EXT] = $ext;
+            unset($ext->{FHIRTestScriptRequestMethodCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REQUEST_METHOD_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRequestURL())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_REQUEST_URL] = $val;
+                $out->{self::FIELD_REQUEST_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_REQUEST_URL_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_REQUEST_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResource())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESOURCE] = $val;
+                $out->{self::FIELD_RESOURCE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESOURCE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESOURCE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResponse())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESPONSE] = $val;
+                $out->{self::FIELD_RESPONSE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAssertionResponseTypes::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESPONSE_EXT] = $ext;
+            unset($ext->{FHIRAssertionResponseTypes::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESPONSE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResponseCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RESPONSE_CODE] = $val;
+                $out->{self::FIELD_RESPONSE_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RESPONSE_CODE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RESPONSE_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSourceId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE_ID] = $val;
+                $out->{self::FIELD_SOURCE_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValidateProfileId())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALIDATE_PROFILE_ID] = $val;
+                $out->{self::FIELD_VALIDATE_PROFILE_ID} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRId::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALIDATE_PROFILE_ID_EXT] = $ext;
+            unset($ext->{FHIRId::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALIDATE_PROFILE_ID_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getValue())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_VALUE] = $val;
+                $out->{self::FIELD_VALUE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_VALUE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_VALUE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWarningOnly())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WARNING_ONLY] = $val;
+                $out->{self::FIELD_WARNING_ONLY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WARNING_ONLY_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WARNING_ONLY_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

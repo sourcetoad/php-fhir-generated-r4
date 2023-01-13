@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -118,7 +118,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sequenceType = null;
+    protected ?FHIRCodeableConcept $sequenceType = null;
 
     /**
      * A whole number
@@ -129,9 +129,9 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * number of subunits constituting the SubstanceProtein shall be described. It is
      * possible that the number of subunits can be variable.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @var null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    protected $numberOfSubunits = null;
+    protected ?FHIRInteger $numberOfSubunits = null;
 
     /**
      * A sequence of Unicode characters
@@ -145,9 +145,9 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * acids involved. The disulfide linkage positions shall actually contain the amino
      * acid Cysteine at the respective positions.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $disulfideLinkage = [];
+    protected ?array $disulfideLinkage = [];
 
     /**
      * A SubstanceProtein is defined as a single unit of a linear amino acid sequence,
@@ -170,13 +170,13 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit[]
      */
-    protected $subunit = [];
+    protected ?array $subunit = [];
 
     /**
      * Validation map for fields in type SubstanceProtein
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRSubstanceProtein Constructor
@@ -202,8 +202,8 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_NUMBER_OF_SUBUNITS]) || isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER_OF_SUBUNITS]) ? $data[self::FIELD_NUMBER_OF_SUBUNITS] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) ? $ext = $data[self::FIELD_NUMBER_OF_SUBUNITS_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER_OF_SUBUNITS] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT]) && is_array($data[self::FIELD_NUMBER_OF_SUBUNITS_EXT])) ? $data[self::FIELD_NUMBER_OF_SUBUNITS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInteger) {
                     $this->setNumberOfSubunits($value);
@@ -217,8 +217,8 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
             }
         }
         if (isset($data[self::FIELD_DISULFIDE_LINKAGE]) || isset($data[self::FIELD_DISULFIDE_LINKAGE_EXT])) {
-            $value = isset($data[self::FIELD_DISULFIDE_LINKAGE]) ? $data[self::FIELD_DISULFIDE_LINKAGE] : null;
-            $ext = (isset($data[self::FIELD_DISULFIDE_LINKAGE_EXT]) && is_array($data[self::FIELD_DISULFIDE_LINKAGE_EXT])) ? $ext = $data[self::FIELD_DISULFIDE_LINKAGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DISULFIDE_LINKAGE] ?? null;
+            $ext = (isset($data[self::FIELD_DISULFIDE_LINKAGE_EXT]) && is_array($data[self::FIELD_DISULFIDE_LINKAGE_EXT])) ? $data[self::FIELD_DISULFIDE_LINKAGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addDisulfideLinkage($value);
@@ -266,11 +266,17 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -279,6 +285,9 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
         }
         return "<SubstanceProtein{$xmlns}></SubstanceProtein>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -297,7 +306,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSequenceType()
+    public function getSequenceType(): ?FHIRCodeableConcept
     {
         return $this->sequenceType;
     }
@@ -315,7 +324,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sequenceType
      * @return static
      */
-    public function setSequenceType(FHIRCodeableConcept $sequenceType = null)
+    public function setSequenceType(?FHIRCodeableConcept $sequenceType = null): object
     {
         $this->_trackValueSet($this->sequenceType, $sequenceType);
         $this->sequenceType = $sequenceType;
@@ -331,9 +340,9 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * number of subunits constituting the SubstanceProtein shall be described. It is
      * possible that the number of subunits can be variable.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInteger
+     * @return null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger
      */
-    public function getNumberOfSubunits()
+    public function getNumberOfSubunits(): ?FHIRInteger
     {
         return $this->numberOfSubunits;
     }
@@ -347,10 +356,10 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * number of subunits constituting the SubstanceProtein shall be described. It is
      * possible that the number of subunits can be variable.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfSubunits
+     * @param null|\HL7\FHIR\R4\FHIRIntegerPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInteger $numberOfSubunits
      * @return static
      */
-    public function setNumberOfSubunits($numberOfSubunits = null)
+    public function setNumberOfSubunits($numberOfSubunits = null): object
     {
         if (null !== $numberOfSubunits && !($numberOfSubunits instanceof FHIRInteger)) {
             $numberOfSubunits = new FHIRInteger($numberOfSubunits);
@@ -372,9 +381,9 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * acids involved. The disulfide linkage positions shall actually contain the amino
      * acid Cysteine at the respective positions.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getDisulfideLinkage()
+    public function getDisulfideLinkage(): ?array
     {
         return $this->disulfideLinkage;
     }
@@ -391,10 +400,10 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * acids involved. The disulfide linkage positions shall actually contain the amino
      * acid Cysteine at the respective positions.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $disulfideLinkage
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $disulfideLinkage
      * @return static
      */
-    public function addDisulfideLinkage($disulfideLinkage = null)
+    public function addDisulfideLinkage($disulfideLinkage = null): object
     {
         if (null !== $disulfideLinkage && !($disulfideLinkage instanceof FHIRString)) {
             $disulfideLinkage = new FHIRString($disulfideLinkage);
@@ -419,7 +428,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $disulfideLinkage
      * @return static
      */
-    public function setDisulfideLinkage(array $disulfideLinkage = [])
+    public function setDisulfideLinkage(array $disulfideLinkage = []): object
     {
         if ([] !== $this->disulfideLinkage) {
             $this->_trackValuesRemoved(count($this->disulfideLinkage));
@@ -459,7 +468,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit[]
      */
-    public function getSubunit()
+    public function getSubunit(): ?array
     {
         return $this->subunit;
     }
@@ -486,7 +495,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit $subunit
      * @return static
      */
-    public function addSubunit(FHIRSubstanceProteinSubunit $subunit = null)
+    public function addSubunit(?FHIRSubstanceProteinSubunit $subunit = null): object
     {
         $this->_trackValueAdded();
         $this->subunit[] = $subunit;
@@ -515,7 +524,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRSubstanceProtein\FHIRSubstanceProteinSubunit[] $subunit
      * @return static
      */
-    public function setSubunit(array $subunit = [])
+    public function setSubunit(array $subunit = []): object
     {
         if ([] !== $this->subunit) {
             $this->_trackValuesRemoved(count($this->subunit));
@@ -732,15 +741,15 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceProtein
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRSubstanceProtein    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSubstanceProtein::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -760,7 +769,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -849,7 +858,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -892,21 +901,23 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSequenceType())) {
-            $a[self::FIELD_SEQUENCE_TYPE] = $v;
+            $out->{self::FIELD_SEQUENCE_TYPE} = $v;
         }
         if (null !== ($v = $this->getNumberOfSubunits())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER_OF_SUBUNITS] = $val;
+                $out->{self::FIELD_NUMBER_OF_SUBUNITS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInteger::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_OF_SUBUNITS_EXT] = $ext;
+            unset($ext->{FHIRInteger::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_OF_SUBUNITS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getDisulfideLinkage())) {
@@ -918,7 +929,7 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -927,22 +938,25 @@ class FHIRSubstanceProtein extends FHIRDomainResource implements PHPFHIRContaine
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_DISULFIDE_LINKAGE] = $vals;
+                $out->{self::FIELD_DISULFIDE_LINKAGE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_DISULFIDE_LINKAGE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DISULFIDE_LINKAGE_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getSubunit())) {
-            $a[self::FIELD_SUBUNIT] = [];
+            $out->{self::FIELD_SUBUNIT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUBUNIT][] = $v;
+                $out->{self::FIELD_SUBUNIT}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

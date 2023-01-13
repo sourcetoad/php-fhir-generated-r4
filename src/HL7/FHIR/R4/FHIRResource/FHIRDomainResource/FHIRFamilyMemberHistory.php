@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -154,7 +154,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -165,9 +165,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The URL pointing to a FHIR-defined protocol, guideline, orderset or other
      * definition that is adhered to in whole or in part by this FamilyMemberHistory.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $instantiatesCanonical = [];
+    protected ?array $instantiatesCanonical = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -178,9 +178,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * other definition that is adhered to in whole or in part by this
      * FamilyMemberHistory.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    protected $instantiatesUri = [];
+    protected ?array $instantiatesUri = [];
 
     /**
      * A code that identifies the status of the family history record.
@@ -191,7 +191,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRFamilyHistoryStatus
      */
-    protected $status = null;
+    protected ?FHIRFamilyHistoryStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -203,7 +203,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $dataAbsentReason = null;
+    protected ?FHIRCodeableConcept $dataAbsentReason = null;
 
     /**
      * A reference from one resource to another.
@@ -214,7 +214,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $patient = null;
+    protected ?FHIRReference $patient = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -227,9 +227,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The date (and possibly time) when the family member history was recorded or last
      * updated.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $date = null;
+    protected ?FHIRDateTime $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -239,9 +239,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with
      * the red hair".
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -254,7 +254,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $relationship = null;
+    protected ?FHIRCodeableConcept $relationship = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -266,7 +266,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $sex = null;
+    protected ?FHIRCodeableConcept $sex = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -277,7 +277,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $bornPeriod = null;
+    protected ?FHIRPeriod $bornPeriod = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -287,9 +287,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $bornDate = null;
+    protected ?FHIRDate $bornDate = null;
 
     /**
      * A sequence of Unicode characters
@@ -298,9 +298,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $bornString = null;
+    protected ?FHIRString $bornString = null;
 
     /**
      * A duration of time during which an organism (or a process) has existed.
@@ -311,7 +311,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    protected $ageAge = null;
+    protected ?FHIRAge $ageAge = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -322,7 +322,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $ageRange = null;
+    protected ?FHIRRange $ageRange = null;
 
     /**
      * A sequence of Unicode characters
@@ -331,9 +331,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The age of the relative at the time the family member history is recorded.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $ageString = null;
+    protected ?FHIRString $ageString = null;
 
     /**
      * Value of "true" or "false"
@@ -341,9 +341,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * If true, indicates that the age value specified is an estimated value.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $estimatedAge = null;
+    protected ?FHIRBoolean $estimatedAge = null;
 
     /**
      * Value of "true" or "false"
@@ -352,9 +352,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $deceasedBoolean = null;
+    protected ?FHIRBoolean $deceasedBoolean = null;
 
     /**
      * A duration of time during which an organism (or a process) has existed.
@@ -366,7 +366,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    protected $deceasedAge = null;
+    protected ?FHIRAge $deceasedAge = null;
 
     /**
      * A set of ordered Quantities defined by a low and high limit.
@@ -378,7 +378,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    protected $deceasedRange = null;
+    protected ?FHIRRange $deceasedRange = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -389,9 +389,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $deceasedDate = null;
+    protected ?FHIRDate $deceasedDate = null;
 
     /**
      * A sequence of Unicode characters
@@ -401,9 +401,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $deceasedString = null;
+    protected ?FHIRString $deceasedString = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -415,7 +415,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -427,7 +427,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * A text note which also contains information about who made the statement and
@@ -441,7 +441,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Significant health conditions for a person related to the patient relevant in
@@ -454,13 +454,13 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRFamilyMemberHistory\FHIRFamilyMemberHistoryCondition[]
      */
-    protected $condition = [];
+    protected ?array $condition = [];
 
     /**
      * Validation map for fields in type FamilyMemberHistory
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRFamilyMemberHistory Constructor
@@ -497,8 +497,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES_CANONICAL]) || isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES_CANONICAL]) ? $data[self::FIELD_INSTANTIATES_CANONICAL] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT]) && is_array($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_CANONICAL_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES_CANONICAL] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_CANONICAL_EXT]) && is_array($data[self::FIELD_INSTANTIATES_CANONICAL_EXT])) ? $data[self::FIELD_INSTANTIATES_CANONICAL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addInstantiatesCanonical($value);
@@ -527,8 +527,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_INSTANTIATES_URI]) || isset($data[self::FIELD_INSTANTIATES_URI_EXT])) {
-            $value = isset($data[self::FIELD_INSTANTIATES_URI]) ? $data[self::FIELD_INSTANTIATES_URI] : null;
-            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $ext = $data[self::FIELD_INSTANTIATES_URI_EXT] : $ext = [];
+            $value = $data[self::FIELD_INSTANTIATES_URI] ?? null;
+            $ext = (isset($data[self::FIELD_INSTANTIATES_URI_EXT]) && is_array($data[self::FIELD_INSTANTIATES_URI_EXT])) ? $data[self::FIELD_INSTANTIATES_URI_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->addInstantiatesUri($value);
@@ -557,8 +557,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRFamilyHistoryStatus) {
                     $this->setStatus($value);
@@ -586,8 +586,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setDate($value);
@@ -601,8 +601,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -637,8 +637,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_BORN_DATE]) || isset($data[self::FIELD_BORN_DATE_EXT])) {
-            $value = isset($data[self::FIELD_BORN_DATE]) ? $data[self::FIELD_BORN_DATE] : null;
-            $ext = (isset($data[self::FIELD_BORN_DATE_EXT]) && is_array($data[self::FIELD_BORN_DATE_EXT])) ? $ext = $data[self::FIELD_BORN_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_BORN_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_BORN_DATE_EXT]) && is_array($data[self::FIELD_BORN_DATE_EXT])) ? $data[self::FIELD_BORN_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setBornDate($value);
@@ -652,8 +652,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_BORN_STRING]) || isset($data[self::FIELD_BORN_STRING_EXT])) {
-            $value = isset($data[self::FIELD_BORN_STRING]) ? $data[self::FIELD_BORN_STRING] : null;
-            $ext = (isset($data[self::FIELD_BORN_STRING_EXT]) && is_array($data[self::FIELD_BORN_STRING_EXT])) ? $ext = $data[self::FIELD_BORN_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_BORN_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_BORN_STRING_EXT]) && is_array($data[self::FIELD_BORN_STRING_EXT])) ? $data[self::FIELD_BORN_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setBornString($value);
@@ -681,8 +681,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_AGE_STRING]) || isset($data[self::FIELD_AGE_STRING_EXT])) {
-            $value = isset($data[self::FIELD_AGE_STRING]) ? $data[self::FIELD_AGE_STRING] : null;
-            $ext = (isset($data[self::FIELD_AGE_STRING_EXT]) && is_array($data[self::FIELD_AGE_STRING_EXT])) ? $ext = $data[self::FIELD_AGE_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_AGE_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_AGE_STRING_EXT]) && is_array($data[self::FIELD_AGE_STRING_EXT])) ? $data[self::FIELD_AGE_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setAgeString($value);
@@ -696,8 +696,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_ESTIMATED_AGE]) || isset($data[self::FIELD_ESTIMATED_AGE_EXT])) {
-            $value = isset($data[self::FIELD_ESTIMATED_AGE]) ? $data[self::FIELD_ESTIMATED_AGE] : null;
-            $ext = (isset($data[self::FIELD_ESTIMATED_AGE_EXT]) && is_array($data[self::FIELD_ESTIMATED_AGE_EXT])) ? $ext = $data[self::FIELD_ESTIMATED_AGE_EXT] : $ext = [];
+            $value = $data[self::FIELD_ESTIMATED_AGE] ?? null;
+            $ext = (isset($data[self::FIELD_ESTIMATED_AGE_EXT]) && is_array($data[self::FIELD_ESTIMATED_AGE_EXT])) ? $data[self::FIELD_ESTIMATED_AGE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setEstimatedAge($value);
@@ -711,8 +711,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DECEASED_BOOLEAN]) || isset($data[self::FIELD_DECEASED_BOOLEAN_EXT])) {
-            $value = isset($data[self::FIELD_DECEASED_BOOLEAN]) ? $data[self::FIELD_DECEASED_BOOLEAN] : null;
-            $ext = (isset($data[self::FIELD_DECEASED_BOOLEAN_EXT]) && is_array($data[self::FIELD_DECEASED_BOOLEAN_EXT])) ? $ext = $data[self::FIELD_DECEASED_BOOLEAN_EXT] : $ext = [];
+            $value = $data[self::FIELD_DECEASED_BOOLEAN] ?? null;
+            $ext = (isset($data[self::FIELD_DECEASED_BOOLEAN_EXT]) && is_array($data[self::FIELD_DECEASED_BOOLEAN_EXT])) ? $data[self::FIELD_DECEASED_BOOLEAN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setDeceasedBoolean($value);
@@ -740,8 +740,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DECEASED_DATE]) || isset($data[self::FIELD_DECEASED_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DECEASED_DATE]) ? $data[self::FIELD_DECEASED_DATE] : null;
-            $ext = (isset($data[self::FIELD_DECEASED_DATE_EXT]) && is_array($data[self::FIELD_DECEASED_DATE_EXT])) ? $ext = $data[self::FIELD_DECEASED_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DECEASED_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DECEASED_DATE_EXT]) && is_array($data[self::FIELD_DECEASED_DATE_EXT])) ? $data[self::FIELD_DECEASED_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setDeceasedDate($value);
@@ -755,8 +755,8 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
             }
         }
         if (isset($data[self::FIELD_DECEASED_STRING]) || isset($data[self::FIELD_DECEASED_STRING_EXT])) {
-            $value = isset($data[self::FIELD_DECEASED_STRING]) ? $data[self::FIELD_DECEASED_STRING] : null;
-            $ext = (isset($data[self::FIELD_DECEASED_STRING_EXT]) && is_array($data[self::FIELD_DECEASED_STRING_EXT])) ? $ext = $data[self::FIELD_DECEASED_STRING_EXT] : $ext = [];
+            $value = $data[self::FIELD_DECEASED_STRING] ?? null;
+            $ext = (isset($data[self::FIELD_DECEASED_STRING_EXT]) && is_array($data[self::FIELD_DECEASED_STRING_EXT])) ? $data[self::FIELD_DECEASED_STRING_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDeceasedString($value);
@@ -843,11 +843,17 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -856,6 +862,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
         }
         return "<FamilyMemberHistory{$xmlns}></FamilyMemberHistory>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -874,7 +883,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -892,7 +901,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -912,7 +921,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -940,9 +949,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The URL pointing to a FHIR-defined protocol, guideline, orderset or other
      * definition that is adhered to in whole or in part by this FamilyMemberHistory.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getInstantiatesCanonical()
+    public function getInstantiatesCanonical(): ?array
     {
         return $this->instantiatesCanonical;
     }
@@ -956,10 +965,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The URL pointing to a FHIR-defined protocol, guideline, orderset or other
      * definition that is adhered to in whole or in part by this FamilyMemberHistory.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $instantiatesCanonical
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiatesCanonical
      * @return static
      */
-    public function addInstantiatesCanonical($instantiatesCanonical = null)
+    public function addInstantiatesCanonical($instantiatesCanonical = null): object
     {
         if (null !== $instantiatesCanonical && !($instantiatesCanonical instanceof FHIRCanonical)) {
             $instantiatesCanonical = new FHIRCanonical($instantiatesCanonical);
@@ -981,7 +990,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $instantiatesCanonical
      * @return static
      */
-    public function setInstantiatesCanonical(array $instantiatesCanonical = [])
+    public function setInstantiatesCanonical(array $instantiatesCanonical = []): object
     {
         if ([] !== $this->instantiatesCanonical) {
             $this->_trackValuesRemoved(count($this->instantiatesCanonical));
@@ -1009,9 +1018,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * other definition that is adhered to in whole or in part by this
      * FamilyMemberHistory.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[]
      */
-    public function getInstantiatesUri()
+    public function getInstantiatesUri(): ?array
     {
         return $this->instantiatesUri;
     }
@@ -1025,10 +1034,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * other definition that is adhered to in whole or in part by this
      * FamilyMemberHistory.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $instantiatesUri
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiatesUri
      * @return static
      */
-    public function addInstantiatesUri($instantiatesUri = null)
+    public function addInstantiatesUri($instantiatesUri = null): object
     {
         if (null !== $instantiatesUri && !($instantiatesUri instanceof FHIRUri)) {
             $instantiatesUri = new FHIRUri($instantiatesUri);
@@ -1050,7 +1059,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRUri[] $instantiatesUri
      * @return static
      */
-    public function setInstantiatesUri(array $instantiatesUri = [])
+    public function setInstantiatesUri(array $instantiatesUri = []): object
     {
         if ([] !== $this->instantiatesUri) {
             $this->_trackValuesRemoved(count($this->instantiatesUri));
@@ -1078,7 +1087,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRFamilyHistoryStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRFamilyHistoryStatus
     {
         return $this->status;
     }
@@ -1093,7 +1102,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRFamilyHistoryStatus $status
      * @return static
      */
-    public function setStatus(FHIRFamilyHistoryStatus $status = null)
+    public function setStatus(?FHIRFamilyHistoryStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -1110,7 +1119,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDataAbsentReason()
+    public function getDataAbsentReason(): ?FHIRCodeableConcept
     {
         return $this->dataAbsentReason;
     }
@@ -1126,7 +1135,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $dataAbsentReason
      * @return static
      */
-    public function setDataAbsentReason(FHIRCodeableConcept $dataAbsentReason = null)
+    public function setDataAbsentReason(?FHIRCodeableConcept $dataAbsentReason = null): object
     {
         $this->_trackValueSet($this->dataAbsentReason, $dataAbsentReason);
         $this->dataAbsentReason = $dataAbsentReason;
@@ -1142,7 +1151,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getPatient()
+    public function getPatient(): ?FHIRReference
     {
         return $this->patient;
     }
@@ -1157,7 +1166,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $patient
      * @return static
      */
-    public function setPatient(FHIRReference $patient = null)
+    public function setPatient(?FHIRReference $patient = null): object
     {
         $this->_trackValueSet($this->patient, $patient);
         $this->patient = $patient;
@@ -1175,9 +1184,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The date (and possibly time) when the family member history was recorded or last
      * updated.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getDate()
+    public function getDate(): ?FHIRDateTime
     {
         return $this->date;
     }
@@ -1193,10 +1202,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * The date (and possibly time) when the family member history was recorded or last
      * updated.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDateTime)) {
             $date = new FHIRDateTime($date);
@@ -1214,9 +1223,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with
      * the red hair".
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -1229,10 +1238,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with
      * the red hair".
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -1253,7 +1262,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getRelationship()
+    public function getRelationship(): ?FHIRCodeableConcept
     {
         return $this->relationship;
     }
@@ -1270,7 +1279,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $relationship
      * @return static
      */
-    public function setRelationship(FHIRCodeableConcept $relationship = null)
+    public function setRelationship(?FHIRCodeableConcept $relationship = null): object
     {
         $this->_trackValueSet($this->relationship, $relationship);
         $this->relationship = $relationship;
@@ -1287,7 +1296,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSex()
+    public function getSex(): ?FHIRCodeableConcept
     {
         return $this->sex;
     }
@@ -1303,7 +1312,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $sex
      * @return static
      */
-    public function setSex(FHIRCodeableConcept $sex = null)
+    public function setSex(?FHIRCodeableConcept $sex = null): object
     {
         $this->_trackValueSet($this->sex, $sex);
         $this->sex = $sex;
@@ -1319,7 +1328,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getBornPeriod()
+    public function getBornPeriod(): ?FHIRPeriod
     {
         return $this->bornPeriod;
     }
@@ -1334,7 +1343,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $bornPeriod
      * @return static
      */
-    public function setBornPeriod(FHIRPeriod $bornPeriod = null)
+    public function setBornPeriod(?FHIRPeriod $bornPeriod = null): object
     {
         $this->_trackValueSet($this->bornPeriod, $bornPeriod);
         $this->bornPeriod = $bornPeriod;
@@ -1349,9 +1358,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getBornDate()
+    public function getBornDate(): ?FHIRDate
     {
         return $this->bornDate;
     }
@@ -1364,10 +1373,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $bornDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $bornDate
      * @return static
      */
-    public function setBornDate($bornDate = null)
+    public function setBornDate($bornDate = null): object
     {
         if (null !== $bornDate && !($bornDate instanceof FHIRDate)) {
             $bornDate = new FHIRDate($bornDate);
@@ -1384,9 +1393,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getBornString()
+    public function getBornString(): ?FHIRString
     {
         return $this->bornString;
     }
@@ -1398,10 +1407,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The actual or approximate date of birth of the relative.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $bornString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $bornString
      * @return static
      */
-    public function setBornString($bornString = null)
+    public function setBornString($bornString = null): object
     {
         if (null !== $bornString && !($bornString instanceof FHIRString)) {
             $bornString = new FHIRString($bornString);
@@ -1420,7 +1429,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    public function getAgeAge()
+    public function getAgeAge(): ?FHIRAge
     {
         return $this->ageAge;
     }
@@ -1435,7 +1444,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge $ageAge
      * @return static
      */
-    public function setAgeAge(FHIRAge $ageAge = null)
+    public function setAgeAge(?FHIRAge $ageAge = null): object
     {
         $this->_trackValueSet($this->ageAge, $ageAge);
         $this->ageAge = $ageAge;
@@ -1451,7 +1460,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getAgeRange()
+    public function getAgeRange(): ?FHIRRange
     {
         return $this->ageRange;
     }
@@ -1466,7 +1475,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $ageRange
      * @return static
      */
-    public function setAgeRange(FHIRRange $ageRange = null)
+    public function setAgeRange(?FHIRRange $ageRange = null): object
     {
         $this->_trackValueSet($this->ageRange, $ageRange);
         $this->ageRange = $ageRange;
@@ -1480,9 +1489,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The age of the relative at the time the family member history is recorded.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getAgeString()
+    public function getAgeString(): ?FHIRString
     {
         return $this->ageString;
     }
@@ -1494,10 +1503,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * The age of the relative at the time the family member history is recorded.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $ageString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $ageString
      * @return static
      */
-    public function setAgeString($ageString = null)
+    public function setAgeString($ageString = null): object
     {
         if (null !== $ageString && !($ageString instanceof FHIRString)) {
             $ageString = new FHIRString($ageString);
@@ -1513,9 +1522,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * If true, indicates that the age value specified is an estimated value.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getEstimatedAge()
+    public function getEstimatedAge(): ?FHIRBoolean
     {
         return $this->estimatedAge;
     }
@@ -1526,10 +1535,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * If true, indicates that the age value specified is an estimated value.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $estimatedAge
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $estimatedAge
      * @return static
      */
-    public function setEstimatedAge($estimatedAge = null)
+    public function setEstimatedAge($estimatedAge = null): object
     {
         if (null !== $estimatedAge && !($estimatedAge instanceof FHIRBoolean)) {
             $estimatedAge = new FHIRBoolean($estimatedAge);
@@ -1546,9 +1555,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getDeceasedBoolean()
+    public function getDeceasedBoolean(): ?FHIRBoolean
     {
         return $this->deceasedBoolean;
     }
@@ -1560,10 +1569,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deceasedBoolean
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $deceasedBoolean
      * @return static
      */
-    public function setDeceasedBoolean($deceasedBoolean = null)
+    public function setDeceasedBoolean($deceasedBoolean = null): object
     {
         if (null !== $deceasedBoolean && !($deceasedBoolean instanceof FHIRBoolean)) {
             $deceasedBoolean = new FHIRBoolean($deceasedBoolean);
@@ -1583,7 +1592,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge
      */
-    public function getDeceasedAge()
+    public function getDeceasedAge(): ?FHIRAge
     {
         return $this->deceasedAge;
     }
@@ -1599,7 +1608,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRAge $deceasedAge
      * @return static
      */
-    public function setDeceasedAge(FHIRAge $deceasedAge = null)
+    public function setDeceasedAge(?FHIRAge $deceasedAge = null): object
     {
         $this->_trackValueSet($this->deceasedAge, $deceasedAge);
         $this->deceasedAge = $deceasedAge;
@@ -1616,7 +1625,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRange
      */
-    public function getDeceasedRange()
+    public function getDeceasedRange(): ?FHIRRange
     {
         return $this->deceasedRange;
     }
@@ -1632,7 +1641,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRange $deceasedRange
      * @return static
      */
-    public function setDeceasedRange(FHIRRange $deceasedRange = null)
+    public function setDeceasedRange(?FHIRRange $deceasedRange = null): object
     {
         $this->_trackValueSet($this->deceasedRange, $deceasedRange);
         $this->deceasedRange = $deceasedRange;
@@ -1648,9 +1657,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getDeceasedDate()
+    public function getDeceasedDate(): ?FHIRDate
     {
         return $this->deceasedDate;
     }
@@ -1664,10 +1673,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $deceasedDate
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $deceasedDate
      * @return static
      */
-    public function setDeceasedDate($deceasedDate = null)
+    public function setDeceasedDate($deceasedDate = null): object
     {
         if (null !== $deceasedDate && !($deceasedDate instanceof FHIRDate)) {
             $deceasedDate = new FHIRDate($deceasedDate);
@@ -1685,9 +1694,9 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDeceasedString()
+    public function getDeceasedString(): ?FHIRString
     {
         return $this->deceasedString;
     }
@@ -1700,10 +1709,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * Deceased flag or the actual or approximate age of the relative at the time of
      * death for the family member history record.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $deceasedString
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $deceasedString
      * @return static
      */
-    public function setDeceasedString($deceasedString = null)
+    public function setDeceasedString($deceasedString = null): object
     {
         if (null !== $deceasedString && !($deceasedString instanceof FHIRString)) {
             $deceasedString = new FHIRString($deceasedString);
@@ -1723,7 +1732,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1739,7 +1748,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1757,7 +1766,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1786,7 +1795,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1802,7 +1811,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1820,7 +1829,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1851,7 +1860,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1869,7 +1878,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1889,7 +1898,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -1919,7 +1928,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRFamilyMemberHistory\FHIRFamilyMemberHistoryCondition[]
      */
-    public function getCondition()
+    public function getCondition(): ?array
     {
         return $this->condition;
     }
@@ -1936,7 +1945,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRFamilyMemberHistory\FHIRFamilyMemberHistoryCondition $condition
      * @return static
      */
-    public function addCondition(FHIRFamilyMemberHistoryCondition $condition = null)
+    public function addCondition(?FHIRFamilyMemberHistoryCondition $condition = null): object
     {
         $this->_trackValueAdded();
         $this->condition[] = $condition;
@@ -1955,7 +1964,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRFamilyMemberHistory\FHIRFamilyMemberHistoryCondition[] $condition
      * @return static
      */
-    public function setCondition(array $condition = [])
+    public function setCondition(array $condition = []): object
     {
         if ([] !== $this->condition) {
             $this->_trackValuesRemoved(count($this->condition));
@@ -2556,15 +2565,15 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFamilyMemberHistory
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRFamilyMemberHistory    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRFamilyMemberHistory::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2584,7 +2593,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2798,7 +2807,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2976,17 +2985,19 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getInstantiatesCanonical())) {
@@ -2998,7 +3009,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3007,10 +3018,10 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES_CANONICAL] = $vals;
+                $out->{self::FIELD_INSTANTIATES_CANONICAL} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_CANONICAL_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_CANONICAL_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getInstantiatesUri())) {
@@ -3022,7 +3033,7 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRUri::FIELD_VALUE]);
+                unset($ext->{FHIRUri::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -3031,176 +3042,179 @@ class FHIRFamilyMemberHistory extends FHIRDomainResource implements PHPFHIRConta
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_INSTANTIATES_URI] = $vals;
+                $out->{self::FIELD_INSTANTIATES_URI} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_INSTANTIATES_URI_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INSTANTIATES_URI_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRFamilyHistoryStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRFamilyHistoryStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDataAbsentReason())) {
-            $a[self::FIELD_DATA_ABSENT_REASON] = $v;
+            $out->{self::FIELD_DATA_ABSENT_REASON} = $v;
         }
         if (null !== ($v = $this->getPatient())) {
-            $a[self::FIELD_PATIENT] = $v;
+            $out->{self::FIELD_PATIENT} = $v;
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRelationship())) {
-            $a[self::FIELD_RELATIONSHIP] = $v;
+            $out->{self::FIELD_RELATIONSHIP} = $v;
         }
         if (null !== ($v = $this->getSex())) {
-            $a[self::FIELD_SEX] = $v;
+            $out->{self::FIELD_SEX} = $v;
         }
         if (null !== ($v = $this->getBornPeriod())) {
-            $a[self::FIELD_BORN_PERIOD] = $v;
+            $out->{self::FIELD_BORN_PERIOD} = $v;
         }
         if (null !== ($v = $this->getBornDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_BORN_DATE] = $val;
+                $out->{self::FIELD_BORN_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_BORN_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BORN_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getBornString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_BORN_STRING] = $val;
+                $out->{self::FIELD_BORN_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_BORN_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_BORN_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getAgeAge())) {
-            $a[self::FIELD_AGE_AGE] = $v;
+            $out->{self::FIELD_AGE_AGE} = $v;
         }
         if (null !== ($v = $this->getAgeRange())) {
-            $a[self::FIELD_AGE_RANGE] = $v;
+            $out->{self::FIELD_AGE_RANGE} = $v;
         }
         if (null !== ($v = $this->getAgeString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_AGE_STRING] = $val;
+                $out->{self::FIELD_AGE_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_AGE_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_AGE_STRING_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getEstimatedAge())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ESTIMATED_AGE] = $val;
+                $out->{self::FIELD_ESTIMATED_AGE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ESTIMATED_AGE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ESTIMATED_AGE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDeceasedBoolean())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DECEASED_BOOLEAN] = $val;
+                $out->{self::FIELD_DECEASED_BOOLEAN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DECEASED_BOOLEAN_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DECEASED_BOOLEAN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDeceasedAge())) {
-            $a[self::FIELD_DECEASED_AGE] = $v;
+            $out->{self::FIELD_DECEASED_AGE} = $v;
         }
         if (null !== ($v = $this->getDeceasedRange())) {
-            $a[self::FIELD_DECEASED_RANGE] = $v;
+            $out->{self::FIELD_DECEASED_RANGE} = $v;
         }
         if (null !== ($v = $this->getDeceasedDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DECEASED_DATE] = $val;
+                $out->{self::FIELD_DECEASED_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DECEASED_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DECEASED_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDeceasedString())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DECEASED_STRING] = $val;
+                $out->{self::FIELD_DECEASED_STRING} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DECEASED_STRING_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DECEASED_STRING_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getCondition())) {
-            $a[self::FIELD_CONDITION] = [];
+            $out->{self::FIELD_CONDITION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CONDITION][] = $v;
+                $out->{self::FIELD_CONDITION}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,9 +110,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The sequential number of the interaction, e.g. 1.2.5.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $number = null;
+    protected ?FHIRString $number = null;
 
     /**
      * A sequence of Unicode characters
@@ -121,9 +121,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The type of operation - CRUD.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $type = null;
+    protected ?FHIRString $type = null;
 
     /**
      * A sequence of Unicode characters
@@ -132,9 +132,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The human-friendly name of the interaction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $name = null;
+    protected ?FHIRString $name = null;
 
     /**
      * A sequence of Unicode characters
@@ -143,9 +143,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who starts the transaction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $initiator = null;
+    protected ?FHIRString $initiator = null;
 
     /**
      * A sequence of Unicode characters
@@ -154,9 +154,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who receives the transaction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $receiver = null;
+    protected ?FHIRString $receiver = null;
 
     /**
      * A string that may contain Github Flavored Markdown syntax for optional
@@ -169,9 +169,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * A comment to be inserted in the diagram.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @var null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    protected $description = null;
+    protected ?FHIRMarkdown $description = null;
 
     /**
      * Value of "true" or "false"
@@ -179,9 +179,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the initiator is deactivated right after the transaction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $initiatorActive = null;
+    protected ?FHIRBoolean $initiatorActive = null;
 
     /**
      * Value of "true" or "false"
@@ -189,9 +189,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the receiver is deactivated right after the transaction.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @var null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    protected $receiverActive = null;
+    protected ?FHIRBoolean $receiverActive = null;
 
     /**
      * Example of workflow instance.
@@ -200,7 +200,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance
      */
-    protected $request = null;
+    protected ?FHIRExampleScenarioContainedInstance $request = null;
 
     /**
      * Example of workflow instance.
@@ -209,13 +209,13 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance
      */
-    protected $response = null;
+    protected ?FHIRExampleScenarioContainedInstance $response = null;
 
     /**
      * Validation map for fields in type ExampleScenario.Operation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRExampleScenarioOperation Constructor
@@ -234,8 +234,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_NUMBER]) || isset($data[self::FIELD_NUMBER_EXT])) {
-            $value = isset($data[self::FIELD_NUMBER]) ? $data[self::FIELD_NUMBER] : null;
-            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $ext = $data[self::FIELD_NUMBER_EXT] : $ext = [];
+            $value = $data[self::FIELD_NUMBER] ?? null;
+            $ext = (isset($data[self::FIELD_NUMBER_EXT]) && is_array($data[self::FIELD_NUMBER_EXT])) ? $data[self::FIELD_NUMBER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setNumber($value);
@@ -249,8 +249,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setType($value);
@@ -264,8 +264,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_NAME]) || isset($data[self::FIELD_NAME_EXT])) {
-            $value = isset($data[self::FIELD_NAME]) ? $data[self::FIELD_NAME] : null;
-            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $ext = $data[self::FIELD_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_NAME_EXT]) && is_array($data[self::FIELD_NAME_EXT])) ? $data[self::FIELD_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setName($value);
@@ -279,8 +279,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INITIATOR]) || isset($data[self::FIELD_INITIATOR_EXT])) {
-            $value = isset($data[self::FIELD_INITIATOR]) ? $data[self::FIELD_INITIATOR] : null;
-            $ext = (isset($data[self::FIELD_INITIATOR_EXT]) && is_array($data[self::FIELD_INITIATOR_EXT])) ? $ext = $data[self::FIELD_INITIATOR_EXT] : $ext = [];
+            $value = $data[self::FIELD_INITIATOR] ?? null;
+            $ext = (isset($data[self::FIELD_INITIATOR_EXT]) && is_array($data[self::FIELD_INITIATOR_EXT])) ? $data[self::FIELD_INITIATOR_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setInitiator($value);
@@ -294,8 +294,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RECEIVER]) || isset($data[self::FIELD_RECEIVER_EXT])) {
-            $value = isset($data[self::FIELD_RECEIVER]) ? $data[self::FIELD_RECEIVER] : null;
-            $ext = (isset($data[self::FIELD_RECEIVER_EXT]) && is_array($data[self::FIELD_RECEIVER_EXT])) ? $ext = $data[self::FIELD_RECEIVER_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECEIVER] ?? null;
+            $ext = (isset($data[self::FIELD_RECEIVER_EXT]) && is_array($data[self::FIELD_RECEIVER_EXT])) ? $data[self::FIELD_RECEIVER_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setReceiver($value);
@@ -309,8 +309,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRMarkdown) {
                     $this->setDescription($value);
@@ -324,8 +324,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_INITIATOR_ACTIVE]) || isset($data[self::FIELD_INITIATOR_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_INITIATOR_ACTIVE]) ? $data[self::FIELD_INITIATOR_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_INITIATOR_ACTIVE_EXT]) && is_array($data[self::FIELD_INITIATOR_ACTIVE_EXT])) ? $ext = $data[self::FIELD_INITIATOR_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_INITIATOR_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_INITIATOR_ACTIVE_EXT]) && is_array($data[self::FIELD_INITIATOR_ACTIVE_EXT])) ? $data[self::FIELD_INITIATOR_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setInitiatorActive($value);
@@ -339,8 +339,8 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_RECEIVER_ACTIVE]) || isset($data[self::FIELD_RECEIVER_ACTIVE_EXT])) {
-            $value = isset($data[self::FIELD_RECEIVER_ACTIVE]) ? $data[self::FIELD_RECEIVER_ACTIVE] : null;
-            $ext = (isset($data[self::FIELD_RECEIVER_ACTIVE_EXT]) && is_array($data[self::FIELD_RECEIVER_ACTIVE_EXT])) ? $ext = $data[self::FIELD_RECEIVER_ACTIVE_EXT] : $ext = [];
+            $value = $data[self::FIELD_RECEIVER_ACTIVE] ?? null;
+            $ext = (isset($data[self::FIELD_RECEIVER_ACTIVE_EXT]) && is_array($data[self::FIELD_RECEIVER_ACTIVE_EXT])) ? $data[self::FIELD_RECEIVER_ACTIVE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBoolean) {
                     $this->setReceiverActive($value);
@@ -369,11 +369,17 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -390,9 +396,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The sequential number of the interaction, e.g. 1.2.5.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getNumber()
+    public function getNumber(): ?FHIRString
     {
         return $this->number;
     }
@@ -404,10 +410,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The sequential number of the interaction, e.g. 1.2.5.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $number
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $number
      * @return static
      */
-    public function setNumber($number = null)
+    public function setNumber($number = null): object
     {
         if (null !== $number && !($number instanceof FHIRString)) {
             $number = new FHIRString($number);
@@ -424,9 +430,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The type of operation - CRUD.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getType()
+    public function getType(): ?FHIRString
     {
         return $this->type;
     }
@@ -438,10 +444,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The type of operation - CRUD.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $type
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $type
      * @return static
      */
-    public function setType($type = null)
+    public function setType($type = null): object
     {
         if (null !== $type && !($type instanceof FHIRString)) {
             $type = new FHIRString($type);
@@ -458,9 +464,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The human-friendly name of the interaction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getName()
+    public function getName(): ?FHIRString
     {
         return $this->name;
     }
@@ -472,10 +478,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * The human-friendly name of the interaction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $name
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $name
      * @return static
      */
-    public function setName($name = null)
+    public function setName($name = null): object
     {
         if (null !== $name && !($name instanceof FHIRString)) {
             $name = new FHIRString($name);
@@ -492,9 +498,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who starts the transaction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getInitiator()
+    public function getInitiator(): ?FHIRString
     {
         return $this->initiator;
     }
@@ -506,10 +512,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who starts the transaction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $initiator
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $initiator
      * @return static
      */
-    public function setInitiator($initiator = null)
+    public function setInitiator($initiator = null): object
     {
         if (null !== $initiator && !($initiator instanceof FHIRString)) {
             $initiator = new FHIRString($initiator);
@@ -526,9 +532,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who receives the transaction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getReceiver()
+    public function getReceiver(): ?FHIRString
     {
         return $this->receiver;
     }
@@ -540,10 +546,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Who receives the transaction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $receiver
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $receiver
      * @return static
      */
-    public function setReceiver($receiver = null)
+    public function setReceiver($receiver = null): object
     {
         if (null !== $receiver && !($receiver instanceof FHIRString)) {
             $receiver = new FHIRString($receiver);
@@ -564,9 +570,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * A comment to be inserted in the diagram.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
+     * @return null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRMarkdown
     {
         return $this->description;
     }
@@ -582,10 +588,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * A comment to be inserted in the diagram.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
+     * @param null|\HL7\FHIR\R4\FHIRMarkdownPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRMarkdown $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRMarkdown)) {
             $description = new FHIRMarkdown($description);
@@ -601,9 +607,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the initiator is deactivated right after the transaction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getInitiatorActive()
+    public function getInitiatorActive(): ?FHIRBoolean
     {
         return $this->initiatorActive;
     }
@@ -614,10 +620,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the initiator is deactivated right after the transaction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $initiatorActive
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $initiatorActive
      * @return static
      */
-    public function setInitiatorActive($initiatorActive = null)
+    public function setInitiatorActive($initiatorActive = null): object
     {
         if (null !== $initiatorActive && !($initiatorActive instanceof FHIRBoolean)) {
             $initiatorActive = new FHIRBoolean($initiatorActive);
@@ -633,9 +639,9 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the receiver is deactivated right after the transaction.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
+     * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean
      */
-    public function getReceiverActive()
+    public function getReceiverActive(): ?FHIRBoolean
     {
         return $this->receiverActive;
     }
@@ -646,10 +652,10 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * Whether the receiver is deactivated right after the transaction.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $receiverActive
+     * @param null|\HL7\FHIR\R4\FHIRBooleanPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBoolean $receiverActive
      * @return static
      */
-    public function setReceiverActive($receiverActive = null)
+    public function setReceiverActive($receiverActive = null): object
     {
         if (null !== $receiverActive && !($receiverActive instanceof FHIRBoolean)) {
             $receiverActive = new FHIRBoolean($receiverActive);
@@ -666,7 +672,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance
      */
-    public function getRequest()
+    public function getRequest(): ?FHIRExampleScenarioContainedInstance
     {
         return $this->request;
     }
@@ -679,7 +685,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance $request
      * @return static
      */
-    public function setRequest(FHIRExampleScenarioContainedInstance $request = null)
+    public function setRequest(?FHIRExampleScenarioContainedInstance $request = null): object
     {
         $this->_trackValueSet($this->request, $request);
         $this->request = $request;
@@ -693,7 +699,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance
      */
-    public function getResponse()
+    public function getResponse(): ?FHIRExampleScenarioContainedInstance
     {
         return $this->response;
     }
@@ -706,7 +712,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioContainedInstance $response
      * @return static
      */
-    public function setResponse(FHIRExampleScenarioContainedInstance $response = null)
+    public function setResponse(?FHIRExampleScenarioContainedInstance $response = null): object
     {
         $this->_trackValueSet($this->response, $response);
         $this->response = $response;
@@ -949,15 +955,15 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioOperation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRExampleScenario\FHIRExampleScenarioOperation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRExampleScenarioOperation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -977,7 +983,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1099,7 +1105,7 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1162,97 +1168,100 @@ class FHIRExampleScenarioOperation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getNumber())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NUMBER] = $val;
+                $out->{self::FIELD_NUMBER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NUMBER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NUMBER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_NAME] = $val;
+                $out->{self::FIELD_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInitiator())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INITIATOR] = $val;
+                $out->{self::FIELD_INITIATOR} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INITIATOR_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INITIATOR_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReceiver())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECEIVER] = $val;
+                $out->{self::FIELD_RECEIVER} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECEIVER_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECEIVER_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRMarkdown::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRMarkdown::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getInitiatorActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_INITIATOR_ACTIVE] = $val;
+                $out->{self::FIELD_INITIATOR_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_INITIATOR_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_INITIATOR_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getReceiverActive())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_RECEIVER_ACTIVE] = $val;
+                $out->{self::FIELD_RECEIVER_ACTIVE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBoolean::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_RECEIVER_ACTIVE_EXT] = $ext;
+            unset($ext->{FHIRBoolean::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_RECEIVER_ACTIVE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getRequest())) {
-            $a[self::FIELD_REQUEST] = $v;
+            $out->{self::FIELD_REQUEST} = $v;
         }
         if (null !== ($v = $this->getResponse())) {
-            $a[self::FIELD_RESPONSE] = $v;
+            $out->{self::FIELD_RESPONSE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $category = null;
+    protected ?FHIRCodeableConcept $category = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -118,7 +118,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $description = null;
+    protected ?FHIRCodeableConcept $description = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -131,7 +131,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $priority = null;
+    protected ?FHIRCodeableConcept $priority = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -143,7 +143,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $start = null;
+    protected ?FHIRCodeableConcept $start = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -156,7 +156,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $addresses = [];
+    protected ?array $addresses = [];
 
     /**
      * Related artifacts such as additional documentation, justification, or
@@ -170,7 +170,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[]
      */
-    protected $documentation = [];
+    protected ?array $documentation = [];
 
     /**
      * This resource allows for the definition of various types of plans as a sharable,
@@ -182,13 +182,13 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionTarget[]
      */
-    protected $target = [];
+    protected ?array $target = [];
 
     /**
      * Validation map for fields in type PlanDefinition.Goal
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRPlanDefinitionGoal Constructor
@@ -290,11 +290,17 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -314,7 +320,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCategory()
+    public function getCategory(): ?FHIRCodeableConcept
     {
         return $this->category;
     }
@@ -330,7 +336,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $category
      * @return static
      */
-    public function setCategory(FHIRCodeableConcept $category = null)
+    public function setCategory(?FHIRCodeableConcept $category = null): object
     {
         $this->_trackValueSet($this->category, $category);
         $this->category = $category;
@@ -349,7 +355,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRCodeableConcept
     {
         return $this->description;
     }
@@ -367,7 +373,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $description
      * @return static
      */
-    public function setDescription(FHIRCodeableConcept $description = null)
+    public function setDescription(?FHIRCodeableConcept $description = null): object
     {
         $this->_trackValueSet($this->description, $description);
         $this->description = $description;
@@ -385,7 +391,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getPriority()
+    public function getPriority(): ?FHIRCodeableConcept
     {
         return $this->priority;
     }
@@ -402,7 +408,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $priority
      * @return static
      */
-    public function setPriority(FHIRCodeableConcept $priority = null)
+    public function setPriority(?FHIRCodeableConcept $priority = null): object
     {
         $this->_trackValueSet($this->priority, $priority);
         $this->priority = $priority;
@@ -419,7 +425,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getStart()
+    public function getStart(): ?FHIRCodeableConcept
     {
         return $this->start;
     }
@@ -435,7 +441,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $start
      * @return static
      */
-    public function setStart(FHIRCodeableConcept $start = null)
+    public function setStart(?FHIRCodeableConcept $start = null): object
     {
         $this->_trackValueSet($this->start, $start);
         $this->start = $start;
@@ -453,7 +459,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getAddresses()
+    public function getAddresses(): ?array
     {
         return $this->addresses;
     }
@@ -470,7 +476,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $addresses
      * @return static
      */
-    public function addAddresses(FHIRCodeableConcept $addresses = null)
+    public function addAddresses(?FHIRCodeableConcept $addresses = null): object
     {
         $this->_trackValueAdded();
         $this->addresses[] = $addresses;
@@ -489,7 +495,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $addresses
      * @return static
      */
-    public function setAddresses(array $addresses = [])
+    public function setAddresses(array $addresses = []): object
     {
         if ([] !== $this->addresses) {
             $this->_trackValuesRemoved(count($this->addresses));
@@ -520,7 +526,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[]
      */
-    public function getDocumentation()
+    public function getDocumentation(): ?array
     {
         return $this->documentation;
     }
@@ -538,7 +544,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact $documentation
      * @return static
      */
-    public function addDocumentation(FHIRRelatedArtifact $documentation = null)
+    public function addDocumentation(?FHIRRelatedArtifact $documentation = null): object
     {
         $this->_trackValueAdded();
         $this->documentation[] = $documentation;
@@ -558,7 +564,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRRelatedArtifact[] $documentation
      * @return static
      */
-    public function setDocumentation(array $documentation = [])
+    public function setDocumentation(array $documentation = []): object
     {
         if ([] !== $this->documentation) {
             $this->_trackValuesRemoved(count($this->documentation));
@@ -587,7 +593,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionTarget[]
      */
-    public function getTarget()
+    public function getTarget(): ?array
     {
         return $this->target;
     }
@@ -603,7 +609,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionTarget $target
      * @return static
      */
-    public function addTarget(FHIRPlanDefinitionTarget $target = null)
+    public function addTarget(?FHIRPlanDefinitionTarget $target = null): object
     {
         $this->_trackValueAdded();
         $this->target[] = $target;
@@ -621,7 +627,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionTarget[] $target
      * @return static
      */
-    public function setTarget(array $target = [])
+    public function setTarget(array $target = []): object
     {
         if ([] !== $this->target) {
             $this->_trackValuesRemoved(count($this->target));
@@ -831,15 +837,15 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionGoal
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRPlanDefinition\FHIRPlanDefinitionGoal    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRPlanDefinitionGoal::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -859,7 +865,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -903,7 +909,7 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -966,50 +972,53 @@ class FHIRPlanDefinitionGoal extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCategory())) {
-            $a[self::FIELD_CATEGORY] = $v;
+            $out->{self::FIELD_CATEGORY} = $v;
         }
         if (null !== ($v = $this->getDescription())) {
-            $a[self::FIELD_DESCRIPTION] = $v;
+            $out->{self::FIELD_DESCRIPTION} = $v;
         }
         if (null !== ($v = $this->getPriority())) {
-            $a[self::FIELD_PRIORITY] = $v;
+            $out->{self::FIELD_PRIORITY} = $v;
         }
         if (null !== ($v = $this->getStart())) {
-            $a[self::FIELD_START] = $v;
+            $out->{self::FIELD_START} = $v;
         }
         if ([] !== ($vs = $this->getAddresses())) {
-            $a[self::FIELD_ADDRESSES] = [];
+            $out->{self::FIELD_ADDRESSES} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_ADDRESSES][] = $v;
+                $out->{self::FIELD_ADDRESSES}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDocumentation())) {
-            $a[self::FIELD_DOCUMENTATION] = [];
+            $out->{self::FIELD_DOCUMENTATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DOCUMENTATION][] = $v;
+                $out->{self::FIELD_DOCUMENTATION}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getTarget())) {
-            $a[self::FIELD_TARGET] = [];
+            $out->{self::FIELD_TARGET} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TARGET][] = $v;
+                $out->{self::FIELD_TARGET}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -111,9 +111,9 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Number of participants enrolled in the plan.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $groupSize = null;
+    protected ?FHIRPositiveInt $groupSize = null;
 
     /**
      * An amount of economic utility in some recognized currency.
@@ -124,7 +124,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    protected $cost = null;
+    protected ?FHIRMoney $cost = null;
 
     /**
      * A sequence of Unicode characters
@@ -133,15 +133,15 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Additional information about the general costs associated with this plan.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $comment = null;
+    protected ?FHIRString $comment = null;
 
     /**
      * Validation map for fields in type InsurancePlan.GeneralCost
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRInsurancePlanGeneralCost Constructor
@@ -167,8 +167,8 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_GROUP_SIZE]) || isset($data[self::FIELD_GROUP_SIZE_EXT])) {
-            $value = isset($data[self::FIELD_GROUP_SIZE]) ? $data[self::FIELD_GROUP_SIZE] : null;
-            $ext = (isset($data[self::FIELD_GROUP_SIZE_EXT]) && is_array($data[self::FIELD_GROUP_SIZE_EXT])) ? $ext = $data[self::FIELD_GROUP_SIZE_EXT] : $ext = [];
+            $value = $data[self::FIELD_GROUP_SIZE] ?? null;
+            $ext = (isset($data[self::FIELD_GROUP_SIZE_EXT]) && is_array($data[self::FIELD_GROUP_SIZE_EXT])) ? $data[self::FIELD_GROUP_SIZE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setGroupSize($value);
@@ -189,8 +189,8 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_COMMENT]) || isset($data[self::FIELD_COMMENT_EXT])) {
-            $value = isset($data[self::FIELD_COMMENT]) ? $data[self::FIELD_COMMENT] : null;
-            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $ext = $data[self::FIELD_COMMENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMMENT] ?? null;
+            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $data[self::FIELD_COMMENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setComment($value);
@@ -205,11 +205,17 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -229,7 +235,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -245,7 +251,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -259,9 +265,9 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Number of participants enrolled in the plan.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getGroupSize()
+    public function getGroupSize(): ?FHIRPositiveInt
     {
         return $this->groupSize;
     }
@@ -273,10 +279,10 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Number of participants enrolled in the plan.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $groupSize
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $groupSize
      * @return static
      */
-    public function setGroupSize($groupSize = null)
+    public function setGroupSize($groupSize = null): object
     {
         if (null !== $groupSize && !($groupSize instanceof FHIRPositiveInt)) {
             $groupSize = new FHIRPositiveInt($groupSize);
@@ -295,7 +301,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRMoney
      */
-    public function getCost()
+    public function getCost(): ?FHIRMoney
     {
         return $this->cost;
     }
@@ -310,7 +316,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRMoney $cost
      * @return static
      */
-    public function setCost(FHIRMoney $cost = null)
+    public function setCost(?FHIRMoney $cost = null): object
     {
         $this->_trackValueSet($this->cost, $cost);
         $this->cost = $cost;
@@ -324,9 +330,9 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Additional information about the general costs associated with this plan.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getComment()
+    public function getComment(): ?FHIRString
     {
         return $this->comment;
     }
@@ -338,10 +344,10 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      *
      * Additional information about the general costs associated with this plan.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $comment
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $comment
      * @return static
      */
-    public function setComment($comment = null)
+    public function setComment($comment = null): object
     {
         if (null !== $comment && !($comment instanceof FHIRString)) {
             $comment = new FHIRString($comment);
@@ -485,15 +491,15 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRInsurancePlan\FHIRInsurancePlanGeneralCost    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRInsurancePlanGeneralCost::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -513,7 +519,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -569,7 +575,7 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -602,37 +608,40 @@ class FHIRInsurancePlanGeneralCost extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getGroupSize())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_GROUP_SIZE] = $val;
+                $out->{self::FIELD_GROUP_SIZE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_GROUP_SIZE_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_GROUP_SIZE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCost())) {
-            $a[self::FIELD_COST] = $v;
+            $out->{self::FIELD_COST} = $v;
         }
         if (null !== ($v = $this->getComment())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMMENT] = $val;
+                $out->{self::FIELD_COMMENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMMENT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMMENT_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

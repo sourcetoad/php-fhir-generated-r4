@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductAuthorization;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductAuthor
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -112,7 +112,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $country = null;
+    protected ?FHIRCodeableConcept $country = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -124,7 +124,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $jurisdiction = [];
+    protected ?array $jurisdiction = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -136,7 +136,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $legalStatusOfSupply = null;
+    protected ?FHIRCodeableConcept $legalStatusOfSupply = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -147,13 +147,13 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $validityPeriod = null;
+    protected ?FHIRPeriod $validityPeriod = null;
 
     /**
      * Validation map for fields in type MedicinalProductAuthorization.JurisdictionalAuthorization
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductAuthorizationJurisdictionalAuthorization Constructor
@@ -230,11 +230,17 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -254,7 +260,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -270,7 +276,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -288,7 +294,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -317,7 +323,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCountry()
+    public function getCountry(): ?FHIRCodeableConcept
     {
         return $this->country;
     }
@@ -333,7 +339,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $country
      * @return static
      */
-    public function setCountry(FHIRCodeableConcept $country = null)
+    public function setCountry(?FHIRCodeableConcept $country = null): object
     {
         $this->_trackValueSet($this->country, $country);
         $this->country = $country;
@@ -350,7 +356,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getJurisdiction()
+    public function getJurisdiction(): ?array
     {
         return $this->jurisdiction;
     }
@@ -366,7 +372,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $jurisdiction
      * @return static
      */
-    public function addJurisdiction(FHIRCodeableConcept $jurisdiction = null)
+    public function addJurisdiction(?FHIRCodeableConcept $jurisdiction = null): object
     {
         $this->_trackValueAdded();
         $this->jurisdiction[] = $jurisdiction;
@@ -384,7 +390,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $jurisdiction
      * @return static
      */
-    public function setJurisdiction(array $jurisdiction = [])
+    public function setJurisdiction(array $jurisdiction = []): object
     {
         if ([] !== $this->jurisdiction) {
             $this->_trackValuesRemoved(count($this->jurisdiction));
@@ -413,7 +419,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getLegalStatusOfSupply()
+    public function getLegalStatusOfSupply(): ?FHIRCodeableConcept
     {
         return $this->legalStatusOfSupply;
     }
@@ -429,7 +435,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $legalStatusOfSupply
      * @return static
      */
-    public function setLegalStatusOfSupply(FHIRCodeableConcept $legalStatusOfSupply = null)
+    public function setLegalStatusOfSupply(?FHIRCodeableConcept $legalStatusOfSupply = null): object
     {
         $this->_trackValueSet($this->legalStatusOfSupply, $legalStatusOfSupply);
         $this->legalStatusOfSupply = $legalStatusOfSupply;
@@ -445,7 +451,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getValidityPeriod()
+    public function getValidityPeriod(): ?FHIRPeriod
     {
         return $this->validityPeriod;
     }
@@ -460,7 +466,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $validityPeriod
      * @return static
      */
-    public function setValidityPeriod(FHIRPeriod $validityPeriod = null)
+    public function setValidityPeriod(?FHIRPeriod $validityPeriod = null): object
     {
         $this->_trackValueSet($this->validityPeriod, $validityPeriod);
         $this->validityPeriod = $validityPeriod;
@@ -622,15 +628,15 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductAuthorization\FHIRMedicinalProductAuthorizationJurisdictionalAuthorization
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductAuthorization\FHIRMedicinalProductAuthorizationJurisdictionalAuthorization    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductAuthorizationJurisdictionalAuthorization::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -650,7 +656,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -690,7 +696,7 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -738,38 +744,41 @@ class FHIRMedicinalProductAuthorizationJurisdictionalAuthorization extends FHIRB
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getCountry())) {
-            $a[self::FIELD_COUNTRY] = $v;
+            $out->{self::FIELD_COUNTRY} = $v;
         }
         if ([] !== ($vs = $this->getJurisdiction())) {
-            $a[self::FIELD_JURISDICTION] = [];
+            $out->{self::FIELD_JURISDICTION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_JURISDICTION][] = $v;
+                $out->{self::FIELD_JURISDICTION}[] = $v;
             }
         }
         if (null !== ($v = $this->getLegalStatusOfSupply())) {
-            $a[self::FIELD_LEGAL_STATUS_OF_SUPPLY] = $v;
+            $out->{self::FIELD_LEGAL_STATUS_OF_SUPPLY} = $v;
         }
         if (null !== ($v = $this->getValidityPeriod())) {
-            $a[self::FIELD_VALIDITY_PERIOD] = $v;
+            $out->{self::FIELD_VALIDITY_PERIOD} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

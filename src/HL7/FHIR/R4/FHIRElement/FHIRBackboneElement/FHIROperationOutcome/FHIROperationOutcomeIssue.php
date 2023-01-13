@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationOutcome;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationOutcome;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIssueSeverity
      */
-    protected $severity = null;
+    protected ?FHIRIssueSeverity $severity = null;
 
     /**
      * A code that describes the type of issue.
@@ -118,7 +118,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIssueType
      */
-    protected $code = null;
+    protected ?FHIRIssueType $code = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -131,7 +131,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $details = null;
+    protected ?FHIRCodeableConcept $details = null;
 
     /**
      * A sequence of Unicode characters
@@ -140,9 +140,9 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * Additional diagnostic information about the issue.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $diagnostics = null;
+    protected ?FHIRString $diagnostics = null;
 
     /**
      * A sequence of Unicode characters
@@ -156,9 +156,9 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * elements in the resource that caused this issue to be raised. For HTTP errors,
      * will be "http." + the parameter name.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $location = [];
+    protected ?array $location = [];
 
     /**
      * A sequence of Unicode characters
@@ -169,15 +169,15 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * repetition indicators and the default child accessor that identifies one of the
      * elements in the resource that caused this issue to be raised.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $expression = [];
+    protected ?array $expression = [];
 
     /**
      * Validation map for fields in type OperationOutcome.Issue
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIROperationOutcomeIssue Constructor
@@ -196,8 +196,8 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_SEVERITY]) || isset($data[self::FIELD_SEVERITY_EXT])) {
-            $value = isset($data[self::FIELD_SEVERITY]) ? $data[self::FIELD_SEVERITY] : null;
-            $ext = (isset($data[self::FIELD_SEVERITY_EXT]) && is_array($data[self::FIELD_SEVERITY_EXT])) ? $ext = $data[self::FIELD_SEVERITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_SEVERITY] ?? null;
+            $ext = (isset($data[self::FIELD_SEVERITY_EXT]) && is_array($data[self::FIELD_SEVERITY_EXT])) ? $data[self::FIELD_SEVERITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRIssueSeverity) {
                     $this->setSeverity($value);
@@ -211,8 +211,8 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_CODE]) || isset($data[self::FIELD_CODE_EXT])) {
-            $value = isset($data[self::FIELD_CODE]) ? $data[self::FIELD_CODE] : null;
-            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $ext = $data[self::FIELD_CODE_EXT] : $ext = [];
+            $value = $data[self::FIELD_CODE] ?? null;
+            $ext = (isset($data[self::FIELD_CODE_EXT]) && is_array($data[self::FIELD_CODE_EXT])) ? $data[self::FIELD_CODE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRIssueType) {
                     $this->setCode($value);
@@ -233,8 +233,8 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DIAGNOSTICS]) || isset($data[self::FIELD_DIAGNOSTICS_EXT])) {
-            $value = isset($data[self::FIELD_DIAGNOSTICS]) ? $data[self::FIELD_DIAGNOSTICS] : null;
-            $ext = (isset($data[self::FIELD_DIAGNOSTICS_EXT]) && is_array($data[self::FIELD_DIAGNOSTICS_EXT])) ? $ext = $data[self::FIELD_DIAGNOSTICS_EXT] : $ext = [];
+            $value = $data[self::FIELD_DIAGNOSTICS] ?? null;
+            $ext = (isset($data[self::FIELD_DIAGNOSTICS_EXT]) && is_array($data[self::FIELD_DIAGNOSTICS_EXT])) ? $data[self::FIELD_DIAGNOSTICS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDiagnostics($value);
@@ -248,8 +248,8 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_LOCATION]) || isset($data[self::FIELD_LOCATION_EXT])) {
-            $value = isset($data[self::FIELD_LOCATION]) ? $data[self::FIELD_LOCATION] : null;
-            $ext = (isset($data[self::FIELD_LOCATION_EXT]) && is_array($data[self::FIELD_LOCATION_EXT])) ? $ext = $data[self::FIELD_LOCATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_LOCATION] ?? null;
+            $ext = (isset($data[self::FIELD_LOCATION_EXT]) && is_array($data[self::FIELD_LOCATION_EXT])) ? $data[self::FIELD_LOCATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addLocation($value);
@@ -278,8 +278,8 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_EXPRESSION]) || isset($data[self::FIELD_EXPRESSION_EXT])) {
-            $value = isset($data[self::FIELD_EXPRESSION]) ? $data[self::FIELD_EXPRESSION] : null;
-            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $ext = $data[self::FIELD_EXPRESSION_EXT] : $ext = [];
+            $value = $data[self::FIELD_EXPRESSION] ?? null;
+            $ext = (isset($data[self::FIELD_EXPRESSION_EXT]) && is_array($data[self::FIELD_EXPRESSION_EXT])) ? $data[self::FIELD_EXPRESSION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addExpression($value);
@@ -309,11 +309,17 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -331,7 +337,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIssueSeverity
      */
-    public function getSeverity()
+    public function getSeverity(): ?FHIRIssueSeverity
     {
         return $this->severity;
     }
@@ -345,7 +351,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIssueSeverity $severity
      * @return static
      */
-    public function setSeverity(FHIRIssueSeverity $severity = null)
+    public function setSeverity(?FHIRIssueSeverity $severity = null): object
     {
         $this->_trackValueSet($this->severity, $severity);
         $this->severity = $severity;
@@ -362,7 +368,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIssueType
      */
-    public function getCode()
+    public function getCode(): ?FHIRIssueType
     {
         return $this->code;
     }
@@ -378,7 +384,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIssueType $code
      * @return static
      */
-    public function setCode(FHIRIssueType $code = null)
+    public function setCode(?FHIRIssueType $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -396,7 +402,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getDetails()
+    public function getDetails(): ?FHIRCodeableConcept
     {
         return $this->details;
     }
@@ -413,7 +419,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $details
      * @return static
      */
-    public function setDetails(FHIRCodeableConcept $details = null)
+    public function setDetails(?FHIRCodeableConcept $details = null): object
     {
         $this->_trackValueSet($this->details, $details);
         $this->details = $details;
@@ -427,9 +433,9 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * Additional diagnostic information about the issue.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDiagnostics()
+    public function getDiagnostics(): ?FHIRString
     {
         return $this->diagnostics;
     }
@@ -441,10 +447,10 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      *
      * Additional diagnostic information about the issue.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $diagnostics
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $diagnostics
      * @return static
      */
-    public function setDiagnostics($diagnostics = null)
+    public function setDiagnostics($diagnostics = null): object
     {
         if (null !== $diagnostics && !($diagnostics instanceof FHIRString)) {
             $diagnostics = new FHIRString($diagnostics);
@@ -466,9 +472,9 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * elements in the resource that caused this issue to be raised. For HTTP errors,
      * will be "http." + the parameter name.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getLocation()
+    public function getLocation(): ?array
     {
         return $this->location;
     }
@@ -485,10 +491,10 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * elements in the resource that caused this issue to be raised. For HTTP errors,
      * will be "http." + the parameter name.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $location
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $location
      * @return static
      */
-    public function addLocation($location = null)
+    public function addLocation($location = null): object
     {
         if (null !== $location && !($location instanceof FHIRString)) {
             $location = new FHIRString($location);
@@ -513,7 +519,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $location
      * @return static
      */
-    public function setLocation(array $location = [])
+    public function setLocation(array $location = []): object
     {
         if ([] !== $this->location) {
             $this->_trackValuesRemoved(count($this->location));
@@ -541,9 +547,9 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * repetition indicators and the default child accessor that identifies one of the
      * elements in the resource that caused this issue to be raised.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getExpression()
+    public function getExpression(): ?array
     {
         return $this->expression;
     }
@@ -557,10 +563,10 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * repetition indicators and the default child accessor that identifies one of the
      * elements in the resource that caused this issue to be raised.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $expression
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $expression
      * @return static
      */
-    public function addExpression($expression = null)
+    public function addExpression($expression = null): object
     {
         if (null !== $expression && !($expression instanceof FHIRString)) {
             $expression = new FHIRString($expression);
@@ -582,7 +588,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $expression
      * @return static
      */
-    public function setExpression(array $expression = [])
+    public function setExpression(array $expression = []): object
     {
         if ([] !== $this->expression) {
             $this->_trackValuesRemoved(count($this->expression));
@@ -773,15 +779,15 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationOutcome\FHIROperationOutcomeIssue
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIROperationOutcome\FHIROperationOutcomeIssue    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIROperationOutcomeIssue::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -801,7 +807,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -870,7 +876,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -923,41 +929,43 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getSeverity())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SEVERITY] = $val;
+                $out->{self::FIELD_SEVERITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRIssueSeverity::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SEVERITY_EXT] = $ext;
+            unset($ext->{FHIRIssueSeverity::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SEVERITY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCode())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CODE] = $val;
+                $out->{self::FIELD_CODE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRIssueType::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CODE_EXT] = $ext;
+            unset($ext->{FHIRIssueType::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CODE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDetails())) {
-            $a[self::FIELD_DETAILS] = $v;
+            $out->{self::FIELD_DETAILS} = $v;
         }
         if (null !== ($v = $this->getDiagnostics())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DIAGNOSTICS] = $val;
+                $out->{self::FIELD_DIAGNOSTICS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DIAGNOSTICS_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DIAGNOSTICS_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getLocation())) {
@@ -969,7 +977,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -978,10 +986,10 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_LOCATION] = $vals;
+                $out->{self::FIELD_LOCATION} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_LOCATION_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LOCATION_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getExpression())) {
@@ -993,7 +1001,7 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1002,13 +1010,14 @@ class FHIROperationOutcomeIssue extends FHIRBackboneElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_EXPRESSION] = $vals;
+                $out->{self::FIELD_EXPRESSION} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_EXPRESSION_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_EXPRESSION_EXT} = $exts;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

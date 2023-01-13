@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,7 +109,7 @@ class FHIRSignature extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    protected $type = [];
+    protected ?array $type = [];
 
     /**
      * An instant in time - known at least to the second
@@ -121,9 +121,9 @@ class FHIRSignature extends FHIRElement
      *
      * When the digital signature was signed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $when = null;
+    protected ?FHIRInstant $when = null;
 
     /**
      * A reference from one resource to another.
@@ -135,7 +135,7 @@ class FHIRSignature extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $who = null;
+    protected ?FHIRReference $who = null;
 
     /**
      * A reference from one resource to another.
@@ -147,7 +147,7 @@ class FHIRSignature extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $onBehalfOf = null;
+    protected ?FHIRReference $onBehalfOf = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -158,9 +158,9 @@ class FHIRSignature extends FHIRElement
      * A mime type that indicates the technical format of the target resources signed
      * by the signature.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $targetFormat = null;
+    protected ?FHIRCode $targetFormat = null;
 
     /**
      * A string which has at least one character and no leading or trailing whitespace
@@ -172,9 +172,9 @@ class FHIRSignature extends FHIRElement
      * types are application/signature+xml for X ML DigSig, application/jose for JWS,
      * and image/* for a graphical image of a signature, etc.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $sigFormat = null;
+    protected ?FHIRCode $sigFormat = null;
 
     /**
      * A stream of bytes
@@ -184,15 +184,15 @@ class FHIRSignature extends FHIRElement
      * The base64 encoding of the Signature content. When signature is not recorded
      * electronically this element would be empty.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @var null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    protected $data = null;
+    protected ?FHIRBase64Binary $data = null;
 
     /**
      * Validation map for fields in type Signature
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_TYPE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -233,8 +233,8 @@ class FHIRSignature extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_WHEN]) || isset($data[self::FIELD_WHEN_EXT])) {
-            $value = isset($data[self::FIELD_WHEN]) ? $data[self::FIELD_WHEN] : null;
-            $ext = (isset($data[self::FIELD_WHEN_EXT]) && is_array($data[self::FIELD_WHEN_EXT])) ? $ext = $data[self::FIELD_WHEN_EXT] : $ext = [];
+            $value = $data[self::FIELD_WHEN] ?? null;
+            $ext = (isset($data[self::FIELD_WHEN_EXT]) && is_array($data[self::FIELD_WHEN_EXT])) ? $data[self::FIELD_WHEN_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setWhen($value);
@@ -262,8 +262,8 @@ class FHIRSignature extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_TARGET_FORMAT]) || isset($data[self::FIELD_TARGET_FORMAT_EXT])) {
-            $value = isset($data[self::FIELD_TARGET_FORMAT]) ? $data[self::FIELD_TARGET_FORMAT] : null;
-            $ext = (isset($data[self::FIELD_TARGET_FORMAT_EXT]) && is_array($data[self::FIELD_TARGET_FORMAT_EXT])) ? $ext = $data[self::FIELD_TARGET_FORMAT_EXT] : $ext = [];
+            $value = $data[self::FIELD_TARGET_FORMAT] ?? null;
+            $ext = (isset($data[self::FIELD_TARGET_FORMAT_EXT]) && is_array($data[self::FIELD_TARGET_FORMAT_EXT])) ? $data[self::FIELD_TARGET_FORMAT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setTargetFormat($value);
@@ -277,8 +277,8 @@ class FHIRSignature extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_SIG_FORMAT]) || isset($data[self::FIELD_SIG_FORMAT_EXT])) {
-            $value = isset($data[self::FIELD_SIG_FORMAT]) ? $data[self::FIELD_SIG_FORMAT] : null;
-            $ext = (isset($data[self::FIELD_SIG_FORMAT_EXT]) && is_array($data[self::FIELD_SIG_FORMAT_EXT])) ? $ext = $data[self::FIELD_SIG_FORMAT_EXT] : $ext = [];
+            $value = $data[self::FIELD_SIG_FORMAT] ?? null;
+            $ext = (isset($data[self::FIELD_SIG_FORMAT_EXT]) && is_array($data[self::FIELD_SIG_FORMAT_EXT])) ? $data[self::FIELD_SIG_FORMAT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setSigFormat($value);
@@ -292,8 +292,8 @@ class FHIRSignature extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_DATA]) || isset($data[self::FIELD_DATA_EXT])) {
-            $value = isset($data[self::FIELD_DATA]) ? $data[self::FIELD_DATA] : null;
-            $ext = (isset($data[self::FIELD_DATA_EXT]) && is_array($data[self::FIELD_DATA_EXT])) ? $ext = $data[self::FIELD_DATA_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATA] ?? null;
+            $ext = (isset($data[self::FIELD_DATA_EXT]) && is_array($data[self::FIELD_DATA_EXT])) ? $data[self::FIELD_DATA_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRBase64Binary) {
                     $this->setData($value);
@@ -308,11 +308,17 @@ class FHIRSignature extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -333,7 +339,7 @@ class FHIRSignature extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCoding[]
      */
-    public function getType()
+    public function getType(): ?array
     {
         return $this->type;
     }
@@ -350,7 +356,7 @@ class FHIRSignature extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCoding $type
      * @return static
      */
-    public function addType(FHIRCoding $type = null)
+    public function addType(?FHIRCoding $type = null): object
     {
         $this->_trackValueAdded();
         $this->type[] = $type;
@@ -369,7 +375,7 @@ class FHIRSignature extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCoding[] $type
      * @return static
      */
-    public function setType(array $type = [])
+    public function setType(array $type = []): object
     {
         if ([] !== $this->type) {
             $this->_trackValuesRemoved(count($this->type));
@@ -398,9 +404,9 @@ class FHIRSignature extends FHIRElement
      *
      * When the digital signature was signed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getWhen()
+    public function getWhen(): ?FHIRInstant
     {
         return $this->when;
     }
@@ -415,10 +421,10 @@ class FHIRSignature extends FHIRElement
      *
      * When the digital signature was signed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $when
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $when
      * @return static
      */
-    public function setWhen($when = null)
+    public function setWhen($when = null): object
     {
         if (null !== $when && !($when instanceof FHIRInstant)) {
             $when = new FHIRInstant($when);
@@ -438,7 +444,7 @@ class FHIRSignature extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getWho()
+    public function getWho(): ?FHIRReference
     {
         return $this->who;
     }
@@ -454,7 +460,7 @@ class FHIRSignature extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $who
      * @return static
      */
-    public function setWho(FHIRReference $who = null)
+    public function setWho(?FHIRReference $who = null): object
     {
         $this->_trackValueSet($this->who, $who);
         $this->who = $who;
@@ -471,7 +477,7 @@ class FHIRSignature extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOnBehalfOf()
+    public function getOnBehalfOf(): ?FHIRReference
     {
         return $this->onBehalfOf;
     }
@@ -487,7 +493,7 @@ class FHIRSignature extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $onBehalfOf
      * @return static
      */
-    public function setOnBehalfOf(FHIRReference $onBehalfOf = null)
+    public function setOnBehalfOf(?FHIRReference $onBehalfOf = null): object
     {
         $this->_trackValueSet($this->onBehalfOf, $onBehalfOf);
         $this->onBehalfOf = $onBehalfOf;
@@ -503,9 +509,9 @@ class FHIRSignature extends FHIRElement
      * A mime type that indicates the technical format of the target resources signed
      * by the signature.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getTargetFormat()
+    public function getTargetFormat(): ?FHIRCode
     {
         return $this->targetFormat;
     }
@@ -519,10 +525,10 @@ class FHIRSignature extends FHIRElement
      * A mime type that indicates the technical format of the target resources signed
      * by the signature.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $targetFormat
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $targetFormat
      * @return static
      */
-    public function setTargetFormat($targetFormat = null)
+    public function setTargetFormat($targetFormat = null): object
     {
         if (null !== $targetFormat && !($targetFormat instanceof FHIRCode)) {
             $targetFormat = new FHIRCode($targetFormat);
@@ -542,9 +548,9 @@ class FHIRSignature extends FHIRElement
      * types are application/signature+xml for X ML DigSig, application/jose for JWS,
      * and image/* for a graphical image of a signature, etc.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getSigFormat()
+    public function getSigFormat(): ?FHIRCode
     {
         return $this->sigFormat;
     }
@@ -559,10 +565,10 @@ class FHIRSignature extends FHIRElement
      * types are application/signature+xml for X ML DigSig, application/jose for JWS,
      * and image/* for a graphical image of a signature, etc.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $sigFormat
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $sigFormat
      * @return static
      */
-    public function setSigFormat($sigFormat = null)
+    public function setSigFormat($sigFormat = null): object
     {
         if (null !== $sigFormat && !($sigFormat instanceof FHIRCode)) {
             $sigFormat = new FHIRCode($sigFormat);
@@ -580,9 +586,9 @@ class FHIRSignature extends FHIRElement
      * The base64 encoding of the Signature content. When signature is not recorded
      * electronically this element would be empty.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
+     * @return null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary
      */
-    public function getData()
+    public function getData(): ?FHIRBase64Binary
     {
         return $this->data;
     }
@@ -595,10 +601,10 @@ class FHIRSignature extends FHIRElement
      * The base64 encoding of the Signature content. When signature is not recorded
      * electronically this element would be empty.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $data
+     * @param null|\HL7\FHIR\R4\FHIRBase64BinaryPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRBase64Binary $data
      * @return static
      */
-    public function setData($data = null)
+    public function setData($data = null): object
     {
         if (null !== $data && !($data instanceof FHIRBase64Binary)) {
             $data = new FHIRBase64Binary($data);
@@ -783,15 +789,15 @@ class FHIRSignature extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRSignature    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRSignature::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -811,7 +817,7 @@ class FHIRSignature extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -889,7 +895,7 @@ class FHIRSignature extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -942,66 +948,69 @@ class FHIRSignature extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getType())) {
-            $a[self::FIELD_TYPE] = [];
+            $out->{self::FIELD_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TYPE][] = $v;
+                $out->{self::FIELD_TYPE}[] = $v;
             }
         }
         if (null !== ($v = $this->getWhen())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WHEN] = $val;
+                $out->{self::FIELD_WHEN} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WHEN_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WHEN_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWho())) {
-            $a[self::FIELD_WHO] = $v;
+            $out->{self::FIELD_WHO} = $v;
         }
         if (null !== ($v = $this->getOnBehalfOf())) {
-            $a[self::FIELD_ON_BEHALF_OF] = $v;
+            $out->{self::FIELD_ON_BEHALF_OF} = $v;
         }
         if (null !== ($v = $this->getTargetFormat())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TARGET_FORMAT] = $val;
+                $out->{self::FIELD_TARGET_FORMAT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TARGET_FORMAT_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TARGET_FORMAT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSigFormat())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SIG_FORMAT] = $val;
+                $out->{self::FIELD_SIG_FORMAT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SIG_FORMAT_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SIG_FORMAT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getData())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATA] = $val;
+                $out->{self::FIELD_DATA} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRBase64Binary::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATA_EXT] = $ext;
+            unset($ext->{FHIRBase64Binary::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATA_EXT} = $ext;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

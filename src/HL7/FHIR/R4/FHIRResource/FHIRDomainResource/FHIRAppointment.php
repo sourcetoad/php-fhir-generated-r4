@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -146,7 +146,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * The free/busy status of an appointment.
@@ -158,7 +158,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAppointmentStatus
      */
-    protected $status = null;
+    protected ?FHIRAppointmentStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -172,7 +172,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $cancelationReason = null;
+    protected ?FHIRCodeableConcept $cancelationReason = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -185,7 +185,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $serviceCategory = [];
+    protected ?array $serviceCategory = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -197,7 +197,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $serviceType = [];
+    protected ?array $serviceType = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -210,7 +210,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $specialty = [];
+    protected ?array $specialty = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -223,7 +223,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $appointmentType = null;
+    protected ?FHIRCodeableConcept $appointmentType = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -236,7 +236,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A reference from one resource to another.
@@ -251,7 +251,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reasonReference = [];
+    protected ?array $reasonReference = [];
 
     /**
      * An integer with a value that is not negative (e.g. >= 0)
@@ -262,9 +262,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * needing to re-prioritize appointments. (The iCal Standard specifies as
      * undefined, 1 as highest, 9 as lowest priority).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @var null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    protected $priority = null;
+    protected ?FHIRUnsignedInt $priority = null;
 
     /**
      * A sequence of Unicode characters
@@ -275,9 +275,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * a meeting request, or appointment list. Detailed or expanded information should
      * be put in the comment field.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $description = null;
+    protected ?FHIRString $description = null;
 
     /**
      * A reference from one resource to another.
@@ -289,7 +289,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $supportingInformation = [];
+    protected ?array $supportingInformation = [];
 
     /**
      * An instant in time - known at least to the second
@@ -301,9 +301,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to take place.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $start = null;
+    protected ?FHIRInstant $start = null;
 
     /**
      * An instant in time - known at least to the second
@@ -315,9 +315,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to conclude.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $end = null;
+    protected ?FHIRInstant $end = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -331,9 +331,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * minute break in the middle of a long appointment, the duration may be 15 minutes
      * less than the difference between the start and end.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $minutesDuration = null;
+    protected ?FHIRPositiveInt $minutesDuration = null;
 
     /**
      * A reference from one resource to another.
@@ -345,7 +345,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $slot = [];
+    protected ?array $slot = [];
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -360,9 +360,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * the resource was created on the FHIR server, and should remain unchanged over
      * the lifespan of the appointment.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $created = null;
+    protected ?FHIRDateTime $created = null;
 
     /**
      * A sequence of Unicode characters
@@ -371,9 +371,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Additional comments about the appointment.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $comment = null;
+    protected ?FHIRString $comment = null;
 
     /**
      * A sequence of Unicode characters
@@ -385,9 +385,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * about the Appointment (e.g. please bring your referral or fast from 8pm night
      * before).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $patientInstruction = null;
+    protected ?FHIRString $patientInstruction = null;
 
     /**
      * A reference from one resource to another.
@@ -399,7 +399,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A booking of a healthcare event among patient(s), practitioner(s), related
@@ -410,7 +410,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAppointment\FHIRAppointmentParticipant[]
      */
-    protected $participant = [];
+    protected ?array $participant = [];
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -425,13 +425,13 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod[]
      */
-    protected $requestedPeriod = [];
+    protected ?array $requestedPeriod = [];
 
     /**
      * Validation map for fields in type Appointment
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_PARTICIPANT => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -472,8 +472,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRAppointmentStatus) {
                     $this->setStatus($value);
@@ -591,8 +591,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_PRIORITY]) || isset($data[self::FIELD_PRIORITY_EXT])) {
-            $value = isset($data[self::FIELD_PRIORITY]) ? $data[self::FIELD_PRIORITY] : null;
-            $ext = (isset($data[self::FIELD_PRIORITY_EXT]) && is_array($data[self::FIELD_PRIORITY_EXT])) ? $ext = $data[self::FIELD_PRIORITY_EXT] : $ext = [];
+            $value = $data[self::FIELD_PRIORITY] ?? null;
+            $ext = (isset($data[self::FIELD_PRIORITY_EXT]) && is_array($data[self::FIELD_PRIORITY_EXT])) ? $data[self::FIELD_PRIORITY_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUnsignedInt) {
                     $this->setPriority($value);
@@ -606,8 +606,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_DESCRIPTION]) || isset($data[self::FIELD_DESCRIPTION_EXT])) {
-            $value = isset($data[self::FIELD_DESCRIPTION]) ? $data[self::FIELD_DESCRIPTION] : null;
-            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $ext = $data[self::FIELD_DESCRIPTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DESCRIPTION] ?? null;
+            $ext = (isset($data[self::FIELD_DESCRIPTION_EXT]) && is_array($data[self::FIELD_DESCRIPTION_EXT])) ? $data[self::FIELD_DESCRIPTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDescription($value);
@@ -639,8 +639,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_START]) || isset($data[self::FIELD_START_EXT])) {
-            $value = isset($data[self::FIELD_START]) ? $data[self::FIELD_START] : null;
-            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $ext = $data[self::FIELD_START_EXT] : $ext = [];
+            $value = $data[self::FIELD_START] ?? null;
+            $ext = (isset($data[self::FIELD_START_EXT]) && is_array($data[self::FIELD_START_EXT])) ? $data[self::FIELD_START_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setStart($value);
@@ -654,8 +654,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_END]) || isset($data[self::FIELD_END_EXT])) {
-            $value = isset($data[self::FIELD_END]) ? $data[self::FIELD_END] : null;
-            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $ext = $data[self::FIELD_END_EXT] : $ext = [];
+            $value = $data[self::FIELD_END] ?? null;
+            $ext = (isset($data[self::FIELD_END_EXT]) && is_array($data[self::FIELD_END_EXT])) ? $data[self::FIELD_END_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setEnd($value);
@@ -669,8 +669,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_MINUTES_DURATION]) || isset($data[self::FIELD_MINUTES_DURATION_EXT])) {
-            $value = isset($data[self::FIELD_MINUTES_DURATION]) ? $data[self::FIELD_MINUTES_DURATION] : null;
-            $ext = (isset($data[self::FIELD_MINUTES_DURATION_EXT]) && is_array($data[self::FIELD_MINUTES_DURATION_EXT])) ? $ext = $data[self::FIELD_MINUTES_DURATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_MINUTES_DURATION] ?? null;
+            $ext = (isset($data[self::FIELD_MINUTES_DURATION_EXT]) && is_array($data[self::FIELD_MINUTES_DURATION_EXT])) ? $data[self::FIELD_MINUTES_DURATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setMinutesDuration($value);
@@ -702,8 +702,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_CREATED]) || isset($data[self::FIELD_CREATED_EXT])) {
-            $value = isset($data[self::FIELD_CREATED]) ? $data[self::FIELD_CREATED] : null;
-            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $ext = $data[self::FIELD_CREATED_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATED] ?? null;
+            $ext = (isset($data[self::FIELD_CREATED_EXT]) && is_array($data[self::FIELD_CREATED_EXT])) ? $data[self::FIELD_CREATED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreated($value);
@@ -717,8 +717,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_COMMENT]) || isset($data[self::FIELD_COMMENT_EXT])) {
-            $value = isset($data[self::FIELD_COMMENT]) ? $data[self::FIELD_COMMENT] : null;
-            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $ext = $data[self::FIELD_COMMENT_EXT] : $ext = [];
+            $value = $data[self::FIELD_COMMENT] ?? null;
+            $ext = (isset($data[self::FIELD_COMMENT_EXT]) && is_array($data[self::FIELD_COMMENT_EXT])) ? $data[self::FIELD_COMMENT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setComment($value);
@@ -732,8 +732,8 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
             }
         }
         if (isset($data[self::FIELD_PATIENT_INSTRUCTION]) || isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) {
-            $value = isset($data[self::FIELD_PATIENT_INSTRUCTION]) ? $data[self::FIELD_PATIENT_INSTRUCTION] : null;
-            $ext = (isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT]) && is_array($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) ? $ext = $data[self::FIELD_PATIENT_INSTRUCTION_EXT] : $ext = [];
+            $value = $data[self::FIELD_PATIENT_INSTRUCTION] ?? null;
+            $ext = (isset($data[self::FIELD_PATIENT_INSTRUCTION_EXT]) && is_array($data[self::FIELD_PATIENT_INSTRUCTION_EXT])) ? $data[self::FIELD_PATIENT_INSTRUCTION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setPatientInstruction($value);
@@ -802,11 +802,17 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -815,6 +821,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
         }
         return "<Appointment{$xmlns}></Appointment>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -834,7 +843,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -853,7 +862,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -874,7 +883,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -903,7 +912,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAppointmentStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIRAppointmentStatus
     {
         return $this->status;
     }
@@ -919,7 +928,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAppointmentStatus $status
      * @return static
      */
-    public function setStatus(FHIRAppointmentStatus $status = null)
+    public function setStatus(?FHIRAppointmentStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -938,7 +947,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCancelationReason()
+    public function getCancelationReason(): ?FHIRCodeableConcept
     {
         return $this->cancelationReason;
     }
@@ -956,7 +965,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $cancelationReason
      * @return static
      */
-    public function setCancelationReason(FHIRCodeableConcept $cancelationReason = null)
+    public function setCancelationReason(?FHIRCodeableConcept $cancelationReason = null): object
     {
         $this->_trackValueSet($this->cancelationReason, $cancelationReason);
         $this->cancelationReason = $cancelationReason;
@@ -974,7 +983,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getServiceCategory()
+    public function getServiceCategory(): ?array
     {
         return $this->serviceCategory;
     }
@@ -991,7 +1000,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $serviceCategory
      * @return static
      */
-    public function addServiceCategory(FHIRCodeableConcept $serviceCategory = null)
+    public function addServiceCategory(?FHIRCodeableConcept $serviceCategory = null): object
     {
         $this->_trackValueAdded();
         $this->serviceCategory[] = $serviceCategory;
@@ -1010,7 +1019,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $serviceCategory
      * @return static
      */
-    public function setServiceCategory(array $serviceCategory = [])
+    public function setServiceCategory(array $serviceCategory = []): object
     {
         if ([] !== $this->serviceCategory) {
             $this->_trackValuesRemoved(count($this->serviceCategory));
@@ -1039,7 +1048,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getServiceType()
+    public function getServiceType(): ?array
     {
         return $this->serviceType;
     }
@@ -1055,7 +1064,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $serviceType
      * @return static
      */
-    public function addServiceType(FHIRCodeableConcept $serviceType = null)
+    public function addServiceType(?FHIRCodeableConcept $serviceType = null): object
     {
         $this->_trackValueAdded();
         $this->serviceType[] = $serviceType;
@@ -1073,7 +1082,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $serviceType
      * @return static
      */
-    public function setServiceType(array $serviceType = [])
+    public function setServiceType(array $serviceType = []): object
     {
         if ([] !== $this->serviceType) {
             $this->_trackValuesRemoved(count($this->serviceType));
@@ -1103,7 +1112,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getSpecialty()
+    public function getSpecialty(): ?array
     {
         return $this->specialty;
     }
@@ -1120,7 +1129,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $specialty
      * @return static
      */
-    public function addSpecialty(FHIRCodeableConcept $specialty = null)
+    public function addSpecialty(?FHIRCodeableConcept $specialty = null): object
     {
         $this->_trackValueAdded();
         $this->specialty[] = $specialty;
@@ -1139,7 +1148,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $specialty
      * @return static
      */
-    public function setSpecialty(array $specialty = [])
+    public function setSpecialty(array $specialty = []): object
     {
         if ([] !== $this->specialty) {
             $this->_trackValuesRemoved(count($this->specialty));
@@ -1169,7 +1178,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getAppointmentType()
+    public function getAppointmentType(): ?FHIRCodeableConcept
     {
         return $this->appointmentType;
     }
@@ -1186,7 +1195,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $appointmentType
      * @return static
      */
-    public function setAppointmentType(FHIRCodeableConcept $appointmentType = null)
+    public function setAppointmentType(?FHIRCodeableConcept $appointmentType = null): object
     {
         $this->_trackValueSet($this->appointmentType, $appointmentType);
         $this->appointmentType = $appointmentType;
@@ -1204,7 +1213,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1221,7 +1230,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1240,7 +1249,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1272,7 +1281,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReasonReference()
+    public function getReasonReference(): ?array
     {
         return $this->reasonReference;
     }
@@ -1291,7 +1300,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reasonReference
      * @return static
      */
-    public function addReasonReference(FHIRReference $reasonReference = null)
+    public function addReasonReference(?FHIRReference $reasonReference = null): object
     {
         $this->_trackValueAdded();
         $this->reasonReference[] = $reasonReference;
@@ -1312,7 +1321,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reasonReference
      * @return static
      */
-    public function setReasonReference(array $reasonReference = [])
+    public function setReasonReference(array $reasonReference = []): object
     {
         if ([] !== $this->reasonReference) {
             $this->_trackValuesRemoved(count($this->reasonReference));
@@ -1340,9 +1349,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * needing to re-prioritize appointments. (The iCal Standard specifies as
      * undefined, 1 as highest, 9 as lowest priority).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
+     * @return null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt
      */
-    public function getPriority()
+    public function getPriority(): ?FHIRUnsignedInt
     {
         return $this->priority;
     }
@@ -1356,10 +1365,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * needing to re-prioritize appointments. (The iCal Standard specifies as
      * undefined, 1 as highest, 9 as lowest priority).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $priority
+     * @param null|\HL7\FHIR\R4\FHIRUnsignedIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUnsignedInt $priority
      * @return static
      */
-    public function setPriority($priority = null)
+    public function setPriority($priority = null): object
     {
         if (null !== $priority && !($priority instanceof FHIRUnsignedInt)) {
             $priority = new FHIRUnsignedInt($priority);
@@ -1378,9 +1387,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * a meeting request, or appointment list. Detailed or expanded information should
      * be put in the comment field.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDescription()
+    public function getDescription(): ?FHIRString
     {
         return $this->description;
     }
@@ -1394,10 +1403,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * a meeting request, or appointment list. Detailed or expanded information should
      * be put in the comment field.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $description
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $description
      * @return static
      */
-    public function setDescription($description = null)
+    public function setDescription($description = null): object
     {
         if (null !== $description && !($description instanceof FHIRString)) {
             $description = new FHIRString($description);
@@ -1417,7 +1426,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSupportingInformation()
+    public function getSupportingInformation(): ?array
     {
         return $this->supportingInformation;
     }
@@ -1433,7 +1442,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $supportingInformation
      * @return static
      */
-    public function addSupportingInformation(FHIRReference $supportingInformation = null)
+    public function addSupportingInformation(?FHIRReference $supportingInformation = null): object
     {
         $this->_trackValueAdded();
         $this->supportingInformation[] = $supportingInformation;
@@ -1451,7 +1460,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $supportingInformation
      * @return static
      */
-    public function setSupportingInformation(array $supportingInformation = [])
+    public function setSupportingInformation(array $supportingInformation = []): object
     {
         if ([] !== $this->supportingInformation) {
             $this->_trackValuesRemoved(count($this->supportingInformation));
@@ -1480,9 +1489,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to take place.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getStart()
+    public function getStart(): ?FHIRInstant
     {
         return $this->start;
     }
@@ -1497,10 +1506,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to take place.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $start
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $start
      * @return static
      */
-    public function setStart($start = null)
+    public function setStart($start = null): object
     {
         if (null !== $start && !($start instanceof FHIRInstant)) {
             $start = new FHIRInstant($start);
@@ -1520,9 +1529,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to conclude.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getEnd()
+    public function getEnd(): ?FHIRInstant
     {
         return $this->end;
     }
@@ -1537,10 +1546,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Date/Time that the appointment is to conclude.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $end
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $end
      * @return static
      */
-    public function setEnd($end = null)
+    public function setEnd($end = null): object
     {
         if (null !== $end && !($end instanceof FHIRInstant)) {
             $end = new FHIRInstant($end);
@@ -1562,9 +1571,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * minute break in the middle of a long appointment, the duration may be 15 minutes
      * less than the difference between the start and end.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getMinutesDuration()
+    public function getMinutesDuration(): ?FHIRPositiveInt
     {
         return $this->minutesDuration;
     }
@@ -1581,10 +1590,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * minute break in the middle of a long appointment, the duration may be 15 minutes
      * less than the difference between the start and end.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $minutesDuration
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $minutesDuration
      * @return static
      */
-    public function setMinutesDuration($minutesDuration = null)
+    public function setMinutesDuration($minutesDuration = null): object
     {
         if (null !== $minutesDuration && !($minutesDuration instanceof FHIRPositiveInt)) {
             $minutesDuration = new FHIRPositiveInt($minutesDuration);
@@ -1604,7 +1613,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getSlot()
+    public function getSlot(): ?array
     {
         return $this->slot;
     }
@@ -1620,7 +1629,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $slot
      * @return static
      */
-    public function addSlot(FHIRReference $slot = null)
+    public function addSlot(?FHIRReference $slot = null): object
     {
         $this->_trackValueAdded();
         $this->slot[] = $slot;
@@ -1638,7 +1647,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $slot
      * @return static
      */
-    public function setSlot(array $slot = [])
+    public function setSlot(array $slot = []): object
     {
         if ([] !== $this->slot) {
             $this->_trackValuesRemoved(count($this->slot));
@@ -1670,9 +1679,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * the resource was created on the FHIR server, and should remain unchanged over
      * the lifespan of the appointment.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreated()
+    public function getCreated(): ?FHIRDateTime
     {
         return $this->created;
     }
@@ -1690,10 +1699,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * the resource was created on the FHIR server, and should remain unchanged over
      * the lifespan of the appointment.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $created
      * @return static
      */
-    public function setCreated($created = null)
+    public function setCreated($created = null): object
     {
         if (null !== $created && !($created instanceof FHIRDateTime)) {
             $created = new FHIRDateTime($created);
@@ -1710,9 +1719,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Additional comments about the appointment.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getComment()
+    public function getComment(): ?FHIRString
     {
         return $this->comment;
     }
@@ -1724,10 +1733,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * Additional comments about the appointment.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $comment
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $comment
      * @return static
      */
-    public function setComment($comment = null)
+    public function setComment($comment = null): object
     {
         if (null !== $comment && !($comment instanceof FHIRString)) {
             $comment = new FHIRString($comment);
@@ -1747,9 +1756,9 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * about the Appointment (e.g. please bring your referral or fast from 8pm night
      * before).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getPatientInstruction()
+    public function getPatientInstruction(): ?FHIRString
     {
         return $this->patientInstruction;
     }
@@ -1764,10 +1773,10 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * about the Appointment (e.g. please bring your referral or fast from 8pm night
      * before).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $patientInstruction
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $patientInstruction
      * @return static
      */
-    public function setPatientInstruction($patientInstruction = null)
+    public function setPatientInstruction($patientInstruction = null): object
     {
         if (null !== $patientInstruction && !($patientInstruction instanceof FHIRString)) {
             $patientInstruction = new FHIRString($patientInstruction);
@@ -1787,7 +1796,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -1803,7 +1812,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -1821,7 +1830,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -1849,7 +1858,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAppointment\FHIRAppointmentParticipant[]
      */
-    public function getParticipant()
+    public function getParticipant(): ?array
     {
         return $this->participant;
     }
@@ -1864,7 +1873,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAppointment\FHIRAppointmentParticipant $participant
      * @return static
      */
-    public function addParticipant(FHIRAppointmentParticipant $participant = null)
+    public function addParticipant(?FHIRAppointmentParticipant $participant = null): object
     {
         $this->_trackValueAdded();
         $this->participant[] = $participant;
@@ -1881,7 +1890,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRAppointment\FHIRAppointmentParticipant[] $participant
      * @return static
      */
-    public function setParticipant(array $participant = [])
+    public function setParticipant(array $participant = []): object
     {
         if ([] !== $this->participant) {
             $this->_trackValuesRemoved(count($this->participant));
@@ -1913,7 +1922,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod[]
      */
-    public function getRequestedPeriod()
+    public function getRequestedPeriod(): ?array
     {
         return $this->requestedPeriod;
     }
@@ -1932,7 +1941,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $requestedPeriod
      * @return static
      */
-    public function addRequestedPeriod(FHIRPeriod $requestedPeriod = null)
+    public function addRequestedPeriod(?FHIRPeriod $requestedPeriod = null): object
     {
         $this->_trackValueAdded();
         $this->requestedPeriod[] = $requestedPeriod;
@@ -1953,7 +1962,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param \HL7\FHIR\R4\FHIRElement\FHIRPeriod[] $requestedPeriod
      * @return static
      */
-    public function setRequestedPeriod(array $requestedPeriod = [])
+    public function setRequestedPeriod(array $requestedPeriod = []): object
     {
         if ([] !== $this->requestedPeriod) {
             $this->_trackValuesRemoved(count($this->requestedPeriod));
@@ -2494,15 +2503,15 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointment
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRAppointment    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRAppointment::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2522,7 +2531,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2701,7 +2710,7 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2879,206 +2888,211 @@ class FHIRAppointment extends FHIRDomainResource implements PHPFHIRContainedType
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRAppointmentStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIRAppointmentStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCancelationReason())) {
-            $a[self::FIELD_CANCELATION_REASON] = $v;
+            $out->{self::FIELD_CANCELATION_REASON} = $v;
         }
         if ([] !== ($vs = $this->getServiceCategory())) {
-            $a[self::FIELD_SERVICE_CATEGORY] = [];
+            $out->{self::FIELD_SERVICE_CATEGORY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SERVICE_CATEGORY][] = $v;
+                $out->{self::FIELD_SERVICE_CATEGORY}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getServiceType())) {
-            $a[self::FIELD_SERVICE_TYPE] = [];
+            $out->{self::FIELD_SERVICE_TYPE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SERVICE_TYPE][] = $v;
+                $out->{self::FIELD_SERVICE_TYPE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getSpecialty())) {
-            $a[self::FIELD_SPECIALTY] = [];
+            $out->{self::FIELD_SPECIALTY} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SPECIALTY][] = $v;
+                $out->{self::FIELD_SPECIALTY}[] = $v;
             }
         }
         if (null !== ($v = $this->getAppointmentType())) {
-            $a[self::FIELD_APPOINTMENT_TYPE] = $v;
+            $out->{self::FIELD_APPOINTMENT_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getReasonReference())) {
-            $a[self::FIELD_REASON_REFERENCE] = [];
+            $out->{self::FIELD_REASON_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_REFERENCE][] = $v;
+                $out->{self::FIELD_REASON_REFERENCE}[] = $v;
             }
         }
         if (null !== ($v = $this->getPriority())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PRIORITY] = $val;
+                $out->{self::FIELD_PRIORITY} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUnsignedInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PRIORITY_EXT] = $ext;
+            unset($ext->{FHIRUnsignedInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PRIORITY_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDescription())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DESCRIPTION] = $val;
+                $out->{self::FIELD_DESCRIPTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DESCRIPTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DESCRIPTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSupportingInformation())) {
-            $a[self::FIELD_SUPPORTING_INFORMATION] = [];
+            $out->{self::FIELD_SUPPORTING_INFORMATION} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SUPPORTING_INFORMATION][] = $v;
+                $out->{self::FIELD_SUPPORTING_INFORMATION}[] = $v;
             }
         }
         if (null !== ($v = $this->getStart())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_START] = $val;
+                $out->{self::FIELD_START} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_START_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_START_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getEnd())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_END] = $val;
+                $out->{self::FIELD_END} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_END_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_END_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getMinutesDuration())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_MINUTES_DURATION] = $val;
+                $out->{self::FIELD_MINUTES_DURATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_MINUTES_DURATION_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MINUTES_DURATION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSlot())) {
-            $a[self::FIELD_SLOT] = [];
+            $out->{self::FIELD_SLOT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SLOT][] = $v;
+                $out->{self::FIELD_SLOT}[] = $v;
             }
         }
         if (null !== ($v = $this->getCreated())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATED] = $val;
+                $out->{self::FIELD_CREATED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATED_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getComment())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_COMMENT] = $val;
+                $out->{self::FIELD_COMMENT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_COMMENT_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_COMMENT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getPatientInstruction())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PATIENT_INSTRUCTION] = $val;
+                $out->{self::FIELD_PATIENT_INSTRUCTION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PATIENT_INSTRUCTION_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PATIENT_INSTRUCTION_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getParticipant())) {
-            $a[self::FIELD_PARTICIPANT] = [];
+            $out->{self::FIELD_PARTICIPANT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PARTICIPANT][] = $v;
+                $out->{self::FIELD_PARTICIPANT}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getRequestedPeriod())) {
-            $a[self::FIELD_REQUESTED_PERIOD] = [];
+            $out->{self::FIELD_REQUESTED_PERIOD} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REQUESTED_PERIOD][] = $v;
+                $out->{self::FIELD_REQUESTED_PERIOD}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

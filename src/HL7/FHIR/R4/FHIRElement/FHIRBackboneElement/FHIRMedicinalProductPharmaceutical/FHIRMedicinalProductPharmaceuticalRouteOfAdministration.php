@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharma
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -118,7 +118,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $firstDose = null;
+    protected ?FHIRQuantity $firstDose = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -133,7 +133,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $maxSingleDose = null;
+    protected ?FHIRQuantity $maxSingleDose = null;
 
     /**
      * A measured amount (or an amount that can potentially be measured). Note that
@@ -148,7 +148,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    protected $maxDosePerDay = null;
+    protected ?FHIRQuantity $maxDosePerDay = null;
 
     /**
      * A relationship of two Quantity values - expressed as a numerator and a
@@ -161,7 +161,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    protected $maxDosePerTreatmentPeriod = null;
+    protected ?FHIRRatio $maxDosePerTreatmentPeriod = null;
 
     /**
      * A length of time.
@@ -174,7 +174,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    protected $maxTreatmentPeriod = null;
+    protected ?FHIRDuration $maxTreatmentPeriod = null;
 
     /**
      * A pharmaceutical product described in terms of its composition and dose form.
@@ -183,13 +183,13 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies[]
      */
-    protected $targetSpecies = [];
+    protected ?array $targetSpecies = [];
 
     /**
      * Validation map for fields in type MedicinalProductPharmaceutical.RouteOfAdministration
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductPharmaceuticalRouteOfAdministration Constructor
@@ -269,11 +269,17 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -293,7 +299,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -309,7 +315,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -329,7 +335,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getFirstDose()
+    public function getFirstDose(): ?FHIRQuantity
     {
         return $this->firstDose;
     }
@@ -348,7 +354,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $firstDose
      * @return static
      */
-    public function setFirstDose(FHIRQuantity $firstDose = null)
+    public function setFirstDose(?FHIRQuantity $firstDose = null): object
     {
         $this->_trackValueSet($this->firstDose, $firstDose);
         $this->firstDose = $firstDose;
@@ -368,7 +374,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getMaxSingleDose()
+    public function getMaxSingleDose(): ?FHIRQuantity
     {
         return $this->maxSingleDose;
     }
@@ -387,7 +393,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $maxSingleDose
      * @return static
      */
-    public function setMaxSingleDose(FHIRQuantity $maxSingleDose = null)
+    public function setMaxSingleDose(?FHIRQuantity $maxSingleDose = null): object
     {
         $this->_trackValueSet($this->maxSingleDose, $maxSingleDose);
         $this->maxSingleDose = $maxSingleDose;
@@ -407,7 +413,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity
      */
-    public function getMaxDosePerDay()
+    public function getMaxDosePerDay(): ?FHIRQuantity
     {
         return $this->maxDosePerDay;
     }
@@ -426,7 +432,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity $maxDosePerDay
      * @return static
      */
-    public function setMaxDosePerDay(FHIRQuantity $maxDosePerDay = null)
+    public function setMaxDosePerDay(?FHIRQuantity $maxDosePerDay = null): object
     {
         $this->_trackValueSet($this->maxDosePerDay, $maxDosePerDay);
         $this->maxDosePerDay = $maxDosePerDay;
@@ -444,7 +450,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRRatio
      */
-    public function getMaxDosePerTreatmentPeriod()
+    public function getMaxDosePerTreatmentPeriod(): ?FHIRRatio
     {
         return $this->maxDosePerTreatmentPeriod;
     }
@@ -461,7 +467,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRRatio $maxDosePerTreatmentPeriod
      * @return static
      */
-    public function setMaxDosePerTreatmentPeriod(FHIRRatio $maxDosePerTreatmentPeriod = null)
+    public function setMaxDosePerTreatmentPeriod(?FHIRRatio $maxDosePerTreatmentPeriod = null): object
     {
         $this->_trackValueSet($this->maxDosePerTreatmentPeriod, $maxDosePerTreatmentPeriod);
         $this->maxDosePerTreatmentPeriod = $maxDosePerTreatmentPeriod;
@@ -479,7 +485,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration
      */
-    public function getMaxTreatmentPeriod()
+    public function getMaxTreatmentPeriod(): ?FHIRDuration
     {
         return $this->maxTreatmentPeriod;
     }
@@ -496,7 +502,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRQuantity\FHIRDuration $maxTreatmentPeriod
      * @return static
      */
-    public function setMaxTreatmentPeriod(FHIRDuration $maxTreatmentPeriod = null)
+    public function setMaxTreatmentPeriod(?FHIRDuration $maxTreatmentPeriod = null): object
     {
         $this->_trackValueSet($this->maxTreatmentPeriod, $maxTreatmentPeriod);
         $this->maxTreatmentPeriod = $maxTreatmentPeriod;
@@ -510,7 +516,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies[]
      */
-    public function getTargetSpecies()
+    public function getTargetSpecies(): ?array
     {
         return $this->targetSpecies;
     }
@@ -523,7 +529,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies $targetSpecies
      * @return static
      */
-    public function addTargetSpecies(FHIRMedicinalProductPharmaceuticalTargetSpecies $targetSpecies = null)
+    public function addTargetSpecies(?FHIRMedicinalProductPharmaceuticalTargetSpecies $targetSpecies = null): object
     {
         $this->_trackValueAdded();
         $this->targetSpecies[] = $targetSpecies;
@@ -538,7 +544,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalTargetSpecies[] $targetSpecies
      * @return static
      */
-    public function setTargetSpecies(array $targetSpecies = [])
+    public function setTargetSpecies(array $targetSpecies = []): object
     {
         if ([] !== $this->targetSpecies) {
             $this->_trackValuesRemoved(count($this->targetSpecies));
@@ -744,15 +750,15 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalRouteOfAdministration
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductPharmaceutical\FHIRMedicinalProductPharmaceuticalRouteOfAdministration    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductPharmaceuticalRouteOfAdministration::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -772,7 +778,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -816,7 +822,7 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -869,38 +875,41 @@ class FHIRMedicinalProductPharmaceuticalRouteOfAdministration extends FHIRBackbo
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getFirstDose())) {
-            $a[self::FIELD_FIRST_DOSE] = $v;
+            $out->{self::FIELD_FIRST_DOSE} = $v;
         }
         if (null !== ($v = $this->getMaxSingleDose())) {
-            $a[self::FIELD_MAX_SINGLE_DOSE] = $v;
+            $out->{self::FIELD_MAX_SINGLE_DOSE} = $v;
         }
         if (null !== ($v = $this->getMaxDosePerDay())) {
-            $a[self::FIELD_MAX_DOSE_PER_DAY] = $v;
+            $out->{self::FIELD_MAX_DOSE_PER_DAY} = $v;
         }
         if (null !== ($v = $this->getMaxDosePerTreatmentPeriod())) {
-            $a[self::FIELD_MAX_DOSE_PER_TREATMENT_PERIOD] = $v;
+            $out->{self::FIELD_MAX_DOSE_PER_TREATMENT_PERIOD} = $v;
         }
         if (null !== ($v = $this->getMaxTreatmentPeriod())) {
-            $a[self::FIELD_MAX_TREATMENT_PERIOD] = $v;
+            $out->{self::FIELD_MAX_TREATMENT_PERIOD} = $v;
         }
         if ([] !== ($vs = $this->getTargetSpecies())) {
-            $a[self::FIELD_TARGET_SPECIES] = [];
+            $out->{self::FIELD_TARGET_SPECIES} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_TARGET_SPECIES][] = $v;
+                $out->{self::FIELD_TARGET_SPECIES}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,9 +109,9 @@ class FHIRDataRequirement extends FHIRElement
      * The type of the required data, specified as the type name of a resource. For
      * profiles, this value is set to the type of the base resource of the profile.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @var null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    protected $type = null;
+    protected ?FHIRCode $type = null;
 
     /**
      * A URI that is a reference to a canonical URL on a FHIR resource
@@ -122,9 +122,9 @@ class FHIRDataRequirement extends FHIRElement
      * The profile of the required data, specified as the uri of the profile
      * definition.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @var null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    protected $profile = [];
+    protected ?array $profile = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -137,7 +137,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $subjectCodeableConcept = null;
+    protected ?FHIRCodeableConcept $subjectCodeableConcept = null;
 
     /**
      * A reference from one resource to another.
@@ -149,7 +149,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subjectReference = null;
+    protected ?FHIRReference $subjectReference = null;
 
     /**
      * A sequence of Unicode characters
@@ -165,9 +165,9 @@ class FHIRDataRequirement extends FHIRElement
      * only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath
      * Profile](fhirpath.html#simple) for full details).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    protected $mustSupport = [];
+    protected ?array $mustSupport = [];
 
     /**
      * Describes a required data item for evaluation in terms of the type of data, and
@@ -181,7 +181,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter[]
      */
-    protected $codeFilter = [];
+    protected ?array $codeFilter = [];
 
     /**
      * Describes a required data item for evaluation in terms of the type of data, and
@@ -195,7 +195,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementDateFilter[]
      */
-    protected $dateFilter = [];
+    protected ?array $dateFilter = [];
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -205,9 +205,9 @@ class FHIRDataRequirement extends FHIRElement
      * Specifies a maximum number of results that are required (uses the _count search
      * parameter).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $limit = null;
+    protected ?FHIRPositiveInt $limit = null;
 
     /**
      * Describes a required data item for evaluation in terms of the type of data, and
@@ -219,13 +219,13 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementSort[]
      */
-    protected $sort = [];
+    protected ?array $sort = [];
 
     /**
      * Validation map for fields in type DataRequirement
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRDataRequirement Constructor
@@ -244,8 +244,8 @@ class FHIRDataRequirement extends FHIRElement
         }
         parent::__construct($data);
         if (isset($data[self::FIELD_TYPE]) || isset($data[self::FIELD_TYPE_EXT])) {
-            $value = isset($data[self::FIELD_TYPE]) ? $data[self::FIELD_TYPE] : null;
-            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $ext = $data[self::FIELD_TYPE_EXT] : $ext = [];
+            $value = $data[self::FIELD_TYPE] ?? null;
+            $ext = (isset($data[self::FIELD_TYPE_EXT]) && is_array($data[self::FIELD_TYPE_EXT])) ? $data[self::FIELD_TYPE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCode) {
                     $this->setType($value);
@@ -259,8 +259,8 @@ class FHIRDataRequirement extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_PROFILE]) || isset($data[self::FIELD_PROFILE_EXT])) {
-            $value = isset($data[self::FIELD_PROFILE]) ? $data[self::FIELD_PROFILE] : null;
-            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $ext = $data[self::FIELD_PROFILE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROFILE] ?? null;
+            $ext = (isset($data[self::FIELD_PROFILE_EXT]) && is_array($data[self::FIELD_PROFILE_EXT])) ? $data[self::FIELD_PROFILE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRCanonical) {
                     $this->addProfile($value);
@@ -303,8 +303,8 @@ class FHIRDataRequirement extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_MUST_SUPPORT]) || isset($data[self::FIELD_MUST_SUPPORT_EXT])) {
-            $value = isset($data[self::FIELD_MUST_SUPPORT]) ? $data[self::FIELD_MUST_SUPPORT] : null;
-            $ext = (isset($data[self::FIELD_MUST_SUPPORT_EXT]) && is_array($data[self::FIELD_MUST_SUPPORT_EXT])) ? $ext = $data[self::FIELD_MUST_SUPPORT_EXT] : $ext = [];
+            $value = $data[self::FIELD_MUST_SUPPORT] ?? null;
+            $ext = (isset($data[self::FIELD_MUST_SUPPORT_EXT]) && is_array($data[self::FIELD_MUST_SUPPORT_EXT])) ? $data[self::FIELD_MUST_SUPPORT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->addMustSupport($value);
@@ -369,8 +369,8 @@ class FHIRDataRequirement extends FHIRElement
             }
         }
         if (isset($data[self::FIELD_LIMIT]) || isset($data[self::FIELD_LIMIT_EXT])) {
-            $value = isset($data[self::FIELD_LIMIT]) ? $data[self::FIELD_LIMIT] : null;
-            $ext = (isset($data[self::FIELD_LIMIT_EXT]) && is_array($data[self::FIELD_LIMIT_EXT])) ? $ext = $data[self::FIELD_LIMIT_EXT] : $ext = [];
+            $value = $data[self::FIELD_LIMIT] ?? null;
+            $ext = (isset($data[self::FIELD_LIMIT_EXT]) && is_array($data[self::FIELD_LIMIT_EXT])) ? $data[self::FIELD_LIMIT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setLimit($value);
@@ -403,11 +403,17 @@ class FHIRDataRequirement extends FHIRElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -426,9 +432,9 @@ class FHIRDataRequirement extends FHIRElement
      * The type of the required data, specified as the type name of a resource. For
      * profiles, this value is set to the type of the base resource of the profile.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCode
+     * @return null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode
      */
-    public function getType()
+    public function getType(): ?FHIRCode
     {
         return $this->type;
     }
@@ -442,10 +448,10 @@ class FHIRDataRequirement extends FHIRElement
      * The type of the required data, specified as the type name of a resource. For
      * profiles, this value is set to the type of the base resource of the profile.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCode $type
+     * @param null|\HL7\FHIR\R4\FHIRCodePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRCode $type
      * @return static
      */
-    public function setType($type = null)
+    public function setType($type = null): object
     {
         if (null !== $type && !($type instanceof FHIRCode)) {
             $type = new FHIRCode($type);
@@ -464,9 +470,9 @@ class FHIRDataRequirement extends FHIRElement
      * The profile of the required data, specified as the uri of the profile
      * definition.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
+     * @return null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[]
      */
-    public function getProfile()
+    public function getProfile(): ?array
     {
         return $this->profile;
     }
@@ -480,10 +486,10 @@ class FHIRDataRequirement extends FHIRElement
      * The profile of the required data, specified as the uri of the profile
      * definition.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCanonical $profile
+     * @param null|\HL7\FHIR\R4\FHIRCanonicalPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $profile
      * @return static
      */
-    public function addProfile($profile = null)
+    public function addProfile($profile = null): object
     {
         if (null !== $profile && !($profile instanceof FHIRCanonical)) {
             $profile = new FHIRCanonical($profile);
@@ -505,7 +511,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCanonical[] $profile
      * @return static
      */
-    public function setProfile(array $profile = [])
+    public function setProfile(array $profile = []): object
     {
         if ([] !== $this->profile) {
             $this->_trackValuesRemoved(count($this->profile));
@@ -535,7 +541,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getSubjectCodeableConcept()
+    public function getSubjectCodeableConcept(): ?FHIRCodeableConcept
     {
         return $this->subjectCodeableConcept;
     }
@@ -552,7 +558,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $subjectCodeableConcept
      * @return static
      */
-    public function setSubjectCodeableConcept(FHIRCodeableConcept $subjectCodeableConcept = null)
+    public function setSubjectCodeableConcept(?FHIRCodeableConcept $subjectCodeableConcept = null): object
     {
         $this->_trackValueSet($this->subjectCodeableConcept, $subjectCodeableConcept);
         $this->subjectCodeableConcept = $subjectCodeableConcept;
@@ -569,7 +575,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubjectReference()
+    public function getSubjectReference(): ?FHIRReference
     {
         return $this->subjectReference;
     }
@@ -585,7 +591,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subjectReference
      * @return static
      */
-    public function setSubjectReference(FHIRReference $subjectReference = null)
+    public function setSubjectReference(?FHIRReference $subjectReference = null): object
     {
         $this->_trackValueSet($this->subjectReference, $subjectReference);
         $this->subjectReference = $subjectReference;
@@ -606,9 +612,9 @@ class FHIRDataRequirement extends FHIRElement
      * only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath
      * Profile](fhirpath.html#simple) for full details).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString[]
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[]
      */
-    public function getMustSupport()
+    public function getMustSupport(): ?array
     {
         return $this->mustSupport;
     }
@@ -627,10 +633,10 @@ class FHIRDataRequirement extends FHIRElement
      * only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath
      * Profile](fhirpath.html#simple) for full details).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $mustSupport
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive[]|\HL7\FHIR\R4\FHIRElement\FHIRString[] $mustSupport
      * @return static
      */
-    public function addMustSupport($mustSupport = null)
+    public function addMustSupport($mustSupport = null): object
     {
         if (null !== $mustSupport && !($mustSupport instanceof FHIRString)) {
             $mustSupport = new FHIRString($mustSupport);
@@ -657,7 +663,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRString[] $mustSupport
      * @return static
      */
-    public function setMustSupport(array $mustSupport = [])
+    public function setMustSupport(array $mustSupport = []): object
     {
         if ([] !== $this->mustSupport) {
             $this->_trackValuesRemoved(count($this->mustSupport));
@@ -688,7 +694,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter[]
      */
-    public function getCodeFilter()
+    public function getCodeFilter(): ?array
     {
         return $this->codeFilter;
     }
@@ -706,7 +712,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter $codeFilter
      * @return static
      */
-    public function addCodeFilter(FHIRDataRequirementCodeFilter $codeFilter = null)
+    public function addCodeFilter(?FHIRDataRequirementCodeFilter $codeFilter = null): object
     {
         $this->_trackValueAdded();
         $this->codeFilter[] = $codeFilter;
@@ -726,7 +732,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementCodeFilter[] $codeFilter
      * @return static
      */
-    public function setCodeFilter(array $codeFilter = [])
+    public function setCodeFilter(array $codeFilter = []): object
     {
         if ([] !== $this->codeFilter) {
             $this->_trackValuesRemoved(count($this->codeFilter));
@@ -757,7 +763,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementDateFilter[]
      */
-    public function getDateFilter()
+    public function getDateFilter(): ?array
     {
         return $this->dateFilter;
     }
@@ -775,7 +781,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementDateFilter $dateFilter
      * @return static
      */
-    public function addDateFilter(FHIRDataRequirementDateFilter $dateFilter = null)
+    public function addDateFilter(?FHIRDataRequirementDateFilter $dateFilter = null): object
     {
         $this->_trackValueAdded();
         $this->dateFilter[] = $dateFilter;
@@ -795,7 +801,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementDateFilter[] $dateFilter
      * @return static
      */
-    public function setDateFilter(array $dateFilter = [])
+    public function setDateFilter(array $dateFilter = []): object
     {
         if ([] !== $this->dateFilter) {
             $this->_trackValuesRemoved(count($this->dateFilter));
@@ -822,9 +828,9 @@ class FHIRDataRequirement extends FHIRElement
      * Specifies a maximum number of results that are required (uses the _count search
      * parameter).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getLimit()
+    public function getLimit(): ?FHIRPositiveInt
     {
         return $this->limit;
     }
@@ -837,10 +843,10 @@ class FHIRDataRequirement extends FHIRElement
      * Specifies a maximum number of results that are required (uses the _count search
      * parameter).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $limit
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $limit
      * @return static
      */
-    public function setLimit($limit = null)
+    public function setLimit($limit = null): object
     {
         if (null !== $limit && !($limit instanceof FHIRPositiveInt)) {
             $limit = new FHIRPositiveInt($limit);
@@ -860,7 +866,7 @@ class FHIRDataRequirement extends FHIRElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementSort[]
      */
-    public function getSort()
+    public function getSort(): ?array
     {
         return $this->sort;
     }
@@ -876,7 +882,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementSort $sort
      * @return static
      */
-    public function addSort(FHIRDataRequirementSort $sort = null)
+    public function addSort(?FHIRDataRequirementSort $sort = null): object
     {
         $this->_trackValueAdded();
         $this->sort[] = $sort;
@@ -894,7 +900,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRDataRequirement\FHIRDataRequirementSort[] $sort
      * @return static
      */
-    public function setSort(array $sort = [])
+    public function setSort(array $sort = []): object
     {
         if ([] !== $this->sort) {
             $this->_trackValuesRemoved(count($this->sort));
@@ -1130,15 +1136,15 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRDataRequirement    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRDataRequirement::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -1158,7 +1164,7 @@ class FHIRDataRequirement extends FHIRElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -1240,7 +1246,7 @@ class FHIRDataRequirement extends FHIRElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -1323,18 +1329,20 @@ class FHIRDataRequirement extends FHIRElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_TYPE] = $val;
+                $out->{self::FIELD_TYPE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRCode::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_TYPE_EXT] = $ext;
+            unset($ext->{FHIRCode::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_TYPE_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getProfile())) {
@@ -1346,7 +1354,7 @@ class FHIRDataRequirement extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRCanonical::FIELD_VALUE]);
+                unset($ext->{FHIRCanonical::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1355,17 +1363,17 @@ class FHIRDataRequirement extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_PROFILE] = $vals;
+                $out->{self::FIELD_PROFILE} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_PROFILE_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROFILE_EXT} = $exts;
             }
         }
         if (null !== ($v = $this->getSubjectCodeableConcept())) {
-            $a[self::FIELD_SUBJECT_CODEABLE_CONCEPT] = $v;
+            $out->{self::FIELD_SUBJECT_CODEABLE_CONCEPT} = $v;
         }
         if (null !== ($v = $this->getSubjectReference())) {
-            $a[self::FIELD_SUBJECT_REFERENCE] = $v;
+            $out->{self::FIELD_SUBJECT_REFERENCE} = $v;
         }
         if ([] !== ($vs = $this->getMustSupport())) {
             $vals = [];
@@ -1376,7 +1384,7 @@ class FHIRDataRequirement extends FHIRElement
                 }
                 $val = $v->getValue();
                 $ext = $v->jsonSerialize();
-                unset($ext[FHIRString::FIELD_VALUE]);
+                unset($ext->{FHIRString::FIELD_VALUE});
                 if (null !== $val) {
                     $vals[] = $val;
                 }
@@ -1385,50 +1393,51 @@ class FHIRDataRequirement extends FHIRElement
                 }
             }
             if ([] !== $vals) {
-                $a[self::FIELD_MUST_SUPPORT] = $vals;
+                $out->{self::FIELD_MUST_SUPPORT} = $vals;
             }
-            if ([] !== $exts) {
-                $a[self::FIELD_MUST_SUPPORT_EXT] = $exts;
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_MUST_SUPPORT_EXT} = $exts;
             }
         }
         if ([] !== ($vs = $this->getCodeFilter())) {
-            $a[self::FIELD_CODE_FILTER] = [];
+            $out->{self::FIELD_CODE_FILTER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_CODE_FILTER][] = $v;
+                $out->{self::FIELD_CODE_FILTER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getDateFilter())) {
-            $a[self::FIELD_DATE_FILTER] = [];
+            $out->{self::FIELD_DATE_FILTER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_DATE_FILTER][] = $v;
+                $out->{self::FIELD_DATE_FILTER}[] = $v;
             }
         }
         if (null !== ($v = $this->getLimit())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_LIMIT] = $val;
+                $out->{self::FIELD_LIMIT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_LIMIT_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_LIMIT_EXT} = $ext;
             }
         }
         if ([] !== ($vs = $this->getSort())) {
-            $a[self::FIELD_SORT] = [];
+            $out->{self::FIELD_SORT} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_SORT][] = $v;
+                $out->{self::FIELD_SORT}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

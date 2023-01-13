@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A reference from one resource to another.
@@ -107,13 +107,13 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $reference = [];
+    protected ?array $reference = [];
 
     /**
      * Validation map for fields in type MedicationKnowledge.RelatedMedicationKnowledge
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_REFERENCE => [
             PHPFHIRConstants::VALIDATE_MIN_OCCURS => 1,
         ],
@@ -162,11 +162,17 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -186,7 +192,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -202,7 +208,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -218,7 +224,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getReference()
+    public function getReference(): ?array
     {
         return $this->reference;
     }
@@ -233,7 +239,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $reference
      * @return static
      */
-    public function addReference(FHIRReference $reference = null)
+    public function addReference(?FHIRReference $reference = null): object
     {
         $this->_trackValueAdded();
         $this->reference[] = $reference;
@@ -250,7 +256,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $reference
      * @return static
      */
-    public function setReference(array $reference = [])
+    public function setReference(array $reference = []): object
     {
         if ([] !== $this->reference) {
             $this->_trackValuesRemoved(count($this->reference));
@@ -371,15 +377,15 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeRelatedMedicationKnowledge
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicationKnowledge\FHIRMedicationKnowledgeRelatedMedicationKnowledge    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicationKnowledgeRelatedMedicationKnowledge::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -399,7 +405,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -433,7 +439,7 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -461,23 +467,26 @@ class FHIRMedicationKnowledgeRelatedMedicationKnowledge extends FHIRBackboneElem
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if ([] !== ($vs = $this->getReference())) {
-            $a[self::FIELD_REFERENCE] = [];
+            $out->{self::FIELD_REFERENCE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REFERENCE][] = $v;
+                $out->{self::FIELD_REFERENCE}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

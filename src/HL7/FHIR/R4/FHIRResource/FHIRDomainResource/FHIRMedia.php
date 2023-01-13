@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRResource\FHIRDomainResource;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -145,7 +145,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    protected $identifier = [];
+    protected ?array $identifier = [];
 
     /**
      * A reference from one resource to another.
@@ -156,7 +156,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $basedOn = [];
+    protected ?array $basedOn = [];
 
     /**
      * A reference from one resource to another.
@@ -167,7 +167,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    protected $partOf = [];
+    protected ?array $partOf = [];
 
     /**
      * The status of the communication.
@@ -177,7 +177,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIREventStatus
      */
-    protected $status = null;
+    protected ?FHIREventStatus $status = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -190,7 +190,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $type = null;
+    protected ?FHIRCodeableConcept $type = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -204,7 +204,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $modality = null;
+    protected ?FHIRCodeableConcept $modality = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -216,7 +216,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $view = null;
+    protected ?FHIRCodeableConcept $view = null;
 
     /**
      * A reference from one resource to another.
@@ -227,7 +227,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $subject = null;
+    protected ?FHIRReference $subject = null;
 
     /**
      * A reference from one resource to another.
@@ -238,7 +238,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $encounter = null;
+    protected ?FHIRReference $encounter = null;
 
     /**
      * A date, date-time or partial date (e.g. just year or year + month). If hours and
@@ -250,9 +250,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The date and time(s) at which the media was collected.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @var null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    protected $createdDateTime = null;
+    protected ?FHIRDateTime $createdDateTime = null;
 
     /**
      * A time period defined by a start and end date and optionally time.
@@ -263,7 +263,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    protected $createdPeriod = null;
+    protected ?FHIRPeriod $createdPeriod = null;
 
     /**
      * An instant in time - known at least to the second
@@ -276,9 +276,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The date and time this version of the media was made available to providers,
      * typically after having been reviewed.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @var null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    protected $issued = null;
+    protected ?FHIRInstant $issued = null;
 
     /**
      * A reference from one resource to another.
@@ -289,7 +289,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $operator = null;
+    protected ?FHIRReference $operator = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -301,7 +301,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    protected $reasonCode = [];
+    protected ?array $reasonCode = [];
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -314,7 +314,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $bodySite = null;
+    protected ?FHIRCodeableConcept $bodySite = null;
 
     /**
      * A sequence of Unicode characters
@@ -324,9 +324,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The name of the device / manufacturer of the device that was used to make the
      * recording.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $deviceName = null;
+    protected ?FHIRString $deviceName = null;
 
     /**
      * A reference from one resource to another.
@@ -337,7 +337,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $device = null;
+    protected ?FHIRReference $device = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -346,9 +346,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Height of the image in pixels (photo/video).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $height = null;
+    protected ?FHIRPositiveInt $height = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -357,9 +357,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Width of the image in pixels (photo/video).
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $width = null;
+    protected ?FHIRPositiveInt $width = null;
 
     /**
      * An integer with a value that is positive (e.g. >0)
@@ -372,9 +372,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * to alert interface software that a multi-frame capable rendering widget is
      * required.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @var null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    protected $frames = null;
+    protected ?FHIRPositiveInt $frames = null;
 
     /**
      * A rational number with implicit precision
@@ -384,9 +384,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The duration of the recording in seconds - for audio and video.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @var null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    protected $duration = null;
+    protected ?FHIRDecimal $duration = null;
 
     /**
      * For referring to data content defined in other formats.
@@ -398,7 +398,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    protected $content = null;
+    protected ?FHIRAttachment $content = null;
 
     /**
      * A text note which also contains information about who made the statement and
@@ -410,13 +410,13 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    protected $note = [];
+    protected ?array $note = [];
 
     /**
      * Validation map for fields in type Media
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedia Constructor
@@ -489,8 +489,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_STATUS]) || isset($data[self::FIELD_STATUS_EXT])) {
-            $value = isset($data[self::FIELD_STATUS]) ? $data[self::FIELD_STATUS] : null;
-            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $ext = $data[self::FIELD_STATUS_EXT] : $ext = [];
+            $value = $data[self::FIELD_STATUS] ?? null;
+            $ext = (isset($data[self::FIELD_STATUS_EXT]) && is_array($data[self::FIELD_STATUS_EXT])) ? $data[self::FIELD_STATUS_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIREventStatus) {
                     $this->setStatus($value);
@@ -539,8 +539,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_CREATED_DATE_TIME]) || isset($data[self::FIELD_CREATED_DATE_TIME_EXT])) {
-            $value = isset($data[self::FIELD_CREATED_DATE_TIME]) ? $data[self::FIELD_CREATED_DATE_TIME] : null;
-            $ext = (isset($data[self::FIELD_CREATED_DATE_TIME_EXT]) && is_array($data[self::FIELD_CREATED_DATE_TIME_EXT])) ? $ext = $data[self::FIELD_CREATED_DATE_TIME_EXT] : $ext = [];
+            $value = $data[self::FIELD_CREATED_DATE_TIME] ?? null;
+            $ext = (isset($data[self::FIELD_CREATED_DATE_TIME_EXT]) && is_array($data[self::FIELD_CREATED_DATE_TIME_EXT])) ? $data[self::FIELD_CREATED_DATE_TIME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDateTime) {
                     $this->setCreatedDateTime($value);
@@ -561,8 +561,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_ISSUED]) || isset($data[self::FIELD_ISSUED_EXT])) {
-            $value = isset($data[self::FIELD_ISSUED]) ? $data[self::FIELD_ISSUED] : null;
-            $ext = (isset($data[self::FIELD_ISSUED_EXT]) && is_array($data[self::FIELD_ISSUED_EXT])) ? $ext = $data[self::FIELD_ISSUED_EXT] : $ext = [];
+            $value = $data[self::FIELD_ISSUED] ?? null;
+            $ext = (isset($data[self::FIELD_ISSUED_EXT]) && is_array($data[self::FIELD_ISSUED_EXT])) ? $data[self::FIELD_ISSUED_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRInstant) {
                     $this->setIssued($value);
@@ -608,8 +608,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_DEVICE_NAME]) || isset($data[self::FIELD_DEVICE_NAME_EXT])) {
-            $value = isset($data[self::FIELD_DEVICE_NAME]) ? $data[self::FIELD_DEVICE_NAME] : null;
-            $ext = (isset($data[self::FIELD_DEVICE_NAME_EXT]) && is_array($data[self::FIELD_DEVICE_NAME_EXT])) ? $ext = $data[self::FIELD_DEVICE_NAME_EXT] : $ext = [];
+            $value = $data[self::FIELD_DEVICE_NAME] ?? null;
+            $ext = (isset($data[self::FIELD_DEVICE_NAME_EXT]) && is_array($data[self::FIELD_DEVICE_NAME_EXT])) ? $data[self::FIELD_DEVICE_NAME_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setDeviceName($value);
@@ -630,8 +630,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_HEIGHT]) || isset($data[self::FIELD_HEIGHT_EXT])) {
-            $value = isset($data[self::FIELD_HEIGHT]) ? $data[self::FIELD_HEIGHT] : null;
-            $ext = (isset($data[self::FIELD_HEIGHT_EXT]) && is_array($data[self::FIELD_HEIGHT_EXT])) ? $ext = $data[self::FIELD_HEIGHT_EXT] : $ext = [];
+            $value = $data[self::FIELD_HEIGHT] ?? null;
+            $ext = (isset($data[self::FIELD_HEIGHT_EXT]) && is_array($data[self::FIELD_HEIGHT_EXT])) ? $data[self::FIELD_HEIGHT_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setHeight($value);
@@ -645,8 +645,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_WIDTH]) || isset($data[self::FIELD_WIDTH_EXT])) {
-            $value = isset($data[self::FIELD_WIDTH]) ? $data[self::FIELD_WIDTH] : null;
-            $ext = (isset($data[self::FIELD_WIDTH_EXT]) && is_array($data[self::FIELD_WIDTH_EXT])) ? $ext = $data[self::FIELD_WIDTH_EXT] : $ext = [];
+            $value = $data[self::FIELD_WIDTH] ?? null;
+            $ext = (isset($data[self::FIELD_WIDTH_EXT]) && is_array($data[self::FIELD_WIDTH_EXT])) ? $data[self::FIELD_WIDTH_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setWidth($value);
@@ -660,8 +660,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_FRAMES]) || isset($data[self::FIELD_FRAMES_EXT])) {
-            $value = isset($data[self::FIELD_FRAMES]) ? $data[self::FIELD_FRAMES] : null;
-            $ext = (isset($data[self::FIELD_FRAMES_EXT]) && is_array($data[self::FIELD_FRAMES_EXT])) ? $ext = $data[self::FIELD_FRAMES_EXT] : $ext = [];
+            $value = $data[self::FIELD_FRAMES] ?? null;
+            $ext = (isset($data[self::FIELD_FRAMES_EXT]) && is_array($data[self::FIELD_FRAMES_EXT])) ? $data[self::FIELD_FRAMES_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRPositiveInt) {
                     $this->setFrames($value);
@@ -675,8 +675,8 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
             }
         }
         if (isset($data[self::FIELD_DURATION]) || isset($data[self::FIELD_DURATION_EXT])) {
-            $value = isset($data[self::FIELD_DURATION]) ? $data[self::FIELD_DURATION] : null;
-            $ext = (isset($data[self::FIELD_DURATION_EXT]) && is_array($data[self::FIELD_DURATION_EXT])) ? $ext = $data[self::FIELD_DURATION_EXT] : $ext = [];
+            $value = $data[self::FIELD_DURATION] ?? null;
+            $ext = (isset($data[self::FIELD_DURATION_EXT]) && is_array($data[self::FIELD_DURATION_EXT])) ? $data[self::FIELD_DURATION_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDecimal) {
                     $this->setDuration($value);
@@ -716,11 +716,17 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -729,6 +735,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
         }
         return "<Media{$xmlns}></Media>";
     }
+    /**
+     * @return string
+     */
     public function _getResourceType(): string
     {
         return static::FHIR_TYPE_NAME;
@@ -747,7 +756,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier[]
      */
-    public function getIdentifier()
+    public function getIdentifier(): ?array
     {
         return $this->identifier;
     }
@@ -765,7 +774,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRIdentifier $identifier
      * @return static
      */
-    public function addIdentifier(FHIRIdentifier $identifier = null)
+    public function addIdentifier(?FHIRIdentifier $identifier = null): object
     {
         $this->_trackValueAdded();
         $this->identifier[] = $identifier;
@@ -785,7 +794,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRIdentifier[] $identifier
      * @return static
      */
-    public function setIdentifier(array $identifier = [])
+    public function setIdentifier(array $identifier = []): object
     {
         if ([] !== $this->identifier) {
             $this->_trackValuesRemoved(count($this->identifier));
@@ -813,7 +822,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getBasedOn()
+    public function getBasedOn(): ?array
     {
         return $this->basedOn;
     }
@@ -828,7 +837,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $basedOn
      * @return static
      */
-    public function addBasedOn(FHIRReference $basedOn = null)
+    public function addBasedOn(?FHIRReference $basedOn = null): object
     {
         $this->_trackValueAdded();
         $this->basedOn[] = $basedOn;
@@ -845,7 +854,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $basedOn
      * @return static
      */
-    public function setBasedOn(array $basedOn = [])
+    public function setBasedOn(array $basedOn = []): object
     {
         if ([] !== $this->basedOn) {
             $this->_trackValuesRemoved(count($this->basedOn));
@@ -873,7 +882,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference[]
      */
-    public function getPartOf()
+    public function getPartOf(): ?array
     {
         return $this->partOf;
     }
@@ -888,7 +897,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $partOf
      * @return static
      */
-    public function addPartOf(FHIRReference $partOf = null)
+    public function addPartOf(?FHIRReference $partOf = null): object
     {
         $this->_trackValueAdded();
         $this->partOf[] = $partOf;
@@ -905,7 +914,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRReference[] $partOf
      * @return static
      */
-    public function setPartOf(array $partOf = [])
+    public function setPartOf(array $partOf = []): object
     {
         if ([] !== $this->partOf) {
             $this->_trackValuesRemoved(count($this->partOf));
@@ -932,7 +941,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIREventStatus
      */
-    public function getStatus()
+    public function getStatus(): ?FHIREventStatus
     {
         return $this->status;
     }
@@ -946,7 +955,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIREventStatus $status
      * @return static
      */
-    public function setStatus(FHIREventStatus $status = null)
+    public function setStatus(?FHIREventStatus $status = null): object
     {
         $this->_trackValueSet($this->status, $status);
         $this->status = $status;
@@ -964,7 +973,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getType()
+    public function getType(): ?FHIRCodeableConcept
     {
         return $this->type;
     }
@@ -981,7 +990,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $type
      * @return static
      */
-    public function setType(FHIRCodeableConcept $type = null)
+    public function setType(?FHIRCodeableConcept $type = null): object
     {
         $this->_trackValueSet($this->type, $type);
         $this->type = $type;
@@ -1000,7 +1009,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getModality()
+    public function getModality(): ?FHIRCodeableConcept
     {
         return $this->modality;
     }
@@ -1018,7 +1027,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $modality
      * @return static
      */
-    public function setModality(FHIRCodeableConcept $modality = null)
+    public function setModality(?FHIRCodeableConcept $modality = null): object
     {
         $this->_trackValueSet($this->modality, $modality);
         $this->modality = $modality;
@@ -1035,7 +1044,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getView()
+    public function getView(): ?FHIRCodeableConcept
     {
         return $this->view;
     }
@@ -1051,7 +1060,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $view
      * @return static
      */
-    public function setView(FHIRCodeableConcept $view = null)
+    public function setView(?FHIRCodeableConcept $view = null): object
     {
         $this->_trackValueSet($this->view, $view);
         $this->view = $view;
@@ -1067,7 +1076,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getSubject()
+    public function getSubject(): ?FHIRReference
     {
         return $this->subject;
     }
@@ -1082,7 +1091,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $subject
      * @return static
      */
-    public function setSubject(FHIRReference $subject = null)
+    public function setSubject(?FHIRReference $subject = null): object
     {
         $this->_trackValueSet($this->subject, $subject);
         $this->subject = $subject;
@@ -1098,7 +1107,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getEncounter()
+    public function getEncounter(): ?FHIRReference
     {
         return $this->encounter;
     }
@@ -1113,7 +1122,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $encounter
      * @return static
      */
-    public function setEncounter(FHIRReference $encounter = null)
+    public function setEncounter(?FHIRReference $encounter = null): object
     {
         $this->_trackValueSet($this->encounter, $encounter);
         $this->encounter = $encounter;
@@ -1130,9 +1139,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The date and time(s) at which the media was collected.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
+     * @return null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?FHIRDateTime
     {
         return $this->createdDateTime;
     }
@@ -1147,10 +1156,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The date and time(s) at which the media was collected.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $createdDateTime
+     * @param null|\HL7\FHIR\R4\FHIRDateTimePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDateTime $createdDateTime
      * @return static
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime($createdDateTime = null): object
     {
         if (null !== $createdDateTime && !($createdDateTime instanceof FHIRDateTime)) {
             $createdDateTime = new FHIRDateTime($createdDateTime);
@@ -1169,7 +1178,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod
      */
-    public function getCreatedPeriod()
+    public function getCreatedPeriod(): ?FHIRPeriod
     {
         return $this->createdPeriod;
     }
@@ -1184,7 +1193,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPeriod $createdPeriod
      * @return static
      */
-    public function setCreatedPeriod(FHIRPeriod $createdPeriod = null)
+    public function setCreatedPeriod(?FHIRPeriod $createdPeriod = null): object
     {
         $this->_trackValueSet($this->createdPeriod, $createdPeriod);
         $this->createdPeriod = $createdPeriod;
@@ -1202,9 +1211,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The date and time this version of the media was made available to providers,
      * typically after having been reviewed.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRInstant
+     * @return null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant
      */
-    public function getIssued()
+    public function getIssued(): ?FHIRInstant
     {
         return $this->issued;
     }
@@ -1220,10 +1229,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The date and time this version of the media was made available to providers,
      * typically after having been reviewed.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRInstant $issued
+     * @param null|\HL7\FHIR\R4\FHIRInstantPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRInstant $issued
      * @return static
      */
-    public function setIssued($issued = null)
+    public function setIssued($issued = null): object
     {
         if (null !== $issued && !($issued instanceof FHIRInstant)) {
             $issued = new FHIRInstant($issued);
@@ -1242,7 +1251,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOperator()
+    public function getOperator(): ?FHIRReference
     {
         return $this->operator;
     }
@@ -1257,7 +1266,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $operator
      * @return static
      */
-    public function setOperator(FHIRReference $operator = null)
+    public function setOperator(?FHIRReference $operator = null): object
     {
         $this->_trackValueSet($this->operator, $operator);
         $this->operator = $operator;
@@ -1274,7 +1283,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[]
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?array
     {
         return $this->reasonCode;
     }
@@ -1290,7 +1299,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $reasonCode
      * @return static
      */
-    public function addReasonCode(FHIRCodeableConcept $reasonCode = null)
+    public function addReasonCode(?FHIRCodeableConcept $reasonCode = null): object
     {
         $this->_trackValueAdded();
         $this->reasonCode[] = $reasonCode;
@@ -1308,7 +1317,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept[] $reasonCode
      * @return static
      */
-    public function setReasonCode(array $reasonCode = [])
+    public function setReasonCode(array $reasonCode = []): object
     {
         if ([] !== $this->reasonCode) {
             $this->_trackValuesRemoved(count($this->reasonCode));
@@ -1338,7 +1347,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getBodySite()
+    public function getBodySite(): ?FHIRCodeableConcept
     {
         return $this->bodySite;
     }
@@ -1355,7 +1364,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $bodySite
      * @return static
      */
-    public function setBodySite(FHIRCodeableConcept $bodySite = null)
+    public function setBodySite(?FHIRCodeableConcept $bodySite = null): object
     {
         $this->_trackValueSet($this->bodySite, $bodySite);
         $this->bodySite = $bodySite;
@@ -1370,9 +1379,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The name of the device / manufacturer of the device that was used to make the
      * recording.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getDeviceName()
+    public function getDeviceName(): ?FHIRString
     {
         return $this->deviceName;
     }
@@ -1385,10 +1394,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * The name of the device / manufacturer of the device that was used to make the
      * recording.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $deviceName
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $deviceName
      * @return static
      */
-    public function setDeviceName($deviceName = null)
+    public function setDeviceName($deviceName = null): object
     {
         if (null !== $deviceName && !($deviceName instanceof FHIRString)) {
             $deviceName = new FHIRString($deviceName);
@@ -1407,7 +1416,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getDevice()
+    public function getDevice(): ?FHIRReference
     {
         return $this->device;
     }
@@ -1422,7 +1431,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $device
      * @return static
      */
-    public function setDevice(FHIRReference $device = null)
+    public function setDevice(?FHIRReference $device = null): object
     {
         $this->_trackValueSet($this->device, $device);
         $this->device = $device;
@@ -1436,9 +1445,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Height of the image in pixels (photo/video).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getHeight()
+    public function getHeight(): ?FHIRPositiveInt
     {
         return $this->height;
     }
@@ -1450,10 +1459,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Height of the image in pixels (photo/video).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $height
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $height
      * @return static
      */
-    public function setHeight($height = null)
+    public function setHeight($height = null): object
     {
         if (null !== $height && !($height instanceof FHIRPositiveInt)) {
             $height = new FHIRPositiveInt($height);
@@ -1470,9 +1479,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Width of the image in pixels (photo/video).
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getWidth()
+    public function getWidth(): ?FHIRPositiveInt
     {
         return $this->width;
     }
@@ -1484,10 +1493,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * Width of the image in pixels (photo/video).
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $width
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $width
      * @return static
      */
-    public function setWidth($width = null)
+    public function setWidth($width = null): object
     {
         if (null !== $width && !($width instanceof FHIRPositiveInt)) {
             $width = new FHIRPositiveInt($width);
@@ -1508,9 +1517,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * to alert interface software that a multi-frame capable rendering widget is
      * required.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
+     * @return null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt
      */
-    public function getFrames()
+    public function getFrames(): ?FHIRPositiveInt
     {
         return $this->frames;
     }
@@ -1526,10 +1535,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * to alert interface software that a multi-frame capable rendering widget is
      * required.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $frames
+     * @param null|\HL7\FHIR\R4\FHIRPositiveIntPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRPositiveInt $frames
      * @return static
      */
-    public function setFrames($frames = null)
+    public function setFrames($frames = null): object
     {
         if (null !== $frames && !($frames instanceof FHIRPositiveInt)) {
             $frames = new FHIRPositiveInt($frames);
@@ -1547,9 +1556,9 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The duration of the recording in seconds - for audio and video.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
+     * @return null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal
      */
-    public function getDuration()
+    public function getDuration(): ?FHIRDecimal
     {
         return $this->duration;
     }
@@ -1562,10 +1571,10 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * The duration of the recording in seconds - for audio and video.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $duration
+     * @param null|\HL7\FHIR\R4\FHIRDecimalPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDecimal $duration
      * @return static
      */
-    public function setDuration($duration = null)
+    public function setDuration($duration = null): object
     {
         if (null !== $duration && !($duration instanceof FHIRDecimal)) {
             $duration = new FHIRDecimal($duration);
@@ -1585,7 +1594,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment
      */
-    public function getContent()
+    public function getContent(): ?FHIRAttachment
     {
         return $this->content;
     }
@@ -1601,7 +1610,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAttachment $content
      * @return static
      */
-    public function setContent(FHIRAttachment $content = null)
+    public function setContent(?FHIRAttachment $content = null): object
     {
         $this->_trackValueSet($this->content, $content);
         $this->content = $content;
@@ -1618,7 +1627,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation[]
      */
-    public function getNote()
+    public function getNote(): ?array
     {
         return $this->note;
     }
@@ -1634,7 +1643,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRAnnotation $note
      * @return static
      */
-    public function addNote(FHIRAnnotation $note = null)
+    public function addNote(?FHIRAnnotation $note = null): object
     {
         $this->_trackValueAdded();
         $this->note[] = $note;
@@ -1652,7 +1661,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param \HL7\FHIR\R4\FHIRElement\FHIRAnnotation[] $note
      * @return static
      */
-    public function setNote(array $note = [])
+    public function setNote(array $note = []): object
     {
         if ([] !== $this->note) {
             $this->_trackValuesRemoved(count($this->note));
@@ -2198,15 +2207,15 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedia
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRResource\FHIRDomainResource\FHIRMedia    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedia::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -2226,7 +2235,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -2398,7 +2407,7 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -2551,166 +2560,171 @@ class FHIRMedia extends FHIRDomainResource implements PHPFHIRContainedTypeInterf
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getIdentifier())) {
-            $a[self::FIELD_IDENTIFIER] = [];
+            $out->{self::FIELD_IDENTIFIER} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_IDENTIFIER][] = $v;
+                $out->{self::FIELD_IDENTIFIER}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getBasedOn())) {
-            $a[self::FIELD_BASED_ON] = [];
+            $out->{self::FIELD_BASED_ON} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_BASED_ON][] = $v;
+                $out->{self::FIELD_BASED_ON}[] = $v;
             }
         }
         if ([] !== ($vs = $this->getPartOf())) {
-            $a[self::FIELD_PART_OF] = [];
+            $out->{self::FIELD_PART_OF} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_PART_OF][] = $v;
+                $out->{self::FIELD_PART_OF}[] = $v;
             }
         }
         if (null !== ($v = $this->getStatus())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_STATUS] = $val;
+                $out->{self::FIELD_STATUS} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIREventStatus::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_STATUS_EXT] = $ext;
+            unset($ext->{FHIREventStatus::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_STATUS_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getType())) {
-            $a[self::FIELD_TYPE] = $v;
+            $out->{self::FIELD_TYPE} = $v;
         }
         if (null !== ($v = $this->getModality())) {
-            $a[self::FIELD_MODALITY] = $v;
+            $out->{self::FIELD_MODALITY} = $v;
         }
         if (null !== ($v = $this->getView())) {
-            $a[self::FIELD_VIEW] = $v;
+            $out->{self::FIELD_VIEW} = $v;
         }
         if (null !== ($v = $this->getSubject())) {
-            $a[self::FIELD_SUBJECT] = $v;
+            $out->{self::FIELD_SUBJECT} = $v;
         }
         if (null !== ($v = $this->getEncounter())) {
-            $a[self::FIELD_ENCOUNTER] = $v;
+            $out->{self::FIELD_ENCOUNTER} = $v;
         }
         if (null !== ($v = $this->getCreatedDateTime())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_CREATED_DATE_TIME] = $val;
+                $out->{self::FIELD_CREATED_DATE_TIME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDateTime::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_CREATED_DATE_TIME_EXT] = $ext;
+            unset($ext->{FHIRDateTime::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_CREATED_DATE_TIME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getCreatedPeriod())) {
-            $a[self::FIELD_CREATED_PERIOD] = $v;
+            $out->{self::FIELD_CREATED_PERIOD} = $v;
         }
         if (null !== ($v = $this->getIssued())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_ISSUED] = $val;
+                $out->{self::FIELD_ISSUED} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRInstant::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_ISSUED_EXT] = $ext;
+            unset($ext->{FHIRInstant::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_ISSUED_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getOperator())) {
-            $a[self::FIELD_OPERATOR] = $v;
+            $out->{self::FIELD_OPERATOR} = $v;
         }
         if ([] !== ($vs = $this->getReasonCode())) {
-            $a[self::FIELD_REASON_CODE] = [];
+            $out->{self::FIELD_REASON_CODE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_REASON_CODE][] = $v;
+                $out->{self::FIELD_REASON_CODE}[] = $v;
             }
         }
         if (null !== ($v = $this->getBodySite())) {
-            $a[self::FIELD_BODY_SITE] = $v;
+            $out->{self::FIELD_BODY_SITE} = $v;
         }
         if (null !== ($v = $this->getDeviceName())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DEVICE_NAME] = $val;
+                $out->{self::FIELD_DEVICE_NAME} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DEVICE_NAME_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DEVICE_NAME_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDevice())) {
-            $a[self::FIELD_DEVICE] = $v;
+            $out->{self::FIELD_DEVICE} = $v;
         }
         if (null !== ($v = $this->getHeight())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_HEIGHT] = $val;
+                $out->{self::FIELD_HEIGHT} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_HEIGHT_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_HEIGHT_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getWidth())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_WIDTH] = $val;
+                $out->{self::FIELD_WIDTH} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_WIDTH_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_WIDTH_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getFrames())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_FRAMES] = $val;
+                $out->{self::FIELD_FRAMES} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRPositiveInt::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_FRAMES_EXT] = $ext;
+            unset($ext->{FHIRPositiveInt::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FRAMES_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getDuration())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DURATION] = $val;
+                $out->{self::FIELD_DURATION} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDecimal::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DURATION_EXT] = $ext;
+            unset($ext->{FHIRDecimal::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DURATION_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getContent())) {
-            $a[self::FIELD_CONTENT] = $v;
+            $out->{self::FIELD_CONTENT} = $v;
         }
         if ([] !== ($vs = $this->getNote())) {
-            $a[self::FIELD_NOTE] = [];
+            $out->{self::FIELD_NOTE} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_NOTE][] = $v;
+                $out->{self::FIELD_NOTE}[] = $v;
             }
         }
-        return [PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE => $this->_getResourceType()] + $a;
+
+        $out->{PHPFHIRConstants::JSON_FIELD_RESOURCE_TYPE} = $this->_getResourceType();
+
+        return $out;
     }
 
 

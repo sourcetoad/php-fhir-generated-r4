@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngred
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $code = null;
+    protected ?FHIRCodeableConcept $code = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -109,7 +109,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $group = null;
+    protected ?FHIRCodeableConcept $group = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -121,7 +121,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $confidentiality = null;
+    protected ?FHIRCodeableConcept $confidentiality = null;
 
     /**
      * An ingredient of a manufactured item or pharmaceutical product.
@@ -131,13 +131,13 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientStrength[]
      */
-    protected $strength = [];
+    protected ?array $strength = [];
 
     /**
      * Validation map for fields in type MedicinalProductIngredient.SpecifiedSubstance
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRMedicinalProductIngredientSpecifiedSubstance Constructor
@@ -196,11 +196,17 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -220,7 +226,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCode()
+    public function getCode(): ?FHIRCodeableConcept
     {
         return $this->code;
     }
@@ -236,7 +242,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $code
      * @return static
      */
-    public function setCode(FHIRCodeableConcept $code = null)
+    public function setCode(?FHIRCodeableConcept $code = null): object
     {
         $this->_trackValueSet($this->code, $code);
         $this->code = $code;
@@ -253,7 +259,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getGroup()
+    public function getGroup(): ?FHIRCodeableConcept
     {
         return $this->group;
     }
@@ -269,7 +275,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $group
      * @return static
      */
-    public function setGroup(FHIRCodeableConcept $group = null)
+    public function setGroup(?FHIRCodeableConcept $group = null): object
     {
         $this->_trackValueSet($this->group, $group);
         $this->group = $group;
@@ -286,7 +292,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getConfidentiality()
+    public function getConfidentiality(): ?FHIRCodeableConcept
     {
         return $this->confidentiality;
     }
@@ -302,7 +308,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $confidentiality
      * @return static
      */
-    public function setConfidentiality(FHIRCodeableConcept $confidentiality = null)
+    public function setConfidentiality(?FHIRCodeableConcept $confidentiality = null): object
     {
         $this->_trackValueSet($this->confidentiality, $confidentiality);
         $this->confidentiality = $confidentiality;
@@ -317,7 +323,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientStrength[]
      */
-    public function getStrength()
+    public function getStrength(): ?array
     {
         return $this->strength;
     }
@@ -331,7 +337,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientStrength $strength
      * @return static
      */
-    public function addStrength(FHIRMedicinalProductIngredientStrength $strength = null)
+    public function addStrength(?FHIRMedicinalProductIngredientStrength $strength = null): object
     {
         $this->_trackValueAdded();
         $this->strength[] = $strength;
@@ -347,7 +353,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientStrength[] $strength
      * @return static
      */
-    public function setStrength(array $strength = [])
+    public function setStrength(array $strength = []): object
     {
         if ([] !== $this->strength) {
             $this->_trackValuesRemoved(count($this->strength));
@@ -502,15 +508,15 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRMedicinalProductIngredient\FHIRMedicinalProductIngredientSpecifiedSubstance    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRMedicinalProductIngredientSpecifiedSubstance::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -530,7 +536,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -568,7 +574,7 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -606,29 +612,32 @@ class FHIRMedicinalProductIngredientSpecifiedSubstance extends FHIRBackboneEleme
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getCode())) {
-            $a[self::FIELD_CODE] = $v;
+            $out->{self::FIELD_CODE} = $v;
         }
         if (null !== ($v = $this->getGroup())) {
-            $a[self::FIELD_GROUP] = $v;
+            $out->{self::FIELD_GROUP} = $v;
         }
         if (null !== ($v = $this->getConfidentiality())) {
-            $a[self::FIELD_CONFIDENTIALITY] = $v;
+            $out->{self::FIELD_CONFIDENTIALITY} = $v;
         }
         if ([] !== ($vs = $this->getStrength())) {
-            $a[self::FIELD_STRENGTH] = [];
+            $out->{self::FIELD_STRENGTH} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_STRENGTH][] = $v;
+                $out->{self::FIELD_STRENGTH}[] = $v;
             }
         }
-        return $a;
+
+        return $out;
     }
 
 

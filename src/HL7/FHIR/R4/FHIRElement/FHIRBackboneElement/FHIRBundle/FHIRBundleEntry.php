@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[]
      */
-    protected $link = [];
+    protected ?array $link = [];
 
     /**
      * String of characters used to identify a name or a resource
@@ -114,9 +114,9 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * to when specifying a temporary id for reference in the bundle) * Results from
      * operations might involve resources that are not identified.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @var null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    protected $fullUrl = null;
+    protected ?FHIRUri $fullUrl = null;
 
     /**
      * The Resource for the entry. The purpose/meaning of the resource is determined by
@@ -124,7 +124,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\PHPFHIRContainedTypeInterface
      */
-    protected $resource = null;
+    protected ?PHPFHIRContainedTypeInterface $resource = null;
 
     /**
      * A container for a collection of resources.
@@ -133,7 +133,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleSearch
      */
-    protected $search = null;
+    protected ?FHIRBundleSearch $search = null;
 
     /**
      * A container for a collection of resources.
@@ -144,7 +144,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleRequest
      */
-    protected $request = null;
+    protected ?FHIRBundleRequest $request = null;
 
     /**
      * A container for a collection of resources.
@@ -155,13 +155,13 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleResponse
      */
-    protected $response = null;
+    protected ?FHIRBundleResponse $response = null;
 
     /**
      * Validation map for fields in type Bundle.Entry
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRBundleEntry Constructor
@@ -198,8 +198,8 @@ class FHIRBundleEntry extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_FULL_URL]) || isset($data[self::FIELD_FULL_URL_EXT])) {
-            $value = isset($data[self::FIELD_FULL_URL]) ? $data[self::FIELD_FULL_URL] : null;
-            $ext = (isset($data[self::FIELD_FULL_URL_EXT]) && is_array($data[self::FIELD_FULL_URL_EXT])) ? $ext = $data[self::FIELD_FULL_URL_EXT] : $ext = [];
+            $value = $data[self::FIELD_FULL_URL] ?? null;
+            $ext = (isset($data[self::FIELD_FULL_URL_EXT]) && is_array($data[self::FIELD_FULL_URL_EXT])) ? $data[self::FIELD_FULL_URL_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRUri) {
                     $this->setFullUrl($value);
@@ -261,11 +261,17 @@ class FHIRBundleEntry extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -282,7 +288,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[]
      */
-    public function getLink()
+    public function getLink(): ?array
     {
         return $this->link;
     }
@@ -295,7 +301,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink $link
      * @return static
      */
-    public function addLink(FHIRBundleLink $link = null)
+    public function addLink(?FHIRBundleLink $link = null): object
     {
         $this->_trackValueAdded();
         $this->link[] = $link;
@@ -310,7 +316,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param \HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleLink[] $link
      * @return static
      */
-    public function setLink(array $link = [])
+    public function setLink(array $link = []): object
     {
         if ([] !== $this->link) {
             $this->_trackValuesRemoved(count($this->link));
@@ -342,9 +348,9 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * to when specifying a temporary id for reference in the bundle) * Results from
      * operations might involve resources that are not identified.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRUri
+     * @return null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri
      */
-    public function getFullUrl()
+    public function getFullUrl(): ?FHIRUri
     {
         return $this->fullUrl;
     }
@@ -362,10 +368,10 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * to when specifying a temporary id for reference in the bundle) * Results from
      * operations might involve resources that are not identified.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRUri $fullUrl
+     * @param null|\HL7\FHIR\R4\FHIRUriPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRUri $fullUrl
      * @return static
      */
-    public function setFullUrl($fullUrl = null)
+    public function setFullUrl($fullUrl = null): object
     {
         if (null !== $fullUrl && !($fullUrl instanceof FHIRUri)) {
             $fullUrl = new FHIRUri($fullUrl);
@@ -381,7 +387,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\PHPFHIRContainedTypeInterface
      */
-    public function getResource()
+    public function getResource(): ?PHPFHIRContainedTypeInterface
     {
         return $this->resource;
     }
@@ -393,7 +399,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\PHPFHIRContainedTypeInterface $resource
      * @return static
      */
-    public function setResource(PHPFHIRContainedTypeInterface $resource = null)
+    public function setResource(?PHPFHIRContainedTypeInterface $resource = null): object
     {
         $this->_trackValueSet($this->resource, $resource);
         $this->resource = $resource;
@@ -407,7 +413,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleSearch
      */
-    public function getSearch()
+    public function getSearch(): ?FHIRBundleSearch
     {
         return $this->search;
     }
@@ -420,7 +426,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleSearch $search
      * @return static
      */
-    public function setSearch(FHIRBundleSearch $search = null)
+    public function setSearch(?FHIRBundleSearch $search = null): object
     {
         $this->_trackValueSet($this->search, $search);
         $this->search = $search;
@@ -436,7 +442,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleRequest
      */
-    public function getRequest()
+    public function getRequest(): ?FHIRBundleRequest
     {
         return $this->request;
     }
@@ -451,7 +457,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleRequest $request
      * @return static
      */
-    public function setRequest(FHIRBundleRequest $request = null)
+    public function setRequest(?FHIRBundleRequest $request = null): object
     {
         $this->_trackValueSet($this->request, $request);
         $this->request = $request;
@@ -467,7 +473,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleResponse
      */
-    public function getResponse()
+    public function getResponse(): ?FHIRBundleResponse
     {
         return $this->response;
     }
@@ -482,7 +488,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleResponse $response
      * @return static
      */
-    public function setResponse(FHIRBundleResponse $response = null)
+    public function setResponse(?FHIRBundleResponse $response = null): object
     {
         $this->_trackValueSet($this->response, $response);
         $this->response = $response;
@@ -659,15 +665,15 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRBundle\FHIRBundleEntry    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBundleEntry::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -687,7 +693,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -743,7 +749,7 @@ class FHIRBundleEntry extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -793,42 +799,45 @@ class FHIRBundleEntry extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if ([] !== ($vs = $this->getLink())) {
-            $a[self::FIELD_LINK] = [];
+            $out->{self::FIELD_LINK} = [];
             foreach($vs as $v) {
                 if (null === $v) {
                     continue;
                 }
-                $a[self::FIELD_LINK][] = $v;
+                $out->{self::FIELD_LINK}[] = $v;
             }
         }
         if (null !== ($v = $this->getFullUrl())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_FULL_URL] = $val;
+                $out->{self::FIELD_FULL_URL} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRUri::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_FULL_URL_EXT] = $ext;
+            unset($ext->{FHIRUri::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_FULL_URL_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getResource())) {
-            $a[self::FIELD_RESOURCE] = $v;
+            $out->{self::FIELD_RESOURCE} = $v;
         }
         if (null !== ($v = $this->getSearch())) {
-            $a[self::FIELD_SEARCH] = $v;
+            $out->{self::FIELD_SEARCH} = $v;
         }
         if (null !== ($v = $this->getRequest())) {
-            $a[self::FIELD_REQUEST] = $v;
+            $out->{self::FIELD_REQUEST} = $v;
         }
         if (null !== ($v = $this->getResponse())) {
-            $a[self::FIELD_RESPONSE] = $v;
+            $out->{self::FIELD_RESPONSE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

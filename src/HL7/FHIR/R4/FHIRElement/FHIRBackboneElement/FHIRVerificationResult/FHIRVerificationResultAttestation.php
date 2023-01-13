@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVerificationResult;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVerificationResult;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,7 +108,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $who = null;
+    protected ?FHIRReference $who = null;
 
     /**
      * A reference from one resource to another.
@@ -119,7 +119,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    protected $onBehalfOf = null;
+    protected ?FHIRReference $onBehalfOf = null;
 
     /**
      * A concept that may be defined by a formal reference to a terminology or ontology
@@ -132,7 +132,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    protected $communicationMethod = null;
+    protected ?FHIRCodeableConcept $communicationMethod = null;
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
@@ -142,9 +142,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * The date the information was attested to.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @var null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    protected $date = null;
+    protected ?FHIRDate $date = null;
 
     /**
      * A sequence of Unicode characters
@@ -153,9 +153,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * A digital identity certificate associated with the attestation source.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $sourceIdentityCertificate = null;
+    protected ?FHIRString $sourceIdentityCertificate = null;
 
     /**
      * A sequence of Unicode characters
@@ -165,9 +165,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * A digital identity certificate associated with the proxy entity submitting
      * attested information on behalf of the attestation source.
      *
-     * @var null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @var null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    protected $proxyIdentityCertificate = null;
+    protected ?FHIRString $proxyIdentityCertificate = null;
 
     /**
      * A signature along with supporting context. The signature may be a digital
@@ -183,7 +183,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    protected $proxySignature = null;
+    protected ?FHIRSignature $proxySignature = null;
 
     /**
      * A signature along with supporting context. The signature may be a digital
@@ -199,13 +199,13 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @var null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    protected $sourceSignature = null;
+    protected ?FHIRSignature $sourceSignature = null;
 
     /**
      * Validation map for fields in type VerificationResult.Attestation
      * @var array
      */
-    private static $_validationRules = [    ];
+    private static array $_validationRules = [    ];
 
     /**
      * FHIRVerificationResultAttestation Constructor
@@ -245,8 +245,8 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_DATE]) || isset($data[self::FIELD_DATE_EXT])) {
-            $value = isset($data[self::FIELD_DATE]) ? $data[self::FIELD_DATE] : null;
-            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $ext = $data[self::FIELD_DATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_DATE] ?? null;
+            $ext = (isset($data[self::FIELD_DATE_EXT]) && is_array($data[self::FIELD_DATE_EXT])) ? $data[self::FIELD_DATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRDate) {
                     $this->setDate($value);
@@ -260,8 +260,8 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE]) || isset($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT])) {
-            $value = isset($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE]) ? $data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE] : null;
-            $ext = (isset($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT]) && is_array($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT])) ? $ext = $data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE] ?? null;
+            $ext = (isset($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT]) && is_array($data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT])) ? $data[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setSourceIdentityCertificate($value);
@@ -275,8 +275,8 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
             }
         }
         if (isset($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE]) || isset($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT])) {
-            $value = isset($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE]) ? $data[self::FIELD_PROXY_IDENTITY_CERTIFICATE] : null;
-            $ext = (isset($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT]) && is_array($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT])) ? $ext = $data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT] : $ext = [];
+            $value = $data[self::FIELD_PROXY_IDENTITY_CERTIFICATE] ?? null;
+            $ext = (isset($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT]) && is_array($data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT])) ? $data[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT] : [];
             if (null !== $value) {
                 if ($value instanceof FHIRString) {
                     $this->setProxyIdentityCertificate($value);
@@ -305,11 +305,17 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
         }
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -328,7 +334,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getWho()
+    public function getWho(): ?FHIRReference
     {
         return $this->who;
     }
@@ -343,7 +349,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $who
      * @return static
      */
-    public function setWho(FHIRReference $who = null)
+    public function setWho(?FHIRReference $who = null): object
     {
         $this->_trackValueSet($this->who, $who);
         $this->who = $who;
@@ -359,7 +365,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRReference
      */
-    public function getOnBehalfOf()
+    public function getOnBehalfOf(): ?FHIRReference
     {
         return $this->onBehalfOf;
     }
@@ -374,7 +380,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRReference $onBehalfOf
      * @return static
      */
-    public function setOnBehalfOf(FHIRReference $onBehalfOf = null)
+    public function setOnBehalfOf(?FHIRReference $onBehalfOf = null): object
     {
         $this->_trackValueSet($this->onBehalfOf, $onBehalfOf);
         $this->onBehalfOf = $onBehalfOf;
@@ -392,7 +398,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept
      */
-    public function getCommunicationMethod()
+    public function getCommunicationMethod(): ?FHIRCodeableConcept
     {
         return $this->communicationMethod;
     }
@@ -409,7 +415,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRCodeableConcept $communicationMethod
      * @return static
      */
-    public function setCommunicationMethod(FHIRCodeableConcept $communicationMethod = null)
+    public function setCommunicationMethod(?FHIRCodeableConcept $communicationMethod = null): object
     {
         $this->_trackValueSet($this->communicationMethod, $communicationMethod);
         $this->communicationMethod = $communicationMethod;
@@ -424,9 +430,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * The date the information was attested to.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRDate
+     * @return null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate
      */
-    public function getDate()
+    public function getDate(): ?FHIRDate
     {
         return $this->date;
     }
@@ -439,10 +445,10 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * The date the information was attested to.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRDate $date
+     * @param null|\HL7\FHIR\R4\FHIRDatePrimitive|\HL7\FHIR\R4\FHIRElement\FHIRDate $date
      * @return static
      */
-    public function setDate($date = null)
+    public function setDate($date = null): object
     {
         if (null !== $date && !($date instanceof FHIRDate)) {
             $date = new FHIRDate($date);
@@ -459,9 +465,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * A digital identity certificate associated with the attestation source.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getSourceIdentityCertificate()
+    public function getSourceIdentityCertificate(): ?FHIRString
     {
         return $this->sourceIdentityCertificate;
     }
@@ -473,10 +479,10 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * A digital identity certificate associated with the attestation source.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $sourceIdentityCertificate
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $sourceIdentityCertificate
      * @return static
      */
-    public function setSourceIdentityCertificate($sourceIdentityCertificate = null)
+    public function setSourceIdentityCertificate($sourceIdentityCertificate = null): object
     {
         if (null !== $sourceIdentityCertificate && !($sourceIdentityCertificate instanceof FHIRString)) {
             $sourceIdentityCertificate = new FHIRString($sourceIdentityCertificate);
@@ -494,9 +500,9 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * A digital identity certificate associated with the proxy entity submitting
      * attested information on behalf of the attestation source.
      *
-     * @return null|\HL7\FHIR\R4\FHIRElement\FHIRString
+     * @return null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString
      */
-    public function getProxyIdentityCertificate()
+    public function getProxyIdentityCertificate(): ?FHIRString
     {
         return $this->proxyIdentityCertificate;
     }
@@ -509,10 +515,10 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * A digital identity certificate associated with the proxy entity submitting
      * attested information on behalf of the attestation source.
      *
-     * @param null|\HL7\FHIR\R4\FHIRElement\FHIRString $proxyIdentityCertificate
+     * @param null|\HL7\FHIR\R4\FHIRStringPrimitive|\HL7\FHIR\R4\FHIRElement\FHIRString $proxyIdentityCertificate
      * @return static
      */
-    public function setProxyIdentityCertificate($proxyIdentityCertificate = null)
+    public function setProxyIdentityCertificate($proxyIdentityCertificate = null): object
     {
         if (null !== $proxyIdentityCertificate && !($proxyIdentityCertificate instanceof FHIRString)) {
             $proxyIdentityCertificate = new FHIRString($proxyIdentityCertificate);
@@ -536,7 +542,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    public function getProxySignature()
+    public function getProxySignature(): ?FHIRSignature
     {
         return $this->proxySignature;
     }
@@ -556,7 +562,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSignature $proxySignature
      * @return static
      */
-    public function setProxySignature(FHIRSignature $proxySignature = null)
+    public function setProxySignature(?FHIRSignature $proxySignature = null): object
     {
         $this->_trackValueSet($this->proxySignature, $proxySignature);
         $this->proxySignature = $proxySignature;
@@ -577,7 +583,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      *
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRSignature
      */
-    public function getSourceSignature()
+    public function getSourceSignature(): ?FHIRSignature
     {
         return $this->sourceSignature;
     }
@@ -597,7 +603,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|\HL7\FHIR\R4\FHIRElement\FHIRSignature $sourceSignature
      * @return static
      */
-    public function setSourceSignature(FHIRSignature $sourceSignature = null)
+    public function setSourceSignature(?FHIRSignature $sourceSignature = null): object
     {
         $this->_trackValueSet($this->sourceSignature, $sourceSignature);
         $this->sourceSignature = $sourceSignature;
@@ -806,15 +812,15 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVerificationResult\FHIRVerificationResultAttestation
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRElement\FHIRBackboneElement\FHIRVerificationResult\FHIRVerificationResultAttestation    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRVerificationResultAttestation::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -834,7 +840,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -907,7 +913,7 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -960,56 +966,59 @@ class FHIRVerificationResultAttestation extends FHIRBackboneElement
         return $element;
     }
 
-    #[\ReturnTypeWillChange]
+    /**
+     * @return \stdClass
+     */
     public function jsonSerialize()
     {
-        $a = parent::jsonSerialize();
+        $out = parent::jsonSerialize();
         if (null !== ($v = $this->getWho())) {
-            $a[self::FIELD_WHO] = $v;
+            $out->{self::FIELD_WHO} = $v;
         }
         if (null !== ($v = $this->getOnBehalfOf())) {
-            $a[self::FIELD_ON_BEHALF_OF] = $v;
+            $out->{self::FIELD_ON_BEHALF_OF} = $v;
         }
         if (null !== ($v = $this->getCommunicationMethod())) {
-            $a[self::FIELD_COMMUNICATION_METHOD] = $v;
+            $out->{self::FIELD_COMMUNICATION_METHOD} = $v;
         }
         if (null !== ($v = $this->getDate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_DATE] = $val;
+                $out->{self::FIELD_DATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRDate::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_DATE_EXT] = $ext;
+            unset($ext->{FHIRDate::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_DATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getSourceIdentityCertificate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_SOURCE_IDENTITY_CERTIFICATE] = $val;
+                $out->{self::FIELD_SOURCE_IDENTITY_CERTIFICATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_SOURCE_IDENTITY_CERTIFICATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProxyIdentityCertificate())) {
             if (null !== ($val = $v->getValue())) {
-                $a[self::FIELD_PROXY_IDENTITY_CERTIFICATE] = $val;
+                $out->{self::FIELD_PROXY_IDENTITY_CERTIFICATE} = $val;
             }
             $ext = $v->jsonSerialize();
-            unset($ext[FHIRString::FIELD_VALUE]);
-            if ([] !== $ext) {
-                $a[self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT] = $ext;
+            unset($ext->{FHIRString::FIELD_VALUE});
+            if (count((array)$ext) > 0) {
+                $out->{self::FIELD_PROXY_IDENTITY_CERTIFICATE_EXT} = $ext;
             }
         }
         if (null !== ($v = $this->getProxySignature())) {
-            $a[self::FIELD_PROXY_SIGNATURE] = $v;
+            $out->{self::FIELD_PROXY_SIGNATURE} = $v;
         }
         if (null !== ($v = $this->getSourceSignature())) {
-            $a[self::FIELD_SOURCE_SIGNATURE] = $v;
+            $out->{self::FIELD_SOURCE_SIGNATURE} = $v;
         }
-        return $a;
+
+        return $out;
     }
 
 

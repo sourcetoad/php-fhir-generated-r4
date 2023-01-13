@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HL7\FHIR\R4;
 
@@ -6,11 +6,11 @@ namespace HL7\FHIR\R4;
  * This class was generated with the PHPFHIR library (https://github.com/dcarbone/php-fhir) using
  * class definitions from HL7 FHIR (https://www.hl7.org/fhir/)
  * 
- * Class creation date: July 18th, 2022 14:35+0000
+ * Class creation date: January 13th, 2023 11:14+0000
  * 
  * PHPFHIR Copyright:
  * 
- * Copyright 2016-2022 Daniel Carbone (daniel.p.carbone@gmail.com)
+ * Copyright 2016-2023 Daniel Carbone (daniel.p.carbone@gmail.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,13 +81,13 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
     /**
      * @var null|bool
      */
-    protected $value = null;
+    protected ?bool $value = null;
 
     /**
      * Validation map for fields in type boolean-primitive
      * @var array
      */
-    private static $_validationRules = [
+    private static array $_validationRules = [
         self::FIELD_VALUE => [
             PHPFHIRConstants::VALIDATE_PATTERN => '/^true|false$/',
         ],
@@ -102,11 +102,17 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
         $this->setValue($value);
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRTypeName(): string
     {
         return self::FHIR_TYPE_NAME;
     }
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLNamespace(): string
     {
         return $this->_xmlns;
@@ -116,13 +122,16 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
      * @param null|string $xmlNamespace
      * @return static
      */
-    public function _setFHIRXMLNamespace($xmlNamespace): self
+    public function _setFHIRXMLNamespace(string $xmlNamespace): object
     {
         $this->_xmlns = trim((string)$xmlNamespace);
         return $this;
     }
 
 
+    /**
+     * @return string
+     */
     public function _getFHIRXMLElementDefinition(): string
     {
         $xmlns = $this->_getFHIRXMLNamespace();
@@ -135,7 +144,7 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
     /**
      * @return null|bool
      */
-    public function getValue()
+    public function getValue(): ?bool
     {
         return $this->value;
     }
@@ -144,7 +153,7 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
      * @param null|bool $value
      * @return static
      */
-    public function setValue($value = null)
+    public function setValue($value = null): object
     {
         if (null === $value) {
             $this->value = null;
@@ -197,15 +206,15 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
      * @param null|int $libxmlOpts
      * @return null|\HL7\FHIR\R4\FHIRBooleanPrimitive
      */
-    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, $libxmlOpts = 591872): ?\HL7\FHIR\R4\FHIRBooleanPrimitive    {
+    public static function xmlUnserialize($element = null, PHPFHIRTypeInterface $type = null, ?int $libxmlOpts = 591872): ?PHPFHIRTypeInterface
+    {
         if (null === $element) {
             return null;
         }
         if (is_string($element)) {
             libxml_use_internal_errors(true);
             $dom = new \DOMDocument();
-            $dom->loadXML($element, $libxmlOpts);
-            if (false === $dom) {
+            if (false === $dom->loadXML($element, $libxmlOpts)) {
                 throw new \DomainException(sprintf('FHIRBooleanPrimitive::xmlUnserialize - String provided is not parseable as XML: %s', implode(', ', array_map(function(\libXMLError $err) { return $err->message; }, libxml_get_errors()))));
             }
             libxml_use_internal_errors(false);
@@ -225,7 +234,7 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
         if ('' === $type->_getFHIRXMLNamespace() && (null === $element->parentNode || $element->namespaceURI !== $element->parentNode->namespaceURI)) {
             $type->_setFHIRXMLNamespace($element->namespaceURI);
         }
-        for($i = 0; $i < $element->childNodes->length; $i++) {
+        for ($i = 0; $i < $element->childNodes->length; $i++) {
             $n = $element->childNodes->item($i);
             if (!($n instanceof \DOMElement)) {
                 continue;
@@ -253,7 +262,7 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
      * @param null|int $libxmlOpts
      * @return \DOMElement
      */
-    public function xmlSerialize(\DOMElement $element = null, $libxmlOpts = 591872)
+    public function xmlSerialize(\DOMElement $element = null, ?int $libxmlOpts = 591872): \DOMElement
     {
         if (null === $element) {
             $dom = new \DOMDocument();
@@ -266,7 +275,11 @@ class FHIRBooleanPrimitive implements PHPFHIRTypeInterface
         return $element;
     }
 
-    public function jsonSerialize(): ?bool    {
+    /**
+     * @return null|bool
+     */
+    public function jsonSerialize()
+    {
         return $this->getValue();
     }
 
